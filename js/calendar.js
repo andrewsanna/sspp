@@ -17,7 +17,7 @@
 //   5. Fill in the four constants below
 // ============================================
 
-const GOOGLE_API_KEY = 'YOUR_API_KEY_HERE';
+const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 const MAIN_CALENDAR_ID = 'YOUR_MAIN_CALENDAR_ID_HERE';
 const FEATURED_CALENDAR_ID = 'YOUR_FEATURED_CALENDAR_ID_HERE';
 
