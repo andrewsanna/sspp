@@ -280,6 +280,27 @@
   gap: 0.5rem;
 }
 
+.photo-note-img {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.photo-note-img.tall {
+  grid-row: span 2;
+  min-height: 246px;
+}
+
+.photo-note-img.short {
+  min-height: 119px;
+}
+
+.photo-note-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .photo-note-grid .photo-placeholder.tall {
   grid-row: span 2;
   height: 100%;
