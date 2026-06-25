@@ -18,8 +18,8 @@
 // ============================================
 
 const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
-const MAIN_CALENDAR_ID = 'YOUR_MAIN_CALENDAR_ID_HERE';
-const FEATURED_CALENDAR_ID = 'YOUR_FEATURED_CALENDAR_ID_HERE';
+const MAIN_CALENDAR_ID = 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com';
+const FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
 
 // How many months ahead to fetch from the API per request
 const MONTHS_AHEAD = 3;
