@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendar — Saints Peter & Paul</title>
+  <title>Events &amp; Calendar — Saints Peter &amp; Paul</title>
+  <meta name="description" content="See upcoming events, services, and festival dates at Saints Peter & Paul Greek Orthodox Church in Glenview, IL." />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/calendar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/3.31.0/tabler-icons.min.css" />
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -17,13 +21,15 @@
           <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span>
         </span>
       </a>
+
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="visit.html" >Visit</a>
-        <a href="about.html" >About</a>
-        <a href="get-involved.html" >Get Involved</a>
+        <a href="visit.html">Visit</a>
+        <a href="about.html">About</a>
+        <a href="get-involved.html">Get Involved</a>
         <a href="calendar.html" class="active">Calendar</a>
-        <a href="contact.html" >Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
       <div class="nav-right">
         <a href="give.html" class="btn btn-gold">Give</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -33,24 +39,174 @@
     </div>
   </header>
 
-  <section style="background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); padding: 4rem 2rem; text-align: center;">
-    <span class="eyebrow eyebrow--on-dark">Coming soon</span>
-    <h1 style="color: #fff; font-size: 2rem; margin-bottom: 0.75rem;">Calendar</h1>
-    <p style="color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto;">This page hasn't been designed yet — it's next on the list. Check back after the committee reviews the homepage.</p>
-  </section>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <a href="index.html" class="text-link" style="justify-content: center;"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back to homepage</a>
+  <!-- PAGE HEADER -->
+  <section class="cal-page-header">
+    <div class="cal-header-arc" aria-hidden="true"></div>
+    <div class="cal-header-inner">
+      <span class="eyebrow eyebrow--on-dark">Parish life</span>
+      <h1 class="cal-page-title">Events &amp; calendar</h1>
+      <p class="cal-page-sub">Everything happening at Saints Peter &amp; Paul</p>
     </div>
   </section>
 
+  <!-- FILTER CHIPS -->
+  <div class="cal-filter-bar">
+    <div class="cal-filter-inner">
+      <button class="filter-chip active" data-filter="all">All events</button>
+      <button class="filter-chip" data-filter="liturgical">Liturgical</button>
+      <button class="filter-chip" data-filter="youth">Youth</button>
+      <button class="filter-chip" data-filter="community">Community</button>
+      <button class="filter-chip" data-filter="festival">Festival</button>
+      <button class="filter-chip" data-filter="sacraments">Sacraments</button>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Status / error / setup notice -->
+      <div class="cal-status" id="calStatus">
+        <div class="cal-spinner" aria-hidden="true"></div>
+        <span>Loading events…</span>
+      </div>
+
+      <!-- FEATURED EVENT (from the Featured calendar) -->
+      <div id="featuredEventSlot"></div>
+
+      <!-- CALENDAR + SIDEBAR -->
+      <div class="cal-layout">
+
+        <div class="cal-grid-card">
+          <div class="cal-grid-head">
+            <div class="cal-nav-group">
+              <button class="cal-nav-btn" id="calPrevMonth" aria-label="Previous month">
+                <i class="ti ti-chevron-left" aria-hidden="true"></i>
+              </button>
+              <div class="cal-month-label" id="calMonthLabel">—</div>
+              <button class="cal-nav-btn" id="calNextMonth" aria-label="Next month">
+                <i class="ti ti-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+            <button class="cal-today-btn" id="calTodayBtn">Today</button>
+          </div>
+
+          <div class="dow-row">
+            <div class="dow-cell">Sun</div>
+            <div class="dow-cell">Mon</div>
+            <div class="dow-cell">Tue</div>
+            <div class="dow-cell">Wed</div>
+            <div class="dow-cell">Thu</div>
+            <div class="dow-cell">Fri</div>
+            <div class="dow-cell">Sat</div>
+          </div>
+
+          <div class="day-grid" id="dayGrid">
+            <!-- populated by js/calendar.js -->
+          </div>
+        </div>
+
+        <aside class="cal-sidebar">
+          <div class="side-card">
+            <div class="side-title">Coming up</div>
+            <div id="comingUpSlot">
+              <p style="font-size:0.8rem; color:var(--mt);">Loading…</p>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <div class="side-title">Event types</div>
+            <div class="legend-row"><div class="legend-dot" style="background:#3C3489"></div>Liturgical</div>
+            <div class="legend-row"><div class="legend-dot" style="background:#085041"></div>Youth</div>
+            <div class="legend-row"><div class="legend-dot" style="background:#0C447C"></div>Community</div>
+            <div class="legend-row"><div class="legend-dot" style="background:#633806"></div>Festival</div>
+            <div class="legend-row"><div class="legend-dot" style="background:#712B13"></div>Sacraments</div>
+          </div>
+
+          <div class="side-card">
+            <div class="side-title">Stay in sync</div>
+            <div class="subscribe-links">
+              <a class="subscribe-link" href="#" id="gcalSubscribeLink">
+                <i class="ti ti-brand-google" aria-hidden="true"></i> Subscribe in Google Calendar
+              </a>
+              <a class="subscribe-link" href="contact.html">
+                <i class="ti ti-mail" aria-hidden="true"></i> Get the weekly bulletin
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-bottom" style="border-top: none;">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span class="nav-cross" aria-hidden="true">☩</span>
+            <span class="footer-logo-name">Saints Peter &amp; Paul GOC</span>
+          </div>
+          <p class="footer-addr">
+            1401 Wagner Rd<br>
+            Glenview, IL 60025<br>
+            (847) 729-2235<br>
+            office@ssppglenview.org
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Worship</div>
+          <div class="footer-links">
+            <a href="visit.html">Service times</a>
+            <a href="#">Livestream</a>
+            <a href="#">Sermons</a>
+            <a href="#">Holy Week</a>
+            <a href="calendar.html">Calendar</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Get Involved</div>
+          <div class="footer-links">
+            <a href="get-involved.html">Youth &amp; GOYA</a>
+            <a href="get-involved.html">Education</a>
+            <a href="get-involved.html">Liturgical</a>
+            <a href="get-involved.html">Philoptochos</a>
+            <a href="get-involved.html">Fellowship</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Parish</div>
+          <div class="footer-links">
+            <a href="about.html">About us</a>
+            <a href="about.html">Meet Fr. Rick</a>
+            <a href="about.html#sacraments">Sacraments</a>
+            <a href="give.html">Give / Stewardship</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <p class="footer-copy">© 2026 Saints Peter &amp; Paul Greek Orthodox Church · Glenview, IL</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Greek Orthodox Archdiocese</a>
+        <a href="#">Metropolis of Chicago</a>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/calendar.js"></script>
 </body>
 </html>
