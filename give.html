@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Give — Saints Peter & Paul</title>
+  <title>Give — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Support Saints Peter & Paul Greek Orthodox Church through online giving and stewardship." />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/give.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/3.31.0/tabler-icons.min.css" />
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -17,13 +21,15 @@
           <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span>
         </span>
       </a>
+
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="visit.html" >Visit</a>
-        <a href="about.html" >About</a>
-        <a href="get-involved.html" >Get Involved</a>
-        <a href="calendar.html" >Calendar</a>
-        <a href="contact.html" >Contact</a>
+        <a href="visit.html">Visit</a>
+        <a href="about.html">About</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
       <div class="nav-right">
         <a href="give.html" class="btn btn-gold">Give</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -33,21 +39,149 @@
     </div>
   </header>
 
-  <section style="background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); padding: 4rem 2rem; text-align: center;">
-    <span class="eyebrow eyebrow--on-dark">Coming soon</span>
-    <h1 style="color: #fff; font-size: 2rem; margin-bottom: 0.75rem;">Give</h1>
-    <p style="color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto;">This page hasn't been designed yet — it's next on the list. Check back after the committee reviews the homepage.</p>
-  </section>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <a href="index.html" class="text-link" style="justify-content: center;"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back to homepage</a>
+  <!-- GIVE HERO -->
+  <section class="give-hero">
+    <div class="give-card">
+      <span class="eyebrow eyebrow--on-dark">Stewardship</span>
+      <h1 class="give-headline">Every gift helps keep our parish alive and active.</h1>
+      <p class="give-text">Thank you for supporting Saints Peter &amp; Paul. You will be taken to our secure giving page to complete your gift.</p>
+      
+        class="give-btn"
+        href="https://onrealm.org/ssppglenview/-/form/give/now"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Give Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      </a>
+      <p class="give-note">Opens our giving portal (Realm) in a new tab.</p>
     </div>
   </section>
 
+  <!-- WHY STEWARDSHIP MATTERS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Where it goes</span>
+          <h2 class="section-title">Your generosity in action</h2>
+        </div>
+      </div>
+
+      <div class="give-info-grid">
+        <div class="give-info-card">
+          <i class="ti ti-building-church ph-icon-inline" aria-hidden="true"></i>
+          <h3>Worship &amp; Facilities</h3>
+          <p>Keeping our sanctuary, parish hall, and grounds maintained for worship and community life.</p>
+        </div>
+        <div class="give-info-card">
+          <i class="ti ti-users ph-icon-inline" aria-hidden="true"></i>
+          <h3>Ministries &amp; Youth</h3>
+          <p>Supporting GOYA, Greek School, Church School, and every ministry that helps our community grow.</p>
+        </div>
+        <div class="give-info-card">
+          <i class="ti ti-hand-heart ph-icon-inline" aria-hidden="true"></i>
+          <h3>Outreach &amp; Care</h3>
+          <p>Funding Philoptochos philanthropy, pastoral care, and support for parishioners in need.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER WAYS TO GIVE -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Other ways to give</span>
+          <h2 class="section-title">More ways to support the parish</h2>
+        </div>
+      </div>
+
+      <div class="give-info-grid">
+        <div class="give-info-card">
+          <i class="ti ti-repeat ph-icon-inline" aria-hidden="true"></i>
+          <h3>Recurring Giving</h3>
+          <p>Set up weekly or monthly stewardship through the Realm portal — the same secure link above.</p>
+        </div>
+        <div class="give-info-card">
+          <i class="ti ti-mail ph-icon-inline" aria-hidden="true"></i>
+          <h3>By Mail</h3>
+          <p>Checks can be mailed or dropped off to the parish office at 1401 Wagner Rd, Glenview, IL 60025.</p>
+        </div>
+        <div class="give-info-card">
+          <i class="ti ti-phone ph-icon-inline" aria-hidden="true"></i>
+          <h3>Questions?</h3>
+          <p>Contact the parish office at (847) 729-2235 for help with stewardship or planned giving.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-bottom" style="border-top: none;">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span class="nav-cross" aria-hidden="true">☩</span>
+            <span class="footer-logo-name">Saints Peter &amp; Paul GOC</span>
+          </div>
+          <p class="footer-addr">
+            1401 Wagner Rd<br>
+            Glenview, IL 60025<br>
+            (847) 729-2235<br>
+            office@ssppglenview.org
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Worship</div>
+          <div class="footer-links">
+            <a href="visit.html">Service times</a>
+            <a href="#">Livestream</a>
+            <a href="#">Sermons</a>
+            <a href="#">Holy Week</a>
+            <a href="calendar.html">Calendar</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Get Involved</div>
+          <div class="footer-links">
+            <a href="get-involved.html">Youth &amp; GOYA</a>
+            <a href="get-involved.html">Education</a>
+            <a href="get-involved.html">Liturgical</a>
+            <a href="get-involved.html">Philoptochos</a>
+            <a href="get-involved.html">Fellowship</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Parish</div>
+          <div class="footer-links">
+            <a href="about.html">About us</a>
+            <a href="about.html">Meet Fr. Rick</a>
+            <a href="about.html#sacraments">Sacraments</a>
+            <a href="give.html">Give / Stewardship</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <p class="footer-copy">© 2026 Saints Peter &amp; Paul Greek Orthodox Church · Glenview, IL</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Greek Orthodox Archdiocese</a>
+        <a href="#">Metropolis of Chicago</a>
+      </div>
     </div>
   </footer>
 
