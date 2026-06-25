@@ -18,8 +18,8 @@
 // ============================================
 
 const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
-const MAIN_CALENDAR_ID = 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com';
-const FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
+const MAIN_CALENDAR_ID = 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com'; // SSPP liturgical
+const FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com'; //Anna's events
 
 const MONTHS_AHEAD = 3;
 const COMING_UP_COUNT = 3;
