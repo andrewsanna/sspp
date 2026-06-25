@@ -1,0 +1,145 @@
+/* ============================================
+   Give page — hero giving card
+   ============================================ */
+.give-hero {
+  background: var(--navy-deep);
+  background-image:
+    radial-gradient(circle at 18% 20%, rgba(212, 175, 106, 0.10), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(212, 175, 106, 0.07), transparent 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5.5rem 1.5rem;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.give-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background:
+    linear-gradient(var(--gold) 0 0) center / 100% 14% no-repeat,
+    linear-gradient(var(--gold) 0 0) center / 14% 100% no-repeat;
+  opacity: 0.05;
+  transform: rotate(8deg);
+}
+
+.give-card {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+  text-align: center;
+}
+
+.give-headline {
+  font-style: italic;
+  font-size: clamp(1.75rem, 4vw, 2.375rem);
+  line-height: 1.25;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.give-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(251, 247, 239, 0.78);
+  margin-bottom: 2.5rem;
+}
+
+.give-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--navy-deep);
+  background: var(--gold);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 1.05rem 2.4rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.give-btn:hover {
+  background: #e6cb96;
+  transform: translateY(-1px);
+}
+
+.give-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.give-note {
+  font-size: 0.78rem;
+  color: rgba(251, 247, 239, 0.45);
+  margin-top: 1.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .give-btn {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .give-hero {
+    padding: 4rem 1.25rem;
+    min-height: 380px;
+  }
+  .give-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}
+
+/* ============================================
+   Give page — supporting sections below the hero
+   ============================================ */
+.give-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.give-info-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.give-info-card .ph-icon-inline {
+  font-size: 1.5rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.give-info-card h3 {
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--navy-deep);
+  margin-bottom: 0.4rem;
+}
+
+.give-info-card p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .give-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
