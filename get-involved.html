@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Get Involved — Saints Peter & Paul</title>
+  <title>Get Involved — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Explore ministries and programs at Saints Peter & Paul Greek Orthodox Church — worship, education, youth, fellowship, outreach, and support, for every age and stage." />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/get-involved.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/3.31.0/tabler-icons.min.css" />
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -17,13 +21,15 @@
           <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span>
         </span>
       </a>
+
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="visit.html" >Visit</a>
-        <a href="about.html" >About</a>
+        <a href="visit.html">Visit</a>
+        <a href="about.html">About</a>
         <a href="get-involved.html" class="active">Get Involved</a>
-        <a href="calendar.html" >Calendar</a>
-        <a href="contact.html" >Contact</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
       <div class="nav-right">
         <a href="give.html" class="btn btn-gold">Give</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -33,27 +39,139 @@
     </div>
   </header>
 
-  <!-- <section style="background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); padding: 4rem 2rem; text-align: center;">
-    <span class="eyebrow eyebrow--on-dark">Coming soon</span>
-    <h1 style="color: #fff; font-size: 2rem; margin-bottom: 0.75rem;">Get Involved</h1>
-    <p style="color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto;">This page hasn't been designed yet — it's next on the list. Check back after the committee reviews the homepage.</p>
-  </section> -->
-  <a href="#" id="ministryModalFullPageLink" class="ministry-modal-fullpage-link" style="display:none;">
-  View full page <i class="ti ti-arrow-right" aria-hidden="true"></i>
-</a>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <a href="index.html" class="text-link" style="justify-content: center;"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back to homepage</a>
+  <!-- PAGE HEADER -->
+  <section class="gi-page-header">
+    <div class="gi-header-arc" aria-hidden="true"></div>
+    <div class="gi-header-inner">
+      <span class="eyebrow eyebrow--on-dark">Get involved</span>
+      <h1 class="gi-page-title">Find where you fit</h1>
+      <p class="gi-page-sub">Saints Peter &amp; Paul has nearly 30 ministries and programs — for every age, interest, and stage of faith. Search below, or browse by category to see what's available.</p>
     </div>
   </section>
 
+  <!-- SEARCH -->
+  <div class="gi-search-bar">
+    <div class="gi-search-inner">
+      <div class="gi-search-box">
+        <i class="ti ti-search" aria-hidden="true"></i>
+        <input type="text" id="ministrySearch" placeholder="Search ministries — e.g. &quot;Bible Study&quot; or &quot;GOYA&quot;" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCORDION -->
+  <div class="gi-content">
+    <div id="ministryAccordion">
+      <!-- populated by js/get-involved.js -->
+    </div>
+  </div>
+
+  <!-- DON'T SEE WHERE YOU FIT BAND -->
+  <section class="visitor-band">
+    <div class="vb-arc" aria-hidden="true"></div>
+    <div class="visitor-inner">
+      <div>
+        <span class="eyebrow eyebrow--on-dark">Still not sure?</span>
+        <h2 class="vb-title">We'll help you find your place.</h2>
+        <p class="vb-body">With this many ministries, it's normal to feel unsure where to start. Reach out to the parish office — we're glad to point you in the right direction.</p>
+      </div>
+      <a href="contact.html" class="btn btn-white">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-bottom" style="border-top: none;">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span class="nav-cross" aria-hidden="true">☩</span>
+            <span class="footer-logo-name">Saints Peter &amp; Paul GOC</span>
+          </div>
+          <p class="footer-addr">
+            1401 Wagner Rd<br>
+            Glenview, IL 60025<br>
+            (847) 729-2235<br>
+            office@ssppglenview.org
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Worship</div>
+          <div class="footer-links">
+            <a href="visit.html">Service times</a>
+            <a href="#">Livestream</a>
+            <a href="#">Sermons</a>
+            <a href="#">Holy Week</a>
+            <a href="calendar.html">Calendar</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Get Involved</div>
+          <div class="footer-links">
+            <a href="get-involved.html#youth">Youth &amp; Young Adults</a>
+            <a href="get-involved.html#adult-learning">Adult Faith &amp; Learning</a>
+            <a href="get-involved.html#worship">Worship &amp; Liturgical Life</a>
+            <a href="get-involved.html#outreach">Outreach &amp; Philanthropy</a>
+            <a href="get-involved.html#support">Support Groups</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Parish</div>
+          <div class="footer-links">
+            <a href="about.html">About us</a>
+            <a href="about.html">Meet Fr. Rick</a>
+            <a href="about.html#sacraments">Sacraments</a>
+            <a href="give.html">Give / Stewardship</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <p class="footer-copy">© 2026 Saints Peter &amp; Paul Greek Orthodox Church · Glenview, IL</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Greek Orthodox Archdiocese</a>
+        <a href="#">Metropolis of Chicago</a>
+      </div>
     </div>
   </footer>
 
+  <!-- MINISTRY DETAIL MODAL -->
+  <div class="ministry-modal-overlay" id="ministryModalOverlay">
+    <div class="ministry-modal" role="dialog" aria-modal="true" aria-labelledby="ministryModalTitle">
+      <div class="ministry-modal-photo">
+        <i class="ti ti-camera" aria-hidden="true"></i>
+        <button class="ministry-modal-close" id="ministryModalClose" aria-label="Close">
+          <i class="ti ti-x" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="ministry-modal-body">
+        <div class="ministry-modal-category" id="ministryModalCategory"></div>
+        <h2 class="ministry-modal-title" id="ministryModalTitle"></h2>
+        <div class="ministry-modal-inactive-banner" id="ministryModalInactive">
+          <i class="ti ti-info-circle" aria-hidden="true"></i>
+          <span>This ministry is currently inactive. Interested in helping bring it back? Contact the parish office.</span>
+        </div>
+        <p class="ministry-modal-desc" id="ministryModalDesc"></p>
+        <a href="#" id="ministryModalFullPageLink" class="ministry-modal-fullpage-link" style="display:none;">
+          View full page <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script src="js/ministries-data.js"></script>
+  <script src="js/get-involved.js"></script>
 </body>
 </html>
