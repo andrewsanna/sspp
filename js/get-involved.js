@@ -2,8 +2,7 @@
 // SSPP Get Involved page
 // Renders MINISTRY_CATEGORIES (js/ministries-data.js) as a searchable
 // accordion of ministry cards, with a detail modal on click.
-// If a ministry has a detailPageUrl, the modal shows a "View full
-// page →" link in addition to the popup content.
+// The "featured" cards above the accordion reuse the same modal.
 // ============================================
 
 let openCategoryId = null;
@@ -111,6 +110,18 @@ function attachCardHandlers() {
   });
 }
 
+function attachFeaturedCardHandlers() {
+  document.querySelectorAll('.feat-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const catId = card.dataset.cat;
+      const name = card.dataset.ministry;
+      const category = MINISTRY_CATEGORIES.find((c) => c.id === catId);
+      const ministry = category?.ministries.find((m) => m.name === name);
+      if (ministry) openMinistryModal(ministry, category);
+    });
+  });
+}
+
 function openMinistryModal(ministry, category) {
   const overlay = document.getElementById('ministryModalOverlay');
   document.getElementById('ministryModalCategory').textContent = category.label;
@@ -160,4 +171,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAccordion();
   initSearch();
   initMinistryModal();
+  attachFeaturedCardHandlers();
 });
