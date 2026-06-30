@@ -2,7 +2,6 @@
 // SSPP Get Involved page
 // Renders MINISTRY_CATEGORIES (js/ministries-data.js) as a searchable
 // accordion of ministry cards, with a detail modal on click.
-// The "featured" cards above the accordion reuse the same modal.
 // ============================================
 
 let openCategoryId = null;
@@ -85,15 +84,56 @@ function renderMinistryCard(ministry, category) {
 
 function attachAccordionHandlers() {
   document.querySelectorAll('[data-toggle-cat]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const catId = btn.dataset.toggleCat;
-      openCategoryId = openCategoryId === catId ? null : catId;
-      renderAccordion(document.getElementById('ministrySearch').value);
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
 
-      if (openCategoryId === catId) {
-        const el = document.querySelector(`[data-cat-id="${catId}"]`);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const catId = btn.dataset.toggleCat;
+      const item = document.querySelector(`[data-cat-id="${catId}"]`);
+      if (!item) return;
+
+      const isCurrentlyOpen = btn.classList.contains('open');
+      const willOpen = !isCurrentlyOpen;
+
+      // Hard scroll lock: pin the body in place with position:fixed for
+      // the duration of the DOM mutation, then release it. This is the
+      // standard technique modal/dialog libraries use to guarantee zero
+      // scroll movement during a layout change.
+      const lockedScrollY = window.scrollY;
+      const bodyEl = document.body;
+      bodyEl.style.position = 'fixed';
+      bodyEl.style.top = `-${lockedScrollY}px`;
+      bodyEl.style.left = '0';
+      bodyEl.style.right = '0';
+
+      if (willOpen) {
+        document.querySelectorAll('.acc-head.open').forEach((openBtn) => {
+          if (openBtn !== btn) {
+            openBtn.classList.remove('open');
+            openBtn.setAttribute('aria-expanded', 'false');
+            const otherBody = openBtn.parentElement.querySelector('.acc-body');
+            if (otherBody) otherBody.classList.remove('is-open');
+          }
+        });
       }
+
+      btn.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      const body = item.querySelector('.acc-body');
+      if (body) body.classList.toggle('is-open', willOpen);
+
+      openCategoryId = willOpen ? catId : null;
+
+      // Release the lock on the next frame, after layout has settled.
+      // Use behavior:'instant' explicitly — the page has global
+      // scroll-behavior:smooth (see main.css), which would otherwise
+      // animate this restoration and look like an unwanted jump.
+      requestAnimationFrame(() => {
+        bodyEl.style.position = '';
+        bodyEl.style.top = '';
+        bodyEl.style.left = '';
+        bodyEl.style.right = '';
+        window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
+      });
     });
   });
 }
@@ -137,6 +177,14 @@ function openMinistryModal(ministry, category) {
     linkEl.style.display = 'inline-flex';
   } else {
     linkEl.style.display = 'none';
+  }
+
+  const calLinkEl = document.getElementById('ministryModalCalLink');
+  if (ministry.calendarCategory) {
+    calLinkEl.href = `calendar.html?category=${encodeURIComponent(ministry.calendarCategory)}`;
+    calLinkEl.style.display = 'inline-flex';
+  } else {
+    calLinkEl.style.display = 'none';
   }
 
   overlay.classList.add('is-open');
