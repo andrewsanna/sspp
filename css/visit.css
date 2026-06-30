@@ -1,0 +1,363 @@
+/* ============================================
+   Hero
+   ============================================ */
+.vh-hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 4.5rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.vh-hero-arc {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 34px solid rgba(212, 175, 106, 0.08);
+}
+
+.vh-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.vh-hero-title {
+  font-size: clamp(1.9rem, 4vw, 2.4rem);
+  color: var(--cream);
+  line-height: 1.25;
+  margin-bottom: 1.1rem;
+  font-style: italic;
+}
+
+.vh-hero-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(251, 247, 239, 0.78);
+  margin-bottom: 2rem;
+}
+
+.vh-hero-ctas {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   Service info strip
+   ============================================ */
+.vh-info-strip {
+  background: #fff;
+  border-bottom: 1px solid var(--brd);
+  padding: 1.6rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.vh-info-item {
+  text-align: center;
+}
+
+.vh-info-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 0.35rem;
+}
+
+.vh-info-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+/* ============================================
+   Shared section scaffolding
+   ============================================ */
+.vh-section {
+  padding: 4.5rem 2rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.vh-section--tight {
+  padding-top: 0;
+}
+
+.vh-section-eyebrow {
+  text-align: center;
+  display: block;
+  margin-bottom: 0.85rem;
+}
+
+.vh-section-headline {
+  font-size: 1.7rem;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.vh-section-sub {
+  font-size: 0.92rem;
+  color: var(--mt);
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 3.2rem;
+  line-height: 1.65;
+}
+
+/* ============================================
+   Welcome note (quote from Fr. Rick)
+   ============================================ */
+.vh-note {
+  background: var(--gold-lt);
+  padding: 4rem 2rem;
+}
+
+.vh-note-card {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vh-note-mark {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.55;
+  margin-bottom: 0.4rem;
+}
+
+.vh-note-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.65;
+  color: var(--navy-deep);
+  margin-bottom: 1.3rem;
+}
+
+.vh-note-sig {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--mt);
+}
+
+.vh-note-sig span {
+  color: var(--gold-text);
+}
+
+/* ============================================
+   Service flow (4-step)
+   ============================================ */
+.vh-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.vh-flow-step {
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.vh-flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  right: -50%;
+  width: 100%;
+  height: 1px;
+  background: rgba(212, 175, 106, 0.4);
+}
+
+.vh-flow-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.vh-flow-step h4 {
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--navy-deep);
+  margin-bottom: 0.5rem;
+}
+
+.vh-flow-step p {
+  font-size: 0.8rem;
+  color: var(--mt);
+  line-height: 1.6;
+}
+
+/* ============================================
+   "What you'll see" explainer cards
+   ============================================ */
+.vh-explain-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.vh-explain-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 1.6rem 1.1rem;
+  text-align: center;
+}
+
+.vh-explain-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.9rem;
+}
+
+.vh-explain-icon i {
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+}
+
+.vh-explain-card h4 {
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  color: var(--navy-deep);
+  margin-bottom: 0.45rem;
+}
+
+.vh-explain-card p {
+  font-size: 0.78rem;
+  color: var(--mt);
+  line-height: 1.6;
+}
+
+/* ============================================
+   FAQ accordion
+   ============================================ */
+.vh-faq-section {
+  background: var(--gold-lt);
+  padding: 4.5rem 2rem;
+}
+
+.vh-faq-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.vh-faq-item {
+  background: var(--cream);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.vh-faq-question {
+  padding: 1.1rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.vh-faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.vh-faq-question i {
+  font-size: 0.95rem;
+  color: var(--gold-deep);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.vh-faq-item[open] .vh-faq-question i {
+  transform: rotate(180deg);
+}
+
+.vh-faq-answer {
+  padding: 0 1.4rem 1.3rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--mt);
+}
+
+/* ============================================
+   Final CTA band
+   ============================================ */
+.vh-cta {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 4.5rem 2rem;
+  text-align: center;
+}
+
+.vh-cta h2 {
+  font-style: italic;
+  font-size: 1.7rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.vh-cta p {
+  font-size: 0.92rem;
+  color: rgba(251, 247, 239, 0.75);
+  max-width: 480px;
+  margin: 0 auto 1.85rem;
+  line-height: 1.65;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 880px) {
+  .vh-info-strip {
+    gap: 1.75rem;
+  }
+  .vh-flow-grid,
+  .vh-explain-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  .vh-flow-step::after {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .vh-flow-grid,
+  .vh-explain-grid {
+    grid-template-columns: 1fr;
+  }
+}
