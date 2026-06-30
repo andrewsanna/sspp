@@ -481,6 +481,19 @@ function initFilterChips() {
       renderMonthGrid();
     });
   });
+
+  // If opened with ?category=youth (e.g. from a "View Calendar" button),
+  // pre-select that chip.
+  const params = new URLSearchParams(window.location.search);
+  const requestedCategory = params.get('category');
+  if (requestedCategory) {
+    const matchingChip = document.querySelector(`.filter-chip[data-filter="${requestedCategory}"]`);
+    if (matchingChip) {
+      chips.forEach((c) => c.classList.remove('active'));
+      matchingChip.classList.add('active');
+      activeFilter = requestedCategory;
+    }
+  }
 }
 
 // ============================================
