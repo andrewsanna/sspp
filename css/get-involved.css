@@ -39,6 +39,230 @@
 }
 
 /* ============================================
+   Warm intro hero (above the search/accordion)
+   ============================================ */
+.gi-intro {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.gi-intro-arc {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 32px solid rgba(212, 175, 106, 0.08);
+}
+
+.gi-intro-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.gi-intro-title {
+  font-size: 1.85rem;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.85rem;
+}
+
+.gi-intro-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.gi-intro-body {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+.gi-intro-photo {
+  height: 220px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1.6rem;
+  position: relative;
+}
+
+.gi-intro-photo .ph-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 760px) {
+  .gi-intro-inner {
+    grid-template-columns: 1fr;
+  }
+  .gi-intro-photo {
+    height: 180px;
+  }
+}
+
+/* ============================================
+   Real-voice quote band
+   ============================================ */
+.gi-quote {
+  background: var(--gold-lt);
+  padding: 1.75rem 0;
+}
+
+.gi-quote-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 1.1rem;
+  align-items: center;
+}
+
+.gi-quote-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  flex-shrink: 0;
+}
+
+.gi-quote-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--navy-deep);
+  line-height: 1.6;
+  margin-bottom: 0.3rem;
+}
+
+.gi-quote-attr {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .gi-quote-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .gi-quote-photo {
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+   Featured ministries — "a few places to start"
+   ============================================ */
+.gi-featured {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.25rem 2rem 0.5rem;
+}
+
+.gi-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.feat-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--brd);
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.feat-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.feat-photo {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.3rem;
+}
+
+.feat-body {
+  padding: 0.85rem 1rem 1.1rem;
+}
+
+.feat-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--navy-deep);
+  margin-bottom: 0.3rem;
+}
+
+.feat-desc {
+  font-size: 0.78rem;
+  color: var(--mt);
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .gi-featured-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .gi-featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   "Browse everything" directory label
+   ============================================ */
+.gi-directory-label {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.25rem 2rem 0;
+}
+
+.gi-directory-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.gi-directory-sub {
+  font-size: 0.82rem;
+  color: var(--mt);
+}
+
+/* ============================================
    Search bar
    ============================================ */
 .gi-search-bar {
