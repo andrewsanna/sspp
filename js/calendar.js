@@ -12,6 +12,9 @@
 const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 const MAIN_CALENDAR_ID = 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com'; // SSPP liturgical
 const FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com'; // Anna's events
+const PHILOPTOCHOS_CALENDAR_ID = 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com' // Philoptochos
+const YOUTH_CALENDAR_ID = 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com' //Youth
+
 
 const MONTHS_AHEAD = 3;
 const COMING_UP_COUNT = 3;
@@ -22,7 +25,7 @@ const COLOR_TO_CATEGORY = {
   '3': 'ministrymtgs',
   '5': 'events',
   '7': 'liturgical',
-  '11': 'events',
+  '11': 'featured',
 };
 const DEFAULT_CATEGORY = 'other';
 
@@ -80,18 +83,35 @@ async function fetchCalendar(calendarId) {
   return (data.items || []).map(normalizeEvent);
 }
 
+function parseGoogleDate(dateStr, isAllDay) {
+  if (!dateStr) return null;
+  if (isAllDay) {
+    // "2026-06-14" — parse as LOCAL midnight, not UTC, to avoid off-by-one-day bugs
+    const [y, m, d] = dateStr.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+  return new Date(dateStr);
+}
+
 function normalizeEvent(raw) {
+  const isAllDay = !raw.start?.dateTime;
   const startRaw = raw.start?.dateTime || raw.start?.date;
   const endRaw = raw.end?.dateTime || raw.end?.date;
-  const isAllDay = !raw.start?.dateTime;
+
+  // Google's all-day "end" date is exclusive (the day AFTER the event ends),
+  // so subtract one day to get the actual last day of the event.
+  let end = parseGoogleDate(endRaw, isAllDay);
+  if (isAllDay && end) {
+    end = new Date(end.getFullYear(), end.getMonth(), end.getDate() - 1);
+  }
 
   return {
     id: raw.id,
     title: raw.summary || 'Untitled event',
     description: raw.description || '',
     location: raw.location || '',
-    start: startRaw ? new Date(startRaw) : null,
-    end: endRaw ? new Date(endRaw) : null,
+    start: parseGoogleDate(startRaw, isAllDay),
+    end,
     isAllDay,
     category: COLOR_TO_CATEGORY[raw.colorId] || DEFAULT_CATEGORY,
     htmlLink: raw.htmlLink || '#',
@@ -243,9 +263,10 @@ function renderMonthGrid() {
   }
 
   const today = new Date();
+  const combinedEvents = [...allMainEvents, ...allFeaturedEvents];
   const filtered = activeFilter === 'all'
-    ? allMainEvents
-    : allMainEvents.filter((e) => e.category === activeFilter);
+  ? combinedEvents
+  : combinedEvents.filter((e) => e.category === activeFilter);
 
   grid.innerHTML = cells.map((cell) => {
     const dayEvents = filtered.filter((e) => e.start && isSameDay(e.start, cell.date));
