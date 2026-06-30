@@ -69,7 +69,7 @@ function renderMinistryCard(ministry, category) {
     ? `<span class="inactive-badge">Currently Inactive</span>`
     : '';
 
-  return 
+  return `
     <button class="ministry-card ${ministry.inactive ? 'is-inactive' : ''}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}">
       <div class="ministry-card-photo">
         <i class="ti ti-camera" aria-hidden="true"></i>
@@ -79,7 +79,7 @@ function renderMinistryCard(ministry, category) {
         <div class="ministry-card-summary">${escapeHtml(ministry.summary)}</div>
       </div>
     </button>
-  ;
+  `;
 }
 
 function attachAccordionHandlers() {
@@ -196,17 +196,6 @@ function openMinistryModal(ministry, category) {
     contactEl.style.display = 'flex';
   } else {
     contactEl.style.display = 'none';
-  }
-
-  overlay.classList.add('is-open');
-}
-
-  const calLinkEl = document.getElementById('ministryModalCalLink');
-  if (ministry.calendarCategory) {
-    calLinkEl.href = `calendar.html?category=${encodeURIComponent(ministry.calendarCategory)}`;
-    calLinkEl.style.display = 'inline-flex';
-  } else {
-    calLinkEl.style.display = 'none';
   }
 
   overlay.classList.add('is-open');
