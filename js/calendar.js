@@ -31,29 +31,29 @@ const CALENDARS = [
     featured: true,
   },
   {
-    id: 'YOUR_MINISTRIES_CALENDAR_ID_HERE',
-    category: 'ministries',
-    featured: false,
-  },
-  {
     id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com',
-    category: 'philoptochos',
+    category: 'ministries', // actually philoptochos for now
     featured: false,
   },
   {
-    id: 'YOUR_OTHER_CALENDAR_ID_HERE',
-    category: 'other',
+    id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com',
+    category: 'agape',
+    featured: false,
+  },
+  {
+    id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com',
+    category: 'adult',
     featured: false,
   },
 ];
 
 const CATEGORY_LABELS = {
   liturgical: 'Liturgical',
-  youth: 'Youth',
+  youth: 'Youth & Family',
   featured: 'Featured Events',
   ministries: 'Ministries',
-  philoptochos: 'Philoptochos',
-  other: 'Other',
+  agape: 'Agape Preschool',
+  adult: 'Adult Programs',
 };
 
 // Pill / legend colors per category — pulled from your list
@@ -62,8 +62,8 @@ const CATEGORY_COLORS = {
   youth: '#2E7D32',
   featured: '#C9A227',
   ministries: '#7B3F98',
-  philoptochos: '#C96A23',
-  other: '#0C447C',
+  agape: '#C96A23',
+  adult: '#0C447C',
 };
 
 const MONTHS_AHEAD = 3;
