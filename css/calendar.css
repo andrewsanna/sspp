@@ -362,12 +362,12 @@
   font-weight: 700;
 }
 
-.ev-liturgical { background: #EEEDFE; color: #3C3489; }
-.ev-youth { background: #E1F5EE; color: #085041; }
+.ev-liturgical { background: #EEEDFE; color: #1F4E79; }
+.ev-youth { background: #E1F5EE; color: #2E7D32; }
 .ev-community { background: #E6F1FB; color: #0C447C; }
-.ev-festival { background: #FAEEDA; color: #633806; }
-.ev-sacraments { background: #FAECE7; color: #712B13; }
-.ev-other { background: #F1EFE8; color: #444441; }
+.ev-featured { background: #FAEEDA; color: #C9A227; }
+.ev-ministrymtgs { background: #FAECE7; color: #7B3F98; }
+.ev-other { background: #F1EFE8; color: #C96A23; }
 
 .day-more {
   font-size: 0.6rem;
