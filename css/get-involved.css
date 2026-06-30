@@ -1,0 +1,421 @@
+/* ============================================
+   Page header
+   ============================================ */
+.gi-page-header {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 2.5rem 0 1.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.gi-header-arc {
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 30px solid rgba(212, 175, 106, 0.08);
+}
+
+.gi-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.gi-page-title {
+  font-size: 1.75rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.gi-page-sub {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   Search bar
+   ============================================ */
+.gi-search-bar {
+  background: var(--navy-deep);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gi-search-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+}
+
+.gi-search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.65rem 1rem;
+  max-width: 480px;
+}
+
+.gi-search-box i {
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.gi-search-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.gi-search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   Accordion
+   ============================================ */
+.gi-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 3rem;
+}
+
+.acc-item {
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+  background: #fff;
+}
+
+.acc-head {
+  width: 100%;
+  background: #fff;
+  border: none;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.acc-head:hover {
+  background: var(--offwhite);
+}
+
+.acc-head.open {
+  background: var(--navy-deep);
+}
+
+.acc-head-text {
+  flex: 1;
+}
+
+.acc-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 0.2rem;
+}
+
+.acc-head.open .acc-title {
+  color: #fff;
+}
+
+.acc-blurb {
+  font-size: 0.78rem;
+  color: var(--mt);
+}
+
+.acc-head.open .acc-blurb {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.acc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.acc-count {
+  font-size: 0.72rem;
+  color: var(--mt);
+  white-space: nowrap;
+}
+
+.acc-head.open .acc-count {
+  color: var(--gold);
+}
+
+.acc-chevron {
+  font-size: 1rem;
+  color: var(--mt);
+  transition: transform 0.2s ease;
+}
+
+.acc-head.open .acc-chevron {
+  color: var(--gold);
+  transform: rotate(180deg);
+}
+
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: var(--offwhite);
+}
+
+.acc-body.is-open {
+  max-height: 3000px;
+}
+
+.ministry-grid {
+  padding: 1.1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+
+/* ============================================
+   Ministry card — small photo + text
+   ============================================ */
+.ministry-card {
+  display: flex;
+  gap: 0.7rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 0.7rem;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ministry-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-card);
+}
+
+.ministry-card.is-inactive {
+  opacity: 0.6;
+}
+
+.ministry-card-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 7px;
+  flex-shrink: 0;
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.1rem;
+}
+
+.ministry-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.ministry-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-bottom: 0.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ministry-card-summary {
+  font-size: 0.74rem;
+  color: var(--mt);
+  line-height: 1.4;
+}
+
+.inactive-badge {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: #993C1D;
+  background: #FAECE7;
+  padding: 0.1rem 0.4rem;
+  border-radius: 8px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--mt);
+}
+
+.no-results i {
+  font-size: 2rem;
+  color: var(--brd);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.no-results a {
+  color: var(--blue);
+}
+
+@media (max-width: 860px) {
+  .ministry-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .ministry-grid {
+    grid-template-columns: 1fr;
+  }
+  .acc-head {
+    padding: 1rem;
+  }
+  .acc-meta {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+  }
+}
+
+/* ============================================
+   Ministry detail modal
+   ============================================ */
+.ministry-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 39, 64, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 200;
+}
+
+.ministry-modal-overlay.is-open {
+  display: flex;
+}
+
+.ministry-modal {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  max-width: 480px;
+  width: 100%;
+  overflow: hidden;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ministry-modal-photo {
+  height: 180px;
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 2rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.ministry-modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.ministry-modal-close:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.ministry-modal-body {
+  padding: 1.5rem 1.75rem;
+  overflow-y: auto;
+}
+
+.ministry-modal-category {
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-text);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.ministry-modal-title {
+  font-size: 1.3rem;
+  color: var(--navy-deep);
+  margin-bottom: 0.75rem;
+}
+
+.ministry-modal-inactive-banner {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  background: #FAECE7;
+  color: #712B13;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.ministry-modal-inactive-banner i {
+  font-size: 1rem;
+}
+
+.ministry-modal-desc {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+
+.ministry-modal-fullpage-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.ministry-modal-fullpage-link:hover {
+  text-decoration: underline;
+}
