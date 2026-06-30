@@ -10,33 +10,64 @@
 // ============================================
 
 const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
-const MAIN_CALENDAR_ID = 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com'; // SSPP liturgical
-const FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com'; // Anna's events
-const PHILOPTOCHOS_CALENDAR_ID = 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com' // Philoptochos
-const YOUTH_CALENDAR_ID = 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com' //Youth
 
-
-const MONTHS_AHEAD = 3;
-const COMING_UP_COUNT = 3;
-
-const COLOR_TO_CATEGORY = {
-  '1': 'community',
-  '2': 'youth',
-  '3': 'ministrymtgs',
-  '5': 'events',
-  '7': 'liturgical',
-  '11': 'featured',
-};
-const DEFAULT_CATEGORY = 'other';
+// One entry per calendar. `featured: true` means events from that
+// calendar also appear in the "Featured event" card and "Coming up"
+// sidebar list — not just the month grid.
+const CALENDARS = [
+  {
+    id: 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com',
+    category: 'liturgical',
+    featured: false,
+  },
+  {
+    id: 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com',
+    category: 'youth',
+    featured: false,
+  },
+  {
+    id: '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com',
+    category: 'featured',
+    featured: true,
+  },
+  {
+    id: 'YOUR_MINISTRIES_CALENDAR_ID_HERE',
+    category: 'ministries',
+    featured: false,
+  },
+  {
+    id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com',
+    category: 'philoptochos',
+    featured: false,
+  },
+  {
+    id: 'YOUR_OTHER_CALENDAR_ID_HERE',
+    category: 'other',
+    featured: false,
+  },
+];
 
 const CATEGORY_LABELS = {
   liturgical: 'Liturgical',
   youth: 'Youth',
-  community: 'Community',
-  events: 'Events',
-  ministrymtgs: 'Ministry Meeetings',
+  featured: 'Featured Events',
+  ministries: 'Ministries',
+  philoptochos: 'Philoptochos',
   other: 'Other',
 };
+
+// Pill / legend colors per category — pulled from your list
+const CATEGORY_COLORS = {
+  liturgical: '#1F4E79',
+  youth: '#2E7D32',
+  featured: '#C9A227',
+  ministries: '#7B3F98',
+  philoptochos: '#C96A23',
+  other: '#0C447C',
+};
+
+const MONTHS_AHEAD = 3;
+const COMING_UP_COUNT = 3;
 
 const ACTION_LABELS = {
   INFO: { label: 'More Info', icon: 'ti-info-circle' },
@@ -45,12 +76,17 @@ const ACTION_LABELS = {
   RSVP: { label: 'RSVP', icon: 'ti-calendar-check' },
 };
 
-let allMainEvents = [];
-let allFeaturedEvents = [];
+// ============================================
+// State
+// ============================================
+let allEvents = [];
 let activeFilter = 'all';
 let visibleMonth = new Date();
 visibleMonth.setDate(1);
 
+// ============================================
+// Fetch helpers
+// ============================================
 function buildEventsUrl(calendarId, timeMin, timeMax) {
   const base = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`;
   const params = new URLSearchParams({
@@ -64,23 +100,23 @@ function buildEventsUrl(calendarId, timeMin, timeMax) {
   return `${base}?${params.toString()}`;
 }
 
-async function fetchCalendar(calendarId) {
+async function fetchCalendar(calendarConfig) {
   const timeMin = new Date();
   timeMin.setMonth(timeMin.getMonth() - 1);
   const timeMax = new Date();
   timeMax.setMonth(timeMax.getMonth() + MONTHS_AHEAD);
 
-  const url = buildEventsUrl(calendarId, timeMin, timeMax);
+  const url = buildEventsUrl(calendarConfig.id, timeMin, timeMax);
   const res = await fetch(url);
 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
     const message = body?.error?.message || `HTTP ${res.status}`;
-    throw new Error(message);
+    throw new Error(`${CATEGORY_LABELS[calendarConfig.category] || calendarConfig.category}: ${message}`);
   }
 
   const data = await res.json();
-  return (data.items || []).map(normalizeEvent);
+  return (data.items || []).map((raw) => normalizeEvent(raw, calendarConfig));
 }
 
 function parseGoogleDate(dateStr, isAllDay) {
@@ -93,7 +129,7 @@ function parseGoogleDate(dateStr, isAllDay) {
   return new Date(dateStr);
 }
 
-function normalizeEvent(raw) {
+function normalizeEvent(raw, calendarConfig) {
   const isAllDay = !raw.start?.dateTime;
   const startRaw = raw.start?.dateTime || raw.start?.date;
   const endRaw = raw.end?.dateTime || raw.end?.date;
@@ -113,29 +149,32 @@ function normalizeEvent(raw) {
     start: parseGoogleDate(startRaw, isAllDay),
     end,
     isAllDay,
-    category: COLOR_TO_CATEGORY[raw.colorId] || DEFAULT_CATEGORY,
+    category: calendarConfig.category,
+    isFeaturedCalendar: calendarConfig.featured,
     htmlLink: raw.htmlLink || '#',
   };
 }
 
+// ============================================
+// Init
+// ============================================
 async function initCalendarPage() {
   const statusEl = document.getElementById('calStatus');
 
-  if (GOOGLE_API_KEY === 'YOUR_API_KEY_HERE' || GOOGLE_API_KEY === 'PASTE_YOUR_NEW_KEY_HERE') {
+  if (GOOGLE_API_KEY === 'YOUR_API_KEY_HERE' || GOOGLE_API_KEY === 'PASTE_YOUR_KEY_HERE') {
     renderSetupNotice();
     return;
   }
 
-  try {
-    const [mainEvents, eventsEvents] = await Promise.all([
-      fetchCalendar(MAIN_CALENDAR_ID),
-      fetchCalendar(FEATURED_CALENDAR_ID),
-    ]);
+  const unconfigured = CALENDARS.filter((c) => c.id.startsWith('YOUR_'));
+  if (unconfigured.length > 0) {
+    renderSetupNotice(`Missing calendar ID for: ${unconfigured.map((c) => CATEGORY_LABELS[c.category]).join(', ')}`);
+    return;
+  }
 
-    allMainEvents = mainEvents;
-    allFeaturedEvents = eventsEvents
-      .filter((e) => e.start && e.start.getTime() >= Date.now() - 86400000)
-      .sort((a, b) => a.start - b.start);
+  try {
+    const results = await Promise.all(CALENDARS.map(fetchCalendar));
+    allEvents = results.flat();
 
     if (statusEl) statusEl.remove();
 
@@ -147,13 +186,13 @@ async function initCalendarPage() {
   }
 }
 
-function renderSetupNotice() {
+function renderSetupNotice(extra) {
   const statusEl = document.getElementById('calStatus');
   if (!statusEl) return;
   statusEl.className = 'cal-status is-error';
   statusEl.innerHTML = `
     <i class="ti ti-alert-triangle" aria-hidden="true"></i>
-    <span>Calendar not connected yet — add your Google API key in <code>js/calendar.js</code> to go live.</span>
+    <span>Calendar not connected yet — add your Google API key and calendar IDs in <code>js/calendar.js</code> to go live.${extra ? ' ' + escapeHtml(extra) : ''}</span>
   `;
 }
 
@@ -163,15 +202,24 @@ function renderError(message) {
   statusEl.className = 'cal-status is-error';
   statusEl.innerHTML = `
     <i class="ti ti-alert-triangle" aria-hidden="true"></i>
-    <span>Could not load the calendar (${escapeHtml(message)}). Double-check the API key and calendar IDs are correct and both calendars are public.</span>
+    <span>Could not load the calendar (${escapeHtml(message)}). Double-check the API key and calendar IDs are correct and all calendars are public.</span>
   `;
 }
 
+// ============================================
+// Featured event + Coming up — from any calendar flagged featured: true
+// ============================================
+function getFeaturedEvents() {
+  return allEvents
+    .filter((e) => e.isFeaturedCalendar && e.start && e.start.getTime() >= Date.now() - 86400000)
+    .sort((a, b) => a.start - b.start);
+}
+
 function renderFeaturedEvent() {
-  const container = document.getElementById('eventsEventSlot');
+  const container = document.getElementById('featuredEventSlot');
   if (!container) return;
 
-  const next = allFeaturedEvents[0];
+  const next = getFeaturedEvents()[0];
   if (!next) {
     container.innerHTML = '';
     return;
@@ -180,15 +228,15 @@ function renderFeaturedEvent() {
   const { cleanText } = parseEventActions(next.description);
 
   container.innerHTML = `
-    <article class="events-event">
-      <div class="events-event-img" style="background: linear-gradient(160deg, #993c1d, #5c2410);">
-        <span class="events-event-badge">Featured event</span>
+    <article class="featured-event">
+      <div class="featured-event-img" style="background: linear-gradient(160deg, #993c1d, #5c2410);">
+        <span class="featured-event-badge">Featured event</span>
       </div>
-      <div class="events-event-body">
-        <div class="events-event-date">${formatDateRange(next.start, next.end, next.isAllDay)}</div>
-        <h2 class="events-event-title">${escapeHtml(next.title)}</h2>
-        ${cleanText ? `<p class="events-event-desc">${escapeHtml(truncate(cleanText, 160))}</p>` : ''}
-        <div class="events-event-meta">
+      <div class="featured-event-body">
+        <div class="featured-event-date">${formatDateRange(next.start, next.end, next.isAllDay)}</div>
+        <h2 class="featured-event-title">${escapeHtml(next.title)}</h2>
+        ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 160))}</p>` : ''}
+        <div class="featured-event-meta">
           <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(next.start, next.end, next.isAllDay)}</span>
           ${next.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(next.location)}</span>` : ''}
         </div>
@@ -196,7 +244,7 @@ function renderFeaturedEvent() {
     </article>
   `;
 
-  const card = container.querySelector('.events-event');
+  const card = container.querySelector('.featured-event');
   if (card) {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => openEventModal(next));
@@ -207,10 +255,10 @@ function renderComingUp() {
   const container = document.getElementById('comingUpSlot');
   if (!container) return;
 
-  const upcoming = allFeaturedEvents.slice(1, 1 + COMING_UP_COUNT);
+  const upcoming = getFeaturedEvents().slice(1, 1 + COMING_UP_COUNT);
 
   if (upcoming.length === 0) {
-    container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other events events scheduled yet.</p>`;
+    container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other featured events scheduled yet.</p>`;
     return;
   }
 
@@ -233,6 +281,9 @@ function renderComingUp() {
   });
 }
 
+// ============================================
+// Month grid — ALL events from ALL calendars, filterable by category
+// ============================================
 function renderMonthGrid() {
   const grid = document.getElementById('dayGrid');
   const label = document.getElementById('calMonthLabel');
@@ -263,13 +314,12 @@ function renderMonthGrid() {
   }
 
   const today = new Date();
-  const combinedEvents = [...allMainEvents, ...allFeaturedEvents];
   const filtered = activeFilter === 'all'
-  ? combinedEvents
-  : combinedEvents.filter((e) => e.category === activeFilter);
+    ? allEvents
+    : allEvents.filter((e) => e.category === activeFilter);
 
   grid.innerHTML = cells.map((cell) => {
-    const dayEvents = filtered.filter((e) => e.start && isSameDay(e.start, cell.date));
+    const dayEvents = filtered.filter((e) => eventCoversDay(e, cell.date));
     const isToday = !cell.otherMonth && isSameDay(cell.date, today);
 
     const MAX_VISIBLE = 3;
@@ -283,7 +333,7 @@ function renderMonthGrid() {
           const timeLabel = formatPillTime(e.start, e.isAllDay);
           const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
           return `
-            <div class="ev-pill ev-${e.category}" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}">
+            <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
               ${timeLabel ? `<span class="ev-pill-time">${escapeHtml(timeLabel)}</span> ` : ''}${escapeHtml(truncate(e.title, 16))}
             </div>
           `;
@@ -296,12 +346,43 @@ function renderMonthGrid() {
   grid.querySelectorAll('.ev-pill').forEach((pillEl) => {
     pillEl.addEventListener('click', () => {
       const id = pillEl.dataset.eventId;
-      const event = allMainEvents.find((e) => e.id === id) || allFeaturedEvents.find((e) => e.id === id);
+      const event = allEvents.find((e) => e.id === id);
       if (event) openEventModal(event);
     });
   });
 }
 
+// Multi-day events (like a 3-day festival) need to show on every day they
+// span, not just the start day.
+function eventCoversDay(event, date) {
+  if (!event.start) return false;
+  const end = event.end || event.start;
+  const dayStart = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const dayEnd = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59, 999);
+  return event.start <= dayEnd && end >= dayStart;
+}
+
+// Lighten a hex color for pill backgrounds, keep the base color for text
+function categoryBg(category) {
+  const hex = CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
+  return hexToRgba(hex, 0.14);
+}
+
+function categoryText(category) {
+  return CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
+}
+
+function hexToRgba(hex, alpha) {
+  const clean = hex.replace('#', '');
+  const r = parseInt(clean.substring(0, 2), 16);
+  const g = parseInt(clean.substring(2, 4), 16);
+  const b = parseInt(clean.substring(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+}
+
+// ============================================
+// Event detail modal
+// ============================================
 function parseEventActions(description) {
   if (!description) return { cleanText: '', actions: [] };
 
@@ -336,7 +417,8 @@ function openEventModal(event) {
   const { cleanText, actions } = parseEventActions(event.description);
 
   categoryEl.textContent = CATEGORY_LABELS[event.category] || 'Event';
-  categoryEl.className = `event-modal-category ev-${event.category}`;
+  categoryEl.style.background = hexToRgba(categoryText(event.category), 0.14);
+  categoryEl.style.color = categoryText(event.category);
   titleEl.textContent = event.title;
 
   metaEl.innerHTML = `
@@ -386,6 +468,9 @@ function initEventModal() {
   });
 }
 
+// ============================================
+// Filter chips
+// ============================================
 function initFilterChips() {
   const chips = document.querySelectorAll('.filter-chip');
   chips.forEach((chip) => {
@@ -398,6 +483,9 @@ function initFilterChips() {
   });
 }
 
+// ============================================
+// Month navigation
+// ============================================
 function initMonthNav() {
   const prevBtn = document.getElementById('calPrevMonth');
   const nextBtn = document.getElementById('calNextMonth');
@@ -420,6 +508,9 @@ function initMonthNav() {
   });
 }
 
+// ============================================
+// Formatting helpers
+// ============================================
 function isSameDay(a, b) {
   return a.getFullYear() === b.getFullYear() &&
     a.getMonth() === b.getMonth() &&
@@ -466,6 +557,9 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// ============================================
+// Boot
+// ============================================
 document.addEventListener('DOMContentLoaded', () => {
   initFilterChips();
   initMonthNav();
