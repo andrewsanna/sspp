@@ -273,6 +273,7 @@ const MINISTRY_CATEGORIES = [
           role: 'Group Leader',
           email: 'dance@ssppglenview.org',
       },
+      },
       {
         name: 'FAITH, LOVE & JOY',
         summary: 'Elementary-age fellowship, education, and service.',
