@@ -3,7 +3,7 @@
 //
 // Pulls events from two Google Calendars:
 //   1. MAIN_CALENDAR_ID    — routine services, all events shown in month grid
-//   2. FEATURED_CALENDAR_ID — Festival, fundraisers, special services.
+//   2. FEATURED_CALENDAR_ID — Events, fundraisers, special services.
 //                             Powers the "Featured" card + "Coming Up" sidebar.
 //
 // SETUP REQUIRED before this works — see CALENDAR-SETUP.md
@@ -19,10 +19,10 @@ const COMING_UP_COUNT = 3;
 const COLOR_TO_CATEGORY = {
   '1': 'community',
   '2': 'youth',
-  '3': 'sacraments',
-  '5': 'festival',
+  '3': 'ministrymtgs',
+  '5': 'events',
   '7': 'liturgical',
-  '11': 'festival',
+  '11': 'events',
 };
 const DEFAULT_CATEGORY = 'other';
 
@@ -30,8 +30,8 @@ const CATEGORY_LABELS = {
   liturgical: 'Liturgical',
   youth: 'Youth',
   community: 'Community',
-  festival: 'Festival',
-  sacraments: 'Sacraments',
+  events: 'Events',
+  ministrymtgs: 'Ministry Meeetings',
   other: 'Other',
 };
 
@@ -107,13 +107,13 @@ async function initCalendarPage() {
   }
 
   try {
-    const [mainEvents, featuredEvents] = await Promise.all([
+    const [mainEvents, eventsEvents] = await Promise.all([
       fetchCalendar(MAIN_CALENDAR_ID),
       fetchCalendar(FEATURED_CALENDAR_ID),
     ]);
 
     allMainEvents = mainEvents;
-    allFeaturedEvents = featuredEvents
+    allFeaturedEvents = eventsEvents
       .filter((e) => e.start && e.start.getTime() >= Date.now() - 86400000)
       .sort((a, b) => a.start - b.start);
 
@@ -148,7 +148,7 @@ function renderError(message) {
 }
 
 function renderFeaturedEvent() {
-  const container = document.getElementById('featuredEventSlot');
+  const container = document.getElementById('eventsEventSlot');
   if (!container) return;
 
   const next = allFeaturedEvents[0];
@@ -160,15 +160,15 @@ function renderFeaturedEvent() {
   const { cleanText } = parseEventActions(next.description);
 
   container.innerHTML = `
-    <article class="featured-event">
-      <div class="featured-event-img" style="background: linear-gradient(160deg, #993c1d, #5c2410);">
-        <span class="featured-event-badge">Featured event</span>
+    <article class="events-event">
+      <div class="events-event-img" style="background: linear-gradient(160deg, #993c1d, #5c2410);">
+        <span class="events-event-badge">Featured event</span>
       </div>
-      <div class="featured-event-body">
-        <div class="featured-event-date">${formatDateRange(next.start, next.end, next.isAllDay)}</div>
-        <h2 class="featured-event-title">${escapeHtml(next.title)}</h2>
-        ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 160))}</p>` : ''}
-        <div class="featured-event-meta">
+      <div class="events-event-body">
+        <div class="events-event-date">${formatDateRange(next.start, next.end, next.isAllDay)}</div>
+        <h2 class="events-event-title">${escapeHtml(next.title)}</h2>
+        ${cleanText ? `<p class="events-event-desc">${escapeHtml(truncate(cleanText, 160))}</p>` : ''}
+        <div class="events-event-meta">
           <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(next.start, next.end, next.isAllDay)}</span>
           ${next.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(next.location)}</span>` : ''}
         </div>
@@ -176,7 +176,7 @@ function renderFeaturedEvent() {
     </article>
   `;
 
-  const card = container.querySelector('.featured-event');
+  const card = container.querySelector('.events-event');
   if (card) {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => openEventModal(next));
@@ -190,7 +190,7 @@ function renderComingUp() {
   const upcoming = allFeaturedEvents.slice(1, 1 + COMING_UP_COUNT);
 
   if (upcoming.length === 0) {
-    container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other featured events scheduled yet.</p>`;
+    container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other events events scheduled yet.</p>`;
     return;
   }
 
