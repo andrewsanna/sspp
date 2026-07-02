@@ -3,13 +3,12 @@
 // Renders PARISH_LIFE_POSTS (js/parish-life-data.js) as a responsive
 // masonry grid (3 columns desktop / 2 tablet / 1 mobile). Cards with a
 // photo get a featured image; text-only posts get a colored accent
-// header instead. Clicking a card expands it in place — only one card
-// open at a time, same scroll-lock technique as the Get Involved page.
+// header instead. Clicking a card opens the full post in a modal.
 // ============================================
 
-let plOpenPostId = null;
 let plCurrentColumnCount = null;
 let plResizeTimer = null;
+let plLastFocusedEl = null;
 
 function plEscapeHtml(str) {
   const div = document.createElement('div');
@@ -51,7 +50,6 @@ function plGetColumnCount() {
 // We don't know real rendered height ahead of time, so estimate a
 // "weight" per card (photo cards are taller) and always add the next
 // post to whichever column currently has the lowest total weight.
-// Keeps the three columns roughly balanced without a layout library.
 
 function plEstimateWeight(post) {
   let weight = 130; // badge + title + chrome
@@ -70,7 +68,7 @@ function plDistributeIntoColumns(posts, numCols) {
   return columns.map((c) => c.items);
 }
 
-// ---- Card rendering ----
+// ---- Card rendering (collapsed tile only — no inline expand anymore) ----
 
 function plRenderCard(post) {
   const cat = PARISH_LIFE_CATEGORIES[post.category] || { label: post.category, color: 'navy', icon: 'ti-news' };
@@ -79,7 +77,7 @@ function plRenderCard(post) {
 
   return `
     <article class="pl-item ${hasFeatured ? 'pl-item--featured' : 'pl-item--text'}" data-post-id="${post.id}">
-      <button class="pl-head" data-toggle-post="${post.id}" aria-expanded="false">
+      <button class="pl-head" data-open-post="${post.id}" aria-haspopup="dialog">
         ${hasFeatured
           ? `<div class="pl-card-image"><img src="${plEscapeHtml(featuredSrc)}" alt="" loading="lazy"></div>`
           : `<div class="pl-card-accent pl-card-accent--${cat.color}"><i class="ti ${cat.icon}" aria-hidden="true"></i></div>`
@@ -91,21 +89,14 @@ function plRenderCard(post) {
           </div>
           <div class="pl-title">${plEscapeHtml(post.title)}</div>
           <div class="pl-excerpt">${plEscapeHtml(post.excerpt)}</div>
+          <span class="pl-read-more">Read more <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
         </div>
-        <i class="ti ti-chevron-down pl-chevron" aria-hidden="true"></i>
       </button>
-      <div class="pl-body">
-        <div class="pl-body-inner">
-          ${post.author ? `<div class="pl-author">${plEscapeHtml(post.author)}</div>` : ''}
-          <div class="pl-text">${plFormatBody(post.body)}</div>
-          ${plRenderGallery(post.photos)}
-        </div>
-      </div>
     </article>
   `;
 }
 
-// ---- Full render ----
+// ---- Full grid render ----
 
 function renderParishLifeFeed() {
   const root = document.getElementById('parishLifeFeed');
@@ -136,73 +127,90 @@ function renderParishLifeFeed() {
   `;
 
   attachParishLifeHandlers();
-
-  // Restore whichever post was open before a re-render (e.g. a
-  // window resize that changed the column count), no animation needed.
-  if (plOpenPostId) {
-    const btn = document.querySelector(`[data-toggle-post="${plOpenPostId}"]`);
-    const item = document.querySelector(`[data-post-id="${plOpenPostId}"]`);
-    if (btn && item) {
-      btn.classList.add('open');
-      btn.setAttribute('aria-expanded', 'true');
-      const body = item.querySelector('.pl-body');
-      if (body) body.classList.add('is-open');
-    } else {
-      plOpenPostId = null;
-    }
-  }
 }
 
 function attachParishLifeHandlers() {
-  document.querySelectorAll('[data-toggle-post]').forEach((btn) => {
+  document.querySelectorAll('[data-open-post]').forEach((btn) => {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
-
-      const postId = btn.dataset.togglePost;
-      const item = document.querySelector(`[data-post-id="${postId}"]`);
-      if (!item) return;
-
-      const isCurrentlyOpen = btn.classList.contains('open');
-      const willOpen = !isCurrentlyOpen;
-
-      // Hard scroll lock: pin the body in place with position:fixed for
-      // the duration of the DOM mutation, then release it — same
-      // technique used on the Get Involved page so the page never jumps.
-      const lockedScrollY = window.scrollY;
-      const bodyEl = document.body;
-      bodyEl.style.position = 'fixed';
-      bodyEl.style.top = `-${lockedScrollY}px`;
-      bodyEl.style.left = '0';
-      bodyEl.style.right = '0';
-
-      if (willOpen) {
-        // Only one card open at a time, across the whole grid.
-        document.querySelectorAll('.pl-head.open').forEach((openBtn) => {
-          if (openBtn !== btn) {
-            openBtn.classList.remove('open');
-            openBtn.setAttribute('aria-expanded', 'false');
-            const otherBody = openBtn.closest('.pl-item')?.querySelector('.pl-body');
-            if (otherBody) otherBody.classList.remove('is-open');
-          }
-        });
-      }
-
-      btn.classList.toggle('open', willOpen);
-      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-      const body = item.querySelector('.pl-body');
-      if (body) body.classList.toggle('is-open', willOpen);
-
-      plOpenPostId = willOpen ? postId : null;
-
-      requestAnimationFrame(() => {
-        bodyEl.style.position = '';
-        bodyEl.style.top = '';
-        bodyEl.style.left = '';
-        bodyEl.style.right = '';
-        window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
-      });
+      plOpenModal(btn.dataset.openPost, btn);
     });
   });
+}
+
+// ---- Modal ----
+
+function plOpenModal(postId, triggerEl) {
+  const post = PARISH_LIFE_POSTS.find((p) => p.id === postId);
+  if (!post) return;
+
+  const modalRoot = document.getElementById('plModalRoot');
+  if (!modalRoot) return;
+
+  const cat = PARISH_LIFE_CATEGORIES[post.category] || { label: post.category, color: 'navy', icon: 'ti-news' };
+
+  modalRoot.innerHTML = `
+    <div class="pl-modal-backdrop" data-close-modal></div>
+    <div class="pl-modal" role="dialog" aria-modal="true" aria-labelledby="plModalTitle">
+      <button class="pl-modal-close" data-close-modal aria-label="Close">
+        <i class="ti ti-x" aria-hidden="true"></i>
+      </button>
+      <div class="pl-modal-scroll">
+        ${post.photos && post.photos.length > 0
+          ? `<div class="pl-modal-hero"><img src="${plEscapeHtml(post.photos[0].src)}" alt=""></div>`
+          : `<div class="pl-modal-hero pl-modal-hero--accent pl-card-accent--${cat.color}"><i class="ti ${cat.icon}" aria-hidden="true"></i></div>`
+        }
+        <div class="pl-modal-body">
+          <div class="pl-head-top">
+            <span class="pl-badge pl-badge--${cat.color}">${plEscapeHtml(cat.label)}</span>
+            <span class="pl-date">${plEscapeHtml(post.date)}</span>
+          </div>
+          <h2 class="pl-modal-title" id="plModalTitle">${plEscapeHtml(post.title)}</h2>
+          ${post.author ? `<div class="pl-author">${plEscapeHtml(post.author)}</div>` : ''}
+          <div class="pl-text">${plFormatBody(post.body)}</div>
+          ${post.photos && post.photos.length > 1 ? plRenderGallery(post.photos.slice(1)) : ''}
+        </div>
+      </div>
+    </div>
+  `;
+
+  plLastFocusedEl = triggerEl || document.activeElement;
+  document.body.classList.add('pl-modal-open');
+  modalRoot.classList.add('is-open');
+
+  requestAnimationFrame(() => {
+    modalRoot.querySelector('.pl-modal-close')?.focus();
+  });
+
+  modalRoot.querySelectorAll('[data-close-modal]').forEach((el) => {
+    el.addEventListener('click', plCloseModal);
+  });
+  document.addEventListener('keydown', plHandleModalKeydown);
+}
+
+function plCloseModal() {
+  const modalRoot = document.getElementById('plModalRoot');
+  if (!modalRoot) return;
+
+  modalRoot.classList.remove('is-open');
+  document.body.classList.remove('pl-modal-open');
+  document.removeEventListener('keydown', plHandleModalKeydown);
+
+  // Wait for the fade-out transition, then clear the DOM.
+  setTimeout(() => {
+    modalRoot.innerHTML = '';
+  }, 200);
+
+  if (plLastFocusedEl) {
+    plLastFocusedEl.focus();
+    plLastFocusedEl = null;
+  }
+}
+
+function plHandleModalKeydown(event) {
+  if (event.key === 'Escape') {
+    plCloseModal();
+  }
 }
 
 // Re-distribute into columns if the column count actually changes
