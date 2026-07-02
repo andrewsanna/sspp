@@ -130,6 +130,101 @@ p {
   color: var(--gold);
 }
 
+/* Accordion (shared) */
+.acc-item {
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 0.85rem;
+  background: #fff;
+}
+
+.acc-head {
+  width: 100%;
+  background: #fff;
+  border: none;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.acc-head:hover {
+  background: var(--offwhite);
+}
+
+.acc-head.open {
+  background: var(--navy-deep);
+}
+
+.acc-head-text {
+  flex: 1;
+}
+
+.acc-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 0.2rem;
+}
+
+.acc-head.open .acc-title {
+  color: #fff;
+}
+
+.acc-blurb {
+  font-size: 0.78rem;
+  color: var(--mt);
+}
+
+.acc-head.open .acc-blurb {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.acc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.acc-count {
+  font-size: 0.72rem;
+  color: var(--mt);
+  white-space: nowrap;
+}
+
+.acc-head.open .acc-count {
+  color: var(--gold);
+}
+
+.acc-chevron {
+  font-size: 1rem;
+  color: var(--mt);
+  transition: transform 0.2s ease;
+}
+
+.acc-head.open .acc-chevron {
+  color: var(--gold);
+  transform: rotate(180deg);
+}
+
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background: var(--offwhite);
+}
+
+.acc-body.is-open {
+  max-height: 3000px;
+}
+
 /* ============================================
    Buttons
    ============================================ */
