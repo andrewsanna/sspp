@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Saints Peter & Paul</title>
+  <title>About — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Learn about Saints Peter & Paul Greek Orthodox Church in Glenview, IL — our history since 1959, our mission, and the clergy and staff who lead our parish." />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/@tabler/icons-webfont/3.31.0/tabler-icons.min.css" />
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
@@ -17,14 +21,16 @@
           <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span>
         </span>
       </a>
+
       <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="visit.html" >Visit</a>
+        <a href="visit.html">Visit</a>
         <a href="about.html" class="active">About</a>
-        <a href="get-involved.html" >Get Involved</a>
-        <a href="calendar.html" >Calendar</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="calendar.html">Calendar</a>
         <a href="parish-life.html">Parish Life</a>
-        <a href="contact.html" >Contact</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
       <div class="nav-right">
         <a href="give.html" class="btn btn-gold">Give</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
@@ -34,24 +40,169 @@
     </div>
   </header>
 
-  <section style="background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); padding: 4rem 2rem; text-align: center;">
-    <span class="eyebrow eyebrow--on-dark">Coming soon</span>
-    <h1 style="color: #fff; font-size: 2rem; margin-bottom: 0.75rem;">About</h1>
-    <p style="color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto;">This page hasn't been designed yet — it's next on the list. Check back after the committee reviews the homepage.</p>
-  </section>
-
-  <section class="section">
-    <div class="container" style="text-align: center;">
-      <a href="index.html" class="text-link" style="justify-content: center;"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back to homepage</a>
+  <!-- HERO -->
+  <section class="ab-hero">
+    <div class="ab-hero-arc" aria-hidden="true"></div>
+    <div class="ab-hero-inner">
+      <span class="eyebrow eyebrow--on-dark">About Us</span>
+      <h1 class="ab-hero-title">A parish in Glenview,<br><em>welcoming everyone since 1959.</em></h1>
+      <p class="ab-hero-body">We're a Greek Orthodox community rooted in ancient tradition and open to anyone on the path toward Christ — Greek or not, lifelong Orthodox or brand new to it.</p>
     </div>
   </section>
 
+  <!-- MISSION -->
+  <section class="ab-mission section">
+    <div class="container">
+      <span class="eyebrow">Our Mission</span>
+      <div class="ab-mission-grid">
+        <div class="ab-mission-card">
+          <div class="ab-mission-label">Purpose</div>
+          <p>To deeply connect with God and each other.</p>
+        </div>
+        <div class="ab-mission-card">
+          <div class="ab-mission-label">Vision</div>
+          <p>To become the holy people of God, welcoming everyone on the path of transformation to experience the love, mercy, and forgiveness of Christ by the power of the Holy Spirit.</p>
+        </div>
+        <div class="ab-mission-card">
+          <div class="ab-mission-label">Mission</div>
+          <p>To proclaim the Gospel through Orthodox Christian worship, fellowship, service, and witness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARISH HISTORY -->
+  <section class="ab-history section">
+    <div class="container">
+      <span class="eyebrow">Our Story</span>
+      <h2 class="ab-section-title">Parish History</h2>
+
+      <div class="ab-history-body">
+        <p>It started in the winter of 1958, when a group of Greek Orthodox families in Chicago's northern suburbs realized they needed a parish of their own. By 1959 the state had recognized the community, and Sunday school was already meeting at Crow Island School in Winnetka. The parish received its official charter in March 1960, and four years later — on November 15, 1964 — the first Divine Liturgy was celebrated in the new sanctuary in Glenview.</p>
+
+        <p>Growth came fast. The Community Center went up in 1974, the sanctuary was consecrated by Archbishop Iakovos in 1978, and by the early 2000s the dome had been restored with iconography depicting Christ as Pantokrator, the heavenly liturgy, and seventeen saints. Agape Preschool opened around the same time and now serves about 35 kids across four classes.</p>
+
+        <p>From the beginning, celebrating the Liturgy in English has been part of how SSPP meets families where they are — and that spirit carries through today. We're not just a parish for those of Greek descent; we welcome Orthodox Christians of every background, interfaith couples, and anyone curious about Orthodoxy.</p>
+      </div>
+
+      <button class="ab-history-toggle" id="historyToggle" aria-expanded="false" aria-controls="historyFull">
+        <span>Read the full parish history</span>
+        <i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </button>
+
+      <div class="ab-history-full" id="historyFull">
+        <p>In 1991, the parish purchased a two-acre parcel of land that became the north parking lot. Over the years, many ministries were added with strong lay leadership, including Cancer Support and Divorce Rebuilders, and in the 1980s the parish built out a dedicated focus on youth programs and staff leadership that continues today.</p>
+
+        <h3>Priests who have served our parish</h3>
+        <ul class="ab-priest-list">
+          <li><span>1960 – 1962</span> Fr. Kyrillos Petrovas</li>
+          <li><span>1962 – 1973</span> Fr. Dennis Latto</li>
+          <li><span>1974 – 2000</span> Fr. George Scoulos</li>
+          <li><span>2001 – 2012</span> Fr. Angelo Artemas</li>
+          <li><span>2012 – 2014</span> Fr. James Dokos</li>
+          <li><span>2014 – 2019</span> Fr. Panagiotis Boznos</li>
+          <li><span>2019 – present</span> Fr. Richard Demetrius Andrews &amp; Dcn. Theodore Saclarides (since 2016)</li>
+        </ul>
+
+        <p>A number of associate priests and youth directors got their start at SSPP before going on to serve parishes of their own, including Fr. John Demos, Dcn. John Suhayda, Fr. Mark Elliott, Fr. Vladimir Christy, Fr. George Pyle, Fr. Peter Pappas, Fr. George Gartelos, Fr. Andrew Georganas, Fr. Michael Prevas, Fr. Alexander Lukashonok, Fr. Michael Stearns, Fr. Demetri Tobias, Fr. Kosmas Kallis, Fr. Paul Boris Dinkov, and Fr. Peter Sarolas. Two priests — Fr. John Kalantzis and Fr. Andrew Kearns — were attached to the parish while serving as military chaplains at Great Lakes Naval Station.</p>
+
+        <h3>The iconographers behind our temple</h3>
+        <p>Our neo-Byzantine sanctuary was decorated over several decades by a series of iconographers: John Terzis painted the iconostasis of Christ, the Theotokos, John the Baptist, and Sts. Peter &amp; Paul in 1964–65. Sirio Tonelli created the mosaics of the Virgin Mary Platytera in the apse and Saints Peter and Paul in the narthex in 1965–66. George Filippakis painted Christ Pantokrator, the angelic liturgy, and assorted saints in the dome during the 2000–2001 restoration. More recently, Gianfranco Tassara added portable icons of St. Paraskeve (2022) and St. Demetrios (2024), and Peter Mihalopoulos and Constantine Youssis have contributed additional portable icons of saints and feasts over the years.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR FAITH -->
+  <section class="ab-faith section">
+    <div class="container">
+      <span class="eyebrow">Our Faith</span>
+      <h2 class="ab-section-title">What we believe</h2>
+      <p class="ab-faith-body">Orthodox Christianity is one of the oldest continuous expressions of the Christian faith, tracing its roots back to the apostles. At SSPP, that ancient tradition comes alive through the Divine Liturgy, the sacraments, and a community that walks the journey together — however far along the path you are.</p>
+      <p class="ab-faith-note"><i class="ti ti-video" aria-hidden="true"></i> A video introduction to Orthodoxy is coming soon.</p>
+    </div>
+  </section>
+
+  <!-- CLERGY & LEADERSHIP (accordion, reusing acc-item pattern from Get Involved) -->
+  <section class="ab-clergy section">
+    <div class="container">
+      <span class="eyebrow">Leadership</span>
+      <h2 class="ab-section-title">Clergy &amp; Staff</h2>
+
+      <div id="clergyAccordion">
+        <!-- populated by js/about.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-bottom" style="border-top: none;">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">
+            <span class="nav-cross" aria-hidden="true">☩</span>
+            <span class="footer-logo-name">Saints Peter &amp; Paul GOC</span>
+          </div>
+          <p class="footer-addr">
+            1401 Wagner Rd<br>
+            Glenview, IL 60025<br>
+            (847) 729-2235<br>
+            office@ssppglenview.org
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Worship</div>
+          <div class="footer-links">
+            <a href="visit.html">Service times</a>
+            <a href="#">Livestream</a>
+            <a href="#">Sermons</a>
+            <a href="#">Holy Week</a>
+            <a href="calendar.html">Calendar</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Get Involved</div>
+          <div class="footer-links">
+            <a href="get-involved.html#youth">Youth &amp; Young Adults</a>
+            <a href="get-involved.html#adult-learning">Adult Faith &amp; Learning</a>
+            <a href="get-involved.html#worship">Worship &amp; Liturgical Life</a>
+            <a href="get-involved.html#outreach">Outreach &amp; Philanthropy</a>
+            <a href="get-involved.html#support">Support Groups</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Parish</div>
+          <div class="footer-links">
+            <a href="about.html">About us</a>
+            <a href="about.html#clergyAccordion">Meet Fr. Rick</a>
+            <a href="about.html#sacraments">Sacraments</a>
+            <a href="give.html">Give / Stewardship</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
       <p class="footer-copy">© 2026 Saints Peter &amp; Paul Greek Orthodox Church · Glenview, IL</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Greek Orthodox Archdiocese</a>
+        <a href="#">Metropolis of Chicago</a>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/about-data.js"></script>
+  <script src="js/about.js"></script>
 </body>
 </html>
