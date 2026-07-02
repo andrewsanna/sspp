@@ -4,7 +4,7 @@ This is a **design mockup**, not the live SSPP website. It's built as static HTM
 Communications Committee can browse it like a real site during meetings, and so Claude (or any
 contributor) can keep editing it page by page as decisions are made.
 
-🔗 **Live mockup:** once this repo is connected to GitHub Pages, it will be available at: 
+🔗 **Live mockup:** once this repo is connected to GitHub Pages, it will be available at:  
 `https://<your-username>.github.io/<repo-name>/`
 
 ## How to view it locally  
