@@ -56,7 +56,7 @@
    Mission — pull-quote band
    ============================================ */
 .ab-mission-band {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: var(--gold-lt);
   padding: 3.5rem 0;
   position: relative;
   overflow: hidden;
@@ -70,7 +70,7 @@
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  border: 32px solid rgba(212, 175, 106, 0.08);
+  border: 32px solid rgba(212, 175, 106, 0.15);
 }
 
 .ab-mission-inner {
@@ -85,7 +85,7 @@
   font-style: italic;
   font-size: 1.5rem;
   line-height: 1.5;
-  color: #fff;
+  color: var(--navy-deep);
   margin: 0.5rem 0 2rem;
 }
 
@@ -94,7 +94,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 1.75rem;
   text-align: left;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(18, 39, 64, 0.12);
   padding-top: 1.75rem;
 }
 
@@ -102,14 +102,14 @@
   display: block;
   font-family: var(--font-display);
   font-size: 0.95rem;
-  color: var(--gold);
+  color: var(--gold-text);
   margin-bottom: 0.4rem;
 }
 
 .ab-mission-support p {
   font-size: 0.85rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--mt);
 }
 
 @media (max-width: 640px) {
