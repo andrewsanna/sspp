@@ -315,7 +315,7 @@
   padding: 2rem 2rem 3rem;
 }
 
-.acc-item {
+/* .acc-item {
   border: 1px solid var(--brd);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -358,8 +358,8 @@
 }
 
 .acc-head.open .acc-title {
-  color: #fff;
-}
+  color: #fff; */
+/* }
 
 .acc-blurb {
   font-size: 0.78rem;
@@ -407,7 +407,7 @@
 
 .acc-body.is-open {
   max-height: 3000px;
-}
+} */
 
 .ministry-grid {
   padding: 1.1rem;
