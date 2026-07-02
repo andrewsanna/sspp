@@ -9,7 +9,7 @@ contributor) can keep editing it page by page as decisions are made.
 
 ## How to view it locally  
 
-No build step needed — it's plain HTML/CSS/JS.
+No build step needed — it's plain HTML/CSS/JS. 
  
 1. Download or clone this repo
 2. Open `index.html` directly in a browser, **or**
