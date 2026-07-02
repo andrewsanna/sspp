@@ -51,17 +51,19 @@
   </section>
 
   <!-- FILTER CHIPS -->
-  <div class="cal-filter-bar">
+ <div class="cal-filter-bar">
   <div class="cal-filter-inner">
     <button class="filter-chip active" data-filter="all">All events</button>
     <button class="filter-chip" data-filter="liturgical">Liturgical</button>
-    <button class="filter-chip" data-filter="youth">Youth</button>
-    <button class="filter-chip" data-filter="featured">Featured Events</button>
+    <button class="filter-chip" data-filter="youth">Youth & Young Adults</button>
+    <button class="filter-chip" data-filter="adult_faith">Adult Faith & Learning</button>
+    <button class="filter-chip" data-filter="adult_activities">Adult Activities</button>
+    <button class="filter-chip" data-filter="philanthropy">Philanthropy</button>
+    <button class="filter-chip" data-filter="support_groups">Support Groups</button>
     <button class="filter-chip" data-filter="ministries">Ministries</button>
-    <button class="filter-chip" data-filter="philoptochos">Philoptochos</button>
-    <button class="filter-chip" data-filter="other">Other</button>
-</div>
+    <button class="filter-chip" data-filter="agape">Agape</button>
   </div>
+</div>
 
   <section class="section">
     <div class="container">
@@ -72,7 +74,7 @@
         <span>Loading events…</span>
       </div>
 
-      <!-- FEATURED EVENT (from the Featured calendar) -->
+      <!-- FEATURED EVENTS (up to 2, side by side, from the Featured calendar) -->
       <div id="featuredEventSlot"></div>
 
       <!-- CALENDAR + SIDEBAR -->
@@ -81,15 +83,21 @@
         <div class="cal-grid-card">
           <div class="cal-grid-head">
             <div class="cal-nav-group">
-              <button class="cal-nav-btn" id="calPrevMonth" aria-label="Previous month">
+              <button class="cal-nav-btn" id="calPrevMonth" aria-label="Previous">
                 <i class="ti ti-chevron-left" aria-hidden="true"></i>
               </button>
               <div class="cal-month-label" id="calMonthLabel">—</div>
-              <button class="cal-nav-btn" id="calNextMonth" aria-label="Next month">
+              <button class="cal-nav-btn" id="calNextMonth" aria-label="Next">
                 <i class="ti ti-chevron-right" aria-hidden="true"></i>
               </button>
             </div>
-            <button class="cal-today-btn" id="calTodayBtn">Today</button>
+            <div class="cal-nav-group">
+              <div class="cal-view-toggle" role="group" aria-label="Calendar view">
+                <button class="cal-view-btn active" data-view="month">Month</button>
+                <button class="cal-view-btn" data-view="week">Week</button>
+              </div>
+              <button class="cal-today-btn" id="calTodayBtn">Today</button>
+            </div>
           </div>
 
           <div class="dow-row">
@@ -102,7 +110,7 @@
             <div class="dow-cell">Sat</div>
           </div>
 
-          <div class="day-grid" id="dayGrid">
+          <div class="day-grid view-month" id="dayGrid">
             <!-- populated by js/calendar.js -->
           </div>
         </div>
@@ -115,16 +123,17 @@
             </div>
           </div>
 
-          <div class="side-card">
-            <div class="side-title">Event types</div>
-               <div class="legend-row"><div class="legend-dot" style="background:#1F4E79"></div>Liturgical</div>
-                <div class="legend-row"><div class="legend-dot" style="background:#2E7D32"></div>Youth</div>
-                <div class="legend-row"><div class="legend-dot" style="background:#C9A227"></div>Featured Events</div>
-                <div class="legend-row"><div class="legend-dot" style="background:#7B3F98"></div>Ministries</div>
-                <div class="legend-row"><div class="legend-dot" style="background:#C96A23"></div>Philoptochos</div>
-                <div class="legend-row"><div class="legend-dot" style="background:#0C447C"></div>Other</div>
-          </div>
-
+         <div class="side-card">
+          <div class="side-title">Event types</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#1F4E79"></div>Liturgical</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#2E7D32"></div>Youth & Young Adults</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#0C447C"></div>Adult Faith & Learning</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#3A6FA5"></div>Adult Activities</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#7B3F98"></div>Philanthropy</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#A8763E"></div>Support Groups</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#4A7C6F"></div>Ministries</div>
+          <div class="legend-row"><div class="legend-dot" style="background:#C96A23"></div>Agape</div>
+        </div>
           <div class="side-card">
             <div class="side-title">Stay in sync</div>
             <div class="subscribe-links">
