@@ -170,12 +170,18 @@ function openMinistryModal(ministry, category) {
 
   const photoEl = document.getElementById('ministryModalPhoto');
   const photoImgEl = document.getElementById('ministryModalPhotoImg');
+  const placeholderIcon = document.getElementById('ministryModalPlaceholderIcon');
+
     if (ministry.image) {
       photoImgEl.src = ministry.image;
       photoImgEl.alt = ministry.name;
       photoEl.style.display = 'block';
+      placeholderIcon.style.display = 'none';
+
     } else {
       photoEl.style.display = 'none';
+      placeholderIcon.style.display = 'block';
+
     }
 
   const inactiveEl = document.getElementById('ministryModalInactive');
