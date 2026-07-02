@@ -104,7 +104,7 @@ const PARISH_LIFE_POSTS = [
     excerpt: 'Our youngest parishioners closed out the church school year with a celebration after Divine Liturgy.',
     body: 'Every Sunday morning, our Church School teachers give their time to help form the next generation in the faith — and this year was no exception. From preschool through high school, our students spent the year learning about the lives of the saints, the feasts of the Church, and what it means to live an Orthodox Christian life.\n\nWe closed out the year with a celebration following Divine Liturgy, with certificates for our students and a well-deserved thank-you to our volunteer teachers, led by Church School Director Elaine Carozza. If you\'re interested in volunteering as a teacher or helper for next year, reach out to Churchschool@ssppglenview.org — no experience necessary, just a willingness to invest in our kids.',
     photos: [
-      { src: 'images/sundayschool.jpg', caption: 'Church School students celebrating the end of the year.' },
+      { src: 'images/ministries/churchschool.jpg', caption: 'Church School students celebrating the end of the year.' },
     ],
   },
   {
