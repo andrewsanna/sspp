@@ -1,0 +1,246 @@
+/* ============================================
+   About — Hero
+   ============================================ */
+.ab-hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.ab-hero-arc {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 32px solid rgba(212, 175, 106, 0.08);
+}
+
+.ab-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.ab-hero-title {
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.9rem;
+}
+
+.ab-hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.ab-hero-body {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Section title helper (About-specific sections)
+   ============================================ */
+.ab-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ============================================
+   Mission
+   ============================================ */
+.ab-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.ab-mission-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem;
+}
+
+.ab-mission-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--navy-deep);
+  margin-bottom: 0.5rem;
+}
+
+.ab-mission-card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .ab-mission-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Parish History
+   ============================================ */
+.ab-history {
+  background: var(--offwhite);
+}
+
+.ab-history-body {
+  max-width: 760px;
+}
+
+.ab-history-body p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
+.ab-history-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+}
+
+.ab-history-toggle i {
+  transition: transform 0.2s ease;
+}
+
+.ab-history-toggle.open i {
+  transform: rotate(180deg);
+}
+
+.ab-history-toggle:hover {
+  text-decoration: underline;
+}
+
+.ab-history-full {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  max-width: 760px;
+}
+
+.ab-history-full.is-open {
+  max-height: 4000px;
+  margin-top: 1rem;
+}
+
+.ab-history-full h3 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.ab-history-full p {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.ab-priest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ab-priest-list li {
+  font-size: 0.85rem;
+  color: var(--tx);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ab-priest-list li span {
+  color: var(--gold-text);
+  font-weight: 600;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   Our Faith
+   ============================================ */
+.ab-faith-body {
+  max-width: 700px;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.ab-faith-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--mt);
+  font-style: italic;
+}
+
+/* ============================================
+   Clergy accordion (extends shared .acc-* from main.css)
+   ============================================ */
+.ab-clergy .acc-head {
+  align-items: center;
+}
+
+.clergy-head-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--brd);
+}
+
+.clergy-head-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.clergy-bio {
+  padding: 1.4rem;
+}
+
+.clergy-bio p {
+  font-size: 0.87rem;
+  line-height: 1.8;
+  color: var(--tx);
+  margin-bottom: 1rem;
+}
+
+.clergy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.clergy-email:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .clergy-head-photo {
+    width: 42px;
+    height: 42px;
+  }
+}
