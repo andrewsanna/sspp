@@ -7,7 +7,7 @@ contributor) can keep editing it page by page as decisions are made.
 🔗 **Live mockup:** once this repo is connected to GitHub Pages, it will be available at: 
 `https://<your-username>.github.io/<repo-name>/`
 
-## How to view it locally
+## How to view it locally 
 
 No build step needed — it's plain HTML/CSS/JS.
  
