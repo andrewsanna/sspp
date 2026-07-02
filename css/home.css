@@ -20,25 +20,23 @@
   opacity: 0.5;
 }
 
-/* Shown until a real video/photo is added */
-.hero-bg-note {
+.hero-video-embed {
   position: absolute;
   inset: 0;
-  background: #0d1f30;
-  opacity: 0.5;
+  overflow: hidden;
+  z-index: 0;
 }
 
-.hero-bg-note::before {
-  content: '';
+.hero-video-embed iframe {
   position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    120deg,
-    rgba(212, 175, 106, 0.04) 0px,
-    rgba(212, 175, 106, 0.04) 2px,
-    transparent 2px,
-    transparent 18px
-  );
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 56.25vw;      /* 16:9 */
+  min-height: 100%;
+  min-width: 177.78vh;  /* 16:9, ensures full coverage on tall/narrow screens */
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* keeps YouTube controls from being clickable since controls=0 */
 }
 
 .hero-overlay {
