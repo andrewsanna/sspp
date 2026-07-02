@@ -67,7 +67,7 @@ const CALENDARS = [
 const CATEGORY_LABELS = {
   liturgical: 'Liturgical',
   youth: 'Youth & Young Adults',
-  featured: 'Featured Events',
+  featured: 'Events',
   philanthropy: 'Philanthropy',
   agape: 'Agape',
   adult_faith: 'Adult Faith & Learning',
