@@ -168,6 +168,16 @@ function openMinistryModal(ministry, category) {
   document.getElementById('ministryModalTitle').textContent = ministry.name;
   document.getElementById('ministryModalDesc').textContent = ministry.description;
 
+  const photoEl = document.getElementById('ministryModalPhoto');
+  const photoImgEl = document.getElementById('ministryModalPhotoImg');
+    if (ministry.image) {
+      photoImgEl.src = ministry.image;
+      photoImgEl.alt = ministry.name;
+      photoEl.style.display = 'block';
+    } else {
+      photoEl.style.display = 'none';
+    }
+
   const inactiveEl = document.getElementById('ministryModalInactive');
   inactiveEl.style.display = ministry.inactive ? 'flex' : 'none';
 
