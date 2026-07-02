@@ -4,6 +4,8 @@
 // (same calendar calendar.js uses for its Featured card / Coming up list).
 // Falls back to the static cards already in index.html if the
 // fetch fails or there are no upcoming featured events.
+// Clicking a card sends the visitor to calendar.html?event=<id>,
+// which auto-opens that event's detail modal.
 // ============================================
 
 const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
@@ -12,9 +14,13 @@ const HOME_EVENTS_COUNT = 3;
 const HOME_PLACEHOLDER_CLASSES = ['photo-placeholder--rust', 'photo-placeholder--blue', 'photo-placeholder--gold'];
 const HOME_TAG_CLASSES = ['ev-tag--rust', 'ev-tag--green', 'ev-tag--gold'];
 
+// ============================================
+// Helpers
+// ============================================
 function homeParseGoogleDate(dateStr, isAllDay) {
   if (!dateStr) return null;
   if (isAllDay) {
+    // "2026-06-14" — parse as LOCAL midnight, not UTC, to avoid off-by-one-day bugs
     const [y, m, d] = dateStr.split('-').map(Number);
     return new Date(y, m - 1, d);
   }
@@ -48,6 +54,9 @@ function homeFormatMeta(ev) {
   return parts.join(' · ');
 }
 
+// ============================================
+// Fetch
+// ============================================
 async function fetchHomeFeaturedEvents() {
   const timeMin = new Date();
   const timeMax = new Date();
@@ -75,6 +84,7 @@ async function fetchHomeFeaturedEvents() {
       let end = homeParseGoogleDate(endRaw, isAllDay);
       if (isAllDay && end) end = new Date(end.getFullYear(), end.getMonth(), end.getDate() - 1);
       return {
+        id: raw.id,
         title: raw.summary || 'Untitled event',
         location: raw.location || '',
         start: homeParseGoogleDate(startRaw, isAllDay),
@@ -87,6 +97,9 @@ async function fetchHomeFeaturedEvents() {
     .slice(0, HOME_EVENTS_COUNT);
 }
 
+// ============================================
+// Render
+// ============================================
 function renderHomeEvents(events) {
   const container = document.getElementById('homeEventsGrid');
   if (!container || events.length === 0) return; // leave the static fallback cards in place
@@ -97,7 +110,7 @@ function renderHomeEvents(events) {
     const tagClass = HOME_TAG_CLASSES[i] || 'ev-tag--gold';
 
     return `
-      <article class="ev-card ${isFeatured ? 'featured' : ''}">
+      <article class="ev-card ${isFeatured ? 'featured' : ''}" data-event-id="${homeEscapeHtml(ev.id)}" style="cursor:pointer;">
         <div class="photo-placeholder ${photoClass}">
           <i class="ti ti-camera ph-icon" aria-hidden="true"></i>
           ${isFeatured ? `<span class="ev-date-pill">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>` : ''}
@@ -110,8 +123,18 @@ function renderHomeEvents(events) {
       </article>
     `;
   }).join('');
+
+  container.querySelectorAll('.ev-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const id = card.dataset.eventId;
+      window.location.href = `calendar.html?event=${encodeURIComponent(id)}`;
+    });
+  });
 }
 
+// ============================================
+// Boot
+// ============================================
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const events = await fetchHomeFeaturedEvents();
