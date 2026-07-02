@@ -1,4 +1,31 @@
 /* ============================================
+   Parish Life — page header (matches gi-intro pattern)
+   ============================================ */
+.pl-intro {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.pl-intro-arc {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 32px solid rgba(212, 175, 106, 0.08);
+}
+
+.pl-intro-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  text-align:
+
+/* ============================================
    Card shell (collapsed tile — click opens the modal)
    ============================================ */
 .pl-item {
