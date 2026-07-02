@@ -208,6 +208,7 @@ async function initCalendarPage() {
     renderFeaturedEvent();
     renderComingUp();
     renderMonthGrid();
+    openEventFromUrl();
   } catch (err) {
     renderError(err.message);
   }
@@ -477,6 +478,14 @@ function parseEventActions(description) {
   });
 
   return { cleanText: textLines.join(' ').trim(), actions };
+}
+
+function openEventFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const eventId = params.get('event');
+  if (!eventId) return;
+  const event = allEvents.find((e) => e.id === eventId);
+  if (event) openEventModal(event);
 }
 
 function openEventModal(event) {
