@@ -115,4 +115,109 @@ function renderParishLifeFeed() {
   plCurrentColumnCount = numCols;
   const columns = plDistributeIntoColumns(PARISH_LIFE_POSTS, numCols);
 
-  if
+  if (PARISH_LIFE_POSTS.length === 0) {
+    root.innerHTML = `
+      <div class="no-results">
+        <i class="ti ti-mood-empty" aria-hidden="true"></i>
+        <p>Nothing posted yet — check back soon.</p>
+      </div>
+    `;
+    return;
+  }
+
+  root.innerHTML = `
+    <div class="pl-grid">
+      ${columns.map((colPosts) => `
+        <div class="pl-column">
+          ${colPosts.map((post) => plRenderCard(post)).join('')}
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  attachParishLifeHandlers();
+
+  // Restore whichever post was open before a re-render (e.g. a
+  // window resize that changed the column count), no animation needed.
+  if (plOpenPostId) {
+    const btn = document.querySelector(`[data-toggle-post="${plOpenPostId}"]`);
+    const item = document.querySelector(`[data-post-id="${plOpenPostId}"]`);
+    if (btn && item) {
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      const body = item.querySelector('.pl-body');
+      if (body) body.classList.add('is-open');
+    } else {
+      plOpenPostId = null;
+    }
+  }
+}
+
+function attachParishLifeHandlers() {
+  document.querySelectorAll('[data-toggle-post]').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const postId = btn.dataset.togglePost;
+      const item = document.querySelector(`[data-post-id="${postId}"]`);
+      if (!item) return;
+
+      const isCurrentlyOpen = btn.classList.contains('open');
+      const willOpen = !isCurrentlyOpen;
+
+      // Hard scroll lock: pin the body in place with position:fixed for
+      // the duration of the DOM mutation, then release it — same
+      // technique used on the Get Involved page so the page never jumps.
+      const lockedScrollY = window.scrollY;
+      const bodyEl = document.body;
+      bodyEl.style.position = 'fixed';
+      bodyEl.style.top = `-${lockedScrollY}px`;
+      bodyEl.style.left = '0';
+      bodyEl.style.right = '0';
+
+      if (willOpen) {
+        // Only one card open at a time, across the whole grid.
+        document.querySelectorAll('.pl-head.open').forEach((openBtn) => {
+          if (openBtn !== btn) {
+            openBtn.classList.remove('open');
+            openBtn.setAttribute('aria-expanded', 'false');
+            const otherBody = openBtn.closest('.pl-item')?.querySelector('.pl-body');
+            if (otherBody) otherBody.classList.remove('is-open');
+          }
+        });
+      }
+
+      btn.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      const body = item.querySelector('.pl-body');
+      if (body) body.classList.toggle('is-open', willOpen);
+
+      plOpenPostId = willOpen ? postId : null;
+
+      requestAnimationFrame(() => {
+        bodyEl.style.position = '';
+        bodyEl.style.top = '';
+        bodyEl.style.left = '';
+        bodyEl.style.right = '';
+        window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
+      });
+    });
+  });
+}
+
+// Re-distribute into columns if the column count actually changes
+// (crossing a breakpoint) — not on every pixel of a resize.
+function plHandleResize() {
+  clearTimeout(plResizeTimer);
+  plResizeTimer = setTimeout(() => {
+    const newCount = plGetColumnCount();
+    if (newCount !== plCurrentColumnCount) {
+      renderParishLifeFeed();
+    }
+  }, 150);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderParishLifeFeed();
+  window.addEventListener('resize', plHandleResize);
+});
