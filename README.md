@@ -5,7 +5,7 @@ Communications Committee can browse it like a real site during meetings, and so 
 contributor) can keep editing it page by page as decisions are made.
 
 🔗 **Live mockup:** once this repo is connected to GitHub Pages, it will be available at:  
-`https://<your-username>.github.io/<repo-name>/`
+`https://<your-username>.github.io/<repo-name>/` 
 
 ## How to view it locally  
 
