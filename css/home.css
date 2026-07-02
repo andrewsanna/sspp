@@ -42,7 +42,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(18, 39, 64, 0.62), rgba(18, 39, 64, 0.9));
+  background: linear-gradient(to right, rgba(18, 39, 64, 0.40), rgba(18, 39, 64, 0.68));
 }
 
 .media-note {
