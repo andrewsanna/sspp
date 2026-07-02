@@ -22,17 +22,17 @@ const CALENDARS = [
   },
   {
     id: 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com',
-    category: 'youth',
+    category: 'youth', //goya, FLJ, YAL, athletics, greek dance, goyalumni, greek school, church school
     featured: false,
   },
   {
     id: '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com',
-    category: 'featured',
+    category: 'featured', //parish events
     featured: true,
   },
   {
     id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com',
-    category: 'ministries', // actually philoptochos for now
+    category: 'philanthropy', // philoptochos, st. basil's, care for creation, prison outreach
     featured: false,
   },
   {
@@ -42,18 +42,38 @@ const CALENDARS = [
   },
   {
     id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com',
-    category: 'adult',
+    category: 'adult_faith', // coffee connection, bible study, st stephens mens group, catechism, occ
     featured: false,
   },
+
+  // --- Not wired up yet — add the real calendar ID and uncomment ---
+  // {
+  //   id: 'YOUR_CALENDAR_ID_HERE',
+  //   category: 'adult_activities', //athletics, dynamis, greek dance workshops
+  //   featured: false,
+  // },
+  // {
+  //   id: 'YOUR_CALENDAR_ID_HERE',
+  //   category: 'support_groups', // grief support, divorce rebuilders, cancer support 
+  //   featured: false,
+  // },
+  // {
+  //   id: 'YOUR_CALENDAR_ID_HERE',
+  //   category: 'ministries', //pc meetings, greek fest, comms, ETC
+  //   featured: false,
+  // },
 ];
 
 const CATEGORY_LABELS = {
   liturgical: 'Liturgical',
-  youth: 'Youth & Family',
+  youth: 'Youth & Young Adults',
   featured: 'Featured Events',
+  philanthropy: 'Philanthropy',
+  agape: 'Agape',
+  adult_faith: 'Adult Faith & Learning',
+  adult_activities: 'Adult Activities',
+  support_groups: 'Support Groups',
   ministries: 'Ministries',
-  agape: 'Agape Preschool',
-  adult: 'Adult Programs',
 };
 
 // Pill / legend colors per category — pulled from your list
@@ -61,9 +81,12 @@ const CATEGORY_COLORS = {
   liturgical: '#1F4E79',
   youth: '#2E7D32',
   featured: '#C9A227',
-  ministries: '#7B3F98',
+  philanthropy: '#7B3F98',
   agape: '#C96A23',
-  adult: '#0C447C',
+  adult_faith: '#0C447C',
+  adult_activities: '#3A6FA5',
+  support_groups: '#A8763E',
+  ministries: '#4A7C6F',
 };
 
 const MONTHS_AHEAD = 3;
@@ -81,8 +104,12 @@ const ACTION_LABELS = {
 // ============================================
 let allEvents = [];
 let activeFilter = 'all';
-let visibleMonth = new Date();
-visibleMonth.setDate(1);
+let viewMode = 'month'; // 'month' | 'week'
+
+// Anchor date used to derive the visible month (1st of month) or the
+// visible week (Sun–Sat containing this date).
+let anchorDate = new Date();
+anchorDate.setHours(0, 0, 0, 0);
 
 // ============================================
 // Fetch helpers
@@ -215,47 +242,55 @@ function getFeaturedEvents() {
     .sort((a, b) => a.start - b.start);
 }
 
+// Shows up to 2 featured events side by side as compact cards.
+const FEATURED_SLOT_COUNT = 2;
+
 function renderFeaturedEvent() {
   const container = document.getElementById('featuredEventSlot');
   if (!container) return;
 
-  const next = getFeaturedEvents()[0];
-  if (!next) {
+  const upcoming = getFeaturedEvents().slice(0, FEATURED_SLOT_COUNT);
+  if (upcoming.length === 0) {
     container.innerHTML = '';
     return;
   }
 
-  const { cleanText } = parseEventActions(next.description);
-
   container.innerHTML = `
-    <article class="featured-event">
-      <div class="featured-event-img" style="background: linear-gradient(160deg, #993c1d, #5c2410);">
-        <span class="featured-event-badge">Featured event</span>
-      </div>
-      <div class="featured-event-body">
-        <div class="featured-event-date">${formatDateRange(next.start, next.end, next.isAllDay)}</div>
-        <h2 class="featured-event-title">${escapeHtml(next.title)}</h2>
-        ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 160))}</p>` : ''}
-        <div class="featured-event-meta">
-          <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(next.start, next.end, next.isAllDay)}</span>
-          ${next.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(next.location)}</span>` : ''}
-        </div>
-      </div>
-    </article>
+    <div class="featured-events-grid ${upcoming.length === 1 ? 'is-single' : ''}">
+      ${upcoming.map((ev) => {
+        const { cleanText } = parseEventActions(ev.description);
+        return `
+          <article class="featured-event-compact" data-event-id="${escapeHtml(ev.id)}">
+            <div class="fe-top">
+              <span class="featured-event-badge">Featured event</span>
+              <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
+            </div>
+            <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
+            ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 120))}</p>` : ''}
+            <div class="featured-event-meta">
+              <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</span>
+              ${ev.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(ev.location)}</span>` : ''}
+            </div>
+          </article>
+        `;
+      }).join('')}
+    </div>
   `;
 
-  const card = container.querySelector('.featured-event');
-  if (card) {
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', () => openEventModal(next));
-  }
+  container.querySelectorAll('.featured-event-compact').forEach((card) => {
+    card.addEventListener('click', () => {
+      const id = card.dataset.eventId;
+      const event = upcoming.find((e) => e.id === id);
+      if (event) openEventModal(event);
+    });
+  });
 }
 
 function renderComingUp() {
   const container = document.getElementById('comingUpSlot');
   if (!container) return;
 
-  const upcoming = getFeaturedEvents().slice(1, 1 + COMING_UP_COUNT);
+  const upcoming = getFeaturedEvents().slice(FEATURED_SLOT_COUNT, FEATURED_SLOT_COUNT + COMING_UP_COUNT);
 
   if (upcoming.length === 0) {
     container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other featured events scheduled yet.</p>`;
@@ -282,25 +317,33 @@ function renderComingUp() {
 }
 
 // ============================================
-// Month grid — ALL events from ALL calendars, filterable by category
+// Calendar grid — Month or Week view, filterable by category
 // ============================================
-function renderMonthGrid() {
-  const grid = document.getElementById('dayGrid');
-  const label = document.getElementById('calMonthLabel');
-  if (!grid || !label) return;
+function startOfWeek(date) {
+  const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  d.setDate(d.getDate() - d.getDay()); // back up to Sunday
+  return d;
+}
 
-  const year = visibleMonth.getFullYear();
-  const month = visibleMonth.getMonth();
+function getVisibleCells() {
+  if (viewMode === 'week') {
+    const weekStart = startOfWeek(anchorDate);
+    const cells = [];
+    for (let i = 0; i < 7; i++) {
+      const date = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + i);
+      cells.push({ day: date.getDate(), otherMonth: false, date });
+    }
+    return cells;
+  }
 
-  label.textContent = visibleMonth.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-
+  const year = anchorDate.getFullYear();
+  const month = anchorDate.getMonth();
   const firstOfMonth = new Date(year, month, 1);
   const startDow = firstOfMonth.getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const daysInPrevMonth = new Date(year, month, 0).getDate();
 
   const cells = [];
-
   for (let i = startDow - 1; i >= 0; i--) {
     cells.push({ day: daysInPrevMonth - i, otherMonth: true, date: new Date(year, month - 1, daysInPrevMonth - i) });
   }
@@ -312,29 +355,59 @@ function renderMonthGrid() {
     cells.push({ day: trailing, otherMonth: true, date: new Date(year, month + 1, trailing) });
     trailing++;
   }
+  return cells;
+}
 
+function updateCalendarLabel() {
+  const label = document.getElementById('calMonthLabel');
+  if (!label) return;
+
+  if (viewMode === 'week') {
+    const weekStart = startOfWeek(anchorDate);
+    const weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 6);
+    const sameMonth = weekStart.getMonth() === weekEnd.getMonth();
+    const startStr = weekStart.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    const endStr = weekEnd.toLocaleDateString('en-US', sameMonth ? { day: 'numeric', year: 'numeric' } : { month: 'short', day: 'numeric', year: 'numeric' });
+    label.textContent = `${startStr} – ${endStr}`;
+  } else {
+    label.textContent = anchorDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+}
+
+function renderMonthGrid() {
+  const grid = document.getElementById('dayGrid');
+  if (!grid) return;
+
+  updateCalendarLabel();
+
+  grid.classList.toggle('view-week', viewMode === 'week');
+  grid.classList.toggle('view-month', viewMode === 'month');
+
+  const cells = getVisibleCells();
   const today = new Date();
   const filtered = activeFilter === 'all'
     ? allEvents
     : allEvents.filter((e) => e.category === activeFilter);
 
+  // Week view has a lot more vertical room per day, so show more pills.
+  const MAX_VISIBLE = viewMode === 'week' ? 8 : 3;
+
   grid.innerHTML = cells.map((cell) => {
     const dayEvents = filtered.filter((e) => eventCoversDay(e, cell.date));
-    const isToday = !cell.otherMonth && isSameDay(cell.date, today);
+    const isToday = isSameDay(cell.date, today);
 
-    const MAX_VISIBLE = 3;
     const visibleEvents = dayEvents.slice(0, MAX_VISIBLE);
     const extraCount = dayEvents.length - visibleEvents.length;
 
     return `
       <div class="day-cell ${cell.otherMonth ? 'other-month' : ''} ${isToday ? 'today' : ''}">
-        <div class="day-num">${cell.day}</div>
+        <div class="day-num">${viewMode === 'week' ? cell.date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }) : cell.day}</div>
         ${visibleEvents.map((e) => {
           const timeLabel = formatPillTime(e.start, e.isAllDay);
           const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
           return `
             <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
-              ${timeLabel ? `<span class="ev-pill-time">${escapeHtml(timeLabel)}</span> ` : ''}${escapeHtml(truncate(e.title, 16))}
+              ${timeLabel ? `<span class="ev-pill-time">${escapeHtml(timeLabel)}</span> ` : ''}${escapeHtml(truncate(e.title, viewMode === 'week' ? 26 : 16))}
             </div>
           `;
         }).join('')}
@@ -497,7 +570,7 @@ function initFilterChips() {
 }
 
 // ============================================
-// Month navigation
+// Month/week navigation
 // ============================================
 function initMonthNav() {
   const prevBtn = document.getElementById('calPrevMonth');
@@ -505,19 +578,44 @@ function initMonthNav() {
   const todayBtn = document.getElementById('calTodayBtn');
 
   if (prevBtn) prevBtn.addEventListener('click', () => {
-    visibleMonth.setMonth(visibleMonth.getMonth() - 1);
+    if (viewMode === 'week') {
+      anchorDate.setDate(anchorDate.getDate() - 7);
+    } else {
+      anchorDate.setMonth(anchorDate.getMonth() - 1);
+    }
     renderMonthGrid();
   });
 
   if (nextBtn) nextBtn.addEventListener('click', () => {
-    visibleMonth.setMonth(visibleMonth.getMonth() + 1);
+    if (viewMode === 'week') {
+      anchorDate.setDate(anchorDate.getDate() + 7);
+    } else {
+      anchorDate.setMonth(anchorDate.getMonth() + 1);
+    }
     renderMonthGrid();
   });
 
   if (todayBtn) todayBtn.addEventListener('click', () => {
-    visibleMonth = new Date();
-    visibleMonth.setDate(1);
+    anchorDate = new Date();
+    anchorDate.setHours(0, 0, 0, 0);
     renderMonthGrid();
+  });
+}
+
+// ============================================
+// Month / Week view toggle
+// ============================================
+function initViewToggle() {
+  const buttons = document.querySelectorAll('.cal-view-btn');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const mode = btn.dataset.view;
+      if (mode === viewMode) return;
+      viewMode = mode;
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderMonthGrid();
+    });
   });
 }
 
@@ -576,6 +674,7 @@ function escapeHtml(str) {
 document.addEventListener('DOMContentLoaded', () => {
   initFilterChips();
   initMonthNav();
+  initViewToggle();
   initEventModal();
   initCalendarPage();
 });
