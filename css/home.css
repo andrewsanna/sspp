@@ -647,3 +647,57 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* --- Homepage "Follow Along" section --- */
+.follow-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .follow-inner { grid-template-columns: 1fr; }
+}
+.follow-body {
+  margin: 0.75rem 0 1.5rem;
+  max-width: 44ch;
+  color: inherit;
+  opacity: 0.85;
+}
+.follow-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.btn-follow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-follow--ig {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+}
+.btn-follow--fb {
+  background: #1877f2;
+}
+.btn-follow i { font-size: 1.1rem; }
+.follow-feed-placeholder {
+  border: 1px dashed rgba(0,0,0,0.2);
+  border-radius: 12px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  color: rgba(0,0,0,0.45);
+  padding: 1.5rem;
+}
+.follow-feed-placeholder span { font-size: 0.85rem; }
