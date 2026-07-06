@@ -1,10 +1,10 @@
-// js/about-data.js
-// Clergy & staff data for the About page accordion.
-
 const CLERGY = [
   {
     id: 'fr-rick',
+    type: 'clergy',
+    featured: true,
     photo: 'images/fr-rick.jpg',
+    shortname: 'Fr. Rick',
     name: 'Rev. Fr. Richard Demetrius Andrews',
     role: 'Proistamenos (Head Priest)',
     summary: "Fr. Rick has led SSPP since 2019 and has been an ordained priest since 1995.",
@@ -19,7 +19,9 @@ Fr. Rick has been married to Presbytera Jane (Donovan) since 1990. They have an 
   },
   {
     id: 'fr-peter',
+    type: 'clergy',
     photo: 'images/fr-peter.jpg',
+    shortname: 'Fr. Peter',
     name: 'Rev. Fr. Peter Sarolas',
     role: 'Associate Priest',
     summary: "Chicago-born and ordained in 1994, Fr. Peter joined SSPP as associate priest in 2025.",
@@ -32,8 +34,10 @@ Fr. Peter is married to Presvytera Maria, and together they have three sons.`
   },
   {
     id: 'steven',
+    type: 'staff',
     photo: 'images/steven.jpg',
     name: 'Steven Thell',
+    shortname: 'Steven',
     role: 'Youth Director',
     summary: "Steven brings five years of youth ministry experience and a background in coaching and PE.",
     email: 'youthdirector@ssppglenview.org',
@@ -43,8 +47,10 @@ While in college, Steven attended Twelve Holy Apostles Greek Orthodox Church in 
   },
   {
     id: 'elea',
+    type: 'staff',
     photo: 'images/elea.jpg',
     name: 'Elea Valessares Bentley',
+    shortname: 'Elea',
     role: 'Parish Administrator',
     summary: "Elea brings a background in client services and a deep commitment to the parish community.",
     email: 'parishadmin@ssppglenview.org',
