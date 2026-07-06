@@ -240,6 +240,7 @@
 }
 
 
+
 /* ============================================
    Our Faith
    ============================================ */
@@ -261,6 +262,72 @@
 
 .ab-faith-btn {
   margin-top: 0.5rem;
+}
+
+/* ============================================
+   Our Faith — teaser card
+   ============================================ */
+.ab-faith {
+  background: var(--offwhite);
+}
+
+.ab-faith-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.ab-faith-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ab-faith-icon i {
+  font-size: 1.6rem;
+  color: var(--gold-deep);
+}
+
+.ab-faith-card-text {
+  max-width: 640px;
+}
+
+.ab-faith-card-text h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.ab-faith-card-text p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--mt);
+}
+
+.ab-faith-card .btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .ab-faith-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem;
+  }
+  .ab-faith-icon {
+    margin: 0 auto;
+  }
 }
 
 /* ============================================
