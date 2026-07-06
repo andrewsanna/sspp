@@ -23,7 +23,7 @@ function renderStaffList() {
         <div class="ab-staff-photo">
           <img src="${person.photo}" alt="${escapeHtml(person.name)}" loading="lazy" />
         </div>
-        <div class="ab-staff-text">
+       <div class="ab-staff-text">
           <div class="ab-staff-meta">
             <span class="ab-staff-badge ${badgeClass}">${badgeLabel}</span>
             <span class="ab-staff-role">${escapeHtml(person.role)}</span>
@@ -31,8 +31,8 @@ function renderStaffList() {
           <h3 class="ab-staff-name">${escapeHtml(person.name)}</h3>
           <p class="ab-staff-summary">${escapeHtml(person.summary)}</p>
           <div class="ab-staff-bio">${bioParagraphs}</div>
-          <a href="mailto:${person.email}" class="clergy-email">
-            <i class="ti ti-mail" aria-hidden="true"></i> ${person.email}
+          <a href="mailto:${person.email}" class="btn btn-outline-gold ab-staff-contact-btn">
+            <i class="ti ti-mail" aria-hidden="true"></i> Contact ${escapeHtml(person.shortName)}
           </a>
         </div>
       </div>
