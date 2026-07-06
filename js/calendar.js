@@ -91,7 +91,7 @@ const CALENDARS = [
     id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
     category: 'ministries', //pc meetings, greek fest, comms, ETC
     featured: false,
-  // },
+  },
   // {
   //   id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
   //   category: 'ministries', //stewardship
