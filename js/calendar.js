@@ -81,22 +81,22 @@ const CALENDARS = [
     id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com',
     category: 'adult_faith', // coffee connection, bible study, st stephens mens group, catechism, occ
     featured: false,
-  },
-  {
-    id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
-    category: 'ministries', //parish council
-    featured: false,
-  },
+  // },
+  // {
+  //   id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
+  //   category: 'ministries', //parish council
+  //   featured: false,
+  // },
   {
     id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
     category: 'ministries', //pc meetings, greek fest, comms, ETC
     featured: false,
-  },
-  {
-    id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
-    category: 'ministries', //stewardship
-    featured: false,
-  },
+  // },
+  // {
+  //   id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
+  //   category: 'ministries', //stewardship
+  //   featured: false,
+  // },
   {
     id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com',
     category: 'support_groups', // grief support, divorce rebuilders, cancer support 
