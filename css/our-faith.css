@@ -1,0 +1,270 @@
+/* ============================================
+   Our Faith — Hero
+   ============================================ */
+.of-hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.of-hero-arc {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 32px solid rgba(212, 175, 106, 0.08);
+}
+
+.of-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.of-hero-title {
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.9rem;
+}
+
+.of-hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.of-hero-body {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+.of-section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ============================================
+   Bible Study & Catechism
+   ============================================ */
+.of-learn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.of-learn-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.of-learn-card p {
+  font-size: 0.87rem;
+  line-height: 1.75;
+}
+
+.of-learn-photo {
+  height: 180px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.of-learn-photo .ph-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 760px) {
+  .of-learn-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Videos
+   ============================================ */
+.of-videos {
+  background: var(--offwhite);
+}
+
+.of-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.of-video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  margin-bottom: 0.85rem;
+}
+
+.of-video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.of-video-card h3 {
+  font-size: 1.02rem;
+  margin-bottom: 0.35rem;
+}
+
+.of-video-desc {
+  font-size: 0.83rem;
+  color: var(--mt);
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  .of-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Chrismation story
+   ============================================ */
+.of-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.of-story-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.6rem;
+  position: relative;
+  box-shadow: var(--shadow-card);
+}
+
+.of-story-photo .ph-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+.of-story-text h2 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--navy-deep);
+}
+
+.of-story-text p {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.of-story-stat {
+  background: var(--gold-lt);
+  border-left: 3px solid var(--gold);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.85rem !important;
+  color: var(--tx) !important;
+}
+
+@media (max-width: 760px) {
+  .of-story-grid {
+    grid-template-columns: 1fr;
+  }
+  .of-story-photo {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================
+   Note from Fr. Rick
+   ============================================ */
+.of-note {
+  background: var(--offwhite);
+}
+
+.of-note-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1.75rem;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.of-note-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--brd);
+}
+
+.of-note-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.of-note-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--navy-deep);
+}
+
+.of-note-sign {
+  font-size: 0.85rem;
+  color: var(--gold-text);
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .of-note-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .of-note-photo {
+    margin: 0 auto;
+  }
+}
