@@ -22,10 +22,9 @@ const CALENDARS = [
   },
   {
     id: 'c_ciglbmolreavrt8v9481jh9pi4@group.calendar.google.com',
-    category: 'youth', //jr.goya, 
+    category: 'youth', //jr.goya,   //FLJ, YAL, athletics, greek dance, goyalumni, greek school, church school
     featured: false,
   },
-  //FLJ, YAL, athletics, greek dance, goyalumni, greek school, church school
   {
     id: 'c_sco46hbnm89pj1d222m24od8t8@group.calendar.google.com',
     category: 'youth', // youth athletics
@@ -71,7 +70,6 @@ const CALENDARS = [
     category: 'philanthropy', // philanthropy
     featured: false,
   },
-
   {
     id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com',
     category: 'agape',
@@ -81,27 +79,27 @@ const CALENDARS = [
     id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com',
     category: 'adult_faith', // coffee connection, bible study, st stephens mens group, catechism, occ
     featured: false,
-  // },
-  // {
-  //   id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
-  //   category: 'ministries', //parish council
-  //   featured: false,
-  // },
+  },
   {
     id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
     category: 'ministries', //pc meetings, greek fest, comms, ETC
     featured: false,
   },
-  // {
-  //   id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
-  //   category: 'ministries', //stewardship
-  //   featured: false,
-  // },
   {
     id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com',
     category: 'support_groups', // grief support, divorce rebuilders, cancer support 
     featured: false,
   },
+    // {
+  //   id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
+  //   category: 'ministries', //parish council
+  //   featured: false,
+  // },
+   // {
+  //   id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
+  //   category: 'ministries', //stewardship
+  //   featured: false,
+  // },
  
   // --- Not wired up yet — add the real calendar ID and uncomment ---
   // {
