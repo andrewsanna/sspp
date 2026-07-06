@@ -58,7 +58,7 @@ const CALENDARS = [
    {
     id: 'c_f945mtpotllnf56tf6o49nc6eo@group.calendar.google.com',
     category: 'youth', //parish events
-    featured: true,
+    featured: false,
   },
   {
     id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com',
