@@ -21,12 +21,43 @@ const CALENDARS = [
     featured: false,
   },
   {
+    id: 'c_ciglbmolreavrt8v9481jh9pi4@group.calendar.google.com',
+    category: 'youth', //jr.goya, 
+    featured: false,
+  },
+  //FLJ, YAL, athletics, greek dance, goyalumni, greek school, church school
+  {
+    id: 'c_sco46hbnm89pj1d222m24od8t8@group.calendar.google.com',
+    category: 'youth', // youth athletics
+    featured: false,
+  },
+  {
     id: 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com',
-    category: 'youth', //goya, FLJ, YAL, athletics, greek dance, goyalumni, greek school, church school
+    category: 'youth', //FLJ
+    featured: false,
+  },
+ {
+    id: '  c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com',
+    category: 'youth', //YAL
+    featured: false,
+  },
+ {
+    id: ' c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com',
+    category: 'youth', // GOYAlumni
+    featured: false,
+  },
+   {
+    id: ' c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com',
+    category: 'youth', // greek school
     featured: false,
   },
   {
     id: '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com',
+    category: 'featured', //parish events - Anna's cal
+    featured: true,
+  },
+   {
+    id: 'c_f945mtpotllnf56tf6o49nc6eo@group.calendar.google.com',
     category: 'featured', //parish events
     featured: true,
   },
@@ -35,6 +66,12 @@ const CALENDARS = [
     category: 'philanthropy', // philoptochos, st. basil's, care for creation, prison outreach
     featured: false,
   },
+  {
+    id: ' c_ih9em4bm0b7ebnhcffgnbf0hgo@group.calendar.google.com',
+    category: 'philanthropy', // philanthropy
+    featured: false,
+  },
+
   {
     id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com',
     category: 'agape',
@@ -45,23 +82,34 @@ const CALENDARS = [
     category: 'adult_faith', // coffee connection, bible study, st stephens mens group, catechism, occ
     featured: false,
   },
-
+  {
+    id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
+    category: 'ministries', //parish council
+    featured: false,
+  },
+  {
+    id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
+    category: 'ministries', //pc meetings, greek fest, comms, ETC
+    featured: false,
+  },
+  {
+    id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
+    category: 'ministries', //stewardship
+    featured: false,
+  },
+  {
+    id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com',
+    category: 'support_groups', // grief support, divorce rebuilders, cancer support 
+    featured: false,
+  },
+ 
   // --- Not wired up yet — add the real calendar ID and uncomment ---
   // {
   //   id: 'YOUR_CALENDAR_ID_HERE',
   //   category: 'adult_activities', //athletics, dynamis, greek dance workshops
   //   featured: false,
   // },
-  // {
-  //   id: 'YOUR_CALENDAR_ID_HERE',
-  //   category: 'support_groups', // grief support, divorce rebuilders, cancer support 
-  //   featured: false,
-  // },
-  // {
-  //   id: 'YOUR_CALENDAR_ID_HERE',
-  //   category: 'ministries', //pc meetings, greek fest, comms, ETC
-  //   featured: false,
-  // },
+  // 
 ];
 
 const CATEGORY_LABELS = {
