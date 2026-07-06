@@ -35,21 +35,21 @@ const CALENDARS = [
     category: 'youth', //FLJ
     featured: false,
   },
- {
-    id: '  c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com',
-    category: 'youth', //YAL
-    featured: false,
-  },
- {
-    id: ' c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com',
-    category: 'youth', // GOYAlumni
-    featured: false,
-  },
-   {
-    id: ' c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com',
-    category: 'youth', // greek school
-    featured: false,
-  },
+ // {
+ //    id: '  c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com',
+ //    category: 'youth', //YAL
+ //    featured: false,
+ //  },
+ // {
+ //    id: ' c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com',
+ //    category: 'youth', // GOYAlumni
+ //    featured: false,
+ //  },
+  //  {
+  //   id: ' c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com',
+  //   category: 'youth', // greek school
+  //   featured: false,
+  // },
   {
     id: '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com',
     category: 'featured', //parish events - Anna's cal
@@ -65,11 +65,11 @@ const CALENDARS = [
     category: 'philanthropy', // philoptochos, st. basil's, care for creation, prison outreach
     featured: false,
   },
-  {
-    id: ' c_ih9em4bm0b7ebnhcffgnbf0hgo@group.calendar.google.com',
-    category: 'philanthropy', // philanthropy
-    featured: false,
-  },
+  // {
+  //   id: ' c_ih9em4bm0b7ebnhcffgnbf0hgo@group.calendar.google.com',
+  //   category: 'philanthropy', // philanthropy
+  //   featured: false,
+  // },
   {
     id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com',
     category: 'agape',
