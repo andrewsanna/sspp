@@ -169,6 +169,77 @@
   }
 }
 
+.ab-history-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0;
+  margin-top: 0.75rem;
+}
+
+.ab-history-toggle i {
+  transition: transform 0.2s ease;
+}
+
+.ab-history-toggle.open i {
+  transform: rotate(180deg);
+}
+
+.ab-history-toggle:hover {
+  text-decoration: underline;
+}
+
+.ab-history-full {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  max-width: 760px;
+}
+
+.ab-history-full.is-open {
+  max-height: 4000px;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--brd);
+}
+
+.ab-history-full h3 {
+  font-size: 1.05rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.ab-history-full p {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.ab-priest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ab-priest-list li {
+  font-size: 0.85rem;
+  color: var(--tx);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.ab-priest-list li span {
+  color: var(--gold-text);
+  font-weight: 600;
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+
 /* ============================================
    Our Faith
    ============================================ */
