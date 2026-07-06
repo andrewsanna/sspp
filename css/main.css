@@ -578,6 +578,7 @@ p {
    ============================================ */
 .section + .section {
   border-top: 1px solid var(--brd);
+padding: var(--space-5) 0;
 }
 
 .section--alt {
