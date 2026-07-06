@@ -164,6 +164,12 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
+  background: var(--gold-lt);
+  padding: 4rem 2rem;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
 }
 
 .vh-flow-step {
