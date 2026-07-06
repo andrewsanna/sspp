@@ -125,15 +125,14 @@
 .vh-note-grid {
   max-width: 900px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2.5rem;
   align-items: center;
-  gap: 2rem;
 }
 
 .vh-note-photo {
   width: 100%;
-  max-width: 420px;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
@@ -158,9 +157,9 @@
 }
 
 .vh-note-card {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: none;
+  margin: 0;
+  text-align: left;
 }
 
 .vh-note-mark {
@@ -175,10 +174,10 @@
 .vh-note-text {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.2rem;
-  line-height: 1.65;
+  font-size: 1.15rem;
+  line-height: 1.6;
   color: var(--navy-deep);
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.2rem;
 }
 
 .vh-note-sig {
@@ -191,13 +190,12 @@
   color: var(--gold-text);
 }
 
-
 @media (max-width: 760px) {
   .vh-note-grid {
     grid-template-columns: 1fr;
   }
   .vh-note-photo {
-    max-width: 320px;
+    max-width: 420px;
     margin: 0 auto;
   }
   .vh-note-card {
