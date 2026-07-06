@@ -1,0 +1,188 @@
+/* ============================================
+   Sacraments — Hero
+   ============================================ */
+.sc-hero {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.sc-hero-arc {
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 32px solid rgba(212, 175, 106, 0.08);
+}
+
+.sc-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.sc-hero-title {
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.9rem;
+}
+
+.sc-hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.sc-hero-body {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+/* ============================================
+   Quick jump nav
+   ============================================ */
+.sc-jumpnav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 2rem;
+  background: var(--offwhite);
+  border-bottom: 1px solid rgba(18, 39, 64, 0.08);
+}
+
+.sc-jumpnav a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  text-decoration: none;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(18, 39, 64, 0.15);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.sc-jumpnav a:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+
+/* ============================================
+   Sacrament sections
+   ============================================ */
+.sc-section {
+  padding: 3.5rem 0;
+  background: #fff;
+}
+
+.sc-section--alt {
+  background: var(--offwhite);
+}
+
+.sc-section-inner {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sc-section-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: var(--gold-text);
+  flex-shrink: 0;
+}
+
+.sc-section-text {
+  max-width: 700px;
+}
+
+.sc-section-title {
+  font-size: 1.5rem;
+  margin: 0.3rem 0 0.9rem;
+}
+
+.sc-section-text > p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--tx);
+  margin-bottom: 1.1rem;
+}
+
+.sc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sc-list li {
+  font-size: 0.87rem;
+  line-height: 1.7;
+  color: var(--tx);
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.sc-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.sc-list strong {
+  color: var(--navy-deep);
+}
+
+@media (max-width: 640px) {
+  .sc-section-inner {
+    grid-template-columns: 1fr;
+  }
+  .sc-section-icon {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* ============================================
+   Closing CTA band
+   ============================================ */
+.sc-cta {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  padding: 3.5rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.sc-cta h2 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.sc-cta p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.7;
+}
