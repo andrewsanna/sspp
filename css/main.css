@@ -576,8 +576,7 @@ p {
 /* ============================================
    Section helpers
    ============================================ */
-.section + .section {
-  border-top: 1px solid var(--brd);
+.section {
 padding: var(--space-5) 0;
 }
 
