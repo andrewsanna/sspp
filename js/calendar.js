@@ -229,39 +229,34 @@ function normalizeEvent(raw, calendarConfig) {
     htmlLink: raw.htmlLink || '#',
   };
 }
-
-// ============================================
-// Init
-// ============================================
 async function initCalendarPage() {
   const statusEl = document.getElementById('calStatus');
-
+ 
   if (GOOGLE_API_KEY === 'YOUR_API_KEY_HERE' || GOOGLE_API_KEY === 'PASTE_YOUR_KEY_HERE') {
     renderSetupNotice();
     return;
   }
-
+ 
   const unconfigured = CALENDARS.filter((c) => c.id.startsWith('YOUR_'));
   if (unconfigured.length > 0) {
     renderSetupNotice(`Missing calendar ID for: ${unconfigured.map((c) => CATEGORY_LABELS[c.category]).join(', ')}`);
     return;
   }
-
+ 
   try {
     const results = await Promise.all(CALENDARS.map(fetchCalendar));
     allEvents = results.flat();
-
+ 
     if (statusEl) statusEl.remove();
-
+ 
     renderFeaturedEvent();
     renderComingUp();
     renderMonthGrid();
-    openEventFromUrl();
   } catch (err) {
     renderError(err.message);
   }
 }
-
+ 
 function renderSetupNotice(extra) {
   const statusEl = document.getElementById('calStatus');
   if (!statusEl) return;
@@ -271,7 +266,7 @@ function renderSetupNotice(extra) {
     <span>Calendar not connected yet — add your Google API key and calendar IDs in <code>js/calendar.js</code> to go live.${extra ? ' ' + escapeHtml(extra) : ''}</span>
   `;
 }
-
+ 
 function renderError(message) {
   const statusEl = document.getElementById('calStatus');
   if (!statusEl) return;
@@ -281,7 +276,7 @@ function renderError(message) {
     <span>Could not load the calendar (${escapeHtml(message)}). Double-check the API key and calendar IDs are correct and all calendars are public.</span>
   `;
 }
-
+ 
 // ============================================
 // Featured event + Coming up — from any calendar flagged featured: true
 // ============================================
@@ -290,26 +285,27 @@ function getFeaturedEvents() {
     .filter((e) => e.isFeaturedCalendar && e.start && e.start.getTime() >= Date.now() - 86400000)
     .sort((a, b) => a.start - b.start);
 }
-
+ 
 // Shows up to 2 featured events side by side as compact cards.
 const FEATURED_SLOT_COUNT = 2;
-
+ 
 function renderFeaturedEvent() {
   const container = document.getElementById('featuredEventSlot');
   if (!container) return;
-
+ 
   const upcoming = getFeaturedEvents().slice(0, FEATURED_SLOT_COUNT);
   if (upcoming.length === 0) {
     container.innerHTML = '';
     return;
   }
-
+ 
   container.innerHTML = `
     <div class="featured-events-grid ${upcoming.length === 1 ? 'is-single' : ''}">
       ${upcoming.map((ev) => {
-        const { cleanText } = parseEventActions(ev.description);
+        const { cleanText, imageUrl } = parseEventActions(ev.description);
         return `
           <article class="featured-event-compact" data-event-id="${escapeHtml(ev.id)}">
+            ${imageUrl ? `<img class="fe-thumb" src="${escapeHtml(imageUrl)}" alt="" loading="lazy">` : ''}
             <div class="fe-top">
               <span class="featured-event-badge">Featured event</span>
               <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
@@ -325,7 +321,7 @@ function renderFeaturedEvent() {
       }).join('')}
     </div>
   `;
-
+ 
   container.querySelectorAll('.featured-event-compact').forEach((card) => {
     card.addEventListener('click', () => {
       const id = card.dataset.eventId;
@@ -334,18 +330,18 @@ function renderFeaturedEvent() {
     });
   });
 }
-
+ 
 function renderComingUp() {
   const container = document.getElementById('comingUpSlot');
   if (!container) return;
-
+ 
   const upcoming = getFeaturedEvents().slice(FEATURED_SLOT_COUNT, FEATURED_SLOT_COUNT + COMING_UP_COUNT);
-
+ 
   if (upcoming.length === 0) {
     container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other featured events scheduled yet.</p>`;
     return;
   }
-
+ 
   container.innerHTML = upcoming.map((ev, i) => `
     <div class="up-event" data-up-index="${i}" style="cursor:pointer;">
       <div class="up-event-img"><i class="ti ti-calendar-event" aria-hidden="true"></i></div>
@@ -356,7 +352,7 @@ function renderComingUp() {
       </div>
     </div>
   `).join('');
-
+ 
   container.querySelectorAll('.up-event').forEach((el) => {
     el.addEventListener('click', () => {
       const idx = parseInt(el.dataset.upIndex, 10);
@@ -364,7 +360,7 @@ function renderComingUp() {
     });
   });
 }
-
+ 
 // ============================================
 // Calendar grid — Month or Week view, filterable by category
 // ============================================
@@ -373,7 +369,7 @@ function startOfWeek(date) {
   d.setDate(d.getDate() - d.getDay()); // back up to Sunday
   return d;
 }
-
+ 
 function getVisibleCells() {
   if (viewMode === 'week') {
     const weekStart = startOfWeek(anchorDate);
@@ -384,14 +380,14 @@ function getVisibleCells() {
     }
     return cells;
   }
-
+ 
   const year = anchorDate.getFullYear();
   const month = anchorDate.getMonth();
   const firstOfMonth = new Date(year, month, 1);
   const startDow = firstOfMonth.getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const daysInPrevMonth = new Date(year, month, 0).getDate();
-
+ 
   const cells = [];
   for (let i = startDow - 1; i >= 0; i--) {
     cells.push({ day: daysInPrevMonth - i, otherMonth: true, date: new Date(year, month - 1, daysInPrevMonth - i) });
@@ -406,11 +402,11 @@ function getVisibleCells() {
   }
   return cells;
 }
-
+ 
 function updateCalendarLabel() {
   const label = document.getElementById('calMonthLabel');
   if (!label) return;
-
+ 
   if (viewMode === 'week') {
     const weekStart = startOfWeek(anchorDate);
     const weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 6);
@@ -422,32 +418,32 @@ function updateCalendarLabel() {
     label.textContent = anchorDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   }
 }
-
+ 
 function renderMonthGrid() {
   const grid = document.getElementById('dayGrid');
   if (!grid) return;
-
+ 
   updateCalendarLabel();
-
+ 
   grid.classList.toggle('view-week', viewMode === 'week');
   grid.classList.toggle('view-month', viewMode === 'month');
-
+ 
   const cells = getVisibleCells();
   const today = new Date();
   const filtered = activeFilter === 'all'
     ? allEvents
     : allEvents.filter((e) => e.category === activeFilter);
-
+ 
   // Week view has a lot more vertical room per day, so show more pills.
   const MAX_VISIBLE = viewMode === 'week' ? 8 : 3;
-
+ 
   grid.innerHTML = cells.map((cell) => {
     const dayEvents = filtered.filter((e) => eventCoversDay(e, cell.date));
     const isToday = isSameDay(cell.date, today);
-
+ 
     const visibleEvents = dayEvents.slice(0, MAX_VISIBLE);
     const extraCount = dayEvents.length - visibleEvents.length;
-
+ 
     return `
       <div class="day-cell ${cell.otherMonth ? 'other-month' : ''} ${isToday ? 'today' : ''}">
         <div class="day-num">${viewMode === 'week' ? cell.date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }) : cell.day}</div>
@@ -464,7 +460,7 @@ function renderMonthGrid() {
       </div>
     `;
   }).join('');
-
+ 
   grid.querySelectorAll('.ev-pill').forEach((pillEl) => {
     pillEl.addEventListener('click', () => {
       const id = pillEl.dataset.eventId;
@@ -473,7 +469,7 @@ function renderMonthGrid() {
     });
   });
 }
-
+ 
 // Multi-day events (like a 3-day festival) need to show on every day they
 // span, not just the start day.
 function eventCoversDay(event, date) {
@@ -483,17 +479,17 @@ function eventCoversDay(event, date) {
   const dayEnd = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59, 999);
   return event.start <= dayEnd && end >= dayStart;
 }
-
+ 
 // Lighten a hex color for pill backgrounds, keep the base color for text
 function categoryBg(category) {
   const hex = CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
   return hexToRgba(hex, 0.14);
 }
-
+ 
 function categoryText(category) {
   return CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
 }
-
+ 
 function hexToRgba(hex, alpha) {
   const clean = hex.replace('#', '');
   const r = parseInt(clean.substring(0, 2), 16);
@@ -501,22 +497,27 @@ function hexToRgba(hex, alpha) {
   const b = parseInt(clean.substring(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
-
+ 
 // ============================================
 // Event detail modal
 // ============================================
 function parseEventActions(description) {
-  if (!description) return { cleanText: '', actions: [] };
-
+  if (!description) return { cleanText: '', actions: [], imageUrl: '' };
+ 
   const lines = description.split('\n');
   const actions = [];
   const textLines = [];
-
+  let imageUrl = '';
+ 
   lines.forEach((line) => {
-    const match = line.match(/^\s*(INFO|SIGNUP|TICKETS|RSVP)\s*:\s*(\S+)/i);
-    if (match) {
-      const key = match[1].toUpperCase();
-      const url = match[2];
+    const imageMatch = line.match(/^\s*IMAGE\s*:\s*(\S+)/i);
+    const actionMatch = line.match(/^\s*(INFO|SIGNUP|TICKETS|RSVP)\s*:\s*(\S+)/i);
+ 
+    if (imageMatch) {
+      imageUrl = imageMatch[1];
+    } else if (actionMatch) {
+      const key = actionMatch[1].toUpperCase();
+      const url = actionMatch[2];
       if (ACTION_LABELS[key]) {
         actions.push({ key, url, ...ACTION_LABELS[key] });
       }
@@ -524,18 +525,10 @@ function parseEventActions(description) {
       textLines.push(line);
     }
   });
-
-  return { cleanText: textLines.join(' ').trim(), actions };
+ 
+  return { cleanText: textLines.join(' ').trim(), actions, imageUrl };
 }
-
-function openEventFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  const eventId = params.get('event');
-  if (!eventId) return;
-  const event = allEvents.find((e) => e.id === eventId);
-  if (event) openEventModal(event);
-}
-
+ 
 function openEventModal(event) {
   const overlay = document.getElementById('eventModalOverlay');
   const categoryEl = document.getElementById('eventModalCategory');
@@ -543,14 +536,25 @@ function openEventModal(event) {
   const metaEl = document.getElementById('eventModalMeta');
   const descEl = document.getElementById('eventModalDesc');
   const actionsEl = document.getElementById('eventModalActions');
-
-  const { cleanText, actions } = parseEventActions(event.description);
-
+ 
+  const { cleanText, actions, imageUrl } = parseEventActions(event.description);
+ 
+  const existingImg = document.getElementById('eventModalImage');
+  if (existingImg) existingImg.remove();
+  if (imageUrl) {
+    const img = document.createElement('img');
+    img.id = 'eventModalImage';
+    img.className = 'event-modal-image';
+    img.src = imageUrl;
+    img.alt = '';
+    document.querySelector('.event-modal').insertBefore(img, categoryEl);
+  }
+ 
   categoryEl.textContent = CATEGORY_LABELS[event.category] || 'Event';
   categoryEl.style.background = hexToRgba(categoryText(event.category), 0.14);
   categoryEl.style.color = categoryText(event.category);
   titleEl.textContent = event.title;
-
+ 
   metaEl.innerHTML = `
     <div class="event-modal-meta-row">
       <i class="ti ti-calendar" aria-hidden="true"></i>
@@ -567,28 +571,28 @@ function openEventModal(event) {
       </div>
     ` : ''}
   `;
-
+ 
   descEl.textContent = cleanText;
   descEl.style.display = cleanText ? 'block' : 'none';
-
+ 
   actionsEl.innerHTML = actions.map((action, i) => `
     <a href="${escapeHtml(action.url)}" target="_blank" rel="noopener noreferrer"
        class="event-modal-btn ${i === 0 ? '' : 'secondary'}">
       <i class="ti ${action.icon}" aria-hidden="true"></i> ${action.label}
     </a>
   `).join('');
-
+ 
   overlay.classList.add('is-open');
 }
-
+ 
 function closeEventModal() {
   document.getElementById('eventModalOverlay').classList.remove('is-open');
 }
-
+ 
 function initEventModal() {
   const overlay = document.getElementById('eventModalOverlay');
   const closeBtn = document.getElementById('eventModalClose');
-
+ 
   closeBtn.addEventListener('click', closeEventModal);
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeEventModal();
@@ -597,7 +601,7 @@ function initEventModal() {
     if (e.key === 'Escape') closeEventModal();
   });
 }
-
+ 
 // ============================================
 // Filter chips
 // ============================================
@@ -611,7 +615,7 @@ function initFilterChips() {
       renderMonthGrid();
     });
   });
-
+ 
   // If opened with ?category=youth (e.g. from a "View Calendar" button),
   // pre-select that chip.
   const params = new URLSearchParams(window.location.search);
@@ -625,7 +629,7 @@ function initFilterChips() {
     }
   }
 }
-
+ 
 // ============================================
 // Month/week navigation
 // ============================================
@@ -633,7 +637,7 @@ function initMonthNav() {
   const prevBtn = document.getElementById('calPrevMonth');
   const nextBtn = document.getElementById('calNextMonth');
   const todayBtn = document.getElementById('calTodayBtn');
-
+ 
   if (prevBtn) prevBtn.addEventListener('click', () => {
     if (viewMode === 'week') {
       anchorDate.setDate(anchorDate.getDate() - 7);
@@ -642,7 +646,7 @@ function initMonthNav() {
     }
     renderMonthGrid();
   });
-
+ 
   if (nextBtn) nextBtn.addEventListener('click', () => {
     if (viewMode === 'week') {
       anchorDate.setDate(anchorDate.getDate() + 7);
@@ -651,14 +655,14 @@ function initMonthNav() {
     }
     renderMonthGrid();
   });
-
+ 
   if (todayBtn) todayBtn.addEventListener('click', () => {
     anchorDate = new Date();
     anchorDate.setHours(0, 0, 0, 0);
     renderMonthGrid();
   });
 }
-
+ 
 // ============================================
 // Month / Week view toggle
 // ============================================
@@ -675,7 +679,7 @@ function initViewToggle() {
     });
   });
 }
-
+ 
 // ============================================
 // Formatting helpers
 // ============================================
@@ -684,19 +688,19 @@ function isSameDay(a, b) {
     a.getMonth() === b.getMonth() &&
     a.getDate() === b.getDate();
 }
-
+ 
 function formatShortDate(date) {
   if (!date) return '';
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
 }
-
+ 
 function formatPillTime(date, isAllDay) {
   if (!date || isAllDay) return '';
   return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
     .replace(':00', '')
     .replace(' ', '');
 }
-
+ 
 function formatDateRange(start, end, isAllDay) {
   if (!start) return '';
   const startStr = start.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -704,7 +708,7 @@ function formatDateRange(start, end, isAllDay) {
   const endStr = end.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   return `${startStr} – ${endStr}`;
 }
-
+ 
 function formatTimeRange(start, end, isAllDay) {
   if (!start) return '';
   if (isAllDay) return 'All day';
@@ -714,17 +718,17 @@ function formatTimeRange(start, end, isAllDay) {
   const endStr = end.toLocaleTimeString('en-US', opts);
   return `${startStr} – ${endStr}`;
 }
-
+ 
 function truncate(str, max) {
   return str.length > max ? str.slice(0, max - 1) + '…' : str;
 }
-
+ 
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
-
+ 
 // ============================================
 // Boot
 // ============================================
