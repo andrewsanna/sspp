@@ -126,6 +126,17 @@
 /* ============================================
    Parish History — intro with photo (right side)
    ============================================ */
+
+.ab-history-body {
+  max-width: 760px;
+}
+
+.ab-history-body p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 1.1rem;
+}
+
 .ab-history-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
