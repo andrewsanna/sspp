@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Bulletins, announcements, prayer requests, and parish council contacts for Saints Peter & Paul Greek Orthodox Church in Glenview, IL." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/resources.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <section class="rs-hero">
+    <div class="rs-hero-arc" aria-hidden="true"></div>
+    <div class="rs-hero-inner">
+      <span class="eyebrow eyebrow--on-dark">For Parishioners</span>
+      <h1 class="rs-hero-title">Everything you need,<br><em>in one place.</em></h1>
+      <p class="rs-hero-body">Bulletins, prayer requests, and who to reach on the parish council — the tools our parish family uses week to week.</p>
+    </div>
+  </section>
+
+  <!-- QUICK NAV -->
+  <nav class="rs-jumpnav" aria-label="Resources on this page">
+    <a href="#bulletin">Bulletin</a>
+    <a href="#prayer">Prayer Requests</a>
+    <a href="#council">Parish Council</a>
+  </nav>
+
+  <!-- BULLETIN & ANNOUNCEMENTS -->
+  <section class="rs-section" id="bulletin">
+    <div class="container rs-section-inner">
+      <div class="rs-section-icon"><i class="ti ti-news" aria-hidden="true"></i></div>
+      <div class="rs-section-text">
+        <span class="eyebrow">This Week</span>
+        <h2 class="rs-section-title">Bulletin &amp; announcements</h2>
+
+        <!-- This Week's Announcements — update this block each week -->
+        <div class="rs-announce-card">
+          <div class="rs-announce-date">Week of July 5, 2026</div>
+          <ul class="rs-list">
+            <li>Festival planning meeting Thursday at 7:00 PM in the Community Center.</li>
+            <li>Coffee hour is hosted by Philoptochos this Sunday — all are welcome to stay.</li>
+            <li>Registration for Greek School's fall term opens next week.</li>
+          </ul>
+        </div>
+
+        <!-- Bulletin Archive — add a new row each week, newest first -->
+        <h3 class="rs-subtitle">Past bulletins</h3>
+        <ul class="rs-bulletin-list">
+          <li>
+            <a href="bulletins/2026-06-28.pdf" target="_blank" rel="noopener">
+              <i class="ti ti-file-text" aria-hidden="true"></i>
+              June 28, 2026
+            </a>
+          </li>
+          <li>
+            <a href="bulletins/2026-06-21.pdf" target="_blank" rel="noopener">
+              <i class="ti ti-file-text" aria-hidden="true"></i>
+              June 21, 2026
+            </a>
+          </li>
+          <li>
+            <a href="bulletins/2026-06-14.pdf" target="_blank" rel="noopener">
+              <i class="ti ti-file-text" aria-hidden="true"></i>
+              June 14, 2026
+            </a>
+          </li>
+        </ul>
+        <p class="rs-note">Have last week's bulletin PDF? Drop it in <code>/bulletins/</code> named by date (YYYY-MM-DD.pdf) and add one line above — no code changes needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAYER REQUESTS -->
+  <section class="rs-section rs-section--alt" id="prayer">
+    <div class="container rs-section-inner">
+      <div class="rs-section-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+      <div class="rs-section-text">
+        <span class="eyebrow">Prayer List</span>
+        <h2 class="rs-section-title">Submit a prayer request</h2>
+        <p>Share a name or intention you'd like our clergy and prayer team to hold in prayer. Requests marked private are seen only by the clergy — everything else may be included in the parish prayer list read during services.</p>
+
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+        <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="rs-form-row">
+            <label for="rsName">Your name</label>
+            <input type="text" id="rsName" name="name" required>
+          </div>
+          <div class="rs-form-row">
+            <label for="rsEmail">Your email <span class="rs-optional">(optional)</span></label>
+            <input type="email" id="rsEmail" name="email">
+          </div>
+          <div class="rs-form-row">
+            <label for="rsRequest">Prayer request</label>
+            <textarea id="rsRequest" name="request" rows="4" required placeholder="Name(s) and what you'd like prayers for"></textarea>
+          </div>
+          <div class="rs-form-checkbox">
+            <input type="checkbox" id="rsPrivate" name="private">
+            <label for="rsPrivate">Keep this request private (clergy only — not read publicly)</label>
+          </div>
+          <button type="submit" class="btn btn-gold-lg">
+            Submit request <i class="ti ti-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARISH COUNCIL & MINISTRY LEADERS -->
+  <section class="rs-section" id="council">
+    <div class="container rs-section-inner">
+      <div class="rs-section-icon"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+      <div class="rs-section-text">
+        <span class="eyebrow">Leadership</span>
+        <h2 class="rs-section-title">Parish council &amp; ministry leaders</h2>
+        <p>Have a question about parish operations, a ministry, or want to get more involved in leadership? Here's who to reach.</p>
+
+        <h3 class="rs-subtitle">Parish Council</h3>
+        <div class="rs-staff-list">
+          <div class="rs-staff-row">
+            <div class="rs-staff-info">
+              <div class="rs-staff-name">Parish Council President</div>
+              <div class="rs-staff-role">Name here</div>
+            </div>
+            <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
+          </div>
+          <div class="rs-staff-row">
+            <div class="rs-staff-info">
+              <div class="rs-staff-name">Vice President</div>
+              <div class="rs-staff-role">Name here</div>
+            </div>
+            <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
+          </div>
+          <div class="rs-staff-row">
+            <div class="rs-staff-info">
+              <div class="rs-staff-name">Treasurer</div>
+              <div class="rs-staff-role">Name here</div>
+            </div>
+            <a href="mailto:treasurer@ssppglenview.org" class="rs-staff-email">treasurer@ssppglenview.org</a>
+          </div>
+        </div>
+
+        <h3 class="rs-subtitle">Ministry Leaders</h3>
+        <div class="rs-staff-list">
+          <div class="rs-staff-row">
+            <div class="rs-staff-info">
+              <div class="rs-staff-name">Philoptochos President</div>
+              <div class="rs-staff-role">Name here</div>
+            </div>
+            <a href="mailto:philoptochos@ssppglenview.org" class="rs-staff-email">philoptochos@ssppglenview.org</a>
+          </div>
+          <div class="rs-staff-row">
+            <div class="rs-staff-info">
+              <div class="rs-staff-name">GOYA Advisor</div>
+              <div class="rs-staff-role">Name here</div>
+            </div>
+            <a href="mailto:goya@ssppglenview.org" class="rs-staff-email">goya@ssppglenview.org</a>
+          </div>
+          <div class="rs-staff-row">
+            <div class="rs-staff-info">
+              <div class="rs-staff-name">Greek School Director</div>
+              <div class="rs-staff-role">Name here</div>
+            </div>
+            <a href="mailto:greekschool@ssppglenview.org" class="rs-staff-email">greekschool@ssppglenview.org</a>
+          </div>
+        </div>
+        <p class="rs-note">See the full list of 33 ministries and their contacts on the <a href="get-involved.html">Get Involved</a> page.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="rs-cta">
+    <h2>Can't find what you need?</h2>
+    <p>The parish office is always happy to point you in the right direction.</p>
+    <div class="vh-hero-ctas">
+      <a class="btn btn-gold-lg" href="contact.html">Contact the parish office</a>
+    </div>
+  </section>
+
+  {% include footer.html %}
+
+  <script src="js/main.js"></script>
+</body>
+</html>
