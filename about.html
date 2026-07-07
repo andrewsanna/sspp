@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +12,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" /><body>
 
   <!-- NAV -->
-  <header class="site-nav">
+  {% include nav.html %}
+  <!-- <header class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <span class="nav-cross" aria-hidden="true">☩</span>
         <span class="nav-logo-text">
           <span class="nav-logo-name">Saints Peter &amp; Paul Greek Orthodox Church</span>
-          <!-- <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span> -->
+
         </span>
       </a>
 
@@ -46,7 +49,7 @@
         </button>
       </div>
     </div>
-  </header>
+  </header> -->
 
  <!-- HERO -->
   <section class="ab-hero" style="background-image: url('images/sundayoforthodoxy.jpg');">
@@ -155,7 +158,8 @@
     </div>
   </section>
   <!-- FOOTER -->
-  <footer class="site-footer">
+  {% include footer.html %}
+  <!-- <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div>
@@ -219,7 +223,7 @@
         <a href="#">Metropolis of Chicago</a>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <script src="js/main.js"></script>
   <script src="js/about-data.js"></script>
