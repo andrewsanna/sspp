@@ -80,7 +80,7 @@ function plRenderCard(post) {
       <button class="pl-head" data-open-post="${post.id}" aria-haspopup="dialog">
         ${hasFeatured
           ? `<div class="pl-card-image"><img src="${plEscapeHtml(featuredSrc)}" alt="" loading="lazy"></div>`
-          : `<div class="pl-card-accent pl-card-accent--${cat.color}"><i class="ti ${cat.icon}" aria-hidden="true"></i></div>`
+          : `<div class="pl-card-accent pl-card-accent--${cat.color}"></div>`
         }
         <div class="pl-head-main">
           <div class="pl-head-top">
@@ -95,7 +95,6 @@ function plRenderCard(post) {
     </article>
   `;
 }
-
 // ---- Full grid render ----
 
 function renderParishLifeFeed() {
@@ -158,7 +157,7 @@ function plOpenModal(postId, triggerEl) {
       <div class="pl-modal-scroll">
         ${post.photos && post.photos.length > 0
           ? `<div class="pl-modal-hero"><img src="${plEscapeHtml(post.photos[0].src)}" alt=""></div>`
-          : `<div class="pl-modal-hero pl-modal-hero--accent pl-card-accent--${cat.color}"><i class="ti ${cat.icon}" aria-hidden="true"></i></div>`
+          : `<div class="pl-modal-hero pl-modal-hero--accent pl-card-accent--${cat.color}"></div>`
         }
         <div class="pl-modal-body">
           <div class="pl-head-top">
