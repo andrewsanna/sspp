@@ -1,13 +1,69 @@
 /* ============================================
    Hero
    ============================================ */
-.vh-hero {
+/* .vh-hero {
   background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
   padding: 4.5rem 2rem 4rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+} */
+/* ============================================
+   About — Hero (full-bleed photo background)
+   ============================================ */
+.vh-hero {
+  background-color: var(--navy-deep);
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
+
+.vh-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
+}
+
+.vh-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.vh-hero-title {
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 0.9rem;
+}
+
+.vh-hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.vh-hero-body {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .vh-hero {
+    padding: 4.5rem 0;
+  }
+}
+
 
 .vh-hero-arc {
   position: absolute;
@@ -19,7 +75,7 @@
   border: 34px solid rgba(212, 175, 106, 0.08);
 }
 
-.vh-hero-inner {
+/* .vh-hero-inner {
   position: relative;
   z-index: 1;
   max-width: 640px;
@@ -32,14 +88,14 @@
   line-height: 1.25;
   margin-bottom: 1.1rem;
   font-style: italic;
-}
+} */
 
-.vh-hero-body {
+/* .vh-hero-body {
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(251, 247, 239, 0.78);
   margin-bottom: 2rem;
-}
+} */
 
 .vh-hero-ctas {
   display: flex;
