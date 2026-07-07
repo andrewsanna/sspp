@@ -215,48 +215,20 @@
    ============================================ */
 .welcome-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* was 1.1fr 0.9fr — now 1/3 text, 2/3 photos */
+  grid-template-columns: 1fr 2fr;
   gap: 3rem;
   align-items: center;
 }
 
-.photo-note-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+.welcome-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
 }
 
-.photo-note-img {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-}
-
-.photo-note-img.tall {
-  grid-row: span 2;
-  aspect-ratio: 100%; 
-}
-
-.photo-note-img.short {
-  aspect-ratio: 4 / 3; /* replaces min-height: 119px */
-}
-
-.photo-note-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* keep placeholder mockup blocks matching */
-.photo-note-grid .photo-placeholder.tall {
-  grid-row: span 2;
-  height: 100%;
-  min-height: 0;
-}
-
-.photo-note-grid .photo-placeholder.short {
-  aspect-ratio: 4 / 3;
-  min-height: 0;
+.welcome-body {
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
 }
 
 .reassure-list {
@@ -300,14 +272,42 @@
   border-color: var(--blue);
 }
 
+.photo-note-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.photo-note-img {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.photo-note-img.tall {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.photo-note-img.short {
+  aspect-ratio: 4 / 3;
+}
+
+.photo-note-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .photo-note-grid .photo-placeholder.tall {
   grid-row: span 2;
   height: 100%;
-  min-height: 246px;
+  min-height: 0;
 }
 
 .photo-note-grid .photo-placeholder.short {
-  min-height: 119px;
+  aspect-ratio: 4 / 3;
+  min-height: 0;
 }
 
 @media (max-width: 760px) {
