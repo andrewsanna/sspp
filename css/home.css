@@ -233,7 +233,7 @@
 
 .photo-note-img.tall {
   grid-row: span 2;
-  aspect-ratio: 3 / 4; /* replaces min-height: 246px — actually constrains height now */
+  aspect-ratio: 100%; 
 }
 
 .photo-note-img.short {
@@ -250,8 +250,7 @@
 /* keep placeholder mockup blocks matching */
 .photo-note-grid .photo-placeholder.tall {
   grid-row: span 2;
-  aspect-ratio: 3 / 4;
-  height: auto;
+  height: 100%;
   min-height: 0;
 }
 
