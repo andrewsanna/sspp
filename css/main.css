@@ -637,8 +637,8 @@ padding: var(--space-5) 0;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--gold, #d4af6a);
-  color: #ffffff;
+  background: var(--navy-deep, #1d5fbf);
+  color: var(--gold, #d4af6a);
   font-size: 1.5rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
   border: 2px solid var(--gold-deep, #b8912f);
@@ -649,11 +649,11 @@ padding: var(--space-5) 0;
 .follow-float a:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  background: var(--gold-deep, #b8912f);
+  background: var(--navy, #164a99);
 }
 .follow-float .ti-brand-instagram,
 .follow-float .ti-brand-facebook {
-  color: #ffffff;
+  color: var(--gold, #d4af6a);
 }
 @media (max-width: 640px) {
   .follow-float a { width: 48px; height: 48px; font-size: 1.3rem; }
