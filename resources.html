@@ -28,86 +28,186 @@
   <!-- QUICK NAV -->
   <nav class="rs-jumpnav" aria-label="Resources on this page">
     <a href="#bulletin">Bulletin</a>
+    <a href="#realm">Realm</a>
     <a href="#prayer">Prayer Requests</a>
+    <a href="#blessing">Home Blessing</a>
     <a href="#council">Parish Council</a>
   </nav>
 
-  <!-- BULLETIN & ANNOUNCEMENTS -->
-  <section class="rs-section" id="bulletin">
-    <div class="container rs-section-inner">
-      <div class="rs-section-icon"><i class="ti ti-news" aria-hidden="true"></i></div>
-      <div class="rs-section-text">
-        <span class="eyebrow">This Week</span>
-        <h2 class="rs-section-title">Bulletin &amp; announcements</h2>
+  <!-- BULLETIN + REALM -->
+  <section class="rs-section">
+    <div class="container">
+      <div class="rs-pair-grid">
 
-        <!-- This Week's Announcements — update this block each week -->
-        <div class="rs-announce-card">
-          <div class="rs-announce-date">Week of July 5, 2026</div>
-          <ul class="rs-list">
-            <li>Festival planning meeting Thursday at 7:00 PM in the Community Center.</li>
-            <li>Coffee hour is hosted by Philoptochos this Sunday — all are welcome to stay.</li>
-            <li>Registration for Greek School's fall term opens next week.</li>
+        <!-- BULLETIN & ANNOUNCEMENTS -->
+        <div class="rs-pair-card" id="bulletin">
+          <div class="rs-pair-icon"><i class="ti ti-news" aria-hidden="true"></i></div>
+          <span class="eyebrow">This Week</span>
+          <h2 class="rs-section-title">Bulletin &amp; announcements</h2>
+
+          <!-- This Week's Announcements — update this block each week -->
+          <div class="rs-announce-card">
+            <div class="rs-announce-date">Week of July 5, 2026</div>
+            <ul class="rs-list">
+              <li>Festival planning meeting Thursday at 7:00 PM in the Community Center.</li>
+              <li>Coffee hour is hosted by Philoptochos this Sunday — all are welcome to stay.</li>
+              <li>Registration for Greek School's fall term opens next week.</li>
+            </ul>
+          </div>
+
+          <!-- Bulletin Archive — add a new row each week, newest first -->
+          <h3 class="rs-subtitle">Past bulletins</h3>
+          <ul class="rs-bulletin-list">
+            <li>
+              <a href="bulletins/2026-06-28.pdf" target="_blank" rel="noopener">
+                <i class="ti ti-file-text" aria-hidden="true"></i>
+                June 28, 2026
+              </a>
+            </li>
+            <li>
+              <a href="bulletins/2026-06-21.pdf" target="_blank" rel="noopener">
+                <i class="ti ti-file-text" aria-hidden="true"></i>
+                June 21, 2026
+              </a>
+            </li>
+            <li>
+              <a href="bulletins/2026-06-14.pdf" target="_blank" rel="noopener">
+                <i class="ti ti-file-text" aria-hidden="true"></i>
+                June 14, 2026
+              </a>
+            </li>
           </ul>
+          <p class="rs-note">Have last week's bulletin PDF? Drop it in <code>/bulletins/</code> named by date (YYYY-MM-DD.pdf) and add one line above — no code changes needed.</p>
         </div>
 
-        <!-- Bulletin Archive — add a new row each week, newest first -->
-        <h3 class="rs-subtitle">Past bulletins</h3>
-        <ul class="rs-bulletin-list">
-          <li>
-            <a href="bulletins/2026-06-28.pdf" target="_blank" rel="noopener">
-              <i class="ti ti-file-text" aria-hidden="true"></i>
-              June 28, 2026
-            </a>
-          </li>
-          <li>
-            <a href="bulletins/2026-06-21.pdf" target="_blank" rel="noopener">
-              <i class="ti ti-file-text" aria-hidden="true"></i>
-              June 21, 2026
-            </a>
-          </li>
-          <li>
-            <a href="bulletins/2026-06-14.pdf" target="_blank" rel="noopener">
-              <i class="ti ti-file-text" aria-hidden="true"></i>
-              June 14, 2026
-            </a>
-          </li>
-        </ul>
-        <p class="rs-note">Have last week's bulletin PDF? Drop it in <code>/bulletins/</code> named by date (YYYY-MM-DD.pdf) and add one line above — no code changes needed.</p>
+        <!-- SSPP REALM -->
+        <div class="rs-pair-card" id="realm">
+          <div class="rs-pair-icon"><i class="ti ti-address-book" aria-hidden="true"></i></div>
+          <span class="eyebrow">Member Portal</span>
+          <h2 class="rs-section-title">SSPP Realm</h2>
+          <p>Realm is our parish's church database — built mainly to support our staff, but it also makes it easier for our church family to stay connected with each other and with parish life.</p>
+
+          <div class="rs-faq">
+            <details class="rs-faq-item">
+              <summary>What is SSPP Realm?</summary>
+              <p>Realm is our new church database. It primarily serves the administrative needs of our staff, but it also has features that support the way you're involved in the church — helping our parish family connect with one another.</p>
+            </details>
+            <details class="rs-faq-item">
+              <summary>What can I see and do in SSPP Realm?</summary>
+              <p>You decide how much of Realm you want to use. You can view your giving statements, make or edit contributions, connect with the ministries you're part of, and see our parish directory with photos.</p>
+            </details>
+            <details class="rs-faq-item">
+              <summary>How do I request and sign up for my account?</summary>
+              <p>Fill in the request form below and it will be sent to our parish administrator. Within 48 hours you'll get an email from Sts. Peter &amp; Paul inviting you to create an account. It will prompt you to set a password — once you log in, your account is active.</p>
+            </details>
+            <details class="rs-faq-item">
+              <summary>How do I get the SSPP Realm app?</summary>
+              <p>Scan the QR code, or use the sign-in link, to open Realm on your phone or computer.</p>
+            </details>
+          </div>
+
+          <div class="rs-realm-grid">
+            <div class="rs-realm-qr">
+              <img src="images/realm-qr.png" alt="QR code to sign in to SSPP Realm">
+              <p>Scan to open Realm</p>
+              <a href="https://onrealm.org/ssppglenview/SignIn" target="_blank" rel="noopener" class="rs-realm-link">
+                Already have an account? Sign in <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="rs-realm-signup">
+              <h3 class="rs-subtitle" style="margin-top: 0;">Request an account</h3>
+              <p>New to Realm? Submit a request and our parish administrator will send you an invitation.</p>
+
+              <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+              <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="rs-form-row">
+                  <label for="realmName">Your name</label>
+                  <input type="text" id="realmName" name="name" required>
+                </div>
+                <div class="rs-form-row">
+                  <label for="realmEmail">Your email</label>
+                  <input type="email" id="realmEmail" name="email" required>
+                </div>
+                <button type="submit" class="btn btn-gold-lg">
+                  Request Realm account <i class="ti ti-arrow-right" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PRAYER REQUESTS -->
-  <section class="rs-section rs-section--alt" id="prayer">
-    <div class="container rs-section-inner">
-      <div class="rs-section-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
-      <div class="rs-section-text">
-        <span class="eyebrow">Prayer List</span>
-        <h2 class="rs-section-title">Submit a prayer request</h2>
-        <p>Share a name or intention you'd like our clergy and prayer team to hold in prayer. Requests marked private are seen only by the clergy — everything else may be included in the parish prayer list read during services.</p>
+  <!-- PRAYER REQUESTS + HOME BLESSING -->
+  <section class="rs-section rs-section--alt">
+    <div class="container">
+      <div class="rs-pair-grid">
 
-        <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-        <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="rs-form-row">
-            <label for="rsName">Your name</label>
-            <input type="text" id="rsName" name="name" required>
-          </div>
-          <div class="rs-form-row">
-            <label for="rsEmail">Your email <span class="rs-optional">(optional)</span></label>
-            <input type="email" id="rsEmail" name="email">
-          </div>
-          <div class="rs-form-row">
-            <label for="rsRequest">Prayer request</label>
-            <textarea id="rsRequest" name="request" rows="4" required placeholder="Name(s) and what you'd like prayers for"></textarea>
-          </div>
-          <div class="rs-form-checkbox">
-            <input type="checkbox" id="rsPrivate" name="private">
-            <label for="rsPrivate">Keep this request private (clergy only — not read publicly)</label>
-          </div>
-          <button type="submit" class="btn btn-gold-lg">
-            Submit request <i class="ti ti-arrow-right" aria-hidden="true"></i>
-          </button>
-        </form>
+        <!-- PRAYER REQUESTS -->
+        <div class="rs-pair-card" id="prayer">
+          <div class="rs-pair-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+          <span class="eyebrow">Prayer List</span>
+          <h2 class="rs-section-title">Submit a prayer request</h2>
+          <p>Share a name or intention you'd like our clergy and prayer team to hold in prayer. Requests marked private are seen only by the clergy — everything else may be included in the parish prayer list read during services.</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="rsName">Your name</label>
+              <input type="text" id="rsName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="rsEmail">Your email <span class="rs-optional">(optional)</span></label>
+              <input type="email" id="rsEmail" name="email">
+            </div>
+            <div class="rs-form-row">
+              <label for="rsRequest">Prayer request</label>
+              <textarea id="rsRequest" name="request" rows="4" required placeholder="Name(s) and what you'd like prayers for"></textarea>
+            </div>
+            <div class="rs-form-checkbox">
+              <input type="checkbox" id="rsPrivate" name="private">
+              <label for="rsPrivate">Keep this request private (clergy only — not read publicly)</label>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Submit request <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- HOME BLESSING REQUEST -->
+        <div class="rs-pair-card" id="blessing">
+          <div class="rs-pair-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+          <span class="eyebrow">Agiasmos</span>
+          <h2 class="rs-section-title">Request a home blessing</h2>
+          <p>Our priests bless homes with holy water throughout the year, and especially around Theophany each January. Fill out the form below and our office will reach out to schedule a time.</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="hbName">Your name</label>
+              <input type="text" id="hbName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="hbAddress">Home address</label>
+              <input type="text" id="hbAddress" name="address" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="hbContact">Phone or email</label>
+              <input type="text" id="hbContact" name="contact" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="hbNotes">Preferred timeframe <span class="rs-optional">(optional)</span></label>
+              <textarea id="hbNotes" name="notes" rows="3" placeholder="e.g. a weekday evening in January, or anytime this spring"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Request a blessing <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
