@@ -58,7 +58,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Prosphora Bakers',
         summary: 'Bake the offering bread used in the Divine Liturgy.',
         description: 'Prosphora is the Greek word for offerings, and refers to the bread offered by the faithful to God to be sanctified in the Holy Eucharist. Baking prosphora is a unique and tangible way for Orthodox Christians to actively participate in the Divine Liturgy. Each week several parishioners bake prosphora on behalf of the entire community.',
-        image: 'images/ministries/phrosphora.jpg',
+        image: 'images/prosphora-kids.jpg',
         contact: {
           name: 'Tracy Ronstadt',
           role: 'Group Leader',
@@ -69,7 +69,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Myrrhbearers',
         summary: 'Girls (1st–12th grade) serving in the liturgical life of the parish.',
         description: 'Provides opportunities for our girls to participate in the liturgical life of our parish. Open to girls in 1st through 12th grade.',
-        image: 'images/ministries/myrrhbearers.jpg',
+        image: 'images/myrrhbearers.jpg',
         contact: {
           name: 'TBD',
           role: 'TBD',
@@ -162,7 +162,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Bible Study',
         summary: 'Weekly study of Holy Scripture, open to all — no homework.',
         description: 'Our Bible Study ministry seeks to deepen the study of the Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. Participation is open to all, including those who are not members of SSPP, and also those who are not Orthodox Christians. No preparation is needed, and no homework is required. We use the Orthodox Study Bible; copies are available if you don\'t have your own.',
-        // image: 'images/ministries/biblestudy.jpg',
+        // image: 'images/biblestudy.jpg',
         contact: {
           name: 'Dr. Helen Theodoropoulos',
           role: 'Group Leader',
@@ -184,7 +184,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Catechism',
         summary: '12-week course for those exploring or joining the faith.',
         description: 'Interested in learning more about your Faith? Classes are open to all, but especially those interested in joining the Church through Baptism and/or Chrismation. The class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for everyone of any age (teenage and above) and background to learn about our Faith.',
-        // image: 'images/ministries/catechism.jpg',
+        image: 'images/catechism.jpg',
         contact: {
           name: 'Fr. Richard Andrews',
           role: 'Spiritual Father',
