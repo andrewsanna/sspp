@@ -118,13 +118,40 @@
 }
 
 .rs-list {
-  margin: 0 0 1rem 1.1rem;
+  margin: 0 0 1rem;
+  list-style: none;
 }
 
 .rs-list li {
-  color: var(--mt);
-  margin-bottom: 0.5rem;
-  padding-left: 0.3rem;
+  color: var(--tx);
+  padding: 0.9rem 0 0.9rem 1.6rem;
+  border-bottom: 1px solid var(--brd);
+  position: relative;
+  line-height: 1.5;
+}
+
+.rs-list li:first-child {
+  padding-top: 0.1rem;
+}
+
+.rs-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0.1rem;
+}
+
+.rs-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.15rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.rs-list li:first-child::before {
+  top: 0.65rem;
 }
 
 .rs-note {
