@@ -206,7 +206,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 2.5rem;
-  align-items: center;
+  align-items: start; /* was center — now top edges line up with the heading */
   margin-bottom: 1.5rem;
 }
 
@@ -221,7 +221,7 @@
 }
 
 .ab-history-photo {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4; /* was 4 / 5 — slightly shorter, better matches the text block's height */
   border-radius: var(--radius-lg);
   background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
   display: flex;
