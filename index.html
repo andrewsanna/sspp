@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,44 +19,7 @@
        See PHOTO-SHOTLIST.md for the full shot list.
   ============================================== -->
 
-  <!-- NAV -->
-  <header class="site-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <span class="nav-cross" aria-hidden="true">☩</span>
-        <span class="nav-logo-text">
-          <span class="nav-logo-name">Saints Peter &amp; Paul Greek Orthodox Church</span>
-          <!-- <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span> -->
-        </span>
-      </a>
-
-      <div class="follow-float" aria-label="Follow us on social media">
-        <a href="https://www.instagram.com/ssppglen" target="_blank" rel="noopener" aria-label="Follow us on Instagram">
-          <i class="ti ti-brand-instagram" aria-hidden="true"></i>
-        </a>
-        <a href="https://www.facebook.com/ssppglenview" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
-          <i class="ti ti-brand-facebook" aria-hidden="true"></i>
-        </a>
-      </div>
-
-
-      <nav class="nav-links" id="navLinks" aria-label="Primary">
-        <a href="visit.html">Visit</a>
-        <a href="about.html">About</a>
-        <a href="get-involved.html">Get Involved</a>
-        <a href="calendar.html">Calendar</a>
-        <a href="parish-life.html">Parish Life</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-
-      <div class="nav-right">
-        <a href="give.html" class="btn btn-gold">Give</a>
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-          <i class="ti ti-menu-2" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-  </header>
+  {% include nav.html %}
 
   <!-- HERO -->
   <section class="hero">
@@ -111,7 +76,7 @@
       </div>
     </div>
   </section>
-  
+
   <!-- EVENTS PREVIEW -->
   <section class="section section--alt">
     <div class="container">
@@ -123,8 +88,7 @@
         <a href="calendar.html" class="section-link">View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
 
-      
-     <div class="events-grid" id="homeEventsGrid">
+      <div class="events-grid" id="homeEventsGrid">
         <article class="ev-card featured">
           <div class="photo-placeholder photo-placeholder--rust">
             <i class="ti ti-camera ph-icon" aria-hidden="true"></i>
@@ -162,10 +126,10 @@
           </div>
         </article>
       </div>
-    </div> 
-  </section> 
+    </div>
+  </section>
 
-    <!-- GET INVOLVED PREVIEW -->
+  <!-- GET INVOLVED PREVIEW -->
   <section class="section">
     <div class="container">
       <div class="section-header">
@@ -211,8 +175,7 @@
     </div>
   </section>
 
-  
-   <!-- SACRAMENTS -->
+  <!-- SACRAMENTS -->
   <section class="section section--gold">
     <div class="container">
       <div class="section-header">
@@ -292,7 +255,6 @@
     </div>
   </section>
 
-
   <!-- FOLLOW ALONG -->
   <section class="section section--alt follow-section">
     <div class="container">
@@ -335,73 +297,7 @@
     </div>
   </section>
 
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <div class="footer-logo">
-            <span class="nav-cross" aria-hidden="true">☩</span>
-            <span class="footer-logo-name">Saints Peter &amp; Paul GOC</span>
-          </div>
-          <p class="footer-addr">
-            1401 Wagner Rd<br>
-            Glenview, IL 60025<br>
-            (847) 729-2235<br>
-            office@ssppglenview.org
-          </p>
-          <div class="footer-social">
-           <a href="https://www.facebook.com/ssppglenview" target="_blank" rel="noopener" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
-            <a href="https://www.instagram.com/ssppglen" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
-            <a href="https://www.youtube.com/@ssppglen4732" target="_blank" rel="noopener" aria-label="YouTube"><i class="ti ti-brand-youtube" aria-hidden="true"></i><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Worship</div>
-          <div class="footer-links">
-            <a href="visit.html">Service times</a>
-            <a href="#">Livestream</a>
-            <a href="#">Sermons</a>
-            <a href="#">Holy Week</a>
-            <a href="calendar.html">Calendar</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Get Involved</div>
-          <div class="footer-links">
-            <a href="get-involved.html">Youth &amp; GOYA</a>
-            <a href="get-involved.html">Education</a>
-            <a href="get-involved.html">Liturgical</a>
-            <a href="get-involved.html">Philoptochos</a>
-            <a href="get-involved.html">Fellowship</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Parish</div>
-          <div class="footer-links">
-            <a href="about.html">About us</a>
-            <a href="about.html">Meet Fr. Rick</a>
-            <a href="sacraments.html">Sacraments</a>
-            <a href="give.html">Give / Stewardship</a>
-            <a href="contact.html">Contact</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Saints Peter &amp; Paul Greek Orthodox Church · Glenview, IL</p>
-      <div class="footer-bottom-links">
-        <a href="#">Privacy</a>
-        <a href="#">Greek Orthodox Archdiocese</a>
-        <a href="#">Metropolis of Chicago</a>
-      </div>
-    </div>
-  </footer>
+  {% include footer.html %}
 
   <script src="js/main.js"></script>
   <script src="js/home-events.js"></script>
