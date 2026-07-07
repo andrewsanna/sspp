@@ -1,0 +1,329 @@
+/* ============================================
+   Resources page — mirrors the Sacraments/Contact
+   page pattern (arc hero, jump nav, icon+text rows)
+   ============================================ */
+
+.rs-hero {
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 2rem 5rem;
+  text-align: center;
+}
+
+.rs-hero-arc {
+  position: absolute;
+  bottom: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  padding-bottom: 140%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 106, 0.12), transparent 65%);
+}
+
+.rs-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.rs-hero-title {
+  font-size: 2.25rem;
+  color: #fff;
+  margin: 0.5rem 0 1rem;
+}
+
+.rs-hero-title em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.rs-hero-body {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.02rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Jump nav */
+.rs-jumpnav {
+  position: sticky;
+  top: 64px;
+  z-index: 90;
+  background: #fff;
+  border-bottom: 1px solid var(--brd);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0.9rem 1rem;
+  flex-wrap: wrap;
+}
+
+.rs-jumpnav a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mt);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.rs-jumpnav a:hover {
+  color: var(--gold-text);
+}
+
+/* Sections */
+.rs-section {
+  padding: var(--space-6) 0;
+}
+
+.rs-section--alt {
+  background: var(--offwhite);
+}
+
+.rs-section-inner {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  max-width: 780px;
+}
+
+.rs-section-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  color: var(--gold-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.rs-section-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.rs-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--navy-deep);
+  margin: 2rem 0 1rem;
+}
+
+.rs-section-text p {
+  margin-bottom: 1rem;
+}
+
+.rs-list {
+  margin: 0 0 1rem 1.1rem;
+}
+
+.rs-list li {
+  color: var(--mt);
+  margin-bottom: 0.5rem;
+  padding-left: 0.3rem;
+}
+
+.rs-note {
+  font-size: 0.8rem;
+  color: var(--mt);
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+.rs-note code {
+  background: var(--offwhite);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+}
+
+/* Announcements card */
+.rs-announce-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.rs-announce-date {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 0.85rem;
+}
+
+/* Bulletin list */
+.rs-bulletin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.rs-bulletin-list li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--navy-deep);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.rs-bulletin-list li a:hover {
+  border-color: var(--gold-deep);
+  background: var(--gold-lt);
+}
+
+.rs-bulletin-list li a i {
+  color: var(--gold-text);
+}
+
+/* Prayer request form */
+.rs-form {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  max-width: 520px;
+}
+
+.rs-form-row {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rs-form-row label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.rs-optional {
+  font-weight: 400;
+  color: var(--mt);
+}
+
+.rs-form-row input,
+.rs-form-row textarea {
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--tx);
+  background: var(--offwhite);
+  resize: vertical;
+}
+
+.rs-form-row input:focus,
+.rs-form-row textarea:focus {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 1px;
+  background: #fff;
+}
+
+.rs-form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.rs-form-checkbox input {
+  margin-top: 0.25rem;
+}
+
+.rs-form-checkbox label {
+  font-size: 0.82rem;
+  color: var(--mt);
+}
+
+/* Staff / directory rows (matches contact.html pattern) */
+.rs-staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.rs-staff-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.rs-staff-name {
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: 0.92rem;
+}
+
+.rs-staff-role {
+  font-size: 0.78rem;
+  color: var(--mt);
+}
+
+.rs-staff-email {
+  font-size: 0.85rem;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.rs-staff-email:hover {
+  text-decoration: underline;
+}
+
+/* CTA band */
+.rs-cta {
+  background: var(--navy-deep);
+  text-align: center;
+  padding: 3.5rem 2rem;
+  color: #fff;
+}
+
+.rs-cta h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.rs-cta p {
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .rs-section-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .rs-section-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .rs-staff-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
