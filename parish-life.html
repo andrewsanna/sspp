@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +13,17 @@
 
 </head>
 <body>
+  
 
   <!-- NAV -->
-  <header class="site-nav">
+  {% include nav.html %}
+  <!-- <header class="site-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo">
         <span class="nav-cross" aria-hidden="true">☩</span>
         <span class="nav-logo-text">
           <span class="nav-logo-name">Saints Peter &amp; Paul Greek Orthodox Church</span>
-          <!-- <span class="nav-logo-sub">Greek Orthodox · Glenview, IL</span> -->
+        
         </span>
       </a>
 
@@ -49,7 +53,7 @@
         </button>
       </div>
     </div>
-  </header>
+  </header> -->
 
   <!-- INTRO -->
   <section class="pl-intro">
@@ -69,7 +73,8 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
+  {% include footer.html %}
+  <!-- <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div>
@@ -132,7 +137,7 @@
         <a href="#">Greek Orthodox Archdiocese</a>
         <a href="#">Metropolis of Chicago</a>
       </div>
-    </div>
+    </div> -->
   </footer>
   
    <div id="plModalRoot"></div>
