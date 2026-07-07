@@ -237,7 +237,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Greek Dance (Adult)',
         summary: 'Celebrate Greek heritage through traditional song and dance.',
         description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. The adult group meets regularly, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
-        image: 'images/ministries/greekdance-a.jpg',
+        image: 'images/greekdance-a.jpg',
         contact: {
           name: 'Anna Andrews',
           role: 'Group Leader',
@@ -278,7 +278,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Athletics',
         summary: 'GOYA basketball league and other youth sports.',
         description: 'GOYA basketball league and other youth athletics programs, building friendship and community through sport for our parish\'s young people.',
-        image: 'images/ministries/athletics-y.jpg',
+        image: 'images/highschool.jpg',
         contact: {
           name: 'Chris Batrich',
           role: 'Athletics Director',
