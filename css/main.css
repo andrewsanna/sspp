@@ -637,7 +637,7 @@ padding: var(--space-5) 0;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #1d5fbf;
+  background: var(--navy-deep); /* was #1d5fbf — now matches the nav bar */
   color: #ffffff;
   font-size: 1.5rem;
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
@@ -647,11 +647,11 @@ padding: var(--space-5) 0;
 .follow-float a:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  background: #164a99;
+  background: var(--navy); /* was #164a99 — lighter navy on hover, still matches your palette */
 }
 .follow-float .ti-brand-instagram,
 .follow-float .ti-brand-facebook {
-  color: #ffffff; /* white icons on blue keeps it consistent, no clashing brand colors */
+  color: #ffffff;
 }
 @media (max-width: 640px) {
   .follow-float a { width: 48px; height: 48px; font-size: 1.3rem; }
