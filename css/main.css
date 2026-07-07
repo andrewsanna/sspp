@@ -381,6 +381,8 @@ p {
     transition: transform 0.25s ease;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     visibility: hidden;
+    max-height: 85vh;
+    overflow-y: auto;
   }
 
   .nav-links.is-open {
@@ -392,6 +394,113 @@ p {
     display: block;
     position: relative;
     z-index: 101;
+  }
+}
+
+/* ============================================
+   Community dropdown (nested in nav-links)
+   ============================================ */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.85rem;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle.active {
+  color: var(--gold);
+}
+
+.nav-dropdown-caret {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.is-open .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.85rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--navy-deep);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.5rem;
+  min-width: 190px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+  z-index: 200;
+}
+
+.nav-dropdown.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+  color: var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 860px) {
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    min-width: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.25s ease;
+  }
+
+  .nav-dropdown.is-open .nav-dropdown-menu {
+    max-height: 300px;
+    margin-top: 0.5rem;
+  }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.25rem 0;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 0.5rem 0.75rem 0.5rem 1rem;
   }
 }
 
