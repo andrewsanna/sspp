@@ -14,7 +14,7 @@
 .vh-hero {
   background-color: var(--navy-deep);
   background-size: cover;
-  background-position: center;
+  background-position: top;
   padding: 6rem 0;
   position: relative;
   overflow: hidden;
@@ -64,7 +64,7 @@
   }
 }
 
-
+/* 
 .vh-hero-arc {
   position: absolute;
   top: -80px;
@@ -73,7 +73,7 @@
   height: 280px;
   border-radius: 50%;
   border: 34px solid rgba(212, 175, 106, 0.08);
-}
+} */
 
 /* .vh-hero-inner {
   position: relative;
