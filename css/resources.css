@@ -307,6 +307,10 @@
   margin-bottom: 1rem;
 }
 
+.rs-pair-card > p {
+  margin-bottom: 1.25rem;
+}
+
 @media (max-width: 900px) {
   .rs-pair-grid {
     grid-template-columns: 1fr;
