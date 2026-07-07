@@ -142,9 +142,20 @@
 }
 
 .ct-staff-row {
-  text-align: center;
-  padding: 1.4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--brd);
+}
+
+.ct-staff-email {
+  font-size: 0.85rem;
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 .ct-staff-name {
@@ -161,12 +172,6 @@
   margin-bottom: 0.5rem;
 }
 
-.ct-staff-email {
-  font-size: 0.88rem;
-  color: var(--blue);
-  text-decoration: none;
-  font-weight: 500;
-}
 
 .ct-staff-email:hover {
   text-decoration: underline;
