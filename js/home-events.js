@@ -142,31 +142,31 @@ function renderHomeEvents(events) {
   const container = document.getElementById('homeEventsGrid');
   if (!container || events.length === 0) return; // leave the static fallback cards in place
 
-  container.innerHTML = events.map((ev, i) => {
-    const isFeatured = i === 0;
-    const photoClass = HOME_PLACEHOLDER_CLASSES[i] || 'photo-placeholder--rust';
-    const tagClass = HOME_TAG_CLASSES[i] || 'ev-tag--gold';
+  container.innerHTML = events.map((ev) => {
     const imageUrl = homeExtractImageUrl(ev.description);
 
     return `
-      <article class="ev-card ${isFeatured ? 'featured' : ''}" data-event-id="${homeEscapeHtml(ev.id)}" style="cursor:pointer;">
-        <div class="photo-placeholder ${imageUrl ? '' : photoClass}">
-          ${imageUrl
-            ? `<img class="ph-image" src="${homeEscapeHtml(imageUrl)}" alt="" loading="lazy">`
-            : `<i class="ti ti-camera ph-icon" aria-hidden="true"></i>`
-          }
-          ${isFeatured ? `<span class="ev-date-pill">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>` : ''}
-        </div>
-        <div class="ev-body">
-          <h3 class="ev-title">${homeEscapeHtml(ev.title)}</h3>
-          <p class="ev-meta"><i class="ti ti-clock" aria-hidden="true"></i> ${homeEscapeHtml(homeFormatMeta(ev))}</p>
-          <span class="ev-tag ${tagClass}">Featured Event</span>
+      <article class="featured-event-compact" data-event-id="${homeEscapeHtml(ev.id)}">
+        ${imageUrl ? `
+          <div class="fe-thumb-wrap">
+            <img class="fe-thumb" src="${homeEscapeHtml(imageUrl)}" alt="" loading="lazy">
+          </div>
+        ` : ''}
+        <div class="fe-content">
+          <div class="fe-top">
+            <span class="featured-event-badge">Featured Event</span>
+            <span class="fe-date">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>
+          </div>
+          <h2 class="featured-event-title">${homeEscapeHtml(ev.title)}</h2>
+          <div class="featured-event-meta">
+            <span><i class="ti ti-clock" aria-hidden="true"></i> ${homeEscapeHtml(homeFormatMeta(ev))}</span>
+          </div>
         </div>
       </article>
     `;
   }).join('');
 
-  container.querySelectorAll('.ev-card').forEach((card) => {
+  container.querySelectorAll('.featured-event-compact').forEach((card) => {
     card.addEventListener('click', () => {
       const id = card.dataset.eventId;
       window.location.href = `calendar.html?event=${encodeURIComponent(id)}`;
