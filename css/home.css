@@ -391,6 +391,14 @@
   border-radius: 0;
   min-height: 110px;
   position: relative;
+  overflow: hidden;     /* ← add: keeps the image from spilling out of the box */
+}
+
+.ev-card .photo-placeholder .ph-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .ev-card:not(.featured) .photo-placeholder {
