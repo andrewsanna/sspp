@@ -1,125 +1,138 @@
 ---
-layout: default
-title: Make a Payment
 ---
-{% include nav.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make a Payment — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Make a payment or registration to Saints Peter & Paul Greek Orthodox Church." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/payment.css?v=2" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
 
-<!-- Payment system needs to be set up, currently just form -->
-<main class="pay-page">
-  <div class="pay-wrap">
+  <!-- NAV -->
+  {% include nav.html %}
 
-    <a href="#" id="payReturnLink" class="pay-return-link">
-      <i class="ti ti-arrow-left" aria-hidden="true"></i> <span id="payReturnLabel">Back</span>
-    </a>
+  <main class="pay-page">
+    <div class="pay-wrap">
 
-    <header class="pay-header">
-      <div class="pay-icon-badge"><i class="ti" id="payHeaderIcon"></i></div>
-      <h1 id="payTitle">Make a Payment</h1>
-      <p id="paySubtitle" class="pay-subtitle"></p>
-    </header>
+      <a href="#" id="payReturnLink" class="pay-return-link">
+        <i class="ti ti-arrow-left" aria-hidden="true"></i> <span id="payReturnLabel">Back</span>
+      </a>
 
-    <ol class="pay-steps" id="payStepsNav">
-      <li class="pay-step is-active" data-step="1"><span>1</span>Amount</li>
-      <li class="pay-step" data-step="2"><span>2</span>Your Info</li>
-      <li class="pay-step" data-step="3"><span>3</span>Payment</li>
-    </ol>
+      <header class="pay-header">
+        <div class="pay-icon-badge"><i class="ti" id="payHeaderIcon"></i></div>
+        <h1 id="payTitle">Make a Payment</h1>
+        <p id="paySubtitle" class="pay-subtitle"></p>
+      </header>
 
-    <div class="pay-body">
-      <div class="pay-main">
+      <ol class="pay-steps" id="payStepsNav">
+        <li class="pay-step is-active" data-step="1"><span>1</span>Amount</li>
+        <li class="pay-step" data-step="2"><span>2</span>Your Info</li>
+        <li class="pay-step" data-step="3"><span>3</span>Payment</li>
+      </ol>
 
-        <!-- STEP 1: Amount -->
-        <section class="pay-panel is-active" data-panel="1">
-          <div id="payTiersWrap" class="pay-tiers"></div>
+      <div class="pay-body">
+        <div class="pay-main">
 
-          <div id="payCustomWrap" class="pay-custom" style="display:none;">
-            <label class="pay-label">Choose an amount</label>
-            <div class="pay-chip-row" id="payChipRow"></div>
-            <div class="pay-custom-input">
-              <span>$</span>
-              <input type="number" id="payCustomAmount" min="1" step="1" placeholder="0.00" inputmode="decimal">
+          <!-- STEP 1: Amount -->
+          <section class="pay-panel is-active" data-panel="1">
+            <div id="payTiersWrap" class="pay-tiers"></div>
+
+            <div id="payCustomWrap" class="pay-custom" style="display:none;">
+              <label class="pay-label">Choose an amount</label>
+              <div class="pay-chip-row" id="payChipRow"></div>
+              <div class="pay-custom-input">
+                <span>$</span>
+                <input type="number" id="payCustomAmount" min="1" step="1" placeholder="0.00" inputmode="decimal">
+              </div>
             </div>
-          </div>
 
-          <div id="payQtyWrap" class="pay-qty-row" style="display:none;">
-            <label class="pay-label">Quantity</label>
-            <div class="pay-qty-stepper">
-              <button type="button" id="payQtyMinus" aria-label="Decrease quantity">–</button>
-              <span id="payQtyVal">1</span>
-              <button type="button" id="payQtyPlus" aria-label="Increase quantity">+</button>
+            <div id="payQtyWrap" class="pay-qty-row" style="display:none;">
+              <label class="pay-label">Quantity</label>
+              <div class="pay-qty-stepper">
+                <button type="button" id="payQtyMinus" aria-label="Decrease quantity">–</button>
+                <span id="payQtyVal">1</span>
+                <button type="button" id="payQtyPlus" aria-label="Increase quantity">+</button>
+              </div>
             </div>
-          </div>
 
-          <button class="pay-btn pay-btn-primary" id="payToStep2" disabled>
-            Continue <i class="ti ti-arrow-right" aria-hidden="true"></i>
-          </button>
-        </section>
-
-        <!-- STEP 2: Your info (baseline + dynamic fields) -->
-        <section class="pay-panel" data-panel="2">
-          <div class="pay-form-grid">
-            <div class="pay-field">
-              <label for="payName">Full name</label>
-              <input type="text" id="payName" autocomplete="name" required>
-            </div>
-            <div class="pay-field">
-              <label for="payEmail">Email</label>
-              <input type="email" id="payEmail" autocomplete="email" required>
-            </div>
-          </div>
-
-          <div class="pay-form-grid" id="payDynamicFields"></div>
-
-          <div class="pay-panel-actions">
-            <button class="pay-btn pay-btn-ghost" data-back="1"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
-            <button class="pay-btn pay-btn-primary" id="payToStep3">Continue <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
-          </div>
-        </section>
-
-        <!-- STEP 3: Payment -->
-        <section class="pay-panel" data-panel="3">
-          <label class="pay-label">Card details</label>
-          <div id="card-element" class="pay-card-placeholder">
-            <i class="ti ti-credit-card" aria-hidden="true"></i>
-            <span>Secure card entry will appear here</span>
-          </div>
-          <p class="pay-secure-note"><i class="ti ti-lock" aria-hidden="true"></i> Payments are processed securely — SSPP never stores card details.</p>
-
-          <div class="pay-panel-actions">
-            <button class="pay-btn pay-btn-ghost" data-back="2"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
-            <button class="pay-btn pay-btn-primary" id="payComplete">
-              <span id="payCompleteLabel">Complete Payment</span>
-              <i class="ti ti-loader-2 pay-spin" id="paySpinner" style="display:none;" aria-hidden="true"></i>
+            <button class="pay-btn pay-btn-primary" id="payToStep2" disabled>
+              Continue <i class="ti ti-arrow-right" aria-hidden="true"></i>
             </button>
-          </div>
-        </section>
+          </section>
 
-        <!-- SUCCESS -->
-        <section class="pay-panel" data-panel="success">
-          <div class="pay-success">
-            <div class="pay-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
-            <h2>Thank you!</h2>
-            <p id="paySuccessMsg"></p>
-            <a href="#" id="paySuccessReturn" class="pay-btn pay-btn-primary">Back</a>
-          </div>
-        </section>
+          <!-- STEP 2: Your info (baseline + dynamic fields) -->
+          <section class="pay-panel" data-panel="2">
+            <div class="pay-form-grid">
+              <div class="pay-field">
+                <label for="payName">Full name</label>
+                <input type="text" id="payName" autocomplete="name" required>
+              </div>
+              <div class="pay-field">
+                <label for="payEmail">Email</label>
+                <input type="email" id="payEmail" autocomplete="email" required>
+              </div>
+            </div>
 
+            <div class="pay-form-grid" id="payDynamicFields"></div>
+
+            <div class="pay-panel-actions">
+              <button class="pay-btn pay-btn-ghost" data-back="1"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+              <button class="pay-btn pay-btn-primary" id="payToStep3">Continue <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+            </div>
+          </section>
+
+          <!-- STEP 3: Payment -->
+          <section class="pay-panel" data-panel="3">
+            <label class="pay-label">Card details</label>
+            <div id="card-element" class="pay-card-placeholder">
+              <i class="ti ti-credit-card" aria-hidden="true"></i>
+              <span>Secure card entry will appear here</span>
+            </div>
+            <p class="pay-secure-note"><i class="ti ti-lock" aria-hidden="true"></i> Payments are processed securely — SSPP never stores card details.</p>
+
+            <div class="pay-panel-actions">
+              <button class="pay-btn pay-btn-ghost" data-back="2"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+              <button class="pay-btn pay-btn-primary" id="payComplete">
+                <span id="payCompleteLabel">Complete Payment</span>
+                <i class="ti ti-loader-2 pay-spin" id="paySpinner" style="display:none;" aria-hidden="true"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- SUCCESS -->
+          <section class="pay-panel" data-panel="success">
+            <div class="pay-success">
+              <div class="pay-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <h2>Thank you!</h2>
+              <p id="paySuccessMsg"></p>
+              <a href="#" id="paySuccessReturn" class="pay-btn pay-btn-primary">Back</a>
+            </div>
+          </section>
+
+        </div>
+
+        <aside class="pay-summary">
+          <h3>Order Summary</h3>
+          <div id="paySummaryLines" class="pay-summary-lines"></div>
+          <div class="pay-summary-total">
+            <span>Total</span>
+            <span id="paySummaryTotal">$0.00</span>
+          </div>
+        </aside>
       </div>
 
-      <aside class="pay-summary">
-        <h3>Order Summary</h3>
-        <div id="paySummaryLines" class="pay-summary-lines"></div>
-        <div class="pay-summary-total">
-          <span>Total</span>
-          <span id="paySummaryTotal">$0.00</span>
-        </div>
-      </aside>
     </div>
+  </main>
 
-  </div>
-</main>
+  <!-- FOOTER -->
+  {% include footer.html %}
 
-{% include footer.html %}
-
-<link rel="stylesheet" href="css/payment.css">
-<script src="js/payment-data.js"></script>
-<script src="js/payment.js"></script>
+  <script src="js/payment-data.js"></script>
+  <script src="js/payment.js"></script>
+</body>
+</html>
