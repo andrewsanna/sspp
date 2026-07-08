@@ -141,7 +141,7 @@ const COMING_UP_COUNT = 3;
 const ACTION_LABELS = {
   INFO: { label: 'More Info', icon: 'ti-info-circle' },
   SIGNUP: { label: 'Sign Up', icon: 'ti-clipboard-check' },
-  TICKETS: { label: 'Buy Tickets', icon: 'ti-ticket' },
+  PAYMENT: { label: 'Make a Payment', icon: 'ti-credit-card' },
   RSVP: { label: 'RSVP', icon: 'ti-calendar-check' },
 };
 
@@ -286,27 +286,28 @@ function getFeaturedEvents() {
  
 // Shows up to 2 featured events side by side as compact cards.
 const FEATURED_SLOT_COUNT = 2;
- 
-function renderFeaturedEvent() {
+ function renderFeaturedEvent() {
   const container = document.getElementById('featuredEventSlot');
   if (!container) return;
- 
+
   const upcoming = getFeaturedEvents().slice(0, FEATURED_SLOT_COUNT);
   if (upcoming.length === 0) {
     container.innerHTML = '';
     return;
   }
- 
+
   container.innerHTML = `
     <div class="featured-events-grid ${upcoming.length === 1 ? 'is-single' : ''}">
       ${upcoming.map((ev) => {
         const { cleanText, imageUrl } = parseEventActions(ev.description);
+        const pricePill = getEventPricePill(ev.description);
         return `
           <article class="featured-event-compact" data-event-id="${escapeHtml(ev.id)}">
             ${imageUrl ? `<div class="fe-thumb-wrap"><img class="fe-thumb" src="${escapeHtml(imageUrl)}" alt="" loading="lazy"></div>` : ''}
             <div class="fe-content">
               <div class="fe-top">
                 <span class="featured-event-badge">Featured event</span>
+                ${pricePill ? `<span class="fe-price-pill">${escapeHtml(pricePill)}</span>` : ''}
                 <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
               </div>
               <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
@@ -321,7 +322,7 @@ function renderFeaturedEvent() {
       }).join('')}
     </div>
   `;
- 
+
   container.querySelectorAll('.featured-event-compact').forEach((card) => {
     card.addEventListener('click', () => {
       const id = card.dataset.eventId;
@@ -501,9 +502,6 @@ function hexToRgba(hex, alpha) {
 // ============================================
 // Event detail modal
 // ============================================
-// ============================================
-// Event detail modal
-// ============================================
 
 // Accepts either a Drive "share" link or a real image URL, and always
 // returns a working direct-image link. Anything that isn't a Drive
@@ -545,15 +543,31 @@ function parseEventActions(description) {
 
   lines.forEach((line) => {
     const imageMatch = line.match(/^\s*IMAGE\s*:\s*(\S+)/i);
-    const actionMatch = line.match(/^\s*(INFO|SIGNUP|TICKETS|RSVP)\s*:\s*(\S+)/i);
+    const actionMatch = line.match(/^\s*(INFO|SIGNUP|PAYMENT|RSVP)\s*:\s*(.+)/i);
 
     if (imageMatch) {
       imageUrl = normalizeImageUrl(imageMatch[1]);
     } else if (actionMatch) {
       const key = actionMatch[1].toUpperCase();
-      const url = actionMatch[2];
+      const rawValue = actionMatch[2].trim();
+      const pipeIndex = rawValue.indexOf('|');
+
+      let label = ACTION_LABELS[key]?.label;
+      let url = rawValue;
+      let paymentItemKey = null;
+
+      if (pipeIndex !== -1) {
+        label = rawValue.slice(0, pipeIndex).trim();
+        url = rawValue.slice(pipeIndex + 1).trim();
+      }
+
+      if (key === 'PAYMENT') {
+        paymentItemKey = url; // the raw value IS the payment-data.js key
+        url = `payment.html?item=${encodeURIComponent(paymentItemKey)}`;
+      }
+
       if (ACTION_LABELS[key]) {
-        actions.push({ key, url, ...ACTION_LABELS[key] });
+        actions.push({ key, url, icon: ACTION_LABELS[key].icon, label, paymentItemKey });
       }
     } else if (line.trim()) {
       textLines.push(line);
@@ -561,6 +575,13 @@ function parseEventActions(description) {
   });
 
   return { cleanText: textLines.join(' ').trim(), actions, imageUrl };
+}
+
+function getEventPricePill(description) {
+  const { actions } = parseEventActions(description);
+  const paymentAction = actions.find((a) => a.key === 'PAYMENT');
+  if (!paymentAction || !paymentAction.paymentItemKey) return '';
+  return getPaymentPriceLabel(paymentAction.paymentItemKey);
 }
  
 function openEventModal(event) {
