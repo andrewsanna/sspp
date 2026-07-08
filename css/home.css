@@ -369,6 +369,11 @@
 /* ============================================
    Events grid (homepage preview)
    ============================================ */
+
+#homeEventsGrid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
 .events-grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
