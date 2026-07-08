@@ -547,7 +547,7 @@ function openEventModal(event) {
     img.className = 'event-modal-image';
     img.src = imageUrl;
     img.alt = '';
-    document.querySelector('.event-modal').insertBefore(img, categoryEl);
+    document.querySelector('.event-modal').appendChild(img);
   }
  
   categoryEl.textContent = CATEGORY_LABELS[event.category] || 'Event';
