@@ -6,6 +6,8 @@
 // fetch fails or there are no upcoming featured events.
 // Clicking a card sends the visitor to calendar.html?event=<id>,
 // which auto-opens that event's detail modal.
+// Images come from an "IMAGE: <url>" line in the event description,
+// same convention calendar.js uses for the Featured card.
 // ============================================
 
 const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
@@ -54,6 +56,41 @@ function homeFormatMeta(ev) {
   return parts.join(' · ');
 }
 
+// Same Drive-link normalizer calendar.js uses — turns a Drive "share" link
+// into a direct-viewable thumbnail URL. Anything else passes through as-is.
+function homeNormalizeImageUrl(url) {
+  const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (driveMatch) {
+    return `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1000`;
+  }
+  return url;
+}
+
+// Pulls just the "IMAGE: <url>" line out of a Calendar description.
+// Handles the same HTML-wrapping Google Calendar adds (auto-linked URLs,
+// <br>/<div> line breaks) that calendar.js already accounts for.
+function homeExtractImageUrl(description) {
+  if (!description) return '';
+
+  const normalized = description
+    .replace(/<a\s+[^>]*href="([^"]+)"[^>]*>.*?<\/a>/gi, '$1')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div)>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+
+  let imageUrl = '';
+  normalized.split('\n').forEach((line) => {
+    const match = line.match(/^\s*IMAGE\s*:\s*(\S+)/i);
+    if (match) imageUrl = homeNormalizeImageUrl(match[1]);
+  });
+  return imageUrl;
+}
+
 // ============================================
 // Fetch
 // ============================================
@@ -87,6 +124,7 @@ async function fetchHomeFeaturedEvents() {
         id: raw.id,
         title: raw.summary || 'Untitled event',
         location: raw.location || '',
+        description: raw.description || '',
         start: homeParseGoogleDate(startRaw, isAllDay),
         end,
         isAllDay,
@@ -108,11 +146,15 @@ function renderHomeEvents(events) {
     const isFeatured = i === 0;
     const photoClass = HOME_PLACEHOLDER_CLASSES[i] || 'photo-placeholder--rust';
     const tagClass = HOME_TAG_CLASSES[i] || 'ev-tag--gold';
+    const imageUrl = homeExtractImageUrl(ev.description);
 
     return `
       <article class="ev-card ${isFeatured ? 'featured' : ''}" data-event-id="${homeEscapeHtml(ev.id)}" style="cursor:pointer;">
-        <div class="photo-placeholder ${photoClass}">
-          <i class="ti ti-camera ph-icon" aria-hidden="true"></i>
+        <div class="photo-placeholder ${imageUrl ? '' : photoClass}">
+          ${imageUrl
+            ? `<img class="ph-image" src="${homeEscapeHtml(imageUrl)}" alt="" loading="lazy">`
+            : `<i class="ti ti-camera ph-icon" aria-hidden="true"></i>`
+          }
           ${isFeatured ? `<span class="ev-date-pill">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>` : ''}
         </div>
         <div class="ev-body">
