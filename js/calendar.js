@@ -307,7 +307,6 @@ const FEATURED_SLOT_COUNT = 2;
             <div class="fe-content">
               <div class="fe-top">
                 <span class="featured-event-badge">Featured event</span>
-                ${pricePill ? `<span class="fe-price-pill">${escapeHtml(pricePill)}</span>` : ''}
                 <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
               </div>
               <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
@@ -315,6 +314,7 @@ const FEATURED_SLOT_COUNT = 2;
               <div class="featured-event-meta">
                 <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</span>
                 ${ev.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(ev.location)}</span>` : ''}
+                ${pricePill ? `<span><i class="ti ti-tag" aria-hidden="true"></i> ${escapeHtml(pricePill)}</span>` : ''}
               </div>
             </div>
           </article>
@@ -610,7 +610,7 @@ function openEventModal(event) {
   categoryEl.style.color = categoryText(event.category);
   titleEl.textContent = event.title;
  
-  metaEl.innerHTML = `
+ metaEl.innerHTML = `
     <div class="event-modal-meta-row">
       <i class="ti ti-calendar" aria-hidden="true"></i>
       <span>${formatDateRange(event.start, event.end, event.isAllDay)}</span>
@@ -623,6 +623,12 @@ function openEventModal(event) {
       <div class="event-modal-meta-row">
         <i class="ti ti-map-pin" aria-hidden="true"></i>
         <span>${escapeHtml(event.location)}</span>
+      </div>
+    ` : ''}
+    ${pricePill ? `
+      <div class="event-modal-meta-row">
+        <i class="ti ti-tag" aria-hidden="true"></i>
+        <span>${escapeHtml(pricePill)}</span>
       </div>
     ` : ''}
   `;
