@@ -593,6 +593,7 @@ function openEventModal(event) {
   const actionsEl = document.getElementById('eventModalActions');
  
   const { cleanText, actions, imageUrl } = parseEventActions(event.description);
+  const pricePill = getEventPricePill(event.description);
  
   const existingImg = document.getElementById('eventModalImage');
   if (existingImg) existingImg.remove();
@@ -610,7 +611,7 @@ function openEventModal(event) {
   categoryEl.style.color = categoryText(event.category);
   titleEl.textContent = event.title;
  
- metaEl.innerHTML = `
+  metaEl.innerHTML = `
     <div class="event-modal-meta-row">
       <i class="ti ti-calendar" aria-hidden="true"></i>
       <span>${formatDateRange(event.start, event.end, event.isAllDay)}</span>
