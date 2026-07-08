@@ -302,7 +302,6 @@ function renderFeaturedEvent() {
       ${upcoming.map((ev) => {
         const { cleanText, imageUrl } = parseEventActions(ev.description);
         return `
-          return `
           <article class="featured-event-compact" data-event-id="${escapeHtml(ev.id)}">
             ${imageUrl ? `<div class="fe-thumb-wrap"><img class="fe-thumb" src="${escapeHtml(imageUrl)}" alt="" loading="lazy"></div>` : ''}
             <div class="fe-content">
