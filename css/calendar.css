@@ -737,10 +737,9 @@
 }
 
 .event-modal-image {
-  width: calc(100% + 3.5rem);
-  height: 220px;
-  margin: 1.5rem -1.75rem -1.75rem;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
   display: block;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-radius: var(--radius-md);
 }
