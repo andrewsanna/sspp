@@ -364,26 +364,65 @@
   font-size: 0.85rem;
 }
 
-/* Realm QR + signup layout */
-.rs-realm-grid {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 1.75rem;
-  align-items: start;
-  border-top: 1px solid var(--brd);
-  padding-top: 1.5rem;
+/* Realm — white card, full-width, two columns */
+.rs-realm-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
 }
 
+.rs-realm-header {
+  max-width: 640px;
+  margin-bottom: 1rem;
+}
+
+.rs-realm-header .rs-section-icon {
+  margin-bottom: 0.75rem;
+}
+
+.rs-realm-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--brd);
+}
+
+.rs-realm-action-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+@media (max-width: 860px) {
+  .rs-realm-card {
+    padding: 1.75rem;
+  }
+
+  .rs-realm-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Realm QR (stacked above the signup form in the right column) */
 .rs-realm-qr {
   text-align: center;
+  background: var(--offwhite);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
 }
 
 .rs-realm-qr img {
   width: 100%;
-  max-width: 160px;
+  max-width: 150px;
   border: 1px solid var(--brd);
   border-radius: var(--radius-md);
-  margin-bottom: 0.5rem;
+  margin: 0 auto 0.5rem;
 }
 
 .rs-realm-qr p {
@@ -403,16 +442,6 @@
 
 .rs-realm-link:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 640px) {
-  .rs-realm-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .rs-realm-qr img {
-    max-width: 130px;
-  }
 }
 
 /* Open Registrations grid (inside the paired card) */
