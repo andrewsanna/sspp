@@ -1,20 +1,15 @@
 // ============================================
 // SSPP Homepage — "What's Happening" preview
-// Pulls the next 3 events from the Featured Events Google Calendar
-// (same calendar calendar.js uses for its Featured card / Coming up list).
-// Falls back to the static cards already in index.html if the
-// fetch fails or there are no upcoming featured events.
-// Clicking a card sends the visitor to calendar.html?event=<id>,
-// which auto-opens that event's detail modal.
-// Images come from an "IMAGE: <url>" line in the event description,
-// same convention calendar.js uses for the Featured card.
+// Pulls the next 4 events from the Featured Events Google Calendar
+// (same calendar calendar.js uses for its Featured card / Coming up list),
+// and renders them in the same 2-column card style as the calendar page
+// (wraps into a 2x2 grid). Clicking a card sends the visitor to
+// calendar.html?event=<id>, which auto-opens that event's detail modal.
 // ============================================
 
 const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 const HOME_FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
-const HOME_EVENTS_COUNT = 3;
-const HOME_PLACEHOLDER_CLASSES = ['photo-placeholder--rust', 'photo-placeholder--blue', 'photo-placeholder--gold'];
-const HOME_TAG_CLASSES = ['ev-tag--rust', 'ev-tag--green', 'ev-tag--gold'];
+const HOME_EVENTS_COUNT = 4;
 
 // ============================================
 // Helpers
@@ -22,7 +17,6 @@ const HOME_TAG_CLASSES = ['ev-tag--rust', 'ev-tag--green', 'ev-tag--gold'];
 function homeParseGoogleDate(dateStr, isAllDay) {
   if (!dateStr) return null;
   if (isAllDay) {
-    // "2026-06-14" — parse as LOCAL midnight, not UTC, to avoid off-by-one-day bugs
     const [y, m, d] = dateStr.split('-').map(Number);
     return new Date(y, m - 1, d);
   }
@@ -47,17 +41,14 @@ function homeFormatPillDate(start, end, isAllDay) {
 function homeFormatMeta(ev) {
   const parts = [];
   if (ev.isAllDay) {
-    parts.push(homeFormatPillDate(ev.start, ev.end, true));
+    parts.push('All day');
   } else {
-    parts.push(ev.start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
     parts.push(ev.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }));
   }
-  if (ev.location) parts.push(ev.location);
   return parts.join(' · ');
 }
 
-// Same Drive-link normalizer calendar.js uses — turns a Drive "share" link
-// into a direct-viewable thumbnail URL. Anything else passes through as-is.
+// Same Drive-link normalizer calendar.js uses.
 function homeNormalizeImageUrl(url) {
   const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
   if (driveMatch) {
@@ -66,12 +57,10 @@ function homeNormalizeImageUrl(url) {
   return url;
 }
 
-// Pulls just the "IMAGE: <url>" line out of a Calendar description.
-// Handles the same HTML-wrapping Google Calendar adds (auto-linked URLs,
-// <br>/<div> line breaks) that calendar.js already accounts for.
+// Pulls the "IMAGE: <url>" line out of a Calendar description, same
+// convention as calendar.js.
 function homeExtractImageUrl(description) {
   if (!description) return '';
-
   const normalized = description
     .replace(/<a\s+[^>]*href="([^"]+)"[^>]*>.*?<\/a>/gi, '$1')
     .replace(/<br\s*\/?>/gi, '\n')
@@ -123,7 +112,6 @@ async function fetchHomeFeaturedEvents() {
       return {
         id: raw.id,
         title: raw.summary || 'Untitled event',
-        location: raw.location || '',
         description: raw.description || '',
         start: homeParseGoogleDate(startRaw, isAllDay),
         end,
@@ -140,7 +128,12 @@ async function fetchHomeFeaturedEvents() {
 // ============================================
 function renderHomeEvents(events) {
   const container = document.getElementById('homeEventsGrid');
-  if (!container || events.length === 0) return; // leave the static fallback cards in place
+  if (!container) return;
+
+  if (events.length === 0) {
+    container.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; color:rgba(255,255,255,0.5); font-size:0.85rem; padding:1rem 0;">Check back soon for upcoming events.</p>`;
+    return;
+  }
 
   container.innerHTML = events.map((ev) => {
     const imageUrl = homeExtractImageUrl(ev.description);
@@ -182,6 +175,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const events = await fetchHomeFeaturedEvents();
     renderHomeEvents(events);
   } catch (err) {
-    console.warn('Homepage featured events failed to load, keeping fallback cards:', err);
+    console.warn('Homepage featured events failed to load:', err);
+    renderHomeEvents([]); // shows the "check back soon" message
   }
 });
