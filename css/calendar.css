@@ -738,8 +738,8 @@
 
 .event-modal-image {
   width: calc(100% + 3.5rem);
-  margin: 1rem -1.75rem -1.75rem;
-  max-height: 220px;
+  height: 220px;
+  margin: 1.5rem -1.75rem -1.75rem;
   object-fit: cover;
   display: block;
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
