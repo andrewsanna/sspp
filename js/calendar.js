@@ -307,7 +307,7 @@ const FEATURED_SLOT_COUNT = 2;
             <div class="fe-content">
               <div class="fe-top">
                 <span class="featured-event-badge">Featured event</span>
-                <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
+                <span class="fe-date">${formatDateRangeShort(ev.start, ev.end)}</span>
               </div>
               <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
               ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 120))}</p>` : ''}
@@ -768,6 +768,16 @@ function formatDateRange(start, end, isAllDay) {
   const startStr = start.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   if (!end || isSameDay(start, end)) return startStr;
   const endStr = end.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  return `${startStr} – ${endStr}`;
+}
+
+// Same as formatDateRange, but no year — used on the featured cards
+// where space is tight and the year is implied (current season).
+function formatDateRangeShort(start, end) {
+  if (!start) return '';
+  const startStr = start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  if (!end || isSameDay(start, end)) return startStr;
+  const endStr = end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   return `${startStr} – ${endStr}`;
 }
  
