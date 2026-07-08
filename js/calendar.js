@@ -501,20 +501,54 @@ function hexToRgba(hex, alpha) {
 // ============================================
 // Event detail modal
 // ============================================
+// ============================================
+// Event detail modal
+// ============================================
+
+// Accepts either a Drive "share" link or a real image URL, and always
+// returns a working direct-image link. Anything that isn't a Drive
+// share link (a plain image URL, a different host, etc.) passes through
+// unchanged.
+function normalizeImageUrl(url) {
+  const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (driveMatch) {
+    return `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1000`;
+  }
+  return url;
+}
+
 function parseEventActions(description) {
   if (!description) return { cleanText: '', actions: [], imageUrl: '' };
- 
-  const lines = description.split('\n');
+
+  // Google Calendar's description field is often HTML, not plain text:
+  // line breaks come through as <br>/<div> tags, and pasted URLs get
+  // auto-wrapped in <a href="...">...</a>. Normalize before line-splitting.
+  let normalized = description
+    // Turn "IMAGE: <a href="URL">anything</a>" into "IMAGE: URL"
+    .replace(/<a\s+[^>]*href="([^"]+)"[^>]*>.*?<\/a>/gi, '$1')
+    // Line-break tags -> real newlines
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div)>/gi, '\n')
+    // Strip any remaining tags
+    .replace(/<[^>]+>/g, '')
+    // Decode the handful of entities Calendar commonly inserts
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+
+  const lines = normalized.split('\n');
   const actions = [];
   const textLines = [];
   let imageUrl = '';
- 
+
   lines.forEach((line) => {
     const imageMatch = line.match(/^\s*IMAGE\s*:\s*(\S+)/i);
     const actionMatch = line.match(/^\s*(INFO|SIGNUP|TICKETS|RSVP)\s*:\s*(\S+)/i);
- 
+
     if (imageMatch) {
-      imageUrl = imageMatch[1];
+      imageUrl = normalizeImageUrl(imageMatch[1]);
     } else if (actionMatch) {
       const key = actionMatch[1].toUpperCase();
       const url = actionMatch[2];
@@ -525,7 +559,7 @@ function parseEventActions(description) {
       textLines.push(line);
     }
   });
- 
+
   return { cleanText: textLines.join(' ').trim(), actions, imageUrl };
 }
  
