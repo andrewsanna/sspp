@@ -302,17 +302,20 @@ function renderFeaturedEvent() {
       ${upcoming.map((ev) => {
         const { cleanText, imageUrl } = parseEventActions(ev.description);
         return `
+          return `
           <article class="featured-event-compact" data-event-id="${escapeHtml(ev.id)}">
-            ${imageUrl ? `<img class="fe-thumb" src="${escapeHtml(imageUrl)}" alt="" loading="lazy">` : ''}
-            <div class="fe-top">
-              <span class="featured-event-badge">Featured event</span>
-              <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
-            </div>
-            <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
-            ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 120))}</p>` : ''}
-            <div class="featured-event-meta">
-              <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</span>
-              ${ev.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(ev.location)}</span>` : ''}
+            ${imageUrl ? `<div class="fe-thumb-wrap"><img class="fe-thumb" src="${escapeHtml(imageUrl)}" alt="" loading="lazy"></div>` : ''}
+            <div class="fe-content">
+              <div class="fe-top">
+                <span class="featured-event-badge">Featured event</span>
+                <span class="fe-date">${formatDateRange(ev.start, ev.end, ev.isAllDay)}</span>
+              </div>
+              <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
+              ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 120))}</p>` : ''}
+              <div class="featured-event-meta">
+                <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</span>
+                ${ev.location ? `<span><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(ev.location)}</span>` : ''}
+              </div>
             </div>
           </article>
         `;
