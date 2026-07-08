@@ -9,6 +9,7 @@
   <meta name="description" content="A warm, welcoming Greek Orthodox parish in Glenview, Illinois. Plan your visit, find service times, explore ministries, and connect with our community." />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/calendar.css" />   <!-- ← add this -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
@@ -87,42 +88,53 @@
         </div>
         <a href="calendar.html" class="section-link">View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
       </div>
-
-      <div class="events-grid" id="homeEventsGrid">
-        <article class="ev-card featured">
-          <div class="photo-placeholder photo-placeholder--rust">
-            <i class="ti ti-camera ph-icon" aria-hidden="true"></i>
-            <div class="ph-label">PHOTO: last year's festival — crowd, food, dancing</div>
-            <span class="ev-date-pill">Jun 14–16</span>
+      <div class="featured-events-grid" id="homeEventsGrid">
+        <article class="featured-event-compact">
+          <div class="fe-thumb-wrap">
+            <img class="fe-thumb" src="images/greekfest-poster.jpg" alt="">
           </div>
-          <div class="ev-body">
-            <h3 class="ev-title">Annual Greek Festival</h3>
-            <p class="ev-meta"><i class="ti ti-clock" aria-hidden="true"></i> Fri–Sun · Church Grounds</p>
-            <span class="ev-tag ev-tag--rust">Festival</span>
+          <div class="fe-content">
+            <div class="fe-top">
+              <span class="featured-event-badge">Featured Event</span>
+              <span class="fe-date">Jun 14–16</span>
+            </div>
+            <h2 class="featured-event-title">Annual Greek Festival</h2>
+            <div class="featured-event-meta">
+              <span><i class="ti ti-clock" aria-hidden="true"></i> Fri–Sun</span>
+              <span><i class="ti ti-map-pin" aria-hidden="true"></i> Church Grounds</span>
+            </div>
+          </div>
+        </article>
+      
+        <article class="featured-event-compact">
+          <div class="fe-thumb-wrap">
+            <img class="fe-thumb" src="images/placeholder-meeting.jpg" alt="">
+          </div>
+          <div class="fe-content">
+            <div class="fe-top">
+              <span class="featured-event-badge">Featured Event</span>
+              <span class="fe-date">May 25</span>
+            </div>
+            <h2 class="featured-event-title">Festival Planning Meeting</h2>
+            <div class="featured-event-meta">
+              <span><i class="ti ti-clock" aria-hidden="true"></i> 7:00 PM</span>
+            </div>
           </div>
         </article>
 
-        <article class="ev-card">
-          <div class="photo-placeholder photo-placeholder--blue">
-            <i class="ti ti-camera ph-icon" aria-hidden="true" style="font-size:1.1rem;"></i>
-            <div class="ph-label">PHOTO: planning meeting group</div>
+        <article class="featured-event-compact">
+          <div class="fe-thumb-wrap">
+            <img class="fe-thumb" src="images/placeholder-goya.jpg" alt="">
           </div>
-          <div class="ev-body">
-            <h3 class="ev-title">Festival Planning Meeting</h3>
-            <p class="ev-meta">May 25 · 7:00 PM</p>
-            <span class="ev-tag ev-tag--green">Community</span>
-          </div>
-        </article>
-
-        <article class="ev-card">
-          <div class="photo-placeholder photo-placeholder--gold">
-            <i class="ti ti-camera ph-icon" aria-hidden="true" style="font-size:1.1rem;"></i>
-            <div class="ph-label">PHOTO: GOYA / youth group together</div>
-          </div>
-          <div class="ev-body">
-            <h3 class="ev-title">Youth Sunday &amp; Luncheon</h3>
-            <p class="ev-meta">Jun 1 · After Liturgy</p>
-            <span class="ev-tag ev-tag--gold">Youth</span>
+          <div class="fe-content">
+            <div class="fe-top">
+              <span class="featured-event-badge">Featured Event</span>
+              <span class="fe-date">Jun 1</span>
+            </div>
+            <h2 class="featured-event-title">Youth Sunday &amp; Luncheon</h2>
+            <div class="featured-event-meta">
+              <span><i class="ti ti-clock" aria-hidden="true"></i> After Liturgy</span>
+            </div>
           </div>
         </article>
       </div>
