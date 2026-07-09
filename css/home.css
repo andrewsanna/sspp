@@ -126,11 +126,17 @@
 
 /* Homepage-only overrides for the featured-event-compact cards —
    calendar.css stays untouched; these only apply inside #homeEventsGrid. */
+#homeEventsGrid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
 #homeEventsGrid .featured-event-compact {
-  height: 190px;
+  height: 150px;
 }
 
 #homeEventsGrid .fe-thumb-wrap {
+  flex: 0 0 160px;
   position: relative;
   overflow: hidden;
 }
@@ -145,14 +151,29 @@
 }
 
 #homeEventsGrid .fe-content {
+  padding: 0.9rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
 }
 
-#homeEventsGrid > .featured-event-compact:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
+#homeEventsGrid .featured-event-badge {
+  font-size: 0.55rem;
+  padding: 0.18rem 0.5rem;
+}
+
+#homeEventsGrid .fe-date {
+  font-size: 0.62rem;
+}
+
+#homeEventsGrid .featured-event-title {
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+}
+
+#homeEventsGrid .featured-event-meta span {
+  font-size: 0.7rem;
 }
 
 /* ============================================
