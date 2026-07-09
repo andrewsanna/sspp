@@ -9,7 +9,7 @@
 
 const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 const HOME_FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
-const HOME_EVENTS_COUNT = 4;
+const HOME_EVENTS_COUNT = 3;
 
 // ============================================
 // Helpers
