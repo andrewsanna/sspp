@@ -133,7 +133,7 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'adult-learning',
-    label: 'Adult Faith & Learning',
+    label: 'Faith & Learning',
     blurb: 'Deepen your understanding of the Orthodox faith, at any stage of your journey.',
     ministries: [
       {
@@ -208,7 +208,7 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'adult-activities',
-    label: 'Adult Activities',
+    label: 'Community Activities',
     blurb: 'Stay active and connected through sport, dance, and senior programming.',
     ministries: [
       {
