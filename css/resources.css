@@ -364,6 +364,82 @@
   font-size: 0.85rem;
 }
 
+.rs-leader-accordion {
+  margin-bottom: 0.5rem;
+}
+
+.rs-leader-cat {
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.6rem;
+  background: var(--offwhite);
+  overflow: hidden;
+}
+
+.rs-leader-cat summary {
+  padding: 0.85rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rs-leader-cat summary::-webkit-details-marker {
+  display: none;
+}
+
+.rs-leader-cat summary::after {
+  content: '\002B';
+  color: var(--gold-text);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.rs-leader-cat[open] summary::after {
+  content: '\2212';
+}
+
+.rs-leader-rows {
+  padding: 0 1.1rem 0.6rem;
+}
+
+.rs-leader-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--brd);
+}
+
+.rs-leader-name {
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: 0.85rem;
+}
+
+.rs-leader-role {
+  font-size: 0.75rem;
+  color: var(--mt);
+}
+
+.rs-leader-email {
+  color: var(--gold-text);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rs-leader-email:hover {
+  color: var(--navy-deep);
+}
+
 /* Realm — white card, full-width, two columns */
 .rs-realm-card {
   background: #fff;
