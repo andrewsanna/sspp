@@ -82,26 +82,27 @@ const PAYMENT_ITEMS = {
     icon: 'ti-school',
     description: 'Church School begins with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. Students proceed to class following Holy Communion, with classes ending at 11:45 a.m. Numerous volunteer opportunities exist to offer your time and talent to our many programs.',
     schedule: 'Sundays, 9:30–11:45 AM (after Divine Liturgy)',
+    externalURL: 'https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx',
     returnTo: { url: 'get-involved.html', label: 'Get Involved' },
-    options: [
-      { id: 'student', label: 'Per Student', amount: 5000 },
-    ],
-    fields: [
-      { id: 'studentName', label: "Child's full name", type: 'text', required: true },
-      {
-        id: 'grade', label: 'Grade level', type: 'select', required: true,
-        options: ['Pre-K', 'K', '1st', '2nd', '3rd', '4th', '5th', '6th'],
-      },
-      {
-        id: 'siblingDiscount', label: 'Additional sibling enrolling? (–$10)', type: 'checkbox',
-        priceImpact: -1000,
-      },
-      { id: 'allergies', label: 'Allergies or medical notes', type: 'textarea', required: false },
-      {
-        id: 'additionalStudents', label: 'Additional child(ren) enrolling? List name and grade for each',
-        type: 'textarea', required: false,
-      },
-    ],
+    // options: [
+    //   { id: 'student', label: 'Per Student', amount: 5000 },
+    // ],
+    // fields: [
+    //   { id: 'studentName', label: "Child's full name", type: 'text', required: true },
+    //   {
+    //     id: 'grade', label: 'Grade level', type: 'select', required: true,
+    //     options: ['Pre-K', 'K', '1st', '2nd', '3rd', '4th', '5th', '6th'],
+    //   },
+    //   {
+    //     id: 'siblingDiscount', label: 'Additional sibling enrolling? (–$10)', type: 'checkbox',
+    //     priceImpact: -1000,
+    //   },
+    //   { id: 'allergies', label: 'Allergies or medical notes', type: 'textarea', required: false },
+    //   {
+      //   id: 'additionalStudents', label: 'Additional child(ren) enrolling? List name and grade for each',
+      //   type: 'textarea', required: false,
+      // },
+    // ],
   },
 
   // Priced per number of dancers registering together (1/2/3 kids).
@@ -148,23 +149,24 @@ const PAYMENT_ITEMS = {
     icon: 'ti-building-church',
     description: 'AGAPE Preschool is a ministry program of our parish, committed to a high-quality educational experience that emphasizes the Orthodox Christian Faith. Our program provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',
     schedule: 'Monday–Friday, 8:00 AM – 2:00 PM',
+    externalUrl: 'https://schools.mybrightwheel.com/sign-in?redirect_path=/admissions/packet/4a487485-c898-4ddf-ba7b-92eac4c01a21/fill?school_id=37c37844-de62-497e-b879-ed4b89a14f9f',
     returnTo: { url: 'resources.html', label: 'Resources' },
-    options: [
-      { id: 'student', label: 'Per Child (Fall Semester)', amount: 180000 }, // PLACEHOLDER — confirm real tuition
-    ],
-    fields: [
-      { id: 'childName', label: "Child's full name", type: 'text', required: true },
-      { id: 'childDob', label: "Child's date of birth", type: 'text', required: true },
-      {
-        id: 'siblingDiscount', label: 'Additional sibling enrolling? (–$100)', type: 'checkbox',
-        priceImpact: -10000,
-      },
-      { id: 'allergies', label: 'Allergies or medical notes', type: 'textarea', required: false },
-      {
-        id: 'additionalChildren', label: 'Additional child(ren) enrolling? List name and date of birth for each',
-        type: 'textarea', required: false,
-      },
-    ],
+    // options: [
+    //   { id: 'student', label: 'Per Child (Fall Semester)', amount: 180000 }, // PLACEHOLDER — confirm real tuition
+    // ],
+    // fields: [
+    //   { id: 'childName', label: "Child's full name", type: 'text', required: true },
+    //   { id: 'childDob', label: "Child's date of birth", type: 'text', required: true },
+    //   {
+    //     id: 'siblingDiscount', label: 'Additional sibling enrolling? (–$100)', type: 'checkbox',
+    //     priceImpact: -10000,
+    //   },
+    //   { id: 'allergies', label: 'Allergies or medical notes', type: 'textarea', required: false },
+    //   {
+    //     id: 'additionalChildren', label: 'Additional child(ren) enrolling? List name and date of birth for each',
+    //     type: 'textarea', required: false,
+    //   },
+    // ],
   },
 
 };
