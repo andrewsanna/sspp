@@ -82,7 +82,7 @@ const PAYMENT_ITEMS = {
     icon: 'ti-school',
     description: 'Church School begins with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. Students proceed to class following Holy Communion, with classes ending at 11:45 a.m. Numerous volunteer opportunities exist to offer your time and talent to our many programs.',
     schedule: 'Sundays, 9:30–11:45 AM (after Divine Liturgy)',
-    externalURL: 'https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx',
+    externalUrl: 'https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx',
     returnTo: { url: 'get-involved.html', label: 'Get Involved' },
     // options: [
     //   { id: 'student', label: 'Per Student', amount: 5000 },
