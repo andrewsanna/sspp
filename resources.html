@@ -28,14 +28,35 @@
 
   <!-- QUICK NAV -->
   <nav class="rs-jumpnav" aria-label="Resources on this page">
+    <a href="#sacraments">Sacraments</a>
     <a href="#bulletin">Bulletin</a>
     <a href="#registrations">Registrations</a>
-    <a href="#sacraments">Sacraments</a>
     <a href="#realm">Realm</a>
     <a href="#prayer">Prayer Requests</a>
     <a href="#blessing">Home Blessing</a>
     <a href="#council">Parish Council</a>
+    <a href="#council">Ministry Leaders</a>
   </nav>
+
+  <!-- SACRAMENTS -->
+    <section class="ab-faith section" id="sacraments">
+      <div class="container" id="sacraments">
+        <span class="eyebrow">Life Events</span>
+        <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Marking life's holiest moments</h2>
+        <div class="ab-faith-card">
+          <div class="ab-faith-icon">
+            <i class="ti ti-droplet" aria-hidden="true"></i>
+          </div>
+          <div class="ab-faith-card-text">
+            <h2>Baptism, weddings, memorials, and more</h2>
+            <p>From a child's first blessing to a marriage's first steps to a loved one's final rest, our clergy walk with parish families through each of these sacraments. Find what to expect and how to start planning.</p>
+          </div>
+          <a href="sacraments.html" class="btn btn-gold-lg">
+            Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
   <!-- BULLETIN + OPEN REGISTRATIONS -->
   <section class="rs-section">
@@ -97,25 +118,6 @@
     </div>
   </section>
   
-  <!-- SACRAMENTS -->
-    <section class="ab-faith section" id="sacraments">
-      <div class="container" id="sacraments">
-        <span class="eyebrow">Life Events</span>
-        <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Marking life's holiest moments</h2>
-        <div class="ab-faith-card">
-          <div class="ab-faith-icon">
-            <i class="ti ti-droplet" aria-hidden="true"></i>
-          </div>
-          <div class="ab-faith-card-text">
-            <h2>Baptism, weddings, memorials, and more</h2>
-            <p>From a child's first blessing to a marriage's first steps to a loved one's final rest, our clergy walk with parish families through each of these sacraments. Find what to expect and how to start planning.</p>
-          </div>
-          <a href="sacraments.html" class="btn btn-gold-lg">
-            Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-    </section>
 
   <!-- SSPP REALM -->
   <section class="rs-section rs-section--alt" id="realm">
@@ -293,34 +295,13 @@
             <a href="mailto:treasurer@ssppglenview.org" class="rs-staff-email">treasurer@ssppglenview.org</a>
           </div>
         </div>
-
-        <h3 class="rs-subtitle">Ministry Leaders</h3>
-        <div class="rs-staff-list">
-          <div class="rs-staff-row">
-            <div class="rs-staff-info">
-              <div class="rs-staff-name">Philoptochos President</div>
-              <div class="rs-staff-role">Name here</div>
-            </div>
-            <a href="mailto:philoptochos@ssppglenview.org" class="rs-staff-email">philoptochos@ssppglenview.org</a>
-          </div>
-          <div class="rs-staff-row">
-            <div class="rs-staff-info">
-              <div class="rs-staff-name">GOYA Advisor</div>
-              <div class="rs-staff-role">Name here</div>
-            </div>
-            <a href="mailto:goya@ssppglenview.org" class="rs-staff-email">goya@ssppglenview.org</a>
-          </div>
-          <div class="rs-staff-row">
-            <div class="rs-staff-info">
-              <div class="rs-staff-name">Greek School Director</div>
-              <div class="rs-staff-role">Name here</div>
-            </div>
-            <a href="mailto:greekschool@ssppglenview.org" class="rs-staff-email">greekschool@ssppglenview.org</a>
-          </div>
-        </div>
-        <p class="rs-note">See the full list of 33 ministries and their contacts on the <a href="get-involved.html">Get Involved</a> page.</p>
       </div>
     </div>
+  </section>
+
+  <section>
+    <h3 class="rs-subtitle">Ministry Leaders</h3>
+    <div class="rs-leader-accordion" id="leaderAccordion"></div>
   </section>
 
   <!-- CTA -->
@@ -360,5 +341,7 @@
   <script src="js/main.js"></script>
   <script src="js/payment-data.js"></script>
   <script src="js/registrations.js"></script>
+  <script src="js/ministries-data.js"></script>
+  <script src="js/leader-directory.js"></script>
 </body>
 </html>
