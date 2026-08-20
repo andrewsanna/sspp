@@ -366,6 +366,7 @@
 
 .rs-leader-accordion {
   margin-bottom: 0.5rem;
+  max-width: 780px;
 }
 
 .rs-leader-cat {
