@@ -35,8 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
       modalSchedule.style.display = 'none';
     }
 
-    modalPrice.textContent = getPaymentPriceLabel(key);
-    modalCta.href = 'payment.html?item=' + encodeURIComponent(key);
+   modalPrice.textContent = getPaymentPriceLabel(key);
+    modalCta.href = item.externalUrl || ('payment.html?item=' + encodeURIComponent(key));
+    if (item.externalUrl) {
+      modalCta.target = '_blank';
+      modalCta.rel = 'noopener';
+    } else {
+      modalCta.removeAttribute('target');
+      modalCta.removeAttribute('rel');
+    }
 
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
