@@ -32,10 +32,11 @@
     <a href="#bulletin">Bulletin</a>
     <a href="#registrations">Registrations</a>
     <a href="#realm">Realm</a>
+    <a href="#contactCard">Contact Card</a>
     <a href="#prayer">Prayer Requests</a>
     <a href="#blessing">Home Blessing</a>
-    <a href="#council">Parish Council</a>
-    <a href="#council">Ministry Leaders</a>
+    <a href="#parishCouncil">Parish Council</a>
+    <a href="#ministryLeaders">Ministry Leaders</a>
   </nav>
 
   <!-- SACRAMENTS -->
@@ -191,10 +192,61 @@
     </div>
   </section>
 
-  <!-- PRAYER REQUESTS + HOME BLESSING -->
+  <!-- CONTACT CARD + PRAYER REQUESTS + HOME BLESSING -->
   <section class="rs-section">
     <div class="container">
-      <div class="rs-pair-grid">
+      <div class="rs-pair-grid rs-pair-grid--trio">
+
+        <!-- DIGITAL CONTACT CARD -->
+        <div class="rs-pair-card" id="contactCard">
+          <div class="rs-pair-icon"><i class="ti ti-address-card" aria-hidden="true"></i></div>
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="rs-section-title">Have someone reach out to you</h2>
+          <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="ccName">Your name</label>
+              <input type="text" id="ccName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccPhone">Phone</label>
+              <input type="tel" id="ccPhone" name="phone" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccEmail">Email <span class="rs-optional">(optional)</span></label>
+              <input type="email" id="ccEmail" name="email">
+            </div>
+            <div class="rs-form-row">
+              <label for="ccTopic">I'd like to talk to someone about</label>
+              <select id="ccTopic" name="topic" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="general">General / Parish Office</option>
+                <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
+                <option value="ministries">Ministries &amp; Getting Involved</option>
+                <option value="youth">Youth &amp; Young Adults</option>
+                <option value="stewardship">Stewardship &amp; Giving</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccContactMethod">Preferred contact method</label>
+              <select id="ccContactMethod" name="preferred_contact_method">
+                <option value="phone">Phone call</option>
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
+              <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
 
         <!-- PRAYER REQUESTS -->
         <div class="rs-pair-card" id="prayer">
@@ -264,44 +316,52 @@
 
   <!-- PARISH COUNCIL & MINISTRY LEADERS -->
   <section class="rs-section rs-section--alt" id="council">
-    <div class="container rs-section-inner">
-      <div class="rs-section-icon"><i class="ti ti-users-group" aria-hidden="true"></i></div>
-      <div class="rs-section-text">
+    <div class="container">
+      <div class="rs-council-header">
+        <div class="rs-section-icon"><i class="ti ti-users-group" aria-hidden="true"></i></div>
         <span class="eyebrow">Leadership</span>
         <h2 class="rs-section-title">Parish council &amp; ministry leaders</h2>
         <p>Have a question about parish operations, a ministry, or want to get more involved in leadership? Here's who to reach.</p>
+      </div>
 
-        <h3 class="rs-subtitle">Parish Council</h3>
-        <div class="rs-staff-list">
-          <div class="rs-staff-row">
-            <div class="rs-staff-info">
-              <div class="rs-staff-name">Parish Council President</div>
-              <div class="rs-staff-role">Name here</div>
+      <div class="rs-council-columns">
+
+        <!-- LEFT: Parish Council -->
+        <div class="rs-council-col" id="parishCouncil">
+          <h3 class="rs-subtitle" style="margin-top: 0;">Parish Council</h3>
+          <div class="rs-staff-list">
+            <div class="rs-staff-row">
+              <div class="rs-staff-info">
+                <div class="rs-staff-name">Parish Council President</div>
+                <div class="rs-staff-role">Name here</div>
+              </div>
+              <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
             </div>
-            <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
-          </div>
-          <div class="rs-staff-row">
-            <div class="rs-staff-info">
-              <div class="rs-staff-name">Vice President</div>
-              <div class="rs-staff-role">Name here</div>
+            <div class="rs-staff-row">
+              <div class="rs-staff-info">
+                <div class="rs-staff-name">Vice President</div>
+                <div class="rs-staff-role">Name here</div>
+              </div>
+              <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
             </div>
-            <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
-          </div>
-          <div class="rs-staff-row">
-            <div class="rs-staff-info">
-              <div class="rs-staff-name">Treasurer</div>
-              <div class="rs-staff-role">Name here</div>
+            <div class="rs-staff-row">
+              <div class="rs-staff-info">
+                <div class="rs-staff-name">Treasurer</div>
+                <div class="rs-staff-role">Name here</div>
+              </div>
+              <a href="mailto:treasurer@ssppglenview.org" class="rs-staff-email">treasurer@ssppglenview.org</a>
             </div>
-            <a href="mailto:treasurer@ssppglenview.org" class="rs-staff-email">treasurer@ssppglenview.org</a>
           </div>
         </div>
+
+        <!-- RIGHT: Ministry Leaders -->
+        <div class="rs-council-col" id="ministryLeaders">
+          <h3 class="rs-subtitle" style="margin-top: 0;">Ministry Leaders</h3>
+          <div class="rs-leader-accordion" id="leaderAccordion"></div>
+        </div>
+
       </div>
     </div>
-  </section>
-
-  <section>
-    <h3 class="rs-subtitle">Ministry Leaders</h3>
-    <div class="rs-leader-accordion" id="leaderAccordion"></div>
   </section>
 
   <!-- CTA -->
