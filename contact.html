@@ -377,5 +377,18 @@
   <script src="js/main.js"></script>
   <script src="js/ministries-data.js"></script>
   <script src="js/leader-directory.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('councilToggle');
+      const full = document.getElementById('councilFull');
+      if (!toggle || !full) return;
+      toggle.addEventListener('click', function () {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        full.classList.toggle('is-open', !isOpen);
+      });
+    });
+  </script>
 </body>
 </html>
