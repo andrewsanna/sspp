@@ -50,13 +50,44 @@
 }
 
 /* ============================================
-   Bible Study & Catechism
+   Bible Study & Catechism / Learn & Grow
    ============================================ */
 .of-learn-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
   margin-bottom: 1.75rem;
+}
+
+.of-learn-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.of-learn-card p {
+  font-size: 0.87rem;
+  line-height: 1.75;
+}
+
+.of-learn-photo {
+  height: 180px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.of-learn-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .of-learn-photo--placeholder {
@@ -66,6 +97,21 @@
   color: rgba(255, 255, 255, 0.4);
   font-size: 1.5rem;
   position: relative;
+}
+
+.of-learn-photo .ph-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+}
+
+.of-learn-cta {
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 900px) {
