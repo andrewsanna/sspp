@@ -58,16 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.getElementById('councilToggle');
-  const full = document.getElementById('councilFull');
-  if (!toggle || !full) return;
-  toggle.addEventListener('click', function () {
-    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!isOpen));
-    full.classList.toggle('is-open', !isOpen);
-  });
-});
 
   // --- Active link highlighting ---
   // Compares each nav link's href against the current page filename,
