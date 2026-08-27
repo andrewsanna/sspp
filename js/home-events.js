@@ -168,6 +168,42 @@ function renderHomeEvents(events) {
 }
 
 // ============================================
+// Featured ministry spotlight (homepage)
+// Pulls the most recently dated 'ministry' post from
+// PARISH_LIFE_POSTS into the Get Involved feature card.
+// ============================================
+function getLatestMinistryPost() {
+  if (typeof PARISH_LIFE_POSTS === 'undefined') return null;
+  const ministryPosts = PARISH_LIFE_POSTS.filter(p => p.category === 'ministry');
+  if (!ministryPosts.length) return null;
+  return ministryPosts.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+}
+
+function renderFeaturedMinistry() {
+  const block = document.getElementById('minFeatureBlock');
+  const post = getLatestMinistryPost();
+  if (!block || !post) return; // leave fallback markup in place
+
+  const photo = post.photos && post.photos.length
+    ? post.photos[0].src
+    : 'images/ministries/default.jpg';
+
+  block.innerHTML = `
+    <div class="photo-placeholder">
+      <img src="${photo}" alt="${post.title}" />
+    </div>
+    <div class="min-feature-body">
+      <span class="eyebrow" style="margin-bottom:0.4rem;">Ministry Spotlight</span>
+      <h3 class="min-feature-title">${post.title}</h3>
+      <p class="min-feature-desc">${post.excerpt}</p>
+      <a href="parish-life.html#${post.id}" class="text-link">Read more <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  `;
+}
+
+document.addEventListener('DOMContentLoaded', renderFeaturedMinistry);
+
+// ============================================
 // Boot
 // ============================================
 document.addEventListener('DOMContentLoaded', async () => {
