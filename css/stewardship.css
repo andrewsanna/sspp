@@ -1,0 +1,202 @@
+/* Scripture quote band */
+.give-quote {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  background: var(--color-cream, #faf7f0);
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.give-quote-text {
+  font-family: var(--font-serif, Georgia, serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  max-width: 640px;
+  margin: 0 auto 0.5rem;
+  color: var(--color-navy, #1a2744);
+}
+.give-quote-cite {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-gold, #b08d3f);
+}
+
+/* This Year's Plan */
+.plan-intro {
+  max-width: 640px;
+  margin: 0 0 2rem;
+  color: var(--color-navy, #1a2744);
+}
+.plan-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.plan-item {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding-bottom: 1.75rem;
+}
+.plan-item:last-child { border-bottom: none; }
+.plan-number {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 2rem;
+  color: var(--color-gold, #b08d3f);
+  line-height: 1;
+  min-width: 2.5rem;
+}
+.plan-body h3 { margin: 0 0 0.25rem; }
+.plan-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.plan-progress-bar {
+  flex: 1;
+  max-width: 220px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.plan-progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--color-gold, #b08d3f);
+}
+.plan-progress-label {
+  font-size: 0.85rem;
+  color: var(--color-navy, #1a2744);
+}
+
+/* Update timeline */
+.update-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(0,0,0,0.08);
+}
+.update-entry {
+  position: relative;
+  padding-bottom: 2rem;
+}
+.update-entry:last-child { padding-bottom: 0; }
+.update-entry::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 0.3rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-gold, #b08d3f);
+}
+.update-date {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-gold, #b08d3f);
+  margin-bottom: 0.25rem;
+}
+.update-content h3 { margin: 0 0 0.25rem; }
+
+/* Non-financial stewardship story section */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.story-quote {
+  background: var(--color-cream, #faf7f0);
+  border-left: 4px solid var(--color-gold, #b08d3f);
+  padding: 1.5rem 1.75rem;
+  font-family: var(--font-serif, Georgia, serif);
+  font-style: italic;
+  color: var(--color-navy, #1a2744);
+}
+.story-quote span {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--color-gold, #b08d3f);
+}
+.story-list ul {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.story-list li {
+  padding-left: 1.5rem;
+  position: relative;
+}
+.story-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold, #b08d3f);
+}
+@media (max-width: 720px) {
+  .story-grid { grid-template-columns: 1fr; }
+}
+
+/* FAQ accordion */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  color: var(--color-navy, #1a2744);
+}
+.faq-icon { transition: transform 0.2s ease; }
+.faq-item--open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.faq-item--open .faq-answer { max-height: 240px; }
+.faq-answer p { padding: 0 0 1.1rem; margin: 0; color: var(--color-navy, #1a2744); }
+
+/* Other ways to give — plain list */
+.ways-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 640px;
+}
+.ways-list li {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.ways-list li:last-child { border-bottom: none; }
