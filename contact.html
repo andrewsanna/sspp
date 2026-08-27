@@ -98,10 +98,10 @@
     </div>
   </section>
 
-  <!-- CONTACT CARD + PRAYER REQUESTS + HOME BLESSING -->
-  <section class="rs-section">
+  <!-- CONTACT CARD + PRAYER REQUESTS -->
+  <section class="rs-section rs-section--alt">
     <div class="container">
-      <div class="rs-pair-grid rs-pair-grid--trio">
+      <div class="rs-pair-grid">
 
         <!-- DIGITAL CONTACT CARD -->
         <div class="rs-pair-card" id="contactCard">
@@ -119,10 +119,6 @@
             <div class="rs-form-row">
               <label for="ccPhone">Phone</label>
               <input type="tel" id="ccPhone" name="phone" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="ccEmail">Email
-              <input type="email" id="ccEmail" name="email" required>
             </div>
             <div class="rs-form-row">
               <label for="ccTopic">I'd like to talk to someone about</label>
@@ -168,14 +164,6 @@
               <input type="text" id="rsName" name="name" required>
             </div>
             <div class="rs-form-row">
-              <label for="rsPhone">Phone</label>
-              <input type="tel" id="rsPhone" name="phone" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="rsEmail">Email </label>
-              <input type="email" id="rsEmail" name="email" required>
-            </div>
-            <div class="rs-form-row">
               <label for="rsRequest">Prayer request</label>
               <textarea id="rsRequest" name="request" rows="4" required placeholder="Name(s) and what you'd like prayers for"></textarea>
             </div>
@@ -185,41 +173,6 @@
             </div>
             <button type="submit" class="btn btn-gold-lg">
               Submit request <i class="ti ti-arrow-right" aria-hidden="true"></i>
-            </button>
-          </form>
-        </div>
-
-        <!-- HOME BLESSING REQUEST -->
-        <div class="rs-pair-card" id="blessing">
-          <div class="rs-pair-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
-          <span class="eyebrow">Agiasmos</span>
-          <h2 class="rs-section-title">Request a home blessing</h2>
-          <p>Our priests bless homes with holy water throughout the year, and especially around Theophany each January. Fill out the form below and our office will reach out to schedule a time.</p>
-
-          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="rs-form-row">
-              <label for="hbName">Your name</label>
-              <input type="text" id="hbName" name="name" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="hbAddress">Home address</label>
-              <input type="text" id="hbAddress" name="address" required>
-            </div>
-             <div class="rs-form-row">
-              <label for="hbPhone">Phone</label>
-              <input type="tel" id="hbPhone" name="phone" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="hbEmail">Email </label>
-              <input type="email" id="hbEmail" name="email" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="hbNotes">Preferred timeframe <span class="rs-optional">(optional)</span></label>
-              <textarea id="hbNotes" name="notes" rows="3" placeholder="e.g. a weekday evening in January, or anytime this spring"></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold-lg">
-              Request a blessing <i class="ti ti-arrow-right" aria-hidden="true"></i>
             </button>
           </form>
         </div>
