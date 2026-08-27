@@ -127,6 +127,11 @@
 
 /* Homepage-only overrides for the featured-event-compact cards —
    calendar.css stays untouched; these only apply inside #homeEventsGrid. */
+#homeEventsGrid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+}
+
 #homeEventsGrid .fe-content {
   padding: 0.9rem 1rem;
   display: flex;
@@ -160,6 +165,7 @@
 
 #homeEventsGrid .fe-date {
   font-size: 0.62rem;
+  color: var(--gold);
 }
 
 #homeEventsGrid .featured-event-title {
