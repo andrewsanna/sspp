@@ -34,7 +34,6 @@
     <a href="#registrations">Registrations</a>
     <a href="#contactCard">Contact Card</a>
     <a href="#prayer">Prayer Requests</a>
-    <a href="#blessing">Home Blessing</a>
     <a href="#pastors-corner">Pastor's Corner</a>
     <a href="#realm">Realm</a>
   </nav>
@@ -119,61 +118,57 @@
     </div>
   </section>
 
-  <!-- DIGITAL CONTACT CARD -->
-  <section class="rs-section rs-section--alt" id="contactCard">
-    <div class="container">
-      <div class="rs-contact-card">
-        <div class="rs-pair-icon"><i class="ti ti-address-card" aria-hidden="true"></i></div>
-        <span class="eyebrow">Get In Touch</span>
-        <h2 class="rs-section-title">Have someone reach out to you</h2>
-        <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
-
-        <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-        <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="rs-form-row">
-            <label for="ccName">Your name</label>
-            <input type="text" id="ccName" name="name" required>
-          </div>
-          <div class="rs-form-row">
-            <label for="ccPhone">Phone</label>
-            <input type="tel" id="ccPhone" name="phone" required>
-          </div>
-          <div class="rs-form-row">
-            <label for="ccTopic">I'd like to talk to someone about</label>
-            <select id="ccTopic" name="topic" required>
-              <option value="" disabled selected>Choose one</option>
-              <option value="general">General / Parish Office</option>
-              <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
-              <option value="ministries">Ministries &amp; Getting Involved</option>
-              <option value="youth">Youth &amp; Young Adults</option>
-              <option value="stewardship">Stewardship &amp; Giving</option>
-              <option value="other">Something else</option>
-            </select>
-          </div>
-          <div class="rs-form-row">
-            <label for="ccContactMethod">Preferred contact method</label>
-            <select id="ccContactMethod" name="preferred_contact_method">
-              <option value="phone">Phone call</option>
-              <option value="text">Text</option>
-              <option value="email">Email</option>
-            </select>
-          </div>
-          <div class="rs-form-row">
-            <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
-            <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold-lg">
-            Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRAYER REQUESTS + HOME BLESSING -->
-  <section class="rs-section">
+    <!-- CONTACT CARD + PRAYER REQUESTS -->
+  <section class="rs-section rs-section--alt">
     <div class="container">
       <div class="rs-pair-grid">
+
+        <!-- DIGITAL CONTACT CARD -->
+        <div class="rs-pair-card" id="contactCard">
+          <div class="rs-pair-icon"><i class="ti ti-address-card" aria-hidden="true"></i></div>
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="rs-section-title">Have someone reach out to you</h2>
+          <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="ccName">Your name</label>
+              <input type="text" id="ccName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccPhone">Phone</label>
+              <input type="tel" id="ccPhone" name="phone" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccTopic">I'd like to talk to someone about</label>
+              <select id="ccTopic" name="topic" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="general">General / Parish Office</option>
+                <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
+                <option value="ministries">Ministries &amp; Getting Involved</option>
+                <option value="youth">Youth &amp; Young Adults</option>
+                <option value="stewardship">Stewardship &amp; Giving</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccContactMethod">Preferred contact method</label>
+              <select id="ccContactMethod" name="preferred_contact_method">
+                <option value="phone">Phone call</option>
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
+              <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
 
         <!-- PRAYER REQUESTS -->
         <div class="rs-pair-card" id="prayer">
@@ -202,43 +197,12 @@
           </form>
         </div>
 
-        <!-- HOME BLESSING REQUEST -->
-        <div class="rs-pair-card" id="blessing">
-          <div class="rs-pair-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
-          <span class="eyebrow">Agiasmos</span>
-          <h2 class="rs-section-title">Request a home blessing</h2>
-          <p>Our priests bless homes with holy water throughout the year, and especially around Theophany each January. Fill out the form below and our office will reach out to schedule a time.</p>
-
-          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="rs-form-row">
-              <label for="hbName">Your name</label>
-              <input type="text" id="hbName" name="name" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="hbAddress">Home address</label>
-              <input type="text" id="hbAddress" name="address" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="hbContact">Phone or email</label>
-              <input type="text" id="hbContact" name="contact" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="hbNotes">Preferred timeframe <span class="rs-optional">(optional)</span></label>
-              <textarea id="hbNotes" name="notes" rows="3" placeholder="e.g. a weekday evening in January, or anytime this spring"></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold-lg">
-              Request a blessing <i class="ti ti-arrow-right" aria-hidden="true"></i>
-            </button>
-          </form>
-        </div>
-
       </div>
     </div>
   </section>
 
   <!-- PASTOR'S CORNER -->
-  <section class="ab-faith section section--alt" id="pastors-corner">
+  <section class="ab-faith section" id="pastors-corner">
     <div class="container">
       <span class="eyebrow">From Fr. Rick</span>
       <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Pastor's Corner</h2>
@@ -258,7 +222,7 @@
   </section>
 
   <!-- SSPP REALM -->
-  <section class="rs-section" id="realm">
+  <section class="rs-section rs-section--alt" id="realm">
     <div class="container">
       <div class="rs-realm-card">
 
