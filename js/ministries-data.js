@@ -211,6 +211,16 @@ const MINISTRY_CATEGORIES = [
     label: 'Community Activities',
     blurb: 'Stay active and connected through sport, dance, and senior programming.',
     ministries: [
+     {
+        name: 'Coffee Fellowship',
+        summary: 'Fellowship and connection after Divine Liturgy.',
+        description: 'We welcome families and ministry groups to host a Coffee Fellowship following the Sunday Divine Liturgy. It is an opportunity to promote interaction among our parishioners and visitors by offering hospitality and refreshments. Celebrate a special occasion (nameday, birthday, anniversary, memorial, graduation, etc) or host for no reason at all. Click here to fill out a request form ONLINE to reserve the date of your choice! Or you can contact the office at 847.729.2235 or office@ssppglenview.org to reserve a date or with any questions.',
+        // image: 'images/ministries/dynamis.jpg',
+        contact: {
+          name: 'Carolyn Kolbaba',
+          role: 'Group Leader',
+          email: 'carolyn@ssppglenview.org',
+      },
       {
         name: 'Dynamis Group',
         summary: 'Fellowship and enrichment for senior members of the parish.',
