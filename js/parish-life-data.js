@@ -55,7 +55,7 @@ const PARISH_LIFE_POSTS = [
   {
     id: 'goya-spotlight-2026',
     category: 'ministry',
-    title: 'Ministry Spotlight: GOYA',
+    title: 'Junior Olympics',
     date: 'May 30, 2026',
     excerpt: 'Our high schoolers just wrapped up another year of fellowship, service, and a little friendly competition at Junior Olympics. Here\'s a look at what GOYA is all about.',
     body: 'GOYA (Greek Orthodox Youth of America) is our ministry for parish teens, grades 9 through 12. Four times a month, our GOYAns gather for a mix of fellowship nights, service projects, and faith discussions led by our youth director and a rotating group of adult volunteers.\n\nThis spring, a group of our GOYAns traveled to compete in the Metropolis Junior Olympics, an annual track-and-field and basketball tournament that brings together Greek Orthodox teens from parishes across the region. Beyond the competition, it\'s become one of the highlights of the GOYA calendar — a chance for our kids to build friendships with peers from other parishes who share their faith.\n\nGOYA is open to any parish teen, no experience or background required — just a willingness to show up. If you have a high schooler who might want to get involved, reach out to our Youth Director, Steven Thell, at youthdirector@ssppglenview.org.',
