@@ -40,6 +40,8 @@
 }
 
 .hero-overlay {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(to right, rgba(18, 39, 64, 0.68) 0%, rgba(18, 39, 64, 0.35) 55%, rgba(18, 39, 64, 0.12) 100%);
 }
 
@@ -193,7 +195,7 @@
 }
 
 .ts-stat {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   flex: 0 0 auto;
 }
@@ -204,18 +206,18 @@
 
 .ts-num {
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-weight: 500;
   color: var(--gold);
   line-height: 1;
 }
 
 .ts-label {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-top: 0.25rem;
+  letter-spacing: 0.07em;
+  margin-top: 0.4rem;
 }
 
 .ts-times {
@@ -225,10 +227,10 @@
 }
 
 .ts-time {
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
   flex: 1;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
-  min-width: 130px;
+  min-width: 150px;
 }
 
 .ts-time:last-child {
@@ -236,15 +238,15 @@
 }
 
 .ts-time-label {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
 }
 
 .ts-time-val {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #fff;
 }
@@ -260,7 +262,6 @@
     padding-left: 0;
   }
 }
-
 /* ============================================
    Welcome / reassurance section
    ============================================ */
