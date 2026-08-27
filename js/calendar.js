@@ -455,7 +455,7 @@ function renderMonthGrid() {
         <div class="day-num">${viewMode === 'week' ? cell.date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }) : cell.day}</div>
         ${visibleEvents.map((e) => {
           const timeLabel = formatPillTime(e.start, e.isAllDay);
-          const subParts = [timeLabel, e.location].filter(Boolean);
+          const subParts = [timeLabel, (e.location && !isUrl(e.location)) ? e.location : null].filter(Boolean);
           const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
           return `
             <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
@@ -520,6 +520,17 @@ function normalizeImageUrl(url) {
     return `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1000`;
   }
   return url;
+}
+
+function isUrl(str) {
+  return /^https?:\/\//i.test((str || '').trim());
+}
+
+function getMeetingLinkLabel(url) {
+  if (/zoom\.us/i.test(url)) return 'Join Zoom';
+  if (/meet\.google\.com/i.test(url)) return 'Join Google Meet';
+  if (/teams\.microsoft\.com/i.test(url)) return 'Join Teams Meeting';
+  return 'Join Meeting Link';
 }
 
 function parseEventActions(description) {
@@ -598,10 +609,11 @@ function openEventModal(event) {
   const metaEl = document.getElementById('eventModalMeta');
   const descEl = document.getElementById('eventModalDesc');
   const actionsEl = document.getElementById('eventModalActions');
- 
+
   const { cleanText, actions, imageUrl } = parseEventActions(event.description);
   const pricePill = getEventPricePill(event.description);
- 
+  const locationIsUrl = event.location && isUrl(event.location);
+
   const existingImg = document.getElementById('eventModalImage');
   if (existingImg) existingImg.remove();
   if (imageUrl) {
@@ -612,12 +624,12 @@ function openEventModal(event) {
     img.alt = '';
     document.querySelector('.event-modal').appendChild(img);
   }
- 
+
   categoryEl.textContent = CATEGORY_LABELS[event.category] || 'Event';
   categoryEl.style.background = hexToRgba(categoryText(event.category), 0.14);
   categoryEl.style.color = categoryText(event.category);
   titleEl.textContent = event.title;
- 
+
   metaEl.innerHTML = `
     <div class="event-modal-meta-row">
       <i class="ti ti-calendar" aria-hidden="true"></i>
@@ -627,7 +639,7 @@ function openEventModal(event) {
       <i class="ti ti-clock" aria-hidden="true"></i>
       <span>${formatTimeRange(event.start, event.end, event.isAllDay)}</span>
     </div>
-    ${event.location ? `
+    ${event.location && !locationIsUrl ? `
       <div class="event-modal-meta-row">
         <i class="ti ti-map-pin" aria-hidden="true"></i>
         <span>${escapeHtml(event.location)}</span>
@@ -640,20 +652,24 @@ function openEventModal(event) {
       </div>
     ` : ''}
   `;
- 
+
   descEl.textContent = cleanText;
   descEl.style.display = cleanText ? 'block' : 'none';
- 
-  actionsEl.innerHTML = actions.map((action, i) => `
+
+  const combinedActions = locationIsUrl
+    ? [{ url: event.location, icon: 'ti-video', label: getMeetingLinkLabel(event.location) }, ...actions]
+    : actions;
+
+  actionsEl.innerHTML = combinedActions.map((action, i) => `
     <a href="${escapeHtml(action.url)}" target="_blank" rel="noopener noreferrer"
        class="event-modal-btn ${i === 0 ? '' : 'secondary'}">
       <i class="ti ${action.icon}" aria-hidden="true"></i> ${action.label}
     </a>
   `).join('');
- 
+
   overlay.classList.add('is-open');
 }
- 
+
 function closeEventModal() {
   document.getElementById('eventModalOverlay').classList.remove('is-open');
 }
