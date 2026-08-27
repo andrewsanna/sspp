@@ -531,6 +531,7 @@
   letter-spacing: 0.02em;
   text-transform: none;
   color: var(--navy-deep);
+  margin-bottom: 1rem;
 }
 
 .up-event {
