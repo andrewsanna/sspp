@@ -405,7 +405,7 @@
 }
 
 .day-cell {
-  min-height: 80px;
+  min-height: 130px;
   min-width: 0;
   overflow: hidden;
   border-right: 1px solid #F3EDDF;
@@ -481,21 +481,29 @@
 }
 
 .ev-pill {
-  font-size: 0.6rem;
-  padding: 0.1rem 0.35rem;
+  padding: 0.2rem 0.4rem;
   border-radius: 3px;
-  margin-bottom: 0.15rem;
-  font-weight: 600;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.ev-pill-title {
+  font-size: 0.62rem;
+  font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  cursor: pointer;
 }
 
-.ev-pill-time {
-  font-weight: 700;
+.ev-pill-sub {
+  font-size: 0.56rem;
+  font-weight: 500;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .day-more {
   font-size: 0.6rem;
   color: var(--mt);
@@ -518,23 +526,24 @@
   padding: 1.1rem;
 }
 
-.side-title {
-  font-size: 0.66rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--mt);
-  font-weight: 600;
-  margin-bottom: 0.85rem;
+.side-title--lg {
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--navy-deep);
 }
 
-/* "Coming up" — featured events only, styled like mini feature cards */
-.up-event {
+.up-event-img {
+  width: 84px;
+  height: 84px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  background-size: cover;
+  background-position: center;
   display: flex;
-  gap: 0.85rem;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--brd);
-  cursor: pointer;
+  align-items: center;
+  justify-content: center;
 }
 
 .up-event:last-child {
