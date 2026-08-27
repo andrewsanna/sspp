@@ -28,7 +28,18 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
-        name: 'Choir and Chanters',
+        name: 'Chanters',
+        summary: 'Lead the musical expression of our faith during services.',
+        description: 'Music and singing are an integral part of worship in the Orthodox Church. The musical expression of our faith is led by both Chanters and our Choir, yet all the faithful are encouraged to raise their voice in song during the services.',
+        image: 'images/ministries/chantors.jpg',
+        contact: {
+          name: 'Chris Atsaves',
+          role: 'Chanter',
+          email: 'Chanters@ssppglenview.org',
+      },
+      },
+      {
+        name: 'Choir',
         summary: 'Lead the musical expression of our faith during services.',
         description: 'Music and singing are an integral part of worship in the Orthodox Church. The musical expression of our faith is led by both Chanters and our Choir, yet all the faithful are encouraged to raise their voice in song during the services.',
         image: 'images/ministries/choir.jpg',
@@ -36,11 +47,6 @@ const MINISTRY_CATEGORIES = [
           name: 'Therese Speropoulos',
           role: 'Choir Director',
           email: 'Choir@ssppglenview.org',
-      },
-        contact: {
-          name: 'Chris Atsaves',
-          role: 'Chanter',
-          email: 'Chanters@ssppglenview.org',
       },
       },
       {
