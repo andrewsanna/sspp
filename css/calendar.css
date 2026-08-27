@@ -303,6 +303,7 @@
   .ev-pill-title {
     font-size: 0.72rem;
     white-space: normal;
+    overflow-wrap: break-word;
     line-height: 1.25;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -313,6 +314,7 @@
   .ev-pill-sub {
     font-size: 0.64rem;
     white-space: normal;
+    overflow-wrap: break-word;
     overflow: visible;
     text-overflow: clip;
   }
