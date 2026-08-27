@@ -74,25 +74,35 @@
   font-size: 0.85rem;
   color: var(--color-navy, #1a2744);
 }
-
-/* Update timeline */
-.update-timeline {
+/* Update timeline — horizontal */
+.update-timeline-h {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   position: relative;
-  padding-left: 1.5rem;
-  border-left: 2px solid rgba(0,0,0,0.08);
+  padding-top: 1.5rem;
 }
-.update-entry {
-  position: relative;
-  padding-bottom: 2rem;
-}
-.update-entry:last-child { padding-bottom: 0; }
-.update-entry::before {
+.update-timeline-h::before {
   content: "";
   position: absolute;
-  left: -1.75rem;
-  top: 0.3rem;
-  width: 10px;
-  height: 10px;
+  top: 6px;
+  left: calc(100% / 6);
+  right: calc(100% / 6);
+  height: 2px;
+  background: rgba(0,0,0,0.08);
+}
+.update-entry-h {
+  position: relative;
+  text-align: center;
+  padding-top: 1rem;
+}
+.update-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: var(--color-gold, #b08d3f);
 }
@@ -102,9 +112,20 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-gold, #b08d3f);
-  margin-bottom: 0.25rem;
+  margin: 0.75rem 0 0.4rem;
 }
-.update-content h3 { margin: 0 0 0.25rem; }
+.update-entry-h h3 { margin: 0 0 0.4rem; }
+.update-entry-h p { font-size: 0.95rem; }
+
+@media (max-width: 720px) {
+  .update-timeline-h {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .update-timeline-h::before { display: none; }
+  .update-entry-h { text-align: left; padding-left: 1.75rem; padding-top: 0; }
+  .update-dot { left: 0; top: 0.3rem; transform: none; }
+}
 
 /* Non-financial stewardship story section */
 .story-grid {
@@ -113,20 +134,12 @@
   gap: 3rem;
   align-items: center;
 }
-.story-quote {
-  background: var(--color-cream, #faf7f0);
-  border-left: 4px solid var(--color-gold, #b08d3f);
-  padding: 1.5rem 1.75rem;
-  font-family: var(--font-serif, Georgia, serif);
-  font-style: italic;
-  color: var(--color-navy, #1a2744);
-}
-.story-quote span {
-  display: block;
-  margin-top: 0.75rem;
-  font-style: normal;
-  font-size: 0.85rem;
-  color: var(--color-gold, #b08d3f);
+.story-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 .story-list ul {
   list-style: none;
