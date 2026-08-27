@@ -267,7 +267,7 @@
    ============================================ */
 .welcome-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.4fr; /* narrowed photo column (was 1fr 2fr) so it doesn't tower over shorter text */
   gap: 3rem;
   align-items: center;
 }
@@ -516,6 +516,8 @@
     grid-template-columns: 1fr;
   }
 }
+
+
 
 /* ============================================
    Ministries (homepage preview)
