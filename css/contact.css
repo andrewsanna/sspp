@@ -1,7 +1,6 @@
 /* ============================================
    CONTACT PAGE
    ============================================ */
-
 /* HERO */
 .ct-hero {
   position: relative;
@@ -9,7 +8,6 @@
   padding: 5rem 0 6rem;
   overflow: hidden;
 }
-
 .ct-hero-arc {
   position: absolute;
   top: -40%;
@@ -20,7 +18,6 @@
   background: radial-gradient(circle, rgba(212, 175, 106, 0.08), transparent 70%);
   pointer-events: none;
 }
-
 .ct-hero-inner {
   position: relative;
   max-width: 700px;
@@ -28,32 +25,27 @@
   padding: 0 2rem;
   text-align: center;
 }
-
 .ct-hero-title {
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 1rem;
 }
-
 .ct-hero-title em {
   font-style: italic;
   color: var(--gold);
 }
-
 .ct-hero-body {
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.65);
   max-width: 520px;
   margin: 0 auto;
 }
-
 /* INFO CARDS */
 .ct-info-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
-
 .ct-card {
   background: #fff;
   border: 1px solid var(--brd);
@@ -61,7 +53,6 @@
   padding: 2rem 1.75rem;
   box-shadow: var(--shadow-card);
 }
-
 .ct-card-icon {
   width: 44px;
   height: 44px;
@@ -74,29 +65,24 @@
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
-
 .ct-card-title {
   font-size: 1.15rem;
   margin-bottom: 0.6rem;
 }
-
 .ct-card-body {
   font-size: 0.92rem;
   color: var(--mt);
   margin-bottom: 0.75rem;
 }
-
 .ct-card-body a {
   color: var(--navy);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.05rem;
 }
-
 .ct-card-body a:hover {
   color: var(--gold-deep);
 }
-
 .ct-card-note {
   font-size: 0.82rem;
   color: var(--mt);
@@ -105,11 +91,9 @@
   padding: 0.65rem 0.85rem;
   border: 1px solid var(--brd);
 }
-
 .ct-card-note strong {
   color: var(--navy-deep);
 }
-
 .ct-card-link {
   display: inline-flex;
   align-items: center;
@@ -118,29 +102,24 @@
   color: var(--blue);
   text-decoration: none;
 }
-
 .ct-card-link:hover {
   text-decoration: underline;
 }
-
 @media (max-width: 860px) {
   .ct-info-grid {
     grid-template-columns: 1fr;
   }
 }
-
 /* WHO TO CONTACT */
 .ct-section-title {
   font-size: 1.75rem;
   margin-bottom: 1.75rem;
 }
-
 .ct-staff-list {
   max-width: 560px;
   margin: 0 auto;
   border-top: 1px solid var(--brd);
 }
-
 .ct-staff-row {
   display: flex;
   align-items: center;
@@ -149,7 +128,6 @@
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--brd);
 }
-
 .ct-staff-email {
   font-size: 0.85rem;
   color: var(--blue);
@@ -157,26 +135,21 @@
   font-weight: 500;
   white-space: nowrap;
 }
-
 .ct-staff-name {
   font-family: var(--font-display);
   font-size: 1.05rem;
   color: var(--navy-deep);
   font-weight: 600;
 }
-
 .ct-staff-role {
   font-size: 0.78rem;
   color: var(--mt);
   margin-top: 0.15rem;
   margin-bottom: 0.5rem;
 }
-
-
 .ct-staff-email:hover {
   text-decoration: underline;
 }
-
 .ct-staff-more {
   display: flex;
   align-items: center;
@@ -188,11 +161,9 @@
   text-decoration: none;
   font-weight: 600;
 }
-
 .ct-staff-more:hover {
   text-decoration: underline;
 }
-
 /* MAP */
 .ct-map {
   border-radius: var(--radius-lg);
@@ -202,12 +173,167 @@
   line-height: 0;
 }
 
+/* ============================================
+   PARISH COUNCIL & MINISTRY LEADERS
+   (moved from resources.css — remove these rules
+   from resources.css once this section is deleted there)
+   ============================================ */
+.rs-council-header {
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.rs-council-header .rs-section-icon {
+  margin-bottom: 0.75rem;
+}
+
+.rs-council-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .rs-council-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.rs-staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.rs-staff-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.rs-staff-name {
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: 0.92rem;
+}
+
+.rs-staff-role {
+  font-size: 0.78rem;
+  color: var(--mt);
+}
+
+.rs-staff-email {
+  font-size: 0.85rem;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.rs-staff-email:hover {
+  text-decoration: underline;
+}
+
+.rs-leader-cat {
+  background: var(--cream);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.rs-leader-cat summary {
+  padding: 1.1rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rs-leader-cat summary::-webkit-details-marker {
+  display: none;
+}
+
+.rs-leader-cat summary::after {
+  content: '\002B';
+  color: var(--gold-deep);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.rs-leader-cat[open] summary::after {
+  content: '\2212';
+}
+
+.rs-leader-rows {
+  padding: 0 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rs-leader-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--brd);
+}
+
+.rs-leader-row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.rs-leader-name {
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: 0.85rem;
+}
+
+.rs-leader-role {
+  font-size: 0.75rem;
+  color: var(--mt);
+}
+
+.rs-leader-email {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  color: var(--gold-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.rs-leader-email:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
 @media (max-width: 640px) {
   .ct-hero-title {
     font-size: 1.9rem;
   }
-
-  .ct-staff-row {
+  .ct-staff-row,
+  .rs-staff-row {
     flex-direction: column;
     align-items: flex-start;
   }
