@@ -637,7 +637,7 @@
 .event-modal {
   background: #fff;
   border-radius: var(--radius-lg);
-  max-width: 440px;
+  max-width: 540px;
   width: 100%;
   padding: 1.75rem;
   position: relative;
