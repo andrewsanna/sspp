@@ -1,0 +1,92 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request a Guide — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Request a welcome guide to sit with you and walk you through your first visit to Saints Peter & Paul." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/payment.css?v=2" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <main class="pay-page">
+    <div class="pay-wrap">
+
+      <a href="visit.html" class="pay-return-link">
+        <i class="ti ti-arrow-left" aria-hidden="true"></i> <span>Back to Visit</span>
+      </a>
+
+      <header class="pay-header">
+        <div class="pay-icon-badge"><i class="ti ti-users"></i></div>
+        <h1>Request a Guide</h1>
+        <p class="pay-subtitle">Have someone from our welcome team sit with you and walk you through the service as it happens.</p>
+      </header>
+
+      <div class="pay-body">
+        <div class="pay-main">
+
+          <section class="pay-panel is-active" data-panel="1">
+            <div class="pay-form-grid">
+              <div class="pay-field">
+                <label for="rgName">Full name</label>
+                <input type="text" id="rgName" name="name" autocomplete="name" required>
+              </div>
+              <div class="pay-field">
+                <label for="rgEmail">Email</label>
+                <input type="email" id="rgEmail" name="email" autocomplete="email" required>
+              </div>
+              <div class="pay-field">
+                <label for="rgPhone">Phone number</label>
+                <input type="tel" id="rgPhone" name="phone" autocomplete="tel" required>
+              </div>
+              <div class="pay-field">
+                <label for="rgDate">Preferred Sunday</label>
+                <input type="date" id="rgDate" name="preferred_date" required>
+              </div>
+              <div class="pay-field pay-field-full">
+                <label for="rgNote">Anything you'd like us to know <span class="pay-optional">(optional)</span></label>
+                <textarea id="rgNote" name="note" rows="4" placeholder="Questions, accessibility needs, what to expect, etc."></textarea>
+              </div>
+            </div>
+
+            <div class="pay-panel-actions">
+              <button class="pay-btn pay-btn-primary" id="rgSubmit">
+                Submit Request <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </section>
+
+          <section class="pay-panel" data-panel="success">
+            <div class="pay-success">
+              <div class="pay-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <h2>Request sent!</h2>
+              <p>Someone from our welcome team will reach out before Sunday to confirm.</p>
+              <a href="visit.html" class="pay-btn pay-btn-primary">Back to Visit</a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script>
+    document.getElementById('rgSubmit').addEventListener('click', function () {
+      // TODO: wire up to real form backend
+      document.querySelector('[data-panel="1"]').classList.remove('is-active');
+      document.querySelector('[data-panel="success"]').classList.add('is-active');
+    });
+  </script>
+</body>
+</html>
