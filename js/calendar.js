@@ -428,43 +428,47 @@ function updateCalendarLabel() {
 function renderMonthGrid() {
   const grid = document.getElementById('dayGrid');
   if (!grid) return;
- 
+
   updateCalendarLabel();
- 
+
   grid.classList.toggle('view-week', viewMode === 'week');
   grid.classList.toggle('view-month', viewMode === 'month');
- 
+
   const cells = getVisibleCells();
   const today = new Date();
   const filtered = activeFilter === 'all'
     ? allEvents.filter((e) => e.category !== 'liturgical')
-  : allEvents.filter((e) => e.category === activeFilter);
- 
+    : allEvents.filter((e) => e.category === activeFilter);
+
   // Week view has a lot more vertical room per day, so show more pills.
   const MAX_VISIBLE = viewMode === 'week' ? 8 : 3;
- 
+
   grid.innerHTML = cells.map((cell) => {
     const dayEvents = filtered.filter((e) => eventCoversDay(e, cell.date));
     const isToday = isSameDay(cell.date, today);
- 
+
     const visibleEvents = dayEvents.slice(0, MAX_VISIBLE);
     const extraCount = dayEvents.length - visibleEvents.length;
- 
+
     return `
       <div class="day-cell ${cell.otherMonth ? 'other-month' : ''} ${isToday ? 'today' : ''}">
         <div class="day-num">${viewMode === 'week' ? cell.date.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }) : cell.day}</div>
-       ${visibleEvents.map((e) => {
-  const timeLabel = formatPillTime(e.start, e.isAllDay);
-  const subParts = [timeLabel, e.location].filter(Boolean);
-  const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
-  return `
-    <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
-      <div class="ev-pill-title">${escapeHtml(e.title)}</div>
-      ${subParts.length ? `<div class="ev-pill-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
-    </div>
-  `;
-}).join('')}
- 
+        ${visibleEvents.map((e) => {
+          const timeLabel = formatPillTime(e.start, e.isAllDay);
+          const subParts = [timeLabel, e.location].filter(Boolean);
+          const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
+          return `
+            <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
+              <div class="ev-pill-title">${escapeHtml(e.title)}</div>
+              ${subParts.length ? `<div class="ev-pill-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
+            </div>
+          `;
+        }).join('')}
+        ${extraCount > 0 ? `<div class="day-more">+${extraCount} more</div>` : ''}
+      </div>
+    `;
+  }).join('');
+
   grid.querySelectorAll('.ev-pill').forEach((pillEl) => {
     pillEl.addEventListener('click', () => {
       const id = pillEl.dataset.eventId;
