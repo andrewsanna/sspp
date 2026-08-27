@@ -80,6 +80,29 @@ function homeExtractImageUrl(description) {
   return imageUrl;
 }
 
+function homeGetDescriptionText(description, maxLength = 100) {
+  if (!description) return '';
+  const normalized = description
+    .replace(/<a\s+[^>]*href="([^"]+)"[^>]*>.*?<\/a>/gi, '$1')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(p|div)>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+
+  const text = normalized
+    .split('\n')
+    .filter(line => !/^\s*IMAGE\s*:/i.test(line))
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return text.length > maxLength ? text.slice(0, maxLength).trim() + '…' : text;
+}
+
 // ============================================
 // Fetch
 // ============================================
@@ -135,30 +158,29 @@ function renderHomeEvents(events) {
     return;
   }
 
-  container.innerHTML = events.map((ev) => {
-    const imageUrl = homeExtractImageUrl(ev.description);
+ container.innerHTML = events.map((ev) => {
+  const imageUrl = homeExtractImageUrl(ev.description);
+  const descText = homeGetDescriptionText(ev.description);
 
-    return `
-      <article class="featured-event-compact" data-event-id="${homeEscapeHtml(ev.id)}">
-        ${imageUrl ? `
-          <div class="fe-thumb-wrap">
-            <img class="fe-thumb" src="${homeEscapeHtml(imageUrl)}" alt="" loading="lazy">
-          </div>
-        ` : ''}
-       <div class="fe-content">
-        <h2 class="featured-event-title">${homeEscapeHtml(ev.title)}</h2>
-        <div class="fe-top">
-          <span class="featured-event-badge">Featured Event</span>
-          <span class="fe-date">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>
+  return `
+    <article class="featured-event-compact" data-event-id="${homeEscapeHtml(ev.id)}">
+      ${imageUrl ? `
+        <div class="fe-thumb-wrap">
+          <img class="fe-thumb" src="${homeEscapeHtml(imageUrl)}" alt="" loading="lazy">
         </div>
+      ` : ''}
+      <div class="fe-content">
+        <h2 class="featured-event-title">${homeEscapeHtml(ev.title)}</h2>
+        <span class="fe-date">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>
+        ${descText ? `<p class="featured-event-desc">${homeEscapeHtml(descText)}</p>` : ''}
         <div class="featured-event-meta">
           <span><i class="ti ti-clock" aria-hidden="true"></i> ${homeEscapeHtml(homeFormatMeta(ev))}</span>
         </div>
       </div>
-      </article>
-    `;
-  }).join('');
-
+    </article>
+  `;
+}).join('');
+  
   container.querySelectorAll('.featured-event-compact').forEach((card) => {
     card.addEventListener('click', () => {
       const id = card.dataset.eventId;
