@@ -145,16 +145,16 @@ function renderHomeEvents(events) {
             <img class="fe-thumb" src="${homeEscapeHtml(imageUrl)}" alt="" loading="lazy">
           </div>
         ` : ''}
-        <div class="fe-content">
-          <div class="fe-top">
-            <span class="featured-event-badge">Featured Event</span>
-            <span class="fe-date">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>
-          </div>
-          <h2 class="featured-event-title">${homeEscapeHtml(ev.title)}</h2>
-          <div class="featured-event-meta">
-            <span><i class="ti ti-clock" aria-hidden="true"></i> ${homeEscapeHtml(homeFormatMeta(ev))}</span>
-          </div>
+       <div class="fe-content">
+        <h2 class="featured-event-title">${homeEscapeHtml(ev.title)}</h2>
+        <div class="fe-top">
+          <span class="featured-event-badge">Featured Event</span>
+          <span class="fe-date">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>
         </div>
+        <div class="featured-event-meta">
+          <span><i class="ti ti-clock" aria-hidden="true"></i> ${homeEscapeHtml(homeFormatMeta(ev))}</span>
+        </div>
+      </div>
       </article>
     `;
   }).join('');
