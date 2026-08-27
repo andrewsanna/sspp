@@ -127,9 +127,16 @@
 
 /* Homepage-only overrides for the featured-event-compact cards —
    calendar.css stays untouched; these only apply inside #homeEventsGrid. */
-#homeEventsGrid {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
+#homeEventsGrid .fe-content {
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+#homeEventsGrid .featured-event-badge {
+  display: none;
 }
 
 #homeEventsGrid .featured-event-compact {
