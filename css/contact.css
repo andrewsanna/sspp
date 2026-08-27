@@ -40,6 +40,11 @@
   max-width: 520px;
   margin: 0 auto;
 }
+
+.ct-jumpnav {
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
 /* INFO CARDS */
 .ct-info-grid {
   display: grid;
