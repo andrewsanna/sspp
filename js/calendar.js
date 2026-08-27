@@ -116,23 +116,23 @@ const CATEGORY_LABELS = {
   featured: 'Events',
   philanthropy: 'Philanthropy',
   agape: 'Agape',
-  adult_faith: 'Adult Faith & Learning',
-  adult_activities: 'Adult Activities',
+  adult_faith: 'Faith & Learning',
+  adult_activities: 'Activities',
   support_groups: 'Support Groups',
   ministries: 'Ministries',
 };
 
 // Pill / legend colors per category — pulled from your list
 const CATEGORY_COLORS = {
-  liturgical: '#1F4E79',
-  youth: '#2E7D32',
-  featured: '#C9A227',
-  philanthropy: '#7B3F98',
-  agape: '#C96A23',
-  adult_faith: '#0C447C',
-  adult_activities: '#3A6FA5',
-  support_groups: '#A8763E',
-  ministries: '#4A7C6F',
+  liturgical: '#6B7280',      // slate gray 
+  youth: '#2E7D32',           // green 
+  featured: '#2563A8',        // strong blue 
+  philanthropy: '#7B3F98',    // purple
+  agape: '#C96A23',           // orange 
+  adult_faith: '#B0405A',     // rose/burgundy
+  adult_activities: '#1C8C8C',// teal
+  support_groups: '#6B5B95',  // muted violet
+  ministries: '#8C6E1F',      // bronze
 };
 
 const MONTHS_AHEAD = 3;
