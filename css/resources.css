@@ -218,67 +218,6 @@
   color: var(--gold-text);
 }
 
-/* Prayer request form */
-.rs-form {
-  background: var(--offwhite);
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-}
-
-.rs-form-row {
-  margin-bottom: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.rs-form-row label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--navy-deep);
-}
-
-.rs-optional {
-  font-weight: 400;
-  color: var(--mt);
-}
-
-.rs-form-row input,
-.rs-form-row textarea {
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-sm);
-  padding: 0.65rem 0.85rem;
-  font-family: inherit;
-  font-size: 0.9rem;
-  color: var(--tx);
-  background: var(--offwhite);
-  resize: vertical;
-}
-
-.rs-form-row input:focus,
-.rs-form-row textarea:focus {
-  outline: 2px solid var(--gold-deep);
-  outline-offset: 1px;
-  background: #fff;
-}
-
-.rs-form-checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  margin-bottom: 1.4rem;
-}
-
-.rs-form-checkbox input {
-  margin-top: 0.25rem;
-}
-
-.rs-form-checkbox label {
-  font-size: 0.82rem;
-  color: var(--mt);
-}
-
 /* Paired 2-column layout */
 .rs-pair-grid {
   display: grid;
@@ -313,6 +252,23 @@
 
 @media (max-width: 900px) {
   .rs-pair-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Trio variant (3 cards in a row, e.g. Contact Card + Prayer + Blessing) */
+.rs-pair-grid--trio {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1100px) {
+  .rs-pair-grid--trio {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .rs-pair-grid--trio {
     grid-template-columns: 1fr;
   }
 }
@@ -364,83 +320,6 @@
   font-size: 0.85rem;
 }
 
-.rs-leader-accordion {
-  margin-bottom: 0.5rem;
-  max-width: 780px;
-}
-
-.rs-leader-cat {
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  margin-bottom: 0.6rem;
-  background: var(--offwhite);
-  overflow: hidden;
-}
-
-.rs-leader-cat summary {
-  padding: 0.85rem 1.1rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--navy-deep);
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.rs-leader-cat summary::-webkit-details-marker {
-  display: none;
-}
-
-.rs-leader-cat summary::after {
-  content: '\002B';
-  color: var(--gold-text);
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  margin-left: 1rem;
-}
-
-.rs-leader-cat[open] summary::after {
-  content: '\2212';
-}
-
-.rs-leader-rows {
-  padding: 0 1.1rem 0.6rem;
-}
-
-.rs-leader-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.6rem 0;
-  border-top: 1px solid var(--brd);
-}
-
-.rs-leader-name {
-  font-weight: 600;
-  color: var(--navy-deep);
-  font-size: 0.85rem;
-}
-
-.rs-leader-role {
-  font-size: 0.75rem;
-  color: var(--mt);
-}
-
-.rs-leader-email {
-  color: var(--gold-text);
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.rs-leader-email:hover {
-  color: var(--navy-deep);
-}
-
 /* Realm — white card, full-width, two columns */
 .rs-realm-card {
   background: #fff;
@@ -463,9 +342,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
   align-items: start;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--brd);
 }
 
 .rs-realm-action-col {
@@ -519,6 +395,76 @@
 
 .rs-realm-link:hover {
   text-decoration: underline;
+}
+
+/* Prayer request / Home blessing forms */
+.rs-form {
+  background: var(--offwhite);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.rs-form-row {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rs-form-row label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.rs-optional {
+  font-weight: 400;
+  color: var(--mt);
+}
+
+.rs-form-row input,
+.rs-form-row textarea,
+.rs-form-row select {
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--tx);
+  background: #fff;
+  resize: vertical;
+}
+
+.rs-form-row select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B6457' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.2rem;
+}
+
+.rs-form-row input:focus,
+.rs-form-row textarea:focus,
+.rs-form-row select:focus {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 1px;
+}
+
+.rs-form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 1.4rem;
+}
+
+.rs-form-checkbox input {
+  margin-top: 0.25rem;
+}
+
+.rs-form-checkbox label {
+  font-size: 0.82rem;
+  color: var(--mt);
 }
 
 /* Open Registrations grid (inside the paired card) */
@@ -698,6 +644,30 @@
   color: var(--navy-deep);
 }
 
+/* Parish Council & Ministry Leaders — shared header, two columns */
+.rs-council-header {
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.rs-council-header .rs-section-icon {
+  margin-bottom: 0.75rem;
+}
+
+.rs-council-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .rs-council-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* Staff / directory rows (matches contact.html pattern) */
 .rs-staff-list {
   display: flex;
@@ -737,6 +707,11 @@
 
 .rs-staff-email:hover {
   text-decoration: underline;
+}
+
+/* Ministry Leaders accordion (rendered by js/leader-directory.js) */
+.rs-leader-accordion .acc-item {
+  margin-bottom: 0.6rem;
 }
 
 /* CTA band */
