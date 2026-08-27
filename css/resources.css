@@ -710,8 +710,91 @@
 }
 
 /* Ministry Leaders accordion (rendered by js/leader-directory.js) */
-.rs-leader-accordion .acc-item {
-  margin-bottom: 0.6rem;
+.rs-leader-cat {
+  background: var(--cream);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.rs-leader-cat summary {
+  padding: 1.1rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rs-leader-cat summary::-webkit-details-marker {
+  display: none;
+}
+
+.rs-leader-cat summary::after {
+  content: '\002B';
+  color: var(--gold-deep);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.rs-leader-cat[open] summary::after {
+  content: '\2212';
+}
+
+.rs-leader-rows {
+  padding: 0 1.4rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rs-leader-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--brd);
+}
+
+.rs-leader-row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.rs-leader-name {
+  font-weight: 600;
+  color: var(--navy-deep);
+  font-size: 0.85rem;
+}
+
+.rs-leader-role {
+  font-size: 0.75rem;
+  color: var(--mt);
+}
+
+.rs-leader-email {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  color: var(--gold-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.rs-leader-email:hover {
+  background: var(--gold);
+  color: #fff;
 }
 
 /* CTA band */
