@@ -172,10 +172,10 @@ function renderHomeEvents(events) {
       <div class="fe-content">
         <h2 class="featured-event-title">${homeEscapeHtml(ev.title)}</h2>
         <span class="fe-date">${homeEscapeHtml(homeFormatPillDate(ev.start, ev.end, ev.isAllDay))}</span>
-        ${descText ? `<p class="featured-event-desc">${homeEscapeHtml(descText)}</p>` : ''}
         <div class="featured-event-meta">
           <span><i class="ti ti-clock" aria-hidden="true"></i> ${homeEscapeHtml(homeFormatMeta(ev))}</span>
         </div>
+         ${descText ? `<p class="featured-event-desc">${homeEscapeHtml(descText)}</p>` : ''}
       </div>
     </article>
   `;
