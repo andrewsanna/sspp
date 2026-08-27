@@ -184,32 +184,18 @@
 }
 
 .fe-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.6rem;
-}
-
-.featured-event-badge {
-  background: var(--gold);
-  color: var(--navy-deep);
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.22rem 0.6rem;
-  border-radius: 20px;
-  white-space: nowrap;
+  margin-bottom: 0.2rem;
 }
 
 .fe-date {
+  display: block;
   font-size: 0.68rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   font-weight: 600;
-  text-align: right;
+  text-align: left;
+  margin-bottom: 0.5rem;
 }
 
 .featured-event-title {
