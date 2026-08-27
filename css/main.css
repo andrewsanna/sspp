@@ -301,6 +301,12 @@ p {
   color: #fff;
 }
 
+/* Anchor scroll offset — clears the sticky main nav + jump nav,
+   landing right above each section's eyebrow instead of at the title */
+[id] {
+  scroll-margin-top: 150px;
+}
+
 /* ============================================
    Navigation
    ============================================ */
@@ -788,3 +794,4 @@ padding: var(--space-5) 0;
   .follow-float a { width: 48px; height: 48px; font-size: 1.3rem; }
   .follow-float { right: 0.75rem; }
 }
+
