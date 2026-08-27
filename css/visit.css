@@ -70,7 +70,7 @@
    ============================================ */
 .vh-path-section {
   background: #fff;
-  padding: 2.5rem 2rem 0;
+  padding: 2.5rem 2rem 2.5rem;
 }
 
 .vh-path-grid {
@@ -190,6 +190,10 @@
   max-width: 540px;
   margin: 0 auto 3.2rem;
   line-height: 1.65;
+}
+
+#tours {
+  padding-top: 3rem;
 }
 
 /* ============================================
