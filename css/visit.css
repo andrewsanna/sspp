@@ -1,13 +1,6 @@
 /* ============================================
    Hero
    ============================================ */
-/* .vh-hero {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
-  padding: 4.5rem 2rem 4rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-} */
 /* ============================================
    About — Hero (full-bleed photo background)
    ============================================ */
@@ -65,44 +58,75 @@
   }
 }
 
-/* 
-.vh-hero-arc {
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 34px solid rgba(212, 175, 106, 0.08);
-} */
-
-/* .vh-hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.vh-hero-title {
-  font-size: clamp(1.9rem, 4vw, 2.4rem);
-  color: var(--cream);
-  line-height: 1.25;
-  margin-bottom: 1.1rem;
-  font-style: italic;
-} */
-
-/* .vh-hero-body {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(251, 247, 239, 0.78);
-  margin-bottom: 2rem;
-} */
-
 .vh-hero-ctas {
   display: flex;
   gap: 0.85rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ============================================
+   Choose Your Path
+   ============================================ */
+.vh-path-section {
+  background: #fff;
+  padding: 2.5rem 2rem 0;
+}
+
+.vh-path-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+.vh-path-card {
+  display: block;
+  background: var(--gold-lt);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 1.6rem 1.3rem;
+  text-align: center;
+  text-decoration: none;
+  scroll-margin-top: 90px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vh-path-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.vh-path-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.9rem;
+  font-size: 1.15rem;
+}
+
+.vh-path-card h4 {
+  font-size: 0.88rem;
+  color: var(--navy-deep);
+  margin-bottom: 0.35rem;
+}
+
+.vh-path-card p {
+  font-size: 0.78rem;
+  color: var(--mt);
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .vh-path-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================
@@ -139,6 +163,7 @@
   padding: 4.5rem 2rem;
   max-width: 1080px;
   margin: 0 auto;
+  scroll-margin-top: 90px;
 }
 
 .vh-section--tight {
@@ -269,12 +294,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0;
-  /* background: var(--gold-lt);
-  padding: 4rem 2rem;
-  border-top: 4px solid var(--gold);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  position: relative; */
 }
 
 .vh-flow-step {
@@ -431,6 +450,67 @@ align-items: left;
 }
 
 /* ============================================
+   FAQ accordion
+   ============================================ */
+.vh-faq-section {
+  background: var(--gold-lt);
+  padding: 4.5rem 2rem;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
+  scroll-margin-top: 90px;
+}
+
+.vh-faq-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.vh-faq-item {
+  background: var(--cream);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+}
+
+.vh-faq-question {
+  padding: 1.1rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.vh-faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.vh-faq-question i {
+  font-size: 0.95rem;
+  color: var(--gold-deep);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.vh-faq-item[open] .vh-faq-question i {
+  transform: rotate(180deg);
+}
+
+.vh-faq-answer {
+  padding: 0 1.4rem 1.3rem;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--mt);
+}
+
+/* ============================================
    Guide & tour request cards
    ============================================ */
 .vh-request-grid {
@@ -486,66 +566,6 @@ align-items: left;
   .vh-request-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* ============================================
-   FAQ accordion
-   ============================================ */
-.vh-faq-section {
-  background: var(--gold-lt);
-  padding: 4.5rem 2rem;
-  border-top: 4px solid var(--gold);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  position: relative;
-}
-
-.vh-faq-inner {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.vh-faq-item {
-  background: var(--cream);
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  margin-bottom: 0.8rem;
-  overflow: hidden;
-}
-
-.vh-faq-question {
-  padding: 1.1rem 1.4rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--navy-deep);
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-}
-
-.vh-faq-question::-webkit-details-marker {
-  display: none;
-}
-
-.vh-faq-question i {
-  font-size: 0.95rem;
-  color: var(--gold-deep);
-  transition: transform 0.2s ease;
-  flex-shrink: 0;
-  margin-left: 1rem;
-}
-
-.vh-faq-item[open] .vh-faq-question i {
-  transform: rotate(180deg);
-}
-
-.vh-faq-answer {
-  padding: 0 1.4rem 1.3rem;
-  font-size: 0.82rem;
-  line-height: 1.7;
-  color: var(--mt);
 }
 
 /* ============================================
