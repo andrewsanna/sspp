@@ -40,7 +40,8 @@
    Filter chips
    ============================================ */
 .cal-filter-bar {
-  background: var(--navy-deep);
+  background: #fff;
+  border: 1px solid var(--brd);
   border-radius: var(--radius-lg);
   margin-bottom: 1.25rem;
 }
@@ -56,16 +57,17 @@
   font-size: 0.78rem;
   padding: 0.4rem 0.95rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--brd);
   background: transparent;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--navy-deep);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .filter-chip:hover {
   border-color: var(--gold);
-  color: var(--gold);
+  color: var(--gold-deep);
+  background: var(--gold-lt);
 }
 
 .filter-chip.active {
