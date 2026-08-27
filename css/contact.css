@@ -123,19 +123,16 @@
   gap: 0 2.5rem;
 }
 .ct-staff-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--brd);
 }
 .ct-staff-email {
+  display: inline-block;
+  margin-top: 0.3rem;
   font-size: 0.85rem;
   color: var(--blue);
   text-decoration: none;
   font-weight: 500;
-  white-space: nowrap;
 }
 .ct-staff-name {
   font-family: var(--font-display);
