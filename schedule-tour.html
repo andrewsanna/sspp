@@ -1,0 +1,114 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule a Tour — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Schedule a tour of Saints Peter & Paul for your school, scout troop, class, or organization." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/payment.css?v=2" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <main class="pay-page">
+    <div class="pay-wrap">
+
+      <a href="visit.html" class="pay-return-link">
+        <i class="ti ti-arrow-left" aria-hidden="true"></i> <span>Back to Visit</span>
+      </a>
+
+      <header class="pay-header">
+        <div class="pay-icon-badge"><i class="ti ti-building-church"></i></div>
+        <h1>Schedule a Tour</h1>
+        <p class="pay-subtitle">Bringing a school group, scout troop, or class? We'd love to show you around.</p>
+      </header>
+
+      <div class="pay-body">
+        <div class="pay-main">
+
+          <section class="pay-panel is-active" data-panel="1">
+            <div class="pay-form-grid">
+              <div class="pay-field pay-field-full">
+                <label for="stGroup">Group or organization name</label>
+                <input type="text" id="stGroup" name="group_name" required>
+              </div>
+              <div class="pay-field">
+                <label for="stContactName">Contact name</label>
+                <input type="text" id="stContactName" name="contact_name" autocomplete="name" required>
+              </div>
+              <div class="pay-field">
+                <label for="stContactEmail">Contact email</label>
+                <input type="email" id="stContactEmail" name="contact_email" autocomplete="email" required>
+              </div>
+              <div class="pay-field">
+                <label for="stContactPhone">Contact phone</label>
+                <input type="tel" id="stContactPhone" name="contact_phone" autocomplete="tel" required>
+              </div>
+              <div class="pay-field">
+                <label for="stGroupSize">Group size</label>
+                <input type="number" id="stGroupSize" name="group_size" min="1" required>
+              </div>
+              <div class="pay-field">
+                <label for="stPurpose">Purpose of visit</label>
+                <select id="stPurpose" name="purpose" required>
+                  <option value="" disabled selected>Select one</option>
+                  <option value="school_group">School group</option>
+                  <option value="scout_troop">Scout troop</option>
+                  <option value="class_field_trip">Class field trip</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="pay-field">
+                <label for="stDate">Preferred date</label>
+                <input type="date" id="stDate" name="preferred_date" required>
+              </div>
+              <div class="pay-field">
+                <label for="stDayTime">Preferred day of week / time of day</label>
+                <input type="text" id="stDayTime" name="preferred_day_time" placeholder="e.g. weekday mornings">
+              </div>
+              <div class="pay-field pay-field-full">
+                <label for="stNote">Anything else we should know <span class="pay-optional">(optional)</span></label>
+                <textarea id="stNote" name="note" rows="4" placeholder="Group's age range, accessibility needs, special interests, etc."></textarea>
+              </div>
+            </div>
+
+            <div class="pay-panel-actions">
+              <button class="pay-btn pay-btn-primary" id="stSubmit">
+                Submit Request <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </section>
+
+          <section class="pay-panel" data-panel="success">
+            <div class="pay-success">
+              <div class="pay-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+              <h2>Tour request sent!</h2>
+              <p>Our office will follow up to confirm a date and time that works.</p>
+              <a href="visit.html" class="pay-btn pay-btn-primary">Back to Visit</a>
+            </div>
+          </section>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script>
+    document.getElementById('stSubmit').addEventListener('click', function () {
+      // TODO: wire up to real form backend
+      document.querySelector('[data-panel="1"]').classList.remove('is-active');
+      document.querySelector('[data-panel="success"]').classList.add('is-active');
+    });
+  </script>
+</body>
+</html>
