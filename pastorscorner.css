@@ -1,0 +1,158 @@
+/* ============================================
+   Pastor's Corner
+   ============================================ */
+
+.pc-hero {
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 2rem 5rem;
+  text-align: center;
+}
+
+.pc-hero-arc {
+  position: absolute;
+  bottom: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  padding-bottom: 140%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 106, 0.12), transparent 65%);
+}
+
+.pc-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.pc-hero-title {
+  font-size: 2.25rem;
+  color: #fff;
+  margin: 0.5rem 0 1rem;
+}
+
+.pc-hero-title em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.pc-hero-body {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.02rem;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* Sermons featured card */
+.pc-sermons-card {
+  background: var(--gold-lt);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.pc-sermons-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--gold-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.pc-sermons-text {
+  flex: 1;
+  min-width: 220px;
+}
+
+.pc-sermons-text h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.pc-sermons-text p {
+  margin: 0;
+}
+
+/* Topic list section */
+.pc-section-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.9rem;
+}
+
+.pc-intro {
+  max-width: 640px;
+  margin-bottom: 2rem;
+}
+
+.pc-topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem 1.5rem;
+  list-style: none;
+  max-width: 900px;
+}
+
+.pc-topic-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1.1rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--navy-deep);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.pc-topic-list li a::after {
+  content: '\2197';
+  color: var(--gold-text);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.pc-topic-list li a:hover {
+  border-color: var(--gold-deep);
+  background: var(--gold-lt);
+}
+
+@media (max-width: 700px) {
+  .pc-topic-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CTA band */
+.pc-cta {
+  background: var(--navy-deep);
+  text-align: center;
+  padding: 3.5rem 2rem;
+  color: #fff;
+}
+
+.pc-cta h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.pc-cta p {
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 1.5rem;
+}
