@@ -40,9 +40,7 @@
 }
 
 .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(18, 39, 64, 0.40), rgba(18, 39, 64, 0.68));
+  background: linear-gradient(to right, rgba(18, 39, 64, 0.68) 0%, rgba(18, 39, 64, 0.35) 55%, rgba(18, 39, 64, 0.12) 100%);
 }
 
 .media-note {
@@ -93,6 +91,7 @@
   line-height: 1.7;
   max-width: 480px;
   margin-bottom: 1.85rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);  /* add this line */
 }
 
 .hero-cta-row {
