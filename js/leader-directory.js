@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
       row.innerHTML =
         '<div>' +
           '<div class="rs-leader-name">' + m.contact.name + '</div>' +
-          '<div class="rs-leader-role">' + m.name + '</div>' + +
+          '<div class="rs-leader-role">' + m.name + '</div>' +
         '</div>' +
         '<a href="mailto:' + m.contact.email + '" class="rs-leader-email">' +
           '<i class="ti ti-mail" aria-hidden="true"></i>' +
