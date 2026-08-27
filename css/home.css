@@ -534,8 +534,8 @@
 
 .min-feature .photo-placeholder {
   border-radius: 0;
-  aspect-ratio: 4 / 3; /* replaces height: 100% — gives the box a real, resolvable height instead of depending on an auto grid row */
-  padding: 0; /* base .photo-placeholder adds 1rem padding for the icon mockup; a real photo should fill edge-to-edge */
+  height: 100%;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -543,6 +543,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   display: block;
 }
 .min-feature-body {
@@ -550,6 +551,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.min-feature-body .text-link {
+  border-bottom: none;
 }
 
 .min-feature-title {
