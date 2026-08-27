@@ -385,8 +385,6 @@
   gap: 0.75rem 1.5rem;
 }
 .ct-council-member {
-  display: flex;
-  flex-direction: column;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--brd);
 }
