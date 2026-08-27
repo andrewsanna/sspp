@@ -335,25 +335,30 @@ const FEATURED_SLOT_COUNT = 2;
 function renderComingUp() {
   const container = document.getElementById('comingUpSlot');
   if (!container) return;
- 
+
   const upcoming = getFeaturedEvents().slice(FEATURED_SLOT_COUNT, FEATURED_SLOT_COUNT + COMING_UP_COUNT);
- 
+
   if (upcoming.length === 0) {
     container.innerHTML = `<p style="font-size:0.8rem;color:var(--mt);">No other featured events scheduled yet.</p>`;
     return;
   }
- 
-  container.innerHTML = upcoming.map((ev, i) => `
-    <div class="up-event" data-up-index="${i}" style="cursor:pointer;">
-      <div class="up-event-img"><i class="ti ti-calendar-event" aria-hidden="true"></i></div>
-      <div>
-        <div class="up-event-date">${formatShortDate(ev.start)}</div>
-        <div class="up-event-title">${escapeHtml(ev.title)}</div>
-        <div class="up-event-meta">${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</div>
+
+  container.innerHTML = upcoming.map((ev, i) => {
+    const { imageUrl } = parseEventActions(ev.description);
+    return `
+      <div class="up-event" data-up-index="${i}">
+        <div class="up-event-img" ${imageUrl ? `style="background-image:url('${escapeHtml(imageUrl)}');"` : ''}>
+          ${imageUrl ? '' : '<i class="ti ti-calendar-event" aria-hidden="true"></i>'}
+        </div>
+        <div>
+          <div class="up-event-date">${formatShortDate(ev.start)}</div>
+          <div class="up-event-title">${escapeHtml(ev.title)}</div>
+          <div class="up-event-meta">${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</div>
+        </div>
       </div>
-    </div>
-  `).join('');
- 
+    `;
+  }).join('');
+
   container.querySelectorAll('.up-event').forEach((el) => {
     el.addEventListener('click', () => {
       const idx = parseInt(el.dataset.upIndex, 10);
