@@ -255,3 +255,9 @@
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .ways-list li:last-child { border-bottom: none; }
+
+.closing-text {
+  max-width: 640px;
+  margin: 0.75rem auto 0;
+  color: var(--color-navy, #1a2744);
+}
