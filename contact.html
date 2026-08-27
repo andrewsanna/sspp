@@ -6,8 +6,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — Saints Peter &amp; Paul</title>
-  <meta name="description" content="Contact Saints Peter & Paul Greek Orthodox Church in Glenview, IL — address, phone, office hours, and who to reach for clergy, youth ministry, or general inquiries." />
+  <meta name="description" content="Contact Saints Peter & Paul Greek Orthodox Church in Glenview, IL — address, phone, office hours, tour requests, prayer requests, and who to reach for clergy, council, or ministry questions." />
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/visit.css" />
+  <link rel="stylesheet" href="css/resources.css" />
   <link rel="stylesheet" href="css/contact.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 <body>
@@ -64,6 +66,157 @@
     </div>
   </section>
 
+  <!-- GUIDE & TOUR REQUESTS -->
+  <section class="vh-section vh-section--tight" id="tours">
+    <span class="eyebrow vh-section-eyebrow">Want more support?</span>
+    <h2 class="vh-section-headline">We're happy to walk you through it</h2>
+    <p class="vh-section-sub">Whether it's your first Sunday or you're bringing a group, we'd love to help you get oriented.</p>
+    <div class="vh-request-grid">
+      <div class="vh-request-card">
+        <div class="vh-request-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+        <h4>Request a Guide</h4>
+        <p>Have someone from our welcome team sit with you, answer questions, and walk you through the service as it happens.</p>
+        <a href="request-guide.html" class="btn btn-outline-navy">Request a Guide</a>
+      </div>
+      <div class="vh-request-card">
+        <div class="vh-request-icon"><i class="ti ti-building-church" aria-hidden="true"></i></div>
+        <h4>Schedule a Tour</h4>
+        <p>Bringing a school group, class, or organization? We regularly host tours of the church — just let us know when works.</p>
+        <a href="schedule-tour.html" class="btn btn-outline-navy">Schedule a Tour</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CARD + PRAYER REQUESTS + HOME BLESSING -->
+  <section class="rs-section">
+    <div class="container">
+      <div class="rs-pair-grid rs-pair-grid--trio">
+
+        <!-- DIGITAL CONTACT CARD -->
+        <div class="rs-pair-card" id="contactCard">
+          <div class="rs-pair-icon"><i class="ti ti-address-card" aria-hidden="true"></i></div>
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="rs-section-title">Have someone reach out to you</h2>
+          <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="ccName">Your name</label>
+              <input type="text" id="ccName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccPhone">Phone</label>
+              <input type="tel" id="ccPhone" name="phone" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccEmail">Email
+              <input type="email" id="ccEmail" name="email" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccTopic">I'd like to talk to someone about</label>
+              <select id="ccTopic" name="topic" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="general">General / Parish Office</option>
+                <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
+                <option value="ministries">Ministries &amp; Getting Involved</option>
+                <option value="youth">Youth &amp; Young Adults</option>
+                <option value="stewardship">Stewardship &amp; Giving</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccContactMethod">Preferred contact method</label>
+              <select id="ccContactMethod" name="preferred_contact_method">
+                <option value="phone">Phone call</option>
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
+              <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- PRAYER REQUESTS -->
+        <div class="rs-pair-card" id="prayer">
+          <div class="rs-pair-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+          <span class="eyebrow">Prayer List</span>
+          <h2 class="rs-section-title">Submit a prayer request</h2>
+          <p>Share a name or intention you'd like our clergy and prayer team to hold in prayer. Requests marked private are seen only by the clergy — everything else may be included in the parish prayer list read during services.</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="rsName">Your name</label>
+              <input type="text" id="rsName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="rsPhone">Phone</label>
+              <input type="tel" id="rsPhone" name="phone" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="rsEmail">Email </label>
+              <input type="email" id="rsEmail" name="email" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="rsRequest">Prayer request</label>
+              <textarea id="rsRequest" name="request" rows="4" required placeholder="Name(s) and what you'd like prayers for"></textarea>
+            </div>
+            <div class="rs-form-checkbox">
+              <input type="checkbox" id="rsPrivate" name="private">
+              <label for="rsPrivate">Keep this request private (clergy only — not read publicly)</label>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Submit request <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- HOME BLESSING REQUEST -->
+        <div class="rs-pair-card" id="blessing">
+          <div class="rs-pair-icon"><i class="ti ti-droplet" aria-hidden="true"></i></div>
+          <span class="eyebrow">Agiasmos</span>
+          <h2 class="rs-section-title">Request a home blessing</h2>
+          <p>Our priests bless homes with holy water throughout the year, and especially around Theophany each January. Fill out the form below and our office will reach out to schedule a time.</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="hbName">Your name</label>
+              <input type="text" id="hbName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="hbAddress">Home address</label>
+              <input type="text" id="hbAddress" name="address" required>
+            </div>
+             <div class="rs-form-row">
+              <label for="hbPhone">Phone</label>
+              <input type="tel" id="hbPhone" name="phone" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="hbEmail">Email </label>
+              <input type="email" id="hbEmail" name="email" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="hbNotes">Preferred timeframe <span class="rs-optional">(optional)</span></label>
+              <textarea id="hbNotes" name="notes" rows="3" placeholder="e.g. a weekday evening in January, or anytime this spring"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Request a blessing <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- WHO TO CONTACT -->
   <section class="section section--alt">
     <div class="container">
@@ -112,6 +265,52 @@
     </div>
   </section>
 
+  <!-- PARISH COUNCIL & MINISTRY LEADERS -->
+  <section class="rs-section" id="council">
+    <div class="container">
+      <div class="rs-council-header">
+        <div class="rs-section-icon"><i class="ti ti-users-group" aria-hidden="true"></i></div>
+        <span class="eyebrow">Leadership</span>
+        <h2 class="rs-section-title">Parish council &amp; ministry leaders</h2>
+        <p>Have a question about parish operations, a ministry, or want to get more involved in leadership? Here's who to reach.</p>
+      </div>
+      <div class="rs-council-columns">
+        <!-- LEFT: Parish Council -->
+        <div class="rs-council-col" id="parishCouncil">
+          <h3 class="rs-subtitle" style="margin-top: 0;">Parish Council</h3>
+          <div class="rs-staff-list">
+            <div class="rs-staff-row">
+              <div class="rs-staff-info">
+                <div class="rs-staff-name">Parish Council President</div>
+                <div class="rs-staff-role">Name here</div>
+              </div>
+              <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
+            </div>
+            <div class="rs-staff-row">
+              <div class="rs-staff-info">
+                <div class="rs-staff-name">Vice President</div>
+                <div class="rs-staff-role">Name here</div>
+              </div>
+              <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
+            </div>
+            <div class="rs-staff-row">
+              <div class="rs-staff-info">
+                <div class="rs-staff-name">Treasurer</div>
+                <div class="rs-staff-role">Name here</div>
+              </div>
+              <a href="mailto:treasurer@ssppglenview.org" class="rs-staff-email">treasurer@ssppglenview.org</a>
+            </div>
+          </div>
+        </div>
+        <!-- RIGHT: Ministry Leaders -->
+        <div class="rs-council-col" id="ministryLeaders">
+          <h3 class="rs-subtitle" style="margin-top: 0;">Ministry Leaders</h3>
+          <div class="rs-leader-accordion" id="leaderAccordion"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- MAP -->
   <section class="section">
     <div class="container">
@@ -134,5 +333,6 @@
   {% include footer.html %}
 
   <script src="js/main.js"></script>
+  <script src="js/leader-directory.js"></script>
 </body>
 </html>
