@@ -437,7 +437,7 @@ function renderMonthGrid() {
   const cells = getVisibleCells();
   const today = new Date();
   const filtered = activeFilter === 'all'
-    ? allEvents.filter((e) => e.category !== 'liturgical')
+    ? allEvents.filter((e) => !e.title.trim().startsWith('+'))
     : allEvents.filter((e) => e.category === activeFilter);
 
   // Week view has a lot more vertical room per day, so show more pills.
