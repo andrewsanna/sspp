@@ -306,9 +306,9 @@ const FEATURED_SLOT_COUNT = 2;
             ${imageUrl ? `<div class="fe-thumb-wrap"><img class="fe-thumb" src="${escapeHtml(imageUrl)}" alt="" loading="lazy"></div>` : ''}
             <div class="fe-content">
               <div class="fe-top">
+                <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
                 <span class="fe-date">${formatDateRangeShort(ev.start, ev.end)}</span>
               </div>
-              <h2 class="featured-event-title">${escapeHtml(ev.title)}</h2>
               ${cleanText ? `<p class="featured-event-desc">${escapeHtml(truncate(cleanText, 120))}</p>` : ''}
               <div class="featured-event-meta">
                 <span><i class="ti ti-clock" aria-hidden="true"></i> ${formatTimeRange(ev.start, ev.end, ev.isAllDay)}</span>
