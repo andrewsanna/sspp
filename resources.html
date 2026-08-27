@@ -6,10 +6,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources — Saints Peter &amp; Paul</title>
-  <meta name="description" content="Bulletins, announcements, registrations, prayer requests, and parish council contacts for Saints Peter & Paul Greek Orthodox Church in Glenview, IL." />
+  <meta name="description" content="Bulletins, announcements, registrations, prayer requests, and contact info for Saints Peter & Paul Greek Orthodox Church in Glenview, IL." />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/resources.css" />
+  <link rel="stylesheet" href="css/pastors-corner.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
@@ -22,7 +23,7 @@
     <div class="rs-hero-inner">
       <span class="eyebrow eyebrow--on-dark">For Parishioners</span>
       <h1 class="rs-hero-title">Everything you need,<br><em>in one place.</em></h1>
-      <p class="rs-hero-body">Bulletins, registrations, prayer requests, and who to reach on the parish council — the tools our parish family uses week to week.</p>
+      <p class="rs-hero-body">Bulletins, registrations, prayer requests, and how to reach us — the tools our parish family uses week to week.</p>
     </div>
   </section>
 
@@ -32,32 +33,31 @@
     <a href="#bulletin">Bulletin</a>
     <a href="#registrations">Registrations</a>
     <a href="#contactCard">Contact Card</a>
-    <a href="#realm">Realm</a>
-    <!-- <a href="#prayer">Prayer Requests</a>
+    <a href="#prayer">Prayer Requests</a>
     <a href="#blessing">Home Blessing</a>
-    <a href="#parishCouncil">Parish Council</a>
-    <a href="#ministryLeaders">Ministry Leaders</a> -->
+    <a href="#pastors-corner">Pastor's Corner</a>
+    <a href="#realm">Realm</a>
   </nav>
 
   <!-- SACRAMENTS -->
-    <section class="ab-faith section" id="sacraments">
-      <div class="container" id="sacraments">
-        <span class="eyebrow">Life Events</span>
-        <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Marking life's holiest moments</h2>
-        <div class="ab-faith-card">
-          <div class="ab-faith-icon">
-            <i class="ti ti-droplet" aria-hidden="true"></i>
-          </div>
-          <div class="ab-faith-card-text">
-            <h2>Baptism, weddings, memorials, and more</h2>
-            <p>From a child's first blessing to a marriage's first steps to a loved one's final rest, our clergy walk with parish families through each of these sacraments. Find what to expect and how to start planning.</p>
-          </div>
-          <a href="sacraments.html" class="btn btn-gold-lg">
-            Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i>
-          </a>
+  <section class="ab-faith section" id="sacraments">
+    <div class="container">
+      <span class="eyebrow">Life Events</span>
+      <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Marking life's holiest moments</h2>
+      <div class="ab-faith-card">
+        <div class="ab-faith-icon">
+          <i class="ti ti-droplet" aria-hidden="true"></i>
         </div>
+        <div class="ab-faith-card-text">
+          <h2>Baptism, weddings, memorials, and more</h2>
+          <p>From a child's first blessing to a marriage's first steps to a loved one's final rest, our clergy walk with parish families through each of these sacraments. Find what to expect and how to start planning.</p>
+        </div>
+        <a href="sacraments.html" class="btn btn-gold-lg">
+          Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
   <!-- BULLETIN + OPEN REGISTRATIONS -->
   <section class="rs-section">
@@ -119,61 +119,61 @@
     </div>
   </section>
 
-    <!-- CONTACT CARD + PRAYER REQUESTS + HOME BLESSING -->
+  <!-- DIGITAL CONTACT CARD -->
+  <section class="rs-section rs-section--alt" id="contactCard">
+    <div class="container">
+      <div class="rs-contact-card">
+        <div class="rs-pair-icon"><i class="ti ti-address-card" aria-hidden="true"></i></div>
+        <span class="eyebrow">Get In Touch</span>
+        <h2 class="rs-section-title">Have someone reach out to you</h2>
+        <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
+
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+        <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="rs-form-row">
+            <label for="ccName">Your name</label>
+            <input type="text" id="ccName" name="name" required>
+          </div>
+          <div class="rs-form-row">
+            <label for="ccPhone">Phone</label>
+            <input type="tel" id="ccPhone" name="phone" required>
+          </div>
+          <div class="rs-form-row">
+            <label for="ccTopic">I'd like to talk to someone about</label>
+            <select id="ccTopic" name="topic" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="general">General / Parish Office</option>
+              <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
+              <option value="ministries">Ministries &amp; Getting Involved</option>
+              <option value="youth">Youth &amp; Young Adults</option>
+              <option value="stewardship">Stewardship &amp; Giving</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="rs-form-row">
+            <label for="ccContactMethod">Preferred contact method</label>
+            <select id="ccContactMethod" name="preferred_contact_method">
+              <option value="phone">Phone call</option>
+              <option value="text">Text</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+          <div class="rs-form-row">
+            <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
+            <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold-lg">
+            Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRAYER REQUESTS + HOME BLESSING -->
   <section class="rs-section">
     <div class="container">
-      <div class="rs-pair-grid rs-pair-grid--trio">
-
-        <!-- DIGITAL CONTACT CARD -->
-        <div class="rs-pair-card" id="contactCard">
-          <div class="rs-pair-icon"><i class="ti ti-address-card" aria-hidden="true"></i></div>
-          <span class="eyebrow">Get In Touch</span>
-          <h2 class="rs-section-title">Have someone reach out to you</h2>
-          <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
-
-          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
-          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="rs-form-row">
-              <label for="ccName">Your name</label>
-              <input type="text" id="ccName" name="name" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="ccPhone">Phone</label>
-              <input type="tel" id="ccPhone" name="phone" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="ccEmail">Email
-              <input type="email" id="ccEmail" name="email" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="ccTopic">I'd like to talk to someone about</label>
-              <select id="ccTopic" name="topic" required>
-                <option value="" disabled selected>Choose one</option>
-                <option value="general">General / Parish Office</option>
-                <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
-                <option value="ministries">Ministries &amp; Getting Involved</option>
-                <option value="youth">Youth &amp; Young Adults</option>
-                <option value="stewardship">Stewardship &amp; Giving</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-            <div class="rs-form-row">
-              <label for="ccContactMethod">Preferred contact method</label>
-              <select id="ccContactMethod" name="preferred_contact_method">
-                <option value="phone">Phone call</option>
-                <option value="text">Text</option>
-                <option value="email">Email</option>
-              </select>
-            </div>
-            <div class="rs-form-row">
-              <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
-              <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold-lg">
-              Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
-            </button>
-          </form>
-        </div>
+      <div class="rs-pair-grid">
 
         <!-- PRAYER REQUESTS -->
         <div class="rs-pair-card" id="prayer">
@@ -187,14 +187,6 @@
             <div class="rs-form-row">
               <label for="rsName">Your name</label>
               <input type="text" id="rsName" name="name" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="rsPhone">Phone</label>
-              <input type="tel" id="rsPhone" name="phone" required>
-            </div>
-            <div class="rs-form-row">
-              <label for="rsEmail">Email </label>
-              <input type="email" id="rsEmail" name="email" required>
             </div>
             <div class="rs-form-row">
               <label for="rsRequest">Prayer request</label>
@@ -227,13 +219,9 @@
               <label for="hbAddress">Home address</label>
               <input type="text" id="hbAddress" name="address" required>
             </div>
-             <div class="rs-form-row">
-              <label for="hbPhone">Phone</label>
-              <input type="tel" id="hbPhone" name="phone" required>
-            </div>
             <div class="rs-form-row">
-              <label for="hbEmail">Email </label>
-              <input type="email" id="hbEmail" name="email" required>
+              <label for="hbContact">Phone or email</label>
+              <input type="text" id="hbContact" name="contact" required>
             </div>
             <div class="rs-form-row">
               <label for="hbNotes">Preferred timeframe <span class="rs-optional">(optional)</span></label>
@@ -249,10 +237,28 @@
     </div>
   </section>
 
-  
+  <!-- PASTOR'S CORNER -->
+  <section class="ab-faith section section--alt" id="pastors-corner">
+    <div class="container">
+      <span class="eyebrow">From Fr. Rick</span>
+      <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Pastor's Corner</h2>
+      <div class="ab-faith-card">
+        <div class="ab-faith-icon">
+          <i class="ti ti-message-circle-2" aria-hidden="true"></i>
+        </div>
+        <div class="ab-faith-card-text">
+          <h2>Reflections on faith and everyday life</h2>
+          <p>Fr. Rick's writing on scripture, the sacraments, and the questions parishioners bring to him most — plus a link to recent sermons.</p>
+        </div>
+        <a href="pastors-corner.html" class="btn btn-gold-lg">
+          Read More <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- SSPP REALM -->
-  <section class="rs-section rs-section--alt" id="realm">
+  <section class="rs-section" id="realm">
     <div class="container">
       <div class="rs-realm-card">
 
@@ -261,11 +267,11 @@
           <!-- LEFT: FAQ -->
           <div class="rs-realm-faq-col">
             <div class="rs-realm-header">
-            <div class="rs-section-icon"><i class="ti ti-address-book" aria-hidden="true"></i></div>
-            <span class="eyebrow">Member Portal</span>
-            <h2 class="rs-section-title">SSPP Realm</h2>
-            <p>Realm is our parish's church database — built mainly to support our staff, but it also makes it easier for our church family to stay connected with each other and with parish life.</p>
-          </div>
+              <div class="rs-section-icon"><i class="ti ti-address-book" aria-hidden="true"></i></div>
+              <span class="eyebrow">Member Portal</span>
+              <h2 class="rs-section-title">SSPP Realm</h2>
+              <p>Realm is our parish's church database — built mainly to support our staff, but it also makes it easier for our church family to stay connected with each other and with parish life.</p>
+            </div>
             <h3 class="rs-subtitle" style="margin-top: 0;">Common questions</h3>
             <div class="rs-faq">
               <details class="rs-faq-item">
@@ -323,61 +329,6 @@
     </div>
   </section>
 
-
-  <!-- PARISH COUNCIL & MINISTRY LEADERS -->
-    <!-- 
-  <section class="rs-section rs-section--alt" id="council">
-    <div class="container">
-      <div class="rs-council-header">
-        <div class="rs-section-icon"><i class="ti ti-users-group" aria-hidden="true"></i></div>
-        <span class="eyebrow">Leadership</span>
-        <h2 class="rs-section-title">Parish council &amp; ministry leaders</h2>
-        <p>Have a question about parish operations, a ministry, or want to get more involved in leadership? Here's who to reach.</p>
-      </div>
-
-      <div class="rs-council-columns">
-  
-        <!-- LEFT: Parish Council -->
-    <!-- 
-        <div class="rs-council-col" id="parishCouncil">
-          <h3 class="rs-subtitle" style="margin-top: 0;">Parish Council</h3>
-          <div class="rs-staff-list">
-            <div class="rs-staff-row">
-              <div class="rs-staff-info">
-                <div class="rs-staff-name">Parish Council President</div>
-                <div class="rs-staff-role">Name here</div>
-              </div>
-              <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
-            </div>
-            <div class="rs-staff-row">
-              <div class="rs-staff-info">
-                <div class="rs-staff-name">Vice President</div>
-                <div class="rs-staff-role">Name here</div>
-              </div>
-              <a href="mailto:council@ssppglenview.org" class="rs-staff-email">council@ssppglenview.org</a>
-            </div>
-            <div class="rs-staff-row">
-              <div class="rs-staff-info">
-                <div class="rs-staff-name">Treasurer</div>
-                <div class="rs-staff-role">Name here</div>
-              </div>
-              <a href="mailto:treasurer@ssppglenview.org" class="rs-staff-email">treasurer@ssppglenview.org</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: Ministry Leaders -->
-    <!-- 
-        <div class="rs-council-col" id="ministryLeaders">
-          <h3 class="rs-subtitle" style="margin-top: 0;">Ministry Leaders</h3>
-          <div class="rs-leader-accordion" id="leaderAccordion"></div>
-        </div>
-
-      </div>
-    </div>
-  </section> -->
-
-
   <!-- CTA -->
   <section class="rs-cta">
     <h2>Can't find what you need?</h2>
@@ -415,7 +366,5 @@
   <script src="js/main.js"></script>
   <script src="js/payment-data.js"></script>
   <script src="js/registrations.js"></script>
-  <script src="js/ministries-data.js"></script>
-  <script src="js/leader-directory.js"></script>
 </body>
 </html>
