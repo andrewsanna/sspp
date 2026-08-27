@@ -135,10 +135,6 @@
   overflow: hidden;
 }
 
-#homeEventsGrid .featured-event-badge {
-  display: none;
-}
-
 #homeEventsGrid .featured-event-compact {
   height: 150px;
 }
@@ -158,17 +154,8 @@
   display: block;
 }
 
-#homeEventsGrid .fe-content {
-  padding: 0.9rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden;
-}
-
 #homeEventsGrid .featured-event-badge {
-  font-size: 0.55rem;
-  padding: 0.18rem 0.5rem;
+  display: none;
 }
 
 #homeEventsGrid .fe-date {
