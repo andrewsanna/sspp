@@ -221,6 +221,7 @@ const MINISTRY_CATEGORIES = [
           role: 'Group Leader',
           email: 'carolyn@ssppglenview.org',
       },
+      },
       {
         name: 'Dynamis Group',
         summary: 'Fellowship and enrichment for senior members of the parish.',
