@@ -79,6 +79,15 @@
   justify-content: flex-end;
 }
 
+.pay-body--single {
+  display: block;
+}
+
+.pay-body--single .pay-main {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 .pay-btn {
   display: inline-flex;
   align-items: center;
