@@ -193,7 +193,6 @@ function renderFeaturedMinistryCard(elementId, post) {
       <img src="${photo}" alt="${post.title}" />
     </div>
     <div class="min-feature-body">
-      <span class="eyebrow" style="margin-bottom:0.4rem;">Ministry Spotlight</span>
       <h3 class="min-feature-title">${post.title}</h3>
       <p class="min-feature-desc">${post.excerpt}</p>
       <a href="parish-life.html#${post.id}" class="text-link">Read more <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
