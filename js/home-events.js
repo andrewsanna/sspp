@@ -168,20 +168,20 @@ function renderHomeEvents(events) {
 }
 
 // ============================================
-// Featured ministry spotlight (homepage)
-// Pulls the most recently dated 'ministry' post from
-// PARISH_LIFE_POSTS into the Get Involved feature card.
+// Featured ministry spotlights (homepage)
+// Pulls the two most recently dated 'ministry' posts from
+// PARISH_LIFE_POSTS into the two Get Involved feature cards.
 // ============================================
-function getLatestMinistryPost() {
-  if (typeof PARISH_LIFE_POSTS === 'undefined') return null;
+function getLatestMinistryPosts(count = 2) {
+  if (typeof PARISH_LIFE_POSTS === 'undefined') return [];
   const ministryPosts = PARISH_LIFE_POSTS.filter(p => p.category === 'ministry');
-  if (!ministryPosts.length) return null;
-  return ministryPosts.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
+  return ministryPosts
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, count);
 }
 
-function renderFeaturedMinistry() {
-  const block = document.getElementById('minFeatureBlock');
-  const post = getLatestMinistryPost();
+function renderFeaturedMinistryCard(elementId, post) {
+  const block = document.getElementById(elementId);
   if (!block || !post) return; // leave fallback markup in place
 
   const photo = post.photos && post.photos.length
@@ -201,7 +201,13 @@ function renderFeaturedMinistry() {
   `;
 }
 
-document.addEventListener('DOMContentLoaded', renderFeaturedMinistry);
+function renderFeaturedMinistries() {
+  const [first, second] = getLatestMinistryPosts(2);
+  renderFeaturedMinistryCard('minFeature1', first);
+  renderFeaturedMinistryCard('minFeature2', second);
+}
+
+document.addEventListener('DOMContentLoaded', renderFeaturedMinistries);
 
 // ============================================
 // Boot
