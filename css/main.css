@@ -728,6 +728,11 @@ padding: var(--space-5) 0;
   position: relative;
 }
 
+.section--divided {
+  border-top: 3px solid var(--gold);
+  padding-top: 4rem;
+}
+
 .section-header {
   display: flex;
   align-items: flex-end;
