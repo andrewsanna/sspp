@@ -281,6 +281,26 @@ p {
   background: var(--gold-lt);
 }
 
+.btn-outline-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  background: transparent;
+  border: 1.5px solid var(--navy-deep);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-navy:hover {
+  background: var(--navy-deep);
+  color: #fff;
+}
+
 /* ============================================
    Navigation
    ============================================ */
