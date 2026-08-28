@@ -289,6 +289,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Doreen Desent',
           role: 'Group Leader',
           email: 'welcome@ssppglenview.org',
+        },
       },
       {
         name: 'Dynamis Group',
