@@ -638,13 +638,8 @@
 }
 
 .ministry-modal-fullpage-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 1rem;
-  font-size: 0.82rem;
+  color: var(--navy, #1b2a4a);
   font-weight: 600;
-  color: var(--blue);
   text-decoration: none;
 }
 
@@ -652,6 +647,27 @@
   text-decoration: underline;
 }
 
+.ministry-modal-fullpage-link i {
+  color: var(--navy, #1b2a4a);
+}
+
+.ministry-modal-cal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--navy, #1b2a4a);
+  border-radius: 6px;
+  color: var(--navy, #1b2a4a);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.ministry-modal-cal-link:hover {
+  background: var(--navy, #1b2a4a);
+  color: var(--cream, #faf7f0);
+}
 /* ============================================
    Ministry contact card (in modal) — gold accent strip
    ============================================ */
