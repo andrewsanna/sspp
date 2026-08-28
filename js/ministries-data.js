@@ -21,7 +21,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Elected body overseeing parish affairs alongside the pastor.',
         description: 'This elected body meets each month to administer the affairs of the parish in conjunction with the pastor. Regular and active participation in the Church\'s sacramental life is a prerequisite.',
         image: 'images/ministries/parishcouncil.jpg',
-        detailPageUrl: 'contact.html?to=council',
+        detailPageUrl: 'contact.html?to=#council',
         contact: {
           name: 'George Seletos',
           role: 'Parish Council President',
