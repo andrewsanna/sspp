@@ -128,27 +128,31 @@
     <span class="eyebrow">From the Archdiocese</span>
     <h2 class="of-section-title">A Few Things Worth Reading</h2>
     <p class="of-articles-intro">Curated from the Greek Orthodox Archdiocese of America's library — we'll swap these in a few times a year.</p>
-  <ul class="of-articles-list" id="of-articles-list"></ul>
+    <div class="of-articles-grid" id="of-articles-list"></div>
+    <script src="js/our-faith-data.js"></script>
+    <script>
+      (function () {
+        const active = Object.values(ourFaithSeasons).find(s => s.active) || ourFaithSeasons.evergreen;
+        const list = document.getElementById('of-articles-list');
+        const count = active.articles.length;
 
-  <script src="js/our-faith-data.js"></script>
-  <script>
-        (function () {
-          const active = Object.values(ourFaithSeasons).find(s => s.active) || ourFaithSeasons.evergreen;
-          const list = document.getElementById('of-articles-list');
-          list.innerHTML = active.articles.map((a, i) => `
-            <li class="of-article-row">
-              <span class="of-article-num">${String(i + 1).padStart(2, '0')}</span>
-              <div class="of-article-body">
-                <h3><a href="${a.url}" target="_blank" rel="noopener">${a.title}</a></h3>
-                <p>${a.blurb}</p>
-              </div>
-              <a href="${a.url}" target="_blank" rel="noopener" class="of-article-link" aria-label="Read on goarch.org">
-                <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
-              </a>
-            </li>
-          `).join('');
-        })();
-      </script>
+        // 3 columns only when there are exactly 3 articles; otherwise 2.
+        const columns = count === 3 ? 3 : 2;
+        list.style.setProperty('--of-article-cols', columns);
+
+        list.innerHTML = active.articles.map((a) => `
+          <div class="of-article-card">
+            <div class="of-article-body">
+              <h3><a href="${a.url}" target="_blank" rel="noopener">${a.title}</a></h3>
+              <p>${a.blurb}</p>
+            </div>
+            <a href="${a.url}" target="_blank" rel="noopener" class="btn btn-outline-gold of-article-btn">
+              Read More
+            </a>
+          </div>
+        `).join('');
+      })();
+    </script>
     <a href="https://www.goarch.org/library" target="_blank" rel="noopener" class="of-articles-more">
       More from the Archdiocese Library <i class="ti ti-arrow-right" aria-hidden="true"></i>
     </a>
