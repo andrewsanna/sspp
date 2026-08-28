@@ -426,6 +426,33 @@
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
+.day-list {
+  padding: 0.5rem 0;
+}
+
+.day-list-item {
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid var(--brd);
+  border-left: 3px solid transparent;
+  cursor: pointer;
+}
+
+.day-list-item:last-child {
+  border-bottom: none;
+}
+
+.day-list-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 0.25rem;
+}
+
+.day-list-item-sub {
+  font-size: 0.8rem;
+  color: var(--mt);
+}
+
 .day-cell {
   min-height: 130px;
   min-width: 0;
