@@ -172,6 +172,92 @@
   }
 }
 
+/* Explore by Topic */
+.of-topics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.of-topic-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid var(--navy, #1b2a4a);
+  border-radius: 999px;
+  color: var(--navy, #1b2a4a);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.of-topic-tile i {
+  font-size: 1.1rem;
+  color: var(--gold, #c9a227);
+}
+
+.of-topic-tile:hover {
+  background: var(--navy, #1b2a4a);
+  color: var(--cream, #faf7f0);
+}
+
+.of-topic-tile:hover i {
+  color: var(--gold, #c9a227);
+}
+
+/* From the Archdiocese */
+.of-articles-intro {
+  max-width: 40ch;
+  margin-top: 0.5rem;
+  color: var(--text-muted, #5a5a5a);
+}
+
+.of-articles-list {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.of-article-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.of-article-num {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 0.85rem;
+  color: var(--gold, #c9a227);
+  padding-top: 0.2rem;
+}
+
+.of-article-body { flex: 1; }
+.of-article-body h3 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+.of-article-body h3 a { color: var(--navy, #1b2a4a); text-decoration: none; }
+.of-article-body h3 a:hover { text-decoration: underline; }
+.of-article-body p { margin: 0; color: var(--text-muted, #5a5a5a); }
+
+.of-article-link {
+  color: var(--navy, #1b2a4a);
+  flex-shrink: 0;
+  padding-top: 0.2rem;
+}
+
+.of-articles-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  font-weight: 600;
+  color: var(--navy, #1b2a4a);
+  text-decoration: none;
+}
+
 /* ============================================
    Chrismation story
    ============================================ */
