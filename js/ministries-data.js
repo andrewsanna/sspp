@@ -280,6 +280,17 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
+        name: 'Welcome Committee',
+        summary: 'Helping newcomers feel at home from their very first visit.',
+        description: 'The Welcome Committee ensures that visitors and newcomers feel warmly received from the moment they walk through our doors — whether that means a friendly greeting, help finding a seat, or a follow-up to answer questions after their first visit. It\'s an easy, low-commitment way to make a real difference in someone\'s first impression of our parish.',
+        image: 'images/ministries/welcome.jpg',
+        // calendarCategory: 'liturgical',
+        contact: {
+          name: 'Doreen Desent',
+          role: 'Group Leader',
+          email: 'welcome@ssppglenview.org',
+      },
+      {
         name: 'Dynamis Group',
         summary: 'Fellowship and enrichment for senior members of the parish.',
         description: 'Our Dynamis ministry provides a place of strength, fellowship, and enrichment, both spiritually and socially, for the senior members of our parish. Events are balanced between activities at the Church and outings to local places of interest.',
@@ -372,7 +383,7 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
-        name: 'FAITH, LOVE & JOY',
+        name: 'FLJ',
         summary: 'Elementary-age fellowship, education, and service.',
         description: 'FAITH, LOVE & JOY (FLJ) of SS. Peter and Paul aims to be a space of growth towards, familiarity with, and deepening of our Elementary Age Children\'s relationship with Christ and his church. FLJ strives to accomplish this mission through intentional gatherings with elements of fellowship, education, and service.',
        image: 'images/ministries/flj.jpg',
@@ -397,7 +408,7 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Young Adult League (YAL)',
-        summary: 'Worship, fellowship, and outreach for young adults.',
+        summary: 'Worship, fellowship, and outreach for post-college young adults.',
         description: 'The Young Adult League (YAL) of Saints Peter and Paul Greek Orthodox Church aims to aid the growth of our parish\'s young adults toward Christ and His Church. YAL strives to accomplish this mission through intentional gatherings of worship, fellowship, outreach, and education, giving young adults a place to encounter the challenges of modern life within the context of the Orthodox Church.',
         image: 'images/ministries/yal.jpg',
         calendarCategory: 'youth',
