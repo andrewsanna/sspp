@@ -118,8 +118,39 @@
     </div>
   </section>
 
+  <!-- FROM THE ARCHDIOCESE (HOMEPAGE STRIP) -->
+    <section class="home-faith-strip section">
+      <div class="container">
+        <div class="home-faith-inner">
+          <div class="home-faith-text">
+            <span class="eyebrow">From the Archdiocese</span>
+            <h3 id="home-faith-title">Loading…</h3>
+            <p id="home-faith-blurb"></p>
+          </div>
+          <a id="home-faith-link" href="#" target="_blank" rel="noopener" class="btn btn-gold-lg">
+            Read More <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        </div>
+        <a href="our-faith.html" class="home-faith-more">
+          More on Our Faith <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+    
+    <script src="js/our-faith-data.js"></script>
+    <script>
+      (function () {
+        const active = Object.values(ourFaithSeasons).find(s => s.active) || ourFaithSeasons.evergreen;
+        const featured = active.articles[0];
+        document.getElementById('home-faith-title').textContent = featured.title;
+        document.getElementById('home-faith-blurb').textContent = featured.blurb;
+        const link = document.getElementById('home-faith-link');
+        link.href = featured.url;
+      })();
+    </script>
+
      <!-- QUOTE BAND -->
-  <section class="quote-band">
+  <!-- <section class="quote-band">
     <div class="quote-inner">
       <div class="photo-placeholder quote-avatar">
         <i class="ti ti-camera ph-icon" aria-hidden="true" style="font-size:1rem; margin:0;"></i>
@@ -129,7 +160,7 @@
         <p class="quote-attr">— PHOTO + real name: a parishioner who joined in the last 1–2 years</p>
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <!-- GET INVOLVED PREVIEW -->
