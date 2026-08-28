@@ -301,6 +301,26 @@ p {
   color: #fff;
 }
 
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid var(--gold);
+  color: var(--gold-text);
+  background: transparent;
+  padding: 0.65rem 1.4rem;
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-gold:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
 /* Anchor scroll offset — clears the sticky main nav + jump nav,
    landing right above each section's eyebrow instead of at the title */
 [id] {
