@@ -49,28 +49,33 @@
 
 /* Jump nav */
 .rs-jumpnav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 2rem;
+  background: var(--offwhite);
+  border-bottom: 1px solid rgba(18, 39, 64, 0.08);
   position: sticky;
   top: 64px;
   z-index: 90;
-  background: #fff;
-  border-bottom: 1px solid var(--brd);
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 0.9rem 1rem;
-  flex-wrap: wrap;
 }
 
 .rs-jumpnav a {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--mt);
+  color: var(--navy-deep);
   text-decoration: none;
-  letter-spacing: 0.02em;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(18, 39, 64, 0.15);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .rs-jumpnav a:hover {
-  color: var(--gold-text);
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
 }
 
 /* Sections */
