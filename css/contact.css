@@ -352,6 +352,16 @@
   color: var(--mt);
 }
 
+.ct-exec-email-icon {
+  color: var(--gold-text);
+  margin-left: 0.4rem;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.ct-exec-email-icon:hover {
+  color: var(--gold-deep);
+}
+
 .ct-council-toggle {
   display: flex;
   align-items: center;
