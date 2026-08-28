@@ -652,6 +652,10 @@
 }
 
 /* Parish Council & Ministry Leaders — shared header, two columns */
+#council {
+  background: #fff;
+}
+
 .rs-council-header {
   max-width: 640px;
   margin-bottom: 2rem;
