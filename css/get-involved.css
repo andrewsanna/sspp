@@ -637,7 +637,7 @@
   color: var(--tx);
 }
 
-.ministry-modal-links {
+.ministry-modal-links-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -664,6 +664,7 @@
   padding: 0;
   background: none;
   border: none;
+  border-radius: 0;
   color: var(--navy, #1b2a4a);
   font-weight: 600;
   font-size: 0.95rem;
@@ -672,6 +673,7 @@
 
 .ministry-modal-cal-link:hover {
   text-decoration: underline;
+  background: none;
 }
 
 .ministry-modal-cal-link i {
