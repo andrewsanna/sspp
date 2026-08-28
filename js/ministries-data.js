@@ -11,6 +11,38 @@
 // ============================================
 
 const MINISTRY_CATEGORIES = [
+    {
+    id: 'leadership',
+    label: 'Parish Governance',
+    blurb: 'How our parish is administered, and how to get involved.',
+    ministries: [
+      {
+        name: 'Parish Council',
+        summary: 'Elected body overseeing parish affairs alongside the pastor.',
+        description: 'This elected body meets each month to administer the affairs of the parish in conjunction with the pastor. Regular and active participation in the Church\'s sacramental life is a prerequisite.',
+        image: 'images/ministries/parishcouncil.jpg',
+        detailPageUrl: 'contact.html?to=council',
+        contact: {
+          name: 'George Seletos',
+          role: 'Parish Council President',
+          email: 'PCpresident@ssppglenview.org',
+        },
+      },
+        {
+        name: 'Parish Vitality Team',
+        summary: 'Working to strengthen the long-term health of our parish.',
+        description: 'The Parish Vitality Team works alongside the pastor and Parish Council to assess and strengthen the long-term health of our parish community, guided by our Parish Health Plan.',
+        // image: 'images/ministries/vitalityteam.jpg',
+        detailPageUrl: 'https://ssppglenview.org/wp-content/uploads/2025/12/SSPP-Parish-Health-Plan-2025-1.0.pdf',
+        contact: {
+          name: 'Keith Anderson',
+          role: 'Group Leader',
+          email: 'vitalityteam@ssppglenview.org',
+        },
+      },
+    ],
+  },
+  
   {
     id: 'worship',
     label: 'Worship & Liturgical Life',
