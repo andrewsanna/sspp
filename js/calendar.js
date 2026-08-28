@@ -517,22 +517,26 @@ function renderDayView() {
     .sort((a, b) => (a.isAllDay === b.isAllDay ? a.start - b.start : a.isAllDay ? -1 : 1));
 
   if (dayEvents.length === 0) {
-    dayList.innerHTML = `<p style="padding:1.5rem; font-size:0.85rem; color:var(--mt);">No events scheduled for this day.</p>`;
+    dayList.innerHTML = `<p style="padding:1.5rem; font-size:0.85rem; color:var(--mt); text-align:center;">No events scheduled for this day.</p>`;
     return;
   }
 
-  dayList.innerHTML = dayEvents.map((e) => {
-    const subParts = [
-      formatTimeRange(e.start, e.end, e.isAllDay),
-      (e.location && !isUrl(e.location)) ? e.location : null,
-    ].filter(Boolean);
-    return `
-      <div class="day-list-item" data-event-id="${escapeHtml(e.id)}" style="border-left-color:${categoryText(e.category)};">
-        <div class="day-list-item-title">${escapeHtml(e.title)}</div>
-        ${subParts.length ? `<div class="day-list-item-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
-      </div>
-    `;
-  }).join('');
+  dayList.innerHTML = `
+    <div class="day-list-inner">
+      ${dayEvents.map((e) => {
+        const subParts = [
+          formatTimeRange(e.start, e.end, e.isAllDay),
+          (e.location && !isUrl(e.location)) ? e.location : null,
+        ].filter(Boolean);
+        return `
+          <div class="day-list-item" data-event-id="${escapeHtml(e.id)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
+            <div class="day-list-item-title">${escapeHtml(e.title)}</div>
+            ${subParts.length ? `<div class="day-list-item-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
 
   dayList.querySelectorAll('.day-list-item').forEach((el) => {
     el.addEventListener('click', () => {
