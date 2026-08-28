@@ -74,14 +74,14 @@ const ourFaithSeasons = {
     articles: [
       { title: "The Feast of the Holy Theofany", blurb: "What Theophany celebrates and why water is blessed on this feast.", url: "https://www.goarch.org/-/feast-of-the-holy-theophany-of-our-lord-god-and-savior-jesus-christ" },
       { title: "Baptized in Christ", blurb: "The Great Blessing of Waters, explained simply.", url: "https://www.goarch.org/-/baptized-in-christ-looking-toward-epiphany-day" },
-       { title: "The Prayer for the Blessing of Homes", blurb: "The priest visits homes with holy water freshly blessed at the feast, asking God's grace on the household for the year ahead.", url: "https://www.goarch.org/-/the-prayer-for-the-blessing-of-homes-at-theophany
-    ]" }
+       { title: "The Prayer for the Blessing of Homes", blurb: "The priest visits homes with holy water freshly blessed at the feast, asking God's grace on the household for the year ahead.", 
+        url: "https://www.goarch.org/-/the-prayer-for-the-blessing-of-homes-at-theophany" }
   },
 
   dormition: {
     label: "Dormition of the Theotokos",
     window: "Dormition Fast Aug 1-14, feast Aug 15",
-    active: true,
+    active: false,
     articles: [
       { title: "Dormition of the Theotokos", blurb: "Why Orthodox Christians fast and feast around the Dormition.", url: "https://www.goarch.org/en/dormition" },
       { title: "God's Mother, Our Mother", blurb: "Who the Theotokos is and her place in Orthodox worship.", url: "https://www.goarch.org/en/-/god-s-mother-our-mother" }
@@ -153,7 +153,7 @@ const ourFaithSeasons = {
   evergreen: {
     label: "Faith Basics",
     window: "Year-round fallback",
-    active: true,
+    active: false,
     articles: [
       { title: "Be the Bee: How Should Orthodox Christians Preach the Gospel?", 
        blurb: "A short reflection on sharing the faith in everyday conversation — no theology degree required.", 
