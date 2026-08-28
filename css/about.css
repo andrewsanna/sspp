@@ -206,7 +206,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 2.5rem;
-  align-items: start; /* was center — now top edges line up with the heading */
+  align-items: start;
   margin-bottom: 1.5rem;
 }
 
@@ -221,7 +221,7 @@
 }
 
 .ab-history-photo {
-  aspect-ratio: 4 / 3; /* landscape, matches the photo's real shape */
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
   background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
   display: flex;
@@ -411,7 +411,7 @@
 
 .ab-staff-name {
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .ab-staff-summary {
@@ -420,9 +420,44 @@
   font-size: 1rem;
   line-height: 1.6;
   color: var(--navy-deep);
+  margin-bottom: 1.1rem;
+}
+
+.ab-staff-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--blue);
+  font-size: 0.83rem;
+  font-weight: 600;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.ab-staff-toggle i {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.ab-staff-toggle.open i {
+  transform: rotate(180deg);
+}
+
+.ab-staff-toggle:hover {
+  text-decoration: underline;
+}
+
+.ab-staff-bio {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.ab-staff-bio.is-open {
+  max-height: 2500px;
   margin-bottom: 1.25rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid var(--brd);
 }
 
 .ab-staff-bio p {
@@ -433,7 +468,7 @@
 }
 
 .ab-staff-contact-btn {
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
 .btn-outline-gold {
@@ -464,20 +499,21 @@
   border: 1px solid var(--brd);
   border-left: 4px solid var(--gold);
   border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  grid-template-columns: 380px 1fr;
+  padding: 1.75rem;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
 }
 
 .ab-staff-row.is-featured .ab-staff-photo {
-  aspect-ratio: 1 / 1.05;
+  aspect-ratio: 4 / 5;
 }
 
 .ab-staff-row.is-featured .ab-staff-name {
-  font-size: 1.65rem;
+  font-size: 1.4rem;
 }
 
 .ab-staff-row.is-featured .ab-staff-summary {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 760px) {
