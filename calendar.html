@@ -135,8 +135,22 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
-  <script src="js/payment-data.js"></script>
-  <script src="js/calendar.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/payment-data.js"></script>
+    <script src="js/calendar.js"></script>
+    <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get('category');
+      if (!category) return;
+  
+      // Wait a tick so calendar.js has finished attaching its own
+      // click handlers to the filter chips before we simulate a click.
+      window.addEventListener('load', () => {
+        const chip = document.querySelector(`.filter-chip[data-filter="${category}"]`);
+        if (chip) chip.click();
+      });
+    })();
+  </script>
 </body>
 </html>
