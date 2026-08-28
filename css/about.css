@@ -266,17 +266,31 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: none;
-  border: none;
-  color: var(--blue);
-  font-size: 0.85rem;
+  background: var(--gold-lt);
+  border: 1px solid var(--gold);
+  color: var(--gold-text);
+  font-size: 0.8rem;
   font-weight: 600;
-  padding: 0.5rem 0;
+  padding: 0.55rem 1.1rem;
+  border-radius: 20px;
   margin-top: 0.75rem;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .ab-history-toggle i {
+  font-size: 0.85rem;
   transition: transform 0.2s ease;
+}
+
+.ab-history-toggle:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+  text-decoration: none;
+}
+
+.ab-history-toggle.open {
+  background: var(--gold);
+  color: var(--navy-deep);
 }
 
 .ab-history-toggle.open i {
@@ -427,26 +441,35 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: none;
-  border: none;
-  color: var(--blue);
-  font-size: 0.83rem;
+  background: var(--gold-lt);
+  border: 1px solid var(--gold);
+  color: var(--gold-text);
+  font-size: 0.78rem;
   font-weight: 600;
-  padding: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
   margin-bottom: 1rem;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .ab-staff-toggle i {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   transition: transform 0.2s ease;
+}
+
+.ab-staff-toggle:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+  text-decoration: none;
+}
+
+.ab-staff-toggle.open {
+  background: var(--gold);
+  color: var(--navy-deep);
 }
 
 .ab-staff-toggle.open i {
   transform: rotate(180deg);
-}
-
-.ab-staff-toggle:hover {
-  text-decoration: underline;
 }
 
 .ab-staff-bio {
