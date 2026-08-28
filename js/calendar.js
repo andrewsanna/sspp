@@ -116,23 +116,23 @@ const CATEGORY_LABELS = {
   featured: 'Events',
   philanthropy: 'Philanthropy',
   agape: 'Agape',
-  adult_faith: 'Faith & Learning',
-  adult_activities: 'Activities',
+  adult_faith: 'Adult Faith & Learning',
+  adult_activities: 'Adult Activities',
   support_groups: 'Support Groups',
   ministries: 'Ministries',
 };
 
 // Pill / legend colors per category — pulled from your list
 const CATEGORY_COLORS = {
-  liturgical: '#6B7280',      // slate gray 
-  youth: '#2E7D32',           // green 
-  featured: '#2563A8',        // strong blue 
-  philanthropy: '#7B3F98',    // purple
-  agape: '#C96A23',           // orange 
-  adult_faith: '#B0405A',     // rose/burgundy
-  adult_activities: '#1C8C8C',// teal
-  support_groups: '#6B5B95',  // muted violet
-  ministries: '#8C6E1F',      // bronze
+  liturgical: '#1F4E79',
+  youth: '#2E7D32',
+  featured: '#C9A227',
+  philanthropy: '#7B3F98',
+  agape: '#C96A23',
+  adult_faith: '#0C447C',
+  adult_activities: '#3A6FA5',
+  support_groups: '#A8763E',
+  ministries: '#4A7C6F',
 };
 
 const MONTHS_AHEAD = 3;
@@ -150,10 +150,10 @@ const ACTION_LABELS = {
 // ============================================
 let allEvents = [];
 let activeFilter = 'all';
-let viewMode = 'month'; // 'month' | 'week'
+let viewMode = 'month'; // 'month' | 'week' | 'day'
 
-// Anchor date used to derive the visible month (1st of month) or the
-// visible week (Sun–Sat containing this date).
+// Anchor date used to derive the visible month (1st of month), the
+// visible week (Sun–Sat containing this date), or the visible day.
 let anchorDate = new Date();
 anchorDate.setHours(0, 0, 0, 0);
 
@@ -227,26 +227,27 @@ function normalizeEvent(raw, calendarConfig) {
     htmlLink: raw.htmlLink || '#',
   };
 }
+
 async function initCalendarPage() {
   const statusEl = document.getElementById('calStatus');
- 
+
   if (GOOGLE_API_KEY === 'YOUR_API_KEY_HERE' || GOOGLE_API_KEY === 'PASTE_YOUR_KEY_HERE') {
     renderSetupNotice();
     return;
   }
- 
+
   const unconfigured = CALENDARS.filter((c) => c.id.startsWith('YOUR_'));
   if (unconfigured.length > 0) {
     renderSetupNotice(`Missing calendar ID for: ${unconfigured.map((c) => CATEGORY_LABELS[c.category]).join(', ')}`);
     return;
   }
- 
+
   try {
     const results = await Promise.all(CALENDARS.map(fetchCalendar));
     allEvents = results.flat();
- 
+
     if (statusEl) statusEl.remove();
- 
+
     renderFeaturedEvent();
     renderComingUp();
     renderMonthGrid();
@@ -254,7 +255,7 @@ async function initCalendarPage() {
     renderError(err.message);
   }
 }
- 
+
 function renderSetupNotice(extra) {
   const statusEl = document.getElementById('calStatus');
   if (!statusEl) return;
@@ -264,7 +265,7 @@ function renderSetupNotice(extra) {
     <span>Calendar not connected yet — add your Google API key and calendar IDs in <code>js/calendar.js</code> to go live.${extra ? ' ' + escapeHtml(extra) : ''}</span>
   `;
 }
- 
+
 function renderError(message) {
   const statusEl = document.getElementById('calStatus');
   if (!statusEl) return;
@@ -274,7 +275,7 @@ function renderError(message) {
     <span>Could not load the calendar (${escapeHtml(message)}). Double-check the API key and calendar IDs are correct and all calendars are public.</span>
   `;
 }
- 
+
 // ============================================
 // Featured event + Coming up — from any calendar flagged featured: true
 // ============================================
@@ -283,10 +284,11 @@ function getFeaturedEvents() {
     .filter((e) => e.isFeaturedCalendar && e.start && e.start.getTime() >= Date.now() - 86400000)
     .sort((a, b) => a.start - b.start);
 }
- 
+
 // Shows up to 2 featured events side by side as compact cards.
 const FEATURED_SLOT_COUNT = 2;
- function renderFeaturedEvent() {
+
+function renderFeaturedEvent() {
   const container = document.getElementById('featuredEventSlot');
   if (!container) return;
 
@@ -330,7 +332,7 @@ const FEATURED_SLOT_COUNT = 2;
     });
   });
 }
- 
+
 function renderComingUp() {
   const container = document.getElementById('comingUpSlot');
   if (!container) return;
@@ -365,16 +367,16 @@ function renderComingUp() {
     });
   });
 }
- 
+
 // ============================================
-// Calendar grid — Month or Week view, filterable by category
+// Calendar grid — Month, Week, or Day view, filterable by category
 // ============================================
 function startOfWeek(date) {
   const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
   d.setDate(d.getDate() - d.getDay()); // back up to Sunday
   return d;
 }
- 
+
 function getVisibleCells() {
   if (viewMode === 'week') {
     const weekStart = startOfWeek(anchorDate);
@@ -385,14 +387,14 @@ function getVisibleCells() {
     }
     return cells;
   }
- 
+
   const year = anchorDate.getFullYear();
   const month = anchorDate.getMonth();
   const firstOfMonth = new Date(year, month, 1);
   const startDow = firstOfMonth.getDay();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const daysInPrevMonth = new Date(year, month, 0).getDate();
- 
+
   const cells = [];
   for (let i = startDow - 1; i >= 0; i--) {
     cells.push({ day: daysInPrevMonth - i, otherMonth: true, date: new Date(year, month - 1, daysInPrevMonth - i) });
@@ -407,12 +409,14 @@ function getVisibleCells() {
   }
   return cells;
 }
- 
+
 function updateCalendarLabel() {
   const label = document.getElementById('calMonthLabel');
   if (!label) return;
- 
-  if (viewMode === 'week') {
+
+  if (viewMode === 'day') {
+    label.textContent = anchorDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  } else if (viewMode === 'week') {
     const weekStart = startOfWeek(anchorDate);
     const weekEnd = new Date(weekStart.getFullYear(), weekStart.getMonth(), weekStart.getDate() + 6);
     const sameMonth = weekStart.getMonth() === weekEnd.getMonth();
@@ -423,12 +427,26 @@ function updateCalendarLabel() {
     label.textContent = anchorDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   }
 }
- 
+
 function renderMonthGrid() {
   const grid = document.getElementById('dayGrid');
+  const dowRow = document.getElementById('dowRow');
+  const dayList = document.getElementById('dayList');
   if (!grid) return;
 
   updateCalendarLabel();
+
+  if (viewMode === 'day') {
+    if (dowRow) dowRow.style.display = 'none';
+    grid.style.display = 'none';
+    if (dayList) dayList.style.display = 'block';
+    renderDayView();
+    return;
+  }
+
+  if (dowRow) dowRow.style.display = '';
+  grid.style.display = '';
+  if (dayList) dayList.style.display = 'none';
 
   grid.classList.toggle('view-week', viewMode === 'week');
   grid.classList.toggle('view-month', viewMode === 'month');
@@ -448,6 +466,7 @@ function renderMonthGrid() {
 
     const visibleEvents = dayEvents.slice(0, MAX_VISIBLE);
     const extraCount = dayEvents.length - visibleEvents.length;
+    const dateKey = cell.date.toISOString();
 
     return `
       <div class="day-cell ${cell.otherMonth ? 'other-month' : ''} ${isToday ? 'today' : ''}">
@@ -463,7 +482,7 @@ function renderMonthGrid() {
             </div>
           `;
         }).join('')}
-        ${extraCount > 0 ? `<div class="day-more">+${extraCount} more</div>` : ''}
+        ${extraCount > 0 ? `<div class="day-more" data-date="${dateKey}">+${extraCount} more</div>` : ''}
       </div>
     `;
   }).join('');
@@ -475,8 +494,63 @@ function renderMonthGrid() {
       if (event) openEventModal(event);
     });
   });
+
+  grid.querySelectorAll('.day-more').forEach((moreEl) => {
+    moreEl.addEventListener('click', () => {
+      const date = new Date(moreEl.dataset.date);
+      anchorDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+      setViewMode('day');
+    });
+  });
 }
- 
+
+function renderDayView() {
+  const dayList = document.getElementById('dayList');
+  if (!dayList) return;
+
+  const filtered = activeFilter === 'all'
+    ? allEvents.filter((e) => !e.title.trim().startsWith('+'))
+    : allEvents.filter((e) => e.category === activeFilter);
+
+  const dayEvents = filtered
+    .filter((e) => eventCoversDay(e, anchorDate))
+    .sort((a, b) => (a.isAllDay === b.isAllDay ? a.start - b.start : a.isAllDay ? -1 : 1));
+
+  if (dayEvents.length === 0) {
+    dayList.innerHTML = `<p style="padding:1.5rem; font-size:0.85rem; color:var(--mt);">No events scheduled for this day.</p>`;
+    return;
+  }
+
+  dayList.innerHTML = dayEvents.map((e) => {
+    const subParts = [
+      formatTimeRange(e.start, e.end, e.isAllDay),
+      (e.location && !isUrl(e.location)) ? e.location : null,
+    ].filter(Boolean);
+    return `
+      <div class="day-list-item" data-event-id="${escapeHtml(e.id)}" style="border-left-color:${categoryText(e.category)};">
+        <div class="day-list-item-title">${escapeHtml(e.title)}</div>
+        ${subParts.length ? `<div class="day-list-item-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+
+  dayList.querySelectorAll('.day-list-item').forEach((el) => {
+    el.addEventListener('click', () => {
+      const id = el.dataset.eventId;
+      const event = allEvents.find((e) => e.id === id);
+      if (event) openEventModal(event);
+    });
+  });
+}
+
+function setViewMode(mode) {
+  viewMode = mode;
+  document.querySelectorAll('.cal-view-btn').forEach((b) => {
+    b.classList.toggle('active', b.dataset.view === mode);
+  });
+  renderMonthGrid();
+}
+
 // Multi-day events (like a 3-day festival) need to show on every day they
 // span, not just the start day.
 function eventCoversDay(event, date) {
@@ -486,17 +560,17 @@ function eventCoversDay(event, date) {
   const dayEnd = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59, 999);
   return event.start <= dayEnd && end >= dayStart;
 }
- 
+
 // Lighten a hex color for pill backgrounds, keep the base color for text
 function categoryBg(category) {
   const hex = CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
   return hexToRgba(hex, 0.14);
 }
- 
+
 function categoryText(category) {
   return CATEGORY_COLORS[category] || CATEGORY_COLORS.other;
 }
- 
+
 function hexToRgba(hex, alpha) {
   const clean = hex.replace('#', '');
   const r = parseInt(clean.substring(0, 2), 16);
@@ -504,10 +578,21 @@ function hexToRgba(hex, alpha) {
   const b = parseInt(clean.substring(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
- 
+
 // ============================================
 // Event detail modal
 // ============================================
+
+function isUrl(str) {
+  return /^https?:\/\//i.test((str || '').trim());
+}
+
+function getMeetingLinkLabel(url) {
+  if (/zoom\.us/i.test(url)) return 'Join Zoom';
+  if (/meet\.google\.com/i.test(url)) return 'Join Google Meet';
+  if (/teams\.microsoft\.com/i.test(url)) return 'Join Teams Meeting';
+  return 'Join Meeting Link';
+}
 
 // Accepts either a Drive "share" link or a real image URL, and always
 // returns a working direct-image link. Anything that isn't a Drive
@@ -519,17 +604,6 @@ function normalizeImageUrl(url) {
     return `https://drive.google.com/thumbnail?id=${driveMatch[1]}&sz=w1000`;
   }
   return url;
-}
-
-function isUrl(str) {
-  return /^https?:\/\//i.test((str || '').trim());
-}
-
-function getMeetingLinkLabel(url) {
-  if (/zoom\.us/i.test(url)) return 'Join Zoom';
-  if (/meet\.google\.com/i.test(url)) return 'Join Google Meet';
-  if (/teams\.microsoft\.com/i.test(url)) return 'Join Teams Meeting';
-  return 'Join Meeting Link';
 }
 
 function parseEventActions(description) {
@@ -600,7 +674,7 @@ function getEventPricePill(description) {
   if (!paymentAction || !paymentAction.paymentItemKey) return '';
   return getPaymentPriceLabel(paymentAction.paymentItemKey);
 }
- 
+
 function openEventModal(event) {
   const overlay = document.getElementById('eventModalOverlay');
   const categoryEl = document.getElementById('eventModalCategory');
@@ -672,11 +746,11 @@ function openEventModal(event) {
 function closeEventModal() {
   document.getElementById('eventModalOverlay').classList.remove('is-open');
 }
- 
+
 function initEventModal() {
   const overlay = document.getElementById('eventModalOverlay');
   const closeBtn = document.getElementById('eventModalClose');
- 
+
   closeBtn.addEventListener('click', closeEventModal);
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeEventModal();
@@ -685,7 +759,7 @@ function initEventModal() {
     if (e.key === 'Escape') closeEventModal();
   });
 }
- 
+
 // ============================================
 // Filter chips
 // ============================================
@@ -699,7 +773,7 @@ function initFilterChips() {
       renderMonthGrid();
     });
   });
- 
+
   // If opened with ?category=youth (e.g. from a "View Calendar" button),
   // pre-select that chip.
   const params = new URLSearchParams(window.location.search);
@@ -713,57 +787,57 @@ function initFilterChips() {
     }
   }
 }
- 
+
 // ============================================
-// Month/week navigation
+// Month/week/day navigation
 // ============================================
 function initMonthNav() {
   const prevBtn = document.getElementById('calPrevMonth');
   const nextBtn = document.getElementById('calNextMonth');
   const todayBtn = document.getElementById('calTodayBtn');
- 
+
   if (prevBtn) prevBtn.addEventListener('click', () => {
-    if (viewMode === 'week') {
+    if (viewMode === 'day') {
+      anchorDate.setDate(anchorDate.getDate() - 1);
+    } else if (viewMode === 'week') {
       anchorDate.setDate(anchorDate.getDate() - 7);
     } else {
       anchorDate.setMonth(anchorDate.getMonth() - 1);
     }
     renderMonthGrid();
   });
- 
+
   if (nextBtn) nextBtn.addEventListener('click', () => {
-    if (viewMode === 'week') {
+    if (viewMode === 'day') {
+      anchorDate.setDate(anchorDate.getDate() + 1);
+    } else if (viewMode === 'week') {
       anchorDate.setDate(anchorDate.getDate() + 7);
     } else {
       anchorDate.setMonth(anchorDate.getMonth() + 1);
     }
     renderMonthGrid();
   });
- 
+
   if (todayBtn) todayBtn.addEventListener('click', () => {
     anchorDate = new Date();
     anchorDate.setHours(0, 0, 0, 0);
     renderMonthGrid();
   });
 }
- 
+
 // ============================================
-// Month / Week view toggle
+// Month / Week / Day view toggle
 // ============================================
 function initViewToggle() {
   const buttons = document.querySelectorAll('.cal-view-btn');
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const mode = btn.dataset.view;
-      if (mode === viewMode) return;
-      viewMode = mode;
-      buttons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderMonthGrid();
+      if (btn.dataset.view === viewMode) return;
+      setViewMode(btn.dataset.view);
     });
   });
 }
- 
+
 // ============================================
 // Formatting helpers
 // ============================================
@@ -772,19 +846,19 @@ function isSameDay(a, b) {
     a.getMonth() === b.getMonth() &&
     a.getDate() === b.getDate();
 }
- 
+
 function formatShortDate(date) {
   if (!date) return '';
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }).toUpperCase();
 }
- 
+
 function formatPillTime(date, isAllDay) {
   if (!date || isAllDay) return '';
   return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
     .replace(':00', '')
     .replace(' ', '');
 }
- 
+
 function formatDateRange(start, end, isAllDay) {
   if (!start) return '';
   const startStr = start.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -802,7 +876,7 @@ function formatDateRangeShort(start, end) {
   const endStr = end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
   return `${startStr} – ${endStr}`;
 }
- 
+
 function formatTimeRange(start, end, isAllDay) {
   if (!start) return '';
   if (isAllDay) return 'All day';
@@ -812,17 +886,17 @@ function formatTimeRange(start, end, isAllDay) {
   const endStr = end.toLocaleTimeString('en-US', opts);
   return `${startStr} – ${endStr}`;
 }
- 
+
 function truncate(str, max) {
   return str.length > max ? str.slice(0, max - 1) + '…' : str;
 }
- 
+
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
   return div.innerHTML;
 }
- 
+
 // ============================================
 // Boot
 // ============================================
