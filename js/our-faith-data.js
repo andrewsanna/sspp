@@ -74,8 +74,9 @@ const ourFaithSeasons = {
     articles: [
       { title: "The Feast of the Holy Theofany", blurb: "What Theophany celebrates and why water is blessed on this feast.", url: "https://www.goarch.org/-/feast-of-the-holy-theophany-of-our-lord-god-and-savior-jesus-christ" },
       { title: "Baptized in Christ", blurb: "The Great Blessing of Waters, explained simply.", url: "https://www.goarch.org/-/baptized-in-christ-looking-toward-epiphany-day" },
-       { title: "The Prayer for the Blessing of Homes", blurb: "The priest visits homes with holy water freshly blessed at the feast, asking God's grace on the household for the year ahead.", 
+      { title: "The Prayer for the Blessing of Homes", blurb: "The priest visits homes with holy water freshly blessed at the feast, asking God's grace on the household for the year ahead.", 
         url: "https://www.goarch.org/-/the-prayer-for-the-blessing-of-homes-at-theophany" }
+    ]
   },
 
   dormition: {
@@ -122,7 +123,7 @@ const ourFaithSeasons = {
   elevationOfCross: {
     label: "Exaltations of the Holy Cross",
     window: "Sept 14 (Nativity of the Theotokos is Sept 8, just before)",
-    active: true,
+    active: false,
     articles: [
       { title: "Exaltations of the Holy Cross", blurb: "Why the Cross is 'exalted' and the fasting associated with this feast.", url: "https://www.goarch.org/en/exaltation" },
       { title: "The Beauty of the Cross", blurb: "A short reflection on how the Cross — once an instrument of death — became a symbol of life, and what that paradox has to teach us.", 
