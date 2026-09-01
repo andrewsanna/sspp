@@ -1,0 +1,334 @@
+/* ============================================
+   Shared styles for individual ministry pages
+   (ministries/*.html)
+   ============================================ */
+
+.min-hero {
+  position: relative;
+  height: 300px;
+  background: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.8) 100%);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+}
+.min-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 2.25rem;
+  width: 100%;
+}
+.min-hero-eyebrow {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 700;
+}
+.min-hero-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  color: #fff;
+  margin-top: 0.35rem;
+}
+.min-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 1rem;
+}
+.min-lede {
+  font-size: 0.92rem;
+  color: var(--tx);
+  line-height: 1.7;
+  max-width: 620px;
+  margin-bottom: 2rem;
+}
+.min-desc {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--tx);
+  margin-bottom: 2.5rem;
+}
+.min-section-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--navy-deep);
+  margin-bottom: 0.85rem;
+}
+
+/* ---- Photo gallery (used on simpler single-ministry pages) ---- */
+.min-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.min-gallery img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* ---- Spotlight / quote block ---- */
+.min-spotlight {
+  background: var(--gold-lt);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2.5rem;
+}
+.min-spotlight-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--navy-deep);
+  line-height: 1.6;
+  margin-bottom: 0.4rem;
+}
+.min-spotlight-attr {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  font-weight: 700;
+}
+
+/* ---- Register CTA ---- */
+.min-register-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+}
+.min-register-btn:hover {
+  background: #c9a25c;
+}
+
+/* ---- Ministry accordion (multi-ministry pages, e.g. Youth) ---- */
+.min-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+}
+.min-acc-item {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+.min-acc-item[open] { border-color: var(--gold); }
+.min-acc-item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.min-acc-item > summary::-webkit-details-marker { display: none; }
+.min-acc-item > summary .summary-title {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+.min-acc-sub {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: var(--gold-text);
+  margin-top: 0.2rem;
+}
+.toggle-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-deep);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.toggle-badge .icon-minus { display: none; }
+.min-acc-item[open] .toggle-badge .icon-plus,
+.min-event-card[open] .toggle-badge .icon-plus { display: none; }
+.min-acc-item[open] .toggle-badge .icon-minus,
+.min-event-card[open] .toggle-badge .icon-minus { display: inline; }
+.min-acc-body {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid var(--brd);
+  padding-top: 1rem;
+}
+.min-acc-desc {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--tx);
+  margin-bottom: 1.1rem;
+}
+.min-gatherings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.min-gathering {
+  background: var(--offwhite);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.8rem;
+}
+.min-gathering-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+.min-gathering-time {
+  font-size: 0.68rem;
+  color: var(--gold-text);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.min-gathering-list {
+  font-size: 0.74rem;
+  color: var(--mt);
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 1rem;
+}
+.min-contact-line {
+  font-size: 0.78rem;
+  color: var(--mt);
+}
+.min-contact-line a { color: var(--blue); text-decoration: none; }
+.min-contact-line a:hover { text-decoration: underline; }
+
+/* ---- Featured event cards (nested, expandable) ---- */
+.min-events-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold-text);
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+}
+.min-event-card {
+  background: var(--offwhite);
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+.min-event-card[open] { border-color: var(--gold); }
+.min-event-card > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.min-event-card > summary::-webkit-details-marker { display: none; }
+.min-event-card .toggle-badge {
+  width: 22px;
+  height: 22px;
+  font-size: 0.7rem;
+  background: #fff;
+}
+.min-event-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+.min-event-date {
+  font-size: 0.7rem;
+  color: var(--mt);
+  margin-top: 0.1rem;
+}
+.min-event-body {
+  padding: 0 0.85rem 0.85rem;
+  font-size: 0.8rem;
+  color: var(--tx);
+  line-height: 1.6;
+  background: #fff;
+}
+.min-event-body p:first-child { margin-top: 0.75rem; }
+.min-event-body a.min-event-map {
+  color: var(--blue);
+  text-decoration: none;
+}
+.min-event-body a.min-event-map:hover { text-decoration: underline; }
+.min-event-register {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+.min-event-register:hover { background: #c9a25c; }
+
+/* ---- Upcoming events widget (calendar feed) ---- */
+.ministry-event-card {
+  display: block;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 0.8rem 0.95rem;
+  margin-bottom: 0.55rem;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
+}
+.ministry-event-card:hover { border-color: var(--gold); }
+.ministry-event-date {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gold-text);
+  font-weight: 700;
+}
+.ministry-event-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin-top: 0.15rem;
+}
+.ministry-event-loc {
+  font-size: 0.75rem;
+  color: var(--mt);
+  margin-top: 0.2rem;
+}
+.min-cal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+  text-decoration: none;
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 700px) {
+  .min-hero { height: 240px; }
+  .min-hero-title { font-size: 1.5rem; }
+  .min-gatherings { grid-template-columns: 1fr; }
+}
