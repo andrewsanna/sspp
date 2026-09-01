@@ -1,0 +1,255 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MINISTRY NAME — Saints Peter &amp; Paul</title>
+  <meta name="description" content="MINISTRY NAME at Saints Peter & Paul Greek Orthodox Church — SHORT ONE-LINE SUMMARY." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/get-involved.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* Page-specific styles for individual ministry pages */
+    .min-hero {
+      position: relative;
+      height: 340px;
+      background: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.75) 100%),
+                  url('../images/ministries/REPLACE-HERO.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+    }
+    .min-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+      width: 100%;
+    }
+    .min-hero-eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .min-hero-title {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 0.4rem;
+    }
+    .min-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+    .min-lede {
+      font-size: 1.05rem;
+      color: var(--navy-deep);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .min-desc {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--tx);
+      margin-bottom: 2.5rem;
+    }
+    .min-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .min-gallery img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+    }
+    .min-spotlight {
+      background: var(--gold-lt);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .min-spotlight-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--navy-deep);
+      line-height: 1.6;
+      margin-bottom: 0.4rem;
+    }
+    .min-spotlight-attr {
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--gold-text);
+      font-weight: 700;
+    }
+    .min-register-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.9rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+    }
+    .min-register-btn:hover {
+      background: #c9a25c;
+    }
+    .min-section-title {
+      font-size: 1.1rem;
+      color: var(--navy-deep);
+      margin-bottom: 1rem;
+    }
+    .ministry-event-card {
+      display: block;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.6rem;
+      text-decoration: none;
+      transition: border-color 0.15s ease;
+    }
+    .ministry-event-card:hover {
+      border-color: var(--gold);
+    }
+    .ministry-event-date {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gold-text);
+      font-weight: 700;
+    }
+    .ministry-event-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-top: 0.15rem;
+    }
+    .ministry-event-loc {
+      font-size: 0.78rem;
+      color: var(--mt);
+      margin-top: 0.2rem;
+    }
+    .min-cal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+    @media (max-width: 700px) {
+      .min-gallery { grid-template-columns: 1fr 1fr; }
+      .min-hero { height: 260px; }
+      .min-hero-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO: header image with ministry name overlaid -->
+  <section class="min-hero">
+    <div class="min-hero-inner">
+      <span class="min-hero-eyebrow">CATEGORY LABEL (e.g. Youth &amp; Young Adults)</span>
+      <h1 class="min-hero-title">MINISTRY NAME</h1>
+    </div>
+  </section>
+
+  <div class="min-body">
+
+    <!-- INTRO / LEDE -->
+    <p class="min-lede">ONE OR TWO SENTENCE HOOK — the warm, human version of the ministry's summary.</p>
+
+    <!-- REGISTER CTA -->
+    <a href="REPLACE-WITH-REGISTER-LINK" class="min-register-btn">
+      <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register / Get Involved
+    </a>
+
+    <!-- FULL DESCRIPTION -->
+    <p class="min-desc">
+      FULL DESCRIPTION GOES HERE. Write as much as you want — history,
+      what a typical meeting looks like, who it's for, etc.
+    </p>
+
+    <!-- PHOTO GALLERY -->
+    <div class="min-gallery">
+      <img src="../images/ministries/REPLACE-1.jpg" alt="">
+      <img src="../images/ministries/REPLACE-2.jpg" alt="">
+      <img src="../images/ministries/REPLACE-3.jpg" alt="">
+    </div>
+
+    <!-- SPOTLIGHT / QUOTE -->
+    <div class="min-spotlight">
+      <p class="min-spotlight-quote">"A REAL QUOTE FROM A MEMBER GOES HERE."</p>
+      <p class="min-spotlight-attr">— Name, Role/Relationship to Ministry</p>
+    </div>
+
+    <!-- UPCOMING EVENTS -->
+    <h2 class="min-section-title">Upcoming events</h2>
+    <div id="ministryUpcomingEvents">
+      <p style="font-size:0.8rem; color:var(--mt);">Loading…</p>
+    </div>
+    <a href="../calendar.html?category=REPLACE-CATEGORY" class="min-cal-link">
+      View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
+    </a>
+
+    <!-- CONTACT -->
+    <div class="ministry-modal-contact" style="display: flex; max-width: 420px; margin-top: 2.5rem;">
+      <div class="ministry-modal-contact-icon">
+        <i class="ti ti-user" aria-hidden="true"></i>
+      </div>
+      <div class="ministry-modal-contact-info">
+        <div class="ministry-modal-contact-role">GROUP LEADER ROLE</div>
+        <div class="ministry-modal-contact-name">CONTACT NAME</div>
+      </div>
+      <a href="mailto:REPLACE@ssppglenview.org" class="ministry-modal-contact-email">Email</a>
+    </div>
+
+    <!-- BACK LINK -->
+    <p style="margin-top: 2.5rem;">
+      <a href="../get-involved.html" class="ministry-modal-fullpage-link">
+        <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to all ministries
+      </a>
+    </p>
+
+  </div>
+
+  <!-- DON'T SEE WHERE YOU FIT BAND -->
+  <section class="visitor-band">
+    <div class="vb-arc" aria-hidden="true"></div>
+    <div class="visitor-inner">
+      <div>
+        <span class="eyebrow eyebrow--on-dark">Still not sure?</span>
+        <h2 class="vb-title">We'll help you find your place.</h2>
+        <p class="vb-body">With this many ministries, it's normal to feel unsure where to start. Reach out to the parish office — we're glad to point you in the right direction.</p>
+      </div>
+      <a href="../contact.html" class="btn btn-white">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script>
+    // Set this to the ministry's calendarCategory from ministries-data.js
+    const MINISTRY_CALENDAR_CATEGORY = 'REPLACE-CATEGORY';
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/calendar-config.js"></script>
+  <script src="../js/ministry-events.js"></script>
+</body>
+</html>
