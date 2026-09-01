@@ -147,7 +147,8 @@ const MINISTRY_CATEGORIES = [
         summary: 'Sunday morning religious education following Divine Liturgy.',
         description: 'Church School begins with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. The students will proceed to class following Holy Communion. Classes end at 11:45 a.m. Numerous volunteer opportunities exist to offer your time and talent to our many programs.',
         image: 'images/ministries/churchschool.jpg',
-          // calendarCategory: 'youth',
+        detailPageUrl: 'ministries/churchschool.html',
+        calendarCategory: 'youth',
         contact: {
           name: 'Elaine Carozza',
           role: 'Church School Director',
