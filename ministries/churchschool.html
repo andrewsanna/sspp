@@ -9,8 +9,8 @@
   <meta name="description" content="Church School at Saints Peter & Paul Greek Orthodox Church — Sunday morning religious education for Pre-K through 12th grade." />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/get-involved.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <link rel="stylesheet" href="../css/ministry-page.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
 
@@ -18,73 +18,99 @@
   {% include nav.html %}
 
   <!-- HERO -->
-    <!-- HERO -->
-  <section class="min-hero" style="background-image: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.8) 100%), url('../images/ministries/churchschool.jpg');">
-    <div class="min-hero-inner">
-      <span class="min-hero-eyebrow">Children's Education</span>
-      <h1 class="min-hero-title">Church School</h1>
-      
+  <section class="mp-hero" style="background-image: url('../images/ministries/churchschool-hero-PLACEHOLDER.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <span class="eyebrow eyebrow--on-dark">Children's Education</span>
+      <h1 class="mp-hero-title">A joyful start to <em>every Sunday.</em></h1>
+      <p class="mp-hero-body">Church School begins with family worship in Divine Liturgy, and continues with classes built for every age — from our youngest Pre-K learners to our graduating seniors.</p>
     </div>
   </section>
 
-  <div class="min-body">
+  <!-- PHOTO GALLERY / SLIDESHOW -->
+  <div class="section">
+    <div class="mp-gallery">
+      <div class="mp-gallery-frame" id="churchschoolGallery">
+        <div class="mp-gallery-slide is-active">
+          <img src="../images/ministries/churchschool-gallery-1-PLACEHOLDER.jpg" alt="Church School photo">
+        </div>
+        <div class="mp-gallery-slide">
+          <img src="../images/ministries/churchschool-gallery-2-PLACEHOLDER.jpg" alt="Church School photo">
+        </div>
+        <div class="mp-gallery-slide">
+          <img src="../images/ministries/churchschool-gallery-3-PLACEHOLDER.jpg" alt="Church School photo">
+        </div>
 
-    <!-- INTRO / LEDE -->
-    <p class="min-lede">Every Sunday, our Church School gathers to grow in faith together — from our youngest Pre-K learners to our graduating seniors — right after Divine Liturgy and Holy Communion.</p>
+        <button class="mp-gallery-nav mp-gallery-prev" aria-label="Previous photo">
+          <i class="ti ti-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="mp-gallery-nav mp-gallery-next" aria-label="Next photo">
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+        </button>
 
-    <!-- REGISTER CTA -->
-    <a href="https://onrealm.org/ssppglenview/Registrations/Registrants/6860199d-4c63-47a7-991d-b4750108b5d1" class="min-register-btn" target="_blank" rel="noopener noreferrer">
+        <div class="mp-gallery-dots">
+          <button class="mp-gallery-dot is-active" aria-label="Photo 1"></button>
+          <button class="mp-gallery-dot" aria-label="Photo 2"></button>
+          <button class="mp-gallery-dot" aria-label="Photo 3"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK FACTS -->
+  <div class="section" style="padding-top: 0;">
+    <div class="mp-info-strip">
+      <div class="mp-info-item">
+        <div class="mp-info-label">Grades Served</div>
+        <div class="mp-info-value">Pre-K – 12th</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Divine Liturgy</div>
+        <div class="mp-info-value">9:30 AM Sunday</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Classes Dismiss</div>
+        <div class="mp-info-value">11:45 AM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO + REGISTER -->
+  <div class="section" style="padding-top: 0; text-align: center;">
+    <p class="mp-lede">Classes begin right after Holy Communion, once church school is dismissed, and run through the rest of the Liturgy hour. We rely on numerous volunteers — teachers, classroom aides, and helping hands for events — so if you're looking for a meaningful way to serve, this is a wonderful place to start.</p>
+    <a href="https://onrealm.org/ssppglenview/Registrations/Registrants/6860199d-4c63-47a7-991d-b4750108b5d1" target="_blank" rel="noopener noreferrer" class="btn btn-gold-lg" style="margin-top: 1.5rem;">
       <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register for Church School
     </a>
+  </div>
 
-    <!-- FULL DESCRIPTION -->
-    <p class="min-desc">
-      Church School begins with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. Students proceed to class following Holy Communion, with classes running until 11:45 a.m. Our program serves children from Pre-K through 12th grade, with age-appropriate classes that grow with your child — from early lessons in the stories and traditions of our faith to deeper study of Orthodox theology and life as they get older.
-      <br><br>
-      Beyond the classroom, our Church School community comes together throughout the year for special feast day celebrations, service projects, and family events that bring the faith to life outside of Sunday mornings. We also rely on numerous volunteers — teachers, classroom aides, and helping hands for events — so if you're looking for a meaningful way to serve, this is a wonderful place to start.
-    </p>
-
-    <!-- PHOTO GALLERY -->
-    <div class="min-gallery">
-      <img src="../images/ministries/churchschool.jpg" alt="Church School students">
-      <img src="../images/ministries/churchschool-2.jpg" alt="Church School classroom">
-      <img src="../images/ministries/churchschool-3.jpg" alt="Church School event">
-    </div>
-
-    <!-- SPOTLIGHT / QUOTE -->
-    <div class="min-spotlight">
-      <p class="min-spotlight-quote">"Watching my kids run to their classrooms every Sunday, excited to learn about their faith — that's when you know a program is doing something right."</p>
-      <p class="min-spotlight-attr">— A Church School Parent</p>
-    </div>
-
-    <!-- UPCOMING EVENTS -->
-    <h2 class="min-section-title">Upcoming events</h2>
-    <div id="ministryUpcomingEvents">
-      <p style="font-size:0.8rem; color:var(--mt);">Loading…</p>
-    </div>
-    <a href="../calendar.html?category=youth" class="min-cal-link">
-      View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
-    </a>
-
-    <!-- CONTACT -->
-    <div class="ministry-modal-contact" style="display: flex; max-width: 420px; margin-top: 2.5rem;">
-      <div class="ministry-modal-contact-icon">
-        <i class="ti ti-user" aria-hidden="true"></i>
+  <!-- CONTACT CALLOUT -->
+  <div class="section section--alt">
+    <div class="mp-feature-card">
+      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="mp-feature-text">
+        <h3>Questions about Church School?</h3>
+        <p>Reach out to Elaine Carozza, our Church School Director, for anything from registration to volunteering.</p>
       </div>
-      <div class="ministry-modal-contact-info">
-        <div class="ministry-modal-contact-role">Church School Director</div>
-        <div class="ministry-modal-contact-name">Elaine Carozza</div>
-      </div>
-      <a href="mailto:Churchschool@ssppglenview.org" class="ministry-modal-contact-email">Email</a>
+      <a href="mailto:Churchschool@ssppglenview.org" class="btn btn-gold">Email Us</a>
     </div>
+  </div>
 
-    <!-- BACK LINK -->
-    <p style="margin-top: 2.5rem;">
-      <a href="../get-involved.html" class="ministry-modal-fullpage-link">
-        <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to all ministries
-      </a>
-    </p>
-
+  <!-- UPCOMING EVENTS -->
+  <div class="section">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">What's Next</span>
+          <h2 class="section-title">Upcoming on the calendar</h2>
+        </div>
+        <a href="../calendar.html?category=youth" class="section-link">
+          View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div id="ministryUpcomingEvents">
+        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
+      </div>
+    </div>
   </div>
 
   <!-- DON'T SEE WHERE YOU FIT BAND -->
@@ -105,6 +131,38 @@
 
   <script>
     const MINISTRY_CALENDAR_CATEGORY = 'youth';
+
+    // Simple gallery slideshow — auto-advance + manual controls
+    (function () {
+      const frame = document.getElementById('churchschoolGallery');
+      if (!frame) return;
+      const slides = frame.querySelectorAll('.mp-gallery-slide');
+      const dots = frame.querySelectorAll('.mp-gallery-dot');
+      let current = 0;
+      let timer;
+
+      function show(index) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+
+      function next() { show(current + 1); }
+      function prev() { show(current - 1); }
+
+      function restartTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      frame.querySelector('.mp-gallery-next').addEventListener('click', () => { next(); restartTimer(); });
+      frame.querySelector('.mp-gallery-prev').addEventListener('click', () => { prev(); restartTimer(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restartTimer(); }));
+
+      restartTimer();
+    })();
   </script>
   <script src="../js/main.js"></script>
   <script src="../js/calendar-config.js"></script>
