@@ -1,334 +1,329 @@
 /* ============================================
    Shared styles for individual ministry pages
-   (ministries/*.html)
+   (ministries/*.html) — built on the site's
+   existing design tokens and component patterns
    ============================================ */
 
-.min-hero {
-  position: relative;
-  height: 300px;
-  background: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.8) 100%);
+/* ---- Hero (same pattern as about.html / visit.html) ---- */
+.mp-hero {
+  background-color: var(--navy-deep);
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: flex-end;
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
 }
-.min-hero-inner {
-  max-width: 1100px;
+.mp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
+}
+.mp-hero-inner {
+  max-width: 680px;
   margin: 0 auto;
-  padding: 0 2rem 2.25rem;
-  width: 100%;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
 }
-.min-hero-eyebrow {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gold);
-  font-weight: 700;
-}
-.min-hero-title {
-  font-family: var(--font-display);
-  font-size: 1.85rem;
+.mp-hero-title {
+  font-size: 2rem;
   color: #fff;
-  margin-top: 0.35rem;
+  line-height: 1.3;
+  margin-bottom: 0.9rem;
 }
-.min-body {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem 1rem;
+.mp-hero-title em {
+  font-style: normal;
+  color: var(--gold);
 }
-.min-lede {
+.mp-hero-body {
   font-size: 0.92rem;
-  color: var(--tx);
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
-  max-width: 620px;
-  margin-bottom: 2rem;
 }
-.min-desc {
-  font-size: 0.92rem;
-  line-height: 1.8;
-  color: var(--tx);
-  margin-bottom: 2.5rem;
-}
-.min-section-title {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--navy-deep);
-  margin-bottom: 0.85rem;
+@media (max-width: 640px) {
+  .mp-hero { padding: 4rem 0 3rem; }
+  .mp-hero-title { font-size: 1.6rem; }
 }
 
-/* ---- Photo gallery (used on simpler single-ministry pages) ---- */
-.min-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
+/* ---- Photo gallery / slideshow ---- */
+.mp-gallery {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
-.min-gallery img {
+.mp-gallery-frame {
+  position: relative;
   width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-}
-
-/* ---- Spotlight / quote block ---- */
-.min-spotlight {
-  background: var(--gold-lt);
+  aspect-ratio: 21 / 9;
   border-radius: var(--radius-lg);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 2.5rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: var(--brd);
 }
-.min-spotlight-quote {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--navy-deep);
-  line-height: 1.6;
-  margin-bottom: 0.4rem;
+.mp-gallery-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
 }
-.min-spotlight-attr {
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--gold-text);
-  font-weight: 700;
+.mp-gallery-slide.is-active { opacity: 1; }
+.mp-gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-/* ---- Register CTA ---- */
-.min-register-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--gold);
-  color: var(--navy-deep);
-  font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.9rem 1.75rem;
-  border-radius: var(--radius-md);
-  text-decoration: none;
-  margin-bottom: 2.5rem;
-}
-.min-register-btn:hover {
-  background: #c9a25c;
-}
-
-/* ---- Ministry accordion (multi-ministry pages, e.g. Youth) ---- */
-.min-accordion {
+.mp-gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(11, 30, 51, 0.55);
+  color: #fff;
   display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  z-index: 2;
 }
-.min-acc-item {
-  background: #fff;
+.mp-gallery-nav:hover { background: rgba(11, 30, 51, 0.8); }
+.mp-gallery-prev { left: 14px; }
+.mp-gallery-next { right: 14px; }
+.mp-gallery-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 2;
+}
+.mp-gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.mp-gallery-dot.is-active { background: #fff; }
+@media (max-width: 700px) {
+  .mp-gallery-frame { aspect-ratio: 4 / 3; }
+}
+
+/* ---- Intro lede ---- */
+.mp-lede {
+  font-size: 0.95rem;
+  color: var(--mt);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ---- Ministry accordion (same visual pattern as the FAQ accordion) ---- */
+.mp-acc-section {
+  background: var(--gold-lt);
+  padding: 3.5rem 2rem;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+.mp-acc-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.mp-acc-item {
+  background: var(--cream);
   border: 1px solid var(--brd);
   border-radius: var(--radius-md);
+  margin-bottom: 0.85rem;
   overflow: hidden;
-  transition: border-color 0.15s ease;
 }
-.min-acc-item[open] { border-color: var(--gold); }
-.min-acc-item > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 0.9rem 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.min-acc-item > summary::-webkit-details-marker { display: none; }
-.min-acc-item > summary .summary-title {
+.mp-acc-item[open] { border-color: var(--gold); }
+.mp-acc-summary {
+  padding: 1.1rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   font-family: var(--font-display);
-  font-size: 0.98rem;
-  font-weight: 700;
   color: var(--navy-deep);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
 }
-.min-acc-sub {
+.mp-acc-summary::-webkit-details-marker { display: none; }
+.mp-acc-sub {
+  font-family: var(--font-body);
   font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-weight: 600;
   color: var(--gold-text);
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
 }
-.toggle-badge {
-  width: 26px;
-  height: 26px;
+.mp-acc-summary > i {
+  font-size: 0.95rem;
+  color: var(--gold-deep);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.mp-acc-item[open] .mp-acc-summary > i { transform: rotate(180deg); }
+.mp-acc-body {
+  padding: 0 1.4rem 1.4rem;
+  font-size: 0.87rem;
+  line-height: 1.75;
+  color: var(--tx);
+}
+.mp-acc-desc { margin-bottom: 1.1rem; }
+
+/* ---- Gathering entries inside an accordion body ---- */
+.mp-gathering {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--brd);
+}
+.mp-gathering:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.mp-gathering-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+.mp-gathering-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+}
+.mp-gathering-time {
+  font-size: 0.74rem;
+  color: var(--gold-text);
+  font-weight: 600;
+}
+.mp-list { margin: 0; padding: 0; }
+.mp-list li {
+  list-style: none;
+  font-size: 0.83rem;
+  color: var(--mt);
+  line-height: 1.65;
+  padding-left: 1rem;
+  position: relative;
+}
+.mp-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-deep);
+}
+
+/* ---- Featured event / resource article cards ---- */
+.mp-article-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin: 1.1rem 0 0;
+}
+.mp-article-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.mp-article-card:hover { border-color: var(--gold); box-shadow: var(--shadow-card); }
+.mp-article-card h4 {
+  font-size: 1rem;
+  margin: 0 0 0.3rem;
+  color: var(--navy-deep);
+}
+.mp-article-meta {
+  font-size: 0.72rem;
+  color: var(--mt);
+  margin-bottom: 0.6rem;
+}
+.mp-article-card p {
+  font-size: 0.83rem;
+  line-height: 1.6;
+  color: var(--mt);
+  margin: 0 0 1.1rem;
+}
+@media (max-width: 700px) { .mp-article-grid { grid-template-columns: 1fr; } }
+
+/* ---- Contact / feature callout card ---- */
+.mp-feature-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.75rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+}
+.mp-feature-icon {
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--gold-lt);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold-deep);
-  font-size: 0.8rem;
   flex-shrink: 0;
 }
-.toggle-badge .icon-minus { display: none; }
-.min-acc-item[open] .toggle-badge .icon-plus,
-.min-event-card[open] .toggle-badge .icon-plus { display: none; }
-.min-acc-item[open] .toggle-badge .icon-minus,
-.min-event-card[open] .toggle-badge .icon-minus { display: inline; }
-.min-acc-body {
-  padding: 0 1.1rem 1.1rem;
-  border-top: 1px solid var(--brd);
-  padding-top: 1rem;
+.mp-feature-icon i { font-size: 1.3rem; color: var(--gold-deep); }
+.mp-feature-text h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.mp-feature-text p { font-size: 0.85rem; color: var(--mt); line-height: 1.6; }
+@media (max-width: 700px) {
+  .mp-feature-card { grid-template-columns: 1fr; text-align: center; }
+  .mp-feature-icon { margin: 0 auto; }
 }
-.min-acc-desc {
-  font-size: 0.86rem;
-  line-height: 1.7;
-  color: var(--tx);
-  margin-bottom: 1.1rem;
-}
-.min-gatherings {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-}
-.min-gathering {
-  background: var(--offwhite);
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-sm);
-  padding: 0.65rem 0.8rem;
-}
-.min-gathering-name {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--navy-deep);
-}
-.min-gathering-time {
-  font-size: 0.68rem;
-  color: var(--gold-text);
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-.min-gathering-list {
-  font-size: 0.74rem;
-  color: var(--mt);
-  line-height: 1.55;
-  margin: 0;
-  padding-left: 1rem;
-}
-.min-contact-line {
-  font-size: 0.78rem;
-  color: var(--mt);
-}
-.min-contact-line a { color: var(--blue); text-decoration: none; }
-.min-contact-line a:hover { text-decoration: underline; }
 
-/* ---- Featured event cards (nested, expandable) ---- */
-.min-events-label {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--gold-text);
-  font-weight: 700;
-  margin-bottom: 0.55rem;
-}
-.min-event-card {
-  background: var(--offwhite);
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-sm);
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-  transition: border-color 0.15s ease;
-}
-.min-event-card[open] { border-color: var(--gold); }
-.min-event-card > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 0.7rem 0.85rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.min-event-card > summary::-webkit-details-marker { display: none; }
-.min-event-card .toggle-badge {
-  width: 22px;
-  height: 22px;
-  font-size: 0.7rem;
-  background: #fff;
-}
-.min-event-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--navy-deep);
-}
-.min-event-date {
-  font-size: 0.7rem;
-  color: var(--mt);
-  margin-top: 0.1rem;
-}
-.min-event-body {
-  padding: 0 0.85rem 0.85rem;
-  font-size: 0.8rem;
-  color: var(--tx);
-  line-height: 1.6;
-  background: #fff;
-}
-.min-event-body p:first-child { margin-top: 0.75rem; }
-.min-event-body a.min-event-map {
-  color: var(--blue);
-  text-decoration: none;
-}
-.min-event-body a.min-event-map:hover { text-decoration: underline; }
-.min-event-register {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--gold);
-  color: var(--navy-deep);
-  font-weight: 700;
-  font-size: 0.78rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  margin-top: 0.5rem;
-}
-.min-event-register:hover { background: #c9a25c; }
-
-/* ---- Upcoming events widget (calendar feed) ---- */
-.ministry-event-card {
+/* ---- Upcoming events (calendar feed) ---- */
+.mp-event-card {
   display: block;
   border: 1px solid var(--brd);
   border-radius: var(--radius-md);
-  padding: 0.8rem 0.95rem;
+  padding: 0.85rem 1rem;
   margin-bottom: 0.55rem;
   text-decoration: none;
   transition: border-color 0.15s ease;
 }
-.ministry-event-card:hover { border-color: var(--gold); }
-.ministry-event-date {
+.mp-event-card:hover { border-color: var(--gold); }
+.mp-event-card-date {
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--gold-text);
   font-weight: 700;
 }
-.ministry-event-title {
-  font-size: 0.86rem;
+.mp-event-card-title {
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--navy-deep);
   margin-top: 0.15rem;
 }
-.ministry-event-loc {
-  font-size: 0.75rem;
-  color: var(--mt);
-  margin-top: 0.2rem;
-}
-.min-cal-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--blue);
-  text-decoration: none;
-  margin-top: 0.4rem;
-}
-
-@media (max-width: 700px) {
-  .min-hero { height: 240px; }
-  .min-hero-title { font-size: 1.5rem; }
-  .min-gatherings { grid-template-columns: 1fr; }
-}
+.mp-event-card-loc { font-size: 0.76rem; color: var(--mt); margin-top: 0.2rem; }
