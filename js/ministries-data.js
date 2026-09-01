@@ -19,7 +19,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Parish Council',
         summary: 'Elected body overseeing parish affairs alongside the pastor.',
-        description: 'This elected body meets each month to administer the affairs of the parish in conjunction with the pastor. Regular and active participation in the Church\'s sacramental life is a prerequisite.',
+        description: "The parish coucnil is a ministry of the Church and it's mission is to keep, practice and proclaim the Orthodox Christian Faither pure and undefiled. This governing body works cooperatively witht he prist to administer and support the total parish program inclufing all the liturgical and pastoral ministries as well as the buildings, grounds and facilities. The parish coucnil is accountable to the local bishop and the parish assembly.",
         image: 'images/ministries/parishcouncil.jpg',
         detailPageUrl: 'contact.html?to=#council',
         calendarCategory: 'ministries',
@@ -53,7 +53,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Greeters / Ushers',
         summary: 'Welcome and seat worshipers on Sunday mornings.',
-        description: 'On Sunday mornings, a rotation of groups assist in greeting and seating worshipers, and receiving offerings at end of Divine Liturgy. Serving as an greeter is an important ministry to welcome parishioners and visitors, as well as creating an orderly environment for worship. Greeters serve once every nine or ten weeks and must be at Church by 9:00 AM and stand throughout the Liturgy. During Holy Week Ushers usually serve one or two times; as well as intermittently during the week at other times in the year.',
+        description: "For each new service at the church, the Usher's main job is to make people feel welcome, control the flow, and assist Father to ensure smooth Liturgy as well as creating an orderly environment for worship. Usher serve every 6 to 8 weeks except for Holy Week, which could be up to four times. Services are usually Sunday and Saturday, but could be any day of the week depending on the Liturgical Calendar.",
         // image: 'images/ministries/greeters.jpg',
         calendarCategory: 'liturgical',
         contact: {
@@ -89,7 +89,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Readers',
         summary: 'Read psalms and epistles during services.',
-        description: 'During services, lay persons are called upon to read psalms, epistles, and other texts as part of the liturgical life of the parish.',
+        description: 'During the worship services, lay persons are called upon to read Psalms, Epistles and Old Testament, prophecies and wisdom passages. This requires training and preparation with comprehension, vocal diction, and projection. This ministries is open to males and females of all ages. Saturday Vespers, Sunday Orthros and Liturgy, Feasts, Lent, and Holy Week provide plenty of opportunity for involvement.',
         // image: 'images/ministries/readers.jpg',
         calendarCategory: 'liturgical',
         contact: {
@@ -113,7 +113,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Myrrhbearers',
         summary: 'Girls (1st–12th grade) serving in the liturgical life of the parish.',
-        description: 'Provides opportunities for our girls to participate in the liturgical life of our parish. Open to girls in 1st through 12th grade.',
+        description: 'The Myrrhbearer’s Ministry provides opportunities for a girls to participate in the liturgical life of our parish so that they can cultivate a deeper love for Christ. During the year, 3rd- 12th grade Myrrhbearers have liturgical roles similar to and alongside the Acolytes during Divine Liturgy and other weekday services. During holy week, 1st - 12th grade Myrrhbearers not only participate in roles, similar to the Acolytes, but also in unique roles that reflect the presence of the bearing women during Christ’s Passion, and Resurrection.',
         image: 'images/myrrhbearers.jpg',
         calendarCategory: 'liturgical',
         contact: {
@@ -151,7 +151,7 @@ const MINISTRY_CATEGORIES = [
         contact: {
           name: 'Elaine Carozza',
           role: 'Church School Director',
-          email: 'Churchschool@ssppglenview.org',
+          email: "Churchschool@ssppglenview.org",
       },
       },
       {
