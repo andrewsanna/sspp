@@ -9,9 +9,8 @@
   <meta name="description" content="Jr. GOYA, Sr. GOYA, and Faith Love & Joy — youth ministries at Saints Peter & Paul Greek Orthodox Church." />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/get-involved.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <link rel="stylesheet" href="../css/ministry-page.css" />
- 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
 
@@ -19,225 +18,239 @@
   {% include nav.html %}
 
   <!-- HERO -->
-  <section class="min-hero" style="background-image: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.8) 100%), url('../images/ministries/youth-hero.jpg');">
-    <div class="min-hero-inner">
-      <span class="min-hero-eyebrow">Youth &amp; Young Adults</span>
-      <h1 class="min-hero-title">Youth</h1>
+  <section class="mp-hero" style="background-image: url('../images/ministries/youth-hero-PLACEHOLDER.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <span class="eyebrow eyebrow--on-dark">Youth &amp; Young Adults</span>
+      <h1 class="mp-hero-title">Growing in faith, <em>together.</em></h1>
+      <p class="mp-hero-body">From first grade through high school, our youth ministries give kids and teens a place to grow in faith, build lasting friendships, and belong.</p>
     </div>
   </section>
 
-  <div class="min-body">
+  <!-- PHOTO GALLERY / SLIDESHOW -->
+  <div class="section">
+    <div class="mp-gallery">
+      <div class="mp-gallery-frame" id="youthGallery">
+        <div class="mp-gallery-slide is-active">
+          <img src="../images/ministries/youth-gallery-1-PLACEHOLDER.jpg" alt="Youth ministry photo">
+        </div>
+        <div class="mp-gallery-slide">
+          <img src="../images/ministries/youth-gallery-2-PLACEHOLDER.jpg" alt="Youth ministry photo">
+        </div>
+        <div class="mp-gallery-slide">
+          <img src="../images/ministries/youth-gallery-3-PLACEHOLDER.jpg" alt="Youth ministry photo">
+        </div>
+        <div class="mp-gallery-slide">
+          <img src="../images/ministries/youth-gallery-4-PLACEHOLDER.jpg" alt="Youth ministry photo">
+        </div>
 
-    <!-- INTRO -->
-    <p class="min-lede">From 1st grade through high school, our youth ministries give kids and teens a place to grow in faith, build lifelong friendships, and serve others — through weekly and monthly gatherings built around worship, fellowship, outreach, and education.</p>
+        <button class="mp-gallery-nav mp-gallery-prev" aria-label="Previous photo">
+          <i class="ti ti-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="mp-gallery-nav mp-gallery-next" aria-label="Next photo">
+          <i class="ti ti-chevron-right" aria-hidden="true"></i>
+        </button>
 
-    <!-- MINISTRY SECTIONS -->
-    <div class="min-accordion">
+        <div class="mp-gallery-dots">
+          <button class="mp-gallery-dot is-active" aria-label="Photo 1"></button>
+          <button class="mp-gallery-dot" aria-label="Photo 2"></button>
+          <button class="mp-gallery-dot" aria-label="Photo 3"></button>
+          <button class="mp-gallery-dot" aria-label="Photo 4"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section" style="padding-top: 0;">
+    <p class="mp-lede">Whether it's Friday night crafts, a Monday meeting, or a weekend away at retreat — our kids and teens always have somewhere to belong. Take a look at what's happening in each age group below.</p>
+  </div>
+
+  <!-- MINISTRY ACCORDION (gold-banded, FAQ-style) -->
+  <section class="mp-acc-section">
+    <div class="mp-acc-inner">
 
       <!-- FLJ -->
-      <details class="min-acc-item" open>
-        <summary>
+      <details class="mp-acc-item" open>
+        <summary class="mp-acc-summary">
           <span>
             Faith, Love, &amp; Joy (FLJ)
-            <div class="min-acc-sub">Elementary Age</div>
+            <div class="mp-acc-sub">Elementary Age</div>
           </span>
-          <span class="toggle-icon">
-            <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
-            <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
-          </span>
+          <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </summary>
-        <div class="min-acc-body">
-          <p class="min-acc-desc">Faith, Love &amp; Joy (FLJ) aims to be a space of growth toward, familiarity with, and deepening of our elementary-age children's relationship with Christ and His Church — accomplished through intentional gatherings of fellowship, education, and service.</p>
+        <div class="mp-acc-body">
+          <p class="mp-acc-desc">Faith, Love &amp; Joy is where our youngest parishioners start building a real relationship with Christ and His Church — one fun-filled night a month, mixing games, crafts, and lessons that stick.</p>
 
-          <div class="min-gatherings">
-            <div class="min-gathering">
-              <div class="min-gathering-name">Monthly Gathering</div>
-              <div class="min-gathering-time">Usually the 3rd Friday of the month, 6:30–8:00pm</div>
-              <ul class="min-gathering-list">
-                <li>Dinner together (parents welcome — complimentary pizza &amp; refreshments)</li>
-                <li>A theme for the night, explored through a three-part rotation:</li>
-                <li>Orthodox Life Lesson</li>
-                <li>Arts &amp; Crafts (tied to the theme)</li>
-                <li>Gym Time</li>
-              </ul>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Monthly Gathering</span>
+              <span class="mp-gathering-time">Usually the 3rd Friday, 6:30–8:00pm</span>
             </div>
+            <ul class="mp-list">
+              <li>Dinner together (parents welcome — pizza's on us)</li>
+              <li>A theme night with three rotations: Orthodox Life Lesson, Arts &amp; Crafts, and Gym Time</li>
+            </ul>
           </div>
-
-          <p class="min-contact-line">Questions? Contact <a href="mailto:youthdirector@ssppglenview.org">youthdirector@ssppglenview.org</a></p>
         </div>
       </details>
 
       <!-- JR. GOYA -->
-      <details class="min-acc-item" open>
-        <summary>
+      <details class="mp-acc-item" open>
+        <summary class="mp-acc-summary">
           <span>
             Jr. GOYA
-            <div class="min-acc-sub">Junior High · 6th–8th Grade</div>
+            <div class="mp-acc-sub">Junior High · 6th–8th Grade</div>
           </span>
-          <span class="toggle-icon">
-            <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
-            <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
-          </span>
+          <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </summary>
-        <div class="min-acc-body">
-          <p class="min-acc-desc">Jr. GOYA aims to be a conduit for the holistic growth of our 6th–8th graders toward Christ and His Church, through intentional gatherings of worship, fellowship, outreach, and education. We meet four times a month so there's always a way to get involved.</p>
+        <div class="mp-acc-body">
+          <p class="mp-acc-desc">Jr. GOYA gives our 6th–8th graders a place to grow together in faith — through worship, fellowship, outreach, and education. There are four different ways to get involved every month, so there's always something on the calendar.</p>
 
-          <div class="min-gatherings">
-            <div class="min-gathering">
-              <div class="min-gathering-name">Meeting</div>
-              <div class="min-gathering-time">Usually the 2nd Monday of the month, 6:30–8:00pm</div>
-              <ul class="min-gathering-list">
-                <li>Dinner together</li>
-                <li>New &amp; old business</li>
-                <li>30–40 minute session on the year's theme</li>
-                <li>Activities in the gym</li>
-              </ul>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Meeting</span>
+              <span class="mp-gathering-time">Usually the 2nd Monday, 6:30–8:00pm</span>
             </div>
-            <div class="min-gathering">
-              <div class="min-gathering-name">Outing</div>
-              <div class="min-gathering-time">Time &amp; day varies each month</div>
-              <ul class="min-gathering-list">
-                <li>Retreats, ice skating, lock-ins &amp; more</li>
-              </ul>
-            </div>
-            <div class="min-gathering">
-              <div class="min-gathering-name">Outreach</div>
-              <div class="min-gathering-time">Time &amp; day varies each month</div>
-              <ul class="min-gathering-list">
-                <li>Feed My Starving Children</li>
-                <li>Creating &amp; distributing Blessing Bags</li>
-                <li>Visiting the Greek American Nursing Home</li>
-              </ul>
-            </div>
-            <div class="min-gathering">
-              <div class="min-gathering-name">Friday Funday</div>
-              <div class="min-gathering-time">Usually the 4th Friday of the month, 6:30–9:00pm</div>
-              <ul class="min-gathering-list">
-                <li>Dinner, open gym, movies, bonfires</li>
-              </ul>
-            </div>
+            <ul class="mp-list">
+              <li>Dinner, new &amp; old business, a session on the year's theme, and time in the gym</li>
+            </ul>
           </div>
-
-          <p class="min-contact-line">Questions? Contact <a href="mailto:youthdirector@ssppglenview.org">youthdirector@ssppglenview.org</a></p>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Outing</span>
+              <span class="mp-gathering-time">Time &amp; day vary each month</span>
+            </div>
+            <ul class="mp-list">
+              <li>Retreats, ice skating, lock-ins &amp; more</li>
+            </ul>
+          </div>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Outreach</span>
+              <span class="mp-gathering-time">Time &amp; day vary each month</span>
+            </div>
+            <ul class="mp-list">
+              <li>Feed My Starving Children</li>
+              <li>Blessing Bags</li>
+              <li>Visits to the Greek American Nursing Home</li>
+            </ul>
+          </div>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Friday Funday</span>
+              <span class="mp-gathering-time">Usually the 4th Friday, 6:30–9:00pm</span>
+            </div>
+            <ul class="mp-list">
+              <li>Dinner, open gym, movies, bonfires</li>
+            </ul>
+          </div>
         </div>
       </details>
 
       <!-- SR. GOYA -->
-      <details class="min-acc-item" open>
-        <summary>
+      <details class="mp-acc-item" open>
+        <summary class="mp-acc-summary">
           <span>
             Sr. GOYA
-            <div class="min-acc-sub">High School</div>
+            <div class="mp-acc-sub">High School</div>
           </span>
-          <span class="toggle-icon">
-            <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
-            <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
-          </span>
+          <i class="ti ti-chevron-down" aria-hidden="true"></i>
         </summary>
-        <div class="min-acc-body">
-          <p class="min-acc-desc">Sr. GOYA aims to be a conduit for the holistic growth of our high schoolers toward Christ and His Church, through intentional gatherings of worship, fellowship, outreach, and education.</p>
+        <div class="mp-acc-body">
+          <p class="mp-acc-desc">Sr. GOYA is where our high schoolers grow in faith together and figure out what that faith looks like in real life — through worship, fellowship, outreach, and honest conversation.</p>
 
-          <div class="min-gatherings">
-            <div class="min-gathering">
-              <div class="min-gathering-name">Meeting</div>
-              <div class="min-gathering-time">Usually the 1st Monday of the month, 6:30–8:00pm</div>
-              <ul class="min-gathering-list">
-                <li>Dinner together</li>
-                <li>New &amp; old business</li>
-                <li>30–40 minute session on the year's theme</li>
-              </ul>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Meeting</span>
+              <span class="mp-gathering-time">Usually the 1st Monday, 6:30–8:00pm</span>
             </div>
-            <div class="min-gathering">
-              <div class="min-gathering-name">Outing</div>
-              <div class="min-gathering-time">Day &amp; time vary each month</div>
-              <ul class="min-gathering-list">
-                <li>Retreats, ice skating, lock-ins &amp; more</li>
-              </ul>
+            <ul class="mp-list">
+              <li>Dinner, new &amp; old business, a session on the year's theme</li>
+            </ul>
+          </div>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Outing</span>
+              <span class="mp-gathering-time">Day &amp; time vary each month</span>
             </div>
-            <div class="min-gathering">
-              <div class="min-gathering-name">Outreach</div>
-              <div class="min-gathering-time">Day &amp; time vary each month</div>
-              <ul class="min-gathering-list">
-                <li>Feed My Starving Children</li>
-                <li>Creating &amp; distributing Blessing Bags</li>
-                <li>Visiting the Greek American Nursing Home</li>
-              </ul>
+            <ul class="mp-list">
+              <li>Retreats, ice skating, lock-ins &amp; more</li>
+            </ul>
+          </div>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">Outreach</span>
+              <span class="mp-gathering-time">Day &amp; time vary each month</span>
             </div>
-            <div class="min-gathering">
-              <div class="min-gathering-name">CoffeeTalk</div>
-              <div class="min-gathering-time">Day &amp; time vary each month</div>
-              <ul class="min-gathering-list">
-                <li>Real-world discussion, topics chosen and led by the Sr. GOYAns themselves — nothing is off-limits</li>
-              </ul>
+            <ul class="mp-list">
+              <li>Feed My Starving Children</li>
+              <li>Blessing Bags</li>
+              <li>Visits to the Greek American Nursing Home</li>
+            </ul>
+          </div>
+          <div class="mp-gathering">
+            <div class="mp-gathering-head">
+              <span class="mp-gathering-name">CoffeeTalk</span>
+              <span class="mp-gathering-time">Day &amp; time vary each month</span>
             </div>
+            <ul class="mp-list">
+              <li>Real talk over coffee — GOYAns pick the topics, nothing's off-limits</li>
+            </ul>
           </div>
 
-          <div class="min-events-label">Featured events</div>
-
-          <details class="min-event-card">
-            <summary>
-              <span>
-                <div class="min-event-title">GOYA Fall Retreat</div>
-                <div class="min-event-date">November 13–15, 2026 · Saint Iakovos Retreat Center</div>
-              </span>
-              <span class="toggle-icon">
-                <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
-                <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
-              </span>
-            </summary>
-            <div class="min-event-body">
-              <p>A weekend retreat for our Sr. GOYAns at Saint Iakovos Retreat Center — a chance to unplug, grow in faith together, and build lasting friendships outside the walls of church.</p>
-              <p>
-                <i class="ti ti-map-pin" aria-hidden="true"></i>
-                <a class="min-event-map" href="https://maps.google.com/maps?hl=en&q=920%20224th%20Ave%20Kansasville%2C%20Wi%2053139&source=calendar" target="_blank" rel="noopener noreferrer">920 224th Ave, Kansasville, WI 53139</a>
-              </p>
-              <a href="mailto:youthdirector@ssppglenview.org?subject=GOYA%20Fall%20Retreat" class="min-event-register">
-                <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register / Learn More
-              </a>
+          <div class="mp-article-grid">
+            <div class="mp-article-card">
+              <div>
+                <h4>GOYA Fall Retreat</h4>
+                <div class="mp-article-meta">November 13–15, 2026 · Saint Iakovos Retreat Center</div>
+                <p>A weekend away for our Sr. GOYAns — a chance to unplug, grow in faith together, and build friendships that go beyond church walls. <a href="https://maps.google.com/maps?hl=en&q=920%20224th%20Ave%20Kansasville%2C%20Wi%2053139&source=calendar" target="_blank" rel="noopener noreferrer">920 224th Ave, Kansasville, WI</a></p>
+              </div>
+              <a href="mailto:youthdirector@ssppglenview.org?subject=GOYA%20Fall%20Retreat" class="btn btn-outline-gold">Register / Learn More</a>
             </div>
-          </details>
-
-          <details class="min-event-card">
-            <summary>
-              <span>
-                <div class="min-event-title">Fanari Camp</div>
-                <div class="min-event-date">Summer — dates TBD</div>
-              </span>
-              <span class="toggle-icon">
-                <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
-                <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
-              </span>
-            </summary>
-            <div class="min-event-body">
-              <p>Our Sr. GOYAns attend Fanari Camp each summer for a week of camp life, worship, and fellowship with Orthodox teens from across the region.</p>
-              <a href="mailto:youthdirector@ssppglenview.org?subject=Fanari%20Camp" class="min-event-register">
-                <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register / Learn More
-              </a>
+            <div class="mp-article-card">
+              <div>
+                <h4>Fanari Camp</h4>
+                <div class="mp-article-meta">Summer — dates TBD</div>
+                <p>Each summer, our Sr. GOYAns head to Fanari Camp for a week of camp life, worship, and fellowship with Orthodox teens from across the region.</p>
+              </div>
+              <a href="mailto:youthdirector@ssppglenview.org?subject=Fanari%20Camp" class="btn btn-outline-gold">Register / Learn More</a>
             </div>
-          </details>
-
-          <p class="min-contact-line" style="margin-top: 1rem;">Questions? Contact <a href="mailto:youthdirector@ssppglenview.org">youthdirector@ssppglenview.org</a></p>
+          </div>
         </div>
       </details>
 
     </div>
+  </section>
 
-    <!-- UPCOMING EVENTS (shared calendar, since all 3 groups use the same calendar category) -->
-    <h2 class="min-section-title">Upcoming on the calendar</h2>
-    <div id="ministryUpcomingEvents">
-      <p style="font-size:0.8rem; color:var(--mt);">Loading…</p>
+  <!-- CONTACT CALLOUT -->
+  <div class="section">
+    <div class="mp-feature-card">
+      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="mp-feature-text">
+        <h3>Questions about any of our youth ministries?</h3>
+        <p>Reach out to Steven Thell, our Youth Director, and we'll help you find the right fit.</p>
+      </div>
+      <a href="mailto:youthdirector@ssppglenview.org" class="btn btn-gold">Email Us</a>
     </div>
-    <a href="../calendar.html?category=youth" class="min-cal-link">
-      View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
-    </a>
+  </div>
 
-    <!-- BACK LINK -->
-    <p style="margin-top: 2.5rem;">
-      <a href="../get-involved.html" class="ministry-modal-fullpage-link">
-        <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to all ministries
-      </a>
-    </p>
-
+  <!-- UPCOMING EVENTS -->
+  <div class="section section--alt">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">What's Next</span>
+          <h2 class="section-title">Upcoming on the calendar</h2>
+        </div>
+        <a href="../calendar.html?category=youth" class="section-link">
+          View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div id="ministryUpcomingEvents">
+        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
+      </div>
+    </div>
   </div>
 
   <!-- DON'T SEE WHERE YOU FIT BAND -->
@@ -258,6 +271,38 @@
 
   <script>
     const MINISTRY_CALENDAR_CATEGORY = 'youth';
+
+    // Simple gallery slideshow — auto-advance + manual controls
+    (function () {
+      const frame = document.getElementById('youthGallery');
+      if (!frame) return;
+      const slides = frame.querySelectorAll('.mp-gallery-slide');
+      const dots = frame.querySelectorAll('.mp-gallery-dot');
+      let current = 0;
+      let timer;
+
+      function show(index) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+
+      function next() { show(current + 1); }
+      function prev() { show(current - 1); }
+
+      function restartTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      frame.querySelector('.mp-gallery-next').addEventListener('click', () => { next(); restartTimer(); });
+      frame.querySelector('.mp-gallery-prev').addEventListener('click', () => { prev(); restartTimer(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restartTimer(); }));
+
+      restartTimer();
+    })();
   </script>
   <script src="../js/main.js"></script>
   <script src="../js/calendar-config.js"></script>
