@@ -89,10 +89,10 @@ async function renderMinistryEvents() {
   }
 
   container.innerHTML = events.map((ev) => `
-    <a href="${escapeHtml(ev.htmlLink)}" target="_blank" rel="noopener noreferrer" class="ministry-event-card">
-      <div class="ministry-event-date">${formatEventDate(ev.start, ev.isAllDay)}</div>
-      <div class="ministry-event-title">${escapeHtml(ev.title)}</div>
-      ${ev.location ? `<div class="ministry-event-loc"><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(ev.location)}</div>` : ''}
+    <a href="${escapeHtml(ev.htmlLink)}" target="_blank" rel="noopener noreferrer" class="mp-event-card">
+      <div class="mp-event-card-date">${formatEventDate(ev.start, ev.isAllDay)}</div>
+      <div class="mp-event-card-title">${escapeHtml(ev.title)}</div>
+      ${ev.location ? `<div class="mp-event-card-loc"><i class="ti ti-map-pin" aria-hidden="true"></i> ${escapeHtml(ev.location)}</div>` : ''}
     </a>
   `).join('');
 }
