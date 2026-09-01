@@ -283,6 +283,8 @@
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   box-shadow: var(--shadow-card);
+  max-width: 900px;
+  margin: 0 auto;
 }
 .mp-feature-icon {
   width: 52px;
