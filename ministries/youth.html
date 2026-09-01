@@ -1,0 +1,499 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth & Young Adults — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Jr. GOYA, Sr. GOYA, and Faith Love & Joy — youth ministries at Saints Peter & Paul Greek Orthodox Church." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/get-involved.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    .min-hero {
+      position: relative;
+      height: 340px;
+      background: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.75) 100%),
+                  url('../images/ministries/youth-hero.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+    }
+    .min-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+      width: 100%;
+    }
+    .min-hero-eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .min-hero-title {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 0.4rem;
+    }
+    .min-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+    }
+    .min-lede {
+      font-size: 1.05rem;
+      color: var(--navy-deep);
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .min-section-title {
+      font-size: 1.1rem;
+      color: var(--navy-deep);
+      margin-bottom: 1rem;
+    }
+
+    /* ---- Ministry accordion (styled like the Ministry Leaders dropdowns) ---- */
+    .min-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .min-acc-item {
+      background: var(--gold-lt);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .min-acc-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+    .min-acc-item > summary::-webkit-details-marker { display: none; }
+    .min-acc-item > summary .toggle-icon { color: var(--gold-text); font-size: 1.1rem; flex-shrink: 0; }
+    .min-acc-item > summary .icon-minus { display: none; }
+    .min-acc-item[open] > summary .icon-plus { display: none; }
+    .min-acc-item[open] > summary .icon-minus { display: inline; }
+    .min-acc-item .min-acc-sub {
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--mt);
+      margin-top: 0.2rem;
+    }
+    .min-acc-body {
+      padding: 0 1.4rem 1.4rem;
+    }
+    .min-acc-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--tx);
+      margin-bottom: 1.25rem;
+    }
+    .min-gatherings {
+      display: grid;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .min-gathering {
+      background: #fff;
+      border-radius: var(--radius-md);
+      padding: 0.75rem 1rem;
+    }
+    .min-gathering-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+    .min-gathering-time {
+      font-size: 0.76rem;
+      color: var(--gold-text);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .min-gathering-list {
+      font-size: 0.8rem;
+      color: var(--mt);
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .min-contact-line {
+      font-size: 0.82rem;
+      color: var(--tx);
+      margin-bottom: 1.25rem;
+    }
+    .min-contact-line a { color: var(--blue); text-decoration: none; }
+    .min-contact-line a:hover { text-decoration: underline; }
+
+    /* ---- Featured event cards (nested, expandable) ---- */
+    .min-events-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gold-text);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .min-event-card {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      margin-bottom: 0.6rem;
+      overflow: hidden;
+    }
+    .min-event-card > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .min-event-card > summary::-webkit-details-marker { display: none; }
+    .min-event-card > summary .toggle-icon { color: var(--mt); font-size: 1rem; flex-shrink: 0; }
+    .min-event-card > summary .icon-minus { display: none; }
+    .min-event-card[open] > summary .icon-plus { display: none; }
+    .min-event-card[open] > summary .icon-minus { display: inline; }
+    .min-event-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+    .min-event-date {
+      font-size: 0.76rem;
+      color: var(--mt);
+      margin-top: 0.15rem;
+    }
+    .min-event-body {
+      padding: 0 1rem 1rem;
+      font-size: 0.84rem;
+      color: var(--tx);
+      line-height: 1.65;
+    }
+    .min-event-body a.min-event-map {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .min-event-body a.min-event-map:hover { text-decoration: underline; }
+    .min-event-register {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--gold);
+      color: var(--navy-deep);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      margin-top: 0.6rem;
+    }
+    .min-event-register:hover { background: #c9a25c; }
+
+    .ministry-event-card {
+      display: block;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      margin-bottom: 0.6rem;
+      text-decoration: none;
+      transition: border-color 0.15s ease;
+    }
+    .ministry-event-card:hover { border-color: var(--gold); }
+    .ministry-event-date {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gold-text);
+      font-weight: 700;
+    }
+    .ministry-event-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      margin-top: 0.15rem;
+    }
+    .ministry-event-loc {
+      font-size: 0.78rem;
+      color: var(--mt);
+      margin-top: 0.2rem;
+    }
+    .min-cal-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .min-hero { height: 260px; }
+      .min-hero-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <section class="min-hero">
+    <div class="min-hero-inner">
+      <span class="min-hero-eyebrow">Youth &amp; Young Adults</span>
+      <h1 class="min-hero-title">Youth</h1>
+    </div>
+  </section>
+
+  <div class="min-body">
+
+    <!-- INTRO -->
+    <p class="min-lede">From 1st grade through high school, our youth ministries give kids and teens a place to grow in faith, build lifelong friendships, and serve others — through weekly and monthly gatherings built around worship, fellowship, outreach, and education.</p>
+
+    <!-- MINISTRY SECTIONS -->
+    <div class="min-accordion">
+
+      <!-- FLJ -->
+      <details class="min-acc-item" open>
+        <summary>
+          <span>
+            Faith, Love, &amp; Joy (FLJ)
+            <div class="min-acc-sub">Elementary Age</div>
+          </span>
+          <span class="toggle-icon">
+            <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
+            <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
+          </span>
+        </summary>
+        <div class="min-acc-body">
+          <p class="min-acc-desc">Faith, Love &amp; Joy (FLJ) aims to be a space of growth toward, familiarity with, and deepening of our elementary-age children's relationship with Christ and His Church — accomplished through intentional gatherings of fellowship, education, and service.</p>
+
+          <div class="min-gatherings">
+            <div class="min-gathering">
+              <div class="min-gathering-name">Monthly Gathering</div>
+              <div class="min-gathering-time">Usually the 3rd Friday of the month, 6:30–8:00pm</div>
+              <ul class="min-gathering-list">
+                <li>Dinner together (parents welcome — complimentary pizza &amp; refreshments)</li>
+                <li>A theme for the night, explored through a three-part rotation:</li>
+                <li>Orthodox Life Lesson</li>
+                <li>Arts &amp; Crafts (tied to the theme)</li>
+                <li>Gym Time</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="min-contact-line">Questions? Contact <a href="mailto:youthdirector@ssppglenview.org">youthdirector@ssppglenview.org</a></p>
+        </div>
+      </details>
+
+      <!-- JR. GOYA -->
+      <details class="min-acc-item" open>
+        <summary>
+          <span>
+            Jr. GOYA
+            <div class="min-acc-sub">Junior High · 6th–8th Grade</div>
+          </span>
+          <span class="toggle-icon">
+            <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
+            <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
+          </span>
+        </summary>
+        <div class="min-acc-body">
+          <p class="min-acc-desc">Jr. GOYA aims to be a conduit for the holistic growth of our 6th–8th graders toward Christ and His Church, through intentional gatherings of worship, fellowship, outreach, and education. We meet four times a month so there's always a way to get involved.</p>
+
+          <div class="min-gatherings">
+            <div class="min-gathering">
+              <div class="min-gathering-name">Meeting</div>
+              <div class="min-gathering-time">Usually the 2nd Monday of the month, 6:30–8:00pm</div>
+              <ul class="min-gathering-list">
+                <li>Dinner together</li>
+                <li>New &amp; old business</li>
+                <li>30–40 minute session on the year's theme</li>
+                <li>Activities in the gym</li>
+              </ul>
+            </div>
+            <div class="min-gathering">
+              <div class="min-gathering-name">Outing</div>
+              <div class="min-gathering-time">Time &amp; day varies each month</div>
+              <ul class="min-gathering-list">
+                <li>Retreats, ice skating, lock-ins &amp; more</li>
+              </ul>
+            </div>
+            <div class="min-gathering">
+              <div class="min-gathering-name">Outreach</div>
+              <div class="min-gathering-time">Time &amp; day varies each month</div>
+              <ul class="min-gathering-list">
+                <li>Feed My Starving Children</li>
+                <li>Creating &amp; distributing Blessing Bags</li>
+                <li>Visiting the Greek American Nursing Home</li>
+              </ul>
+            </div>
+            <div class="min-gathering">
+              <div class="min-gathering-name">Friday Funday</div>
+              <div class="min-gathering-time">Usually the 4th Friday of the month, 6:30–9:00pm</div>
+              <ul class="min-gathering-list">
+                <li>Dinner, open gym, movies, bonfires</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="min-contact-line">Questions? Contact <a href="mailto:youthdirector@ssppglenview.org">youthdirector@ssppglenview.org</a></p>
+        </div>
+      </details>
+
+      <!-- SR. GOYA -->
+      <details class="min-acc-item" open>
+        <summary>
+          <span>
+            Sr. GOYA
+            <div class="min-acc-sub">High School</div>
+          </span>
+          <span class="toggle-icon">
+            <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
+            <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
+          </span>
+        </summary>
+        <div class="min-acc-body">
+          <p class="min-acc-desc">Sr. GOYA aims to be a conduit for the holistic growth of our high schoolers toward Christ and His Church, through intentional gatherings of worship, fellowship, outreach, and education.</p>
+
+          <div class="min-gatherings">
+            <div class="min-gathering">
+              <div class="min-gathering-name">Meeting</div>
+              <div class="min-gathering-time">Usually the 1st Monday of the month, 6:30–8:00pm</div>
+              <ul class="min-gathering-list">
+                <li>Dinner together</li>
+                <li>New &amp; old business</li>
+                <li>30–40 minute session on the year's theme</li>
+              </ul>
+            </div>
+            <div class="min-gathering">
+              <div class="min-gathering-name">Outing</div>
+              <div class="min-gathering-time">Day &amp; time vary each month</div>
+              <ul class="min-gathering-list">
+                <li>Retreats, ice skating, lock-ins &amp; more</li>
+              </ul>
+            </div>
+            <div class="min-gathering">
+              <div class="min-gathering-name">Outreach</div>
+              <div class="min-gathering-time">Day &amp; time vary each month</div>
+              <ul class="min-gathering-list">
+                <li>Feed My Starving Children</li>
+                <li>Creating &amp; distributing Blessing Bags</li>
+                <li>Visiting the Greek American Nursing Home</li>
+              </ul>
+            </div>
+            <div class="min-gathering">
+              <div class="min-gathering-name">CoffeeTalk</div>
+              <div class="min-gathering-time">Day &amp; time vary each month</div>
+              <ul class="min-gathering-list">
+                <li>Real-world discussion, topics chosen and led by the Sr. GOYAns themselves — nothing is off-limits</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="min-events-label">Featured events</div>
+
+          <details class="min-event-card">
+            <summary>
+              <span>
+                <div class="min-event-title">GOYA Fall Retreat</div>
+                <div class="min-event-date">November 13–15, 2026 · Saint Iakovos Retreat Center</div>
+              </span>
+              <span class="toggle-icon">
+                <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
+                <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="min-event-body">
+              <p>A weekend retreat for our Sr. GOYAns at Saint Iakovos Retreat Center — a chance to unplug, grow in faith together, and build lasting friendships outside the walls of church.</p>
+              <p>
+                <i class="ti ti-map-pin" aria-hidden="true"></i>
+                <a class="min-event-map" href="https://maps.google.com/maps?hl=en&q=920%20224th%20Ave%20Kansasville%2C%20Wi%2053139&source=calendar" target="_blank" rel="noopener noreferrer">920 224th Ave, Kansasville, WI 53139</a>
+              </p>
+              <a href="mailto:youthdirector@ssppglenview.org?subject=GOYA%20Fall%20Retreat" class="min-event-register">
+                <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register / Learn More
+              </a>
+            </div>
+          </details>
+
+          <details class="min-event-card">
+            <summary>
+              <span>
+                <div class="min-event-title">Fanari Camp</div>
+                <div class="min-event-date">Summer — dates TBD</div>
+              </span>
+              <span class="toggle-icon">
+                <i class="ti ti-plus icon-plus" aria-hidden="true"></i>
+                <i class="ti ti-minus icon-minus" aria-hidden="true"></i>
+              </span>
+            </summary>
+            <div class="min-event-body">
+              <p>Our Sr. GOYAns attend Fanari Camp each summer for a week of camp life, worship, and fellowship with Orthodox teens from across the region.</p>
+              <a href="mailto:youthdirector@ssppglenview.org?subject=Fanari%20Camp" class="min-event-register">
+                <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register / Learn More
+              </a>
+            </div>
+          </details>
+
+          <p class="min-contact-line" style="margin-top: 1rem;">Questions? Contact <a href="mailto:youthdirector@ssppglenview.org">youthdirector@ssppglenview.org</a></p>
+        </div>
+      </details>
+
+    </div>
+
+    <!-- UPCOMING EVENTS (shared calendar, since all 3 groups use the same calendar category) -->
+    <h2 class="min-section-title">Upcoming on the calendar</h2>
+    <div id="ministryUpcomingEvents">
+      <p style="font-size:0.8rem; color:var(--mt);">Loading…</p>
+    </div>
+    <a href="../calendar.html?category=youth" class="min-cal-link">
+      View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
+    </a>
+
+    <!-- BACK LINK -->
+    <p style="margin-top: 2.5rem;">
+      <a href="../get-involved.html" class="ministry-modal-fullpage-link">
+        <i class="ti ti-arrow-left" aria-hidden="true"></i> Back to all ministries
+      </a>
+    </p>
+
+  </div>
+
+  <!-- DON'T SEE WHERE YOU FIT BAND -->
+  <section class="visitor-band">
+    <div class="vb-arc" aria-hidden="true"></div>
+    <div class="visitor-inner">
+      <div>
+        <span class="eyebrow eyebrow--on-dark">Still not sure?</span>
+        <h2 class="vb-title">We'll help you find your place.</h2>
+        <p class="vb-body">With this many ministries, it's normal to feel unsure where to start. Reach out to the parish office — we're glad to point you in the right direction.</p>
+      </div>
+      <a href="../contact.html" class="btn btn-white">Contact Us →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script>
+    const MINISTRY_CALENDAR_CATEGORY = 'youth';
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/calendar-config.js"></script>
+  <script src="../js/ministry-events.js"></script>
+</body>
+</html>
