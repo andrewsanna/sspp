@@ -10,150 +10,7 @@
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="stylesheet" href="../css/get-involved.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
-  <style>
-    .min-hero {
-      position: relative;
-      height: 340px;
-      background: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.75) 100%),
-                  url('../images/ministries/churchschool.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: flex-end;
-    }
-    .min-hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem 2rem;
-      width: 100%;
-    }
-    .min-hero-eyebrow {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      font-weight: 700;
-    }
-    .min-hero-title {
-      font-size: 2rem;
-      color: #fff;
-      margin-top: 0.4rem;
-    }
-    .min-body {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
-    }
-    .min-lede {
-      font-size: 1.05rem;
-      color: var(--navy-deep);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-    .min-desc {
-      font-size: 0.92rem;
-      line-height: 1.8;
-      color: var(--tx);
-      margin-bottom: 2.5rem;
-    }
-    .min-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
-    }
-    .min-gallery img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: var(--radius-md);
-    }
-    .min-spotlight {
-      background: var(--gold-lt);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2.5rem;
-    }
-    .min-spotlight-quote {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: var(--navy-deep);
-      line-height: 1.6;
-      margin-bottom: 0.4rem;
-    }
-    .min-spotlight-attr {
-      font-size: 0.72rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--gold-text);
-      font-weight: 700;
-    }
-    .min-register-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--gold);
-      color: var(--navy-deep);
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.9rem 1.75rem;
-      border-radius: var(--radius-md);
-      text-decoration: none;
-      margin-bottom: 2.5rem;
-    }
-    .min-register-btn:hover {
-      background: #c9a25c;
-    }
-    .min-section-title {
-      font-size: 1.1rem;
-      color: var(--navy-deep);
-      margin-bottom: 1rem;
-    }
-    .ministry-event-card {
-      display: block;
-      border: 1px solid var(--brd);
-      border-radius: var(--radius-md);
-      padding: 0.85rem 1rem;
-      margin-bottom: 0.6rem;
-      text-decoration: none;
-      transition: border-color 0.15s ease;
-    }
-    .ministry-event-card:hover {
-      border-color: var(--gold);
-    }
-    .ministry-event-date {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--gold-text);
-      font-weight: 700;
-    }
-    .ministry-event-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--navy-deep);
-      margin-top: 0.15rem;
-    }
-    .ministry-event-loc {
-      font-size: 0.78rem;
-      color: var(--mt);
-      margin-top: 0.2rem;
-    }
-    .min-cal-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--blue);
-      text-decoration: none;
-      margin-top: 0.5rem;
-    }
-    @media (max-width: 700px) {
-      .min-gallery { grid-template-columns: 1fr 1fr; }
-      .min-hero { height: 260px; }
-      .min-hero-title { font-size: 1.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/ministry-page.css" />
 </head>
 <body>
 
@@ -161,10 +18,12 @@
   {% include nav.html %}
 
   <!-- HERO -->
-  <section class="min-hero">
+    <!-- HERO -->
+  <section class="min-hero" style="background-image: linear-gradient(180deg, rgba(18,39,64,0.15) 0%, rgba(18,39,64,0.8) 100%), url('../images/ministries/churchschool.jpg');">
     <div class="min-hero-inner">
       <span class="min-hero-eyebrow">Children's Education</span>
       <h1 class="min-hero-title">Church School</h1>
+      
     </div>
   </section>
 
