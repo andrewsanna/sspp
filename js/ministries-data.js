@@ -280,6 +280,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'DCFS-approved preschool rooted in the Orthodox Christian faith.',
         description: 'AGAPE Preschool is a ministry program of our parish and runs on our premises in our facility. We are committed to a high quality educational experience that emphasizes the Orthodox Christian Faith. Our program uniquely provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',
         // image: 'images/ministries/agape.jpg',
+        detailPageUrl: 'ministries/agape.html',
         calendarCategory: 'agape',
         contact: {
           name: 'Julie Mantice',
@@ -529,6 +530,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Support, guidance, and hope for the separated and divorced.',
         description: 'Saints Peter and Paul\'s Divorce Rebuilders Group is an Orthodox ministry that offers support, guidance, and hope to those who are separated and divorced. For the last fifteen years, Divorce Rebuilders has addressed the contemporary needs of Orthodox Christians by offering them a place to process the many aspects of the divorce experience through instruction, guidance, and support.',
          // image: 'images/ministries/divorce.jpg',
+        detailPageUrl: 'ministries/divorcerebuilders.html',
         calendarCategory: 'support_groups',
         contact: {
           name: 'Maria Boyle',
