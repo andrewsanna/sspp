@@ -329,3 +329,50 @@
   margin-top: 0.15rem;
 }
 .mp-event-card-loc { font-size: 0.76rem; color: var(--mt); margin-top: 0.2rem; }
+
+/* ---- Width fix from before ---- */
+.mp-feature-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---- Quick-facts info strip (matches visit.html's service info) ---- */
+.mp-info-strip {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.mp-info-item { text-align: center; }
+.mp-info-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 0.35rem;
+}
+.mp-info-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+/* ---- Note / callout box (matches the gold pull-quote stat style) ---- */
+.mp-note-box {
+  max-width: 900px;
+  margin: 0 auto 1.75rem;
+  background: var(--gold-lt);
+  border-left: 3px solid var(--gold);
+  padding: 0.9rem 1.1rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.85rem;
+  color: var(--tx);
+  line-height: 1.65;
+}
