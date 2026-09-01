@@ -336,11 +336,25 @@ const MINISTRY_CATEGORIES = [
     label: 'Youth & Young Adults',
     blurb: 'Programs for every age, from elementary school through young adulthood.',
     ministries: [
+         {
+        name: 'FLJ',
+        summary: 'Elementary-age fellowship, education, and service.',
+        description: 'FAITH, LOVE & JOY (FLJ) of SS. Peter and Paul aims to be a space of growth towards, familiarity with, and deepening of our Elementary Age Children\'s relationship with Christ and his church. FLJ strives to accomplish this mission through intentional gatherings with elements of fellowship, education, and service.',
+        image: 'images/ministries/flj.jpg',
+        detailPageUrl: 'ministries/youth.html',
+        calendarCategory: 'youth',
+        contact: {
+          name: 'Steven Thell',
+          role: 'Youth Director',
+          email: 'youthdirector@ssppglenview.org',
+      },
+      },
       {
         name: 'Jr. GOYA',
         summary: 'Junior High (6th–8th grade) youth ministry.',
         description: 'Jr. GOYA is our Junior High-aged Youth Ministry (6th–8th grade). We gather four times a month: once for a general meeting, once for an outreach activity, once for an exciting outing, and once for a Friday Funday! There are plenty of meetings on plenty of days so everybody can get involved.',
         image: 'images/ministries/jr-goya.jpg',
+        detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
         contact: {
           name: 'Steven Thell',
@@ -352,7 +366,8 @@ const MINISTRY_CATEGORIES = [
         name: 'Sr. GOYA',
         summary: 'High School-aged youth ministry.',
         description: 'GOYA is our High School-aged Youth Ministry. We gather four times a month: once for a general meeting, once for an outreach activity, once for an exciting outing, and once for a Coffee Talk. There are plenty of meetings on plenty of days so everybody can get involved.',
-       image: 'images/ministries/srgoya.jpg',
+        image: 'images/ministries/srgoya.jpg',
+        detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
         contact: {
           name: 'Steven Thell',
@@ -365,7 +380,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'GOYA basketball league and other youth sports.',
         description: 'GOYA basketball league and other youth athletics programs, building friendship and community through sport for our parish\'s young people.',
         image: 'images/highschool.jpg',
-        calendarCategory: 'youth',
+        calendarCategory: 'athletics',
         contact: {
           name: 'Chris Batrich',
           role: 'Athletics Director',
@@ -376,24 +391,12 @@ const MINISTRY_CATEGORIES = [
         name: 'Greek Dance (Youth)',
         summary: 'Learn traditional Greek dances and build friendships.',
         description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. Each youth group meets once a week, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
-       image: 'images/ministries/greekdance-y.jpg',
-        calendarCategory: 'youth',
+        image: 'images/ministries/greekdance-y.jpg',
+        calendarCategory: 'athletics',
         contact: {
           name: 'Anna Andrews',
           role: 'Group Leader',
           email: 'dance@ssppglenview.org',
-      },
-      },
-      {
-        name: 'FLJ',
-        summary: 'Elementary-age fellowship, education, and service.',
-        description: 'FAITH, LOVE & JOY (FLJ) of SS. Peter and Paul aims to be a space of growth towards, familiarity with, and deepening of our Elementary Age Children\'s relationship with Christ and his church. FLJ strives to accomplish this mission through intentional gatherings with elements of fellowship, education, and service.',
-       image: 'images/ministries/flj.jpg',
-        calendarCategory: 'youth',
-        contact: {
-          name: 'Steven Thell',
-          role: 'Youth Director',
-          email: 'youthdirector@ssppglenview.org',
       },
       },
       {
