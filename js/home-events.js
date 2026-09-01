@@ -7,8 +7,8 @@
 // calendar.html?event=<id>, which auto-opens that event's detail modal.
 // ============================================
 
-const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
-const HOME_FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
+// const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
+// const HOME_FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
 const HOME_EVENTS_COUNT = 3;
 
 // ============================================
@@ -107,13 +107,16 @@ function homeGetDescriptionText(description, maxLength = 100) {
 // Fetch
 // ============================================
 async function fetchHomeFeaturedEvents() {
+  const featuredCalendar = CALENDARS.find(c => c.featured);
+  if (!featuredCalendar) return [];
+
   const timeMin = new Date();
   const timeMax = new Date();
-  timeMax.setMonth(timeMax.getMonth() + 6);
+  timeMax.setMonth(timeMax.getMonth() + MONTHS_AHEAD);
 
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(HOME_FEATURED_CALENDAR_ID)}/events?` +
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(featuredCalendar.id)}/events?` +
     new URLSearchParams({
-      key: HOME_GOOGLE_API_KEY,
+      key: GOOGLE_API_KEY,
       singleEvents: 'true',
       orderBy: 'startTime',
       timeMin: timeMin.toISOString(),
