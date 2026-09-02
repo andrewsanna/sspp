@@ -22,59 +22,48 @@
 }
 
 /* Info card grid — used by Time/Talent/Treasure */
+/* Info card grid — used by Time/Talent/Treasure */
 .give-info-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 1.5rem;
 }
-
-/* Card CTA buttons — Time/Talent/Treasure (all gold pills) */
 .give-info-card {
   display: flex;
   flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 1.75rem;
+  text-align: center;
 }
+.give-info-card .ph-icon-inline,
+.give-info-card i {
+  font-size: 1.5rem;
+  color: var(--color-gold, #b08d3f);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+.give-info-card h3 { margin: 0 0 0.5rem; }
+.give-info-card p { margin: 0; color: var(--color-navy, #1a2744); }
+
 .info-card-btn {
-  margin-top: auto;
-  align-self: flex-start;
-  padding: 0.6rem 1.25rem;
+  align-self: center;
   display: inline-flex;
   align-items: center;
-  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: #fff;
   text-decoration: none;
   background: var(--color-gold, #b08d3f);
   border-radius: 999px;
-  margin-top: 1.25rem;
 }
 .info-card-btn:hover { background: #9c7a34; }
 
-.give-info-card .ph-icon-inline {
-  font-size: 1.5rem;
-  color: var(--gold-deep);
-  margin-bottom: 0.75rem;
-  display: block;
-  margin: 0.9rem 0 0;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
-}
-
-.give-info-card h3 {
-  font-size: 1rem;
-  font-family: var(--font-body);
-  color: var(--navy-deep);
-  margin-bottom: 0.4rem;
-}
-
-.give-info-card p {
-  font-size: 0.82rem;
-  line-height: 1.6;
-}
-
-@media (max-width: 760px) {
-  .give-info-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 720px) {
+  .give-info-grid { grid-template-columns: 1fr; }
 }
 /* This Year's Plan */
 .plan-intro {
