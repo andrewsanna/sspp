@@ -200,40 +200,36 @@
 }
 
 /* ============================================
-   This Week list — multi-column day cards
+   This Week list — 3-column, no card chrome
    ============================================ */
 .week-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem 2rem;
   align-items: start;
 }
 
 .week-day-group {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
-  padding: 1.1rem 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.15rem;
 }
 
 .week-day-header {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--navy-deep);
   font-weight: 600;
   border-bottom: 1px solid var(--brd);
-  padding-bottom: 0.6rem;
-  margin-bottom: 0.2rem;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .week-row {
   display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  padding: 0.55rem 0;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
   cursor: pointer;
   border-bottom: 1px solid var(--brd);
   transition: background 0.15s ease;
@@ -248,35 +244,28 @@
 }
 
 .week-time {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--gold-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+  width: 58px;
 }
 
 .week-title {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--tx);
-  line-height: 1.35;
+  line-height: 1.3;
+  flex: 1;
 }
 
 .week-tag {
-  align-self: flex-start;
-  font-size: 0.64rem;
+  font-size: 0.6rem;
   font-weight: 600;
-  padding: 0.15rem 0.5rem;
-  border-radius: 10px;
+  color: var(--mt);
   white-space: nowrap;
-  margin-top: 0.2rem;
+  flex-shrink: 0;
 }
-
-.week-tag--liturgical { background: #FAEEDA; color: #854F0B; }
-.week-tag--youth { background: #E7EEF7; color: #2D5A8C; }
-.week-tag--philanthropy { background: #FAECE7; color: #993C1D; }
-.week-tag--agape { background: #EAF3DE; color: #3B6D11; }
-.week-tag--adult_faith { background: #EDE7F6; color: #4A3B7A; }
-.week-tag--adult_activities { background: #FAEEDA; color: #854F0B; }
-.week-tag--support_groups { background: #F7E6EE; color: #8C2D5A; }
-.week-tag--ministries { background: #E7EEF7; color: #2D5A8C; }
 
 @media (max-width: 900px) {
   .week-list {
