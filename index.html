@@ -80,26 +80,29 @@
 <!-- EVENTS PREVIEW -->
 <section class="section section--alt">
   <div class="container">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">Upcoming Events</h2>
-        <a href="calendar.html" class="section-link">View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-      </div>
-    </div>
+    <div class="events-preview-grid">
 
-    <div class="featured-events-grid" id="homeEventsGrid"></div>
-  </div>
-</section>
-
-  <!-- THIS WEEK -->
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <div>
-        <h2 class="section-title">This Week at SSPP</h2>
+      <div class="events-preview-col">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Upcoming Events</h2>
+            <a href="calendar.html" class="section-link">View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div class="featured-events-grid" id="homeEventsGrid"></div>
       </div>
+
+      <div class="events-preview-col">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Next 3 Days</h2>
+            <a href="calendar.html?view=week" class="section-link">View full week <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <div id="next3DaysList" class="week-list week-list--single"></div>
+      </div>
+
     </div>
-    <div id="thisWeekList" class="week-list"></div>
   </div>
 </section>
 
