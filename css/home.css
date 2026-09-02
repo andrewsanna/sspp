@@ -128,7 +128,7 @@
 /* Homepage-only overrides for the featured-event-compact cards —
    calendar.css stays untouched; these only apply inside #homeEventsGrid. */
 #homeEventsGrid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 0.85rem;
 }
 
@@ -200,13 +200,28 @@
 }
 
 /* ============================================
-   This Week list — 3-column, no card chrome
+   Events Preview — two-column layout
    ============================================ */
-.week-list {
+.events-preview-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem 2rem;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2.5rem;
   align-items: start;
+}
+
+@media (max-width: 900px) {
+  .events-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Next 3 Days list — single column
+   ============================================ */
+.week-list--single {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .week-day-group {
@@ -265,18 +280,6 @@
   color: var(--mt);
   white-space: nowrap;
   flex-shrink: 0;
-}
-
-@media (max-width: 900px) {
-  .week-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .week-list {
-    grid-template-columns: 1fr;
-  }
 }
 /* ============================================
    Trust strip
