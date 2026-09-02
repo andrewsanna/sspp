@@ -178,7 +178,10 @@
   font-size: 0.7rem;
 }
 
-.home-faith-strip { background: var(--cream, #faf7f0); padding: 3rem 0; }
+.home-faith-strip {
+  background: #fff;
+  padding: 3rem 0;
+}
 
 .home-faith-inner {
   display: flex;
@@ -186,18 +189,42 @@
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
+  background: var(--gold-lt);
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
 }
 
 .home-faith-text { max-width: 55ch; }
-.home-faith-text h3 { margin: 0.25rem 0 0.5rem; }
-.home-faith-text p { margin: 0; color: var(--text-muted, #5a5a5a); }
+
+.home-faith-text .eyebrow {
+  color: var(--gold-text);
+}
+
+.home-faith-text h3 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+.home-faith-text p {
+  margin: 0;
+  color: var(--mt);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
 
 .home-faith-more {
   display: inline-block;
   margin-top: 1.5rem;
   font-weight: 600;
-  color: var(--navy, #1b2a4a);
+  font-size: 0.85rem;
+  color: var(--blue);
   text-decoration: none;
+}
+
+.home-faith-more:hover {
+  text-decoration: underline;
 }
 
 /* ============================================
