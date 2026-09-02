@@ -48,6 +48,15 @@ function homeFormatMeta(ev) {
   return parts.join(' · ');
 }
 
+function homeFormatDayHeader(date) {
+  return date.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+}
+
+function homeFormatEventTime(ev) {
+  if (ev.isAllDay) return 'All day';
+  return ev.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+
 // Same Drive-link normalizer calendar.js uses.
 function homeNormalizeImageUrl(url) {
   const driveMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
