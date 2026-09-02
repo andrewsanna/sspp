@@ -216,10 +216,12 @@
 }
 
 .home-faith-more {
-  display: inline-block;
-  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.85rem;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--blue);
   text-decoration: none;
 }
