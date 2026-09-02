@@ -292,6 +292,27 @@
 .week-tag--adult_activities { background: #FAEEDA; color: #854F0B; }
 .week-tag--support_groups { background: #F7E6EE; color: #8C2D5A; }
 .week-tag--ministries { background: #E7EEF7; color: #2D5A8C; }
+
+.section-link--cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--gold-lt);
+  color: var(--gold-text);
+  text-decoration: none;
+  margin-top: 0.4rem;
+  transition: background 0.15s ease;
+}
+
+.section-link--cta:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+  text-decoration: none;
+}
 /* ============================================
    Trust strip
    ============================================ */
