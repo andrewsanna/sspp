@@ -47,9 +47,8 @@ const CALENDARS = [
   { id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com', category: 'ministries', featured: false }, // parish council
   { id: 'c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com', category: 'ministries', featured: false }, // stewardship
   { id: 'c_mliorq9384otdplop55be7nsfs@group.calendar.google.com', category: 'ministries', featured: false }, // welcome committee
-
   // Support Groups
-  { id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com', category: 'support_groups', featured: false }, // divorce, cancer, grief support
+  { id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com', category: 'ministries', featured: false }, // divorce, cancer, grief support
 
   // Metropolis Events
   { id: 'c_nsfp5dp24qlp077nn04ar8hrt8@group.calendar.google.com', category: 'metropolis_events', featured: false }, // metropolis events we advertise
