@@ -2,6 +2,10 @@
 // Shared calendar configuration
 // Used by js/calendar.js AND ministry pages that show
 // "upcoming events" for their category.
+//
+// `category` drives the main calendar page's filter chips and colors.
+// `tags` is for other pages (e.g. a Support Groups page) that want to
+// pull a narrower slice of calendars regardless of their `category`.
 // ============================================
 
 const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
@@ -14,44 +18,46 @@ const CALENDARS = [
   { id: 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com', category: 'liturgical', featured: false },
 
   // Youth
-  { id: 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com', category: 'youth', featured: false }, // flj
-  { id: 'c_ciglbmolreavrt8v9481jh9pi4@group.calendar.google.com', category: 'youth', featured: false }, // jr. goya
-  { id: 'c_unfa8qdb1vk5ncd0r9s2ildlnk@group.calendar.google.com', category: 'youth', featured: false }, // hope
-  { id: 'c_9mqtoubk1kms38jh7h91hck0a4@group.calendar.google.com', category: 'youth', featured: false }, // sr. goya
+  { id: 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com', category: 'youth', featured: false, tags: ['flj'] },
+  { id: 'c_ciglbmolreavrt8v9481jh9pi4@group.calendar.google.com', category: 'youth', featured: false, tags: ['jr_goya'] },
+  { id: 'c_unfa8qdb1vk5ncd0r9s2ildlnk@group.calendar.google.com', category: 'youth', featured: false, tags: ['hope'] },
+  { id: 'c_9mqtoubk1kms38jh7h91hck0a4@group.calendar.google.com', category: 'youth', featured: false, tags: ['sr_goya'] },
   { id: 'c_f945mtpotllnf56tf6o49nc6eo@group.calendar.google.com', category: 'youth', featured: false },
-  { id: 'c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com', category: 'youth', featured: false }, // greek school
+  { id: 'c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com', category: 'youth', featured: false, tags: ['greek_school'] },
+
   // Church School
-  { id: 'c_cj89fuufhotqpi6d80no8vgmc8@group.calendar.google.com', category: 'youth', featured: false }, // church school
-  { id: 'e7o0p37epk09onnmqpj92jpf2k@group.calendar.google.com', category: 'youth', featured: false }, // church school events?
+  { id: 'c_cj89fuufhotqpi6d80no8vgmc8@group.calendar.google.com', category: 'youth', featured: false, tags: ['church_school'] },
+  { id: 'e7o0p37epk09onnmqpj92jpf2k@group.calendar.google.com', category: 'youth', featured: false, tags: ['church_school_events'] },
 
   // Young Adults
-  { id: 'c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com', category: 'youth', featured: false }, // yal
-  { id: 'c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com', category: 'youth', featured: false }, // goyalumni
+  { id: 'c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com', category: 'youth', featured: false, tags: ['yal'] },
+  { id: 'c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com', category: 'youth', featured: false, tags: ['goyalumni'] },
 
   // Athletics
-  { id: 'c_sco46hbnm89pj1d222m24od8t8@group.calendar.google.com', category: 'athletics', featured: false }, // athletics
-  //greek dance
+  { id: 'c_sco46hbnm89pj1d222m24od8t8@group.calendar.google.com', category: 'athletics', featured: false, tags: ['athletics'] },
+  // greek dance — not wired up yet, no calendar ID on file
 
   // Philanthropy
-  { id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com', category: 'philanthropy', featured: false }, // philoptochos
-  { id: 'c_ih9em4bm0b7ebnhcffgnbf0hgo@group.calendar.google.com', category: 'philanthropy', featured: false }, // philanthropy, care for creation
+  { id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com', category: 'philanthropy', featured: false, tags: ['philoptochos'] },
+  { id: 'c_ih9em4bm0b7ebnhcffgnbf0hgo@group.calendar.google.com', category: 'philanthropy', featured: false, tags: ['philanthropy', 'care_for_creation'] },
 
   // Agape
-  { id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com', category: 'agape', featured: false }, // agape
+  { id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com', category: 'agape', featured: false, tags: ['agape'] },
 
   // Adult Faith
-  { id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com', category: 'adult_faith', featured: false }, // coffee connection, bible study, catechism
+  { id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com', category: 'adult_faith', featured: false, tags: ['coffee_connection', 'bible_study', 'catechism'] },
 
   // Ministries
-  { id: 'c_962b9u9452vmm537i8l6aisk1k@group.calendar.google.com', category: ' adult_activities', featured: false }, // dynamis, occ, fellowship
-  { id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com', category: 'ministries', featured: false }, // parish council
-  { id: 'c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com', category: 'ministries', featured: false }, // stewardship
-  { id: 'c_mliorq9384otdplop55be7nsfs@group.calendar.google.com', category: 'ministries', featured: false }, // welcome committee
+  { id: 'c_962b9u9452vmm537i8l6aisk1k@group.calendar.google.com', category: 'adult_activities', featured: false, tags: ['dynamis', 'occ', 'fellowship'] },
+  { id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com', category: 'ministries', featured: false, tags: ['parish_council'] },
+  { id: 'c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com', category: 'ministries', featured: false, tags: ['stewardship'] },
+  { id: 'c_mliorq9384otdplop55be7nsfs@group.calendar.google.com', category: 'ministries', featured: false, tags: ['welcome_committee'] },
+
   // Support Groups
-  { id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com', category: 'ministries', featured: false }, // divorce, cancer, grief support
+  { id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com', category: 'ministries', featured: false, tags: ['support_groups', 'divorce', 'cancer', 'grief_support'] },
 
   // Metropolis Events
-  { id: 'c_nsfp5dp24qlp077nn04ar8hrt8@group.calendar.google.com', category: 'metropolis_events', featured: false }, // metropolis events we advertise
+  { id: 'c_nsfp5dp24qlp077nn04ar8hrt8@group.calendar.google.com', category: 'metropolis_events', featured: false, tags: ['metropolis_events'] },
 ];
 
 const CATEGORY_LABELS = {
