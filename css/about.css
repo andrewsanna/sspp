@@ -352,7 +352,7 @@
 .ab-staff-list {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 2.5rem; /* was 3.5rem — rows are shorter now that bios collapse by default */
   margin-top: 1rem;
 }
 
@@ -360,7 +360,7 @@
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 2rem;
-  align-items: start;
+  align-items: center; /* was start — centers text against the photo instead of pinning it to the top */
 }
 
 .ab-staff-row.is-reversed {
