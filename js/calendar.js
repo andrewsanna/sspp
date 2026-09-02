@@ -9,118 +9,7 @@
 // SETUP REQUIRED before this works — see CALENDAR-SETUP.md
 // ============================================
 
-// const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 
-// // One entry per calendar. `featured: true` means events from that
-// // calendar also appear in the "Featured event" card and "Coming up"
-// // sidebar list — not just the month grid.
-// const CALENDARS = [
-//   {
-//     id: 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com',
-//     category: 'liturgical',
-//     featured: false,
-//   },
-//   {
-//     id: 'c_ciglbmolreavrt8v9481jh9pi4@group.calendar.google.com',
-//     category: 'youth', //jr.goya,   //FLJ, YAL, athletics, greek dance, goyalumni, greek school, church school
-//     featured: false,
-//   },
-//   {
-//     id: 'c_sco46hbnm89pj1d222m24od8t8@group.calendar.google.com',
-//     category: 'youth', // youth athletics
-//     featured: false,
-//   },
-//   {
-//     id: 'c_3stt4mv6dkp8p6qdv8ku83fav8@group.calendar.google.com',
-//     category: 'youth', //FLJ
-//     featured: false,
-//   },
-//  // {
-//  //    id: '  c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com',
-//  //    category: 'youth', //YAL
-//  //    featured: false,
-//  //  },
-//  // {
-//  //    id: ' c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com',
-//  //    category: 'youth', // GOYAlumni
-//  //    featured: false,
-//  //  },
-//   //  {
-//   //   id: ' c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com',
-//   //   category: 'youth', // greek school
-//   //   featured: false,
-//   // },
-//   {
-//     id: '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com',
-//     category: 'featured', //parish events - Anna's cal
-//     featured: true,
-//   },
-//    {
-//     id: 'c_f945mtpotllnf56tf6o49nc6eo@group.calendar.google.com',
-//     category: 'youth', //parish events
-//     featured: false,
-//   },
-//   {
-//     id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com',
-//     category: 'philanthropy', // philoptochos, st. basil's, care for creation, prison outreach
-//     featured: false,
-//   },
-//   // {
-//   //   id: ' c_ih9em4bm0b7ebnhcffgnbf0hgo@group.calendar.google.com',
-//   //   category: 'philanthropy', // philanthropy
-//   //   featured: false,
-//   // },
-//   {
-//     id: 'c_tplbp18e1dohtl0ocvdg3b6q0g@group.calendar.google.com',
-//     category: 'agape',
-//     featured: false,
-//   },
-//   {
-//     id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com',
-//     category: 'adult_faith', // coffee connection, bible study, st stephens mens group, catechism, occ
-//     featured: false,
-//   },
-//   {
-//     id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
-//     category: 'ministries', //pc meetings, greek fest, comms, ETC
-//     featured: false,
-//   },
-//   {
-//     id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com',
-//     category: 'support_groups', // grief support, divorce rebuilders, cancer support 
-//     featured: false,
-//   },
-//     // {
-//   //   id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com',
-//   //   category: 'ministries', //parish council
-//   //   featured: false,
-//   // },
-//    // {
-//   //   id: ' c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com',
-//   //   category: 'ministries', //stewardship
-//   //   featured: false,
-//   // },
- 
-//   // --- Not wired up yet — add the real calendar ID and uncomment ---
-//   // {
-//   //   id: 'YOUR_CALENDAR_ID_HERE',
-//   //   category: 'adult_activities', //athletics, dynamis, greek dance workshops
-//   //   featured: false,
-//   // },
-//   // 
-// ];
-
-// const CATEGORY_LABELS = {
-//   liturgical: 'Liturgical',
-//   youth: 'Youth & Young Adults',
-//   featured: 'Events',
-//   philanthropy: 'Philanthropy',
-//   agape: 'Agape',
-//   adult_faith: 'Adult Faith & Learning',
-//   adult_activities: 'Adult Activities',
-//   support_groups: 'Support Groups',
-//   ministries: 'Ministries',
-// };
 
 // Pill / legend colors per category — pulled from your list
 const CATEGORY_COLORS = {
@@ -133,6 +22,9 @@ const CATEGORY_COLORS = {
   adult_activities: '#3A6FA5',
   support_groups: '#A8763E',
   ministries: '#4A7C6F',
+  athletics: '#B0405A',
+  metropolis_events: '#5C4423',
+  other: '#6B7280',
 };
 
 // const MONTHS_AHEAD = 3;
@@ -245,12 +137,12 @@ async function initCalendarPage() {
   try {
     const results = await Promise.all(CALENDARS.map(fetchCalendar));
     allEvents = results.flat();
-
-    if (statusEl) statusEl.remove();
-
+  
     renderFeaturedEvent();
     renderComingUp();
     renderMonthGrid();
+  
+    if (statusEl) statusEl.remove();
   } catch (err) {
     renderError(err.message);
   }
