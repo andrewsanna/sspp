@@ -28,13 +28,26 @@
   gap: 1rem;
 }
 
+/* Card CTA buttons — Time/Talent/Treasure (all gold pills) */
 .give-info-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
+.info-card-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.6rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  background: var(--color-gold, #b08d3f);
+  border-radius: 999px;
+  margin-top: 1.25rem;
+}
+.info-card-btn:hover { background: #9c7a34; }
 
 .give-info-card .ph-icon-inline {
   font-size: 1.5rem;
