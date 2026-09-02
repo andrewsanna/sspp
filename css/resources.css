@@ -845,3 +845,50 @@
     align-items: flex-start;
   }
 }
+
+.rs-lifeevents-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.rs-lifeevents-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.rs-lifeevents-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--brd);
+  font-size: 0.85rem;
+  color: var(--tx);
+}
+
+.rs-lifeevents-list li:first-child {
+  padding-top: 0;
+}
+
+.rs-lifeevents-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.rs-lifeevents-list li i {
+  color: var(--gold-text);
+  font-size: 1rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.rs-lifeevents-empty {
+  font-size: 0.85rem;
+  color: var(--mt);
+  font-style: italic;
+  margin: 0;
+}
