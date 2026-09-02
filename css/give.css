@@ -80,6 +80,12 @@
 }
 .learn-more-btn:hover { background: #9c7a34; }
 
+.learn-more-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
 @media (max-width: 640px) {
   .learn-more-card { flex-direction: column; text-align: center; }
   .learn-more-btn { width: 100%; justify-content: center; }
