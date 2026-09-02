@@ -142,7 +142,7 @@
 
 #homeEventsGrid .featured-event-compact {
   height: 150px;
-max-width:560px;
+  max-width:480px;
 }
 
 #homeEventsGrid .fe-thumb-wrap {
@@ -205,7 +205,7 @@ max-width:560px;
    ============================================ */
 .events-preview-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr 1fr; /* was 1.3fr 1fr */
   gap: 2.5rem;
   align-items: start;
 }
@@ -278,10 +278,20 @@ max-width:560px;
 .week-tag {
   font-size: 0.6rem;
   font-weight: 600;
-  color: var(--mt);
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+.week-tag--liturgical { background: #FAEEDA; color: #854F0B; }
+.week-tag--youth { background: #E7EEF7; color: #2D5A8C; }
+.week-tag--philanthropy { background: #FAECE7; color: #993C1D; }
+.week-tag--agape { background: #EAF3DE; color: #3B6D11; }
+.week-tag--adult_faith { background: #EDE7F6; color: #4A3B7A; }
+.week-tag--adult_activities { background: #FAEEDA; color: #854F0B; }
+.week-tag--support_groups { background: #F7E6EE; color: #8C2D5A; }
+.week-tag--ministries { background: #E7EEF7; color: #2D5A8C; }
 /* ============================================
    Trust strip
    ============================================ */
