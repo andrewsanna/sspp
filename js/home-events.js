@@ -9,7 +9,7 @@
 
 // const HOME_GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 // const HOME_FEATURED_CALENDAR_ID = '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com';
-const HOME_EVENTS_COUNT = 3;
+const HOME_EVENTS_COUNT = w;
 
 // ============================================
 // Helpers
@@ -123,14 +123,13 @@ async function fetchCalendarEvents(calendarId, timeMin, timeMax) {
   return res.json();
 }
 
-async function fetchThisWeekEvents() {
+async function fetchUpcomingDaysEvents(days) {
   const timeMin = new Date();
   const timeMax = new Date();
-  timeMax.setDate(timeMax.getDate() + 7);
+  timeMax.setDate(timeMax.getDate() + days);
 
   const nonFeaturedCalendars = CALENDARS.filter(c => !c.featured);
 
-  // allSettled so one broken/rate-limited calendar doesn't take down the rest
   const results = await Promise.allSettled(
     nonFeaturedCalendars.map(cal =>
       fetchCalendarEvents(cal.id, timeMin, timeMax).then(data => ({ data, category: cal.category }))
@@ -140,7 +139,7 @@ async function fetchThisWeekEvents() {
   const events = [];
   results.forEach((result) => {
     if (result.status !== 'fulfilled') {
-      console.warn('This Week: a calendar failed to load', result.reason);
+      console.warn('Next days events: a calendar failed to load', result.reason);
       return;
     }
     const { data, category } = result.value;
@@ -164,21 +163,12 @@ async function fetchThisWeekEvents() {
     .sort((a, b) => a.start - b.start);
 }
 
-function homeFormatDayHeader(date) {
-  return date.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
-}
-
-function homeFormatEventTime(ev) {
-  if (ev.isAllDay) return 'All day';
-  return ev.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
-}
-
-function renderThisWeek(events) {
-  const container = document.getElementById('thisWeekList');
+function renderDayGroupedList(containerId, events) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
   if (events.length === 0) {
-    container.innerHTML = `<p style="text-align:center; color:var(--mt); font-size:0.85rem; padding:1rem 0;">Nothing else on the calendar this week.</p>`;
+    container.innerHTML = `<p style="text-align:center; color:var(--mt); font-size:0.85rem; padding:1rem 0;">Nothing else on the calendar right now.</p>`;
     return;
   }
 
@@ -202,7 +192,7 @@ function renderThisWeek(events) {
         <div class="week-row" data-event-id="${homeEscapeHtml(ev.id)}">
           <span class="week-time">${homeEscapeHtml(homeFormatEventTime(ev))}</span>
           <span class="week-title">${homeEscapeHtml(ev.title)}</span>
-          <span class="week-tag week-tag--${homeEscapeHtml(ev.category)}">${homeEscapeHtml(CATEGORY_LABELS[ev.category] || ev.category)}</span>
+          <span class="week-tag">${homeEscapeHtml(CATEGORY_LABELS[ev.category] || ev.category)}</span>
         </div>
       `).join('')}
     </div>
@@ -359,10 +349,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   try {
-    const weekEvents = await fetchThisWeekEvents();
-    renderThisWeek(weekEvents);
+    const nextDaysEvents = await fetchUpcomingDaysEvents(3);
+    renderDayGroupedList('next3DaysList', nextDaysEvents);
   } catch (err) {
-    console.warn('This Week events failed to load:', err);
-    renderThisWeek([]);
+    console.warn('Next 3 days events failed to load:', err);
+    renderDayGroupedList('next3DaysList', []);
   }
 });
