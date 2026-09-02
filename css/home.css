@@ -142,6 +142,7 @@
 
 #homeEventsGrid .featured-event-compact {
   height: 150px;
+max-width:560px;
 }
 
 #homeEventsGrid .fe-thumb-wrap {
