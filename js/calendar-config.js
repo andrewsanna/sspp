@@ -43,7 +43,7 @@ const CALENDARS = [
   { id: 'c_q3kgtkmbhrsbtn5vt7urjddvjg@group.calendar.google.com', category: 'adult_faith', featured: false }, // coffee connection, bible study, catechism
 
   // Ministries
-  { id: 'c_962b9u9452vmm537i8l6aisk1k@group.calendar.google.com', category: 'ministries', featured: false }, // dynamis, occ, fellowship
+  { id: 'c_962b9u9452vmm537i8l6aisk1k@group.calendar.google.com', category: ' adult_activities', featured: false }, // dynamis, occ, fellowship
   { id: 'c_g2lupm9c0g12huf56har6ilvjc@group.calendar.google.com', category: 'ministries', featured: false }, // parish council
   { id: 'c_ufkvhgf9rm44887ikj35qehohc@group.calendar.google.com', category: 'ministries', featured: false }, // stewardship
   { id: 'c_mliorq9384otdplop55be7nsfs@group.calendar.google.com', category: 'ministries', featured: false }, // welcome committee
@@ -62,9 +62,11 @@ const CATEGORY_LABELS = {
   philanthropy: 'Philanthropy',
   agape: 'Agape',
   adult_faith: 'Faith & Learning',
-  adult_activities: 'Athletics',
+  adult_activities: 'Community Activities',
+  athletics: 'Athletics',
   support_groups: 'Support Groups',
   ministries: 'Ministries',
+  metropolis_events: 'Metropolis Events',
 };
 
 const MONTHS_AHEAD = 3;
