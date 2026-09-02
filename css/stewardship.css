@@ -22,6 +22,11 @@
 }
 
 /* Info card grid — used by Time/Talent/Treasure */
+.give-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
 .give-info-card {
   display: flex;
   flex-direction: column;
@@ -68,6 +73,7 @@
 @media (max-width: 720px) {
   .give-info-grid { grid-template-columns: 1fr; }
 }
+
 /* This Year's Plan */
 .plan-intro {
   max-width: 640px;
