@@ -352,22 +352,19 @@
 .ab-staff-list {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
   margin-top: 1rem;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .ab-staff-row {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
   align-items: start;
 }
 
 .ab-staff-row.is-reversed {
-  grid-template-columns: 1fr 150px;
+  grid-template-columns: 1fr 200px;
 }
 
 .ab-staff-row.is-reversed .ab-staff-photo {
@@ -382,7 +379,6 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   aspect-ratio: 4 / 5;
-  width: 150px;
   background: var(--brd);
   box-shadow: var(--shadow-card);
 }
@@ -526,9 +522,9 @@
   border: 1px solid var(--brd);
   border-left: 4px solid var(--gold);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  grid-template-columns: 150px 1fr;
-  gap: 1.5rem;
+  padding: 1.75rem;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
 }
 
 .ab-staff-row.is-featured .ab-staff-photo {
