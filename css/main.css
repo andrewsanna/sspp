@@ -518,6 +518,15 @@ p {
 }
 
 @media (max-width: 860px) {
+
+   .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+  }
+   
   .nav-dropdown-menu {
     position: static;
     transform: none;
@@ -528,6 +537,7 @@ p {
     border: none;
     padding: 0;
     min-width: 0;
+    width: 100%;          /* added */
     max-height: 0;
     overflow: hidden;
     margin-top: 0;
