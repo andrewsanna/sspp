@@ -355,6 +355,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderHomeEvents(events);
   } catch (err) {
     console.warn('Homepage featured events failed to load:', err);
-    renderHomeEvents([]); // shows the "check back soon" message
+    renderHomeEvents([]);
+  }
+
+  try {
+    const weekEvents = await fetchThisWeekEvents();
+    renderThisWeek(weekEvents);
+  } catch (err) {
+    console.warn('This Week events failed to load:', err);
+    renderThisWeek([]);
   }
 });
