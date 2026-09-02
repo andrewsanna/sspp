@@ -205,9 +205,14 @@
    ============================================ */
 .events-preview-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* was 1.3fr 1fr */
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
-  align-items: start;
+  align-items: stretch; /* was: align-items: start */
+}
+
+.events-preview-col {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 900px) {
@@ -312,6 +317,21 @@
   background: var(--gold);
   color: var(--navy-deep);
   text-decoration: none;
+}
+
+.week-footer-link {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.week-footer-link:hover {
+  text-decoration: underline;
 }
 /* ============================================
    Trust strip
