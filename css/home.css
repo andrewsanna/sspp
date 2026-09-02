@@ -200,6 +200,89 @@
 }
 
 /* ============================================
+   This Week list
+   ============================================ */
+.week-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.week-day-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.week-day-header {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--navy-deep);
+  font-weight: 600;
+  border-bottom: 1px solid var(--brd);
+  padding-bottom: 0.4rem;
+}
+
+.week-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.65rem 0.25rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--brd);
+  transition: background 0.15s ease;
+}
+
+.week-row:hover {
+  background: var(--offwhite);
+}
+
+.week-row:last-child {
+  border-bottom: none;
+}
+
+.week-time {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--gold-text);
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.week-title {
+  font-size: 0.9rem;
+  color: var(--tx);
+  flex: 1;
+}
+
+.week-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.week-tag--liturgical { background: #FAEEDA; color: #854F0B; }
+.week-tag--youth { background: #E7EEF7; color: #2D5A8C; }
+.week-tag--philanthropy { background: #FAECE7; color: #993C1D; }
+.week-tag--agape { background: #EAF3DE; color: #3B6D11; }
+.week-tag--adult_faith { background: #EDE7F6; color: #4A3B7A; }
+.week-tag--adult_activities { background: #FAEEDA; color: #854F0B; }
+.week-tag--support_groups { background: #F7E6EE; color: #8C2D5A; }
+.week-tag--ministries { background: #E7EEF7; color: #2D5A8C; }
+
+@media (max-width: 560px) {
+  .week-row {
+    flex-wrap: wrap;
+  }
+  .week-tag {
+    order: 3;
+  }
+}
+
+/* ============================================
    Trust strip
    ============================================ */
 .trust-strip {
