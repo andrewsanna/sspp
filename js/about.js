@@ -11,45 +11,76 @@ function renderStaffList() {
   const root = document.getElementById('staffList');
   if (!root) return;
 
-  root.innerHTML = CLERGY.map((person, index) => {
-    const bioParagraphs = person.bio
-      .split('\n\n')
-      .map((p) => `<p>${escapeHtml(p)}</p>`)
-      .join('');
-    const reversed = index % 2 === 1 ? 'is-reversed' : '';
-    const featured = person.featured ? 'is-featured' : '';
-    const badgeLabel = person.type === 'clergy' ? 'Clergy' : 'Staff';
-    const badgeClass = person.type === 'clergy' ? 'is-clergy' : 'is-staff';
-    const bioId = `staffBio-${person.id}`;
+  const featured = CLERGY.find((p) => p.featured);
+  const rest = CLERGY.filter((p) => !p.featured);
 
-    return `
-      <div class="ab-staff-row ${reversed} ${featured}">
-        <div class="ab-staff-photo">
-          <img src="${person.photo}" alt="${escapeHtml(person.name)}" loading="lazy" />
-        </div>
-        <div class="ab-staff-text">
-          <div class="ab-staff-meta">
-            <span class="ab-staff-badge ${badgeClass}">${badgeLabel}</span>
-            <span class="ab-staff-role">${escapeHtml(person.role)}</span>
-          </div>
-          <h3 class="ab-staff-name">${escapeHtml(person.name)}</h3>
-          <p class="ab-staff-summary">${escapeHtml(person.summary)}</p>
+  const featuredHtml = featured ? renderFeaturedCard(featured) : '';
+  const gridHtml = `<div class="ab-staff-grid">${rest.map(renderStaffCard).join('')}</div>`;
 
-          <button class="ab-staff-toggle" data-toggle-staff="${bioId}" aria-expanded="false" aria-controls="${bioId}">
-            <span>Read full bio</span>
-            <i class="ti ti-chevron-down" aria-hidden="true"></i>
-          </button>
-          <div class="ab-staff-bio" id="${bioId}">${bioParagraphs}</div>
-
-          <a href="mailto:${person.email}" class="btn btn-outline-gold ab-staff-contact-btn">
-            <i class="ti ti-mail" aria-hidden="true"></i> Contact ${escapeHtml(person.shortname)}
-          </a>
-        </div>
-      </div>
-    `;
-  }).join('');
-
+  root.innerHTML = featuredHtml + gridHtml;
   attachStaffBioToggles();
+}
+
+function renderBadgeAndRole(person) {
+  const badgeLabel = person.type === 'clergy' ? 'Clergy' : 'Staff';
+  const badgeClass = person.type === 'clergy' ? 'is-clergy' : 'is-staff';
+  return `
+    <div class="ab-staff-meta">
+      <span class="ab-staff-badge ${badgeClass}">${badgeLabel}</span>
+      <span class="ab-staff-role">${escapeHtml(person.role)}</span>
+    </div>
+  `;
+}
+
+function renderBioToggleAndButton(person) {
+  const bioId = `staffBio-${person.id}`;
+  const bioParagraphs = person.bio
+    .split('\n\n')
+    .map((p) => `<p>${escapeHtml(p)}</p>`)
+    .join('');
+
+  return `
+    <button class="ab-staff-toggle" data-toggle-staff="${bioId}" aria-expanded="false" aria-controls="${bioId}">
+      <span>Read full bio</span>
+      <i class="ti ti-chevron-down" aria-hidden="true"></i>
+    </button>
+    <div class="ab-staff-bio" id="${bioId}">${bioParagraphs}</div>
+    <a href="mailto:${person.email}" class="btn btn-outline-gold ab-staff-contact-btn">
+      <i class="ti ti-mail" aria-hidden="true"></i> Contact ${escapeHtml(person.shortname)}
+    </a>
+  `;
+}
+
+function renderFeaturedCard(person) {
+  return `
+    <div class="ab-staff-featured">
+      <div class="ab-staff-featured-photo">
+        <img src="${person.photo}" alt="${escapeHtml(person.name)}" loading="lazy" />
+      </div>
+      <div class="ab-staff-featured-text">
+        ${renderBadgeAndRole(person)}
+        <h3 class="ab-staff-name">${escapeHtml(person.name)}</h3>
+        <p class="ab-staff-summary">${escapeHtml(person.summary)}</p>
+        ${renderBioToggleAndButton(person)}
+      </div>
+    </div>
+  `;
+}
+
+function renderStaffCard(person) {
+  return `
+    <div class="ab-staff-card">
+      <div class="ab-staff-card-photo">
+        <img src="${person.photo}" alt="${escapeHtml(person.name)}" loading="lazy" />
+      </div>
+      <div class="ab-staff-card-text">
+        ${renderBadgeAndRole(person)}
+        <h3 class="ab-staff-name">${escapeHtml(person.name)}</h3>
+        <p class="ab-staff-summary">${escapeHtml(person.summary)}</p>
+        ${renderBioToggleAndButton(person)}
+      </div>
+    </div>
+  `;
 }
 
 function attachStaffBioToggles() {
