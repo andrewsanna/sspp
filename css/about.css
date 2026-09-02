@@ -372,7 +372,11 @@
 }
 
 .ab-staff-row.is-reversed .ab-staff-text {
-  order: 1;
+  text-align: right;
+}
+
+.ab-staff-row.is-reversed .ab-staff-meta {
+  justify-content: flex-end;
 }
 
 .ab-staff-photo {
