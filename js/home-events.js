@@ -201,7 +201,7 @@ function renderDayGroupedList(containerId, events) {
         <div class="week-row" data-event-id="${homeEscapeHtml(ev.id)}">
           <span class="week-time">${homeEscapeHtml(homeFormatEventTime(ev))}</span>
           <span class="week-title">${homeEscapeHtml(ev.title)}</span>
-          <span class="week-tag">${homeEscapeHtml(CATEGORY_LABELS[ev.category] || ev.category)}</span>
+          <span class="week-tag week-tag--${homeEscapeHtml(ev.category)}">${homeEscapeHtml(CATEGORY_LABELS[ev.category] || ev.category)}</span>
         </div>
       `).join('')}
     </div>
