@@ -359,12 +359,14 @@
 .ab-staff-row {
   display: grid;
   grid-template-columns: 200px 1fr;
-  gap: 2rem;
-  align-items: start;
+  gap: 1.5rem;
+  align-items: stretch;
+  max-width: 720px;
 }
 
 .ab-staff-row.is-reversed {
   grid-template-columns: 1fr 200px;
+  margin-left: auto; /* pushes the reversed (photo-right) row to the right edge */
 }
 
 .ab-staff-row.is-reversed .ab-staff-photo {
