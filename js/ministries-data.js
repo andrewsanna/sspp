@@ -19,7 +19,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Parish Council',
         summary: 'Elected body overseeing parish affairs alongside the pastor.',
-        description: "The parish coucnil is a ministry of the Church and it's mission is to keep, practice and proclaim the Orthodox Christian Faither pure and undefiled. This governing body works cooperatively witht he prist to administer and support the total parish program inclufing all the liturgical and pastoral ministries as well as the buildings, grounds and facilities. The parish coucnil is accountable to the local bishop and the parish assembly.",
+        description: "The parish council is a ministry of the Church and it's mission is to keep, practice and proclaim the Orthodox Christian Faith pure and undefiled. This governing body works cooperatively with the priest to administer and support the total parish program including all the liturgical and pastoral ministries as well as the buildings, grounds and facilities. The parish council is accountable to the local bishop and the parish assembly.",
         image: 'images/ministries/parishcouncil.jpg',
         detailPageUrl: 'contact.html?to=#council',
         calendarCategory: 'ministries',
@@ -53,7 +53,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Greeters / Ushers',
         summary: 'Welcome and seat worshipers on Sunday mornings.',
-        description: "For each new service at the church, the Usher's main job is to make people feel welcome, control the flow, and assist Father to ensure smooth Liturgy as well as creating an orderly environment for worship. Usher serve every 6 to 8 weeks except for Holy Week, which could be up to four times. Services are usually Sunday and Saturday, but could be any day of the week depending on the Liturgical Calendar.",
+        description: "For each service at the Church, the Usher's main job is to make people feel welcome, control the flow, and assist Father to ensure smooth Liturgy as well as creating an orderly environment for worship. Ushers serve every 6-8 weeks except for Holy Week which can be up to 4 times. Services are usually Sunday and Saturday but can be any day of the week depending on the Liturgical Calendar.",
         // image: 'images/ministries/greeters.jpg',
         calendarCategory: 'liturgical',
         contact: {
@@ -89,11 +89,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Readers',
         summary: 'Read psalms and epistles during services.',
-        description: 'During the worship services, lay persons are called upon to read Psalms, Epistles and Old Testament, prophecies and wisdom passages. This requires training and preparation with comprehension, vocal diction, and projection. This ministries is open to males and females of all ages. Saturday Vespers, Sunday Orthros and Liturgy, Feasts, Lent, and Holy Week provide plenty of opportunity for involvement.',
+        description: 'During the worship services, lay persons are called upon to read Psalms, Epistles and Old Testament prophecies and wisdom passages. This requires training and preparation with comprehension, vocal diction and projection. This ministry is open to males and females of all ages. Saturday Vespers, Sunday Orthros and Liturgy, Feasts, Lent and Holy Week provide plenty of opportunity for involvement.',
         // image: 'images/ministries/readers.jpg',
         calendarCategory: 'liturgical',
         contact: {
-          name: 'TBD',
+          name: 'Steven Thell',
           role: 'TBD',
           email: 'readers@ssppglenview.org',
       },
@@ -113,11 +113,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Myrrhbearers',
         summary: 'Girls (1st–12th grade) serving in the liturgical life of the parish.',
-        description: 'The Myrrhbearer’s Ministry provides opportunities for a girls to participate in the liturgical life of our parish so that they can cultivate a deeper love for Christ. During the year, 3rd- 12th grade Myrrhbearers have liturgical roles similar to and alongside the Acolytes during Divine Liturgy and other weekday services. During holy week, 1st - 12th grade Myrrhbearers not only participate in roles, similar to the Acolytes, but also in unique roles that reflect the presence of the bearing women during Christ’s Passion, and Resurrection.',
+        description: 'The Myrrhbearers Ministry provides opportunities for our girls to participate in the liturgical life of our parish so that they can cultivate a deeper love for Christ. During the year 3rd-12th grade Myrrhbearers have liturgical roles similar to and alongside the Acolytes during Divine Liturgy and other weekday services. During Holy Week, 1st-12th grade Myrrhbearers not only participate in roles similar to the Acolytes but also in unique roles that reflect the presence of the Myrrhbearing women during Christ\'s Passion and Resurrection.',
         image: 'images/myrrhbearers.jpg',
         calendarCategory: 'liturgical',
         contact: {
-          name: 'TBD',
+          name: 'Steven Thell',
           role: 'TBD',
           email: 'myrrhbearers@ssppglenview.org',
       },
@@ -125,7 +125,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Acolytes',
         summary: 'Boys 8+ assisting the clergy in the Holy Altar.',
-        description: 'Upon reaching 8 years old, boys are invited to become acolytes. An acolyte is someone who assists the clergy in the divine services, especially during Sunday Divine Liturgy. Service in the Holy Altar is a beautiful ministry of the Church which spiritually enriches the acolytes and the whole community. Acolytes are assigned to one of two teams, which alternate Sundays throughout the year. Spiritual Father: Fr. Rick.',
+        description: "An acolyte is a boy or a man who assists the clergy during the divine services, especially Sunday Divine Liturgy. Service in the Holy Altar is a beautiful ministry of the Church which spiritually enriches the acolytes and the whole community. In addition to knowing the divine worship services, the acolytes are trained to know the areas of the sanctuary and its sacred instruments.",
         image: 'images/ministries/acolytes.jpg',
         calendarCategory: 'liturgical',
         contact: {
@@ -145,7 +145,7 @@ const MINISTRY_CATEGORIES = [
          {
         name: 'FLJ',
         summary: 'Elementary-age fellowship, education, and service.',
-        description: 'FAITH, LOVE & JOY (FLJ) of SS. Peter and Paul aims to be a space of growth towards, familiarity with, and deepening of our Elementary Age Children\'s relationship with Christ and his church. FLJ strives to accomplish this mission through intentional gatherings with elements of fellowship, education, and service.',
+        description: 'Faith, Love & Joy (Junior Orthodox Youth) seeks to foster growth toward a deepening of our elementary children\'s relationship with Christ and His Church through shared fellowship, education and service.',
         image: 'images/ministries/flj.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
@@ -158,7 +158,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Jr. GOYA',
         summary: 'Junior High (6th–8th grade) youth ministry.',
-        description: 'Jr. GOYA is our Junior High-aged Youth Ministry (6th–8th grade). We gather four times a month: once for a general meeting, once for an outreach activity, once for an exciting outing, and once for a Friday Funday! There are plenty of meetings on plenty of days so everybody can get involved.',
+        description: 'Jr. GOYA (Greek Orthodox Youth of America) focuses on establishing and maintaining a relationship with Christ. Middle schoolers gather several times throughout the month to strengthen and build continuous relationships to each other, the Church, and their faith through discussion, outreach activities, and worship.',
         image: 'images/ministries/jr-goya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
@@ -171,7 +171,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Sr. GOYA',
         summary: 'High School-aged youth ministry.',
-        description: 'GOYA is our High School-aged Youth Ministry. We gather four times a month: once for a general meeting, once for an outreach activity, once for an exciting outing, and once for a Coffee Talk. There are plenty of meetings on plenty of days so everybody can get involved.',
+        description: 'Sr. GOYA (Greek Orthodox Youth of America) continues the groundwork laid in Junior GOYA at a pivotal time during our youths\' lives. High schoolers continue to build on their relationships with each other, the Church, and most importantly, continue on their journey to deepen their faith in Christ through fellowship, worship, and community.',
         image: 'images/ministries/srgoya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
@@ -184,11 +184,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Athletics',
         summary: 'GOYA basketball league and other youth sports.',
-        description: 'GOYA basketball league and other youth athletics programs, building friendship and community through sport for our parish\'s young people.',
+        description: "As an extension of our Saints Peter and Paul parish family, we offer many wonderful opportunities for growth in fellowship, teamwork, Christian competition, and athletic excellence, including: Greek Orthodox Athletic League Basketball, Metropolis of Chicago Junior Olympics, Men's Adult Pick-up Basketball, Volleyball, Women's Adult Pick-up Basketball.",
         image: 'images/highschool.jpg',
         calendarCategory: 'athletics',
         contact: {
-          name: 'Chris Batrich',
+          name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
           email: 'athletics@ssppglenview.org',
       },
@@ -208,11 +208,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'GOYAlumni',
         summary: 'For college-aged adults — service, fellowship, worship.',
-        description: 'GOYAlumni of SS. Peter and Paul is a ministry that enriches our college-aged adults\' experience at school and at home. GOYAlumni aims to be a conduit for the holistic growth of our students with a heavy emphasis on service, fellowship, and worship.',
+        description: 'This is a ministry that enriches our college-aged adults\' experience at school and at home. GOYAlumni aims to be a conduit for the holistic growth of our students with a heavy emphasis on service, fellowship, and worship.',
         image: 'images/ministries/goyalumni.jpg',
         calendarCategory: 'youth',
           contact: {
-          name: 'Niki Papamichiel',
+          name: 'Niki Alexis & Ana Arzoumanidis',
           role: 'Group Leader',
           email: 'goyalumni@ssppglenview.org',
       },
@@ -220,7 +220,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Young Adult League (YAL)',
         summary: 'Worship, fellowship, and outreach for post-college young adults.',
-        description: 'The Young Adult League (YAL) of Saints Peter and Paul Greek Orthodox Church aims to aid the growth of our parish\'s young adults toward Christ and His Church. YAL strives to accomplish this mission through intentional gatherings of worship, fellowship, outreach, and education, giving young adults a place to encounter the challenges of modern life within the context of the Orthodox Church.',
+        description: 'The Young Adult League (YAL) aims to aid the growth of our parish young adults toward Christ and His Church. Our YAL strives to accomplish this mission by intentional gatherings of worship, fellowship, outreach, and education, giving them a place to encounter the newest challenges in our society.',
         image: 'images/ministries/yal.jpg',
         calendarCategory: 'youth',
           contact: {
@@ -232,7 +232,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'HOPE',
         summary: 'A space for the youngest church members and their families.',
-        description: 'HOPE group of SS. Peter and Paul has a two-pronged mission. First, HOPE group looks to create an open space for the youngest of our church members to become comfortable and familiar with the church. As well as a space for parents and grandparents to meet each other, and learn how to foster a relationship with Christ in their children.',
+        description: 'HOPE (Holy Orthodox Primary Education) was developed for children age 0 to 5 years old with the idea of creating an open space for a young person to develop familiarity with the church and learn to see the church as their home. HOPE also desires to foster a space for parents and grandparents to encounter and build a relationship with Christ in their children.',
         inactive: true,
         // calendarCategory: 'youth',
         // image: 'images/ministries/hope.jpg',
@@ -253,12 +253,12 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Church School',
         summary: 'Sunday morning religious education following Divine Liturgy.',
-        description: 'Church School begins with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. The students will proceed to class following Holy Communion. Classes end at 11:45 a.m. Numerous volunteer opportunities exist to offer your time and talent to our many programs.',
+        description: 'Church School begins with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. The students proceed to class following Holy Communion. Classes end at 11:45 a.m. Teachers are carefully selected for the task, and many have been involved in the program for several years. Students are grouped into classes according to grade level. An Orthodox Christian curriculum is used to help our children learn about their faith.',
         image: 'images/ministries/churchschool.jpg',
         detailPageUrl: 'ministries/churchschool.html',
         calendarCategory: 'youth',
         contact: {
-          name: 'Elaine Carozza',
+          name: 'Alexis Douglas',
           role: 'Church School Director',
           email: "Churchschool@ssppglenview.org",
       },
@@ -266,7 +266,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Greek School',
         summary: 'Greek language, culture, and traditions for children.',
-        description: 'The Saints Peter and Paul Greek School is committed to providing an excellent educational program, in a child-centered, child-friendly environment where learning can be fun. Our overall purpose is to teach our students the skills needed to communicate using the Greek language; therefore we put emphasis on conversation and introduce them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful.',
+        description: 'The Saints Peter and Paul Greek School is committed to providing an excellent educational program, in a child-centered, child-friendly environment where learning can be fun. Our overall purpose is to teach our students the skills needed to communicate using the Greek language; therefore we put emphasis on conversation and introduce them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful. The small number of students in each level enables the teachers to focus on each child\'s individual needs.',
         image: 'images/ministries/greekschool.jpg',
         calendarCategory: 'youth',
         contact: {
@@ -278,7 +278,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'AGAPE Preschool',
         summary: 'DCFS-approved preschool rooted in the Orthodox Christian faith.',
-        description: 'AGAPE Preschool is a ministry program of our parish and runs on our premises in our facility. We are committed to a high quality educational experience that emphasizes the Orthodox Christian Faith. Our program uniquely provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',
+        description: 'AGAPE School is a ministry program of our parish and operates within our facility. We are committed to a high quality educational experience for pre school and kindergarten that emphasizes the Orthodox Christian Faith. Our program uniquely provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',
         // image: 'images/ministries/agape.jpg',
         detailPageUrl: 'ministries/agape.html',
         calendarCategory: 'agape',
@@ -299,11 +299,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Book & Icon Store',
         summary: 'Open Sundays after Liturgy — browse, no commitment needed.',
-        description: 'We welcome you to visit our bookstore on Sundays following Divine Liturgy. You will find much spiritual food and support for your life\'s journey, both in Greek and English language. The Book and Icon Store is a 100% volunteer-staffed ministry of our parish. Throughout the years the Book and Icon Store has grown into a community gathering place, as each of us seeks a special way to nourish our soul and share a smile amongst friends, neighbors, children, students, parishioners, and patrons.',
+        description: "The bookstore offers a variety of Christian and specifically Orthodox books that include Orthodox saints, the Divine Liturgy, spirituality, growing in the faith, women and the faith, marriage, and parenting. We also have a wide selection of children's books. We carry the Orthodox Study Bible as well as several children's Bibles. We offer a variety of icons, prayer rope bracelets, religious jewelry, incense and charcoal as well as many other items. Please browse and inquire if the merchandise you seek is not on the shelves! Bookstore is open after Divine Liturgy on Sundays from 11:15 am – 12:00 pm or by appointment.",
         // image: 'images/ministries/bookstore.jpg',
         calendarCategory: 'adult_faith',
         contact: {
-          name: "Tina O'Donell",
+          name: "Tina O'Donnell",
           role: 'Group Leader',
           email: 'bookstore@ssppglenview.org',
       },
@@ -311,7 +311,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Coffee Connection',
         summary: 'Adult discussion group, twice a month after church school.',
-        description: 'Coffee Connection is an educational ministry for adults that aims to strengthen knowledge and practice of the Orthodox faith. Twice a month, all interested adults meet immediately following Holy Communion, when church school is dismissed, until 11:40 a.m. There we share in fellowship, provide educational materials, and offer a presentation and discussion on the week\'s topic. Led by Prof. Helen Theodoropoulos, Randa Anderson, and Doreen DeSent.',
+        description: 'Coffee Connection is an educational ministry for adults that aims to strengthen knowledge and practice of the Orthodox faith. Twice a month, all interested adults meet in the Youth Room (under the gym) immediately following Holy Communion, until church school is dismissed, at 11:45 am. There we share in fellowship, provide educational materials, and offer a presentation and discussion on the topic of the week. The presentation is an opportunity to learn more about our faith, while the discussion emphasizes how to practice Orthodox traditions in our lives.',
         // image: 'images/ministries/coffeeconnection.jpg',
         calendarCategory: 'adult_faith',
         contact: {
@@ -323,7 +323,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Bible Study',
         summary: 'Weekly study of Holy Scripture, open to all — no homework.',
-        description: 'Our Bible Study ministry seeks to deepen the study of the Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. Participation is open to all, including those who are not members of SSPP, and also those who are not Orthodox Christians. No preparation is needed, and no homework is required. We use the Orthodox Study Bible; copies are available if you don\'t have your own.',
+        description: "Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
         // image: 'images/biblestudy.jpg',
         calendarCategory: 'adult_faith',
         contact: {
@@ -335,11 +335,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: "St. Stephen's Men's Group",
         summary: "Thursday mornings, 6:30–7:30 am — scripture study for men.",
-        description: "The St. Stephen's Men's Group is a unique opportunity for men in our parish to gather together for the edifying study of the scripture and other related books. Topics range based on the text we are reading, and with a lively and inquisitive group, there is always an interesting tangent or two to explore. We meet Thursday mornings in the church library from 6:30 am to 7:30 am, leaving plenty of time for our men to get to work after our discussions.",
+        description: "This group is an opportunity for men to gather for social, educational, and recreational experience. Every Thursday morning during the school year, we hold an edifying study of the Scripture or religious/spiritual writings. Multi-week topics are presented on a theme, and with a lively and inquisitive group, there is always an interesting tangent or two to explore. We meet from 7—8 am, leaving plenty of time for our men to get to work after our discussions.",
         image: 'images/ministries/mensgroup.jpg',
         calendarCategory: 'adult_faith',
         contact: {
-          name: 'Brad DeSent',
+          name: 'Joe Kolbaba & Dean Matsas',
           role: 'Group Leader',
           email: 'mensgroup@ssppglenview.org',
       },
@@ -347,7 +347,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Catechism',
         summary: '12-week course for those exploring or joining the faith.',
-        description: 'Interested in learning more about your Faith? Classes are open to all, but especially those interested in joining the Church through Baptism and/or Chrismation. The class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for everyone of any age (teenage and above) and background to learn about our Faith.',
+        description: 'Introduction to Orthodox Christianity Class is held on Tuesday evenings in the Fall and Monday evenings in the Winter/Spring, 7—9 pm. Class is open to all but especially for those interested in joining the Church through Baptism and/or Chrismation. Class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for anyone of any age (teenage and above) to learn about our Faith.',
         image: 'images/catechism.jpg',
         calendarCategory: 'adult_faith',
         contact: {
@@ -380,7 +380,7 @@ const MINISTRY_CATEGORIES = [
      {
         name: 'Coffee Fellowship',
         summary: 'Fellowship and connection after Divine Liturgy.',
-        description: 'Coffee Fellowship after Divine Liturgy doesn’t just serve the purpose of filling rumbly bellies and satisfying caffeine withdrawal symptoms. It’s a ministry that helps to build a community of friends and family, and provides opportunities to connect with your church family – the same people who can love and support you throughout your spiritual journey. This important ministry is also a wonderful way to commemorate an anniversary, birthday, family milestone, or memorial. It’s a minimal time commitment that goes a long way in expressing appreciation and gratitude.',
+        description: 'We welcome families and ministry groups to host a Coffee Fellowship following the Sunday Divine Liturgy. It is an opportunity to promote interaction among our parishioners and visitors by offering hospitality and refreshments. Your family, or a group, can celebrate a special occasion (nameday, birthday, anniversary, memorial, graduation, etc) or host for no reason at all.',
         // image: 'images/ministries/dynamis.jpg',
         // calendarCategory: 'activities',
         contact: {
@@ -392,11 +392,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Welcome Committee',
         summary: 'Helping newcomers feel at home from their very first visit.',
-        description: 'The Welcome Committee ensures that visitors and newcomers feel warmly received from the moment they walk through our doors — whether that means a friendly greeting, help finding a seat, or a follow-up to answer questions after their first visit. It\'s an easy, low-commitment way to make a real difference in someone\'s first impression of our parish.',
+        description: 'This group focuses on welcoming visitors and new members to our parish, reaches in to current members, and reaches out to the local community so that our parish remains a visible, active presence that invites everyone into our midst.',
         image: 'images/ministries/welcome.jpg',
         // calendarCategory: 'liturgical',
         contact: {
-          name: 'Doreen Desent',
+          name: 'Keith Anderson and Sylvia Creatura',
           role: 'Group Leader',
           email: 'welcome@ssppglenview.org',
         },
@@ -404,11 +404,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Dynamis Group',
         summary: 'Fellowship and enrichment for senior members of the parish.',
-        description: 'Our Dynamis ministry provides a place of strength, fellowship, and enrichment, both spiritually and socially, for the senior members of our parish. Events are balanced between activities at the Church and outings to local places of interest.',
+        description: "Dynamis means \"power\" or \"strength\" and it is a fellowship ministry for seniors, retired people and others in their golden years. Lunches, dinners, day trips, lectures and other activities are ministry features.",
         // image: 'images/ministries/dynamis.jpg',
           // calendarCategory: 'activities',
         contact: {
-          name: 'Joanne Trahanas',
+          name: 'Vicky Nestor',
           role: 'Group Leader',
           email: 'dynamis@ssppglenview.org',
       },
@@ -420,7 +420,7 @@ const MINISTRY_CATEGORIES = [
         // image: 'images/ministries/athletics-a.jpg',
           // calendarCategory: 'activities',
         contact: {
-          name: 'Chris Batrich',
+          name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
           email: 'athletics@ssppglenview.org',
       },
@@ -448,7 +448,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Philoptochos',
         summary: '80 years of philanthropy across greater Chicago.',
-        description: 'The Saints Peter & Paul Greek Orthodox Ladies Philoptochos Society, Inc. is the philanthropic arm of the Greek Orthodox Archdiocese of America that has offered eighty years of helping those in need and supporting organizations and programs that do the same. Philoptochos makes a difference in the lives of people in greater Chicago.',
+        description: 'The Greek Orthodox Ladies Philoptochos Society, Inc. is the philanthropic arm of the Greek Orthodox Archdiocese of America. It has offered eighty years of helping those in need and supports organizations and programs that do the same. Philoptochos makes a difference in the lives of people in greater Chicago, the United States and throughout the world. Our local parish chapter has been working since the founding of our community in the early 1960s. Our women engage in a multitude of fundraising and educational programs to accomplish the mission of Philoptochos.',
        image: 'images/ministries/philo.jpg',
         calendarCategory: 'philanthropy',
         contact: {
@@ -460,7 +460,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: "St. Basil's Philanthropy Ministry",
         summary: 'Partnering with local charities to serve those in need.',
-        description: 'On behalf of the Parish, the Philanthropy Ministry partners with local charitable organizations, including Vitalant Blood Banks, Habitat for Humanity, Glenview Youth Services, Interfaith Action of Evanston, and many more, to follow the Way from Matthew 25:35.',
+        description: 'On behalf of the Parish, the Philanthropy Ministry partners with local charitable organizations, including Vitalant Blood Banks, Habitat for Humanity, Glenview Youth Services, and Interfaith Action of Evanston in order to fulfill every commandment of Christ in Matthew 25:35. The ministry works with every other ministry of our parish to find more opportunities to give back.',
       // image: 'images/ministries/stbasil.jpg',
         calendarCategory: 'philanthropy',
         contact: {
@@ -472,11 +472,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Care for Creation',
         summary: 'Stewardship of our environment and parish grounds.',
-        description: 'As Orthodox Christians, we have a responsibility for the stewardship of our environment. The purpose of our Care for Creation Ministry is to encourage commitment, implement programs, and establish community through this stewardship. We also tend to the beautification and conservation of our parish landscape, including planting trees, shrubs, plants, and landscaping projects. Our Care for Creation Ministry is one of the first such Orthodox church ministries in the United States, fostering a spirit of volunteerism, community, and collaboration in support of our earth and the life it sustains.',
+        description: 'As Orthodox Christians, we have a responsibility for the stewardship of our environment. The purpose of our Care for Creation Ministry is to encourage commitment, implement programs, and establish community through this stewardship. We also tend to the beautification and conservation of our parish landscape, including planting trees, shrubs, plants, and landscaping projects. We also coordinate an annual Vespers on August 31st for the Protection of the Environment.',
       // image: 'images/ministries/careforcreation.jpg',
         calendarCategory: 'philanthropy',
         contact: {
-          name: 'Suzanne Chakos',
+          name: 'John Kiriklakis',
           role: 'Group Leader',
           email: 'careforcreate@ssppglenview.org',
       },
@@ -484,7 +484,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Prison Outreach',
         summary: 'Ministering to those who are incarcerated.',
-        description: 'Our Prison Outreach ministry extends the love and presence of the Church to those who are incarcerated, offering spiritual support and connection.',
+        description: 'In Matthew 25 Jesus emphasizes ministry to prisoners as essential to our own salvation. Currently, with a blessing from the priest and training from experts, parishioners can participate in letter-writing to prisoners and provide material support to their families. Additional opportunities are anticipated in the future.',
       // image: 'images/ministries/prison.jpg',
         calendarCategory: 'philanthropy',
         contact: {
@@ -504,11 +504,11 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Georgia Photopulos Cancer Support Group',
         summary: 'Compassionate support for those affected by cancer.',
-        description: 'The Cancer Support Ministry, started in 1981 by Georgia Photopulos and Fr. George Scoulas, was renamed in Georgia\'s memory in 2012. Her spirit of compassionate emotional support, gentle guidance, faith, and good humor continue to be the foundation of our group.',
+        description: "The Cancer Support Ministry, started in 1981 by Georgia Photopulos and Fr. George Scoulas, was renamed in Georgia's memory in 2012. Her spirit of compassionate emotional support, gentle guidance, faith and good humor continue to be the foundation of our group. Meetings are held on the second Tuesday of each month. They are open to our parishioners and those of other Orthodox churches, as well as individuals from other denominations.",
        // image: 'images/ministries/cancer.jpg',
         calendarCategory: 'support_groups',
         contact: {
-          name: 'Bud Photopoulos',
+          name: 'Bud Photopulos',
           role: 'Group Leader',
           email: 'cancersupport@ssppglenview.org',
       },
@@ -516,7 +516,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Grief & Loss Support',
         summary: 'A place to process loss within the context of our faith.',
-        description: 'Our Grief & Loss Support ministry offers a compassionate space for parishioners navigating the loss of a loved one, grounded in the comfort and hope of the Orthodox Christian faith.',
+        description: 'Death and loss are a part of life but are often difficult to manage because of trauma and pain. This group offers communal and personal support during trying times. Grief is a journey and requires active effort. People who have experienced significant loss can often provide the best care. This ministry is for everyone along the journey of grief.',
        // image: 'images/ministries/grief.jpg',
         calendarCategory: 'support_groups',
         contact: {
@@ -528,7 +528,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Divorce Rebuilders',
         summary: 'Support, guidance, and hope for the separated and divorced.',
-        description: 'Saints Peter and Paul\'s Divorce Rebuilders Group is an Orthodox ministry that offers support, guidance, and hope to those who are separated and divorced. For the last fifteen years, Divorce Rebuilders has addressed the contemporary needs of Orthodox Christians by offering them a place to process the many aspects of the divorce experience through instruction, guidance, and support.',
+        description: "Saints Peter and Paul's Divorce Rebuilders Group (Hybrid - Online and In-Person SSPP Library) is an Orthodox ministry that offers support, guidance, and hope to those who are separated and divorced. For the last nine years, Divorce Rebuilders has addressed the contemporary needs of Orthodox Christians by offering them a place to process the many aspects of the divorce experience. Group session activities are grounded in psychoeducational and faith-based principles and references. One group session is led by the parish priest. An important program component includes opportunities to socialize with other group participants.",
          // image: 'images/ministries/divorce.jpg',
         detailPageUrl: 'ministries/divorcerebuilders.html',
         calendarCategory: 'support_groups',
