@@ -305,12 +305,24 @@
 }
 
 /* ---- Upcoming events (calendar feed) ---- */
+#ministryUpcomingEvents {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 760px) {
+  #ministryUpcomingEvents {
+    grid-template-columns: 1fr;
+  }
+}
+
 .mp-event-card {
   display: block;
   border: 1px solid var(--brd);
   border-radius: var(--radius-md);
   padding: 0.85rem 1rem;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0;
   text-decoration: none;
   transition: border-color 0.15s ease;
 }
