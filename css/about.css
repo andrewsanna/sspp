@@ -373,14 +373,6 @@
   order: 2;
 }
 
-.ab-staff-row.is-reversed .ab-staff-text {
-  text-align: right;
-}
-
-.ab-staff-row.is-reversed .ab-staff-meta {
-  justify-content: flex-end;
-}
-
 .ab-staff-photo {
   border-radius: var(--radius-lg);
   overflow: hidden;
