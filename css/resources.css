@@ -233,17 +233,19 @@
 
 /* Paired 2-column layout */
 .rs-pair-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-  align-items: start;
+  min-width: 0;
 }
 
 .rs-pair-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
+  min-width: 0;
+}
+
+.rs-form-row input,
+.rs-form-row textarea,
+.rs-form-row select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .rs-pair-card > p {
