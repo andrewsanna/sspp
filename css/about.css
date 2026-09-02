@@ -352,7 +352,7 @@
 .ab-staff-list {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem; /* tighter now that rows are shorter */
+  gap: 3rem;
   margin-top: 1rem;
 }
 
