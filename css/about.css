@@ -360,7 +360,7 @@
   display: grid;
   grid-template-columns: 170px 1fr;
   gap: 1.75rem;
-  align-items: center;
+  align-items: start;
 }
 
 .ab-staff-row.is-reversed {
