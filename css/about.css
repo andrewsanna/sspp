@@ -358,13 +358,13 @@
 
 .ab-staff-row {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 2.5rem;
+  grid-template-columns: 220px 1fr;
+  gap: 2rem;
   align-items: start;
 }
 
 .ab-staff-row.is-reversed {
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: 1fr 220px;
 }
 
 .ab-staff-row.is-reversed .ab-staff-photo {
