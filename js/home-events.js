@@ -104,6 +104,119 @@ function homeGetDescriptionText(description, maxLength = 100) {
 }
 
 // ============================================
+// "This Week" — pulls from every non-featured calendar,
+// merges, groups by day. Featured calendar is excluded here
+// since it already has its own section above.
+// ============================================
+async function fetchCalendarEvents(calendarId, timeMin, timeMax) {
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?` +
+    new URLSearchParams({
+      key: GOOGLE_API_KEY,
+      singleEvents: 'true',
+      orderBy: 'startTime',
+      timeMin: timeMin.toISOString(),
+      timeMax: timeMax.toISOString(),
+      maxResults: '20',
+    });
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status} for calendar ${calendarId}`);
+  return res.json();
+}
+
+async function fetchThisWeekEvents() {
+  const timeMin = new Date();
+  const timeMax = new Date();
+  timeMax.setDate(timeMax.getDate() + 7);
+
+  const nonFeaturedCalendars = CALENDARS.filter(c => !c.featured);
+
+  // allSettled so one broken/rate-limited calendar doesn't take down the rest
+  const results = await Promise.allSettled(
+    nonFeaturedCalendars.map(cal =>
+      fetchCalendarEvents(cal.id, timeMin, timeMax).then(data => ({ data, category: cal.category }))
+    )
+  );
+
+  const events = [];
+  results.forEach((result) => {
+    if (result.status !== 'fulfilled') {
+      console.warn('This Week: a calendar failed to load', result.reason);
+      return;
+    }
+    const { data, category } = result.value;
+    (data.items || []).forEach((raw) => {
+      const isAllDay = !raw.start?.dateTime;
+      const startRaw = raw.start?.dateTime || raw.start?.date;
+      const start = homeParseGoogleDate(startRaw, isAllDay);
+      if (!start) return;
+      events.push({
+        id: raw.id,
+        title: raw.summary || 'Untitled event',
+        start,
+        isAllDay,
+        category,
+      });
+    });
+  });
+
+  return events
+    .filter(e => e.start.getTime() >= Date.now() - 86400000)
+    .sort((a, b) => a.start - b.start);
+}
+
+function homeFormatDayHeader(date) {
+  return date.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' });
+}
+
+function homeFormatEventTime(ev) {
+  if (ev.isAllDay) return 'All day';
+  return ev.start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+}
+
+function renderThisWeek(events) {
+  const container = document.getElementById('thisWeekList');
+  if (!container) return;
+
+  if (events.length === 0) {
+    container.innerHTML = `<p style="text-align:center; color:var(--mt); font-size:0.85rem; padding:1rem 0;">Nothing else on the calendar this week.</p>`;
+    return;
+  }
+
+  const groups = [];
+  let currentDay = null;
+  let currentGroup = null;
+  events.forEach((ev) => {
+    const dayKey = ev.start.toDateString();
+    if (dayKey !== currentDay) {
+      currentDay = dayKey;
+      currentGroup = { date: ev.start, events: [] };
+      groups.push(currentGroup);
+    }
+    currentGroup.events.push(ev);
+  });
+
+  container.innerHTML = groups.map(group => `
+    <div class="week-day-group">
+      <div class="week-day-header">${homeEscapeHtml(homeFormatDayHeader(group.date))}</div>
+      ${group.events.map(ev => `
+        <div class="week-row" data-event-id="${homeEscapeHtml(ev.id)}">
+          <span class="week-time">${homeEscapeHtml(homeFormatEventTime(ev))}</span>
+          <span class="week-title">${homeEscapeHtml(ev.title)}</span>
+          <span class="week-tag week-tag--${homeEscapeHtml(ev.category)}">${homeEscapeHtml(CATEGORY_LABELS[ev.category] || ev.category)}</span>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.week-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const id = row.dataset.eventId;
+      window.location.href = `calendar.html?event=${encodeURIComponent(id)}`;
+    });
+  });
+}
+
+// ============================================
 // Fetch
 // ============================================
 async function fetchHomeFeaturedEvents() {
