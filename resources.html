@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/about.css" />
   <link rel="stylesheet" href="css/resources.css" />
   <link rel="stylesheet" href="css/pastors-corner.css" />
+  <link rel="stylesheet" href="css/home.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
@@ -93,6 +94,22 @@
 
         <!-- OPEN REGISTRATIONS -->
         <div class="rs-pair-card" id="registrations">
+
+          <!-- COMING UP -->
+          <div class="rs-comingup-block">
+            <div class="rs-pair-icon"><i class="ti ti-calendar-event" aria-hidden="true"></i></div>
+            <span class="eyebrow">This Week</span>
+            <div class="section-header" style="margin-bottom: 0.5rem;">
+              <div>
+                <h3 class="rs-subtitle" style="margin-top: 0;">Coming Up</h3>
+                <a href="calendar.html?view=week" class="section-link section-link--cta">View full week <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div id="next3DaysResources" class="week-list week-list--single"></div>
+          </div>
+
+          <hr class="rs-divider">
+
           <div class="rs-pair-icon"><i class="ti ti-clipboard-list" aria-hidden="true"></i></div>
           <span class="eyebrow">Sign Up</span>
           <h2 class="rs-section-title">Open registrations</h2>
@@ -341,5 +358,18 @@
   <script src="js/registrations.js"></script>
   <script src="js/life-events-data.js"></script>
   <script src="js/life-events.js"></script>
+  <script src="js/calendar-config.js"></script>
+  <script src="js/home-events.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const events = await fetchUpcomingDaysEvents(3);
+        renderDayGroupedList('next3DaysResources', events);
+      } catch (err) {
+        console.warn('Resources Coming Up failed to load:', err);
+        renderDayGroupedList('next3DaysResources', []);
+      }
+    });
+  </script>
 </body>
 </html>
