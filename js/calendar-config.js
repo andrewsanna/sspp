@@ -20,17 +20,17 @@ const CALENDARS = [
   { id: 'c_9mqtoubk1kms38jh7h91hck0a4@group.calendar.google.com', category: 'youth', featured: false }, // sr. goya
   { id: 'c_f945mtpotllnf56tf6o49nc6eo@group.calendar.google.com', category: 'youth', featured: false },
   { id: 'c_9nrl9dcjrel1iu3ls7qc5icl9c@group.calendar.google.com', category: 'youth', featured: false }, // greek school
+  // Church School
+  { id: 'c_cj89fuufhotqpi6d80no8vgmc8@group.calendar.google.com', category: 'youth', featured: false }, // church school
+  { id: 'e7o0p37epk09onnmqpj92jpf2k@group.calendar.google.com', category: 'youth', featured: false }, // church school events?
 
   // Young Adults
-  { id: 'c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com', category: 'young_adults', featured: false }, // yal
-  { id: 'c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com', category: 'young_adults', featured: false }, // goyalumni
+  { id: 'c_s9q853entlatarsmfbpeqtrkmk@group.calendar.google.com', category: 'youth', featured: false }, // yal
+  { id: 'c_c8mcjr6rfa85oli9speeqs0a94@group.calendar.google.com', category: 'youth', featured: false }, // goyalumni
 
   // Athletics
   { id: 'c_sco46hbnm89pj1d222m24od8t8@group.calendar.google.com', category: 'athletics', featured: false }, // athletics
-
-  // Church School
-  { id: 'c_cj89fuufhotqpi6d80no8vgmc8@group.calendar.google.com', category: 'churchschool', featured: false }, // church school
-  { id: 'e7o0p37epk09onnmqpj92jpf2k@group.calendar.google.com', category: 'churchschool', featured: false }, // church school events?
+  //greek dance
 
   // Philanthropy
   { id: 'c_7k8pr3v1r9ni1mfbufnukb5oj4@group.calendar.google.com', category: 'philanthropy', featured: false }, // philoptochos
