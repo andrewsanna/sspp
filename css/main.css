@@ -102,6 +102,40 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
+/* Skip-to-content link — visually hidden until keyboard-focused,
+   so sighted mouse users never see it but keyboard/screen-reader
+   users can jump straight past the nav on every page load */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--gold);
+  color: var(--navy-deep);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* Respect reduced-motion preference — disable smooth scrolling and
+   the skip-link's slide-in transition for users who've asked their
+   OS to minimize motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .skip-link {
+    transition: none;
+  }
+}
+
 /* ============================================
    Typography
    ============================================ */
