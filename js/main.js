@@ -1,9 +1,9 @@
 // ============================================
-// main.js — Mobile nav toggle, Community dropdown,
-// and automatic active-link highlighting
+// main.js — Mobile nav toggle, nav dropdowns
+// (Community, Resources), and automatic
+// active-link highlighting
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
-
   // --- Mobile hamburger toggle ---
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -15,49 +15,72 @@ document.addEventListener('DOMContentLoaded', function () {
         ? '<i class="ti ti-x" aria-hidden="true"></i>'
         : '<i class="ti ti-menu-2" aria-hidden="true"></i>';
     });
-    // Close menu when a link is clicked (mobile)
+    // Close menu (and any open dropdown) when a link is clicked (mobile)
     navLinks.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
         navToggle.innerHTML = '<i class="ti ti-menu-2" aria-hidden="true"></i>';
-        const dropdown = document.getElementById('communityDropdown');
-        if (dropdown) dropdown.classList.remove('is-open');
+        closeAllDropdowns();
       });
     });
   }
 
-  // --- Community dropdown ---
-  const dropdown = document.getElementById('communityDropdown');
-  const dropdownToggle = document.getElementById('communityToggle');
-  if (dropdown && dropdownToggle) {
-    dropdownToggle.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const isOpen = dropdown.classList.toggle('is-open');
-      dropdownToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  // --- Nav dropdowns (Community, Resources) ---
+  // Each dropdown is a link (navigates to its own page, e.g. Community ->
+  // parish-life.html) plus a separate caret button that opens/closes its
+  // submenu. Handles any number of .nav-dropdown elements the same way,
+  // so adding a third one later needs no JS changes.
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+
+  function closeAllDropdowns(except) {
+    dropdowns.forEach(function (dd) {
+      if (dd === except) return;
+      dd.classList.remove('is-open');
+      const caret = dd.querySelector('.nav-dropdown-caret-btn');
+      if (caret) caret.setAttribute('aria-expanded', 'false');
     });
+  }
+
+  dropdowns.forEach(function (dropdown) {
+    const caret = dropdown.querySelector('.nav-dropdown-caret-btn');
+    if (!caret) return;
+
+    caret.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const willOpen = !dropdown.classList.contains('is-open');
+      closeAllDropdowns(willOpen ? dropdown : null);
+      dropdown.classList.toggle('is-open', willOpen);
+      caret.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
     // Desktop hover open
     dropdown.addEventListener('mouseenter', function () {
       if (window.innerWidth > 860) {
+        closeAllDropdowns(dropdown);
         dropdown.classList.add('is-open');
-        dropdownToggle.setAttribute('aria-expanded', 'true');
+        caret.setAttribute('aria-expanded', 'true');
       }
     });
     dropdown.addEventListener('mouseleave', function () {
       if (window.innerWidth > 860) {
         dropdown.classList.remove('is-open');
-        dropdownToggle.setAttribute('aria-expanded', 'false');
+        caret.setAttribute('aria-expanded', 'false');
       }
     });
-    // Close on outside click
-    document.addEventListener('click', function (e) {
+  });
+
+  // Close any open dropdown on outside click
+  document.addEventListener('click', function (e) {
+    dropdowns.forEach(function (dropdown) {
       if (!dropdown.contains(e.target)) {
         dropdown.classList.remove('is-open');
-        dropdownToggle.setAttribute('aria-expanded', 'false');
+        const caret = dropdown.querySelector('.nav-dropdown-caret-btn');
+        if (caret) caret.setAttribute('aria-expanded', 'false');
       }
     });
-  }
-
+  });
 
   // --- Active link highlighting ---
   // Compares each nav link's href against the current page filename,
@@ -67,10 +90,14 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-page]').forEach(function (link) {
     if (link.getAttribute('data-page') === currentFile) {
       link.classList.add('active');
+      // If the active page is inside a dropdown submenu (e.g. Sacraments
+      // under Community), also mark that dropdown's own top-level link
+      // (Community / Resources) as active, so the section reads as
+      // highlighted even though the visible label is the parent's.
       const parentDropdown = link.closest('.nav-dropdown');
       if (parentDropdown) {
-        const parentToggle = parentDropdown.querySelector('.nav-dropdown-toggle');
-        if (parentToggle) parentToggle.classList.add('active');
+        const parentLink = parentDropdown.querySelector('.nav-dropdown-link');
+        if (parentLink) parentLink.classList.add('active');
       }
     }
   });
