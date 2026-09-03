@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/calendar.css" />   <!-- ← add this -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
@@ -26,6 +29,7 @@
   <section id="main-content" class="hero">
     <div class="hero-video-embed" aria-hidden="true">
       <iframe
+        id="heroVideoFrame"
         src="https://www.youtube.com/embed/tNkNY9oiGOY?start=9&autoplay=1&mute=1&loop=1&playlist=tNkNY9oiGOY&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3"
         title="Saints Peter & Paul hero video"
         frameborder="0"
@@ -120,13 +124,13 @@
 
         <div class="photo-note-grid">
           <div class="photo-note-img tall">
-            <img src="images/goodfriday.jpg" alt="Good Friday epitafio ladies" />
+            <img src="images/goodfriday.jpg" width="1440" height="1469" alt="Good Friday epitafio ladies" class="img-top" />
           </div>
           <div class="photo-note-img short">
-            <img src="images/candle.jpg" alt="Close-up of hands lighting a candle" />
+            <img src="images/candle.jpg" width="417" height="626" alt="Close-up of hands lighting a candle" />
           </div>
           <div class="photo-note-img short">
-            <img src="images/youth-oldfolks.jpg" alt="Youth old folks home" />
+            <img src="images/youth-oldfolks.jpg" width="3784" height="4096" alt="Youth old folks home" class="img-top" />
           </div>
         </div>
       </div>
@@ -160,7 +164,7 @@
         <div class="min-feature-grid" id="minFeatureGrid">
         <div class="min-feature" id="minFeature1">
           <div class="photo-placeholder">
-            <img src="images/youth-jrolympics.jpg" alt="JR Olympics" />
+            <img src="images/youth-jrolympics.jpg" width="1355" height="1148" alt="JR Olympics" class="img-top" />
           </div>
           <div class="min-feature-body">
             <span class="eyebrow" style="margin-bottom:0.4rem;">Ministry Spotlight</span>
@@ -172,7 +176,7 @@
       
         <div class="min-feature" id="minFeature2">
           <div class="photo-placeholder">
-            <img src="images/philo-check.jpg" alt="Philoptochos" />
+            <img src="images/philo-check.jpg" width="1200" height="775" alt="Philoptochos" class="img-top" />
           </div>
           <div class="min-feature-body">
             <span class="eyebrow" style="margin-bottom:0.4rem;">Ministry Spotlight</span>
@@ -308,5 +312,20 @@
   <script src="js/parish-life-data.js"></script>
   <script src="js/calendar-config.js"></script>
   <script src="js/home-events.js"></script>
+  <script>
+    // Fade the hero video in once its iframe has loaded, instead of it
+    // popping into view abruptly. Note: for a YouTube embed this fires
+    // once the player itself has loaded (not necessarily the exact frame
+    // the video starts rendering), so it softens but doesn't fully
+    // eliminate the pop — a self-hosted <video> with a poster image
+    // would be the complete fix if that's ever worth the asset work.
+    (function () {
+      var frame = document.getElementById('heroVideoFrame');
+      if (!frame) return;
+      frame.addEventListener('load', function () {
+        frame.classList.add('is-loaded');
+      });
+    })();
+  </script>
 </body>
 </html>
