@@ -4,22 +4,25 @@
 /* HERO */
 .ct-hero {
   position: relative;
-  background: linear-gradient(160deg, var(--navy-deep), var(--navy));
+  background-color: var(--navy-deep);
+  background-size: cover;
+  background-position: center;
   padding: 5rem 0 6rem;
   overflow: hidden;
 }
-.ct-hero-arc {
+.ct-hero-overlay {
   position: absolute;
-  top: -40%;
-  right: -15%;
-  width: 60%;
-  height: 180%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 106, 0.08), transparent 70%);
-  pointer-events: none;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
 }
 .ct-hero-inner {
   position: relative;
+  z-index: 1;
   max-width: 700px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -29,6 +32,7 @@
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 1rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 .ct-hero-title em {
   font-style: italic;
@@ -36,7 +40,8 @@
 }
 .ct-hero-body {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.75);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   max-width: 520px;
   margin: 0 auto;
 }
@@ -412,4 +417,11 @@
   .ct-council-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* .rs-leader-accordion had no CSS at all before this — same issue as
+   .ab-staff-list on About: a literal 0px-tall empty div until
+   leader-directory.js populates it. Reserving space here too. */
+.rs-leader-accordion {
+  min-height: 280px;
 }
