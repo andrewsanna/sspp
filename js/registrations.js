@@ -47,11 +47,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    trapModalFocus(overlay);
   }
 
   function closeModal() {
     overlay.classList.remove('is-open');
     document.body.style.overflow = '';
+    releaseModalFocus();
   }
 
   if (modalClose) modalClose.addEventListener('click', closeModal);
