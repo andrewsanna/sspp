@@ -227,10 +227,12 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
   }
 
   overlay.classList.add('is-open');
+  trapModalFocus(overlay);
 }
 
 function closeMinistryModal() {
   document.getElementById('ministryModalOverlay').classList.remove('is-open');
+  releaseModalFocus();
 }
 
 function initMinistryModal() {
