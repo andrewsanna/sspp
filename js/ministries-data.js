@@ -458,7 +458,7 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
-        name: "St. Basil's Philanthropy Ministry",
+        name: "St. Basil's Philanthropy",
         summary: 'Partnering with local charities to serve those in need.',
         description: 'On behalf of the Parish, the Philanthropy Ministry partners with local charitable organizations, including Vitalant Blood Banks, Habitat for Humanity, Glenview Youth Services, and Interfaith Action of Evanston in order to fulfill every commandment of Christ in Matthew 25:35. The ministry works with every other ministry of our parish to find more opportunities to give back.',
       // image: 'images/ministries/stbasil.jpg',
