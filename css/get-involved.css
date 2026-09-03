@@ -42,31 +42,32 @@
    Warm intro hero (above the search/accordion)
    ============================================ */
 .gi-intro {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
-  padding: 3rem 0;
+  background-color: var(--navy-deep);
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 0;
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
-.gi-intro-arc {
+.gi-intro-overlay {
   position: absolute;
-  right: -60px;
-  top: -60px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 32px solid rgba(212, 175, 106, 0.08);
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
 }
 
 .gi-intro-inner {
-  max-width: 1100px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-  align-items: center;
+  z-index: 1;
 }
 
 .gi-intro-title {
@@ -74,6 +75,7 @@
   color: #fff;
   line-height: 1.3;
   margin-bottom: 0.85rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .gi-intro-title em {
@@ -83,40 +85,9 @@
 
 .gi-intro-body {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
-}
-
-.gi-intro-photo {
-  height: 220px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #8a6a3a, #5c4423);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.35);
-  font-size: 1.6rem;
-  position: relative;
-}
-
-.gi-intro-photo .ph-caption {
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(0, 0, 0, 0.35);
-  padding: 0.2rem 0.6rem;
-  border-radius: 10px;
-}
-
-@media (max-width: 760px) {
-  .gi-intro-inner {
-    grid-template-columns: 1fr;
-  }
-  .gi-intro-photo {
-    height: 180px;
-  }
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 /* ============================================
@@ -192,7 +163,8 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #fff;
-  border: 1px solid var(--brd);
+  box-shadow: 0 6px 20px rgba(18, 39, 64, 0.08);
+  border: 1px solid transparent;
   text-align: left;
   cursor: pointer;
   font-family: inherit;
@@ -201,7 +173,7 @@
 
 .feat-card:hover {
   border-color: var(--gold);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 28px rgba(18, 39, 64, 0.14);
   transform: translateY(-2px);
 }
 
@@ -313,6 +285,13 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem 2rem 3rem;
+}
+
+/* Reserve space for the full ministry directory before JS renders it —
+   it's long (9 categories), so without this the page loads looking
+   almost empty below the search bar, then suddenly grows a lot. */
+#ministryAccordion {
+  min-height: 600px;
 }
 
 /* Note: the accordion component (.acc-item, .acc-head, .acc-title, etc.)
@@ -571,15 +550,14 @@
 .ministry-modal-cal-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 1rem;
-  margin-left: auto;
-  font-size: 0.82rem;
+  gap: 0.35rem;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  color: var(--navy, #1b2a4a);
   font-weight: 600;
-  color: var(--navy-deep);
-  background: var(--gold);
-  padding: 0.6rem 1.1rem;
-  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
   text-decoration: none;
 }
 
