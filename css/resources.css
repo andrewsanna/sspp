@@ -47,75 +47,15 @@
   margin: 0 auto;
 }
 
-/* Jump nav */
-.rs-jumpnav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 1.25rem 2rem;
-  background: #fff;
-  border-bottom: 1px solid rgba(18, 39, 64, 0.08);
-  position: sticky;
-  top: 64px;
-  z-index: 90;
-}
-
-.rs-jumpnav a {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--navy-deep);
-  text-decoration: none;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(18, 39, 64, 0.15);
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-}
-
-.rs-jumpnav a:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #fff;
-}
-
-/* Sections */
-.rs-section {
-  padding: var(--space-6) 0;
-}
-
-.rs-section--alt {
-  background: var(--offwhite);
-}
-
+/* Note: .rs-jumpnav, .rs-section, .rs-section--alt, .rs-section-icon,
+   .rs-section-title, and .rs-subtitle moved to main.css as shared
+   components (also used by contact.html). .rs-section-inner and
+   .rs-section-text stay here — Resources-only. */
 .rs-section-inner {
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 2rem;
   max-width: 780px;
-}
-
-.rs-section-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--gold-lt);
-  color: var(--gold-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-}
-
-.rs-section-title {
-  font-size: 1.75rem;
-  margin-bottom: 0.9rem;
-}
-
-.rs-subtitle {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--navy-deep);
-  margin: 2rem 0 1rem;
 }
 
 .rs-section-text p {
@@ -231,53 +171,9 @@
   color: var(--gold-text);
 }
 
-/* Paired 2-column layout */
-.rs-pair-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-  align-items: start;
-  min-width: 0;
-}
-
-.rs-pair-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  min-width: 0;
-}
-
-.rs-form-row input,
-.rs-form-row textarea,
-.rs-form-row select {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.rs-pair-card > p {
-  margin-bottom: 1.25rem;
-}
-
-.rs-pair-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--gold-lt);
-  color: var(--gold-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 900px) {
-  .rs-pair-grid {
-    grid-template-columns: 1fr;
-  }
-}
+/* Note: .rs-pair-grid, .rs-pair-card, .rs-pair-card > p, .rs-pair-icon,
+   and their @media rule moved to main.css as shared components (also
+   used by contact.html). .rs-pair-grid--trio stays here — Resources-only. */
 
 /* Trio variant (3 cards in a row, e.g. Contact Card + Prayer + Blessing) */
 .rs-pair-grid--trio {
@@ -420,75 +316,11 @@
   text-decoration: underline;
 }
 
-/* Prayer request / Home blessing forms */
-.rs-form {
-  background: var(--offwhite);
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-}
-
-.rs-form-row {
-  margin-bottom: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.rs-form-row label {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--navy-deep);
-}
-
-.rs-optional {
-  font-weight: 400;
-  color: var(--mt);
-}
-
-.rs-form-row input,
-.rs-form-row textarea,
-.rs-form-row select {
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-sm);
-  padding: 0.65rem 0.85rem;
-  font-family: inherit;
-  font-size: 0.9rem;
-  color: var(--tx);
-  background: #fff;
-  resize: vertical;
-}
-
-.rs-form-row select {
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236B6457' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.85rem center;
-  padding-right: 2.2rem;
-}
-
-.rs-form-row input:focus,
-.rs-form-row textarea:focus,
-.rs-form-row select:focus {
-  outline: 2px solid var(--gold-deep);
-  outline-offset: 1px;
-}
-
-.rs-form-checkbox {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  margin-bottom: 1.4rem;
-}
-
-.rs-form-checkbox input {
-  margin-top: 0.25rem;
-}
-
-.rs-form-checkbox label {
-  font-size: 0.82rem;
-  color: var(--mt);
-}
+/* Note: .rs-form, .rs-form-row, .rs-form-row label, .rs-optional,
+   .rs-form-row input/textarea/select (+ :focus and select-arrow
+   variants), and .rs-form-checkbox all moved to main.css as shared
+   components (also used by contact.html's Get In Touch / Prayer
+   Request forms). */
 
 /* Open Registrations grid (inside the paired card) */
 .rs-reg-grid {
@@ -669,164 +501,13 @@
 
 /* Parish Council & Ministry Leaders — shared header, two columns */
 
-.rs-council-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-}
-
-.rs-council-header {
-  max-width: 640px;
-  margin-bottom: 2rem;
-}
-
-.rs-council-header .rs-section-icon {
-  margin-bottom: 0.75rem;
-}
-
-.rs-council-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-}
-
-@media (max-width: 860px) {
-  .rs-council-columns {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-/* Staff / directory rows (matches contact.html pattern) */
-.rs-staff-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.rs-staff-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  flex-wrap: wrap;
-}
-
-.rs-staff-name {
-  font-weight: 600;
-  color: var(--navy-deep);
-  font-size: 0.92rem;
-}
-
-.rs-staff-role {
-  font-size: 0.78rem;
-  color: var(--mt);
-}
-
-.rs-staff-email {
-  font-size: 0.85rem;
-  color: var(--blue);
-  text-decoration: none;
-}
-
-.rs-staff-email:hover {
-  text-decoration: underline;
-}
-
-/* Ministry Leaders accordion (rendered by js/leader-directory.js) */
-.rs-leader-cat {
-  background: var(--cream);
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  margin-bottom: 0.8rem;
-  overflow: hidden;
-}
-
-.rs-leader-cat summary {
-  padding: 1.1rem 1.4rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--navy-deep);
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.rs-leader-cat summary::-webkit-details-marker {
-  display: none;
-}
-
-.rs-leader-cat summary::after {
-  content: '\002B';
-  color: var(--gold-deep);
-  font-size: 1.1rem;
-  flex-shrink: 0;
-  margin-left: 1rem;
-  transition: transform 0.2s ease;
-}
-
-.rs-leader-cat[open] summary::after {
-  content: '\2212';
-}
-
-.rs-leader-rows {
-  padding: 0 1.4rem 1.3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-
-.rs-leader-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.6rem 0;
-  border-top: 1px solid var(--brd);
-}
-
-.rs-leader-row:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.rs-leader-name {
-  font-weight: 600;
-  color: var(--navy-deep);
-  font-size: 0.85rem;
-}
-
-.rs-leader-role {
-  font-size: 0.75rem;
-  color: var(--mt);
-}
-
-.rs-leader-email {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--gold-lt);
-  color: var(--gold-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.rs-leader-email:hover {
-  background: var(--gold);
-  color: #fff;
-}
+/* Note: .rs-council-card moved to main.css as a shared component (also
+   used by contact.html's Parish Council & Ministry Leaders section).
+   .rs-council-header/.rs-council-columns and the staff/leader-row
+   component that used to live here were removed earlier in the cleanup
+   pass — .rs-council-header/.rs-council-columns were an exact duplicate
+   of the rules in contact.css (the only page that uses them), and the
+   .rs-staff-*/.rs-leader-* rows were unused by any page's markup. */
 
 /* CTA band */
 .rs-cta {
@@ -854,11 +535,6 @@
 
   .rs-section-icon {
     margin-bottom: 0.5rem;
-  }
-
-  .rs-staff-row {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 
