@@ -5,90 +5,372 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Request a Guide — Saints Peter &amp; Paul</title>
-  <meta name="description" content="Request a welcome guide to sit with you and walk you through your first visit to Saints Peter & Paul." />
+  <title>Resources — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Bulletins, announcements, registrations, prayer requests, and contact info for Saints Peter & Paul Greek Orthodox Church in Glenview, IL." />
   <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/payment.css?v=2" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/resources.css" />
+  <link rel="stylesheet" href="css/pastors-corner.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
 
-  <!-- NAV -->
   {% include nav.html %}
 
-  <main class="pay-page">
-    <div class="pay-wrap">
+  <!-- HERO -->
+  <section id="main-content" class="rs-hero">
+    <div class="rs-hero-arc" aria-hidden="true"></div>
+    <div class="rs-hero-inner">
+      <span class="eyebrow eyebrow--on-dark">For Parishioners</span>
+      <h1 class="rs-hero-title">Everything you need,<br><em>in one place.</em></h1>
+      <p class="rs-hero-body">Bulletins, registrations, prayer requests, and how to reach us — the tools our parish family uses week to week.</p>
+    </div>
+  </section>
 
-      <a href="visit.html" class="pay-return-link">
-        <i class="ti ti-arrow-left" aria-hidden="true"></i> <span>Back to Visit</span>
-      </a>
+  <!-- QUICK NAV -->
+  <nav class="rs-jumpnav" aria-label="Resources on this page">
+    <a href="#bulletin">Bulletin</a>
+    <a href="#registrations">Registrations</a>
+    <a href="#sacraments">Sacraments</a>
+    <a href="#pastors-corner">Pastor's Corner</a>
+    <a href="#contactCard">Contact Card & Prayer Requests</a>
+    <!-- <a href="#prayer">Prayer Requests</a> -->
+    <a href="#realm">Realm</a>
+  </nav>
 
-      <header class="pay-header">
-        <div class="pay-icon-badge"><i class="ti ti-users"></i></div>
-        <h1>Request a Guide</h1>
-        <p class="pay-subtitle">Have someone from our welcome team sit with you and walk you through the service as it happens.</p>
-      </header>
 
-      <div class="pay-body pay-body--single">
-        <div class="pay-main">
+  <!-- BULLETIN + OPEN REGISTRATIONS -->
+  <section class="rs-section">
+    <div class="container">
+      <div class="rs-pair-grid">
 
-          <section class="pay-panel is-active" data-panel="1">
-            <div class="pay-form-grid">
-              <div class="pay-field">
-                <label for="rgName">Full name</label>
-                <input type="text" id="rgName" name="name" autocomplete="name" required>
-              </div>
-              <div class="pay-field">
-                <label for="rgEmail">Email</label>
-                <input type="email" id="rgEmail" name="email" autocomplete="email" required>
-              </div>
-              <div class="pay-field">
-                <label for="rgPhone">Phone number</label>
-                <input type="tel" id="rgPhone" name="phone" autocomplete="tel" required>
-              </div>
-              <div class="pay-field">
-                <label for="rgDate">Preferred Sunday</label>
-                <input type="date" id="rgDate" name="preferred_date" required>
-              </div>
-              <div class="pay-field pay-field-full">
-                <label for="rgNote">Anything you'd like us to know <span class="pay-optional">(optional)</span></label>
-                <textarea id="rgNote" name="note" rows="4" placeholder="Questions, accessibility needs, what to expect, etc."></textarea>
+        <!-- BULLETIN & ANNOUNCEMENTS -->
+        <div class="rs-pair-card" id="bulletin">
+          <div class="rs-pair-icon"><i class="ti ti-news" aria-hidden="true"></i></div>
+          <span class="eyebrow">This Week</span>
+          <h2 class="rs-section-title">Bulletin &amp; announcements</h2>
+
+          <!-- This Week's Announcements — update this block each week -->
+          <div class="rs-announce-card">
+            <div class="rs-announce-date">Week of July 5, 2026</div>
+            <ul class="rs-list">
+              <li>Festival planning meeting Thursday at 7:00 PM in the Community Center.</li>
+              <li>Coffee hour is hosted by Philoptochos this Sunday — all are welcome to stay.</li>
+              <li>Registration for Greek School's fall term opens next week.</li>
+            </ul>
+          </div>
+
+                  <!-- Life Events This Week — automatically pulled from
+             js/life-events-data.js and filtered to Sun–Sat of the
+             current week. Add new events to that file any time;
+             this list updates itself, no manual weekly editing here. -->
+        <h3 class="rs-subtitle">Life events</h3>
+        <div class="rs-lifeevents-card" id="lifeEventsList"></div>
+
+          <!-- Bulletin Archive — add a new row each week, newest first -->
+          <h3 class="rs-subtitle">Past bulletins</h3>
+          <ul class="rs-bulletin-list">
+            <li>
+              <a href="bulletins/2026-06-28.pdf" target="_blank" rel="noopener">
+                <i class="ti ti-file-text" aria-hidden="true"></i>
+                June 28, 2026
+              </a>
+            </li>
+            <li>
+              <a href="bulletins/2026-06-21.pdf" target="_blank" rel="noopener">
+                <i class="ti ti-file-text" aria-hidden="true"></i>
+                June 21, 2026
+              </a>
+            </li>
+            <li>
+              <a href="bulletins/2026-06-14.pdf" target="_blank" rel="noopener">
+                <i class="ti ti-file-text" aria-hidden="true"></i>
+                June 14, 2026
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- OPEN REGISTRATIONS -->
+        <div class="rs-pair-card" id="registrations">
+
+          <!-- COMING UP -->
+          <div class="rs-comingup-block">
+            <span class="eyebrow">Schedule</span>
+            <div class="section-header" style="margin-bottom: 0.5rem;">
+              <div>
+                <h3 class="rs-subtitle" style="margin-top: 0;">Coming Up</h3>
+                <a href="calendar.html?view=week" class="section-link section-link--cta">View full week <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
               </div>
             </div>
+            <div id="next3DaysResources" class="week-list week-list--single"></div>
+          </div>
+          <hr class="rs-divider">
 
-            <div class="pay-panel-actions">
-              <button class="pay-btn pay-btn-primary" id="rgSubmit">
-                Submit Request <i class="ti ti-arrow-right" aria-hidden="true"></i>
-              </button>
-            </div>
-          </section>
+          <!-- <div class="rs-pair-icon"><i class="ti ti-clipboard-list" aria-hidden="true"></i></div> -->
+          <span class="eyebrow">Sign Up</span>
+          <h2 class="rs-section-title">Open registrations</h2>
+          <p>Whatever's currently open for registration — tap any card for details.</p>
 
-          <section class="pay-panel" data-panel="success">
-            <div class="pay-success">
-              <div class="pay-success-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
-              <h2>Request sent!</h2>
-              <p>Someone from our welcome team will reach out before Sunday to confirm.</p>
-              <a href="visit.html" class="pay-btn pay-btn-primary">Back to Visit</a>
+          <!-- Populated by js/registrations.js from js/payment-data.js -->
+          <div class="rs-reg-grid" id="openRegistrationsGrid"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+   <!-- SACRAMENTS -->
+  <section class="ab-faith section" id="sacraments">
+    <div class="container">
+      <span class="eyebrow">Life Events</span>
+      <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Marking life's holiest moments</h2>
+      <div class="ab-faith-card">
+        <div class="ab-faith-icon">
+          <i class="ti ti-droplet" aria-hidden="true"></i>
+        </div>
+        <div class="ab-faith-card-text">
+          <h2>Baptism, weddings, memorials, and more</h2>
+          <p>From a child's first blessing to a marriage's first steps to a loved one's final rest, our clergy walk with parish families through each of these sacraments. Find what to expect and how to start planning.</p>
+        </div>
+        <a href="sacraments.html" class="btn btn-gold-lg">
+          Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <!-- PASTOR'S CORNER -->
+  <section class="ab-faith section" id="pastors-corner">
+    <div class="container">
+      <span class="eyebrow">From Fr. Rick</span>
+      <h2 class="ab-section-title" style="margin-bottom: 1.5rem;">Pastor's Corner</h2>
+      <div class="ab-faith-card">
+        <div class="ab-faith-icon">
+          <i class="ti ti-message-circle-2" aria-hidden="true"></i>
+        </div>
+        <div class="ab-faith-card-text">
+          <h2>Reflections on faith and everyday life</h2>
+          <p>Fr. Rick's writing on scripture, the sacraments, and the questions parishioners bring to him most — plus a link to recent sermons.</p>
+        </div>
+        <a href="pastors-corner.html" class="btn btn-gold-lg">
+          Read More <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+    <!-- CONTACT CARD + PRAYER REQUESTS -->
+  <section class="rs-section rs-section--alt">
+    <div class="container">
+      <div class="rs-pair-grid">
+
+        <!-- DIGITAL CONTACT CARD -->
+        <div class="rs-pair-card" id="contactCard">
+          <div class="rs-pair-icon"><i class="ti ti-address-book" aria-hidden="true"></i></div>
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="rs-section-title">Have someone reach out to you</h2>
+          <p>Tell us a bit about yourself and what you're looking for — we'll make sure it gets to the right person. (This is the form linked from the QR code in the weekly bulletin.)</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="ccName">Your name</label>
+              <input type="text" id="ccName" name="name" required>
             </div>
-          </section>
+            <div class="rs-form-row">
+              <label for="ccPhone">Phone</label>
+              <input type="tel" id="ccPhone" name="phone" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccTopic">I'd like to talk to someone about</label>
+              <select id="ccTopic" name="topic" required>
+                <option value="" disabled selected>Choose one</option>
+                <option value="general">General / Parish Office</option>
+                <option value="sacraments">Sacraments (Baptism, Wedding, Funeral)</option>
+                <option value="ministries">Ministries &amp; Getting Involved</option>
+                <option value="youth">Youth &amp; Young Adults</option>
+                <option value="stewardship">Stewardship &amp; Giving</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccContactMethod">Preferred contact method</label>
+              <select id="ccContactMethod" name="preferred_contact_method">
+                <option value="phone">Phone call</option>
+                <option value="text">Text</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="rs-form-row">
+              <label for="ccNotes">Anything else? <span class="rs-optional">(optional)</span></label>
+              <textarea id="ccNotes" name="notes" rows="3" placeholder="A little more detail helps us connect you with the right person"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Request a callback <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- PRAYER REQUESTS -->
+        <div class="rs-pair-card" id="prayer">
+          <div class="rs-pair-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+          <span class="eyebrow">Prayer List</span>
+          <h2 class="rs-section-title">Submit a prayer request</h2>
+          <p>Share a name or intention you'd like our clergy and prayer team to hold in prayer. Requests marked private are seen only by the clergy — everything else may be included in the parish prayer list read during services.</p>
+
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+          <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="rs-form-row">
+              <label for="rsName">Your name</label>
+              <input type="text" id="rsName" name="name" required>
+            </div>
+            <div class="rs-form-row">
+              <label for="rsRequest">Prayer request</label>
+              <textarea id="rsRequest" name="request" rows="4" required placeholder="Name(s) and what you'd like prayers for"></textarea>
+            </div>
+            <div class="rs-form-checkbox">
+              <input type="checkbox" id="rsPrivate" name="private">
+              <label for="rsPrivate">Keep this request private (clergy only — not read publicly)</label>
+            </div>
+            <button type="submit" class="btn btn-gold-lg">
+              Submit request <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SSPP REALM -->
+  <section class="rs-section rs-section--alt" id="realm">
+    <div class="container">
+      <div class="rs-realm-card">
+
+        <div class="rs-realm-columns">
+
+          <!-- LEFT: FAQ -->
+          <div class="rs-realm-faq-col">
+            <div class="rs-realm-header">
+              <div class="rs-section-icon"><i class="ti ti-address-book" aria-hidden="true"></i></div>
+              <span class="eyebrow">Member Portal</span>
+              <h2 class="rs-section-title">SSPP Realm</h2>
+              <p>Realm is our parish's church database — built mainly to support our staff, but it also makes it easier for our church family to stay connected with each other and with parish life.</p>
+            </div>
+            <h3 class="rs-subtitle" style="margin-top: 0;">Common questions</h3>
+            <div class="rs-faq">
+              <details class="rs-faq-item">
+                <summary>What is SSPP Realm?</summary>
+                <p>Realm is our new church database. It primarily serves the administrative needs of our staff, but it also has features that support the way you're involved in the church — helping our parish family connect with one another.</p>
+              </details>
+              <details class="rs-faq-item">
+                <summary>What can I see and do in SSPP Realm?</summary>
+                <p>You decide how much of Realm you want to use. You can view your giving statements, make or edit contributions, connect with the ministries you're part of, and see our parish directory with photos.</p>
+              </details>
+              <details class="rs-faq-item">
+                <summary>How do I request and sign up for my account?</summary>
+                <p>Fill in the request form to the right and it will be sent to our parish administrator. Within 48 hours you'll get an email from Sts. Peter &amp; Paul inviting you to create an account. It will prompt you to set a password — once you log in, your account is active.</p>
+              </details>
+              <details class="rs-faq-item">
+                <summary>How do I get the SSPP Realm app?</summary>
+                <p>Scan the QR code, or use the sign-in link, to open Realm on your phone or computer.</p>
+              </details>
+            </div>
+          </div>
+
+          <!-- RIGHT: QR + Request Form -->
+          <div class="rs-realm-action-col">
+            <div class="rs-realm-qr">
+              <img src="images/realmQR.jpg" width="205" height="218" alt="QR code to sign in to SSPP Realm">
+              <p>Scan to open Realm</p>
+              <a href="https://onrealm.org/ssppglenview/SignIn" target="_blank" rel="noopener" class="rs-realm-link">
+                Already have an account? Sign in <i class="ti ti-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="rs-realm-signup">
+              <h3 class="rs-subtitle" style="margin-top: 0;">Request an account</h3>
+              <p>New to Realm? Submit a request and our parish administrator will send you an invitation.</p>
+
+              <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+              <form class="rs-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="rs-form-row">
+                  <label for="realmName">Your name</label>
+                  <input type="text" id="realmName" name="name" required>
+                </div>
+                <div class="rs-form-row">
+                  <label for="realmEmail">Your email</label>
+                  <input type="email" id="realmEmail" name="email" required>
+                </div>
+                <button type="submit" class="btn btn-gold-lg">
+                  Request Realm account <i class="ti ti-arrow-right" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>
 
         </div>
       </div>
-
     </div>
-  </main>
+  </section>
 
-  <!-- FOOTER -->
+  <!-- CTA -->
+  <section class="rs-cta">
+    <h2>Can't find what you need?</h2>
+    <p>The parish office is always happy to point you in the right direction.</p>
+    <div class="vh-hero-ctas">
+      <a class="btn btn-gold-lg" href="contact.html">Contact the parish office</a>
+    </div>
+  </section>
+
+  <!-- REGISTRATION DETAIL MODAL -->
+  <div class="reg-modal-overlay" id="regModalOverlay">
+    <div class="reg-modal" role="dialog" aria-modal="true" aria-labelledby="regModalTitle">
+      <button class="reg-modal-close" id="regModalClose" aria-label="Close">
+        <i class="ti ti-x" aria-hidden="true"></i>
+      </button>
+      <div class="reg-modal-icon"><i class="ti" id="regModalIcon" aria-hidden="true"></i></div>
+      <div class="eyebrow" id="regModalSubtitle"></div>
+      <h2 class="reg-modal-title" id="regModalTitle"></h2>
+      <p class="reg-modal-desc" id="regModalDesc"></p>
+      <div class="reg-modal-schedule" id="regModalSchedule">
+        <i class="ti ti-clock" aria-hidden="true"></i>
+        <span id="regModalScheduleText"></span>
+      </div>
+      <div class="reg-modal-footer">
+        <div class="reg-modal-price" id="regModalPrice"></div>
+        <a href="#" id="regModalCta" class="btn btn-gold-lg">
+          Register Now <i class="ti ti-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
   {% include footer.html %}
 
+  <script src="js/main.js"></script>
+  <script src="js/modal-a11y.js"></script>
+  <script src="js/payment-data.js"></script>
+  <script src="js/registrations.js"></script>
+  <script src="js/life-events-data.js"></script>
+  <script src="js/life-events.js"></script>
+  <script src="js/calendar-config.js"></script>
+  <script src="js/home-events.js"></script>
   <script>
-    document.getElementById('rgSubmit').addEventListener('click', function () {
-      // TODO: wire up to real form backend
-      document.querySelector('[data-panel="1"]').classList.remove('is-active');
-      document.querySelector('[data-panel="success"]').classList.add('is-active');
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const events = await fetchUpcomingDaysEvents(3);
+        renderDayGroupedList('next3DaysResources', events);
+      } catch (err) {
+        console.warn('Resources Coming Up failed to load:', err);
+        renderDayGroupedList('next3DaysResources', []);
+      }
     });
   </script>
 </body>
