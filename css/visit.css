@@ -38,6 +38,7 @@
   color: #fff;
   line-height: 1.3;
   margin-bottom: 0.9rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .vh-hero-title em {
@@ -50,6 +51,7 @@
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   margin-bottom: 1.75rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 640px) {
@@ -408,7 +410,7 @@ align-items: left;
   max-width: 900px;
   margin: 0 auto;
   background: var(--gold-lt);
-  border: 1px solid var(--brd);
+  box-shadow: 0 8px 28px rgba(18, 39, 64, 0.10);
   border-radius: var(--radius-lg);
   padding: 2.4rem 2.2rem;
   display: flex;
