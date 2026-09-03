@@ -12,6 +12,22 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
+// ----- Deep-link helpers -----
+// Turns a ministry name into a URL-safe id, e.g. "Sr. GOYA" -> "sr-goya".
+// Used both when rendering each ministry card's id and when matching a
+// URL hash (get-involved.html#sr-goya) back to a ministry.
+function slugify(str) {
+  return str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function findMinistryBySlug(slug) {
+  for (const cat of MINISTRY_CATEGORIES) {
+    const ministry = cat.ministries.find((m) => slugify(m.name) === slug);
+    if (ministry) return { ministry, category: cat };
+  }
+  return null;
+}
+
 function renderAccordion(filterText = '') {
   const root = document.getElementById('ministryAccordion');
   if (!root) return;
@@ -70,7 +86,7 @@ function renderMinistryCard(ministry, category) {
     : '';
 
   return `
-    <button class="ministry-card ${ministry.inactive ? 'is-inactive' : ''}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}">
+    <button class="ministry-card ${ministry.inactive ? 'is-inactive' : ''}" id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}">
       <div class="ministry-card-photo">
         <i class="ti ti-camera" aria-hidden="true"></i>
       </div>
@@ -239,8 +255,23 @@ function initSearch() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Deep-link support: get-involved.html#sr-goya should land with that
+  // ministry's category already open, the card scrolled into view, and
+  // its detail modal open — used by the homepage "Ministry Spotlight"
+  // links (and anywhere else that wants to point at one specific
+  // ministry instead of the general page).
+  const hash = window.location.hash.replace('#', '');
+  const deepLink = hash ? findMinistryBySlug(hash) : null;
+  if (deepLink) openCategoryId = deepLink.category.id;
+
   renderAccordion();
   initSearch();
   initMinistryModal();
   attachFeaturedCardHandlers();
+
+  if (deepLink) {
+    const card = document.getElementById(hash);
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    openMinistryModal(deepLink.ministry, deepLink.category);
+  }
 });
