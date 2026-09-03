@@ -24,7 +24,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--color-gold, #b08d3f);
+  background: var(--gold);
   color: #fff;
   font-weight: 600;
   padding: 0.9rem 2.25rem;
@@ -32,7 +32,7 @@
   text-decoration: none;
   transition: background 0.2s ease;
 }
-.give-btn:hover { background: #9c7a34; }
+.give-btn:hover { background: var(--gold-deep); }
 .give-note {
   margin: 0.9rem 0 0;
   font-size: 0.85rem;
