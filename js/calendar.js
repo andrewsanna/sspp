@@ -637,10 +637,12 @@ function openEventModal(event) {
   `).join('');
 
   overlay.classList.add('is-open');
+  trapModalFocus(overlay);
 }
 
 function closeEventModal() {
   document.getElementById('eventModalOverlay').classList.remove('is-open');
+  releaseModalFocus();
 }
 
 function initEventModal() {
