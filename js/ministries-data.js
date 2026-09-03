@@ -114,7 +114,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Myrrhbearers',
         summary: 'Girls (1st–12th grade) serving in the liturgical life of the parish.',
         description: 'The Myrrhbearers Ministry provides opportunities for our girls to participate in the liturgical life of our parish so that they can cultivate a deeper love for Christ. During the year 3rd-12th grade Myrrhbearers have liturgical roles similar to and alongside the Acolytes during Divine Liturgy and other weekday services. During Holy Week, 1st-12th grade Myrrhbearers not only participate in roles similar to the Acolytes but also in unique roles that reflect the presence of the Myrrhbearing women during Christ\'s Passion and Resurrection.',
-        image: 'images/myrrhbearers.jpg',
+        image: 'images/myrrbearers.jpg',
         calendarCategory: 'liturgical',
         contact: {
           name: 'Steven Thell',
@@ -429,7 +429,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Greek Dance (Adult)',
         summary: 'Celebrate Greek heritage through traditional song and dance.',
         description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. The adult group meets regularly, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
-        image: 'images/greekdance-a.jpg',
+        image: 'images/ministries/greekdance-a.jpg',
           // calendarCategory: 'activities',
         contact: {
           name: 'Anna Andrews',
