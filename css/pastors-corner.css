@@ -3,22 +3,24 @@
    ============================================ */
 
 .pc-hero {
-  background: var(--navy-deep);
+  background-color: var(--navy-deep);
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
   padding: 4.5rem 2rem 5rem;
   text-align: center;
 }
 
-.pc-hero-arc {
+.pc-hero-overlay {
   position: absolute;
-  bottom: -60%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140%;
-  padding-bottom: 140%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 106, 0.12), transparent 65%);
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
 }
 
 .pc-hero-inner {
@@ -32,6 +34,7 @@
   font-size: 2.25rem;
   color: #fff;
   margin: 0.5rem 0 1rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .pc-hero-title em {
@@ -40,10 +43,11 @@
 }
 
 .pc-hero-body {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 1.02rem;
   max-width: 460px;
   margin: 0 auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 /* Sermons featured card */
