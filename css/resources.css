@@ -507,7 +507,7 @@
    component that used to live here were removed earlier in the cleanup
    pass — .rs-council-header/.rs-council-columns were an exact duplicate
    of the rules in contact.css (the only page that uses them), and the
-   .rs-staff-*/.rs-leader-* rows were unused by any page's markup. */
+   .rs-staff-.rs-leader-* rows were unused by any page's markup. */
 
 /* CTA band */
 .rs-cta {
