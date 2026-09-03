@@ -426,6 +426,17 @@
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
+/* Reserve space for the month view before JS populates it, so the page
+   doesn't visibly grow once the calendar loads (view-week already had
+   this — the default month view didn't). */
+.day-grid.view-month {
+  min-height: 480px;
+}
+
+#comingUpSlot {
+  min-height: 140px;
+}
+
 .day-list {
   padding: 1.25rem;
   display: flex;
