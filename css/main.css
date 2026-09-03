@@ -444,28 +444,45 @@ p {
 }
 
 /* ============================================
-   Community dropdown (nested in nav-links)
+   Nav dropdowns (Community, Resources) —
+   each is a clickable link + a separate caret
+   button that opens/closes the submenu
    ============================================ */
 .nav-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
-.nav-dropdown-toggle {
+.nav-dropdown-link {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color 0.15s ease;
+}
+
+.nav-dropdown-link:hover,
+.nav-dropdown-link.active {
+  color: var(--gold);
+}
+
+.nav-dropdown-caret-btn {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.85rem;
-  font-family: inherit;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0;
+  justify-content: center;
+  padding: 0.4rem;
+  margin: -0.4rem -0.4rem -0.4rem -0.15rem; /* keeps a real tap target without pushing layout */
   cursor: pointer;
   transition: color 0.15s ease;
 }
 
-.nav-dropdown-toggle:hover,
-.nav-dropdown-toggle.active {
+.nav-dropdown-caret-btn:hover,
+.nav-dropdown.is-open .nav-dropdown-caret-btn {
   color: var(--gold);
 }
 
@@ -521,12 +538,14 @@ p {
 
    .nav-dropdown {
     width: 100%;
+    justify-content: space-between;
   }
 
-  .nav-dropdown-toggle {
-    width: 100%;
+  .nav-dropdown-caret-btn {
+    padding: 0.6rem; /* larger tap target on mobile, per accessibility touch-target guidance */
+    margin: -0.6rem;
   }
-   
+
   .nav-dropdown-menu {
     position: static;
     transform: none;
@@ -547,12 +566,6 @@ p {
   .nav-dropdown.is-open .nav-dropdown-menu {
     max-height: 300px;
     margin-top: 0.5rem;
-  }
-
-  .nav-dropdown-toggle {
-    width: 100%;
-    justify-content: space-between;
-    padding: 0.25rem 0;
   }
 
   .nav-dropdown-menu a {
@@ -829,4 +842,3 @@ padding: var(--space-5) 0;
   .follow-float a { width: 48px; height: 48px; font-size: 1.3rem; }
   .follow-float { right: 0.75rem; }
 }
-
