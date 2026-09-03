@@ -248,8 +248,45 @@
   overflow: hidden;
   transition: max-height 0.25s ease;
 }
-.faq-item--open .faq-answer { max-height: 240px; }
+.faq-item--open .faq-answer { max-height: 900px; }
 .faq-answer p { padding: 0 0 1.1rem; margin: 0; color: var(--color-navy, #1a2744); }
+
+/* Giving table inside FAQ */
+.giving-table-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+.giving-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.giving-table th,
+.giving-table td {
+  padding: 0.6rem 0.9rem;
+  text-align: right;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.giving-table th:first-child,
+.giving-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+.giving-table thead th {
+  color: var(--color-gold, #b08d3f);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--color-gold, #b08d3f);
+}
+.giving-table tbody tr:last-child td { border-bottom: none; }
+
+/* Inline bullet list inside FAQ answers */
+.faq-list-inline {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+}
+.faq-list-inline li { margin-bottom: 0.5rem; }
 
 /* Other ways to give — plain list */
 .ways-list {
