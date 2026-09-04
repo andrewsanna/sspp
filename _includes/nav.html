@@ -34,8 +34,23 @@
         </div>
       </div>
 
-      <a href="{{ '/calendar.html' | relative_url }}" data-page="calendar.html">Calendar</a>
-
+          <!-- CALENDAR: clickable link to Calendar + dropdown caret -->
+      <div class="nav-dropdown" data-dropdown="calendar">
+        <a href="{{ '/calendar.html' | relative_url }}" class="nav-dropdown-link" data-page="calendar.html">
+          Calendar
+        </a>
+        <button class="nav-dropdown-caret-btn" data-dropdown-toggle="calendar" aria-expanded="false" aria-controls="calendarMenu" aria-label="Toggle Calendar menu">
+          <i class="ti ti-chevron-down nav-dropdown-caret" aria-hidden="true"></i>
+        </button>
+        <div class="nav-dropdown-menu" id="calendarMenu">
+          <!-- Seasonal pages are commented in/out manually by date.
+               TODO: replace with a date-range config once the site has a backend. -->
+          <a href="{{ '/seasonal/greek-fest.html' | relative_url }}" data-page="greek-fest.html">Greek Fest</a>
+          <!-- <a href="{{ '/seasonal/holy-week.html' | relative_url }}" data-page="holy-week.html">Holy Week</a> -->
+          <!-- <a href="{{ '/seasonal/holiday-faire.html' | relative_url }}" data-page="holiday-faire.html">Holiday Faire</a> -->
+        </div>
+      </div>
+      
       <!-- RESOURCES: clickable link to Resources + dropdown caret -->
       <div class="nav-dropdown" data-dropdown="resources">
         <a href="{{ '/resources.html' | relative_url }}" class="nav-dropdown-link" data-page="resources.html">
