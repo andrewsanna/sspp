@@ -149,6 +149,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/flj.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
+        calendarTag: 'goya',   
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
@@ -162,6 +163,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/jr-goya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
+        calendarTag: 'goya',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
@@ -175,6 +177,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/srgoya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
+         calendarTag: 'goya',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
@@ -394,7 +397,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Helping newcomers feel at home from their very first visit.',
         description: 'This group focuses on welcoming visitors and new members to our parish, reaches in to current members, and reaches out to the local community so that our parish remains a visible, active presence that invites everyone into our midst.',
         image: 'images/ministries/welcome.jpg',
-        // calendarCategory: 'liturgical',
+        calendarCategory: 'ministries',
         contact: {
           name: 'Keith Anderson and Sylvia Creatura',
           role: 'Group Leader',
@@ -406,7 +409,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Fellowship and enrichment for senior members of the parish.',
         description: "Dynamis means \"power\" or \"strength\" and it is a fellowship ministry for seniors, retired people and others in their golden years. Lunches, dinners, day trips, lectures and other activities are ministry features.",
         // image: 'images/ministries/dynamis.jpg',
-          // calendarCategory: 'activities',
+        calendarCategory: 'adult_activities',
         contact: {
           name: 'Vicky Nestor',
           role: 'Group Leader',
@@ -418,7 +421,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Adult basketball and other leagues.',
         description: 'Adult athletics leagues, including basketball, give adults in the parish a chance to stay active and build community through sport — the adult counterpart to our youth GOYA athletics programs.',
         // image: 'images/ministries/athletics-a.jpg',
-          // calendarCategory: 'activities',
+        calendarCategory: 'athletics',
         contact: {
           name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
@@ -430,7 +433,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Celebrate Greek heritage through traditional song and dance.',
         description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. The adult group meets regularly, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
         image: 'images/ministries/greekdance-a.jpg',
-          // calendarCategory: 'activities',
+        calendarCategory: 'athletics',
         contact: {
           name: 'Anna Andrews',
           role: 'Group Leader',
