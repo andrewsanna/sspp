@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greek Fest — Saints Peter &amp; Paul</title>
+  <meta name="description" content="Join us for the Glenview Greek Fest — authentic Greek food, live music, dancing, and church tours at Saints Peter & Paul Greek Orthodox Church." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/seasonal/greek-fest.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <section id="main-content" class="gf-hero">
+    <img class="gf-hero__logo" src="images/fest-logo.png" alt="SS Peter & Paul Greek Festival">
+    <p class="gf-hero__eyebrow">Saints Peter &amp; Paul Greek Orthodox Church · Glenview, Illinois</p>
+    <h1 class="gf-hero__title">Glenview Greek Fest</h1>
+    <div class="gf-hero__dates" id="gf-hero-dates"></div>
+    <p class="gf-hero__address" id="gf-hero-address"></p>
+    <div class="gf-hero__ctas">
+      <a href="#gf-menu" class="gf-btn gf-btn--primary">View the Menu</a>
+      <a href="#gf-logistics-section" class="gf-btn gf-btn--outline">Get Directions</a>
+      <a id="gf-cta-volunteer" href="#" class="gf-btn gf-btn--outline">Volunteer Sign-Up</a>
+      <a id="gf-cta-sponsor" href="#" class="gf-btn gf-btn--outline">Become a Sponsor</a>
+    </div>
+  </section>
+
+  <!-- DETAILS BAND -->
+  <div class="gf-details-band" id="gf-details-band"></div>
+
+  <!-- ABOUT -->
+  <section class="section gf-section gf-section--cream">
+    <div class="container gf-container">
+      <span class="eyebrow">About the Festival</span>
+      <h2 class="section-title gf-section-title">A Weekend of Food, Faith &amp; Celebration</h2>
+      <div class="gf-meander gf-meander--on-light"></div>
+      <div class="gf-about-grid">
+        <div class="gf-about-card">
+          <h3>Authentic Greek Food</h3>
+          <p>Gyros, souvlaki, spanakopita, loukoumades and more, made from traditional recipes — plus beer, wine, and ouzoritas.</p>
+        </div>
+        <div class="gf-about-card">
+          <h3>Live Music &amp; Dancing</h3>
+          <p>Greek music all weekend with a live DJ and traditional dance performances.</p>
+        </div>
+        <div class="gf-about-card">
+          <h3>Church Tours</h3>
+          <p>Explore our church's architecture and iconography on a guided tour.</p>
+        </div>
+        <div class="gf-about-card">
+          <h3>Kids Zone</h3>
+          <p>A dedicated space for children, plus festival vendors — a perfect family outing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section gf-section gf-section--dark" id="gf-menu">
+    <div class="container gf-container">
+      <span class="eyebrow eyebrow--on-dark">What's Cooking</span>
+      <h2 class="section-title gf-section-title">Our Full Menu</h2>
+      <div class="gf-meander gf-meander--on-dark"></div>
+      <div class="gf-menu-tabs" id="gf-menu-tabs"></div>
+      <div id="gf-menu-panels"></div>
+    </div>
+  </section>
+
+  <!-- CHURCH TOURS -->
+  <section class="section gf-section gf-section--dark" style="padding-top:0;">
+    <div class="container gf-container">
+      <div class="gf-tours-box">
+        <h3>Guided Church Tours</h3>
+        <p>Step inside our church and experience the architecture, iconography, and traditions of the Greek Orthodox faith. All are welcome.</p>
+        <p><strong>Tours held both days at:</strong></p>
+        <div class="gf-tours-times" id="gf-tours-times"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="section gf-section gf-section--cream" id="sponsors">
+    <div class="container gf-container">
+      <span class="eyebrow">Community Partners</span>
+      <h2 class="section-title gf-section-title">Thank You to Our Sponsors</h2>
+      <div class="gf-meander gf-meander--on-light"></div>
+      <div id="gf-sponsors"></div>
+      <h3 class="section-title gf-section-title" style="margin-top:40px;">Our Partners</h3>
+      <div class="gf-sponsor-row" id="gf-partners"></div>
+      <div class="learn-more-card" style="margin-top:32px;">
+        <div class="learn-more-body">
+          <h3>Interested in sponsoring the Glenview Greek Fest?</h3>
+          <p>We'd love to have you as part of next year's festival.</p>
+        </div>
+        <a class="learn-more-btn" id="gf-cta-sponsor-2" href="#">
+          Learn About Sponsorship
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGISTICS -->
+  <section class="section gf-section" id="gf-logistics-section">
+    <div class="container gf-container">
+      <span class="eyebrow">Plan Your Visit</span>
+      <h2 class="section-title gf-section-title">Getting Here</h2>
+      <div class="gf-meander gf-meander--on-light"></div>
+      <div class="gf-logistics-grid" id="gf-logistics"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+  <script src="js/main.js"></script>
+  <script src="js/seasonal/greek-fest-data.js"></script>
+  <script src="js/seasonal/greek-fest.js"></script>
+</body>
+</html>
