@@ -54,8 +54,8 @@ const CALENDARS = [
   { id: 'c_mliorq9384otdplop55be7nsfs@group.calendar.google.com', category: 'ministries', featured: false, tags: ['welcome_committee'] },
 
   // Support Groups
-  { id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com', category: 'ministries', featured: false, tags: ['support_groups', 'divorce', 'cancer', 'grief_support'] },
-
+{ id: 'c_tnvheh6pgp8049n7kp8kib3fn0@group.calendar.google.com', category: 'support_groups', featured: false, tags: ['divorce', 'cancer', 'grief_support'] },
+  
   // Metropolis Events
   { id: 'c_nsfp5dp24qlp077nn04ar8hrt8@group.calendar.google.com', category: 'metropolis_events', featured: false, tags: ['metropolis_events'] },
 ];
