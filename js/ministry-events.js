@@ -1,8 +1,11 @@
 // ============================================
 // Ministry page "Upcoming events" widget
-// Requires js/calendar-config.js loaded first, and a page-level
-// `MINISTRY_CALENDAR_CATEGORY` variable set to the ministry's category
-// (e.g. 'youth', 'philanthropy') before this script runs.
+// Requires js/calendar-config.js loaded first, and ONE of these
+// page-level variables set before this script runs:
+//   MINISTRY_CALENDAR_CATEGORY — matches a calendar's `category`
+//   MINISTRY_CALENDAR_TAG      — matches anything in a calendar's `tags`
+// Use TAG when a page needs a narrower slice than a whole category
+// (e.g. just GOYA's 3 calendars, not all 9 youth calendars).
 // ============================================
 
 function buildEventsUrl(calendarId, timeMin, timeMax) {
@@ -39,8 +42,18 @@ function normalizeEvent(raw) {
   };
 }
 
-async function fetchMinistryEvents(category) {
-  const relevantCalendars = CALENDARS.filter((c) => c.category === category);
+function getRelevantCalendars() {
+  if (typeof MINISTRY_CALENDAR_TAG !== 'undefined') {
+    return CALENDARS.filter((c) => c.tags?.includes(MINISTRY_CALENDAR_TAG));
+  }
+  if (typeof MINISTRY_CALENDAR_CATEGORY !== 'undefined') {
+    return CALENDARS.filter((c) => c.category === MINISTRY_CALENDAR_CATEGORY);
+  }
+  return [];
+}
+
+async function fetchMinistryEvents() {
+  const relevantCalendars = getRelevantCalendars();
   if (relevantCalendars.length === 0) return [];
 
   const timeMin = new Date();
@@ -79,9 +92,9 @@ function escapeHtml(str) {
 
 async function renderMinistryEvents() {
   const container = document.getElementById('ministryUpcomingEvents');
-  if (!container || typeof MINISTRY_CALENDAR_CATEGORY === 'undefined') return;
+  if (!container) return;
 
-  const events = await fetchMinistryEvents(MINISTRY_CALENDAR_CATEGORY);
+  const events = await fetchMinistryEvents();
 
   if (events.length === 0) {
     container.innerHTML = `<p style="font-size:0.85rem; color:var(--mt);">No upcoming events scheduled right now — check back soon.</p>`;
