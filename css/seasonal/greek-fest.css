@@ -1,10 +1,12 @@
 /* css/seasonal/greek-fest.css */
-/* Greek Fest brand tokens — blue/white/meander system, no gold accent */
+/* Greek Fest brand system — blue/gold/white with meander motif */
 
 :root {
   --gf-navy-deep: #0d3a5c;
   --gf-blue: #1a6491;      /* logo blue */
   --gf-blue-bright: #2196c4;
+  --gf-gold: #c9a227;
+  --gf-gold-dark: #a3841e;
   --gf-white: #ffffff;
   --gf-cream: #f7f4ef;
   --gf-ink: #1a1a2e;
@@ -69,8 +71,10 @@
   border-radius: 3px;
   text-decoration: none;
   display: inline-block;
+  transition: background 0.15s;
 }
-.gf-btn--primary { background: var(--gf-white); color: var(--gf-navy-deep); }
+.gf-btn--primary { background: var(--gf-gold); color: var(--gf-navy-deep); }
+.gf-btn--primary:hover { background: var(--gf-gold-dark); }
 .gf-btn--outline { background: transparent; color: var(--gf-white); border: 1px solid rgba(255,255,255,0.5); }
 
 /* ── Details band ── */
@@ -96,6 +100,9 @@
 }
 .gf-section--dark .gf-section-title { color: var(--gf-white); }
 
+/* Eyebrows pick up gold on dark sections */
+.gf-section--dark .eyebrow { color: var(--gf-gold); }
+
 /* ── About cards ── */
 .gf-about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 24px; }
 .gf-about-card { background: var(--gf-white); border-radius: 6px; padding: 24px; border-top: 3px solid var(--gf-blue); }
@@ -115,7 +122,7 @@
   color: rgba(255,255,255,0.75);
   cursor: pointer;
 }
-.gf-menu-tab.is-active { background: var(--gf-white); color: var(--gf-navy-deep); border-color: var(--gf-white); }
+.gf-menu-tab.is-active { background: var(--gf-gold); color: var(--gf-navy-deep); border-color: var(--gf-gold); }
 .gf-menu-panel { display: none; }
 .gf-menu-panel.is-active { display: block; }
 .gf-menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1px; background: rgba(255,255,255,0.12); border-radius: 6px; overflow: hidden; }
@@ -134,10 +141,51 @@
 
 /* ── Sponsors ── */
 .gf-sponsor-tier { margin-bottom: 32px; }
-.gf-sponsor-tier__label { font-family: 'Fraunces', serif; font-size: 12px; letter-spacing: 2px; color: var(--gf-blue); text-align: center; display: block; margin-bottom: 16px; }
+.gf-sponsor-tier__label { font-family: 'Fraunces', serif; font-size: 12px; letter-spacing: 2px; color: var(--gf-gold); text-align: center; display: block; margin-bottom: 16px; }
 .gf-sponsor-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-.gf-sponsor-card { background: var(--gf-white); border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; min-width: 130px; min-height: 60px; display: flex; align-items: center; justify-content: center; padding: 10px 16px; font-family: 'Fraunces', serif; font-size: 12px; text-align: center; color: var(--gf-ink-muted); }
-.gf-sponsor-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.gf-sponsor-card {
+  min-width: 130px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background: var(--gf-white);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 6px;
+  font-family: 'Fraunces', serif;
+  font-size: 12px;
+  text-align: center;
+  color: var(--gf-ink-muted);
+}
+.gf-sponsor-card img { max-width: 100%; max-height: 70px; object-fit: contain; }
+
+/* ── Learn more / sponsorship CTA card ── */
+.gf-learn-more-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--gf-white);
+  border-radius: 6px;
+  padding: 24px;
+  border: 1px solid rgba(0,0,0,0.07);
+}
+.gf-learn-more-card h3 { font-family: 'Fraunces', serif; font-size: 16px; color: var(--gf-navy-deep); margin-bottom: 6px; }
+.gf-learn-more-card p { font-size: 14px; color: var(--gf-ink-muted); }
+.gf-learn-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gf-blue);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.gf-learn-more-btn svg { width: 18px; height: 18px; }
 
 /* ── Logistics ── */
 .gf-logistics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
