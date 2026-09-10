@@ -219,13 +219,54 @@
   margin: 0 auto 1.25rem;
 }
 
-/* ============ HOLY WEEK QUICK-REFERENCE TABLE ============ */
-.hw-schedule-wrap {
+/* ============ HOLY WEEK QUICK-REFERENCE TABLE (collapsible) ============ */
+.hw-schedule-block {
   max-width: 760px;
   margin: 0 auto 3rem;
-  overflow-x: auto;
+}
+
+.hw-schedule-toggle {
+  width: 100%;
+  background: #fff;
   border: 1px solid var(--brd);
   border-radius: var(--radius-lg, 12px);
+  padding: 0.9rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.hw-schedule-toggle:hover {
+  background: var(--offwhite);
+}
+
+.hw-schedule-toggle i {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.hw-schedule-toggle.open i {
+  transform: rotate(180deg);
+}
+
+.hw-schedule-wrap {
+  max-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--brd);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg, 12px) var(--radius-lg, 12px);
+  transition: max-height 0.35s ease;
+}
+
+.hw-schedule-wrap.is-open {
+  max-height: 900px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .hw-schedule-table {
