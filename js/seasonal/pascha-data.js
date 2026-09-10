@@ -75,7 +75,7 @@ const HW_HOLY_WEEK_DAYS = [
     name: 'Lazarus Saturday',
     dateLabel: 'April 24, 2027',
     icon: 'ti-candle',
-    imageUrl: '../images/icons/saturday-lazarus.jpg',
+    imageUrl: '../images/icons/saturday-lazarus.jpeg',
     blurb: 'The raising of Lazarus — a preview of Christ\'s own Resurrection.',
     description: 'Great Lent formally ends and this one-day feast bridges into Holy Week: the raising of Lazarus from the dead foreshadows Christ\'s victory over death at Pascha.',
     learnMoreUrl: 'https://www.goarch.org/lazarus-learn',
