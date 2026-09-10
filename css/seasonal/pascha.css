@@ -199,7 +199,7 @@
 .hw-pascha-text > .hw-learn-more {
   display: flex;
   width: fit-content;
-  margin-left: auto;
+  margin: 0 auto;  
 }
 
 /* ============ ACCORDION EXTRAS (Sundays of Great Lent) ============ */
