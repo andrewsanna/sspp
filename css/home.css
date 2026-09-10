@@ -91,6 +91,7 @@
 .hero-title em {
   font-style: normal;
   color: var(--gold);
+  white-space: nowrap;
 }
 
 .hero-body {
