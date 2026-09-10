@@ -131,9 +131,10 @@ function renderChurchTours() {
 }
 
 function renderSponsorCard(sponsor) {
+  const tierClass = sponsor.tier ? `gf-sponsor-card--${sponsor.tier}` : 'gf-sponsor-card--partner';
   return `
-    <div class="gf-sponsor-card">
-      ${sponsor.logoUrl ? `<img src="${sponsor.logoUrl}" alt="${escapeHtml(sponsor.name)}" loading="lazy" />` : escapeHtml(sponsor.name)}
+    <div class="gf-sponsor-card ${tierClass}">
+      ${sponsor.logoUrl ? `<img src="${sponsor.logoUrl}" alt="${escapeHtml(sponsor.name)}" loading="lazy" />` : `<span>${escapeHtml(sponsor.name)}</span>`}
     </div>
   `;
 }
