@@ -68,7 +68,7 @@ const CATEGORY_LABELS = {
   agape: 'Agape',
   adult_faith: 'Faith & Learning',
   adult_activities: 'Community Activities',
-  athletics: 'Athletics',
+  athletics: 'Athletics & Dance',
   support_groups: 'Support Groups',
   ministries: 'Ministries',
   metropolis_events: 'Metropolis Events',
