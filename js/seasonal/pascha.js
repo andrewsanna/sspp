@@ -50,7 +50,7 @@ function renderDetailsBand() {
 
 function renderLearnMore(url) {
   if (!url || url === '#') return '';
-  return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="hw-learn-more">Learn More <i class="ti ti-arrow-right" aria-hidden="true"></i></a>`;
+  return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="hw-learn-more">Read More <i class="ti ti-arrow-right" aria-hidden="true"></i></a>`;
 }
 
 function renderLentWeeks() {
