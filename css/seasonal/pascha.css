@@ -219,6 +219,75 @@
   margin: 0 auto 1.25rem;
 }
 
+/* ============ HOLY WEEK QUICK-REFERENCE TABLE ============ */
+.hw-schedule-wrap {
+  max-width: 760px;
+  margin: 0 auto 3rem;
+  overflow-x: auto;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg, 12px);
+}
+
+.hw-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.hw-schedule-table thead th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.75rem 1.1rem;
+}
+
+.hw-schedule-table tbody td {
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--brd);
+  vertical-align: top;
+}
+
+.hw-schedule-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.hw-schedule-table tbody tr:nth-child(even) {
+  background: var(--offwhite);
+}
+
+.hw-schedule-day {
+  font-weight: 700;
+  color: var(--navy-deep);
+  white-space: nowrap;
+}
+
+.hw-schedule-date {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--mt);
+  margin-top: 0.15rem;
+}
+
+.hw-schedule-time {
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.hw-schedule-service {
+  color: var(--tx);
+}
+
+@media (max-width: 560px) {
+  .hw-schedule-table { font-size: 0.8rem; }
+  .hw-schedule-table thead th,
+  .hw-schedule-table tbody td { padding: 0.6rem 0.75rem; }
+}
+
 /* ============ HOLY WEEK STORY (alternating image/text) ============ */
 .hw-hw-story {
   position: relative;
