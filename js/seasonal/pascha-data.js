@@ -72,7 +72,7 @@ const HW_LENT_WEEKS = [
 const HW_HOLY_WEEK_DAYS = [
   {
     id: 'lazarus-saturday',
-    name: 'Lazarus Saturday',
+    name:  'Saturday of Lazarus',
     dateLabel: 'April 24, 2027',
     icon: 'ti-candle',
     imageUrl: '../images/icons/saturday-lazarus.jpeg',
