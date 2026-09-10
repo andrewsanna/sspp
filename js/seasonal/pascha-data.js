@@ -21,68 +21,82 @@ const HW_LENT_WEEKS = [
     name: 'Sunday of Orthodoxy',
     dateLabel: 'March 21, 2027',
     icon: 'ti-flag-2',
+    imageUrl: '../images/icons/sunday-of-orthodoxy.jpg',
     blurb: 'The first Sunday of Lent, celebrating the restoration of icons to the Church.',
     description: 'Marks the end of the Iconoclast controversy in 843 AD and the restoration of icons to Orthodox worship. Parishes often process with icons to mark the victory of true faith.',
-    learnMoreUrl: '#', // REPLACE with GOARCH article link
+    learnMoreUrl: 'https://www.goarch.org/sunday-of-orthodoxy-learn', 
   },
   {
     id: 'st-gregory-palamas',
     name: 'Sunday of St. Gregory Palamas',
     dateLabel: 'March 28, 2027',
     icon: 'ti-book',
+    imageUrl: '../images/icons/sunday-stgregorypalamas.jpg',
     blurb: 'Honors the 14th-century theologian and defender of hesychast prayer.',
     description: 'Celebrates St. Gregory Palamas, who defended the possibility of direct, personal experience of God through prayer and the uncreated energies of God.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/sunday-stgregorypalamas-learn',
   },
   {
     id: 'holy-cross',
     name: 'Sunday of the Holy Cross',
     dateLabel: 'April 4, 2027',
     icon: 'ti-cross',
+    imageUrl: '../images/icons/sunday-holy-cross.jpg',
     blurb: 'The midpoint of Lent — the Cross is brought out for veneration.',
     description: 'The Cross is placed in the center of the church for veneration, offering strength and encouragement for the second half of the Lenten journey.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/sunday-venerationcross-learn',
   },
   {
     id: 'st-john-climacus',
     name: 'Sunday of St. John Climacus',
     dateLabel: 'April 11, 2027',
     icon: 'ti-stairs-up',
+    imageUrl: '../images/icons/sunday-stjohnclimacus.jpg',
     blurb: 'Honors the author of "The Ladder of Divine Ascent."',
     description: 'Commemorates St. John of Sinai, whose classic work "The Ladder of Divine Ascent" maps the soul\'s progress toward union with God — especially meaningful during Lent.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/sunday-stjohnclimacus-learn',
   },
   {
     id: 'st-mary-of-egypt',
     name: 'Sunday of St. Mary of Egypt',
     dateLabel: 'April 18, 2027',
     icon: 'ti-droplet',
+    imageUrl: '../images/icons/st-mary-egypt.jpg',
     blurb: 'Celebrates the model of repentance as Lent nears its end.',
     description: 'St. Mary of Egypt\'s dramatic conversion from a life of sin to decades of desert asceticism stands as the Church\'s icon of repentance, just before Holy Week begins.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/sunday-stmaryofegypt-learn',
   },
+];
+
+// Holy Week, day by day (Holy Monday through Holy Saturday)
+const HW_HOLY_WEEK_DAYS = [
   {
     id: 'lazarus-saturday',
     name: 'Lazarus Saturday',
     dateLabel: 'April 24, 2027',
     icon: 'ti-candle',
+    imageUrl: '../images/icons/saturday-lazarus.jpg',
     blurb: 'The raising of Lazarus — a preview of Christ\'s own Resurrection.',
     description: 'Great Lent formally ends and this one-day feast bridges into Holy Week: the raising of Lazarus from the dead foreshadows Christ\'s victory over death at Pascha.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/lazarus-learn',
+    services: [
+      { name: 'Divine Liturgy', time: '9:00 AM' }, // REPLACE with confirmed time
+    ],
   },
   {
     id: 'palm-sunday',
     name: 'Palm Sunday',
     dateLabel: 'April 25, 2027',
     icon: 'ti-leaf',
+    imageUrl: '../images/icons/palm-sunday.jpg',
     blurb: 'Christ\'s triumphal entry into Jerusalem — Holy Week begins.',
     description: 'Commemorates Christ\'s entry into Jerusalem, welcomed with palm branches. Parishioners receive palm crosses at the Divine Liturgy as Holy Week begins that evening.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/palmsunday-learn',
+    services: [
+      { name: 'Divine Liturgy', time: '9:30 AM' },
+      { name: 'Bridegroom Matins', time: '7:00 PM' },// REPLACE with confirmed time
+    ],
   },
-];
-
-// Holy Week, day by day (Holy Monday through Holy Saturday)
-const HW_HOLY_WEEK_DAYS = [
   {
     id: 'holy-monday',
     name: 'Holy Monday',
@@ -94,7 +108,7 @@ const HW_HOLY_WEEK_DAYS = [
     services: [
       { name: 'Bridegroom Matins', time: '7:00 PM' }, // REPLACE with confirmed time
     ],
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/bridegroom-learn',
   },
   {
     id: 'holy-tuesday',
@@ -107,7 +121,7 @@ const HW_HOLY_WEEK_DAYS = [
     services: [
       { name: 'Bridegroom Matins', time: '7:00 PM' },
     ],
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/bridegroom-learn',
   },
   {
     id: 'holy-wednesday',
@@ -121,7 +135,7 @@ const HW_HOLY_WEEK_DAYS = [
       { name: 'Sacrament of Holy Unction', time: '4:00 PM' },
       { name: 'Bridegroom Matins', time: '7:00 PM' },
     ],
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/holyunction-learn',
   },
   {
     id: 'holy-thursday',
@@ -135,7 +149,7 @@ const HW_HOLY_WEEK_DAYS = [
       { name: 'Vesperal Liturgy of the Last Supper', time: '9:00 AM' },
       { name: 'Service of the Twelve Gospels', time: '7:00 PM' },
     ],
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/holythursday-learn',
   },
   {
     id: 'holy-friday',
@@ -150,7 +164,7 @@ const HW_HOLY_WEEK_DAYS = [
       { name: 'Vespers — Apokathelosis (Un-nailing)', time: '3:00 PM' },
       { name: 'Lamentations at the Epitaphios', time: '7:00 PM' },
     ],
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/holyfriday-learn',
   },
   {
     id: 'holy-saturday',
@@ -164,7 +178,7 @@ const HW_HOLY_WEEK_DAYS = [
       { name: 'Vesperal Liturgy of Holy Saturday', time: '9:00 AM' },
       { name: 'Anastasi (Resurrection) Service begins', time: '11:30 PM' },
     ],
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/holysaturday-learn',
   },
 ];
 
