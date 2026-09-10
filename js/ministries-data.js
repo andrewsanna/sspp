@@ -452,8 +452,9 @@ const MINISTRY_CATEGORIES = [
         name: 'Philoptochos',
         summary: '80 years of philanthropy across greater Chicago.',
         description: 'The Greek Orthodox Ladies Philoptochos Society, Inc. is the philanthropic arm of the Greek Orthodox Archdiocese of America. It has offered eighty years of helping those in need and supports organizations and programs that do the same. Philoptochos makes a difference in the lives of people in greater Chicago, the United States and throughout the world. Our local parish chapter has been working since the founding of our community in the early 1960s. Our women engage in a multitude of fundraising and educational programs to accomplish the mission of Philoptochos.',
-       image: 'images/ministries/philo.jpg',
+        image: 'images/ministries/philo.jpg',
         calendarCategory: 'philanthropy',
+        detailPageUrl: 'https://www.sspp-philo.org/',
         contact: {
           name: 'Julie Anastos',
           role: 'Philoptochos President',
