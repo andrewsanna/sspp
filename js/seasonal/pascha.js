@@ -57,29 +57,33 @@ function renderLentWeeks() {
   const root = document.getElementById('hw-lent-weeks');
   if (!root) return;
   root.innerHTML = HW_LENT_WEEKS.map((week, i) => `
-    <div class="hw-lent-card">
-      <div class="hw-lent-card-body">
-        <span class="hw-lent-card-date">${escapeHtml(week.dateLabel)}</span>
-        <h4>${escapeHtml(week.name)}</h4>
-        <p class="hw-lent-card-blurb">${escapeHtml(week.blurb)}</p>
-        <button class="hw-lent-card-toggle" data-lent-toggle="lent-${i}" aria-expanded="false">
-          More Info <i class="ti ti-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="hw-lent-card-more" id="lent-${i}">
-          <img class="hw-lent-card-more-image" src="${week.imageUrl}" alt="Icon of ${escapeHtml(week.name)}" loading="lazy">
+    <div class="acc-item">
+      <button class="acc-head" data-acc-toggle="lent-${i}" aria-expanded="false">
+        <div class="acc-head-text">
+          <div class="acc-title"><i class="ti ${escapeHtml(week.icon)}" aria-hidden="true"></i> ${escapeHtml(week.name)}</div>
+          <div class="acc-blurb">${escapeHtml(week.blurb)}</div>
+        </div>
+        <div class="acc-meta">
+          <span class="acc-count">${escapeHtml(week.dateLabel)}</span>
+          <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
+        </div>
+      </button>
+      <div class="acc-body" id="lent-${i}">
+        <div class="hw-acc-body-inner">
+          <img class="hw-lent-icon-image" src="${week.imageUrl}" alt="Icon of ${escapeHtml(week.name)}" loading="lazy">
           <p>${escapeHtml(week.description)}</p>
           ${renderLearnMore(week.learnMoreUrl)}
         </div>
       </div>
     </div>
   `).join('');
-  attachLentCardToggles(root);
+  attachAccordionToggles(root);
 }
 
-function attachLentCardToggles(root) {
-  root.querySelectorAll('.hw-lent-card-toggle').forEach((btn) => {
+function attachAccordionToggles(root) {
+  root.querySelectorAll('.acc-head').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const body = document.getElementById(btn.dataset.lentToggle);
+      const body = document.getElementById(btn.dataset.accToggle);
       const isOpen = btn.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(isOpen));
       if (body) body.classList.toggle('is-open', isOpen);
