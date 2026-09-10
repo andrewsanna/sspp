@@ -108,16 +108,17 @@ function renderServiceList(services) {
 function renderHolyWeekDays() {
   const root = document.getElementById('hw-holy-week-days');
   if (!root) return;
-  root.innerHTML = HW_HOLY_WEEK_DAYS.map((day) => `
-    <div class="hw-timeline-item">
-      <div class="hw-timeline-icon"><i class="ti ${escapeHtml(day.icon)}" aria-hidden="true"></i></div>
-      <div class="hw-timeline-content">
-        <div class="hw-timeline-head">
-          <h3>${escapeHtml(day.name)}</h3>
-          <span class="hw-timeline-date">${escapeHtml(day.dateLabel)}</span>
-        </div>
-        <p class="hw-timeline-theme">${escapeHtml(day.theme)}</p>
-        <p class="hw-timeline-desc">${escapeHtml(day.description)}</p>
+  root.innerHTML = HW_HOLY_WEEK_DAYS.map((day, i) => `
+    <div class="hw-hw-row${i % 2 === 1 ? ' is-reverse' : ''}">
+      <div class="hw-hw-image">
+        <img src="${day.imageUrl}" alt="Icon of ${escapeHtml(day.name)}" loading="lazy">
+        <span class="hw-hw-badge"><i class="ti ${escapeHtml(day.icon)}" aria-hidden="true"></i></span>
+      </div>
+      <div class="hw-hw-content">
+        <span class="hw-hw-date">${escapeHtml(day.dateLabel)}</span>
+        <h3>${escapeHtml(day.name)}</h3>
+        <p class="hw-hw-theme">${escapeHtml(day.theme)}</p>
+        <p class="hw-hw-desc">${escapeHtml(day.description)}</p>
         ${renderServiceList(day.services)}
         ${renderLearnMore(day.learnMoreUrl)}
       </div>
