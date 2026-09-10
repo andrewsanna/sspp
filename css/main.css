@@ -589,6 +589,7 @@ p {
    .nav-dropdown {
     width: 100%;
     justify-content: space-between;
+      flex-wrap: wrap;   /* add this */
   }
 
   .nav-dropdown-caret-btn {
@@ -606,7 +607,8 @@ p {
     border: none;
     padding: 0;
     min-width: 0;
-    width: 100%;          /* added */
+    width: 100%;         
+     flex-basis: 100%;   
     max-height: 0;
     overflow: hidden;
     margin-top: 0;
