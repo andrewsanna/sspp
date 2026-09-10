@@ -1,6 +1,6 @@
 /* css/seasonal/pascha.css
-   Uses tokens/components from main.css (--navy, --gold, --cream, .btn, .acc-*, .eyebrow, .section, .container)
-   Page-specific classes are all prefixed hw- (kept as-is from the original build — see note below) */
+   Uses tokens/components from main.css (--navy, --gold, --cream, .btn, .eyebrow, .section, .container)
+   Page-specific classes are all prefixed hw- (from the original "Holy Week" working name) */
 
 /* ============ HERO (video) ============ */
 .hw-hero {
@@ -148,6 +148,8 @@
   margin-bottom: 1.1rem;
 }
 
+.hw-overview-icon i { font-size: 1.3rem; }
+
 .hw-overview-card h4 {
   font-family: var(--font-display);
   color: var(--navy-deep);
@@ -173,17 +175,7 @@
   .hw-overview-grid { grid-template-columns: 1fr; }
 }
 
-/* ============ ACCORDION EXTRAS (lent weeks) ============ */
-.hw-acc-body-inner {
-  padding: 1.25rem 1.4rem 1.5rem;
-}
-
-.hw-acc-body-inner p {
-  color: var(--tx);
-  font-size: 0.92rem;
-  margin-bottom: 0.9rem;
-}
-
+/* ============ SHARED "LEARN MORE" LINK ============ */
 .hw-learn-more {
   font-size: 0.82rem;
   font-weight: 600;
@@ -192,6 +184,112 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.hw-learn-more i { font-size: 0.9rem; }
+
+/* ============ SUNDAYS OF GREAT LENT (cards) ============ */
+.hw-lent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.hw-lent-card {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+}
+
+.hw-lent-card-body {
+  padding: 1.6rem 1.4rem 1.4rem;
+}
+
+.hw-lent-card-date {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-text);
+  font-weight: 600;
+}
+
+.hw-lent-card-body h4 {
+  font-family: var(--font-display);
+  color: var(--navy-deep);
+  font-size: 1.1rem;
+  margin: 0.35rem 0 0.6rem;
+}
+
+.hw-lent-card-blurb {
+  font-size: 0.88rem;
+  color: var(--mt);
+  margin-bottom: 1rem;
+}
+
+.hw-lent-card-toggle {
+  width: 100%;
+  background: none;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.hw-lent-card-toggle:hover {
+  background: var(--offwhite);
+}
+
+.hw-lent-card-toggle i.ti-chevron-down {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.hw-lent-card-toggle.open i.ti-chevron-down {
+  transform: rotate(180deg);
+}
+
+.hw-lent-card-more {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.hw-lent-card-more.is-open {
+  max-height: 500px;
+  margin-top: 1rem;
+}
+
+.hw-lent-card-more-image {
+  display: block;
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--gold-lt);
+  margin: 0 auto 1rem;
+}
+
+.hw-lent-card-more p {
+  font-size: 0.88rem;
+  color: var(--tx);
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 900px) {
+  .hw-lent-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .hw-lent-grid { grid-template-columns: 1fr; }
 }
 
 /* ============ HOLY WEEK STORY (alternating image/text) ============ */
@@ -216,8 +314,8 @@
   z-index: 1;
   display: flex;
   align-items: center;
-  gap: 2.75rem;
-  margin-bottom: 3.5rem;
+  gap: 2.25rem;
+  margin-bottom: 3rem;
 }
 
 .hw-hw-row.is-reverse {
@@ -226,38 +324,41 @@
 
 .hw-hw-image {
   position: relative;
-  flex: 0 0 38%;
+  flex: 0 0 22%;
+  max-width: 190px;
 }
 
 .hw-hw-image img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: var(--radius-lg, 12px);
-  box-shadow: 0 16px 32px rgba(27, 58, 92, 0.14);
+  box-shadow: 0 12px 24px rgba(27, 58, 92, 0.14);
   display: block;
 }
 
 .hw-hw-badge {
   position: absolute;
-  top: -16px;
-  left: -16px;
-  width: 48px;
-  height: 48px;
+  top: -12px;
+  left: -12px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--navy);
   color: var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   border: 3px solid #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+.hw-hw-badge i { font-size: 0.9rem; }
+
 .hw-hw-row.is-reverse .hw-hw-badge {
   left: auto;
-  right: -16px;
+  right: -12px;
 }
 
 .hw-hw-content {
@@ -305,19 +406,113 @@
     gap: 1.25rem;
   }
 
-  .hw-hw-image { flex: none; }
+  .hw-hw-image { flex: none; max-width: 160px; }
 
   .hw-hw-badge,
   .hw-hw-row.is-reverse .hw-hw-badge {
-    left: 16px;
+    left: 12px;
     right: auto;
   }
 }
 
+/* ============ SERVICE LIST (used in Holy Week rows and Pascha) ============ */
+.hw-service-list {
+  border-top: 1px dashed var(--brd);
+  padding-top: 0.85rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hw-service-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.hw-service-time {
+  font-weight: 700;
+  color: var(--navy);
+  min-width: 90px;
+}
+
+.hw-service-name {
+  font-weight: 600;
+  color: var(--tx);
+}
+
+.hw-service-desc {
+  color: var(--mt);
+  flex-basis: 100%;
+  font-size: 0.82rem;
+}
+
+/* ============ PASCHA SPOTLIGHT ============ */
+.hw-pascha-section {
+  background: var(--navy-deep);
+  color: #fff;
+}
+
+.hw-pascha-title {
+  color: #fff;
+}
+
+#hw-pascha-content {
+  max-width: 900px;
+}
+
+.hw-pascha-grid {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hw-pascha-image {
+  flex: 0 0 34%;
+  max-width: 300px;
+}
+
+.hw-pascha-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg, 12px);
+  border: 3px solid var(--gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  display: block;
+}
+
+.hw-pascha-text {
+  flex: 1;
+}
+
+.hw-pascha-desc {
+  font-size: 1.02rem;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 1.5rem;
+}
+
+.hw-pascha-section .hw-service-list {
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.hw-pascha-section .hw-service-time { color: var(--gold); }
+.hw-pascha-section .hw-service-name { color: #fff; }
+.hw-pascha-section .hw-service-desc { color: rgba(255, 255, 255, 0.65); }
+.hw-pascha-section .hw-learn-more { color: var(--gold); }
+
+@media (max-width: 720px) {
+  .hw-pascha-grid { flex-direction: column; align-items: stretch; }
+  .hw-pascha-image { max-width: 220px; margin: 0 auto; }
+}
+
 /* ============ PENTECOST CARDS ============ */
 .hw-pentecost-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.25rem;
 }
 
@@ -326,6 +521,8 @@
   border: 1px solid var(--brd);
   border-radius: var(--radius-lg, 12px);
   padding: 1.5rem;
+  flex: 0 1 calc((100% - (var(--hw-cols, 3) - 1) * 1.25rem) / var(--hw-cols, 3));
+  min-width: 220px;
 }
 
 .hw-pentecost-icon {
@@ -340,6 +537,8 @@
   font-size: 1.15rem;
   margin-bottom: 0.9rem;
 }
+
+.hw-pentecost-icon i { font-size: 1.1rem; }
 
 .hw-pentecost-card h4 {
   font-family: var(--font-display);
@@ -388,4 +587,5 @@
 
 .hw-resource-card i {
   color: var(--gold-deep);
+  font-size: 1rem;
 }
