@@ -88,6 +88,7 @@ const HW_HOLY_WEEK_DAYS = [
     name: 'Holy Monday',
     dateLabel: 'April 26, 2027',
     icon: 'ti-tree',
+    imageUrl: '../images/icons/holy-monday.jpg',
     theme: 'The Bridegroom & the Barren Fig Tree',
     description: 'The first of the Bridegroom services, focused on watchfulness and spiritual readiness, using the parable of the barren fig tree as a warning against fruitless faith.',
     services: [
@@ -101,6 +102,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'April 27, 2027',
     icon: 'ti-flame',
     theme: 'The Ten Virgins',
+    imageUrl: '../images/icons/holy-tuesday.jpg',
     description: 'The parable of the wise and foolish virgins is read, calling the faithful to be prepared, with oil enough, for the Bridegroom\'s coming.',
     services: [
       { name: 'Bridegroom Matins', time: '7:00 PM' },
@@ -113,6 +115,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'April 28, 2027',
     icon: 'ti-droplet',
     theme: 'Holy Unction',
+    imageUrl: '../images/icons/holy-wednesday.jpg',
     description: 'The sacrament of Holy Unction is offered for the healing of soul and body, recalling the woman who anointed Christ before His Passion.',
     services: [
       { name: 'Sacrament of Holy Unction', time: '4:00 PM' },
@@ -126,6 +129,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'April 29, 2027',
     icon: 'ti-cup',
     theme: 'The Last Supper & the Twelve Gospels',
+    imageUrl: '../images/icons/holy-thursday.jpg',
     description: 'Morning commemorates the Last Supper and institution of Holy Communion; the evening service of the Twelve Gospels walks through Christ\'s Passion in readings and hymns.',
     services: [
       { name: 'Vesperal Liturgy of the Last Supper', time: '9:00 AM' },
@@ -139,6 +143,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'April 30, 2027',
     icon: 'ti-cross',
     theme: 'The Crucifixion & Burial',
+    imageUrl: '../images/icons/holy-friday.jpg',
     description: 'A strict fast day. Royal Hours in the morning, the Vespers of the Deposition (removing Christ from the Cross) in the afternoon, and Lamentations at the tomb in the evening.',
     services: [
       { name: 'Royal Hours', time: '9:00 AM' },
@@ -153,6 +158,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'May 1, 2027',
     icon: 'ti-moon',
     theme: 'Christ\'s Descent & the First Resurrection',
+    imageUrl: '../images/icons/holy-saturday.jpg',
     description: 'The morning Vesperal Liturgy proclaims the "first Resurrection." That night, the Paschal service begins — carrying the light out of darkness into the Resurrection of Christ.',
     services: [
       { name: 'Vesperal Liturgy of Holy Saturday', time: '9:00 AM' },
