@@ -133,6 +133,18 @@ function renderHolyWeekDays() {
   `).join('');
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  renderHero();
+  renderDetailsBand();
+  renderLentWeeks();
+  renderHolyWeekTable();   // new
+  renderHolyWeekDays();
+  renderPascha();
+  renderPentecostSeason();
+  renderWatch();
+  renderResources();
+});
+
 function renderPascha() {
   const root = document.getElementById('hw-pascha-content');
   if (!root) return;
