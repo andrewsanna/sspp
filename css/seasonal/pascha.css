@@ -328,7 +328,23 @@
   .hw-schedule-table thead th,
   .hw-schedule-table tbody td { padding: 0.6rem 0.75rem; }
 }
+/* HOLY WEEK SECTION */
+.hw-holy-week-section {
+  background: #fff;
+  border-top: 1px solid var(--brd);
+  position: relative;
+}
 
+.hw-holy-week-section::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+}
 /* ============ HOLY WEEK STORY (alternating image/text) ============ */
 .hw-hw-story {
   position: relative;
