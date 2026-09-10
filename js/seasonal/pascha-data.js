@@ -188,7 +188,8 @@ const HW_PASCHA = {
     { name: 'Anastasi (Resurrection) Service', time: 'Begins 11:30 PM, Holy Saturday', description: 'Midnight procession, the Paschal proclamation, and the Divine Liturgy of Pascha.' },
     { name: 'Agape Vespers', time: '12:00 PM, Pascha Sunday', description: 'The Gospel of Christ\'s appearance to the disciples, read in many languages, celebrating the Resurrection\'s reach to all nations.' },
   ],
-  learnMoreUrl: '#',
+  learnMoreUrl: 'https://www.goarch.org/pascha-learn',
+  imageUrl: '../images/icons/pascha.jpg',
 };
 
 // The 50 days from Pascha to Pentecost
@@ -200,6 +201,7 @@ const HW_PENTECOST_SEASON = [
     icon: 'ti-sun',
     description: 'The week following Pascha — no fasting, the royal doors remain open, and the joy of the Resurrection is celebrated daily, ending with Thomas Sunday.',
     learnMoreUrl: '#',
+    // imageUrl: '../images/icons/pascha.jpg',
   },
   {
     id: 'mid-pentecost',
@@ -207,7 +209,8 @@ const HW_PENTECOST_SEASON = [
     dateLabel: 'May 26, 2027',
     icon: 'ti-droplet-half-2',
     description: 'The midpoint between Pascha and Pentecost, recalling Christ teaching in the Temple and His offer of "living water."',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/midpentecost',
+     imageUrl: '../images/icons/mid-pentecost.jpg',
   },
   {
     id: 'ascension',
@@ -215,7 +218,8 @@ const HW_PENTECOST_SEASON = [
     dateLabel: 'June 10, 2027',
     icon: 'ti-arrow-big-up',
     description: 'Forty days after Pascha, commemorating Christ\'s ascension into heaven and His promise to send the Holy Spirit.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/ascension',
+    imageUrl: '../images/icons/ascnension.jpg',
   },
   {
     id: 'pentecost-sunday',
@@ -223,22 +227,23 @@ const HW_PENTECOST_SEASON = [
     dateLabel: 'June 20, 2027',
     icon: 'ti-wind',
     description: 'Fifty days after Pascha, the descent of the Holy Spirit upon the Apostles — traditionally seen as the birthday of the Church.',
-    learnMoreUrl: '#',
+    learnMoreUrl: 'https://www.goarch.org/pentecost',
+    imageUrl: '../images/icons/pentecost.jpg',
   },
-  {
-    id: 'holy-spirit-monday',
-    name: 'Monday of the Holy Spirit',
-    dateLabel: 'June 21, 2027',
-    icon: 'ti-dove',
-    description: 'The day after Pentecost, honoring the Holy Spirit as the third Person of the Trinity and closing the Paschal season.',
-    learnMoreUrl: '#',
-  },
+  // {
+  //   id: 'holy-spirit-monday',
+  //   name: 'Monday of the Holy Spirit',
+  //   dateLabel: 'June 21, 2027',
+  //   icon: 'ti-dove',
+  //   description: 'The day after Pentecost, honoring the Holy Spirit as the third Person of the Trinity and closing the Paschal season.',
+  //   learnMoreUrl: '#',
+  // },
 ];
 
 // General "learn more" resources footer
 const HW_RESOURCES = [
-  { name: 'Great Lent Overview', url: '#' }, // REPLACE with goarch.org link
-  { name: 'Holy Week Explained', url: '#' },
-  { name: 'The Meaning of Pascha', url: '#' },
-  { name: 'Pentecost & the Holy Spirit', url: '#' },
+  { name: 'Great Lent Overview', url: 'https://www.goarch.org/sundays-of-great-lent' },
+  { name: 'Holy Week Explained', url: 'https://www.goarch.org/holyweek' },
+  { name: 'The Meaning of Pascha', url: 'https://www.goarch.org/pascha' },
+  { name: 'Pentecost & the Holy Spirit', url: 'https://www.goarch.org/pentecost' },
 ];
