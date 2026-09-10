@@ -140,6 +140,17 @@ function renderHolyWeekTable() {
   `;
 }
 
+function attachScheduleToggle() {
+  const btn = document.getElementById('hw-schedule-toggle');
+  const wrap = document.getElementById('hw-schedule-wrap');
+  if (!btn || !wrap) return;
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+    wrap.classList.toggle('is-open', isOpen);
+  });
+}
+
 function renderHolyWeekDays() {
   const root = document.getElementById('hw-holy-week-days');
   if (!root) return;
@@ -164,7 +175,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHero();
   renderDetailsBand();
   renderLentWeeks();
-  renderHolyWeekTable();   // new
+  renderHolyWeekTable();
+  attachScheduleToggle();   
   renderHolyWeekDays();
   renderPascha();
   renderPentecostSeason();
