@@ -60,7 +60,7 @@ function renderLentWeeks() {
     <div class="acc-item">
       <button class="acc-head" data-acc-toggle="lent-${i}" aria-expanded="false">
         <div class="acc-head-text">
-          <div class="acc-title"><i class="ti ${escapeHtml(week.icon)}" aria-hidden="true"></i> ${escapeHtml(week.name)}</div>
+          <div class="acc-title">${escapeHtml(week.name)}</div>          
           <div class="acc-blurb">${escapeHtml(week.blurb)}</div>
         </div>
         <div class="acc-meta">
@@ -120,7 +120,6 @@ function renderHolyWeekDays() {
     <div class="hw-hw-row${i % 2 === 1 ? ' is-reverse' : ''}">
       <div class="hw-hw-image">
         <img src="${day.imageUrl}" alt="Icon of ${escapeHtml(day.name)}" loading="lazy">
-        <span class="hw-hw-badge"><i class="ti ${escapeHtml(day.icon)}" aria-hidden="true"></i></span>
       </div>
       <div class="hw-hw-content">
         <span class="hw-hw-date">${escapeHtml(day.dateLabel)}</span>
