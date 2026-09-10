@@ -113,6 +113,33 @@ function renderServiceList(services) {
   `;
 }
 
+function renderHolyWeekTable() {
+  const root = document.getElementById('hw-holy-week-table');
+  if (!root) return;
+  const rows = HW_HOLY_WEEK_DAYS.map((day) => {
+    const services = (day.services && day.services.length) ? day.services : [{ name: '—', time: '—' }];
+    return services.map((s, idx) => `
+      <tr>
+        ${idx === 0 ? `
+          <td class="hw-schedule-day" rowspan="${services.length}">
+            ${escapeHtml(day.name)}
+            <span class="hw-schedule-date">${escapeHtml(day.dateLabel)}</span>
+          </td>
+        ` : ''}
+        <td class="hw-schedule-time">${escapeHtml(s.time)}</td>
+        <td class="hw-schedule-service">${escapeHtml(s.name)}</td>
+      </tr>
+    `).join('');
+  }).join('');
+
+  root.innerHTML = `
+    <thead>
+      <tr><th>Day</th><th>Time</th><th>Service</th></tr>
+    </thead>
+    <tbody>${rows}</tbody>
+  `;
+}
+
 function renderHolyWeekDays() {
   const root = document.getElementById('hw-holy-week-days');
   if (!root) return;
