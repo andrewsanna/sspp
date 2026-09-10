@@ -178,123 +178,49 @@
 /* ============ SHARED "LEARN MORE" LINK ============ */
 .hw-learn-more {
   font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--blue);
+  font-weight: 700;
+  color: var(--navy-deep);
+  background: var(--gold);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-}
-
-.hw-learn-more i { font-size: 0.9rem; }
-
-/* ============ SUNDAYS OF GREAT LENT (cards) ============ */
-.hw-lent-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.hw-lent-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg, 12px);
-  overflow: hidden;
-}
-
-.hw-lent-card-body {
-  padding: 1.6rem 1.4rem 1.4rem;
-}
-
-.hw-lent-card-date {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--gold-text);
-  font-weight: 600;
-}
-
-.hw-lent-card-body h4 {
-  font-family: var(--font-display);
-  color: var(--navy-deep);
-  font-size: 1.1rem;
-  margin: 0.35rem 0 0.6rem;
-}
-
-.hw-lent-card-blurb {
-  font-size: 0.88rem;
-  color: var(--mt);
-  margin-bottom: 1rem;
-}
-
-.hw-lent-card-toggle {
-  width: 100%;
-  background: none;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 0.9rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
+  gap: 0.4rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm, 4px);
   transition: background 0.15s ease;
 }
 
-.hw-lent-card-toggle:hover {
-  background: var(--offwhite);
+.hw-learn-more:hover { background: var(--gold-deep); }
+
+.hw-learn-more i { font-size: 0.85rem; }
+
+/* ============ ACCORDION EXTRAS (Sundays of Great Lent) ============ */
+.hw-acc-body-inner {
+  padding: 1.25rem 1.4rem 1.5rem;
 }
 
-.hw-lent-card-toggle i.ti-chevron-down {
-  font-size: 1rem;
-  line-height: 1;
-  transition: transform 0.2s ease;
-}
-
-.hw-lent-card-toggle.open i.ti-chevron-down {
-  transform: rotate(180deg);
-}
-
-.hw-lent-card-more {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.hw-lent-card-more.is-open {
-  max-height: 500px;
-  margin-top: 1rem;
-}
-
-.hw-lent-card-more-image {
-  display: block;
-  width: 110px;
-  height: 110px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--gold-lt);
-  margin: 0 auto 1rem;
-}
-
-.hw-lent-card-more p {
-  font-size: 0.88rem;
+.hw-acc-body-inner p {
   color: var(--tx);
-  margin-bottom: 0.75rem;
+  font-size: 0.92rem;
+  margin-bottom: 0.9rem;
 }
 
-@media (max-width: 900px) {
-  .hw-lent-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 640px) {
-  .hw-lent-grid { grid-template-columns: 1fr; }
+.hw-lent-icon-image {
+  display: block;
+  width: 160px;
+  max-width: 60%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 10px 20px rgba(27, 58, 92, 0.16);
+  margin: 0 auto 1.25rem;
 }
 
 /* ============ HOLY WEEK STORY (alternating image/text) ============ */
 .hw-hw-story {
   position: relative;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .hw-hw-story::before {
@@ -501,7 +427,6 @@
 .hw-pascha-section .hw-service-time { color: var(--gold); }
 .hw-pascha-section .hw-service-name { color: #fff; }
 .hw-pascha-section .hw-service-desc { color: rgba(255, 255, 255, 0.65); }
-.hw-pascha-section .hw-learn-more { color: var(--gold); }
 
 @media (max-width: 720px) {
   .hw-pascha-grid { flex-direction: column; align-items: stretch; }
@@ -588,4 +513,11 @@
 .hw-resource-card i {
   color: var(--gold-deep);
   font-size: 1rem;
+}
+
+/* ============ WATCH ONLINE (fix unsized inline SVG arrow) ============ */
+#hw-watch .learn-more-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
