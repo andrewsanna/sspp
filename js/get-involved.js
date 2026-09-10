@@ -85,11 +85,13 @@ function renderMinistryCard(ministry, category) {
     ? `<span class="inactive-badge">Currently Inactive</span>`
     : '';
 
+  const photo = ministry.image
+    ? `<div class="ministry-card-photo"><img src="${escapeHtml(ministry.image)}" alt="" loading="lazy"></div>`
+    : '';
+
   return `
-    <button class="ministry-card ${ministry.inactive ? 'is-inactive' : ''}" id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}">
-      <div class="ministry-card-photo">
-        <i class="ti ti-camera" aria-hidden="true"></i>
-      </div>
+    <button class="ministry-card ${ministry.inactive ? 'is-inactive' : ''} ${ministry.image ? '' : 'no-photo'}" id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}">
+      ${photo}
       <div class="ministry-card-text">
         <div class="ministry-card-title">${escapeHtml(ministry.name)} ${inactiveBadge}</div>
         <div class="ministry-card-summary">${escapeHtml(ministry.summary)}</div>
