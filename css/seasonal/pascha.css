@@ -194,6 +194,14 @@
 
 .hw-learn-more i { font-size: 0.85rem; }
 
+.hw-hw-content > .hw-learn-more,
+.hw-acc-body-inner > .hw-learn-more,
+.hw-pascha-text > .hw-learn-more {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+}
+
 /* ============ ACCORDION EXTRAS (Sundays of Great Lent) ============ */
 .hw-acc-body-inner {
   padding: 1.25rem 1.4rem 1.5rem;
