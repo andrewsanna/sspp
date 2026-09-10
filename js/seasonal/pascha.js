@@ -57,37 +57,41 @@ function renderLentWeeks() {
   const root = document.getElementById('hw-lent-weeks');
   if (!root) return;
   root.innerHTML = HW_LENT_WEEKS.map((week, i) => `
-    <div class="acc-item">
-      <button class="acc-head" data-acc-toggle="lent-${i}" aria-expanded="false">
-        <div class="acc-head-text">
-          <div class="acc-title"><i class="ti ${escapeHtml(week.icon)}" aria-hidden="true"></i> ${escapeHtml(week.name)}</div>
-          <div class="acc-blurb">${escapeHtml(week.blurb)}</div>
-        </div>
-        <div class="acc-meta">
-          <span class="acc-count">${escapeHtml(week.dateLabel)}</span>
-          <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
-        </div>
-      </button>
-      <div class="acc-body" id="lent-${i}">
-        <div class="hw-acc-body-inner">
+    <div class="hw-lent-card">
+      <div class="hw-lent-card-body">
+        <span class="hw-lent-card-date">${escapeHtml(week.dateLabel)}</span>
+        <h4>${escapeHtml(week.name)}</h4>
+        <p class="hw-lent-card-blurb">${escapeHtml(week.blurb)}</p>
+        <button class="hw-lent-card-toggle" data-lent-toggle="lent-${i}" aria-expanded="false">
+          More Info <i class="ti ti-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="hw-lent-card-more" id="lent-${i}">
+          <img class="hw-lent-card-more-image" src="${week.imageUrl}" alt="Icon of ${escapeHtml(week.name)}" loading="lazy">
           <p>${escapeHtml(week.description)}</p>
           ${renderLearnMore(week.learnMoreUrl)}
         </div>
       </div>
     </div>
   `).join('');
-  attachAccordionToggles(root);
+  attachLentCardToggles(root);
 }
 
-function attachAccordionToggles(root) {
-  root.querySelectorAll('.acc-head').forEach((btn) => {
+function attachLentCardToggles(root) {
+  root.querySelectorAll('.hw-lent-card-toggle').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const body = document.getElementById(btn.dataset.accToggle);
+      const body = document.getElementById(btn.dataset.lentToggle);
       const isOpen = btn.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(isOpen));
       if (body) body.classList.toggle('is-open', isOpen);
     });
   });
+}
+
+function getSmartColumnCount(count) {
+  if (count % 4 === 0) return 4;
+  if (count % 3 === 0) return 3;
+  if (count % 2 === 0) return 2;
+  return 3; // odd/prime counts (e.g. 5) fall back to 3 -- last row centers itself
 }
 
 function renderServiceList(services) {
@@ -130,15 +134,23 @@ function renderPascha() {
   const root = document.getElementById('hw-pascha-content');
   if (!root) return;
   root.innerHTML = `
-    <p class="hw-pascha-desc">${escapeHtml(HW_PASCHA.description)}</p>
-    ${renderServiceList(HW_PASCHA.services)}
-    ${renderLearnMore(HW_PASCHA.learnMoreUrl)}
+    <div class="hw-pascha-grid">
+      <div class="hw-pascha-image">
+        <img src="${HW_PASCHA.imageUrl}" alt="Icon of the Resurrection" loading="lazy">
+      </div>
+      <div class="hw-pascha-text">
+        <p class="hw-pascha-desc">${escapeHtml(HW_PASCHA.description)}</p>
+        ${renderServiceList(HW_PASCHA.services)}
+        ${renderLearnMore(HW_PASCHA.learnMoreUrl)}
+      </div>
+    </div>
   `;
 }
 
 function renderPentecostSeason() {
   const root = document.getElementById('hw-pentecost-cards');
   if (!root) return;
+  root.style.setProperty('--hw-cols', getSmartColumnCount(HW_PENTECOST_SEASON.length));
   root.innerHTML = HW_PENTECOST_SEASON.map((item) => `
     <div class="hw-pentecost-card">
       <div class="hw-pentecost-icon"><i class="ti ${escapeHtml(item.icon)}" aria-hidden="true"></i></div>
