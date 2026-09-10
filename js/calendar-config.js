@@ -13,6 +13,9 @@ const GOOGLE_API_KEY = 'AIzaSyCNAL3x2J53-OgUuCqQLNRh1nh33xqDrEw';
 const CALENDARS = [
   // Featured / parish-wide events
   { id: '59943aebd742db92a7b197ae2fd895fe962e80537fc70217f55ba20013ccab0e@group.calendar.google.com', category: 'featured', featured: true },
+   { id: 'c_f945mtpotllnf56tf6o49nc6eo@group.calendar.google.com', category: 'featured', featured: true },
+  
+
 
   // Liturgical
   { id: 'c_ru8ahosqp08ei7va3el5stneuc@group.calendar.google.com', category: 'liturgical', featured: false },
