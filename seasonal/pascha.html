@@ -83,14 +83,18 @@
     <div class="container">
       <span class="eyebrow">Day by Day</span>
       <h2 class="section-title">Holy Week</h2>
-      <p class="hw-section-sub">The most sacred week of the year. Service times below are placeholders — update per year in the data file.</p>
-      <!-- Quick-reference schedule -->
-      <div class="hw-schedule-wrap">
-        <table class="hw-schedule-table" id="hw-holy-week-table"></table>
+     <!-- Quick-reference schedule (collapsed by default) -->
+      <div class="hw-schedule-block">
+        <button class="hw-schedule-toggle" id="hw-schedule-toggle" aria-expanded="false">
+          <span>View Full Holy Week Schedule</span>
+          <i class="ti ti-chevron-down" aria-hidden="true"></i>
+        </button>
+        <div class="hw-schedule-wrap" id="hw-schedule-wrap">
+          <table class="hw-schedule-table" id="hw-holy-week-table"></table>
+        </div>
       </div>
       
       <div class="hw-hw-story" id="hw-holy-week-days"></div>
-    </div>
   </section>
 
   <!-- PASCHA SPOTLIGHT -->
