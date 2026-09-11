@@ -109,10 +109,12 @@
   align-items: center;
   gap: 0.35rem;
   font-size: 0.85rem;
-  color: var(--blue);
+  font-weight: 600;
+  color: var(--gold-deep);
   text-decoration: none;
 }
 .ct-card-link:hover {
+  color: var(--navy-deep);
   text-decoration: underline;
 }
 @media (max-width: 860px) {
