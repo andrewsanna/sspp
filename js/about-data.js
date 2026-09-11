@@ -3,7 +3,7 @@ const CLERGY = [
     id: 'fr-rick',
     type: 'clergy',
     featured: true,
-    photo: 'images/fr-rick.jpg',
+    photo: 'images/staff/fr-rick.jpg',
     shortname: 'Fr. Rick',
     name: 'Rev. Fr. Richard Demetrius Andrews',
     role: 'Proistamenos (Head Priest)',
@@ -20,7 +20,7 @@ Fr. Rick has been married to Presbytera Jane (Donovan) since 1990. They have an 
   {
     id: 'fr-peter',
     type: 'clergy',
-    photo: 'images/fr-peter.jpg',
+    photo: 'images/staff/fr-peter.jpg',
     shortname: 'Fr. Peter',
     name: 'Rev. Fr. Peter Sarolas',
     role: 'Associate Priest',
@@ -35,7 +35,7 @@ Fr. Peter is married to Presvytera Maria, and together they have three sons.`
   {
     id: 'steven',
     type: 'staff',
-    photo: 'images/steven.jpg',
+    photo: 'images/staff/steven.jpg',
     name: 'Steven Thell',
     shortname: 'Steven',
     role: 'Youth Director',
@@ -48,7 +48,7 @@ While in college, Steven attended Twelve Holy Apostles Greek Orthodox Church in 
   {
     id: 'elea',
     type: 'staff',
-    photo: 'images/elea.jpg',
+    photo: 'images/staff/elea.jpg',
     name: 'Elea Valessares Bentley',
     shortname: 'Elea',
     role: 'Parish Administrator',
