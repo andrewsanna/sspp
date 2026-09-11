@@ -164,11 +164,16 @@
 
 .hw-overview-link {
   font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--blue);
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.hw-overview-link:hover {
+  color: var(--gold-deep);
 }
 
 @media (max-width: 900px) {
