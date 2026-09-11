@@ -85,7 +85,7 @@
   margin-bottom: 0.75rem;
 }
 .ct-card-body a {
-  color: var(--navy);
+  color: var(--navy-deep);
   text-decoration: none;
   font-weight: 600;
   font-size: 1.05rem;
@@ -142,9 +142,14 @@
   display: inline-block;
   margin-top: 0.3rem;
   font-size: 0.85rem;
-  color: var(--blue);
-  text-decoration: none;
+  color: var(--navy-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--brd);
   font-weight: 500;
+}
+.ct-staff-email:hover {
+  color: var(--gold-deep);
+  text-decoration-color: var(--gold-deep);
 }
 .ct-staff-name {
   font-family: var(--font-display);
@@ -230,14 +235,14 @@
 
 .rs-staff-email {
   font-size: 0.85rem;
-  color: var(--blue);
-  text-decoration: none;
-}
-
-.rs-staff-email:hover {
+  color: var(--navy-deep);
   text-decoration: underline;
+  text-decoration-color: var(--brd);
 }
-
+.rs-staff-email:hover {
+  color: var(--gold-deep);
+  text-decoration-color: var(--gold-deep);
+}
 .rs-leader-cat {
   background: var(--cream);
   border: 1px solid var(--brd);
