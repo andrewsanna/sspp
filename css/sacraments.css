@@ -7,7 +7,19 @@
   position: relative;
   overflow: hidden;
   text-align: center;
+  background-size: cover;
+  background-position: center;
 }
+
+/* .ab-hero {
+  background-color: var(--navy-deep);
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+} */
 
 .sc-hero-arc {
   position: absolute;
