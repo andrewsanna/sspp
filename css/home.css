@@ -506,18 +506,19 @@
 }
 
 .text-link {
-  color: var(--blue);
+  color: var(--navy);
   font-size: 0.85rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  border-bottom: 1px solid #cfe0ee;
+  border-bottom: 1px solid var(--brd);
   padding-bottom: 1px;
 }
 
 .text-link:hover {
-  border-color: var(--blue);
+  color: var(--gold-deep);
+  border-color: var(--gold-deep);
 }
 
 .photo-note-grid {
