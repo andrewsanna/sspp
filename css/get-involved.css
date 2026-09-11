@@ -541,17 +541,22 @@
 }
 
 .ministry-modal-fullpage-link {
-  color: var(--navy, #1b2a4a);
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
   text-decoration: none;
 }
 
 .ministry-modal-fullpage-link:hover {
-  text-decoration: underline;
+  color: var(--gold-deep);
 }
 
 .ministry-modal-fullpage-link i {
-  color: var(--navy, #1b2a4a);
+  color: var(--navy);
 }
 
 .ministry-modal-cal-link {
@@ -626,14 +631,15 @@
 
 .ministry-modal-contact-email {
   font-size: 0.78rem;
-  color: var(--blue);
+  font-weight: 700;
+  color: var(--navy);
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .ministry-modal-contact-email:hover {
-  text-decoration: underline;
+  color: var(--gold-deep);
 }
 
 @media (max-width: 480px) {
@@ -672,21 +678,6 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-}
-
-.ministry-modal-fullpage-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 1rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--blue);
-  text-decoration: none;
-}
-
-.ministry-modal-fullpage-link:hover {
-  text-decoration: underline;
 }
 
 .gi-content {
