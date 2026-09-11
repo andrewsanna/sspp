@@ -6,7 +6,7 @@
 .rs-hero {
   background: var(--navy-deep);
   background-size: cover;
-  background-position: center top;
+  background-position: center 30%;
   position: relative;
   overflow: hidden;
   padding: 4.5rem 2rem 5rem;
