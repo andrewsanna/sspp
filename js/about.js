@@ -1,5 +1,6 @@
 // js/about.js
-// About page: parish history "read more" toggle + staff profile list.
+// About page: parish history "read more" toggle, history photo gallery
+// lightbox, and staff profile list.
 
 function escapeHtml(str) {
   const div = document.createElement('div');
@@ -115,7 +116,32 @@ function initHistoryToggle() {
   });
 }
 
+function initHistoryGallery() {
+  const lightbox = document.getElementById('historyLightbox');
+  const lightboxImg = document.getElementById('historyLightboxImg');
+  const closeBtn = document.getElementById('historyLightboxClose');
+  if (!lightbox || !lightboxImg || !closeBtn) return;
+
+  document.querySelectorAll('.ab-history-gallery-item').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      lightboxImg.src = btn.dataset.full;
+      lightboxImg.alt = btn.querySelector('img').alt;
+      lightbox.classList.add('is-open');
+    });
+  });
+
+  const closeLightbox = () => lightbox.classList.remove('is-open');
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   renderStaffList();
   initHistoryToggle();
+  initHistoryGallery();
 });
