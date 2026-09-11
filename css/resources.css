@@ -5,10 +5,23 @@
 
 .rs-hero {
   background: var(--navy-deep);
+  background-size: cover;
+  background-position: center;
   position: relative;
   overflow: hidden;
   padding: 4.5rem 2rem 5rem;
   text-align: center;
+}
+
+.rs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
 }
 
 .rs-hero-arc {
