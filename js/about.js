@@ -116,19 +116,53 @@ function initHistoryToggle() {
   });
 }
 
-function initHistoryGallery() {
-  const lightbox = document.getElementById('historyLightbox');
-  const lightboxImg = document.getElementById('historyLightboxImg');
-  const closeBtn = document.getElementById('historyLightboxClose');
-  if (!lightbox || !lightboxImg || !closeBtn) return;
+function initHistorySlideshow() {
+  const wrap = document.getElementById('historySlideshow');
+  const dotsWrap = document.getElementById('historySlideshowDots');
+  if (!wrap || !dotsWrap) return;
 
-  document.querySelectorAll('.ab-history-gallery-item').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      lightboxImg.src = btn.dataset.full;
-      lightboxImg.alt = btn.querySelector('img').alt;
-      lightbox.classList.add('is-open');
-    });
+  const slides = wrap.querySelectorAll('.ab-history-slide');
+  if (!slides.length) return;
+
+  let index = [...slides].findIndex((s) => s.classList.contains('is-active'));
+  if (index === -1) index = 0;
+  let timer = null;
+
+  const dots = [...slides].map((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'ab-history-dot' + (i === index ? ' is-active' : '');
+    dot.setAttribute('aria-label', `Show photo ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+    return dot;
   });
+
+  function goTo(i) {
+    slides[index].classList.remove('is-active');
+    dots[index].classList.remove('is-active');
+    index = i;
+    slides[index].classList.add('is-active');
+    dots[index].classList.add('is-active');
+  }
+
+  function next() {
+    goTo((index + 1) % slides.length);
+  }
+
+  function start() {
+    stop();
+    timer = setInterval(next, 2500);
+  }
+
+  function stop() {
+    if (timer) clearInterval(timer);
+  }
+
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', start);
+
+  start();
+}
 
   const closeLightbox = () => lightbox.classList.remove('is-open');
   closeBtn.addEventListener('click', closeLightbox);
@@ -143,5 +177,5 @@ function initHistoryGallery() {
 document.addEventListener('DOMContentLoaded', () => {
   renderStaffList();
   initHistoryToggle();
-  initHistoryGallery();
+  initHistorySlideshow();
 });
