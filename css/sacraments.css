@@ -11,15 +11,16 @@
   background-position: center;
 }
 
-/* .ab-hero {
-  background-color: var(--navy-deep);
-  background-size: cover;
-  background-position: center;
-  padding: 6rem 0;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-} */
+.sc-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
+}
 
 .sc-hero-arc {
   position: absolute;
