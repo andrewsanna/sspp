@@ -674,7 +674,8 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.78rem;
-  color: var(--blue);
+  font-weight: 700;
+  color: var(--navy);
   text-decoration: none;
   padding: 0.5rem 0.6rem;
   border-radius: var(--radius-sm);
@@ -684,6 +685,7 @@
 
 .subscribe-link:hover {
   background: var(--gold-lt);
+  color: var(--gold-deep);
 }
 
 .subscribe-link i {
