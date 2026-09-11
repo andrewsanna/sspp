@@ -844,6 +844,7 @@ padding: var(--space-5) 0;
 .section-link {
   color: var(--navy);
   font-size: 0.85rem;
+  font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -853,7 +854,6 @@ padding: var(--space-5) 0;
 
 .section-link:hover {
   color: var(--gold-deep);
-  text-decoration: underline;
 }
 /* --- Sticky follow bar (middle-right, all pages) --- */
 .follow-float {
