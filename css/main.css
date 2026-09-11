@@ -842,7 +842,7 @@ padding: var(--space-5) 0;
 }
 
 .section-link {
-  color: var(--blue);
+  color: var(--navy);
   font-size: 0.85rem;
   text-decoration: none;
   display: inline-flex;
@@ -852,6 +852,7 @@ padding: var(--space-5) 0;
 }
 
 .section-link:hover {
+  color: var(--gold-deep);
   text-decoration: underline;
 }
 /* --- Sticky follow bar (middle-right, all pages) --- */
