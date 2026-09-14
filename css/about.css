@@ -620,6 +620,7 @@
   max-height: 85vh;
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   position: relative;
   overflow: hidden;
 }
@@ -647,9 +648,12 @@
 }
 
 .staff-modal-photo {
-  width: 260px;
+  width: 220px;
+  height: 220px;
   flex-shrink: 0;
+  border-radius: var(--radius-md);
   overflow: hidden;
+  margin: 1.75rem 0 1.75rem 1.75rem;
 }
 
 .staff-modal-photo img {
@@ -692,8 +696,9 @@
     max-height: 90vh;
   }
   .staff-modal-photo {
-    width: 100%;
-    height: 220px;
+    width: 160px;
+    height: 160px;
+    margin: 1.5rem auto 0;
   }
   .staff-modal-body {
     padding: 1.5rem;
