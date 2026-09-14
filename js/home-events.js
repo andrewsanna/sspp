@@ -168,8 +168,9 @@ async function fetchUpcomingDaysEvents(days) {
   });
 
   return events
-    .filter(e => e.start.getTime() >= Date.now() - 86400000)
-    .sort((a, b) => a.start - b.start);
+  .filter(e => e.start.getTime() >= Date.now() - 86400000)
+  .filter(e => !e.title.trim().startsWith('+'))
+  .sort((a, b) => a.start - b.start);
 }
 
 function renderDayGroupedList(containerId, events) {
@@ -194,7 +195,9 @@ function renderDayGroupedList(containerId, events) {
     currentGroup.events.push(ev);
   });
 
-  container.innerHTML = groups.map(group => `
+  const visibleGroups = groups.slice(0, 3);
+
+  container.innerHTML = visibleGroups.map(group => `
     <div class="week-day-group">
       <div class="week-day-header">${homeEscapeHtml(homeFormatDayHeader(group.date))}</div>
       ${group.events.map(ev => `
