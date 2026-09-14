@@ -170,6 +170,29 @@
     </div>
   </section>
 
+    <!-- STAFF DETAIL MODAL -->
+  <div class="staff-modal-overlay" id="staffModalOverlay">
+    <div class="staff-modal" role="dialog" aria-modal="true" aria-labelledby="staffModalName">
+      <button class="staff-modal-close" id="staffModalClose" aria-label="Close">
+        <i class="ti ti-x" aria-hidden="true"></i>
+      </button>
+      <div class="staff-modal-photo">
+        <img id="staffModalPhoto" src="" alt="" />
+      </div>
+      <div class="staff-modal-body">
+        <div class="staff-modal-meta">
+          <span class="ab-staff-badge" id="staffModalBadge"></span>
+          <span class="ab-staff-role" id="staffModalRole"></span>
+        </div>
+        <h2 class="staff-modal-name" id="staffModalName"></h2>
+        <div class="staff-modal-bio" id="staffModalBio"></div>
+        <a href="#" id="staffModalEmail" class="btn btn-outline-gold">
+          <i class="ti ti-mail" aria-hidden="true"></i> <span id="staffModalEmailLabel"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   {% include footer.html %}
 
