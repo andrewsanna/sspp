@@ -638,7 +638,8 @@
 }
 
 .staff-modal-photo {
-  aspect-ratio: 4 / 5;
+  width: 100%;
+  height: 260px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -654,6 +655,8 @@
 .staff-modal-body {
   padding: 1.5rem 1.75rem;
   overflow-y: auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .staff-modal-meta {
