@@ -19,9 +19,10 @@ function renderStaffList() {
 function renderStaffTile(person) {
   const badgeLabel = person.type === 'clergy' ? 'Clergy' : 'Staff';
   const badgeClass = person.type === 'clergy' ? 'is-clergy' : 'is-staff';
+  const featuredClass = person.featured ? 'is-featured' : '';
 
-  return `
-    <button class="ab-staff-tile" data-staff-id="${person.id}">
+ return `
+    <button class="ab-staff-tile ${featuredClass}" data-staff-id="${person.id}">
       <div class="ab-staff-tile-photo">
         <img src="${person.photo}" alt="${escapeHtml(person.name)}" loading="lazy" />
       </div>
