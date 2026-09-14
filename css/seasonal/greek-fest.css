@@ -56,15 +56,22 @@
   margin-bottom: 24px;
 }
 .gf-hero__dates-heading {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.3rem, 3.2vw, 2rem);
-  font-weight: 600;
-  color: var(--gf-white);
   margin-bottom: 20px;
 }
-.gf-hero__dates-sep {
+.gf-hero__dates-day {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 3.4vw, 2.1rem);
+  font-weight: 600;
+  color: var(--gf-white);
+  margin-bottom: 4px;
+}
+.gf-hero__dates-time {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 400;
   color: var(--gf-gold);
-  margin: 0 6px;
 }
 
 .gf-hero__address { font-size: 15px; opacity: 0.9; margin-bottom: 28px; color: var(--gf-white); }
@@ -137,12 +144,13 @@
 .gf-btn--primary:hover { background: var(--gf-gold-dark); }
 .gf-btn--outline {
   background: transparent;
-  color: var(--gf-gold);
-  border: 1px solid var(--gf-gold);
+  color: var(--gf-white);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .gf-btn--outline:hover {
-  background: rgba(201, 162, 39, 0.12);
+  background: rgba(255, 255, 255, 0.1);
 }
+
 /* ── Details band ── */
 .gf-details-band { background: var(--gf-navy-deep); padding: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
 .gf-detail-item { text-align: center; color: var(--gf-white); }
