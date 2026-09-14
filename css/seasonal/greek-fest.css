@@ -34,6 +34,8 @@
   text-align: center;
   padding: 56px 24px 44px;
   color: var(--gf-white);
+  position: relative;
+  overflow: hidden;
 }
 .gf-hero__logo { width: 140px; height: 140px; object-fit: contain; margin: 0 auto 20px; display: block; }
 .gf-hero__eyebrow {
@@ -66,6 +68,23 @@
 .gf-hero__address { font-size: 15px; opacity: 0.9; margin-bottom: 28px; color: var(--gf-white); }
 .gf-hero__address a { color: var(--gf-white); text-decoration: underline; text-underline-offset: 3px; }
 .gf-hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+.gf-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13,58,92,0.55) 0%,
+    rgba(13,58,92,0.7) 45%,
+    rgba(13,58,92,0.85) 100%
+  );
+  z-index: 0;
+}
+.gf-hero > * {
+  position: relative;
+  z-index: 1; /* lifts all existing hero content above the scrim without touching your HTML */
+}
 
 /* ── Hero — video variant ── */
 .gf-hero--video {
