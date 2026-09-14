@@ -560,6 +560,7 @@
 .ev-pill-title {
   font-size: 0.68rem;
   font-weight: 700;
+   color: #1A1A1A;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -568,6 +569,7 @@
 .ev-pill-sub {
   font-size: 0.62rem;
   font-weight: 500;
+   color: #1A1A1A;
   opacity: 0.85;
   white-space: nowrap;
   overflow: hidden;
