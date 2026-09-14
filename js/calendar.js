@@ -368,7 +368,7 @@ function renderMonthGrid() {
           const subParts = [timeLabel, (e.location && !isUrl(e.location)) ? e.location : null].filter(Boolean);
           const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
           return `
-            <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)}; color:${categoryText(e.category)};">
+              <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)};">
               <div class="ev-pill-title">${escapeHtml(e.title)}</div>
               ${subParts.length ? `<div class="ev-pill-sub">${escapeHtml(subParts.join(' · '))}</div>` : ''}
             </div>
