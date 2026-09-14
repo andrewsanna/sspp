@@ -145,6 +145,37 @@
     </div>
   </section>
 
+    <script>
+    (function () {
+      var wrap = document.querySelector('.gf-hero-video-wrap');
+      var iframe = wrap ? wrap.querySelector('iframe') : null;
+      if (!iframe) return;
+
+      var videoRatio = 16 / 9; // 16:9 frame (pillarboxed source, handled via scale in CSS)
+
+      function sizeHeroVideo() {
+        var wrapW = wrap.offsetWidth;
+        var wrapH = wrap.offsetHeight;
+        var w, h;
+
+        if (wrapW / wrapH > videoRatio) {
+          w = wrapW;
+          h = w / videoRatio;
+        } else {
+          h = wrapH;
+          w = h * videoRatio;
+        }
+
+        iframe.style.width = w + 'px';
+        iframe.style.height = h + 'px';
+      }
+
+      window.addEventListener('resize', sizeHeroVideo);
+      window.addEventListener('load', sizeHeroVideo);
+      sizeHeroVideo();
+    })();
+  </script>
+
   <!-- FOOTER -->
   {% include footer.html %}
    <script src="../js/main.js"></script>
