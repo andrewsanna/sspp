@@ -12,14 +12,78 @@ function renderStaffList() {
   const root = document.getElementById('staffList');
   if (!root) return;
 
-  const featured = CLERGY.find((p) => p.featured);
-  const rest = CLERGY.filter((p) => !p.featured);
+  root.innerHTML = `<div class="ab-staff-grid">${CLERGY.map(renderStaffTile).join('')}</div>`;
+  attachStaffTileHandlers();
+}
 
-  const featuredHtml = featured ? renderFeaturedCard(featured) : '';
-  const gridHtml = `<div class="ab-staff-grid">${rest.map(renderStaffCard).join('')}</div>`;
+function renderStaffTile(person) {
+  const badgeLabel = person.type === 'clergy' ? 'Clergy' : 'Staff';
+  const badgeClass = person.type === 'clergy' ? 'is-clergy' : 'is-staff';
 
-  root.innerHTML = featuredHtml + gridHtml;
-  attachStaffBioToggles();
+  return `
+    <button class="ab-staff-tile" data-staff-id="${person.id}">
+      <div class="ab-staff-tile-photo">
+        <img src="${person.photo}" alt="${escapeHtml(person.name)}" loading="lazy" />
+      </div>
+      <div class="ab-staff-tile-text">
+        <div class="ab-staff-meta">
+          <span class="ab-staff-badge ${badgeClass}">${badgeLabel}</span>
+        </div>
+        <h3 class="ab-staff-name">${escapeHtml(person.name)}</h3>
+        <p class="ab-staff-tile-role">${escapeHtml(person.role)}</p>
+      </div>
+    </button>
+  `;
+}
+
+function attachStaffTileHandlers() {
+  document.querySelectorAll('.ab-staff-tile').forEach((tile) => {
+    tile.addEventListener('click', () => {
+      const person = CLERGY.find((p) => p.id === tile.dataset.staffId);
+      if (person) openStaffModal(person);
+    });
+  });
+}
+
+function openStaffModal(person) {
+  const overlay = document.getElementById('staffModalOverlay');
+  const badgeLabel = person.type === 'clergy' ? 'Clergy' : 'Staff';
+  const badgeClass = person.type === 'clergy' ? 'is-clergy' : 'is-staff';
+
+  document.getElementById('staffModalPhoto').src = person.photo;
+  document.getElementById('staffModalPhoto').alt = person.name;
+  document.getElementById('staffModalBadge').textContent = badgeLabel;
+  document.getElementById('staffModalBadge').className = `ab-staff-badge ${badgeClass}`;
+  document.getElementById('staffModalRole').textContent = person.role;
+  document.getElementById('staffModalName').textContent = person.name;
+
+  const bioParagraphs = person.bio
+    .split('\n\n')
+    .map((p) => `<p>${escapeHtml(p)}</p>`)
+    .join('');
+  document.getElementById('staffModalBio').innerHTML = bioParagraphs;
+
+  document.getElementById('staffModalEmail').href = `mailto:${person.email}`;
+  document.getElementById('staffModalEmailLabel').textContent = `Contact ${person.shortname}`;
+
+  overlay.classList.add('is-open');
+}
+
+function closeStaffModal() {
+  document.getElementById('staffModalOverlay').classList.remove('is-open');
+}
+
+function initStaffModal() {
+  const overlay = document.getElementById('staffModalOverlay');
+  const closeBtn = document.getElementById('staffModalClose');
+
+  closeBtn.addEventListener('click', closeStaffModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeStaffModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeStaffModal();
+  });
 }
 
 function renderBadgeAndRole(person) {
@@ -169,4 +233,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderStaffList();
   initHistoryToggle();
   initHistorySlideshow();
+  initStaffModal();
 });
