@@ -36,12 +36,12 @@
   position: relative;
   overflow: hidden;
 }
-.gf-hero__logo { 
-  width: 140px; 
-  height: 140px; 
-  object-fit: contain; 
-  margin: 0 auto 20px; 
-  display: block; 
+.gf-hero__logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 0 auto 20px;
+  display: block;
 }
 
 .gf-hero__eyebrow {
@@ -84,27 +84,28 @@
   color: var(--gf-white);
 }
 
-.gf-hero__address { 
-  font-size: 15px; 
-  opacity: 0.9; 
-  margin-bottom: 28px; 
-  color: var(--gf-white); 
+.gf-hero__address {
+  font-size: 15px;
+  opacity: 0.9;
+  margin-bottom: 28px;
+  color: var(--gf-white);
 }
 
-.gf-hero__address a { 
-  color: var(--gf-white); 
-  text-decoration: underline; 
-  text-underline-offset: 3px; 
+.gf-hero__address a {
+  color: var(--gf-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.gf-hero__ctas { 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 12px; 
+.gf-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
-.gf-hero::before {
+/* Scrim only applies to the plain/photo hero — the video hero has its own overlay below */
+.gf-hero:not(.gf-hero--video)::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -119,6 +120,7 @@
 .gf-hero > * {
   position: relative;
   z-index: 1;
+}
 
 /* ── Hero — video variant ── */
 .gf-hero--video {
@@ -165,75 +167,75 @@
   display: inline-block;
   transition: background 0.15s;
 }
-.gf-btn--primary { 
-  background: var(--gf-gold); 
-  color: var(--gf-navy-deep); 
+.gf-btn--primary {
+  background: var(--gf-gold);
+  color: var(--gf-navy-deep);
 }
-  
-.gf-btn--primary:hover { 
-  background: var(--gf-gold-dark); 
+
+.gf-btn--primary:hover {
+  background: var(--gf-gold-dark);
 }
-  
+
 .gf-btn--outline {
   background: transparent;
   color: var(--gf-white);
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
-  
+
 .gf-btn--outline:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
 /* ── Details band ── */
-.gf-details-band { 
-  background: var(--gf-navy-deep); 
-  padding: 24px; 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 24px; 
+.gf-details-band {
+  background: var(--gf-navy-deep);
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
-  
-.gf-detail-item { 
-  text-align: center; 
-  color: var(--gf-white); 
+
+.gf-detail-item {
+  text-align: center;
+  color: var(--gf-white);
 }
-  
-.gf-detail-item__label { 
-  font-family: 'Fraunces', serif; 
-  font-size: 10px; 
-  letter-spacing: 2px; 
-  text-transform: uppercase; 
-  opacity: 0.7; 
-  margin-bottom: 4px; 
-  color: var(--gf-white); 
+
+.gf-detail-item__label {
+  font-family: 'Fraunces', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 4px;
+  color: var(--gf-white);
 }
-  
-.gf-detail-item__value { 
-  font-size: 15px; 
-  font-weight: 300; 
-  color: var(--gf-white); 
+
+.gf-detail-item__value {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--gf-white);
 }
-  
-.gf-detail-item__value a { 
-  color: var(--gf-white); 
-  text-decoration: underline; 
+
+.gf-detail-item__value a {
+  color: var(--gf-white);
+  text-decoration: underline;
 }
 
 /* ── Sections ── */
-.gf-section { 
-  padding: 60px 24px; 
+.gf-section {
+  padding: 60px 24px;
 }
-.gf-section--cream { 
-  background: var(--gf-cream); 
+.gf-section--cream {
+  background: var(--gf-cream);
 }
-.gf-section--dark { 
-  background: var(--gf-navy-deep); 
-  color: var(--gf-white); 
+.gf-section--dark {
+  background: var(--gf-navy-deep);
+  color: var(--gf-white);
 }
-.gf-container { 
-  max-width: 980px; 
-  margin: 0 auto; 
+.gf-container {
+  max-width: 980px;
+  margin: 0 auto;
 }
 
 .gf-section-title {
@@ -243,12 +245,12 @@
   margin-bottom: 8px;
   color: var(--gf-navy-deep);
 }
-.gf-section--dark .gf-section-title { 
-  color: var(--gf-white); 
+.gf-section--dark .gf-section-title {
+  color: var(--gf-white);
 }
 
-.gf-section--dark .eyebrow { 
-  color: var(--gf-gold); 
+.gf-section--dark .eyebrow {
+  color: var(--gf-gold);
 }
 
 /* ── About cards ── */
@@ -265,32 +267,32 @@
   .gf-about-grid { grid-template-columns: 1fr; }
 }
 
-.gf-about-card { 
-  background: var(--gf-white); 
-  border-radius: 6px; 
-  padding: 24px; 
-  border-top: 3px solid var(--gf-blue); 
+.gf-about-card {
+  background: var(--gf-white);
+  border-radius: 6px;
+  padding: 24px;
+  border-top: 3px solid var(--gf-blue);
 }
-.gf-about-card h3 { 
-  font-family: 'Fraunces', serif; 
-  font-size: 15px; 
-  color: var(--gf-navy-deep); 
-  margin-bottom: 8px; 
+.gf-about-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+  color: var(--gf-navy-deep);
+  margin-bottom: 8px;
 }
-.gf-about-card p { 
-  font-size: 14px; 
-  color: var(--gf-ink-muted); 
-  line-height: 1.7; 
+.gf-about-card p {
+  font-size: 14px;
+  color: var(--gf-ink-muted);
+  line-height: 1.7;
 }
 
 /* ── Menu ── */
-.gf-menu-tabs { 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 8px; 
-  margin: 24px 0; 
+.gf-menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
 }
-  
+
 .gf-menu-tab {
   font-family: 'Fraunces', serif;
   font-size: 11px;
@@ -323,7 +325,6 @@
 .gf-sponsor-tier { margin-bottom: 32px; }
 .gf-sponsor-tier__label { font-family: 'Fraunces', serif; font-size: 12px; letter-spacing: 2px; color: var(--gf-gold); text-align: center; display: block; margin-bottom: 16px; }
 .gf-sponsor-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-/* Replace the existing .gf-sponsor-card block with this */
 .gf-sponsor-card {
   display: flex;
   align-items: center;
