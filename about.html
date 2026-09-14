@@ -67,7 +67,7 @@
     </div>
   </section>
 
-<!-- CLERGY & STAFF -->
+    <!-- CLERGY & STAFF -->
   <section class="ab-staff section">
     <div class="container">
       <span class="eyebrow">Leadership</span>
@@ -79,7 +79,33 @@
     </div>
   </section>
 
-          <div class="ab-history-row">
+  <!-- PARISH HISTORY -->
+  <section class="ab-history section">
+    <div class="container">
+      <div class="ab-history-grid">
+        <div class="ab-history-body">
+          <span class="eyebrow">Our Story</span>
+          <h2 class="ab-section-title">Parish History</h2>
+          <p>It started in the winter of 1958, when a group of Greek Orthodox families in Chicago's northern suburbs realized they needed a parish of their own. By 1959 the state had recognized the community, and Sunday school was already meeting at Crow Island School in Winnetka. The parish received its official charter in March 1960, and four years later — on November 15, 1964 — the first Divine Liturgy was celebrated in the new sanctuary in Glenview.</p>
+
+          <p>Growth came fast. The Community Center went up in 1974, the sanctuary was consecrated by Archbishop Iakovos in 1978, and by the early 2000s the dome had been restored with iconography depicting Christ as Pantokrator, the heavenly liturgy, and seventeen saints. Agape Preschool opened around the same time and now serves about 35 kids across four classes.</p>
+
+          <p>From the beginning, celebrating the Liturgy in English has been part of how SSPP meets families where they are — and that spirit carries through today. We're not just a parish for those of Greek descent; we welcome Orthodox Christians of every background, interfaith couples, and anyone curious about Orthodoxy.</p>
+
+          <button class="ab-history-toggle" id="historyToggle" aria-expanded="false" aria-controls="historyFull">
+            <span>Read the full parish history</span>
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="ab-history-photo">
+          <img src="images/history.jpg" width="4094" height="2775" alt="Historical photo of Saints Peter & Paul's sanctuary and parish community" class="img-top"/>
+        </div>
+      </div>
+
+      <div class="ab-history-full" id="historyFull">
+        <p>In 1991, the parish purchased a two-acre parcel of land that became the north parking lot. Over the years, many ministries were added with strong lay leadership, including Cancer Support and Divorce Rebuilders, and in the 1980s the parish built out a dedicated focus on youth programs and staff leadership that continues today.</p>
+
+        <div class="ab-history-row">
           <div class="ab-history-row-text">
             <h3>Priests who have served our parish</h3>
             <p>A number of associate priests and youth directors got their start at SSPP before going on to serve parishes of their own, including Fr. John Demos, Dcn. John Suhayda, Fr. Mark Elliott, Fr. Vladimir Christy, Fr. George Pyle, Fr. Peter Pappas, Fr. George Gartelos, Fr. Andrew Georganas, Fr. Michael Prevas, Fr. Alexander Lukashonok, Fr. Michael Stearns, Fr. Demetri Tobias, Fr. Kosmas Kallis, Fr. Paul Boris Dinkov, and Fr. Peter Sarolas. Two priests — Fr. John Kalantzis and Fr. Andrew Kearns — were attached to the parish while serving as military chaplains at Great Lakes Naval Station.</p>
@@ -91,17 +117,17 @@
                 <div class="ab-priest-years">2019 – present</div>
                 <div class="ab-priest-name">Fr. Richard Demetrius Andrews</div>
               </div>
-               <div class="ab-priest-cell">
+              <div class="ab-priest-cell">
                 <img class="ab-priest-photo" src="images/staff/fr-boznos.jpg" alt="Fr. Panagiotis Boznos" loading="lazy" />
                 <div class="ab-priest-years">2014 – 2019</div>
                 <div class="ab-priest-name">Fr. Panagiotis Boznos</div>
               </div>
-               <div class="ab-priest-cell">
+              <div class="ab-priest-cell">
                 <img class="ab-priest-photo" src="images/staff/fr-dokos.jpg" alt="Fr. James Dokos" loading="lazy" />
                 <div class="ab-priest-years">2012 – 2014</div>
                 <div class="ab-priest-name">Fr. James Dokos</div>
               </div>
-               <div class="ab-priest-cell">
+              <div class="ab-priest-cell">
                 <img class="ab-priest-photo" src="images/staff/fr-artemas.jpg" alt="Fr. Angelo Artemas" loading="lazy" />
                 <div class="ab-priest-years">2001 – 2012</div>
                 <div class="ab-priest-name">Fr. Angelo Artemas</div>
@@ -111,7 +137,7 @@
                 <div class="ab-priest-years">1974 – 2000</div>
                 <div class="ab-priest-name">Fr. George Scoulas</div>
               </div>
-               <div class="ab-priest-cell">
+              <div class="ab-priest-cell">
                 <img class="ab-priest-photo" src="images/staff/fr-latto.jpg" alt="Fr. Dennis Latto" loading="lazy" />
                 <div class="ab-priest-years">1962 – 1973</div>
                 <div class="ab-priest-name">Fr. Dennis Latto</div>
@@ -146,11 +172,14 @@
           <div class="ab-history-row-photo">
             <div class="ab-history-slideshow" id="iconSlideshow">
               <img class="ab-history-slide is-active" src="images/icons/icon-1.jpg" alt="Icon at Saints Peter & Paul" loading="lazy" />
-              <!-- add more <img class="ab-history-slide"> tags here as you upload icon photos -->
               <div class="ab-history-slideshow-dots" id="iconSlideshowDots"></div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
 
     <!-- STAFF DETAIL MODAL -->
   <div class="staff-modal-overlay" id="staffModalOverlay">
