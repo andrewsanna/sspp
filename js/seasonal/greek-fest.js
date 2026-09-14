@@ -15,16 +15,24 @@ function formatMenuPrice(item) {
 }
 
 function renderHero() {
-  const datesRoot = document.getElementById('gf-hero-dates');
-if (datesRoot) {
+ const datesRoot = document.getElementById('gf-hero-dates');
+  if (datesRoot) {
   const uniqueHours = new Set(GF_EVENT.dates.map((d) => d.hours));
   if (uniqueHours.size === 1) {
     const dayLabels = GF_EVENT.dates.map((d) => escapeHtml(d.label)).join(' &amp; ');
-    datesRoot.innerHTML = `${dayLabels}<span class="gf-hero__dates-sep">·</span>${escapeHtml(GF_EVENT.dates[0].hours)}`;
+    datesRoot.innerHTML = `
+      <span class="gf-hero__dates-day">${dayLabels}</span>
+      <span class="gf-hero__dates-time">${escapeHtml(GF_EVENT.dates[0].hours)}</span>
+    `;
   } else {
     datesRoot.innerHTML = GF_EVENT.dates
-      .map((d) => `${escapeHtml(d.label)}<span class="gf-hero__dates-sep">·</span>${escapeHtml(d.hours)}`)
-      .join('<br>');
+      .map(
+        (d) => `
+        <span class="gf-hero__dates-day">${escapeHtml(d.label)}</span>
+        <span class="gf-hero__dates-time">${escapeHtml(d.hours)}</span>
+      `
+      )
+      .join('');
   }
 }
 
