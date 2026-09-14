@@ -55,16 +55,18 @@
   color: var(--gf-white);
   margin-bottom: 24px;
 }
-.gf-hero__dates { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 20px; }
-.gf-date-pill {
-  background: rgba(13, 58, 92, 0.82);  /* was rgba(255,255,255,0.12) */
-  border: 1px solid rgba(255, 255, 255, 0.25);  /* was 0.4 — quieter now that the fill itself carries contrast */
-  border-radius: 6px;
-  padding: 10px 20px;
+.gf-hero__dates-heading {
   font-family: 'Fraunces', serif;
+  font-size: clamp(1.3rem, 3.2vw, 2rem);
+  font-weight: 600;
   color: var(--gf-white);
-}.gf-date-pill__day { font-size: 15px; font-weight: 600; color: var(--gf-white); }
-.gf-date-pill__hours { font-size: 13px; opacity: 0.85; margin-top: 2px; color: var(--gf-white); }
+  margin-bottom: 20px;
+}
+.gf-hero__dates-sep {
+  color: var(--gf-gold);
+  margin: 0 6px;
+}
+
 .gf-hero__address { font-size: 15px; opacity: 0.9; margin-bottom: 28px; color: var(--gf-white); }
 .gf-hero__address a { color: var(--gf-white); text-decoration: underline; text-underline-offset: 3px; }
 .gf-hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
@@ -133,8 +135,14 @@
 }
 .gf-btn--primary { background: var(--gf-gold); color: var(--gf-navy-deep); }
 .gf-btn--primary:hover { background: var(--gf-gold-dark); }
-.gf-btn--outline { background: transparent; color: var(--gf-white); border: 1px solid rgba(255,255,255,0.5); }
-
+.gf-btn--outline {
+  background: transparent;
+  color: var(--gf-gold);
+  border: 1px solid var(--gf-gold);
+}
+.gf-btn--outline:hover {
+  background: rgba(201, 162, 39, 0.12);
+}
 /* ── Details band ── */
 .gf-details-band { background: var(--gf-navy-deep); padding: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
 .gf-detail-item { text-align: center; color: var(--gf-white); }
