@@ -13,18 +13,18 @@
 
 // Pill / legend colors per category — pulled from your list
 const CATEGORY_COLORS = {
-  liturgical: '#1F4E79',
-  youth: '#2E7D32',
-  featured: '#C9A227',
-  philanthropy: '#7B3F98',
-  agape: '#C96A23',
-  adult_faith: '#0C447C',
-  adult_activities: '#3A6FA5',
-  support_groups: '#A8763E',
-  ministries: '#4A7C6F',
-  athletics: '#B0405A',
-  metropolis_events: '#5C4423',
-  other: '#6B7280',
+  liturgical: '#6B7280',       // slate gray — recedes; routine/high-volume
+  youth: '#2E7D32',            // green — unchanged
+  featured: '#2563A8',         // strong blue — your most attention-grabbing category
+  philanthropy: '#7B3F98',     // purple — unchanged
+  agape: '#C96A23',            // orange — unchanged
+  adult_faith: '#B0405A',      // rose/burgundy
+  adult_activities: '#1C8C8C', // teal
+  support_groups: '#6B5B95',   // muted violet
+  ministries: '#8C6E1F',       // bronze
+  athletics: '#0C447C',        // deep blue — freed up now that liturgical/adult_faith moved off blue
+  metropolis_events: '#5C4423',// brown — unchanged
+  other: '#9CA3AF',            // light gray fallback — distinct from liturgical's slate
 };
 
 // const MONTHS_AHEAD = 3;
