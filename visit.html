@@ -264,6 +264,36 @@
 
   <script src="js/main.js"></script>
   <script>
+    <script>
+  (function () {
+    var wrap = document.querySelector('.vh-hero-video-wrap');
+    var iframe = wrap ? wrap.querySelector('iframe') : null;
+    if (!iframe) return;
+
+    var videoRatio = 9 / 16; // portrait source video (width / height)
+
+    function sizeHeroVideo() {
+      var wrapW = wrap.offsetWidth;
+      var wrapH = wrap.offsetHeight;
+      var w, h;
+
+      if (wrapW / wrapH > videoRatio) {
+        w = wrapW;
+        h = w / videoRatio;
+      } else {
+        h = wrapH;
+        w = h * videoRatio;
+      }
+
+      iframe.style.width = w + 'px';
+      iframe.style.height = h + 'px';
+    }
+
+    window.addEventListener('resize', sizeHeroVideo);
+    window.addEventListener('load', sizeHeroVideo);
+    sizeHeroVideo();
+  })();
+    
     // Only one FAQ item open at a time
     document.querySelectorAll('.vh-faq-item').forEach(function (item) {
       item.addEventListener('toggle', function () {
