@@ -16,18 +16,17 @@ function formatMenuPrice(item) {
 
 function renderHero() {
   const datesRoot = document.getElementById('gf-hero-dates');
-  if (datesRoot) {
+if (datesRoot) {
+  const uniqueHours = new Set(GF_EVENT.dates.map((d) => d.hours));
+  if (uniqueHours.size === 1) {
+    const dayLabels = GF_EVENT.dates.map((d) => escapeHtml(d.label)).join(' &amp; ');
+    datesRoot.innerHTML = `${dayLabels}<span class="gf-hero__dates-sep">·</span>${escapeHtml(GF_EVENT.dates[0].hours)}`;
+  } else {
     datesRoot.innerHTML = GF_EVENT.dates
-      .map(
-        (d) => `
-      <div class="gf-date-pill">
-        <div class="gf-date-pill__day">${escapeHtml(d.label)}</div>
-        <div class="gf-date-pill__hours">${escapeHtml(d.hours)}</div>
-      </div>
-    `
-      )
-      .join('');
+      .map((d) => `${escapeHtml(d.label)}<span class="gf-hero__dates-sep">·</span>${escapeHtml(d.hours)}`)
+      .join('<br>');
   }
+}
 
   const addressRoot = document.getElementById('gf-hero-address');
   if (addressRoot) {
