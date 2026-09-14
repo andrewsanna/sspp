@@ -35,7 +35,6 @@
   color: #fff;
   line-height: 1.3;
   margin-bottom: 0.9rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .ab-hero-title em {
@@ -47,7 +46,6 @@
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 640px) {
@@ -148,7 +146,7 @@
   align-items: center;
   gap: 2rem;
   background: #fff;
-  box-shadow: 0 8px 28px rgba(18, 39, 64, 0.10);
+  border: 1px solid var(--brd);
   border-left: 4px solid var(--gold);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2.5rem;
@@ -288,7 +286,7 @@
 .ab-history-toggle:hover {
   background: var(--gold);
   color: var(--navy-deep);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .ab-history-toggle.open {
@@ -300,25 +298,21 @@
   transform: rotate(180deg);
 }
 
-.ab-history-toggle:hover {
-  text-decoration: underline;
-}
-
 .ab-history-full {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
 
-.ab-history-full > p:first-child {
-  max-width: 760px;
-}
-
 .ab-history-full.is-open {
-  max-height: 4000px;
+  max-height: 8000px;
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--brd);
+}
+
+.ab-history-full > p:first-child {
+  max-width: 760px;
 }
 
 .ab-history-full h3 {
@@ -387,46 +381,6 @@
   line-height: 1.3;
 }
 
-/* ============================================
-   Parish History — closing text + slideshow, 2-col
-   ============================================ */
-.ab-history-closing {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
-  margin-top: 1.5rem;
-}
-
-.ab-history-closing-text p {
-  font-size: 0.88rem;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-.ab-history-closing-text h3 {
-  font-size: 1.05rem;
-  margin: 1.5rem 0 0.75rem;
-}
-
-.ab-history-closing-photo h3 {
-  font-size: 1.05rem;
-  margin: 0 0 0.75rem;
-}
-
-.ab-history-closing-photo .ab-history-slideshow {
-  margin: 0;
-}
-
-@media (max-width: 760px) {
-  .ab-history-closing {
-    grid-template-columns: 1fr;
-  }
-  .ab-history-closing-photo {
-    order: -1;
-  }
-}
-
 @media (max-width: 700px) {
   .ab-priest-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -438,8 +392,64 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 /* ============================================
-   Parish History — photo gallery 
+   Parish History — text/photo rows (reused twice)
+   ============================================ */
+.ab-history-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin: 2rem 0;
+}
+
+.ab-history-row-text h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.75rem;
+}
+
+.ab-history-row-text p {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.ab-priest-grid--compact {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.9rem;
+  margin: 0;
+  max-width: none;
+}
+
+.ab-history-row-photo .ab-history-slideshow {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .ab-history-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   "A look back" — full-width standalone
+   ============================================ */
+.ab-history-lookback {
+  margin: 2.5rem 0;
+}
+
+.ab-history-lookback h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.75rem;
+}
+
+.ab-history-lookback .ab-history-slideshow {
+  margin: 0;
+}
+
+/* ============================================
+   Parish History — photo slideshow (shared)
    ============================================ */
 .ab-history-slideshow {
   position: relative;
@@ -447,7 +457,6 @@
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  margin: 1.5rem 0 2rem;
   box-shadow: var(--shadow-card);
   background: var(--navy-deep);
 }
@@ -492,7 +501,6 @@
   transform: scale(1.3);
 }
 
-
 /* ============================================
    Clergy & Staff — uniform grid, modal on click
    ============================================ */
@@ -518,6 +526,10 @@
   border-color: var(--gold);
   box-shadow: var(--shadow-card);
   transform: translateY(-2px);
+}
+
+.ab-staff-tile.is-featured {
+  border: 2px solid var(--gold);
 }
 
 .ab-staff-tile-photo {
@@ -570,10 +582,6 @@
   color: var(--mt);
 }
 
-.ab-staff-tile.is-featured {
-  border: 2px solid var(--gold);
-}
-
 @media (max-width: 900px) {
   .ab-staff-grid {
     grid-template-columns: 1fr 1fr;
@@ -587,7 +595,7 @@
 }
 
 /* ============================================
-   Staff detail modal
+   Staff detail modal — two column (photo | bio)
    ============================================ */
 .staff-modal-overlay {
   position: fixed;
@@ -607,14 +615,15 @@
 .staff-modal {
   background: #fff;
   border-radius: var(--radius-lg);
-  max-width: 680px;
+  max-width: 760px;
   width: 100%;
-  overflow: hidden;
   max-height: 85vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
+  overflow: hidden;
 }
+
 .staff-modal-close {
   position: absolute;
   top: 0.85rem;
@@ -630,7 +639,7 @@
   justify-content: center;
   cursor: pointer;
   font-size: 1rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 .staff-modal-close:hover {
@@ -638,10 +647,9 @@
 }
 
 .staff-modal-photo {
-  width: 100%;
-  height: 260px;
-  overflow: hidden;
+  width: 260px;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .staff-modal-photo img {
@@ -653,10 +661,10 @@
 }
 
 .staff-modal-body {
-  padding: 1.5rem 1.75rem;
-  overflow-y: auto;
   flex: 1;
   min-height: 0;
+  padding: 1.75rem;
+  overflow-y: auto;
 }
 
 .staff-modal-meta {
@@ -676,4 +684,18 @@
   line-height: 1.75;
   color: var(--tx);
   margin-bottom: 1rem;
+}
+
+@media (max-width: 640px) {
+  .staff-modal {
+    flex-direction: column;
+    max-height: 90vh;
+  }
+  .staff-modal-photo {
+    width: 100%;
+    height: 220px;
+  }
+  .staff-modal-body {
+    padding: 1.5rem;
+  }
 }
