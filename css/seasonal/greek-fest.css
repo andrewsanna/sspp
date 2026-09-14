@@ -70,8 +70,8 @@
   display: block;
   font-family: 'Fraunces', serif;
   font-size: clamp(1rem, 2.2vw, 1.3rem);
-  font-weight: 400;
-  color: var(--gf-gold);
+  font-weight: 500;
+  color: var(--gf-white);
 }
 
 .gf-hero__address { font-size: 15px; opacity: 0.9; margin-bottom: 28px; color: var(--gf-white); }
