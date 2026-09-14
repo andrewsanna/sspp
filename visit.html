@@ -18,8 +18,29 @@
 
   <!-- NAV -->
  {% include nav.html %}
-
- <section id="main-content" class="vh-hero" style="background-image: url('images/kids-church-2.jpg');">
+<section id="main-content" class="vh-hero vh-hero--video">
+  <div class="vh-hero-video-wrap">
+    <iframe
+      src="https://player.vimeo.com/video/1226717223?background=1&autoplay=1&loop=1&muted=1&controls=0&byline=0&title=0&portrait=0"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      title="Saints Peter and Paul hero video"
+      loading="lazy">
+    </iframe>
+  </div>
+  <div class="vh-hero-overlay"></div>
+  <div class="vh-hero-inner">
+    <span class="eyebrow eyebrow--on-dark">New here?</span>
+    <h1 class="vh-hero-title">You are welcome here.</h1>
+    <p class="vh-hero-body">Not sure what to expect? Here is what to wear, what happens during the service, and how to find us — written by people who remember being new too.</p>
+    <div class="vh-hero-ctas">
+      <a class="btn btn-gold-lg" href="https://maps.google.com/?q=1401+Wagner+Rd,+Glenview,+IL+60025" target="_blank" rel="noopener noreferrer">Get directions</a>
+      <a class="btn btn-outline-white" href="#faq">Read the FAQ</a>
+    </div>
+  </div>
+  
+<!--  IMAGE BACKGROUND-->
+ <!-- <section id="main-content" class="vh-hero" style="background-image: url('images/kids-church-2.jpg');">
   <div class="vh-hero-overlay"></div>
   <div class="vh-hero-inner">
     <span class="eyebrow eyebrow--on-dark">New here?</span>
@@ -30,7 +51,7 @@
       <a class="btn btn-outline-white" href="#faq">Read the FAQ</a>
     </div>
   </div>
-</section>
+</section> -->
 
   <!-- SERVICE INFO STRIP -->
   <section class="vh-info-strip" id="times">
