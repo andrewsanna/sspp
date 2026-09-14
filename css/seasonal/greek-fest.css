@@ -61,6 +61,39 @@
 .gf-hero__address a { color: var(--gf-white); text-decoration: underline; text-underline-offset: 3px; }
 .gf-hero__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
+/* ── Hero — video variant ── */
+.gf-hero--video {
+  position: relative;
+  overflow: hidden;
+}
+
+.gf-hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.gf-hero-video-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%) scale(1.4);
+  pointer-events: none;
+}
+
+.gf-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 58, 92, 0.55); /* gf-navy-deep, lighter than Visit page's overlay */
+  z-index: 1;
+}
+
+.gf-hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
 /* ── Buttons ── */
 .gf-btn {
   font-family: 'Fraunces', serif;
