@@ -570,6 +570,10 @@
   color: var(--mt);
 }
 
+.ab-staff-tile.is-featured {
+  border: 2px solid var(--gold);
+}
+
 @media (max-width: 900px) {
   .ab-staff-grid {
     grid-template-columns: 1fr 1fr;
