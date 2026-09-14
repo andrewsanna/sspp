@@ -2,8 +2,8 @@
    Page header
    ============================================ */
 .gi-page-header {
-   background-position: center top;
-   background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background-position: center 25%;
   padding: 2.5rem 0 1.75rem;
   position: relative;
   overflow: hidden;
