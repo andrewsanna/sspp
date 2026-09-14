@@ -3,7 +3,7 @@
    ============================================ */
 .sc-hero {
   background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
-  padding: 3.5rem 0;
+  padding: 5rem 0;
   position: relative;
   overflow: hidden;
   text-align: center;
