@@ -529,7 +529,7 @@
 }
 
 .ab-staff-tile.is-featured {
-  border: 2px solid var(--gold);
+  border: 3px solid var(--gold);
 }
 
 .ab-staff-tile-photo {
