@@ -353,7 +353,9 @@ function renderMonthGrid() {
   const MAX_VISIBLE = viewMode === 'week' ? 8 : 3;
 
   grid.innerHTML = cells.map((cell) => {
-    const dayEvents = filtered.filter((e) => eventCoversDay(e, cell.date));
+   const dayEvents = filtered
+      .filter((e) => eventCoversDay(e, cell.date))
+      .sort((a, b) => (a.isAllDay === b.isAllDay ? a.start - b.start : a.isAllDay ? -1 : 1));
     const isToday = isSameDay(cell.date, today);
 
     const visibleEvents = dayEvents.slice(0, MAX_VISIBLE);
