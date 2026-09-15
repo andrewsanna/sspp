@@ -128,57 +128,51 @@
 }
 
 /* This Year's Plan */
-.plan-intro {
-  max-width: 640px;
-  margin: 0 0 2rem;
-  color: var(--color-navy, #1a2744);
+/* This Year's Plan — card grid (visually distinct from Time/Talent/Treasure) */
+.plan-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
-.plan-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
+.plan-card {
+  background: var(--color-cream, #faf7f0);
+  border: none;
+  border-left: 4px solid var(--color-gold, #b08d3f);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
 }
-.plan-item {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  padding-bottom: 1.75rem;
-}
-.plan-item:last-child { border-bottom: none; }
-.plan-number {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 2rem;
-  color: var(--color-gold, #b08d3f);
-  line-height: 1;
-  min-width: 2.5rem;
-}
-.plan-body h3 { margin: 0 0 0.25rem; }
-.plan-progress {
+.plan-card-head {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
 }
-.plan-progress-bar {
-  flex: 1;
-  max-width: 220px;
-  height: 6px;
-  border-radius: 999px;
-  background: rgba(0,0,0,0.08);
-  overflow: hidden;
+.plan-card-icon {
+  font-size: 1.3rem;
+  color: var(--color-gold, #b08d3f);
 }
-.plan-progress-bar span {
-  display: block;
-  height: 100%;
-  background: var(--color-gold, #b08d3f);
-}
-.plan-progress-label {
-  font-size: 0.85rem;
+.plan-card-cost {
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--color-navy, #1a2744);
+  background: rgba(0,0,0,0.05);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+.plan-card h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+.plan-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--color-navy, #1a2744);
+}
+
+@media (max-width: 720px) {
+  .plan-card-grid { grid-template-columns: 1fr; }
 }
 /* Update timeline — horizontal */
 .update-timeline-h {
