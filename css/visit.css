@@ -324,84 +324,79 @@
 } */
 
 /* ============================================
-   Service flow (4-step)
+   Combined Service Flow + Notices
    ============================================ */
-.vh-flow-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+.vh-flow-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 640px;
+  margin: 0 auto 2.8rem;
 }
 
-.vh-flow-step {
+.vh-notice-row {
+  background: var(--gold-lt);
+  margin: 0 -2rem;
+  padding: 2.2rem 2rem 1.8rem;
+}
+
+.vh-notice-label {
+  display: block;
   text-align: center;
-  padding: 0 1rem;
-  position: relative;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 1.3rem;
 }
 
-.vh-flow-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 22px;
-  right: -50%;
-  width: 100%;
-  height: 1px;
-  background: rgba(212, 175, 106, 0.4);
-}
-
-.vh-flow-num {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--navy-deep);
-  color: var(--gold);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.05rem;
+.vh-notice-grid {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 0 auto 1.1rem;
-  position: relative;
-  z-index: 1;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.vh-flow-step h4 {
-  font-size: 0.9rem;
-  font-family: var(--font-body);
-  color: var(--navy-deep);
-  margin-bottom: 0.5rem;
-}
-
-.vh-flow-step p {
-  font-size: 0.8rem;
-  color: var(--mt);
-  line-height: 1.6;
-}
-
-
-/* ============================================
-   "What you'll see" explainer cards
-   ============================================ */
-.vh-explain-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.1rem;
-}
-
-.vh-explain-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  padding: 1.8rem 1.1rem;
+.vh-notice-item {
+  max-width: 200px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.vh-explain-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card);
+.vh-notice-item i {
+  font-size: 1.3rem;
+  color: var(--gold-deep);
+  margin-bottom: 0.5rem;
+  display: inline-block;
 }
 
+.vh-notice-item h5 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 0.3rem;
+}
+
+.vh-notice-item p {
+  font-size: 0.75rem;
+  color: var(--mt);
+  line-height: 1.55;
+}
+
+.vh-inline-cta--flush {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .vh-flow-grid--3 {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
+/* 
 .vh-explain-icon {
   width: 52px;
   height: 52px;
@@ -417,21 +412,8 @@
 .vh-explain-icon i {
   font-size: 1.25rem;
   color: var(--gold-deep);
-}
+} */
 
-.vh-explain-card h4 {
-  font-size: 0.85rem;
-  font-family: var(--font-body);
-  color: var(--navy-deep);
-  margin-bottom: 0.45rem;
-}
-
-.vh-explain-card p {
-  font-size: 0.78rem;
-  color: var(--mt);
-  line-height: 1.6;
-align-items: left;
-}
 
 /* ============================================
    Our Faith teaser (visit page — distinct from about.html)
