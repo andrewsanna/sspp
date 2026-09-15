@@ -407,8 +407,16 @@
   }
 }
 
-#our-faith {
-  padding-top: 2rem;
+/* ============================================
+   Our Faith band (full-width wrapper)
+   ============================================ */
+.vh-faith-band {
+  background: #fff;
+  border-top: 4px solid var(--gold);
+}
+
+.vh-faith-band .vh-section {
+  padding-top: 3rem;
 }
 
 /* ============================================
