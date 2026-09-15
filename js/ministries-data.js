@@ -90,7 +90,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Readers',
         summary: 'Read psalms and epistles during services.',
         description: 'During the worship services, lay persons are called upon to read Psalms, Epistles and Old Testament prophecies and wisdom passages. This requires training and preparation with comprehension, vocal diction and projection. This ministry is open to males and females of all ages. Saturday Vespers, Sunday Orthros and Liturgy, Feasts, Lent and Holy Week provide plenty of opportunity for involvement.',
-        // image: 'images/ministries/readers.jpg',
+        image: 'images/ministries/readers.jpg',
         calendarCategory: 'liturgical',
         contact: {
           name: 'Steven Thell',
@@ -282,7 +282,7 @@ const MINISTRY_CATEGORIES = [
         name: 'AGAPE Preschool',
         summary: 'DCFS-approved preschool rooted in the Orthodox Christian faith.',
         description: 'AGAPE School is a ministry program of our parish and operates within our facility. We are committed to a high quality educational experience for pre school and kindergarten that emphasizes the Orthodox Christian Faith. Our program uniquely provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',
-        // image: 'images/ministries/agape.jpg',
+        image: 'images/ministries/agape.jpg',
         detailPageUrl: 'ministries/agape.html',
         calendarCategory: 'agape',
         contact: {
@@ -365,7 +365,7 @@ const MINISTRY_CATEGORIES = [
         description: 'The Orthodox Couples Club (OCC) is a group based around ministering to the married couples within our community. We split our time between large fellowship activities and small breakout groups which meet in members\' homes. On top of ministering to the specific needs of married couples, one other goal of the OCC is to take a parish of over 600 families and make it feel much smaller by bringing couples together in our small group settings.',
         inactive: true,
           // calendarCategory: 'adult_faith',
-        // image: 'images/ministries/occ.jpg',
+        image: 'images/ministries/occ.jpg',
       //    contact: {
       //     name: '',
       //     role: '',
