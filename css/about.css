@@ -347,24 +347,27 @@
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
-  display: block;
-  object-fit: cover;
-  object-position: top;
-  margin-bottom: 0.5rem;
-}
-
-.ab-priest-photo-placeholder {
-  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  background: var(--gold-lt);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .ab-priest-photo-placeholder i {
   font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--gold-text);
 }
 
+.ab-priest-photo-placeholder span {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--gold-text);
+  text-align: center;
+  padding: 0 0.4rem;
+}
 .ab-priest-years {
   font-size: 0.66rem;
   text-transform: uppercase;
