@@ -138,7 +138,7 @@
   gap: 1rem;
 }
 .plan-card {
-  background: #fff;
+  background: rgba(176, 141, 63, 0.08);
   border: none;
   border-left: 4px solid var(--color-gold, #b08d3f);
   border-radius: 0;
