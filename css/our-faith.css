@@ -2,21 +2,19 @@
    Our Faith — Hero
    ============================================ */
 .of-hero {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
   padding: 3.5rem 0;
   position: relative;
   overflow: hidden;
   text-align: center;
+  background-size: cover;
+  background-position: center;
 }
 
-.of-hero-arc {
+.of-hero-overlay {
   position: absolute;
-  right: -60px;
-  top: -60px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 32px solid rgba(212, 175, 106, 0.08);
+  inset: 0;
+  background: linear-gradient(135deg, rgba(18, 39, 64, 0.85) 0%, rgba(27, 58, 92, 0.75) 100%);
+  z-index: 1;
 }
 
 .of-hero-inner {
@@ -24,6 +22,7 @@
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
+  z-index: 2;
 }
 
 .of-hero-title {
