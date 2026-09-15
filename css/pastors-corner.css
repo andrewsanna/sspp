@@ -102,10 +102,10 @@
 
 .pc-topic-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.7rem 1.5rem;
   list-style: none;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 .pc-topic-list li a {
@@ -136,12 +136,17 @@
   background: var(--gold-lt);
 }
 
+@media (max-width: 900px) {
+  .pc-topic-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 700px) {
   .pc-topic-list {
     grid-template-columns: 1fr;
   }
 }
-
 /* CTA band */
 .pc-cta {
   background: var(--navy-deep);
