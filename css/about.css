@@ -124,7 +124,7 @@
   margin-bottom: 0.4rem;
 }
 
-.ab-mission-col p {
+.ab-mission-col p:not(.ab-mission-quote) {
   font-size: 0.85rem;
   line-height: 1.7;
   color: var(--mt);
