@@ -459,15 +459,16 @@
    ============================================ */
 .ab-history-lookback {
   margin: 2.5rem 0;
+  max-width: 820px;
+}
+
+.ab-history-lookback .ab-history-slideshow {
+  margin: 0;
 }
 
 .ab-history-lookback h3 {
   font-size: 1.05rem;
   margin: 0 0 0.75rem;
-}
-
-.ab-history-lookback .ab-history-slideshow {
-  margin: 0;
 }
 
 /* ============================================
