@@ -377,6 +377,10 @@
   line-height: 1.6;
 }
 
+#visit-flow {
+  border-top: 4px solid var(--gold);
+}
+
 /* ============================================
    "What you'll see" explainer cards
    ============================================ */
