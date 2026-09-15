@@ -230,7 +230,7 @@
 /* ============================================
    Welcome note — now with photo split
    ============================================ */
-.vh-note {
+/* .vh-note {
   background: var(--gold-lt);
   padding: 4rem 2rem;
   border-top: 4px solid var(--gold);
@@ -320,7 +320,7 @@
   .vh-note-card {
     text-align: center;
   }
-}
+} */
 
 /* ============================================
    Service flow (4-step)
@@ -482,6 +482,37 @@ align-items: left;
     flex-direction: column;
     text-align: center;
   }
+}
+
+/* ============================================
+   Compact welcome quote 
+   ============================================ */
+.vh-quote {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--brd);
+  border-bottom: 1px solid var(--brd);
+}
+
+.vh-quote-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--navy-deep);
+  margin: 0 0 0.6rem;
+}
+
+.vh-quote-sig {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--mt);
+}
+
+.vh-quote-sig span {
+  color: var(--gold-text);
 }
 
 /* ============================================
