@@ -92,7 +92,7 @@
 
 .ab-mission-row {
   display: grid;
-  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-columns: 0.8fr 1.4fr 1.3fr;
   gap: 0;
   align-items: start;
   margin-top: 1.5rem;
@@ -128,13 +128,13 @@
   color: var(--mt);
 }
 
-.ab-mission-quote {
+.ab-mission-band .ab-mission-quote {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 600;
-  font-size: 1.6rem;
-  line-height: 1.45;
-  color: var(--navy-deep);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.4;
+  color: var(--blue);
 }
 
 @media (max-width: 760px) {
@@ -227,7 +227,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 2.5rem;
-  align-items: start;
+  align-items: center;
   margin-bottom: 1.5rem;
 }
 
