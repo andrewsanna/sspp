@@ -229,101 +229,6 @@
 }
 
 /* ============================================
-   Welcome note — now with photo split
-   ============================================ */
-/* .vh-note {
-  background: var(--gold-lt);
-  padding: 4rem 2rem;
-  border-top: 4px solid var(--gold);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  position: relative;
-}
-
-.vh-note-grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.vh-note-photo {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 1.6rem;
-  position: relative;
-  box-shadow: var(--shadow-card);
-}
-
-.vh-note-photo .ph-caption {
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(0, 0, 0, 0.35);
-  padding: 0.2rem 0.6rem;
-  border-radius: 10px;
-}
-
-.vh-note-card {
-  max-width: none;
-  margin: 0;
-  text-align: left;
-}
-
-.vh-note-mark {
-  font-family: var(--font-display);
-  font-size: 3.2rem;
-  line-height: 1;
-  color: var(--gold);
-  opacity: 0.55;
-  margin-bottom: 0.4rem;
-}
-
-.vh-note-text {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.15rem;
-  line-height: 1.6;
-  color: var(--navy-deep);
-  margin-bottom: 1.2rem;
-}
-
-.vh-note-sig {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--mt);
-}
-
-.vh-note-sig span {
-  color: var(--gold-text);
-}
-
-@media (max-width: 760px) {
-  .vh-note-grid {
-    grid-template-columns: 1fr;
-  }
-  .vh-note-photo {
-    max-width: 420px;
-    margin: 0 auto;
-  }
-  .vh-note-card {
-    text-align: center;
-  }
-} */
-
-/* ============================================
    Service flow steps
    ============================================ */
 .vh-flow-grid {
@@ -368,6 +273,15 @@
 .vh-flow-step h4 {
   font-size: 0.9rem;
   font-family: var(--font-body);
+  color: var(--navy-deep);
+  margin-bottom: 0.5rem;
+}
+
+.vh-flow-step p {
+  font-size: 0.8rem;
+  color: var(--mt);
+  line-height: 1.6;
+}
 
 /* ============================================
    Combined Service Flow + Notices
@@ -441,25 +355,6 @@
     max-width: 320px;
   }
 }
-
-/* 
-.vh-explain-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--gold-lt);
-  border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-}
-
-.vh-explain-icon i {
-  font-size: 1.25rem;
-  color: var(--gold-deep);
-} */
-
 
 /* ============================================
    Our Faith teaser (visit page — distinct from about.html)
@@ -627,64 +522,6 @@
 }
 
 /* ============================================
-   Guide & tour request cards
-   ============================================ */
-/* .vh-request-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.vh-request-card {
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  padding: 2rem 1.6rem;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.vh-request-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card);
-}
-
-.vh-request-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--gold-lt);
-  border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.1rem;
-  font-size: 1.3rem;
-  color: var(--gold-deep);
-}
-
-.vh-request-card h4 {
-  font-size: 0.95rem;
-  color: var(--navy-deep);
-  margin-bottom: 0.6rem;
-}
-
-.vh-request-card p {
-  font-size: 0.82rem;
-  color: var(--mt);
-  line-height: 1.6;
-  margin-bottom: 1.3rem;
-}
-
-@media (max-width: 640px) {
-  .vh-request-grid {
-    grid-template-columns: 1fr;
-  }
-} */
-
-/* ============================================
    Final CTA band
    ============================================ */
 .vh-cta {
@@ -715,8 +552,7 @@
   .vh-info-strip {
     gap: 1.75rem;
   }
-  .vh-flow-grid,
-  .vh-explain-grid {
+  .vh-flow-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1.1rem;
   }
@@ -726,8 +562,7 @@
 }
 
 @media (max-width: 560px) {
-  .vh-flow-grid,
-  .vh-explain-grid {
+  .vh-flow-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -756,10 +591,4 @@
 
 .vh-inline-cta a:hover {
   text-decoration: underline;
-}
-
-/* Single-card variant of the request grid (tours only) */
-.vh-request-grid--single {
-  grid-template-columns: 1fr;
-  max-width: 380px;
 }
