@@ -101,6 +101,7 @@
 .vh-path-section {
   background: #fff;
   padding: 2.5rem 2rem 2.5rem;
+  border-bottom: 4px solid var(--gold);
 }
 
 .vh-path-grid {
@@ -377,9 +378,6 @@
   line-height: 1.6;
 }
 
-#visit-flow {
-  border-top: 4px solid var(--gold);
-}
 
 /* ============================================
    "What you'll see" explainer cards
