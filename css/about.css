@@ -62,9 +62,6 @@
   margin-bottom: 1.25rem;
 }
 
-/* ============================================
-   Mission — Purpose | Mission | Vision row
-   ============================================ */
 .ab-mission-band {
   background: var(--gold-lt);
   padding: 3.5rem 0;
@@ -84,7 +81,7 @@
 }
 
 .ab-mission-inner {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
@@ -92,25 +89,30 @@
 
 .ab-mission-row {
   display: grid;
-  grid-template-columns: 0.85fr 1.8fr 1fr;
-  gap: 0;
-  align-items: start;
+  grid-template-columns: 0.85fr 1.3fr 1.15fr;
+  gap: 2.5rem;
+  align-items: center;
   margin-top: 1.5rem;
 }
-.ab-mission-col {
-  padding: 0 2rem;
-  border-left: 1px solid rgba(18, 39, 64, 0.15);
-  text-align: left;
-}
 
-.ab-mission-col:first-child {
-  border-left: none;
-  padding-left: 0;
+.ab-mission-col {
+  text-align: left;
 }
 
 .ab-mission-col--center {
   text-align: center;
-  padding: 0 2.5rem;
+  border-left: 1px solid rgba(18, 39, 64, 0.12);
+  border-right: 1px solid rgba(18, 39, 64, 0.12);
+  padding: 0 2rem;
+}
+
+.ab-mission-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--navy-deep);
+  margin: 0;
 }
 
 .ab-mission-support-label {
@@ -127,31 +129,24 @@
   color: var(--mt);
 }
 
-.ab-mission-quote {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.3rem;
-  line-height: 1.5;
-  color: var(--navy-deep);
-}
-
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .ab-mission-row {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .ab-mission-col {
-    border-left: none;
-    padding: 0;
-    text-align: center;
-  }
   .ab-mission-col--center {
     order: -1;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(18, 39, 64, 0.12);
     padding: 0 0 1.5rem;
-    border-bottom: 1px solid rgba(18, 39, 64, 0.15);
     margin-bottom: 0.5rem;
   }
+  .ab-mission-col {
+    text-align: center;
+  }
 }
+
 /* ============================================
    Our Faith — teaser card
    ============================================ */
