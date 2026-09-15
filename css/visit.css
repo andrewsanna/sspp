@@ -486,6 +486,10 @@ align-items: left;
   }
 }
 
+#our-faith {
+  padding-top: 2rem;
+}
+
 /* ============================================
    Compact welcome quote 
    ============================================ */
@@ -579,9 +583,25 @@ align-items: left;
 }
 
 /* ============================================
+   Schedule a Tour (lightweight CTA)
+   ============================================ */
+.vh-tour-cta {
+  background: #fff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.vh-tour-cta-text {
+  font-size: 0.92rem;
+  color: var(--navy-deep);
+  margin: 0 auto 1.3rem;
+  max-width: 480px;
+}
+
+/* ============================================
    Guide & tour request cards
    ============================================ */
-.vh-request-grid {
+/* .vh-request-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -634,7 +654,7 @@ align-items: left;
   .vh-request-grid {
     grid-template-columns: 1fr;
   }
-}
+} */
 
 /* ============================================
    Final CTA band
