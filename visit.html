@@ -160,6 +160,12 @@
       </div>
     </div>
 
+      <div class="vh-tour-trigger">
+      <button type="button" class="btn btn-outline-navy" id="vhTourBtn">
+        <i class="ti ti-view-360-number" aria-hidden="true"></i> Take a Virtual Tour
+      </button>
+    </div>
+
    <div class="vh-inline-cta vh-inline-cta--flush">
       <p>Would you like someone to sit with you and walk you through it? <a href="request-guide.html">Have Someone Meet You <i class="ti ti-arrow-right" aria-hidden="true"></i></a></p>
     </div>
@@ -268,6 +274,23 @@
 
   <!-- FOOTER -->
   {% include footer.html %}
+
+    <!-- VIRTUAL TOUR MODAL -->
+  <div class="vh-modal-overlay" id="vhTourModal">
+    <div class="vh-modal">
+      <button type="button" class="vh-modal-close" id="vhTourClose" aria-label="Close virtual tour">
+        <i class="ti ti-x" aria-hidden="true"></i>
+      </button>
+      <iframe
+        id="vhTourFrame"
+        src=""
+        data-src="https://www.orthodox360.com/tours/sspp-glenview/"
+        title="Virtual tour of Saints Peter and Paul Greek Orthodox Church"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 
 
   <script src="js/main.js"></script>
