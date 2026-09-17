@@ -4,6 +4,34 @@
 // accordion of ministry cards, with a detail modal on click.
 // ============================================
 
+// One-word label for each category's calendar button. Keyed by
+// category id since a couple of these (PC, Philanthropy) can't be
+// derived from the category label automatically.
+const CATEGORY_CAL_LABELS = {
+  'leadership': 'PC',
+  'worship': 'Worship',
+  'youth': 'Youth',
+  'children': 'Education',
+  'adult-learning': 'Faith',
+  'adult-activities': 'Activities',
+  'outreach': 'Philanthropy',
+  'support': 'Support',
+};
+
+function getCategoryCalendar(cat) {
+  const counts = {};
+  cat.ministries.forEach((m) => {
+    if (m.calendarCategory) counts[m.calendarCategory] = (counts[m.calendarCategory] || 0) + 1;
+  });
+  const entries = Object.entries(counts);
+  if (entries.length === 0) return null;
+
+  entries.sort((a, b) => b[1] - a[1]);
+  const calendarCategory = entries[0][0];
+  const label = CATEGORY_CAL_LABELS[cat.id] || cat.label.split(' ')[0];
+  return { calendarCategory, label };
+}
+
 let openCategoryId = null;
 
 function escapeHtml(str) {
