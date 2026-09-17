@@ -143,7 +143,7 @@ const MINISTRY_CATEGORIES = [
     blurb: 'Programs for every age, from elementary school through young adulthood.',
     ministries: [
          {
-        name: 'FLJ',
+        name: 'FLJ - Elementary age',
         summary: 'Elementary-age fellowship, education, and service.',
         description: 'Faith, Love & Joy (Junior Orthodox Youth) seeks to foster growth toward a deepening of our elementary children\'s relationship with Christ and His Church through shared fellowship, education and service.',
         image: 'images/ministries/flj.jpg',
@@ -157,7 +157,7 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
-        name: 'Jr. GOYA',
+        name: 'Jr. GOYA - Jr. High',
         summary: 'Junior High (6th–8th grade) youth ministry.',
         description: 'Jr. GOYA (Greek Orthodox Youth of America) focuses on establishing and maintaining a relationship with Christ. Middle schoolers gather several times throughout the month to strengthen and build continuous relationships to each other, the Church, and their faith through discussion, outreach activities, and worship.',
         image: 'images/ministries/jr-goya.jpg',
@@ -171,7 +171,7 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
-        name: 'Sr. GOYA',
+        name: 'Sr. GOYA - High School',
         summary: 'High School-aged youth ministry.',
         description: 'Sr. GOYA (Greek Orthodox Youth of America) continues the groundwork laid in Junior GOYA at a pivotal time during our youths\' lives. High schoolers continue to build on their relationships with each other, the Church, and most importantly, continue on their journey to deepen their faith in Christ through fellowship, worship, and community.',
         image: 'images/ministries/srgoya.jpg',
@@ -209,7 +209,7 @@ const MINISTRY_CATEGORIES = [
       },
       },
       {
-        name: 'GOYAlumni',
+        name: 'GOYAlumni - College',
         summary: 'For college-aged adults — service, fellowship, worship.',
         description: 'This is a ministry that enriches our college-aged adults\' experience at school and at home. GOYAlumni aims to be a conduit for the holistic growth of our students with a heavy emphasis on service, fellowship, and worship.',
         image: 'images/ministries/goyalumni.jpg',
