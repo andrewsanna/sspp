@@ -70,10 +70,10 @@ function renderAccordion(filterText = '') {
 
     const cal = getCategoryCalendar(cat);
     const calButton = cal
-      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn">
-           <i class="ti ti-calendar" aria-hidden="true"></i> View ${escapeHtml(cal.label)} Calendar
-         </a>`
-      : '';
+  ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
+       <i class="ti ti-calendar" aria-hidden="true"></i> Calendar
+     </a>`
+  : '';
 
     return `
       <div class="acc-item" data-cat-id="${cat.id}">
