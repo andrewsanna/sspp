@@ -77,11 +77,11 @@ function renderAccordion(filterText = '') {
     const list = isSearching ? matches : cat.ministries;
 
     const cal = getCategoryCalendar(cat);
-   const calButton = cal
-  ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
-       <i class="ti ti-calendar" aria-hidden="true"></i> ${escapeHtml(cal.label)} Calendar
-     </a>`
-  : '';
+    const calButton = cal
+      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
+           <i class="ti ti-calendar" aria-hidden="true"></i> ${escapeHtml(cal.label)} Calendar
+         </a>`
+      : '';
 
     return `
       <div class="acc-item" data-cat-id="${cat.id}">
@@ -90,13 +90,13 @@ function renderAccordion(filterText = '') {
             <div class="acc-title">${escapeHtml(cat.label)}</div>
             <div class="acc-blurb">${escapeHtml(cat.blurb)}</div>
           </div>
-          <div class="acc-right">
-            ${calButton}
-            <div class="acc-meta">
-              <span class="acc-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
-              <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
-            </div>
+         <div class="acc-right">
+          <div class="acc-cal-slot">${calButton}</div>
+          <div class="acc-meta">
+            <span class="acc-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
+            <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
           </div>
+        </div>
         </div>
         <div class="acc-body ${isOpen ? 'is-open' : ''}">
           <div class="ministry-grid">
