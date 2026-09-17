@@ -4,6 +4,25 @@
 // accordion of ministry cards, with a detail modal on click.
 // ============================================
 
+// Most categories map cleanly to one calendar (e.g. every Worship
+// ministry uses 'liturgical'), so we pick whichever calendarCategory
+// appears most often among a category's ministries. Categories with
+// no calendarCategory set on any ministry get no button at all.
+function getCategoryCalendar(cat) {
+  const counts = {};
+  cat.ministries.forEach((m) => {
+    if (m.calendarCategory) counts[m.calendarCategory] = (counts[m.calendarCategory] || 0) + 1;
+  });
+  const entries = Object.entries(counts);
+  if (entries.length === 0) return null;
+
+  entries.sort((a, b) => b[1] - a[1]);
+  const calendarCategory = entries[0][0];
+  // "Worship & Liturgical Life" -> "Worship", "Youth & Young Adults" -> "Youth", etc.
+  const label = cat.label.split(' & ')[0];
+  return { calendarCategory, label };
+}
+
 let openCategoryId = null;
 
 function escapeHtml(str) {
