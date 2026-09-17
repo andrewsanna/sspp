@@ -335,5 +335,36 @@
       });
     });
   </script>
+
+    <script>
+    (function () {
+      var btn = document.getElementById('vhTourBtn');
+      var modal = document.getElementById('vhTourModal');
+      var closeBtn = document.getElementById('vhTourClose');
+      var frame = document.getElementById('vhTourFrame');
+      if (!btn || !modal || !frame) return;
+
+      function openModal() {
+        frame.src = frame.getAttribute('data-src'); // lazy-load only when opened
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        frame.src = ''; // stop tour playback when closed
+        document.body.style.overflow = '';
+      }
+
+      btn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal(); // click outside the tour closes it
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+      });
+    })();
+  </script>
 </body>
 </html>
