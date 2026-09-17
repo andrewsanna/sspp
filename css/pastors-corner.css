@@ -62,6 +62,12 @@
   flex-wrap: wrap;
 }
 
+.pc-sermons-btns {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .pc-sermons-icon {
   width: 56px;
   height: 56px;
