@@ -294,21 +294,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  border: 1.5px solid var(--gold);
-  color: var(--gold-text);
-  background: transparent;
+  background: var(--gold);
+  color: var(--navy-deep);
+  border: none;
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease;
 }
 
 .acc-cal-btn:hover {
-  background: var(--gold);
-  color: var(--navy-deep);
+  background: #c9a25c;
 }
 
 .acc-cal-btn i {
