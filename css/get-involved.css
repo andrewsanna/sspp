@@ -288,6 +288,8 @@
   align-items: center;
   gap: 1.25rem;
   flex-shrink: 0;
+  width: 260px;
+  justify-content: flex-start;
 }
 
 .acc-cal-btn {
