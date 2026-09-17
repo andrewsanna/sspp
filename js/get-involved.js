@@ -90,8 +90,8 @@ function renderAccordion(filterText = '') {
             <div class="acc-title">${escapeHtml(cat.label)}</div>
             <div class="acc-blurb">${escapeHtml(cat.blurb)}</div>
           </div>
-         <div class="acc-right">
-          <div class="acc-cal-slot">${calButton}</div>
+          <div class="acc-right">
+          ${calButton}
           <div class="acc-meta">
             <span class="acc-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
             <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
