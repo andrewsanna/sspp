@@ -68,6 +68,9 @@
   padding: 1.25rem 2rem;
   background: var(--offwhite);
   border-bottom: 1px solid rgba(18, 39, 64, 0.08);
+  position: sticky;
+  top: 64px;
+  z-index: 90;
 }
 
 .sc-jumpnav a {
