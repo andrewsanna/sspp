@@ -77,9 +77,9 @@ function renderAccordion(filterText = '') {
     const list = isSearching ? matches : cat.ministries;
 
     const cal = getCategoryCalendar(cat);
-    const calButton = cal
+   const calButton = cal
   ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
-       <i class="ti ti-calendar" aria-hidden="true"></i> Calendar
+       <i class="ti ti-calendar" aria-hidden="true"></i> ${escapeHtml(cal.label)} Calendar
      </a>`
   : '';
 
