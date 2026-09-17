@@ -4,25 +4,6 @@
 // accordion of ministry cards, with a detail modal on click.
 // ============================================
 
-// Most categories map cleanly to one calendar (e.g. every Worship
-// ministry uses 'liturgical'), so we pick whichever calendarCategory
-// appears most often among a category's ministries. Categories with
-// no calendarCategory set on any ministry get no button at all.
-function getCategoryCalendar(cat) {
-  const counts = {};
-  cat.ministries.forEach((m) => {
-    if (m.calendarCategory) counts[m.calendarCategory] = (counts[m.calendarCategory] || 0) + 1;
-  });
-  const entries = Object.entries(counts);
-  if (entries.length === 0) return null;
-
-  entries.sort((a, b) => b[1] - a[1]);
-  const calendarCategory = entries[0][0];
-  // "Worship & Liturgical Life" -> "Worship", "Youth & Young Adults" -> "Youth", etc.
-  const label = cat.label.split(' & ')[0];
-  return { calendarCategory, label };
-}
-
 let openCategoryId = null;
 
 function escapeHtml(str) {
@@ -47,6 +28,26 @@ function findMinistryBySlug(slug) {
   return null;
 }
 
+// ----- Category-level calendar button -----
+// Most categories map cleanly to one calendar (e.g. every Worship
+// ministry uses 'liturgical'), so we pick whichever calendarCategory
+// appears most often among a category's ministries. Categories with
+// no calendarCategory set on any ministry get no button at all.
+function getCategoryCalendar(cat) {
+  const counts = {};
+  cat.ministries.forEach((m) => {
+    if (m.calendarCategory) counts[m.calendarCategory] = (counts[m.calendarCategory] || 0) + 1;
+  });
+  const entries = Object.entries(counts);
+  if (entries.length === 0) return null;
+
+  entries.sort((a, b) => b[1] - a[1]);
+  const calendarCategory = entries[0][0];
+  // "Worship & Liturgical Life" -> "Worship", "Youth & Young Adults" -> "Youth", etc.
+  const label = cat.label.split(' & ')[0];
+  return { calendarCategory, label };
+}
+
 function renderAccordion(filterText = '') {
   const root = document.getElementById('ministryAccordion');
   if (!root) return;
@@ -67,18 +68,28 @@ function renderAccordion(filterText = '') {
     const isOpen = isSearching ? true : openCategoryId === cat.id;
     const list = isSearching ? matches : cat.ministries;
 
+    const cal = getCategoryCalendar(cat);
+    const calButton = cal
+      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn">
+           <i class="ti ti-calendar" aria-hidden="true"></i> View ${escapeHtml(cal.label)} Calendar
+         </a>`
+      : '';
+
     return `
       <div class="acc-item" data-cat-id="${cat.id}">
-        <button class="acc-head ${isOpen ? 'open' : ''}" data-toggle-cat="${cat.id}" aria-expanded="${isOpen}">
+        <div class="acc-head ${isOpen ? 'open' : ''}" role="button" tabindex="0" data-toggle-cat="${cat.id}" aria-expanded="${isOpen}">
           <div class="acc-head-text">
             <div class="acc-title">${escapeHtml(cat.label)}</div>
             <div class="acc-blurb">${escapeHtml(cat.blurb)}</div>
           </div>
-          <div class="acc-meta">
-            <span class="acc-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
-            <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
+          <div class="acc-right">
+            ${calButton}
+            <div class="acc-meta">
+              <span class="acc-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
+              <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
+            </div>
           </div>
-        </button>
+        </div>
         <div class="acc-body ${isOpen ? 'is-open' : ''}">
           <div class="ministry-grid">
             ${list.map((m) => renderMinistryCard(m, cat)).join('')}
@@ -172,6 +183,23 @@ function attachAccordionHandlers() {
         window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
       });
     });
+
+    // acc-head is a <div role="button"> (not a real <button>) so that it
+    // can contain the calendar <a> link — restore keyboard activation.
+    btn.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        btn.click();
+      }
+    });
+  });
+
+  // The calendar link is nested inside the acc-head div, so its click
+  // would bubble up and also toggle the accordion — stop that here.
+  document.querySelectorAll('.acc-cal-btn').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
   });
 }
 
@@ -228,13 +256,17 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
     linkEl.style.display = 'none';
   }
 
-  const calLinkEl = document.getElementById('ministryModalCalLink');
-  if (ministry.calendarCategory) {
-    calLinkEl.href = `calendar.html?category=${encodeURIComponent(ministry.calendarCategory)}`;
-    calLinkEl.style.display = 'inline-flex';
-  } else {
-    calLinkEl.style.display = 'none';
-  }
+  // ---- Per-ministry "View Calendar" link — replaced by the
+  // category-level calendar button in the accordion header. Left here,
+  // commented out, in case we ever want to switch back.
+  //
+  // const calLinkEl = document.getElementById('ministryModalCalLink');
+  // if (ministry.calendarCategory) {
+  //   calLinkEl.href = `calendar.html?category=${encodeURIComponent(ministry.calendarCategory)}`;
+  //   calLinkEl.style.display = 'inline-flex';
+  // } else {
+  //   calLinkEl.style.display = 'none';
+  // }
 
   const contactEl = document.getElementById('ministryModalContact');
   if (ministry.contact) {
