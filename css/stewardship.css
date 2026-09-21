@@ -383,6 +383,49 @@
   .ways-sidebar { position: static; }
 }
 
+/* Mission-themed budget — income vs expenses bar breakdown */
+.mission-budget-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+.budget-col h3 {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  color: var(--color-navy, #1a2744);
+}
+.budget-row { margin-bottom: 0.85rem; }
+.budget-row-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  margin-bottom: 0.3rem;
+}
+.budget-row-value { color: var(--color-navy, #1a2744); font-weight: 600; }
+.budget-bar-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.budget-bar-fill {
+  height: 100%;
+  background: var(--color-gold, #b08d3f);
+  border-radius: 999px;
+}
+.budget-bar-fill--expense { background: var(--color-navy, #1a2744); }
+.budget-gap-note {
+  margin: 2rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--color-navy, #1a2744);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .mission-budget-grid { grid-template-columns: 1fr; gap: 2rem; }
+
 /* Closing thank-you text (light background, not the hero's white-on-dark style) */
 .closing-text {
   max-width: 640px;
