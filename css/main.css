@@ -1145,3 +1145,28 @@ padding: var(--space-5) 0;
   font-size: 0.82rem;
   color: var(--mt);
 }
+
+/* ============================================
+   goarch.org callout — shared by every link out to the Greek Orthodox
+   Archdiocese (Visit FAQ, Calendar "Today in the Church"), so they all
+   look the same.
+   ============================================ */
+.goarch-callout {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--cream);
+  /* Hairline border so it still reads as a strip on cream pages. */
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+.goarch-callout__icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; }
+.goarch-callout__text { flex: 1; }
+.goarch-callout__text h4 { margin: 0 0 .25rem; color: var(--navy); }
+.goarch-callout__text p { margin: 0; }
+.goarch-callout a.btn { white-space: nowrap; }
+@media (max-width: 640px) {
+  .goarch-callout { flex-direction: column; text-align: center; }
+}
