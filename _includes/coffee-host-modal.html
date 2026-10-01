@@ -1,0 +1,97 @@
+<!-- COFFEE FELLOWSHIP HOST SIGN-UP MODAL (shared include)
+     Opened by any element with data-modal="coffee-host", or by linking
+     to a page that includes it with #host-coffee in the URL.
+     Needs css/coffee-host.css, js/modal-a11y.js, js/coffee-host-data.js
+     and js/coffee-host.js on the page. -->
+<div class="ch-modal-overlay" id="coffeeHostOverlay">
+  <div class="ch-modal" role="dialog" aria-modal="true" aria-labelledby="coffeeHostTitle">
+    <button type="button" class="ch-modal-close" id="coffeeHostClose" aria-label="Close">
+      <i class="ti ti-x" aria-hidden="true"></i>
+    </button>
+    <div class="ch-modal-icon"><i class="ti ti-coffee" aria-hidden="true"></i></div>
+    <span class="eyebrow">Sign Up to Host</span>
+    <h2 class="ch-modal-title" id="coffeeHostTitle">Host Coffee Fellowship</h2>
+    <p class="ch-modal-desc">Pick a Sunday and tell us a little about your plans. Carolyn Kolbaba will confirm your date and answer any questions.</p>
+
+    <!-- Replace YOUR_FORM_ID with your Formspree form ID -->
+    <form class="rs-form ch-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="_subject" value="Coffee Fellowship host sign-up">
+
+      <div class="rs-form-row">
+        <label for="chHost">Host name(s), family, or group</label>
+        <input type="text" id="chHost" name="host_name" required placeholder="e.g. The Papadopoulos family">
+      </div>
+
+      <div class="ch-form-pair">
+        <div class="rs-form-row">
+          <label for="chEmail">Email</label>
+          <input type="email" id="chEmail" name="email" required>
+        </div>
+        <div class="rs-form-row">
+          <label for="chPhone">Phone</label>
+          <input type="tel" id="chPhone" name="phone" required>
+        </div>
+      </div>
+
+      <fieldset class="rs-form-row ch-fieldset">
+        <legend>Sunday you'd like to host</legend>
+        <!-- Populated by js/coffee-host.js -->
+        <div class="date-chips" id="chDateChips"></div>
+        <p class="ch-hint">Crossed-out Sundays already have a host.</p>
+      </fieldset>
+
+      <div class="rs-form-row">
+        <label for="chBackup">Backup Sunday</label>
+        <select id="chBackup" name="backup_sunday" required>
+          <!-- Populated by js/coffee-host.js -->
+        </select>
+      </div>
+
+      <div class="ch-form-pair">
+        <div class="rs-form-row">
+          <label for="chOccasion">Occasion <span class="rs-optional">(optional)</span></label>
+          <select id="chOccasion" name="occasion">
+            <option value="">Choose one</option>
+            <option value="In Memory of">In Memory of</option>
+            <option value="In Honor of">In Honor of</option>
+            <option value="Celebrating">Celebrating</option>
+            <option value="Just because">Just because</option>
+          </select>
+        </div>
+        <div class="rs-form-row">
+          <label for="chHelpers">People helping</label>
+          <input type="number" id="chHelpers" name="number_helping" min="1" max="50" required>
+        </div>
+      </div>
+
+      <div class="rs-form-row">
+        <label for="chBulletin">Name(s) for the announcement and bulletin <span class="rs-optional">(optional)</span></label>
+        <input type="text" id="chBulletin" name="bulletin_names" placeholder="e.g. In loving memory of George Papadopoulos">
+      </div>
+
+      <div class="rs-form-row">
+        <label for="chMenu">Rough menu plan</label>
+        <textarea id="chMenu" name="menu_plan" rows="3" required placeholder="What you're thinking of serving. Note any nuts or other common allergens."></textarea>
+      </div>
+
+      <div class="rs-form-row">
+        <label for="chKitchen">Kitchen access</label>
+        <select id="chKitchen" name="kitchen_access" required>
+          <option value="" disabled selected>Choose one</option>
+          <option value="No, not needed">No, we'll bring everything ready to serve</option>
+          <option value="Kitchen access only">Yes, kitchen access (we've done this before)</option>
+          <option value="Kitchen access and walkthrough">Yes, plus a walkthrough of the kitchen</option>
+        </select>
+      </div>
+
+      <div class="rs-form-row">
+        <label for="chNotes">Notes <span class="rs-optional">(optional)</span></label>
+        <textarea id="chNotes" name="notes" rows="2"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-gold-lg">
+        Request this Sunday <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      </button>
+    </form>
+  </div>
+</div>

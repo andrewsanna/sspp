@@ -276,6 +276,14 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
   //   calLinkEl.style.display = 'none';
   // }
 
+  // Ministries with an open sign-up (e.g. Coffee Fellowship hosting)
+  // get a button that hands off to that sign-up's own modal.
+  const signupEl = document.getElementById('ministryModalSignup');
+  if (signupEl) {
+    const canSignUp = ministry.signup === 'coffee-host' && typeof window.openCoffeeHostModal === 'function';
+    signupEl.style.display = canSignUp ? 'inline-flex' : 'none';
+  }
+
   const contactEl = document.getElementById('ministryModalContact');
   if (ministry.contact) {
     document.getElementById('ministryModalContactName').textContent = ministry.contact.name;
@@ -292,7 +300,9 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
 }
 
 function closeMinistryModal() {
-  document.getElementById('ministryModalOverlay').classList.remove('is-open');
+  const overlay = document.getElementById('ministryModalOverlay');
+  if (!overlay.classList.contains('is-open')) return;
+  overlay.classList.remove('is-open');
   releaseModalFocus();
 }
 
@@ -301,6 +311,14 @@ function initMinistryModal() {
   const closeBtn = document.getElementById('ministryModalClose');
 
   closeBtn.addEventListener('click', closeMinistryModal);
+
+  const signupBtn = document.getElementById('ministryModalSignup');
+  if (signupBtn) {
+    signupBtn.addEventListener('click', () => {
+      closeMinistryModal();
+      window.openCoffeeHostModal();
+    });
+  }
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeMinistryModal();
   });

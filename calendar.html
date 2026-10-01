@@ -40,6 +40,19 @@
       <!-- FEATURED EVENTS (up to 2, side by side, from the Featured calendar) -->
       <div id="featuredEventSlot"></div>
 
+      <!-- TODAY IN THE CHURCH — links to the Archdiocese's Online Chapel
+           (daily readings, saints & feasts). Date filled in below. -->
+      <aside class="goarch-callout">
+        <i class="ti ti-cross goarch-callout__icon" aria-hidden="true"></i>
+        <div class="goarch-callout__text">
+          <h4>Today in the Church<span id="todayDateWrap" hidden> · <span id="today-date"></span></span></h4>
+          <p>Read today's Epistle and Gospel and learn about the saints we commemorate.</p>
+        </div>
+        <a class="btn btn-navy" href="https://www.goarch.org/chapel" target="_blank" rel="noopener">
+          Daily Readings &amp; Saints <i class="ti ti-external-link" aria-hidden="true"></i>
+        </a>
+      </aside>
+
       <!-- FILTER CHIPS -->
       <div class="cal-filter-bar">
         <div class="cal-filter-inner">
@@ -145,6 +158,12 @@
     <script src="js/calendar-config.js"></script>
     <script src="js/calendar.js"></script>
    <script>
+  // "Today in the Church" date — the separator and date stay hidden
+  // if this doesn't run, so the heading never ends in a dangling dot.
+  document.getElementById('today-date').textContent =
+    new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  document.getElementById('todayDateWrap').hidden = false;
+
   (function () {
     const params = new URLSearchParams(window.location.search);
     const category = params.get('category');

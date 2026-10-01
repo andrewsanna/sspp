@@ -384,6 +384,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Coffee Fellowship',
         summary: 'Fellowship and connection after Divine Liturgy.',
         description: 'We welcome families and ministry groups to host a Coffee Fellowship following the Sunday Divine Liturgy. It is an opportunity to promote interaction among our parishioners and visitors by offering hospitality and refreshments. Your family, or a group, can celebrate a special occasion (nameday, birthday, anniversary, memorial, graduation, etc) or host for no reason at all.',
+        signup: 'coffee-host', // shows a "Sign Up to Host" button in the modal
         // image: 'images/ministries/dynamis.jpg',
         // calendarCategory: 'activities',
         contact: {
