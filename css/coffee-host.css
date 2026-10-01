@@ -11,20 +11,19 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  max-width: 1100px;
   box-sizing: border-box;
-  margin: 2rem auto 0;
-  background: var(--cream);
-  /* The page body is also cream, so a hairline border + card shadow
-     keep the band reading as its own strip. */
-  border: 1px solid var(--brd);
+  margin: 2rem 0 0;
+  background: #fff;
+  border: 1px solid transparent;
   border-left: 4px solid var(--gold);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 6px 20px rgba(18, 39, 64, 0.08);
   padding: 1.5rem 2rem;
 }
 
 .serve-band-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 0 2rem;
 }
 
