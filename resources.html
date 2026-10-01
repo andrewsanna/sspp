@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/resources.css" />
   <link rel="stylesheet" href="css/pastors-corner.css" />
   <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/coffee-host.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
@@ -242,6 +243,15 @@
         </div>
 
       </div>
+
+      <!-- COFFEE FELLOWSHIP HOSTING — small companion to the featured
+           band on Get Involved; opens the same shared sign-up modal. -->
+      <div class="resource-card resource-card--coffee">
+        <i class="ti ti-coffee resource-card__icon" aria-hidden="true"></i>
+        <h3>Host Coffee Fellowship</h3>
+        <p>Gather your family, friends, or ministry to prepare and serve fellowship after Divine Liturgy. A beautiful way to honor a loved one or celebrate a special day.</p>
+        <button type="button" class="btn btn-navy" data-modal="coffee-host">Sign Up to Host</button>
+      </div>
     </div>
   </section>
 
@@ -350,12 +360,16 @@
     </div>
   </div>
 
+  {% include coffee-host-modal.html %}
+
   {% include footer.html %}
 
   <script src="js/main.js"></script>
   <script src="js/modal-a11y.js"></script>
   <script src="js/payment-data.js"></script>
   <script src="js/registrations.js"></script>
+  <script src="js/coffee-host-data.js"></script>
+  <script src="js/coffee-host.js"></script>
   <script src="js/life-events-data.js"></script>
   <script src="js/life-events.js"></script>
   <script src="js/calendar-config.js"></script>

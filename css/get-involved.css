@@ -740,3 +740,9 @@
 .gi-content {
   overflow-anchor: none;
 }
+
+/* "Sign Up to Host" button in the ministry modal (ministries with
+   signup: 'coffee-host' in ministries-data.js) */
+.ministry-modal-signup {
+  margin-top: 1rem;
+}

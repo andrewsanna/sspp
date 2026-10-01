@@ -312,6 +312,16 @@ p {
   padding: 0.9rem 2rem;
 }
 
+.btn-navy {
+  background: var(--navy);
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-navy:hover {
+  background: var(--navy-deep);
+}
+
 .btn-outline-white {
   background: rgba(255, 255, 255, 0.08);
   color: #fff;

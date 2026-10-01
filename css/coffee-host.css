@@ -1,0 +1,307 @@
+/* ============================================
+   Coffee Fellowship hosting
+   - .serve-band: featured strip on Get Involved
+   - .resource-card--coffee: compact card on Resources
+   - .ch-modal-*: shared sign-up modal (_includes/coffee-host-modal.html)
+   - .date-chip: Sunday picker inside the modal
+   ============================================ */
+
+/* Featured band (Get Involved) */
+.serve-band {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1100px;
+  box-sizing: border-box;
+  margin: 2rem auto 0;
+  background: var(--cream);
+  /* The page body is also cream, so a hairline border + card shadow
+     keep the band reading as its own strip. */
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem 2rem;
+}
+
+.serve-band-wrap {
+  padding: 0 2rem;
+}
+
+.serve-band__icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.serve-band__text {
+  flex: 1;
+}
+
+.serve-band__text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.serve-band__text p {
+  font-size: 0.9rem;
+  color: var(--mt);
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .serve-band-wrap {
+    padding: 0 1rem;
+  }
+  .serve-band {
+    flex-direction: column;
+    text-align: center;
+    border-left: 1px solid var(--brd);
+    border-top: 4px solid var(--gold);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    padding: 1.5rem;
+  }
+}
+
+/* Compact card (Resources, forms row) */
+.resource-card--coffee {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    "icon title button"
+    "icon text  button";
+  align-items: center;
+  column-gap: 1.25rem;
+  margin-top: 1.75rem;
+  background: var(--cream);
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem 1.5rem;
+}
+
+.resource-card--coffee .resource-card__icon {
+  grid-area: icon;
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+.resource-card--coffee h3 {
+  grid-area: title;
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
+}
+
+.resource-card--coffee p {
+  grid-area: text;
+  font-size: 0.85rem;
+  color: var(--mt);
+  margin: 0;
+}
+
+.resource-card--coffee .btn {
+  grid-area: button;
+}
+
+@media (max-width: 640px) {
+  .resource-card--coffee {
+    grid-template-columns: 1fr;
+    grid-template-areas: "icon" "title" "text" "button";
+    row-gap: 0.4rem;
+    text-align: center;
+    justify-items: center;
+  }
+  .resource-card--coffee .btn {
+    margin-top: 0.6rem;
+  }
+}
+
+/* Sign-up modal */
+.ch-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 39, 64, 0.55);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.ch-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ch-modal {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-sizing: border-box;
+  transform: translateY(12px);
+  transition: transform 0.2s ease;
+}
+
+.ch-modal-overlay.is-open .ch-modal {
+  transform: translateY(0);
+}
+
+.ch-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--offwhite);
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: var(--mt);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ch-modal-close:hover {
+  background: var(--gold-lt);
+  color: var(--gold-text);
+}
+
+.ch-modal-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--gold-lt);
+  color: var(--gold-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.ch-modal-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.ch-modal-desc {
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+
+.ch-form-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+.ch-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1.1rem;
+  min-width: 0;
+}
+
+.ch-fieldset legend {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+  padding: 0;
+  margin-bottom: 0.4rem;
+}
+
+.ch-hint {
+  font-size: 0.75rem;
+  color: var(--mt);
+  margin: 0.25rem 0 0;
+}
+
+@media (max-width: 640px) {
+  .ch-modal {
+    padding: 1.75rem 1.25rem;
+  }
+  .ch-form-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sunday picker chips */
+.date-chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 0.5rem;
+}
+
+.date-chip {
+  position: relative;
+  cursor: pointer;
+}
+
+.date-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.date-chip__face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.45rem 0.25rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.date-chip__month {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mt);
+}
+
+.date-chip__day {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.date-chip:hover .date-chip__face {
+  border-color: var(--gold);
+}
+
+.date-chip input:checked + .date-chip__face {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.date-chip input:checked + .date-chip__face .date-chip__month,
+.date-chip input:checked + .date-chip__face .date-chip__day {
+  color: #fff;
+}
+
+.date-chip input:focus-visible + .date-chip__face {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 1px;
+}
+
+.date-chip.is-taken {
+  opacity: .4;
+  pointer-events: none;
+  text-decoration: line-through;
+}
