@@ -18,13 +18,14 @@
 }
 
 .gi-page-title {
-  font-size: 1.75rem;
+  font-size: var(--fs-page-hero);
   color: #fff;
   margin-bottom: 0.4rem;
+  line-height: 1.1;
 }
 
 .gi-page-sub {
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.5);
   max-width: 540px;
   line-height: 1.6;
@@ -58,9 +59,9 @@
 }
 
 .gi-intro-title {
-  font-size: 1.85rem;
+  font-size: var(--fs-page-hero);
   color: #fff;
-  line-height: 1.3;
+  line-height: 1.1;
   margin-bottom: 0.85rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
@@ -71,7 +72,7 @@
 }
 
 .gi-intro-body {
-  font-size: 0.9rem;
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
@@ -123,7 +124,6 @@
 @media (max-width: 600px) {
   .gi-quote-inner {
     grid-template-columns: 1fr;
-    text-align: center;
   }
   .gi-quote-photo {
     margin: 0 auto;
@@ -178,15 +178,16 @@
 
 .feat-title {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: var(--fs-card);
   color: var(--navy-deep);
   margin-bottom: 0.3rem;
   font-weight: 400;
+  line-height: 1.2;
 }
 
 .feat-desc {
   font-size: 0.78rem;
-  color: var(--mt);
+  color: var(--tx);
   line-height: 1.5;
 }
 
@@ -212,13 +213,15 @@
 }
 
 .gi-directory-title {
-  font-size: 1.3rem;
+  font-size: var(--fs-section);
   margin-bottom: 0.3rem;
+  line-height: 1.15;
+  font-weight: 400;
 }
 
 .gi-directory-sub {
-  font-size: 0.82rem;
-  color: var(--mt);
+  font-size: var(--fs-body);
+  color: var(--tx);
 }
 
 /* ============================================
@@ -400,14 +403,16 @@
 }
 
 .ministry-card-title {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: var(--fs-card);
+  font-weight: 400;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
+  font-family: var(--font-display);
+  line-height: 1.2;
 }
 
 .ministry-card-summary {
@@ -425,10 +430,10 @@
   background: #FAECE7;
   padding: 0.1rem 0.4rem;
   border-radius: 8px;
+  font-family: var(--font-body);
 }
 
 .no-results {
-  text-align: center;
   padding: 3rem 1.5rem;
   color: var(--mt);
 }
@@ -572,7 +577,7 @@
 }
 
 .ministry-modal-desc {
-  font-size: 0.88rem;
+  font-size: var(--fs-body);
   line-height: 1.75;
   color: var(--tx);
 }

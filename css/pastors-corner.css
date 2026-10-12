@@ -26,20 +26,17 @@
 }
 
 .pc-hero-title {
-  font-size: 2.25rem;
+  font-size: var(--fs-page-hero);
   color: #fff;
   margin: 0.5rem 0 1rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  line-height: 1.1;
 }
 
-.pc-hero-title em {
-  color: var(--gold);
-  font-style: normal;
-}
 
 .pc-hero-body {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 1.02rem;
+  font-size: 1.125rem;
   max-width: 460px;
   margin: 0 auto;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
@@ -92,8 +89,10 @@
 
 /* Topic list section */
 .pc-section-title {
-  font-size: 1.75rem;
+  font-size: var(--fs-section);
   margin-bottom: 0.9rem;
+  line-height: 1.15;
+  font-weight: 400;
 }
 
 .pc-intro {
@@ -120,7 +119,7 @@
   border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--navy-deep);
-  font-size: 0.88rem;
+  font-size: var(--fs-body);
   font-weight: 500;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
@@ -151,9 +150,10 @@
 /* CTA band */
 .pc-cta {
   background: var(--navy-deep);
-  text-align: center;
   padding: 3.5rem 2rem;
   color: #fff;
+  padding-left: var(--band-pad);
+  padding-right: var(--band-pad);
 }
 
 .pc-cta h2 {

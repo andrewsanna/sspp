@@ -41,9 +41,10 @@
 .hw-hero__title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: var(--fs-page-hero);
   margin: 0.75rem 0 1rem;
   color: #fff;
+  line-height: 1.1;
 }
 
 .hw-hero__subtitle {
@@ -75,7 +76,6 @@
 .hw-detail-item {
   padding: 1.1rem 1.25rem;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
-  text-align: center;
 }
 
 .hw-detail-item:last-child { border-right: none; }
@@ -101,10 +101,10 @@
 }
 
 .hw-section-sub {
-  color: var(--mt);
+  color: var(--tx);
   max-width: 640px;
   margin: 0.5rem 0 2rem;
-  font-size: 0.95rem;
+  font-size: var(--fs-body);
 }
 
 /* ============ SEASON OVERVIEW CARDS ============ */
@@ -148,13 +148,14 @@
   font-family: var(--font-display);
   color: var(--navy-deep);
   margin-bottom: 0.5rem;
-  font-size: 1.125rem;
+  font-size: var(--fs-card);
   font-weight: 400;
+  line-height: 1.2;
 }
 
 .hw-overview-card p {
-  color: var(--mt);
-  font-size: 0.9rem;
+  color: var(--tx);
+  font-size: var(--fs-body);
   margin-bottom: 1rem;
 }
 
@@ -205,7 +206,7 @@
 
 .hw-acc-body-inner p {
   color: var(--tx);
-  font-size: 0.92rem;
+  font-size: var(--fs-body);
   margin-bottom: 0.9rem;
 }
 
@@ -446,7 +447,7 @@
 }
 
 .hw-hw-desc {
-  font-size: 0.92rem;
+  font-size: var(--fs-body);
   color: var(--tx);
   margin-bottom: 1.1rem;
 }
@@ -499,9 +500,9 @@
 }
 
 .hw-service-desc {
-  color: var(--mt);
+  color: var(--tx);
   flex-basis: 100%;
-  font-size: 0.82rem;
+  font-size: var(--fs-body);
 }
 
 /* ============ PASCHA SPOTLIGHT ============ */
@@ -543,7 +544,7 @@
 }
 
 .hw-pascha-desc {
-  font-size: 1.02rem;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.88);
   margin-bottom: 1.5rem;
 }
@@ -597,8 +598,9 @@
   font-family: var(--font-display);
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
-  font-size: 1.125rem;
+  font-size: var(--fs-card);
   font-weight: 400;
+  line-height: 1.2;
 }
 
 .hw-pentecost-date {
@@ -609,7 +611,7 @@
 }
 
 .hw-pentecost-card p {
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   color: var(--tx);
   margin-bottom: 0.75rem;
 }
