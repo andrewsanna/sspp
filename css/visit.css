@@ -15,7 +15,12 @@
 .vh-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient( 135deg, rgba(11, 30, 51, 0.88) 0%, rgba(11, 30, 51, 0.72) 60%, rgba(11, 30, 51, 0.85) 100% );
+  background: linear-gradient(
+    135deg,
+    rgba(11, 30, 51, 0.88) 0%,
+    rgba(11, 30, 51, 0.72) 60%,
+    rgba(11, 30, 51, 0.85) 100%
+  );
 }
 
 .vh-hero-inner {
@@ -34,6 +39,10 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
+.vh-hero-title em {
+  font-style: normal;
+  color: var(--gold);
+}
 
 .vh-hero-body {
   font-size: 0.92rem;
@@ -107,12 +116,14 @@
   border: 2px solid var(--brd);
   border-radius: var(--radius-md);
   padding: 1.6rem 1.3rem;
+  text-align: center;
   text-decoration: none;
   scroll-margin-top: 90px;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .vh-path-card:hover {
+  transform: translateY(-3px);
   box-shadow: var(--shadow-card);
   border-color: var(--gold);
 }
@@ -131,12 +142,9 @@
 }
 
 .vh-path-card h4 {
-  font-size: 1.125rem;
+  font-size: 0.88rem;
   color: var(--navy-deep);
   margin-bottom: 0.35rem;
-  font-weight: 400;
-
-
 }
 
 .vh-path-card p {
@@ -193,22 +201,24 @@
 }
 
 .vh-section-eyebrow {
+  text-align: center;
   display: block;
   margin-bottom: 0.85rem;
 }
 
 .vh-section-headline {
   font-size: 1.7rem;
+  font-style: italic;
+  text-align: center;
   margin-bottom: 1rem;
-
-
 }
 
 .vh-section-sub {
   font-size: 0.92rem;
   color: var(--mt);
+  text-align: center;
   max-width: 540px;
-  margin: 0 0 3.2rem;
+  margin: 0 auto 3.2rem;
   line-height: 1.65;
 }
 
@@ -219,15 +229,66 @@
 /* ============================================
    Service flow steps
    ============================================ */
+.vh-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
 
+.vh-flow-step {
+  text-align: center;
+  padding: 0 1rem;
+  position: relative;
+}
 
+.vh-flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  right: -50%;
+  width: 100%;
+  height: 1px;
+  background: rgba(212, 175, 106, 0.4);
+}
 
+.vh-flow-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.1rem;
+  position: relative;
+  z-index: 1;
+}
 
+.vh-flow-step h4 {
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--navy-deep);
+  margin-bottom: 0.5rem;
+}
 
+.vh-flow-step p {
+  font-size: 0.8rem;
+  color: var(--mt);
+  line-height: 1.6;
+}
 
 /* ============================================
    Combined Service Flow + Notices
    ============================================ */
+.vh-flow-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 640px;
+  margin: 0 auto 2.8rem;
+}
 
 .vh-notice-row {
   background: var(--gold-lt);
@@ -237,6 +298,7 @@
 
 .vh-notice-label {
   display: block;
+  text-align: center;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -256,6 +318,7 @@
 
 .vh-notice-item {
   max-width: 200px;
+  text-align: center;
 }
 
 .vh-notice-item i {
@@ -270,8 +333,6 @@
   font-weight: 600;
   color: var(--navy-deep);
   margin-bottom: 0.3rem;
-
-
 }
 
 .vh-notice-item p {
@@ -286,14 +347,19 @@
   padding-top: 1.5rem;
 }
 
-
+@media (max-width: 640px) {
+  .vh-flow-grid--3 {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
 
 /* ============================================
    Our Faith teaser (visit page — distinct from about.html)
    ============================================ */
 .vh-faith-card {
   max-width: 900px;
-  margin: 0;
+  margin: 0 auto;
   background: var(--gold-lt);
   box-shadow: 0 8px 28px rgba(18, 39, 64, 0.10);
   border-radius: var(--radius-lg);
@@ -323,12 +389,9 @@
 }
 
 .vh-faith-card-text h3 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--navy-deep);
   margin-bottom: 0.5rem;
-  font-weight: 400;
-
-
 }
 
 .vh-faith-card-text p {
@@ -340,6 +403,7 @@
 @media (max-width: 640px) {
   .vh-faith-card {
     flex-direction: column;
+    text-align: center;
   }
 }
 
@@ -359,22 +423,21 @@
    Compact welcome quote 
    ============================================ */
 .vh-quote {
-  margin: 0;
+  max-width: 640px;
+  margin: 0 auto;
   padding: 3rem 1.5rem;
+  text-align: center;
   border-top: 1px solid var(--brd);
   border-bottom: 1px solid var(--brd);
-  padding-left: var(--band-pad);
-  padding-right: var(--band-pad);
 }
 
 .vh-quote-text {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-style: italic;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: var(--navy-deep);
   margin: 0 0 0.6rem;
-  font-weight: 400;
-  max-width: 40em;
 }
 
 .vh-quote-sig {
@@ -393,15 +456,15 @@
 .vh-faq-section {
   background: var(--gold-lt);
   padding: 4.5rem 2rem;
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   position: relative;
   scroll-margin-top: 90px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-  border-bottom: 4px solid var(--gold);
-  border-top: 4px solid var(--gold);
 }
 
 .vh-faq-inner {
-  max-width: 1016px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -449,12 +512,12 @@
 }
 
 .vh-request-grid {  display: grid;  grid-template-columns: repeat(2, 1fr);  gap: 1.5rem;  max-width: 800px;  margin: 0 auto;} 
-.vh-request-card {  background: #fff;  border: 1px solid var(--brd);  border-radius: var(--radius-md);  padding: 2rem 1.6rem;  transition: transform 0.2s ease, box-shadow 0.2s ease;}
+.vh-request-card {  background: #fff;  border: 1px solid var(--brd);  border-radius: var(--radius-md);  padding: 2rem 1.6rem;  text-align: center;  transition: transform 0.2s ease, box-shadow 0.2s ease;}
 
 .vh-request-card:hover 
-{  box-shadow: var(--shadow-card);} 
+{  transform: translateY(-3px);  box-shadow: var(--shadow-card);} 
 .vh-request-icon {  width: 52px;  height: 52px;  border-radius: 50%;  background: var(--gold-lt);  border: 2px solid var(--gold);  display: flex;  align-items: center;  justify-content: center;  margin: 0 auto 1.1rem;  font-size: 1.3rem;  color: var(--gold-deep);} 
-.vh-request-card h4 {  font-size: 1.125rem;  color: var(--navy-deep);  margin-bottom: 0.6rem; font-weight: 400; } 
+.vh-request-card h4 {  font-size: 0.95rem;  color: var(--navy-deep);  margin-bottom: 0.6rem;} 
 .vh-request-card p {  font-size: 0.82rem;  color: var(--mt);  line-height: 1.6;  margin-bottom: 1.3rem;} @media (max-width: 640px) {  
    .vh-request-grid {    grid-template-columns: 1fr;  }} 
 
@@ -464,14 +527,13 @@
 .vh-tour-cta {
   background: #fff;
   padding: 3rem 2rem;
-  padding-left: var(--band-pad);
-  padding-right: var(--band-pad);
+  text-align: center;
 }
 
 .vh-tour-cta-text {
   font-size: 0.92rem;
   color: var(--navy-deep);
-  margin: 0 0 1.3rem;
+  margin: 0 auto 1.3rem;
   max-width: 480px;
 }
 
@@ -481,11 +543,11 @@
 .vh-cta {
   background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
   padding: 4.5rem 2rem;
-  padding-left: var(--band-pad);
-  padding-right: var(--band-pad);
+  text-align: center;
 }
 
 .vh-cta h2 {
+  font-style: italic;
   font-size: 1.7rem;
   color: var(--cream);
   margin-bottom: 1rem;
@@ -495,7 +557,7 @@
   font-size: 0.92rem;
   color: rgba(251, 247, 239, 0.75);
   max-width: 480px;
-  margin: 0 0 1.85rem;
+  margin: 0 auto 1.85rem;
   line-height: 1.65;
 }
 
@@ -506,14 +568,26 @@
   .vh-info-strip {
     gap: 1.75rem;
   }
+  .vh-flow-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  .vh-flow-step::after {
+    display: none;
+  }
 }
 
-
+@media (max-width: 560px) {
+  .vh-flow-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ============================================
    Inline Guide CTA (within Service Flow)
    ============================================ */
 .vh-inline-cta {
+  text-align: center;
   margin-top: 1.8rem;
   padding-top: 1.5rem;
 }
@@ -539,6 +613,7 @@
    Virtual Tour trigger + modal
    ============================================ */
 .vh-tour-trigger {
+  text-align: center;
   padding: 1.6rem 1rem 0.4rem;
 }
 
@@ -603,98 +678,4 @@
   .vh-modal {
     aspect-ratio: 4 / 5;
   }
-}
-
-/* ============================================
-   Sunday morning: vertical timeline, one photo per step
-   ============================================ */
-.vh-timeline {
-  list-style: none;
-  margin: 2.5rem auto 3rem;
-  padding: 0;
-  max-width: 1000px;
-  position: relative;
-}
-
-/* the vertical line */
-.vh-timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 0.5rem;
-  bottom: 0.5rem;
-  width: 2px;
-  background: var(--brd);
-}
-
-.vh-timeline-step {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  gap: 2.5rem;
-  align-items: start;
-  padding: 0 0 3rem 2.75rem;
-}
-
-.vh-timeline-step:last-child {
-  padding-bottom: 0;
-}
-
-/* the dot on the line */
-.vh-timeline-step::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--gold);
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 1px var(--gold);
-}
-
-.vh-timeline-time {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold-text);
-  margin-bottom: 0.35rem;
-}
-
-.vh-timeline-text h3 {
-  font-size: var(--fs-card);
-  margin-bottom: 0.6rem;
-}
-
-.vh-timeline-text p {
-  color: var(--tx);
-}
-
-.vh-timeline-step img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-}
-
-@media (max-width: 760px) {
-  .vh-timeline-step {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
-    padding-left: 2.25rem;
-  }
-}
-
-/* FAQ: keep the readable 760px column but align it with the heading */
-.vh-faq-inner > * {
-  max-width: 760px;
-}
-
-/* CTA buttons in left-aligned bands */
-.vh-cta .vh-hero-ctas,
-.vh-tour-cta .vh-hero-ctas {
-  justify-content: flex-start;
 }
