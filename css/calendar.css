@@ -17,13 +17,14 @@
 }
 
 .cal-page-title {
-  font-size: 1.75rem;
+  font-size: var(--fs-page-hero);
   color: #fff;
   margin-bottom: 0.3rem;
+  line-height: 1.1;
 }
 
 .cal-page-sub {
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -188,12 +189,15 @@
 }
 
 .featured-event-title {
-  font-size: 1.05rem;
+  font-size: var(--fs-card);
   color: #fff;
   margin-bottom: 0.35rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .featured-event-desc {
@@ -774,7 +778,7 @@
 }
 
 .event-modal-desc {
-  font-size: 0.85rem;
+  font-size: var(--fs-body);
   line-height: 1.65;
   color: var(--tx);
   margin-bottom: 1.25rem;

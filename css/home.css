@@ -83,13 +83,14 @@
 }
 
 .hero-title {
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-size: var(--fs-hero);
   color: #fff;
   margin-bottom: 1rem;
+  line-height: 1.05;
 }
 
 .hero-body {
-  font-size: 0.95rem;
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
   max-width: 480px;
@@ -143,8 +144,8 @@
 }
 
 #homeEventsGrid .featured-event-compact {
-  height: 150px;
   max-width:480px;
+  min-height: 150px;
 }
 
 #homeEventsGrid .fe-thumb-wrap {
@@ -172,7 +173,7 @@
 }
 
 #homeEventsGrid .featured-event-title {
-  font-size: 1.05rem;
+  font-size: var(--fs-card);
   margin-bottom: 0.35rem;
 }
 
@@ -208,13 +209,15 @@
 }
 
 .home-faith-title {
-  font-size: 1.75rem;
+  font-size: var(--fs-section);
   margin: 0.25rem 0 0.75rem;
   min-height: 1.25em;
+  line-height: 1.15;
+  font-weight: 400;
 }
 
 .home-faith-blurb {
-  font-size: 1rem;
+  font-size: var(--fs-body);
   line-height: 1.7;
   margin-bottom: 1.25rem;
 }
@@ -452,18 +455,20 @@ a.ts-val:hover {
    ============================================ */
 .welcome-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr; /* narrowed photo column (was 1fr 2fr) so it doesn't tower over shorter text */
-  gap: 3rem;
+  grid-template-columns: 2fr 3fr; /* narrowed photo column (was 1fr 2fr) so it doesn't tower over shorter text */
+  gap: 3.5rem;
   align-items: center;
 }
 
 .welcome-title {
-  font-size: 1.6rem;
+  font-size: var(--fs-section);
   margin-bottom: 1rem;
+  line-height: 1.15;
+  font-weight: 400;
 }
 
 .welcome-body {
-  font-size: 0.9rem;
+  font-size: var(--fs-body);
   margin-bottom: 1.25rem;
   line-height: 1.8;
 }
@@ -494,18 +499,6 @@ a.ts-val:hover {
   line-height: 1.55;
 }
 
-.text-link {
-  color: var(--navy);
-  font-size: 0.85rem;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.text-link:hover {
-  color: var(--gold-deep);
-}
 
 .photo-note-grid {
   display: grid;
@@ -597,12 +590,15 @@ a.ts-val:hover {
 }
 
 .min-feature-title {
-  font-size: 1.25rem;
+  font-size: var(--fs-card);
   margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .min-feature-desc {
-  font-size: 0.88rem;
+  font-size: var(--fs-body);
   margin-bottom: 0.75rem;
   line-height: 1.65;
 }
@@ -654,7 +650,6 @@ a.ts-val:hover {
   border: 1px solid transparent;
   border-radius: var(--radius-md);
   padding: 1.1rem;
-  text-align: center;
   text-decoration: none;
   transition: border-color 0.15s ease;
 }
@@ -671,11 +666,12 @@ a.ts-val:hover {
 }
 
 .sac-card h3 {
-  font-size: 0.85rem;
-  font-family: var(--font-body);
-  font-weight: 600;
+  font-size: var(--fs-card);
+  font-family: var(--font-display);
+  font-weight: 400;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
+  line-height: 1.2;
 }
 
 .sac-card p {
@@ -698,7 +694,7 @@ a.ts-val:hover {
 /* --- Homepage "Follow Along" section --- */
 .follow-inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: 2.5rem;
   align-items: center;
 }
@@ -750,3 +746,60 @@ a.ts-val:hover {
   padding: 1.5rem;
 }
 .follow-feed-placeholder span { font-size: 0.85rem; }
+
+/* ============================================
+   Full-bleed photo band (between Between Sundays and Ministry spotlights)
+   ============================================ */
+.photo-band {
+  position: relative;
+  margin: 0;
+  height: 60vh;
+  min-height: 320px;
+  max-height: 680px;
+  overflow: hidden;
+}
+
+.photo-band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.photo-band figcaption {
+  position: absolute;
+  left: 2rem;
+  bottom: 1.25rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(18, 39, 64, 0.75);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   Follow along: photo strip linking to Instagram
+   ============================================ */
+.follow-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.follow-strip img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  transition: opacity 0.15s ease;
+}
+
+.follow-strip:hover img {
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .photo-band figcaption {
+    left: 1rem;
+    bottom: 1rem;
+  }
+}

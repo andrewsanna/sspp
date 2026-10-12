@@ -26,14 +26,14 @@
 }
 
 .sc-hero-title {
-  font-size: 2rem;
+  font-size: var(--fs-page-hero);
   color: #fff;
-  line-height: 1.3;
+  line-height: 1.1;
   margin-bottom: 0.9rem;
 }
 
 .sc-hero-body {
-  font-size: 0.92rem;
+  font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
 }
@@ -75,95 +75,141 @@
    Sacrament sections
    ============================================ */
 .sc-section {
-  padding: 3.5rem 0;
+  padding: 4.5rem 0;
+  background: #fff;
+  border-top: 1px solid var(--brd);
+}
+
+/* All sacrament sections are white; the hairline above separates them. */
+.sc-section--alt {
   background: #fff;
 }
 
-.sc-section--alt {
-  background: var(--offwhite);
+/* Two columns per sacrament: sticky name + photo on the left,
+   description and details on the right. */
+.sc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 3.5rem;
+  align-items: start;
 }
 
-.sc-section-inner {
-  max-width: 760px;
+.sc-side {
+  position: sticky;
+  top: 9.5rem; /* below the sticky nav + jump nav */
+}
+
+/* Greek name: large decorative element in gold */
+.sc-greek {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: var(--gold-deep);
+  margin: 0 0 0.35rem;
 }
 
 .sc-section-title {
-  font-size: 1.75rem;
-  margin: 0 0 0.9rem;
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.9rem;
+  font-size: var(--fs-card);
+  margin: 0 0 1.25rem;
 }
 
-/* Greek name: small, gold, body font (Didot is only used at 18px+). */
-.sc-greek {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: var(--gold-text);
+.sc-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
 }
 
-.sc-arrange {
-  margin-top: 1.25rem;
-  padding-top: 1rem;
+.sc-intro {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+/* Details: label column + text column */
+.sc-details {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: 0;
+  margin: 0 0 2rem;
   border-top: 1px solid var(--brd);
-  font-size: 0.92rem;
+}
+
+.sc-details dt,
+.sc-details dd {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--brd);
+}
+
+.sc-details dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  padding-right: 1.25rem;
+  padding-top: 1.05rem;
+}
+
+.sc-details dd {
+  margin: 0;
   color: var(--tx);
 }
 
-.sc-arrange a {
+.sc-details a {
   color: var(--navy);
   font-weight: 600;
 }
 
-.sc-section-inner > p {
-
-  font-size: 0.9rem;
-  line-height: 1.8;
-  color: var(--tx);
-  margin-bottom: 1.1rem;
+/* How to arrange: navy block with email / phone buttons */
+.sc-arrange {
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 1.75rem 2rem;
 }
 
-.sc-list {
+.sc-arrange h3 {
+  font-size: var(--fs-card);
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.sc-arrange p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.25rem;
+}
+
+.sc-arrange-actions {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 0 0 1.5rem;
-  padding: 0;
-  list-style: none;
 }
 
-.sc-list li {
-  font-size: 0.87rem;
-  line-height: 1.7;
-  color: var(--tx);
-  padding-left: 1.1rem;
-  position: relative;
+@media (max-width: 860px) {
+  .sc-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+  .sc-side {
+    position: static;
+  }
+  .sc-photo {
+    aspect-ratio: 16 / 9;
+  }
 }
 
-.sc-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55rem;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-}
-
-.sc-list strong {
-  color: var(--navy-deep);
-}
-
-
-.sc-substext {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 0.95rem;
-  color: var(--mt);
+@media (max-width: 560px) {
+  .sc-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sc-details dt {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .sc-arrange {
+    padding: 1.5rem 1.25rem;
+  }
 }
 
 /* ============================================
@@ -172,8 +218,9 @@
 .sc-cta {
   background: var(--navy-deep);
   padding: 3.5rem 2rem;
-  text-align: center;
   color: #fff;
+  padding-left: var(--band-pad);
+  padding-right: var(--band-pad);
 }
 
 .sc-cta h2 {
@@ -183,9 +230,9 @@
 }
 
 .sc-cta p {
-  font-size: 0.9rem;
+  font-size: var(--fs-body);
   color: rgba(255, 255, 255, 0.65);
   max-width: 520px;
-  margin: 0 auto 1.75rem;
+  margin: 0 0 1.75rem;
   line-height: 1.7;
 }

@@ -33,13 +33,16 @@
 }
 
 .serve-band__text h3 {
-  font-size: 1.2rem;
+  font-size: var(--fs-card);
   margin-bottom: 0.25rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .serve-band__text p {
-  font-size: 0.9rem;
-  color: var(--mt);
+  font-size: var(--fs-body);
+  color: var(--tx);
   margin: 0;
 }
 
@@ -49,7 +52,6 @@
   }
   .serve-band {
     flex-direction: column;
-    text-align: center;
     padding: 1.5rem;
   }
 }
@@ -75,14 +77,17 @@
 
 .resource-card--coffee h3 {
   grid-area: title;
-  font-size: 1.125rem;
+  font-size: var(--fs-card);
   margin: 0 0 0.2rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.2;
 }
 
 .resource-card--coffee p {
   grid-area: text;
-  font-size: 0.85rem;
-  color: var(--mt);
+  font-size: var(--fs-body);
+  color: var(--tx);
   margin: 0;
 }
 
@@ -95,8 +100,7 @@
     grid-template-columns: 1fr;
     grid-template-areas: "icon" "title" "text" "button";
     row-gap: 0.4rem;
-    text-align: center;
-    justify-items: center;
+    justify-items: start;
   }
   .resource-card--coffee .btn {
     margin-top: 0.6rem;
@@ -182,7 +186,7 @@
 }
 
 .ch-modal-desc {
-  font-size: 0.88rem;
+  font-size: var(--fs-body);
   margin-bottom: 1.25rem;
 }
 
