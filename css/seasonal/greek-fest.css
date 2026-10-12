@@ -56,7 +56,7 @@
 
 .gf-hero__title {
   font-family: var(--font-display);
-  font-size: var(--fs-page-hero);
+  font-size: clamp(2.2rem, 5.5vw, 3.6rem);
   font-weight: 400;
   line-height: 1.1;
   color: var(--gf-white);
@@ -109,7 +109,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(13, 58, 92, 0.72);
+  background: linear-gradient( 180deg, rgba(13,58,92,0.55) 0%, rgba(13,58,92,0.7) 45%, rgba(13,58,92,0.85) 100% );
   z-index: 0;
 }
 .gf-hero > * {
@@ -207,7 +207,7 @@
 
 .gf-detail-item__value {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--gf-white);
 }
 
@@ -234,11 +234,11 @@
 
 .gf-section-title {
   font-family: var(--font-display);
-  font-size: var(--fs-section);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 400;
   margin-bottom: 8px;
   color: var(--gf-navy-deep);
-  line-height: 1.15;
+
 }
 .gf-section--dark .gf-section-title {
   color: var(--gf-white);
@@ -270,14 +270,14 @@
 }
 .gf-about-card h3 {
   font-family: var(--font-display);
-  font-size: var(--fs-card);
+  font-size: 18px;
   color: var(--gf-navy-deep);
   margin-bottom: 8px;
   font-weight: 400;
-  line-height: 1.2;
+
 }
 .gf-about-card p {
-  font-size: var(--fs-body);
+  font-size: 14px;
   color: var(--gf-ink-muted);
   line-height: 1.7;
 }
@@ -361,7 +361,7 @@
   border: 1px solid rgba(0,0,0,0.07);
 }
 .gf-learn-more-card h3 { font-family: var(--font-display); font-size: 18px; color: var(--gf-navy-deep); margin-bottom: 6px; font-weight: 400; }
-.gf-learn-more-card p { font-size: var(--fs-body); color: var(--gf-ink-muted); }
+.gf-learn-more-card p { font-size: 14px; color: var(--gf-ink-muted); }
 .gf-learn-more-btn {
   display: inline-flex;
   align-items: center;
@@ -387,6 +387,6 @@
 @media (max-width: 480px) {
   .gf-logistics-grid { grid-template-columns: 1fr; }
 }
-.gf-logistics-card { background: var(--gf-white); border-radius: 6px; padding: 22px; border: 1px solid rgba(0,0,0,0.08); }
+.gf-logistics-card { background: var(--gf-white); border-radius: 6px; padding: 22px; border-left: 4px solid var(--gf-blue); }
 .gf-logistics-card h4 { font-family: var(--font-body); font-size: 13px; color: var(--gf-navy-deep); margin-bottom: 6px; font-weight: 600; }
-.gf-logistics-card p { font-size: var(--fs-body); color: var(--gf-ink-muted); line-height: 1.6; }
+.gf-logistics-card p { font-size: 13px; color: var(--gf-ink-muted); line-height: 1.6; }

@@ -2,12 +2,22 @@
    Calendar page header
    ============================================ */
 .cal-page-header {
-  background: var(--navy-deep);
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
   padding: 2.5rem 0 1.75rem;
   position: relative;
   overflow: hidden;
 }
 
+
+.cal-header-arc {
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 30px solid rgba(212, 175, 106, 0.08);
+}
 
 .cal-header-inner {
   max-width: 1200px;
@@ -17,14 +27,14 @@
 }
 
 .cal-page-title {
-  font-size: var(--fs-page-hero);
+  font-size: 1.75rem;
   color: #fff;
   margin-bottom: 0.3rem;
-  line-height: 1.1;
+
 }
 
 .cal-page-sub {
-  font-size: var(--fs-body);
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -134,6 +144,7 @@
   cursor: pointer;
   height: 150px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-left: 3px solid var(--gold);
 }
 
 .featured-event-compact:hover {
@@ -189,15 +200,15 @@
 }
 
 .featured-event-title {
-  font-size: var(--fs-card);
+  font-size: 1.05rem;
   color: #fff;
   margin-bottom: 0.35rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.2;
+
+
+
 }
 
 .featured-event-desc {
@@ -623,7 +634,7 @@
   height: 84px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
-  background: var(--gold-deep);
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -778,7 +789,7 @@
 }
 
 .event-modal-desc {
-  font-size: var(--fs-body);
+  font-size: 0.85rem;
   line-height: 1.65;
   color: var(--tx);
   margin-bottom: 1.25rem;

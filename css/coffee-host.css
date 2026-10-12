@@ -14,6 +14,11 @@
   box-sizing: border-box;
   margin: 2rem 0 0;
   padding: 1.5rem 2rem;
+  border: 1px solid transparent;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 6px 20px rgba(18, 39, 64, 0.08);
 }
 
 .serve-band-wrap {
@@ -33,16 +38,16 @@
 }
 
 .serve-band__text h3 {
-  font-size: var(--fs-card);
+  font-size: 1.2rem;
   margin-bottom: 0.25rem;
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.2;
+
+
+
 }
 
 .serve-band__text p {
-  font-size: var(--fs-body);
-  color: var(--tx);
+  font-size: 0.9rem;
+  color: var(--mt);
   margin: 0;
 }
 
@@ -53,7 +58,10 @@
   .serve-band {
     flex-direction: column;
     padding: 1.5rem;
-  }
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  border-left: 1px solid var(--brd);
+  border-top: 4px solid var(--gold);
+}
 }
 
 /* Compact card (Resources, forms row) */
@@ -67,6 +75,11 @@
   column-gap: 1.25rem;
   margin-top: 1.75rem;
   padding: 1.25rem 1.5rem;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--gold);
+  box-shadow: var(--shadow-card);
+  background: var(--cream);
 }
 
 .resource-card--coffee .resource-card__icon {
@@ -77,17 +90,17 @@
 
 .resource-card--coffee h3 {
   grid-area: title;
-  font-size: var(--fs-card);
+  font-size: 1.125rem;
   margin: 0 0 0.2rem;
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.2;
+
+
+
 }
 
 .resource-card--coffee p {
   grid-area: text;
-  font-size: var(--fs-body);
-  color: var(--tx);
+  font-size: 0.85rem;
+  color: var(--mt);
   margin: 0;
 }
 
@@ -186,7 +199,7 @@
 }
 
 .ch-modal-desc {
-  font-size: var(--fs-body);
+  font-size: 0.88rem;
   margin-bottom: 1.25rem;
 }
 
