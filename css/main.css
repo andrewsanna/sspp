@@ -869,16 +869,8 @@ padding: var(--space-5) 0;
 }
 
 /* Text links ("All ministries", "See more of parish life", "Read more"…)
-   get a gold underline and an arrow so they read as links. The arrow
-   comes from CSS so links rendered by JS get it too. */
-.text-link,
-.section-link {
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
-}
-
+   get an arrow so they read as links. It comes from CSS so links
+   rendered by JS get it too. */
 .text-link::after,
 .section-link::after {
   content: "\2192";
@@ -891,11 +883,6 @@ padding: var(--space-5) 0;
 .text-link:hover::after,
 .section-link:hover::after {
   transform: translateX(3px);
-}
-
-/* The pill-style calendar links are already button-shaped: arrow only. */
-.section-link--cta {
-  text-decoration: none;
 }
 /* --- Sticky follow bar (middle-right, all pages) --- */
 .follow-float {

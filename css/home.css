@@ -501,6 +501,7 @@ a.ts-val:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
+  text-decoration: none;
 }
 
 .text-link:hover {
