@@ -178,9 +178,11 @@ function renderDayGroupedList(containerId, events) {
   if (!container) return;
 
   if (events.length === 0) {
-    container.innerHTML = `<p style="text-align:center; color:var(--mt); font-size:0.85rem; padding:1rem 0;">Nothing else on the calendar right now.</p>`;
+    container.innerHTML = `<p class="events-empty">Nothing on the calendar in the next few days.</p>`;
+    container.classList.add('is-empty');
     return;
   }
+  container.classList.remove('is-empty');
 
   const groups = [];
   let currentDay = null;
@@ -272,9 +274,11 @@ function renderHomeEvents(events) {
   if (!container) return;
 
   if (events.length === 0) {
-    container.innerHTML = `<p style="grid-column: 1 / -1; text-align:center; color:rgba(255,255,255,0.5); font-size:0.85rem; padding:1rem 0;">Check back soon for upcoming events.</p>`;
+    container.innerHTML = `<p class="events-empty">No upcoming events posted yet.</p>`;
+    container.classList.add('is-empty');
     return;
   }
+  container.classList.remove('is-empty');
 
  container.innerHTML = events.map((ev) => {
   const imageUrl = homeExtractImageUrl(ev.description);
@@ -335,7 +339,7 @@ function renderFeaturedMinistryCard(elementId, post) {
     <div class="min-feature-body">
       <h3 class="min-feature-title">${post.title}</h3>
       <p class="min-feature-desc">${post.excerpt}</p>
-      <a href="parish-life.html#${post.id}" class="text-link">Read more <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      <a href="parish-life.html#${post.id}" class="text-link">Read more</a>
     </div>
   `;
 }
@@ -366,5 +370,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   } catch (err) {
     console.warn('Next 3 days events failed to load:', err);
     renderDayGroupedList('next3DaysList', []);
+  }
+
+  // Both lists empty: collapse the whole section to a single line.
+  const section = document.getElementById('homeEventsSection');
+  if (section) {
+    const grid = document.getElementById('homeEventsGrid');
+    const week = document.getElementById('next3DaysList');
+    const bothEmpty = grid && week && grid.classList.contains('is-empty') && week.classList.contains('is-empty');
+    section.classList.toggle('is-empty', !!bothEmpty);
   }
 });

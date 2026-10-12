@@ -45,7 +45,7 @@
 
 .hw-hero__title {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   margin: 0.75rem 0 1rem;
   color: #fff;
@@ -154,6 +154,8 @@
   font-family: var(--font-display);
   color: var(--navy-deep);
   margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .hw-overview-card p {
@@ -446,7 +448,7 @@
   font-family: var(--font-display);
   font-style: italic;
   color: var(--gold-text);
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 0.85rem;
 }
 
@@ -603,6 +605,8 @@
   font-family: var(--font-display);
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .hw-pentecost-date {

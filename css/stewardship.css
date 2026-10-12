@@ -59,7 +59,7 @@
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 .give-quote-text {
-  font-family: var(--font-serif, Georgia, serif);
+  font-family: var(--font-display);
   font-style: italic;
   font-size: 1.15rem;
   max-width: 640px;
@@ -97,7 +97,8 @@
 }
 .give-info-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 .give-info-card p {
   margin: 0;
@@ -165,7 +166,8 @@
 }
 .plan-card h3 {
   margin: 0 0 0.35rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 .plan-card p {
   margin: 0;
@@ -372,7 +374,8 @@
 }
 .ways-sidebar h3 {
   margin: 0.35rem 0 1rem;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 .ways-sidebar .ways-list {
   max-width: none;
@@ -391,8 +394,9 @@
 }
 .budget-col h3 {
   margin: 0 0 1rem;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   color: var(--color-navy, #1a2744);
+  font-weight: 400;
 }
 .budget-row { margin-bottom: 0.85rem; }
 .budget-row-label {

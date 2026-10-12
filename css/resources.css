@@ -378,7 +378,7 @@
 }
 
 .rs-reg-title {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.88rem;
   color: var(--navy-deep);

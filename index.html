@@ -5,14 +5,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saints Peter &amp; Paul Greek Orthodox Church — Glenview, IL</title>
-  <meta name="description" content="A warm, welcoming Greek Orthodox parish in Glenview, Illinois. Plan your visit, find service times, explore ministries, and connect with our community." />
+  <title>Saints Peter &amp; Paul Greek Orthodox Church | Glenview, IL</title>
+  <meta name="description" content="Saints Peter &amp; Paul Greek Orthodox Church in Glenview, Illinois. Sunday Divine Liturgy at 9:30 AM. Plan a visit, find service times, and explore our ministries." />
   <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/home.css" />
-  <link rel="stylesheet" href="css/calendar.css" />   <!-- ← add this -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/calendar.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
 </head>
 <body>
@@ -41,8 +41,8 @@
     <div class="hero-inner">
       <div class="hero-content">
         <span class="eyebrow eyebrow--on-dark">☩ Greek Orthodox Parish · Glenview, Illinois</span>
-        <h1 class="hero-title">Welcome to <em>Saints Peter &amp; Paul</em></h1>
-        <p class="hero-body">A warm, ancient faith rooted in community — just north of Chicago. First time? We'd love to meet you this Sunday.</p>
+        <h1 class="hero-title">Welcome to Saints Peter &amp; Paul</h1>
+        <p class="hero-body">A Greek Orthodox parish in Glenview, just north of Chicago. Coming for the first time? Tell us when, and someone will meet you at the door.</p>
         <div class="hero-cta-row">
           <a href="visit.html" class="btn btn-gold-lg">Plan Your Visit →</a>
           <div class="hero-microlinks">
@@ -54,43 +54,35 @@
     </div>
   </section>
 
-  <!-- TRUST STRIP -->
-  <section class="trust-strip" aria-label="Parish facts and service times">
+  <!-- SERVICE BAR -->
+  <section class="trust-strip" aria-label="Service time and address">
     <div class="trust-inner">
-      <div class="ts-stat">
-        <div class="ts-num">60+</div>
-        <div class="ts-label">Years as a Parish</div>
+      <div class="ts-item">
+        <span class="ts-label">Sunday Divine Liturgy</span>
+        <span class="ts-val">9:30 AM</span>
       </div>
-      <div class="ts-stat">
-        <div class="ts-num">33</div>
-        <div class="ts-label">Active Ministries</div>
+      <div class="ts-item">
+        <span class="ts-label">Address</span>
+        <a class="ts-val" href="https://maps.google.com/?q=1401+Wagner+Rd,+Glenview,+IL+60025" target="_blank" rel="noopener">1401 Wagner Rd, Glenview, IL</a>
       </div>
-     <div class="ts-stat">
-        <div class="ts-num">800+</div>
-        <div class="ts-label">Families</div>
-      </div>
-        <div class="ts-time">
-          <div class="ts-time-label">Sunday Divine Liturgy</div>
-          <div class="ts-time-val">9:30 AM</div>
-        </div>
-        <div class="ts-time">
-          <div class="ts-time-label">Address</div>
-          <div class="ts-time-val">1401 Wagner Rd, Glenview, IL</div>
-        </div>
+      <div class="ts-item">
+        <span class="ts-val">Since 1960</span>
       </div>
     </div>
   </section>
 
-<!-- EVENTS PREVIEW -->
-<section class="section section--alt">
+<!-- EVENTS PREVIEW
+     When neither list has anything, home-events.js adds .is-empty to
+     this section and both columns collapse to the one line below. -->
+<section class="section section--white home-events" id="homeEventsSection">
   <div class="container">
     <div class="events-preview-grid">
 
       <div class="events-preview-col">
         <div class="section-header">
           <div>
-            <h2 class="section-title">Upcoming Events</h2>
-         <a href="calendar.html" class="section-link section-link--cta">View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+            <h2 class="section-title">Upcoming events</h2>
+            <a href="calendar.html" class="section-link section-link--cta">View full calendar</a>
           </div>
         </div>
         <div class="featured-events-grid" id="homeEventsGrid"></div>
@@ -99,27 +91,26 @@
       <div class="events-preview-col">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Coming Up This Week</h2>
-          <a href="calendar.html?view=week" class="section-link section-link--cta">View full week <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          <h2 class="section-title">Coming up this week</h2>
+          <a href="calendar.html?view=week" class="section-link section-link--cta">View full week</a>
         </div>
       </div>
       <div id="next3DaysList" class="week-list week-list--single"></div>
-      <!-- <a href="calendar.html?view=week" class="week-footer-link">Full week schedule <i class="ti ti-arrow-right" aria-hidden="true"></i></a> -->
     </div>
 
     </div>
+    <p class="home-events-empty">Nothing on the calendar this week. <a href="calendar.html">See the full calendar</a> for what's ahead.</p>
   </div>
 </section>
 
-   <!-- WELCOME / REASSURANCE -->
-  <section class="section section--divided">
+   <!-- BETWEEN SUNDAYS -->
+  <section class="section">
     <div class="container">
       <div class="welcome-grid">
         <div>
-          <span class="eyebrow">BEYOND SUNDAY</span>
-          <h2 class="welcome-title">A parish is built in the moments in between.</h2>
-          <p class="welcome-body">The candle lit before Liturgy. The flowers arranged before Pascha. The kids who show up for each other. This is the life of our community, week to week.</p>
-          <a href="parish-life.html" class="text-link">See more of parish life <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+          <h2 class="welcome-title">Between Sundays</h2>
+          <p class="welcome-body">Most of parish life happens during the week. Philoptochos raises money and volunteers for families in need across Chicago. Sr. GOYA visits seniors at local nursing homes. Before Holy Friday, volunteers spend hours decorating the Epitaphios with flowers.</p>
+          <a href="parish-life.html" class="text-link">See more of parish life</a>
         </div>
 
         <div class="photo-note-grid">
@@ -153,13 +144,12 @@
 
 
   <!-- GET INVOLVED / MINISTRY SPOTLIGHT PREVIEW -->
-  <section class="section">
+  <section class="section section--white">
     <div class="container">
       <div class="section-header">
         <div>
-          <!-- <span class="eyebrow">Get involved</span> -->
-          <h2 class="section-title">Ministry Spotlights</h2>
-          <a href="get-involved.html" class="section-link">All ministries <i class="ti ti-arrow-right" aria-hidden="true"></i></a> 
+          <h2 class="section-title">Ministry spotlights</h2>
+          <a href="get-involved.html" class="section-link">All ministries</a>
       </div>
         <div class="min-feature-grid" id="minFeatureGrid">
         <div class="min-feature" id="minFeature1">
@@ -167,10 +157,9 @@
             <img src="images/youth-jrolympics.jpg" width="1355" height="1148" alt="JR Olympics" class="img-top" />
           </div>
           <div class="min-feature-body">
-            <span class="eyebrow" style="margin-bottom:0.4rem;">Ministry Spotlight</span>
             <h3 class="min-feature-title">Youth &amp; GOYA</h3>
-            <p class="min-feature-desc">From HOPE (ages 5–8) through Young Adult League — our youth programs are the heartbeat of parish growth.</p>
-            <a href="get-involved.html#sr-goya" class="text-link">Explore Youth &amp; GOYA <i class="ti ti-arrow-right" aria-hidden="true"></i></a>          
+            <p class="min-feature-desc">A group for every age, from HOPE (ages 5 to 8) through Jr. and Sr. GOYA to the Young Adult League. Sr. GOYA meets four times a month for fellowship, outings, and service.</p>
+            <a href="get-involved.html#sr-goya" class="text-link">Explore Youth &amp; GOYA</a>
           </div>
         </div>
       
@@ -179,34 +168,31 @@
             <img src="images/philo-check.jpg" width="1200" height="775" alt="Philoptochos" class="img-top" />
           </div>
           <div class="min-feature-body">
-            <span class="eyebrow" style="margin-bottom:0.4rem;">Ministry Spotlight</span>
             <h3 class="min-feature-title">Philoptochos</h3>
-            <p class="min-feature-desc">Our women's philanthropic ministry, active year-round in service to those in need.</p>
-            <a href="get-involved.html#philoptochos" class="text-link">Learn more <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+            <p class="min-feature-desc">Our women's philanthropic society. For 80 years its members have raised money and volunteered for people in need across Chicago.</p>
+            <a href="get-involved.html#philoptochos" class="text-link">Learn more</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-   <!-- FROM THE ARCHDIOCESE (HOMEPAGE STRIP) -->
-    <section class="home-faith-strip section">
-      <div class="container">
-        <div class="home-faith-inner">
-        <div class="home-faith-text">
-          <span class="eyebrow">From the Archdiocese</span>
-          <h3 id="home-faith-title">Loading…</h3>
-          <p id="home-faith-blurb"></p>
-          <a href="our-faith.html" class="home-faith-more">
-            More on Our Faith <i class="ti ti-arrow-right" aria-hidden="true"></i>
-          </a>
+  <!-- FROM THE ARCHDIOCESE: plain editorial block, filled in from
+       js/our-faith-data.js (the current season's first article). -->
+  <section class="section home-faith">
+    <div class="container">
+      <div class="home-faith-inner">
+        <span class="eyebrow">From the Archdiocese</span>
+        <h2 class="home-faith-title" id="home-faith-title">Loading…</h2>
+        <p class="home-faith-blurb" id="home-faith-blurb"></p>
+        <div class="home-faith-links">
+          <a id="home-faith-link" href="#" target="_blank" rel="noopener" class="btn btn-navy">Read the article</a>
+          <a href="our-faith.html" class="text-link">More on our faith</a>
         </div>
-        <a id="home-faith-link" href="#" target="_blank" rel="noopener" class="btn btn-gold-lg">
-          Read More <i class="ti ti-arrow-up-right" aria-hidden="true"></i>
-        </a>
       </div>
-    </section>
-    
+    </div>
+  </section>
+
     <script src="js/our-faith-data.js"></script>
     <script>
       (function () {
@@ -219,56 +205,53 @@
       })();
     </script>
 
-  <!-- SACRAMENTS -->
+  <!-- SACRAMENTS & SERVICES (matches sacraments.html) -->
   <section class="section section--gold">
-    <div class="container">
-      <div class="section-header">
-        <div>
-          <span class="eyebrow">Life events</span>
-          <h2 class="section-title">Sacraments</h2>
-          <a href="sacraments.html" class="section-link" style="color: var(--gold-text);">Learn more <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div class="sac-grid">
-        <div class="sac-card">
-          <i class="ti ti-droplet ph-icon-inline" aria-hidden="true"></i>
-          <h3>Baptism</h3>
-          <p>Welcome a new member into the faith</p>
-        </div>
-        <div class="sac-card">
-          <i class="ti ti-heart ph-icon-inline" aria-hidden="true"></i>
-          <h3>Wedding</h3>
-          <p>Begin your marriage in the Church</p>
-        </div>
-        <div class="sac-card">
-          <i class="ti ti-star ph-icon-inline" aria-hidden="true"></i>
-          <h3>Chrismation</h3>
-          <p>Received into the Orthodox faith</p>
-        </div>
-        <div class="sac-card">
-          <i class="ti ti-candle ph-icon-inline" aria-hidden="true"></i>
-          <h3>Memorial</h3>
-          <p>Honor and remember loved ones</p>
-        </div>
-        <div class="sac-card">
-          <i class="ti ti-book ph-icon-inline" aria-hidden="true"></i>
-          <h3>Confession</h3>
-          <p>Sacrament of healing &amp; renewal</p>
-        </div>
+    <div class="container home-sac">
+      <figure class="home-sac-photo">
+        <img src="images/anna-wedding.jpg" width="2038" height="1362" alt="A couple at the altar during their wedding at Saints Peter &amp; Paul" loading="lazy" />
+      </figure>
+      <div class="home-sac-body">
+        <h2 class="section-title">Sacraments &amp; Services</h2>
+        <ul class="sac-list">
+          <li class="sac-row">
+            <h3 class="sac-name">Baptism <span class="sac-greek" lang="el">Βάπτισμα</span></h3>
+            <p>Joins a child, or an adult not baptized as an infant, to Christ and the Church.</p>
+            <a href="sacraments.html#baptism" class="sac-link">How to arrange</a>
+          </li>
+          <li class="sac-row">
+            <h3 class="sac-name">Chrismation <span class="sac-greek" lang="el">Χρίσμα</span></h3>
+            <p>Receives a Christian baptized in another tradition into the Orthodox Church.</p>
+            <a href="sacraments.html#chrismation" class="sac-link">How to arrange</a>
+          </li>
+          <li class="sac-row">
+            <h3 class="sac-name">Marriage <span class="sac-greek" lang="el">Γάμος</span></h3>
+            <p>Unites a couple in the Church with the rings, the crowns, and the common cup.</p>
+            <a href="sacraments.html#marriage" class="sac-link">How to arrange</a>
+          </li>
+          <li class="sac-row">
+            <h3 class="sac-name">Confession <span class="sac-greek" lang="el">Εξομολόγηση</span></h3>
+            <p>A private conversation with the priest to receive God's forgiveness and guidance.</p>
+            <a href="sacraments.html#confession" class="sac-link">How to arrange</a>
+          </li>
+          <li class="sac-row">
+            <h3 class="sac-name">Memorials <span class="sac-greek" lang="el">Μνημόσυνο</span></h3>
+            <p>Prayers for the departed at 40 days, through the first year, and on each anniversary.</p>
+            <a href="sacraments.html#memorial" class="sac-link">How to arrange</a>
+          </li>
+        </ul>
+        <p class="sac-call">Planning a baptism, wedding, or memorial? Call the office at <a href="tel:+18477292235">(847) 729-2235</a>.</p>
       </div>
     </div>
   </section>
- 
 
   <!-- FOLLOW ALONG -->
-  <section class="section section--alt follow-section">
+  <section class="section section--white follow-section">
     <div class="container">
       <div class="follow-inner">
         <div class="follow-copy">
-          <span class="eyebrow">Stay connected</span>
           <h2 class="section-title">Follow along with parish life</h2>
-          <p class="follow-body">Greek Fest countdowns, ministry moments, and everyday life at SSPP — follow along for the story that happens between Sundays.</p>
+          <p class="follow-body">Photos from services, ministry events, and Greek Fest, posted through the week.</p>
           <div class="follow-buttons">
             <a href="https://www.instagram.com/ssppglen" target="_blank" rel="noopener" class="btn-follow btn-follow--ig">
               <i class="ti ti-brand-instagram" aria-hidden="true"></i> @ssppglen
@@ -295,14 +278,12 @@
 
   <!-- VISITOR CTA BAND -->
   <section class="visitor-band">
-    <div class="vb-arc" aria-hidden="true"></div>
     <div class="visitor-inner">
       <div>
-        <span class="eyebrow eyebrow--on-dark">New here?</span>
         <h2 class="vb-title">You are welcome here.</h2>
-        <p class="vb-body">Not sure what to expect? We wrote a guide just for you.</p>
+        <p class="vb-body">Not sure what to expect? Our visitor guide covers what happens during the Liturgy, where to sit, and who to ask.</p>
       </div>
-      <a href="visit.html#visit-flow" class="btn btn-white">New Visitor Guide →</a>
+      <a href="visit.html#visit-flow" class="btn btn-white">New visitor guide</a>
     </div>
   </section>
 

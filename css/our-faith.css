@@ -59,8 +59,9 @@
 }
 
 .of-learn-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .of-learn-card p {
@@ -155,8 +156,9 @@
 }
 
 .of-video-card h3 {
-  font-size: 1.02rem;
+  font-size: 1.125rem;
   margin-bottom: 0.35rem;
+  font-weight: 400;
 }
 
 .of-video-desc {
@@ -240,8 +242,9 @@
 }
 
 .of-article-body h3 {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   margin: 0 0 0.5rem;
+  font-weight: 400;
 }
 
 .of-article-body h3 a {
@@ -390,9 +393,10 @@
 .of-note-quote {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: var(--navy-deep);
+  font-weight: 400;
 }
 
 .of-note-sign {

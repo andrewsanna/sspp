@@ -88,7 +88,7 @@
 
 .resource-card--coffee h3 {
   grid-area: title;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   margin: 0 0 0.2rem;
 }
 
@@ -276,7 +276,7 @@
 .date-chip__day {
   font-family: var(--font-display);
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--navy-deep);
 }
 

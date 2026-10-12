@@ -142,9 +142,10 @@
 }
 
 .vh-path-card h4 {
-  font-size: 0.88rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
   margin-bottom: 0.35rem;
+  font-weight: 400;
 }
 
 .vh-path-card p {
@@ -257,7 +258,7 @@
   border-radius: 50%;
   background: var(--navy-deep);
   color: var(--gold);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 1.05rem;
   display: flex;
@@ -389,9 +390,10 @@
 }
 
 .vh-faith-card-text h3 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
   margin-bottom: 0.5rem;
+  font-weight: 400;
 }
 
 .vh-faith-card-text p {
@@ -434,10 +436,11 @@
 .vh-quote-text {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: var(--navy-deep);
   margin: 0 0 0.6rem;
+  font-weight: 400;
 }
 
 .vh-quote-sig {
@@ -517,7 +520,7 @@
 .vh-request-card:hover 
 {  transform: translateY(-3px);  box-shadow: var(--shadow-card);} 
 .vh-request-icon {  width: 52px;  height: 52px;  border-radius: 50%;  background: var(--gold-lt);  border: 2px solid var(--gold);  display: flex;  align-items: center;  justify-content: center;  margin: 0 auto 1.1rem;  font-size: 1.3rem;  color: var(--gold-deep);} 
-.vh-request-card h4 {  font-size: 0.95rem;  color: var(--navy-deep);  margin-bottom: 0.6rem;} 
+.vh-request-card h4 {  font-size: 1.125rem;  color: var(--navy-deep);  margin-bottom: 0.6rem; font-weight: 400; } 
 .vh-request-card p {  font-size: 0.82rem;  color: var(--mt);  line-height: 1.6;  margin-bottom: 1.3rem;} @media (max-width: 640px) {  
    .vh-request-grid {    grid-template-columns: 1fr;  }} 
 

@@ -120,10 +120,11 @@
 .gi-quote-text {
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
   line-height: 1.6;
   margin-bottom: 0.3rem;
+  font-weight: 400;
 }
 
 .gi-quote-attr {
@@ -193,9 +194,10 @@
 
 .feat-title {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
   margin-bottom: 0.3rem;
+  font-weight: 400;
 }
 
 .feat-desc {

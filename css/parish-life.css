@@ -176,8 +176,8 @@
 
 .pl-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 400;
   color: var(--navy-deep);
   line-height: 1.35;
   margin-bottom: 0.4rem;
