@@ -94,10 +94,15 @@ async function renderMinistryEvents() {
   const container = document.getElementById('ministryUpcomingEvents');
   if (!container) return;
 
-  const events = await fetchMinistryEvents();
+  let events = [];
+  try {
+    events = await fetchMinistryEvents();
+  } catch (err) {
+    console.warn('Ministry events failed to load:', err);
+  }
 
   if (events.length === 0) {
-    container.innerHTML = `<p style="font-size:0.85rem; color:var(--mt);">No upcoming events scheduled right now — check back soon.</p>`;
+    container.innerHTML = `<p style="font-size:0.85rem; color:var(--mt);">No upcoming events on the calendar yet.</p>`;
     return;
   }
 

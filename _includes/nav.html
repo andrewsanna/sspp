@@ -3,7 +3,8 @@
 <header class="site-nav">
   <div class="nav-inner">
     <a href="{{ '/index.html' | relative_url }}" class="nav-logo">
-      <span class="nav-cross" aria-hidden="true">☩</span>
+      <!-- Parish mark (Greek cross). Swap for the parish seal when we have the artwork. -->
+      <svg class="nav-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" stroke-width="1"/><path d="M10.25 4h3.5v6.25H20v3.5h-6.25V20h-3.5v-6.25H4v-3.5h6.25z" fill="currentColor"/></svg>
       <span class="nav-logo-text">
         <span class="nav-logo-name">Saints Peter &amp; Paul Greek Orthodox Church</span>
       </span>
@@ -30,7 +31,7 @@
         </button>
         <div class="nav-dropdown-menu" id="communityMenu">
           <a href="{{ '/get-involved.html' | relative_url }}" data-page="get-involved.html">Ministries</a>
-          <a href="{{ '/sacraments.html' | relative_url }}" data-page="sacraments.html">Sacraments</a>
+          <a href="{{ '/sacraments.html' | relative_url }}" data-page="sacraments.html">Sacraments &amp; Services</a>
           <a href="{{ '/stewardship.html' | relative_url }}" data-page="stewardship.html">Stewardship</a>
         </div>
       </div>

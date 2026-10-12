@@ -26,12 +26,7 @@
 .hw-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 20, 35, 0.55) 0%,
-    rgba(11, 20, 35, 0.75) 65%,
-    rgba(11, 20, 35, 0.92) 100%
-  );
+  background: rgba(11, 20, 35, 0.78);
   z-index: 1;
 }
 
@@ -45,7 +40,7 @@
 
 .hw-hero__title {
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   font-size: clamp(2.4rem, 5vw, 3.6rem);
   margin: 0.75rem 0 1rem;
   color: #fff;
@@ -131,7 +126,6 @@
 }
 
 .hw-overview-card:hover {
-  transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(27, 58, 92, 0.1);
 }
 
@@ -154,6 +148,8 @@
   font-family: var(--font-display);
   color: var(--navy-deep);
   margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .hw-overview-card p {
@@ -444,9 +440,8 @@
 
 .hw-hw-theme {
   font-family: var(--font-display);
-  font-style: italic;
   color: var(--gold-text);
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin-bottom: 0.85rem;
 }
 
@@ -539,7 +534,6 @@
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--radius-lg, 12px);
-  border: 3px solid var(--gold);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   display: block;
 }
@@ -603,6 +597,8 @@
   font-family: var(--font-display);
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
+  font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .hw-pentecost-date {

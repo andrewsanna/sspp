@@ -13,12 +13,7 @@
 .pl-intro-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
 .pl-intro-inner {
@@ -95,7 +90,6 @@
 
 .pl-item:hover {
   box-shadow: 0 6px 18px rgba(20, 30, 45, 0.08);
-  transform: translateY(-2px);
 }
 
 .pl-head {
@@ -138,22 +132,22 @@
 }
 
 .pl-card-accent--gold {
-  background: linear-gradient(135deg, var(--gold-lt), #F0E1BF);
+  background: var(--gold-lt);
   color: var(--gold-deep);
 }
 
 .pl-card-accent--blue {
-  background: linear-gradient(135deg, #E9F0F7, #D6E4F1);
+  background: #E9F0F7;
   color: var(--blue);
 }
 
 .pl-card-accent--navy {
-  background: linear-gradient(135deg, #E7ECF1, #D2DBE4);
+  background: #E7ECF1;
   color: var(--navy);
 }
 
 .pl-card-accent--rust {
-  background: linear-gradient(135deg, #FAECE7, #F2D9CD);
+  background: #FAECE7;
   color: #993C1D;
 }
 
@@ -176,8 +170,8 @@
 
 .pl-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 400;
   color: var(--navy-deep);
   line-height: 1.35;
   margin-bottom: 0.4rem;

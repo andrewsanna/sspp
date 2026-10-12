@@ -435,9 +435,10 @@
 }
 
 .pay-summary h3 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
   margin: 0 0 1rem;
+  font-weight: 400;
 }
 
 .pay-summary-lines {

@@ -13,12 +13,7 @@
 .ct-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 .ct-hero-inner {
   position: relative;
@@ -35,7 +30,6 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 .ct-hero-title em {
-  font-style: italic;
   color: var(--gold);
 }
 .ct-hero-body {
@@ -47,8 +41,8 @@
 }
 
 .ct-jumpnav {
-  border-top: 2px solid var(--gold);
-  border-bottom: 2px solid var(--gold);
+  border-top: 1px solid var(--brd);
+  border-bottom: 1px solid var(--brd);
 }
 /* INFO CARDS */
 .ct-info-grid {
@@ -153,9 +147,9 @@
 }
 .ct-staff-name {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
-  font-weight: 600;
+  font-weight: 400;
 }
 .ct-staff-role {
   font-size: 0.78rem;

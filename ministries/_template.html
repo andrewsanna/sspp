@@ -5,14 +5,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MINISTRY NAME — Saints Peter &amp; Paul</title>
-  <meta name="description" content="MINISTRY NAME at Saints Peter & Paul Greek Orthodox Church — SHORT ONE-LINE SUMMARY." />
+  <title>MINISTRY NAME | Saints Peter &amp; Paul</title>
+  <meta name="description" content="MINISTRY NAME at Saints Peter & Paul Greek Orthodox Church: SHORT ONE-LINE SUMMARY." />
   <link rel="stylesheet" href="../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/get-involved.css" />
   <link rel="stylesheet" href="../css/ministry-page.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <style>
     /* Page-specific styles for individual ministry pages */
@@ -80,11 +80,12 @@
     .min-spotlight-quote {
       font-family: var(--font-display);
       font-style: italic;
-      font-size: 1.05rem;
+      font-size: 1.125rem;
       color: var(--navy-deep);
       line-height: 1.6;
       margin-bottom: 0.4rem;
-    }
+  font-weight: 400;
+}
     .min-spotlight-attr {
       font-size: 0.72rem;
       letter-spacing: 0.04em;
@@ -109,10 +110,11 @@
       background: #c9a25c;
     }
     .min-section-title {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       color: var(--navy-deep);
       margin-bottom: 1rem;
-    }
+  font-weight: 400;
+}
     .ministry-event-card {
       display: block;
       border: 1px solid var(--brd);
@@ -176,7 +178,7 @@
   <div class="min-body">
 
     <!-- INTRO / LEDE -->
-    <p class="min-lede">ONE OR TWO SENTENCE HOOK — the warm, human version of the ministry's summary.</p>
+    <p class="min-lede">ONE OR TWO SENTENCES ON WHAT THIS MINISTRY DOES, WHO IT IS FOR, AND WHEN IT MEETS.</p>
 
     <!-- REGISTER CTA -->
     <a href="REPLACE-WITH-REGISTER-LINK" class="min-register-btn">
@@ -185,7 +187,7 @@
 
     <!-- FULL DESCRIPTION -->
     <p class="min-desc">
-      FULL DESCRIPTION GOES HERE. Write as much as you want — history,
+      FULL DESCRIPTION GOES HERE. Write as much as you want: history,
       what a typical meeting looks like, who it's for, etc.
     </p>
 
@@ -199,7 +201,7 @@
     <!-- SPOTLIGHT / QUOTE -->
     <div class="min-spotlight">
       <p class="min-spotlight-quote">"A REAL QUOTE FROM A MEMBER GOES HERE."</p>
-      <p class="min-spotlight-attr">— Name, Role/Relationship to Ministry</p>
+      <p class="min-spotlight-attr">Name, role or relationship to the ministry</p>
     </div>
 
     <!-- UPCOMING EVENTS -->
@@ -208,7 +210,7 @@
       <p style="font-size:0.8rem; color:var(--mt);">Loading…</p>
     </div>
     <a href="../calendar.html?category=REPLACE-CATEGORY" class="min-cal-link">
-      View full calendar <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      View full calendar
     </a>
 
     <!-- CONTACT -->
@@ -232,18 +234,6 @@
 
   </div>
 
-  <!-- DON'T SEE WHERE YOU FIT BAND -->
-  <section class="visitor-band">
-    <div class="vb-arc" aria-hidden="true"></div>
-    <div class="visitor-inner">
-      <div>
-        <span class="eyebrow eyebrow--on-dark">Still not sure?</span>
-        <h2 class="vb-title">We'll help you find your place.</h2>
-        <p class="vb-body">With this many ministries, it's normal to feel unsure where to start. Reach out to the parish office — we're glad to point you in the right direction.</p>
-      </div>
-      <a href="../contact.html" class="btn btn-white">Contact Us →</a>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   {% include footer.html %}

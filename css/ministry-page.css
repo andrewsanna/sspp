@@ -17,12 +17,7 @@
 .mp-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 .mp-hero-inner {
   max-width: 680px;
@@ -138,9 +133,6 @@
 .mp-acc-section {
   background: var(--gold-lt);
   padding: 3.5rem 2rem;
-  border-top: 4px solid var(--gold);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   position: relative;
 }
 .mp-acc-inner {
@@ -157,8 +149,8 @@
 .mp-acc-item[open] { border-color: var(--gold); }
 .mp-acc-summary {
   padding: 1.1rem 1.4rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 400;
   font-family: var(--font-display);
   color: var(--navy-deep);
   cursor: pointer;
@@ -212,7 +204,7 @@
   margin-bottom: 0.35rem;
 }
 .mp-gathering-name {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--navy-deep);
 }
@@ -256,9 +248,10 @@
 }
 .mp-article-card:hover { border-color: var(--gold); box-shadow: var(--shadow-card); }
 .mp-article-card h4 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   margin: 0 0 0.3rem;
   color: var(--navy-deep);
+  font-weight: 400;
 }
 .mp-article-meta {
   font-size: 0.72rem;
@@ -281,7 +274,6 @@
   gap: 1.75rem;
   background: #fff;
   border: 1px solid var(--brd);
-  border-left: 4px solid var(--gold);
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   box-shadow: var(--shadow-card);
@@ -299,7 +291,7 @@
   flex-shrink: 0;
 }
 .mp-feature-icon i { font-size: 1.3rem; color: var(--gold-deep); }
-.mp-feature-text h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.mp-feature-text h3 { font-size: 1.125rem; margin-bottom: 0.35rem; font-weight: 400; }
 .mp-feature-text p { font-size: 0.85rem; color: var(--mt); line-height: 1.6; }
 @media (max-width: 700px) {
   .mp-feature-card { grid-template-columns: 1fr; text-align: center; }
@@ -382,11 +374,12 @@
 .mp-note-box {
   max-width: 900px;
   margin: 0 auto 1.75rem;
-  background: var(--gold-lt);
-  border-left: 3px solid var(--gold);
-  padding: 0.9rem 1.1rem;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: none;
+  padding: 0.9rem 0;
+  border-radius: 0;
   font-size: 0.85rem;
   color: var(--tx);
   line-height: 1.65;
+  border-top: 1px solid var(--brd);
+  border-bottom: 1px solid var(--brd);
 }

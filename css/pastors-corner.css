@@ -15,12 +15,7 @@
 .pc-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
 .pc-hero-inner {

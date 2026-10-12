@@ -14,12 +14,7 @@
 .ab-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
 .ab-hero-inner {
@@ -70,15 +65,6 @@
   text-align: center;
 }
 
-.ab-mission-arc {
-  position: absolute;
-  left: -60px;
-  bottom: -60px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 32px solid rgba(212, 175, 106, 0.15);
-}
 
 .ab-mission-inner {
   max-width: 1100px;
@@ -108,7 +94,6 @@
 
 .ab-mission-quote {
   font-family: var(--font-display);
-  font-style: italic;
   font-weight: 400;
   font-size: 1.35rem;
   line-height: 1.5;
@@ -118,7 +103,7 @@
 
 .ab-mission-support-label {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--gold-text);
   margin-bottom: 0.4rem;
@@ -162,7 +147,6 @@
   gap: 2rem;
   background: #fff;
   border: 1px solid var(--brd);
-  border-left: 4px solid var(--gold);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2.5rem;
   box-shadow: var(--shadow-card);
@@ -238,7 +222,7 @@
 .ab-history-photo {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
+  background: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -331,8 +315,9 @@
 }
 
 .ab-history-full h3 {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   margin: 1.5rem 0 0.75rem;
+  font-weight: 400;
 }
 
 .ab-history-full p {
@@ -423,8 +408,9 @@
 }
 
 .ab-history-row-text h3 {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   margin: 0 0 0.75rem;
+  font-weight: 400;
 }
 
 .ab-history-row-text p {
@@ -463,8 +449,9 @@
 }
 
 .ab-history-lookback h3 {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   margin: 0 0 0.75rem;
+  font-weight: 400;
 }
 
 /* ============================================
@@ -544,11 +531,10 @@
 .ab-staff-tile:hover {
   border-color: var(--gold);
   box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
 }
 
 .ab-staff-tile.is-featured {
-  border: 3px solid var(--gold);
+  border: 2px solid var(--gold);
 }
 
 .ab-staff-tile-photo {
@@ -592,8 +578,9 @@
 }
 
 .ab-staff-name {
-  font-size: 1.05rem;
+  font-size: 1.125rem;
   margin-bottom: 0.3rem;
+  font-weight: 400;
 }
 
 .ab-staff-tile-role {

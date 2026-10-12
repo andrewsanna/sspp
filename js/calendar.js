@@ -154,7 +154,7 @@ function renderSetupNotice(extra) {
   statusEl.className = 'cal-status is-error';
   statusEl.innerHTML = `
     <i class="ti ti-alert-triangle" aria-hidden="true"></i>
-    <span>Calendar not connected yet — add your Google API key and calendar IDs in <code>js/calendar.js</code> to go live.${extra ? ' ' + escapeHtml(extra) : ''}</span>
+    <span>Calendar not connected yet. Add your Google API key and calendar IDs in <code>js/calendar.js</code> to go live.${extra ? ' ' + escapeHtml(extra) : ''}</span>
   `;
 }
 
@@ -368,7 +368,7 @@ function renderMonthGrid() {
         ${visibleEvents.map((e) => {
           const timeLabel = formatPillTime(e.start, e.isAllDay);
           const subParts = [timeLabel, (e.location && !isUrl(e.location)) ? e.location : null].filter(Boolean);
-          const fullTitle = `${timeLabel ? timeLabel + ' — ' : ''}${e.title}`;
+          const fullTitle = `${timeLabel ? timeLabel + ' · ' : ''}${e.title}`;
           return `
               <div class="ev-pill" data-event-id="${escapeHtml(e.id)}" title="${escapeHtml(fullTitle)}" style="background:${categoryBg(e.category)};">
               <div class="ev-pill-title">${escapeHtml(e.title)}</div>

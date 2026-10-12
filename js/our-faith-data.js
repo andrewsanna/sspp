@@ -12,10 +12,10 @@ const ourFaithSeasons = {
     active: false,
     articles: [
       { title: "Great Lent: A Week by Week Meaning", 
-       blurb: "A walk through each week of Great Lent — from Forgiveness Sunday and Clean Monday, through the Sunday of Orthodoxy, St. Gregory Palamas, and the Veneration of the Cross, up to Lazarus Saturday — and what each week asks of us on the road to Pascha.", 
+       blurb: "A walk through each week of Great Lent, from Forgiveness Sunday and Clean Monday, through the Sunday of Orthodoxy, St. Gregory Palamas, and the Veneration of the Cross, up to Lazarus Saturday, and what each week asks of us on the road to Pascha.", 
        url: "https://www.goarch.org/-/great-lent-a-week-by-week-meaning" },
       { title: "Preparing Your Family For Great Lent", 
-       blurb: "A webinar with Fr. Evan Armatas and Elissa Bjeletich on making Great Lent a family experience — practical ways to slow down, pray together, and bring fasting and almsgiving into everyday home life.", 
+       blurb: "A webinar with Fr. Evan Armatas and Elissa Bjeletich on making Great Lent a family experience: practical ways to slow down, pray together, and bring fasting and almsgiving into everyday home life.", 
        url: "https://www.goarch.org/-/preparing-your-family-for-great-lent" },
       { title: "Resources for Great Lent, Holy Week, and Pascha", 
        blurb: "A library of Lenten and Paschal brochures, sermons, and downloadable icons from the Archdiocese.", 
@@ -33,7 +33,7 @@ const ourFaithSeasons = {
     articles: [
       { title: "Holy Week", blurb: "A walk through the services of Holy Week, service by service.", url: "https://www.goarch.org/holyweek" },
       { title: "Great and Holy Pascha", 
-       blurb: "On Great and Holy Pascha, Orthodox Christians celebrate Christ's Resurrection — his victory over death that offers restoration and eternal life. Includes the joyful 'Christ is Risen' proclamation in Greek and English.", 
+       blurb: "On Great and Holy Pascha, Orthodox Christians celebrate Christ's Resurrection, his victory over death that offers restoration and eternal life. Includes the joyful 'Christ is Risen' proclamation in Greek and English.", 
        url: "https://www.goarch.org/en/pascha" }
     ]
   },
@@ -91,12 +91,12 @@ const ourFaithSeasons = {
 
   backToSchool: {
     label: "Starting the School Year",
-    window: "Late Aug / early Sept — also near the Sept 1 Church New Year",
+    window: "Late Aug / early Sept, also near the Sept 1 Church New Year",
     active: true,
     articles: [
-      { title: "In the Now: Welcome to Fall", blurb: "A candid look at the 'post-camp crash' — how the spiritual high of summer camp fades once school starts, and a challenge to build a faith that holds up in ordinary months, not just camp week.", 
+      { title: "In the Now: Welcome to Fall", blurb: "A candid look at the 'post-camp crash': how the spiritual high of summer camp fades once school starts, and a challenge to build a faith that holds up in ordinary months, not just camp week.", 
        url: "https://www.goarch.org/en/-/in-the-now-welcome-to-fall" },
-      { title: "Why Prayer Matters", blurb: "Why private prayer and the Liturgy aren't an either/or — without one, the other risks becoming empty ritual or just talking to ourselves. A reminder to hold both together.", 
+      { title: "Why Prayer Matters", blurb: "Why private prayer and the Liturgy aren't an either/or. Without one, the other risks becoming empty ritual or just talking to ourselves. A reminder to hold both together.", 
        url: "https://www.goarch.org/-/why-prayer-matters" }
     ]
   },
@@ -126,7 +126,7 @@ const ourFaithSeasons = {
     active: false,
     articles: [
       { title: "Exaltations of the Holy Cross", blurb: "Why the Cross is 'exalted' and the fasting associated with this feast.", url: "https://www.goarch.org/en/exaltation" },
-      { title: "The Beauty of the Cross", blurb: "A short reflection on how the Cross — once an instrument of death — became a symbol of life, and what that paradox has to teach us.", 
+      { title: "The Beauty of the Cross", blurb: "A short reflection on how the Cross, once an instrument of death, became a symbol of life, and what that paradox has to teach us.", 
        url: "https://www.goarch.org/en/-/the-beauty-of-the-cross" }
     ]
   },
@@ -157,7 +157,7 @@ const ourFaithSeasons = {
     active: false,
     articles: [
       { title: "Be the Bee: How Should Orthodox Christians Preach the Gospel?", 
-       blurb: "A short reflection on sharing the faith in everyday conversation — no theology degree required.", 
+       blurb: "A short reflection on sharing the faith in everyday conversation. No theology degree required.", 
        url: "https://www.goarch.org/en/be-the-bee " },
       { title: "An Introduction to Orthodox Spirituality", blurb: "An introduction to the Sacraments for newcomers.", url: "https://www.goarch.org/en/know-your-faith" },
       { title: "The House of God: Iconography", blurb: "On the role of icons in Orthodox worship.", url: "https://www.goarch.org/en/-/the-house-of-god-iconography" }

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const li = document.createElement('li');
     li.innerHTML =
       '<i class="ti ' + (ICONS[e.type] || 'ti-calendar-event') + '" aria-hidden="true"></i>' +
-      '<span><strong>' + (LABELS[e.type] || e.type) + '</strong> — ' + e.name + ', ' + dayLabel + ' ' + e.time + '</span>';
+      '<span><strong>' + (LABELS[e.type] || e.type) + ':</strong> ' + e.name + ', ' + dayLabel + ' ' + e.time + '</span>';
     list.appendChild(li);
   });
   container.appendChild(list);
