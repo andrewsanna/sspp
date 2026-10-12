@@ -1,12 +1,11 @@
 /* ============================================
    Coffee Fellowship hosting
-   - .serve-band: featured strip on Get Involved
-   - .resource-card--coffee: compact card on Resources
+   - .serve-band: featured strip on Get Involved and Resources
    - .ch-modal-*: shared sign-up modal (_includes/coffee-host-modal.html)
    - .date-chip: Sunday picker inside the modal
    ============================================ */
 
-/* Featured band (Get Involved) */
+/* Featured band (Get Involved, Resources) */
 .serve-band {
   display: flex;
   align-items: center;
@@ -62,62 +61,6 @@
   border-left: 1px solid var(--brd);
   border-top: 4px solid var(--gold);
 }
-}
-
-/* Compact card (Resources, forms row) */
-.resource-card--coffee {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas:
-    "icon title button"
-    "icon text  button";
-  align-items: center;
-  column-gap: 1.25rem;
-  margin-top: 1.75rem;
-  padding: 1.25rem 1.5rem;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--gold);
-  box-shadow: var(--shadow-card);
-  background: var(--cream);
-}
-
-.resource-card--coffee .resource-card__icon {
-  grid-area: icon;
-  font-size: 2rem;
-  color: var(--gold);
-}
-
-.resource-card--coffee h3 {
-  grid-area: title;
-  font-size: 1.125rem;
-  margin: 0 0 0.2rem;
-
-
-
-}
-
-.resource-card--coffee p {
-  grid-area: text;
-  font-size: 0.85rem;
-  color: var(--mt);
-  margin: 0;
-}
-
-.resource-card--coffee .btn {
-  grid-area: button;
-}
-
-@media (max-width: 640px) {
-  .resource-card--coffee {
-    grid-template-columns: 1fr;
-    grid-template-areas: "icon" "title" "text" "button";
-    row-gap: 0.4rem;
-    justify-items: start;
-  }
-  .resource-card--coffee .btn {
-    margin-top: 0.6rem;
-  }
 }
 
 /* Sign-up modal */
