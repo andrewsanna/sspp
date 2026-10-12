@@ -725,13 +725,3 @@
     padding: 1.5rem;
   }
 }
-
-/* What we believe: plain section */
-.ab-believe .ab-section-title {
-  margin-bottom: 1rem;
-}
-
-.ab-believe-text {
-  max-width: 62ch;
-  margin-bottom: 1.25rem;
-}
