@@ -190,6 +190,8 @@
 
 .home-faith-inner {
   max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .home-faith .home-faith-title {
@@ -227,6 +229,7 @@
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ============================================
