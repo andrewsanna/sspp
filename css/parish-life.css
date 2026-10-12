@@ -13,7 +13,7 @@
 .pl-intro-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 30, 51, 0.8);
+  background: linear-gradient( 135deg, rgba(11, 30, 51, 0.88) 0%, rgba(11, 30, 51, 0.72) 60%, rgba(11, 30, 51, 0.85) 100% );
 }
 
 .pl-intro-inner {
@@ -26,9 +26,9 @@
 }
 
 .pl-intro-title {
-  font-size: var(--fs-page-hero);
+  font-size: 1.85rem;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.3;
   margin-bottom: 0.85rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
@@ -39,7 +39,7 @@
 }
 
 .pl-intro-body {
-  font-size: 1.125rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   max-width: 560px;
@@ -132,22 +132,22 @@
 }
 
 .pl-card-accent--gold {
-  background: var(--gold-lt);
+  background: linear-gradient(135deg, var(--gold-lt), #F0E1BF);
   color: var(--gold-deep);
 }
 
 .pl-card-accent--blue {
-  background: #E9F0F7;
+  background: linear-gradient(135deg, #E9F0F7, #D6E4F1);
   color: var(--blue);
 }
 
 .pl-card-accent--navy {
-  background: #E7ECF1;
+  background: linear-gradient(135deg, #E7ECF1, #D2DBE4);
   color: var(--navy);
 }
 
 .pl-card-accent--rust {
-  background: #FAECE7;
+  background: linear-gradient(135deg, #FAECE7, #F2D9CD);
   color: #993C1D;
 }
 
@@ -170,10 +170,10 @@
 
 .pl-title {
   font-family: var(--font-display);
-  font-size: var(--fs-card);
+  font-size: 1.125rem;
   font-weight: 400;
   color: var(--navy-deep);
-  line-height: 1.2;
+  line-height: 1.35;
   margin-bottom: 0.4rem;
 }
 
@@ -357,7 +357,7 @@
 }
 
 .pl-text p {
-  font-size: var(--fs-body);
+  font-size: 0.9rem;
   line-height: 1.8;
   color: var(--tx);
   margin-bottom: 1rem;

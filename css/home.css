@@ -2,7 +2,7 @@
    Hero
    ============================================ */
 .hero {
-  background: var(--navy-deep);
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
   position: relative;
   overflow: hidden;
   min-height: 520px;
@@ -83,15 +83,15 @@
 }
 
 .hero-title {
-  font-size: var(--fs-hero);
+  font-size: clamp(2rem, 4vw, 2.6rem);
   color: #fff;
   margin-bottom: 1rem;
-  line-height: 1.05;
+
 }
 
 .hero-body {
-  font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.7;
   max-width: 480px;
   margin-bottom: 1.85rem;
@@ -173,7 +173,7 @@
 }
 
 #homeEventsGrid .featured-event-title {
-  font-size: var(--fs-card);
+  font-size: 1.05rem;
   margin-bottom: 0.35rem;
 }
 
@@ -209,15 +209,15 @@
 }
 
 .home-faith-title {
-  font-size: var(--fs-section);
+  font-size: 1.75rem;
   margin: 0.25rem 0 0.75rem;
   min-height: 1.25em;
-  line-height: 1.15;
-  font-weight: 400;
+
+
 }
 
 .home-faith-blurb {
-  font-size: var(--fs-body);
+  font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.25rem;
 }
@@ -427,7 +427,7 @@
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.07em;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .ts-val {
@@ -461,14 +461,14 @@ a.ts-val:hover {
 }
 
 .welcome-title {
-  font-size: var(--fs-section);
+  font-size: 1.6rem;
   margin-bottom: 1rem;
-  line-height: 1.15;
-  font-weight: 400;
+
+
 }
 
 .welcome-body {
-  font-size: var(--fs-body);
+  font-size: 0.9rem;
   margin-bottom: 1.25rem;
   line-height: 1.8;
 }
@@ -590,15 +590,15 @@ a.ts-val:hover {
 }
 
 .min-feature-title {
-  font-size: var(--fs-card);
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.2;
+
+
+
 }
 
 .min-feature-desc {
-  font-size: var(--fs-body);
+  font-size: 0.88rem;
   margin-bottom: 0.75rem;
   line-height: 1.65;
 }
@@ -647,7 +647,7 @@ a.ts-val:hover {
   display: block;
   background: #fff;
   box-shadow: 0 6px 20px rgba(18, 39, 64, 0.08);
-  border: 1px solid transparent;
+
   border-radius: var(--radius-md);
   padding: 1.1rem;
   text-decoration: none;
@@ -666,12 +666,12 @@ a.ts-val:hover {
 }
 
 .sac-card h3 {
-  font-size: var(--fs-card);
-  font-family: var(--font-display);
-  font-weight: 400;
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 600;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
-  line-height: 1.2;
+
 }
 
 .sac-card p {

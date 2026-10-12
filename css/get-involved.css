@@ -2,7 +2,7 @@
    Page header
    ============================================ */
 .gi-page-header {
-  background: var(--navy-deep);
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
   background-position: center 25%;
   padding: 2.5rem 0 1.75rem;
   position: relative;
@@ -18,14 +18,14 @@
 }
 
 .gi-page-title {
-  font-size: var(--fs-page-hero);
+  font-size: 1.75rem;
   color: #fff;
   margin-bottom: 0.4rem;
-  line-height: 1.1;
+
 }
 
 .gi-page-sub {
-  font-size: var(--fs-body);
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.5);
   max-width: 540px;
   line-height: 1.6;
@@ -47,7 +47,7 @@
 .gi-intro-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 30, 51, 0.8);
+  background: linear-gradient( 135deg, rgba(11, 30, 51, 0.88) 0%, rgba(11, 30, 51, 0.72) 60%, rgba(11, 30, 51, 0.85) 100% );
 }
 
 .gi-intro-inner {
@@ -59,9 +59,9 @@
 }
 
 .gi-intro-title {
-  font-size: var(--fs-page-hero);
+  font-size: 1.85rem;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.3;
   margin-bottom: 0.85rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
@@ -72,7 +72,7 @@
 }
 
 .gi-intro-body {
-  font-size: 1.125rem;
+  font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
@@ -100,7 +100,7 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--gold-deep);
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
   flex-shrink: 0;
 }
 
@@ -178,16 +178,16 @@
 
 .feat-title {
   font-family: var(--font-display);
-  font-size: var(--fs-card);
+  font-size: 1.125rem;
   color: var(--navy-deep);
   margin-bottom: 0.3rem;
   font-weight: 400;
-  line-height: 1.2;
+
 }
 
 .feat-desc {
   font-size: 0.78rem;
-  color: var(--tx);
+  color: var(--mt);
   line-height: 1.5;
 }
 
@@ -213,15 +213,15 @@
 }
 
 .gi-directory-title {
-  font-size: var(--fs-section);
+  font-size: 1.3rem;
   margin-bottom: 0.3rem;
-  line-height: 1.15;
-  font-weight: 400;
+
+
 }
 
 .gi-directory-sub {
-  font-size: var(--fs-body);
-  color: var(--tx);
+  font-size: 0.82rem;
+  color: var(--mt);
 }
 
 /* ============================================
@@ -403,16 +403,16 @@
 }
 
 .ministry-card-title {
-  font-size: var(--fs-card);
-  font-weight: 400;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
-  font-family: var(--font-display);
-  line-height: 1.2;
+
+
 }
 
 .ministry-card-summary {
@@ -430,7 +430,7 @@
   background: #FAECE7;
   padding: 0.1rem 0.4rem;
   border-radius: 8px;
-  font-family: var(--font-body);
+
 }
 
 .no-results {
@@ -503,7 +503,7 @@
   height: 180px;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   overflow: hidden;
-  background: var(--gold-deep);
+  background: linear-gradient(160deg, #8a6a3a, #5c4423);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -577,7 +577,7 @@
 }
 
 .ministry-modal-desc {
-  font-size: var(--fs-body);
+  font-size: 0.88rem;
   line-height: 1.75;
   color: var(--tx);
 }
@@ -637,9 +637,10 @@
   align-items: center;
   gap: 0.75rem;
   background: var(--gold-lt);
-  border-radius: var(--radius-md);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 0.7rem 0.9rem;
   margin-top: 1.1rem;
+  border-left: 3px solid var(--gold);
 }
 
 .ministry-modal-contact-icon {

@@ -17,7 +17,7 @@
 .mp-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(11, 30, 51, 0.8);
+  background: linear-gradient( 135deg, rgba(11, 30, 51, 0.88) 0%, rgba(11, 30, 51, 0.72) 60%, rgba(11, 30, 51, 0.85) 100% );
 }
 .mp-hero-inner {
   max-width: 680px;
@@ -27,20 +27,21 @@
   z-index: 1;
 }
 .mp-hero-title {
-  font-size: var(--fs-page-hero);
+  font-size: 2rem;
   color: #fff;
-  line-height: 1.1;
+  line-height: 1.3;
   margin-bottom: 0.9rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 .mp-hero-body {
-  font-size: 1.125rem;
+  font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.75);
   line-height: 1.7;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 @media (max-width: 640px) {
   .mp-hero { padding: 4rem 0 3rem; }
+  .mp-hero-title { font-size: 1.6rem; }
 }
 
 /* ---- Photo gallery / slideshow ---- */
@@ -116,8 +117,8 @@
 
 /* ---- Intro lede ---- */
 .mp-lede {
-  font-size: var(--fs-body);
-  color: var(--tx);
+  font-size: 0.95rem;
+  color: var(--mt);
   line-height: 1.75;
   max-width: 620px;
   margin: 0;
@@ -128,6 +129,9 @@
   background: var(--gold-lt);
   padding: 3.5rem 2rem;
   position: relative;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-bottom: 4px solid var(--gold);
+  border-top: 4px solid var(--gold);
 }
 .mp-acc-inner {
   max-width: 860px;
@@ -143,7 +147,7 @@
 .mp-acc-item[open] { border-color: var(--gold); }
 .mp-acc-summary {
   padding: 1.1rem 1.4rem;
-  font-size: var(--fs-card);
+  font-size: 1.125rem;
   font-weight: 400;
   font-family: var(--font-display);
   color: var(--navy-deep);
@@ -152,7 +156,7 @@
   justify-content: space-between;
   align-items: center;
   list-style: none;
-  line-height: 1.2;
+
 }
 .mp-acc-summary::-webkit-details-marker { display: none; }
 .mp-acc-sub {
@@ -174,7 +178,7 @@
 .mp-acc-item[open] .mp-acc-summary > i { transform: rotate(180deg); }
 .mp-acc-body {
   padding: 0 1.4rem 1.4rem;
-  font-size: var(--fs-body);
+  font-size: 0.87rem;
   line-height: 1.75;
   color: var(--tx);
 }
@@ -211,8 +215,8 @@
 .mp-list { margin: 0; padding: 0; }
 .mp-list li {
   list-style: none;
-  font-size: var(--fs-body);
-  color: var(--tx);
+  font-size: 0.83rem;
+  color: var(--mt);
   line-height: 1.65;
   padding-left: 1rem;
   position: relative;
@@ -243,12 +247,12 @@
 }
 .mp-article-card:hover { border-color: var(--gold); box-shadow: var(--shadow-card); }
 .mp-article-card h4 {
-  font-size: var(--fs-card);
+  font-size: 1.125rem;
   margin: 0 0 0.3rem;
   color: var(--navy-deep);
   font-weight: 400;
-  font-family: var(--font-display);
-  line-height: 1.2;
+
+
 }
 .mp-article-meta {
   font-size: 0.72rem;
@@ -256,9 +260,9 @@
   margin-bottom: 0.6rem;
 }
 .mp-article-card p {
-  font-size: var(--fs-body);
+  font-size: 0.83rem;
   line-height: 1.6;
-  color: var(--tx);
+  color: var(--mt);
   margin: 0 0 1.1rem;
 }
 @media (max-width: 700px) { .mp-article-grid { grid-template-columns: 1fr; } }
@@ -276,6 +280,7 @@
   box-shadow: var(--shadow-card);
   max-width: 900px;
   margin: 0 auto;
+  border-left: 4px solid var(--gold);
 }
 .mp-feature-icon {
   width: 52px;
@@ -288,8 +293,8 @@
   flex-shrink: 0;
 }
 .mp-feature-icon i { font-size: 1.3rem; color: var(--gold-deep); }
-.mp-feature-text h3 { font-size: var(--fs-card); margin-bottom: 0.35rem; font-weight: 400; font-family: var(--font-display); line-height: 1.2; }
-.mp-feature-text p { font-size: var(--fs-body); color: var(--tx); line-height: 1.6; }
+.mp-feature-text h3 { font-size: 1.125rem; margin-bottom: 0.35rem; font-weight: 400; }
+.mp-feature-text p { font-size: 0.85rem; color: var(--mt); line-height: 1.6; }
 @media (max-width: 700px) {
   .mp-feature-card { grid-template-columns: 1fr; }
   .mp-feature-icon { margin: 0 auto; }
@@ -371,12 +376,13 @@
 .mp-note-box {
   max-width: 900px;
   margin: 0 auto 1.75rem;
-  background: none;
+  background: var(--gold-lt);
   padding: 0.9rem 0;
-  border-radius: 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   font-size: 0.85rem;
   color: var(--tx);
   line-height: 1.65;
-  border-top: 1px solid var(--brd);
-  border-bottom: 1px solid var(--brd);
+
+
+  border-left: 3px solid var(--gold);
 }
