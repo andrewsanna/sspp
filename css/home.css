@@ -2,7 +2,7 @@
    Hero
    ============================================ */
 .hero {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: var(--navy-deep);
   position: relative;
   overflow: hidden;
   min-height: 520px;
@@ -612,7 +612,7 @@ a.ts-val:hover {
   }
 }
 
-/* Note: the "Visitor CTA band" component (.visitor-band, .vb-arc,
+/* Note: the "Visitor CTA band" component (.visitor-band,
    .visitor-inner, .vb-title, .vb-body) moved to main.css as a shared
    component — it's also used on Get Involved, and was previously
    duplicated byte-for-byte in both files. */

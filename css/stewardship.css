@@ -14,12 +14,7 @@
 .give-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
 .give-card {
@@ -54,7 +49,7 @@
 .give-quote {
   padding: 2.5rem 1.5rem;
   text-align: center;
-  background: var(--color-cream, #faf7f0);
+  background: var(--cream);
   border-top: 1px solid rgba(0,0,0,0.06);
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
@@ -64,13 +59,13 @@
   font-size: 1.15rem;
   max-width: 640px;
   margin: 0 auto 0.5rem;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
 }
 .give-quote-cite {
   font-size: 0.85rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-gold, #b08d3f);
+  color: var(--gold);
 }
 
 /* Info card grid — used by Time/Talent/Treasure */
@@ -91,7 +86,7 @@
 .give-info-card .ph-icon-inline,
 .give-info-card i {
   font-size: 1.4rem;
-  color: var(--color-gold, #b08d3f);
+  color: var(--gold);
   margin-bottom: 0.6rem;
   display: inline-block;
 }
@@ -105,7 +100,7 @@
   min-height: 4.5em;
   font-size: 0.92rem;
   line-height: 1.5;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
 }
 
 .info-card-btn {
@@ -118,7 +113,7 @@
   font-weight: 600;
   color: #fff;
   text-decoration: none;
-  background: var(--color-gold, #b08d3f);
+  background: var(--gold);
   border-radius: 999px;
 }
 .info-card-btn:hover { background: #9c7a34; }
@@ -131,7 +126,7 @@
 .plan-intro {
   max-width: 720px;
   margin: 0 0 2rem;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
 }
 .plan-card-grid {
   display: grid;
@@ -139,10 +134,9 @@
   gap: 1rem;
 }
 .plan-card {
-  background: rgba(176, 141, 63, 0.08);
-  border: none;
-  border-left: 4px solid var(--color-gold, #b08d3f);
-  border-radius: 0;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-md);
   padding: 1.1rem 1.25rem;
   text-align: left;
 }
@@ -154,12 +148,12 @@
 }
 .plan-card-icon {
   font-size: 1.3rem;
-  color: var(--color-gold, #b08d3f);
+  color: var(--gold);
 }
 .plan-card-cost {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
   background: rgba(0,0,0,0.05);
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
@@ -173,7 +167,7 @@
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.45;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
 }
 
 @media (max-width: 720px) {
@@ -210,14 +204,14 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: var(--color-gold, #b08d3f);
+  background: var(--gold);
 }
 .update-date {
   display: block;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-gold, #b08d3f);
+  color: var(--gold);
   margin: 0.75rem 0 0.4rem;
 }
 .update-entry-h h3 { margin: 0 0 0.4rem; }
@@ -267,7 +261,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-gold, #b08d3f);
+  background: var(--gold);
 }
 @media (max-width: 720px) {
   .story-grid { grid-template-columns: 1fr; }
@@ -292,7 +286,7 @@
   font-weight: 600;
   padding: 1.1rem 0;
   cursor: pointer;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
 }
 .faq-icon { transition: transform 0.2s ease; }
 .faq-item--open .faq-icon { transform: rotate(45deg); }
@@ -302,7 +296,7 @@
   transition: max-height 0.25s ease;
 }
 .faq-item--open .faq-answer { max-height: 900px; }
-.faq-answer p { padding: 0 0 1.1rem; margin: 0; color: var(--color-navy, #1a2744); }
+.faq-answer p { padding: 0 0 1.1rem; margin: 0; color: var(--navy); }
 
 /* Giving table inside FAQ */
 .giving-table-wrap {
@@ -326,11 +320,11 @@
   font-weight: 600;
 }
 .giving-table thead th {
-  color: var(--color-gold, #b08d3f);
+  color: var(--gold);
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border-bottom: 2px solid var(--color-gold, #b08d3f);
+  border-bottom: 2px solid var(--gold);
 }
 .giving-table tbody tr:last-child td { border-bottom: none; }
 
@@ -395,7 +389,7 @@
 .budget-col h3 {
   margin: 0 0 1rem;
   font-size: 1.125rem;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
   font-weight: 400;
 }
 .budget-row { margin-bottom: 0.85rem; }
@@ -405,7 +399,7 @@
   font-size: 0.88rem;
   margin-bottom: 0.3rem;
 }
-.budget-row-value { color: var(--color-navy, #1a2744); font-weight: 600; }
+.budget-row-value { color: var(--navy); font-weight: 600; }
 .budget-bar-track {
   height: 6px;
   border-radius: 999px;
@@ -414,15 +408,15 @@
 }
 .budget-bar-fill {
   height: 100%;
-  background: var(--color-gold, #b08d3f);
+  background: var(--gold);
   border-radius: 999px;
 }
-.budget-bar-fill--expense { background: var(--color-navy, #1a2744); }
+.budget-bar-fill--expense { background: var(--navy); }
 .budget-gap-note {
   margin: 2rem 0 0;
   font-size: 0.92rem;
   font-style: italic;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
   border-top: 1px solid rgba(0,0,0,0.08);
   padding-top: 1.25rem;
 }
@@ -434,5 +428,5 @@
 .closing-text {
   max-width: 640px;
   margin: 0.75rem auto 0;
-  color: var(--color-navy, #1a2744);
+  color: var(--navy);
 }

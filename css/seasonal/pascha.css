@@ -26,12 +26,7 @@
 .hw-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 20, 35, 0.55) 0%,
-    rgba(11, 20, 35, 0.75) 65%,
-    rgba(11, 20, 35, 0.92) 100%
-  );
+  background: rgba(11, 20, 35, 0.78);
   z-index: 1;
 }
 
@@ -131,7 +126,6 @@
 }
 
 .hw-overview-card:hover {
-  transform: translateY(-3px);
   box-shadow: 0 12px 28px rgba(27, 58, 92, 0.1);
 }
 
@@ -541,7 +535,6 @@
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: var(--radius-lg, 12px);
-  border: 3px solid var(--gold);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
   display: block;
 }

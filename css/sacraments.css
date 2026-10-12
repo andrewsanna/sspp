@@ -2,7 +2,7 @@
    Sacraments — Hero
    ============================================ */
 .sc-hero {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: var(--navy-deep);
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
@@ -14,23 +14,9 @@
 .sc-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
-.sc-hero-arc {
-  position: absolute;
-  right: -60px;
-  top: -60px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 32px solid rgba(212, 175, 106, 0.08);
-}
 
 .sc-hero-inner {
   max-width: 680px;
@@ -184,14 +170,14 @@
   padding-top: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 0.95rem;
-  color: var(--text-muted, #5a5a5a);
+  color: var(--mt);
 }
 
 /* ============================================
    Closing CTA band
    ============================================ */
 .sc-cta {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: var(--navy-deep);
   padding: 3.5rem 2rem;
   text-align: center;
   color: #fff;

@@ -14,12 +14,7 @@
 .ab-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
 .ab-hero-inner {
@@ -70,15 +65,6 @@
   text-align: center;
 }
 
-.ab-mission-arc {
-  position: absolute;
-  left: -60px;
-  bottom: -60px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  border: 32px solid rgba(212, 175, 106, 0.15);
-}
 
 .ab-mission-inner {
   max-width: 1100px;
@@ -162,7 +148,6 @@
   gap: 2rem;
   background: #fff;
   border: 1px solid var(--brd);
-  border-left: 4px solid var(--gold);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2.5rem;
   box-shadow: var(--shadow-card);
@@ -238,7 +223,7 @@
 .ab-history-photo {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
+  background: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -547,11 +532,10 @@
 .ab-staff-tile:hover {
   border-color: var(--gold);
   box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
 }
 
 .ab-staff-tile.is-featured {
-  border: 3px solid var(--gold);
+  border: 2px solid var(--gold);
 }
 
 .ab-staff-tile-photo {

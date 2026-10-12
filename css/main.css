@@ -298,7 +298,6 @@ p {
 }
 
 .btn:hover {
-  transform: translateY(-1px);
 }
 
 .btn-gold {
@@ -419,10 +418,11 @@ p {
   text-decoration: none;
 }
 
-.nav-cross {
-  font-size: 1.35rem;
+.nav-mark {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
   color: var(--gold);
-  line-height: 1;
 }
 
 .nav-logo-text {
@@ -662,8 +662,9 @@ p {
   margin-bottom: 0.75rem;
 }
 
-.footer-logo .nav-cross {
-  font-size: 1.2rem;
+.footer-logo .nav-mark {
+  width: 22px;
+  height: 22px;
 }
 
 .footer-logo-name {
@@ -764,7 +765,7 @@ p {
    swap these blocks for real <img> tags before launch)
    ============================================ */
 .photo-placeholder {
-  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  background: var(--gold-deep);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -781,13 +782,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    60deg,
-    rgba(255, 255, 255, 0.03) 0px,
-    rgba(255, 255, 255, 0.03) 2px,
-    transparent 2px,
-    transparent 10px
-  );
+  background: none;
 }
 
 .photo-placeholder .ph-icon {
@@ -807,15 +802,15 @@ p {
 }
 
 .photo-placeholder--blue {
-  background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
+  background: var(--navy);
 }
 
 .photo-placeholder--gold {
-  background: linear-gradient(160deg, #d4af6a, #a8763e);
+  background: var(--gold);
 }
 
 .photo-placeholder--rust {
-  background: linear-gradient(160deg, #993c1d, #5c2410);
+  background: #993c1d;
 }
 
 /* ============================================
@@ -887,26 +882,22 @@ padding: var(--space-5) 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--navy-deep, #1d5fbf);
-  color: var(--gold, #d4af6a);
-  font-size: 1.5rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-  border: 2px solid var(--gold-deep, #b8912f);
-  outline: 2px solid var(--gold, #d4af6a);
-  outline-offset: 3px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background 0.15s ease, color 0.15s ease;
 }
 .follow-float a:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  background: var(--navy, #164a99);
+  background: var(--gold);
+  color: var(--navy-deep);
 }
 .follow-float .ti-brand-instagram,
 .follow-float .ti-brand-facebook {
-  color: var(--gold, #d4af6a);
+  color: inherit;
 }
 @media (max-width: 640px) {
   .follow-float a { width: 48px; height: 48px; font-size: 1.3rem; }
@@ -1144,18 +1135,22 @@ padding: var(--space-5) 0;
 }
 
 /* ============================================
-   goarch.org callout — shared by every link out to the Greek Orthodox
-   Archdiocese (Visit FAQ, Calendar "Today in the Church"), so they all
-   look the same.
+   .callout: the one boxed callout style on the site (cream, thin
+   border, 2px gold left edge). Used by the goarch.org links (Visit FAQ,
+   Calendar "Today in the Church") and Coffee Fellowship hosting
+   (Get Involved band, Resources card). Everything else is a plain card
+   or an editorial note. Component classes below only handle layout.
    ============================================ */
+.callout {
+  background: var(--cream);
+  border: 1px solid var(--brd);
+  border-left: 2px solid var(--gold);
+}
+
 .goarch-callout {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: var(--cream);
-  /* Hairline border so it still reads as a strip on cream pages. */
-  border: 1px solid var(--brd);
-  border-left: 4px solid var(--gold);
   padding: 1.25rem 1.5rem;
   margin: 2rem 0;
 }

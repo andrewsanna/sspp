@@ -2,21 +2,12 @@
    Calendar page header
    ============================================ */
 .cal-page-header {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: var(--navy-deep);
   padding: 2.5rem 0 1.75rem;
   position: relative;
   overflow: hidden;
 }
 
-.cal-header-arc {
-  position: absolute;
-  right: -50px;
-  top: -50px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 30px solid rgba(212, 175, 106, 0.08);
-}
 
 .cal-header-inner {
   max-width: 1200px;
@@ -140,13 +131,11 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
-  border-left: 3px solid var(--gold);
   height: 150px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .featured-event-compact:hover {
-  transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(18, 39, 64, 0.25);
 }
 
@@ -459,7 +448,6 @@
 }
 
 .day-list-item:hover {
-  transform: translateY(-1px);
 }
 
 .day-list-item-title {
@@ -631,7 +619,7 @@
   height: 84px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
-  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  background: var(--gold-deep);
   background-size: cover;
   background-position: center;
   display: flex;

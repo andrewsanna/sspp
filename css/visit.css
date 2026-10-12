@@ -15,12 +15,7 @@
 .vh-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
 .vh-hero-inner {
@@ -99,7 +94,6 @@
 .vh-path-section {
   background: #fff;
   padding: 2.5rem 2rem 2.5rem;
-  border-bottom: 4px solid var(--gold);
 }
 
 .vh-path-grid {
@@ -123,7 +117,6 @@
 }
 
 .vh-path-card:hover {
-  transform: translateY(-3px);
   box-shadow: var(--shadow-card);
   border-color: var(--gold);
 }
@@ -414,7 +407,6 @@
    ============================================ */
 .vh-faith-band {
   background: #fff;
-  border-top: 4px solid var(--gold);
 }
 
 .vh-faith-band .vh-section {
@@ -459,9 +451,6 @@
 .vh-faq-section {
   background: var(--gold-lt);
   padding: 4.5rem 2rem;
-  border-top: 4px solid var(--gold);
-  border-bottom: 4px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   position: relative;
   scroll-margin-top: 90px;
 }
@@ -518,7 +507,7 @@
 .vh-request-card {  background: #fff;  border: 1px solid var(--brd);  border-radius: var(--radius-md);  padding: 2rem 1.6rem;  text-align: center;  transition: transform 0.2s ease, box-shadow 0.2s ease;}
 
 .vh-request-card:hover 
-{  transform: translateY(-3px);  box-shadow: var(--shadow-card);} 
+{  box-shadow: var(--shadow-card);} 
 .vh-request-icon {  width: 52px;  height: 52px;  border-radius: 50%;  background: var(--gold-lt);  border: 2px solid var(--gold);  display: flex;  align-items: center;  justify-content: center;  margin: 0 auto 1.1rem;  font-size: 1.3rem;  color: var(--gold-deep);} 
 .vh-request-card h4 {  font-size: 1.125rem;  color: var(--navy-deep);  margin-bottom: 0.6rem; font-weight: 400; } 
 .vh-request-card p {  font-size: 0.82rem;  color: var(--mt);  line-height: 1.6;  margin-bottom: 1.3rem;} @media (max-width: 640px) {  
@@ -544,7 +533,7 @@
    Final CTA band
    ============================================ */
 .vh-cta {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: var(--navy-deep);
   padding: 4.5rem 2rem;
   text-align: center;
 }

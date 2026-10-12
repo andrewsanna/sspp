@@ -16,24 +16,9 @@
 .rs-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(11, 30, 51, 0.88) 0%,
-    rgba(11, 30, 51, 0.72) 60%,
-    rgba(11, 30, 51, 0.85) 100%
-  );
+  background: rgba(11, 30, 51, 0.8);
 }
 
-.rs-hero-arc {
-  position: absolute;
-  bottom: -60%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140%;
-  padding-bottom: 140%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 106, 0.12), transparent 65%);
-}
 
 .rs-hero-inner {
   position: relative;
@@ -357,7 +342,6 @@
 .rs-reg-card:hover {
   border-color: var(--gold-deep);
   background: var(--gold-lt);
-  transform: translateY(-2px);
 }
 
 .rs-reg-icon {

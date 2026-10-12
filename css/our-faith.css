@@ -13,7 +13,7 @@
 .of-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(18, 39, 64, 0.85) 0%, rgba(27, 58, 92, 0.75) 100%);
+  background: rgba(18, 39, 64, 0.8);
   z-index: 1;
 }
 
@@ -72,7 +72,7 @@
 .of-learn-photo {
   height: 180px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #8a6a3a, #5c4423);
+  background: var(--gold-deep);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,7 +296,7 @@
 .of-story-photo {
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-lg);
-  background: linear-gradient(160deg, #3a6fa5, #1b3a5c);
+  background: var(--navy);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -340,12 +340,13 @@
 }
 
 .of-story-stat {
-  background: var(--gold-lt);
-  border-left: 3px solid var(--gold);
-  padding: 0.9rem 1.1rem;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: none;
+  padding: 0.9rem 0;
+  border-radius: 0;
   font-size: 0.85rem !important;
   color: var(--tx) !important;
+  border-top: 1px solid var(--brd);
+  border-bottom: 1px solid var(--brd);
 }
 
 @media (max-width: 760px) {
