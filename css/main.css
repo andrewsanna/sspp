@@ -19,7 +19,7 @@
 
   /* Type */
   --font-display: 'GFS Didot', Didot, 'Bodoni MT', Georgia, serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: 'Commissioner', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   /* Spacing scale */
   --space-1: 0.5rem;
@@ -866,6 +866,36 @@ padding: var(--space-5) 0;
 
 .section-link:hover {
   color: var(--gold-deep);
+}
+
+/* Text links ("All ministries", "See more of parish life", "Read more"…)
+   get a gold underline and an arrow so they read as links. The arrow
+   comes from CSS so links rendered by JS get it too. */
+.text-link,
+.section-link {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.text-link::after,
+.section-link::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.1rem;
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+
+.text-link:hover::after,
+.section-link:hover::after {
+  transform: translateX(3px);
+}
+
+/* The pill-style calendar links are already button-shaped: arrow only. */
+.section-link--cta {
+  text-decoration: none;
 }
 /* --- Sticky follow bar (middle-right, all pages) --- */
 .follow-float {

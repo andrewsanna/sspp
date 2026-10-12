@@ -180,9 +180,31 @@
   font-size: 0.7rem;
 }
 
-/* "From the Archdiocese": a plain editorial block, no box. */
+/* "From the Archdiocese": full-width navy band so it reads as its own
+   section between the white ministries section and the gold sacraments. */
+.home-faith {
+  background: var(--navy);
+  color: #fff;
+}
+
 .home-faith-inner {
   max-width: 720px;
+}
+
+.home-faith .home-faith-title {
+  color: #fff;
+}
+
+.home-faith .home-faith-blurb {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.home-faith .text-link {
+  color: #fff;
+}
+
+.home-faith .text-link:hover {
+  color: var(--gold);
 }
 
 .home-faith-title {
@@ -476,7 +498,6 @@ a.ts-val:hover {
   color: var(--navy);
   font-size: 0.85rem;
   font-weight: 700;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
@@ -618,94 +639,59 @@ a.ts-val:hover {
    duplicated byte-for-byte in both files. */
 
 /* ============================================
-   Sacraments & Services (photo left, list right)
+   Sacraments grid
    ============================================ */
-.home-sac {
+.sac-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
 }
 
-.home-sac-photo {
-  margin: 0;
-  height: 100%;
-  min-height: 420px;
+.sac-card {
+  display: block;
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(18, 39, 64, 0.08);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.15s ease;
 }
 
-.home-sac-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 70%;
+.sac-card:hover {
+  border-color: var(--gold);
 }
 
-.sac-list {
-  list-style: none;
-  margin: 1.25rem 0 0;
-  padding: 0;
-}
-
-.sac-row {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--brd);
-}
-
-.sac-row:first-child {
-  padding-top: 0;
-}
-
-.sac-name {
-  font-size: 1.35rem;
-  margin-bottom: 0.2rem;
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.75rem;
-}
-
-.sac-greek {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  color: var(--gold-text);
-}
-
-.sac-row p {
-  font-size: 0.9rem;
-  margin-bottom: 0.35rem;
-}
-
-.sac-link {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--navy);
-}
-
-.sac-link:hover {
+.sac-card .ph-icon-inline {
+  font-size: 1.3rem;
   color: var(--gold-deep);
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-.sac-call {
-  margin-top: 1.25rem;
-  font-size: 0.95rem;
-  color: var(--tx);
-}
-
-.sac-call a {
-  color: var(--navy);
+.sac-card h3 {
+  font-size: 0.85rem;
+  font-family: var(--font-body);
   font-weight: 600;
-  white-space: nowrap;
+  color: var(--navy-deep);
+  margin-bottom: 0.2rem;
+}
+
+.sac-card p {
+  font-size: 0.74rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 860px) {
-  .home-sac {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
+  .sac-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .home-sac-photo {
-    min-height: 0;
-    aspect-ratio: 3 / 2;
+}
+
+@media (max-width: 560px) {
+  .sac-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
