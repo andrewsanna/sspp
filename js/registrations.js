@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     modalIcon.className = 'ti ' + (item.icon || 'ti-calendar-event');
     modalTitle.textContent = item.title || '';
-    modalSubtitle.textContent = item.subtitle || '';
+    if (modalSubtitle) modalSubtitle.textContent = item.subtitle || '';
     modalDesc.textContent = item.description || '';
 
     if (item.schedule) {

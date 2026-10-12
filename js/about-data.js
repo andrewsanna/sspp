@@ -13,7 +13,7 @@ const CLERGY = [
 
 He's also served as a frontline disaster-response chaplain for International Orthodox Christian Charities (IOCC) since 2013, and spent over a decade as a volunteer chaplain for the Saint Paul Police Department (2005–2019).
 
-Before coming to Glenview, Fr. Rick spent twenty years at St. George Greek Orthodox Church in Saint Paul, Minnesota (1999–2019), where he also served as spiritual advisor for the Orthodox Christian Prison Ministry of Minnesota and the OCF campus ministry — including starting the OCF chapter at the University of St. Thomas. He was ordained to the diaconate in 1994 and the priesthood in 1995 by Metropolitan Iakovos of Chicago, and earlier served parishes in Westchester, Illinois and Racine, Wisconsin.
+Before coming to Glenview, Fr. Rick spent twenty years at St. George Greek Orthodox Church in Saint Paul, Minnesota (1999–2019), where he also served as spiritual advisor for the Orthodox Christian Prison Ministry of Minnesota and the OCF campus ministry, including starting the OCF chapter at the University of St. Thomas. He was ordained to the diaconate in 1994 and the priesthood in 1995 by Metropolitan Iakovos of Chicago, and earlier served parishes in Westchester, Illinois and Racine, Wisconsin.
 
 Fr. Rick has been married to Presbytera Jane (Donovan) since 1990. They have an adult son, Theodore, who lives in California.`
   },
@@ -41,7 +41,7 @@ Fr. Peter is married to Presvytera Maria, and together they have three sons.`
     role: 'Youth Director',
     summary: "Steven brings five years of youth ministry experience and a background in coaching and PE.",
     email: 'youthdirector@ssppglenview.org',
-    bio: `Steven grew up in Minneapolis, where he was active at St. Mary's Orthodox Cathedral through age 18 — participating in youth events and teaching Sunday School. He earned a Bachelor of Science in Physical Education from the University of Wisconsin-Superior.
+    bio: `Steven grew up in Minneapolis, where he was active at St. Mary's Orthodox Cathedral through age 18, taking part in youth events and teaching Sunday School. He earned a Bachelor of Science in Physical Education from the University of Wisconsin-Superior.
 
 While in college, Steven attended Twelve Holy Apostles Greek Orthodox Church in Duluth, Minnesota, where he served as youth director for five years (2018–2023). He also works as a long-term substitute PE teacher at Cooper Elementary School in Superior, Wisconsin, and has experience in adult foster care, youth soccer coaching in Minneapolis, and as a longtime counselor at St. Mary's Summer Church Camp.`
   },
@@ -56,6 +56,6 @@ While in college, Steven attended Twelve Holy Apostles Greek Orthodox Church in 
     email: 'parishadmin@ssppglenview.org',
     bio: `Elea graduated from Drake University with a BA in Psychology. Before joining SSPP, she worked as a Desk Manager at the Chicago Board of Trade, a Certified Client Services Associate at Merrill Lynch, and Office Manager at The Ragsdale Company.
 
-Elea is passionate about building strong, lasting relationships — both with her SSPP colleagues and the community she serves. She and her husband, Ned, have three children — George, Alexis, and Sophia — and are active members at Ascension Greek Orthodox Church in Lincolnshire.`
+Elea is passionate about building strong, lasting relationships with her SSPP colleagues and the community she serves. She and her husband, Ned, have three children, George, Alexis, and Sophia, and are active members at Ascension Greek Orthodox Church in Lincolnshire.`
   }
 ];

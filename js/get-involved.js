@@ -110,7 +110,7 @@ function renderAccordion(filterText = '') {
   root.innerHTML = html || `
     <div class="no-results">
       <i class="ti ti-search-off" aria-hidden="true"></i>
-      <p>No ministries match "${escapeHtml(filterText)}". Try a different search, or <a href="contact.html">contact the office</a> — we'll help you find your place.</p>
+      <p>No ministries match "${escapeHtml(filterText)}". Try a different search, or <a href="contact.html">contact the office</a> and we'll point you to the right ministry.</p>
     </div>
   `;
 

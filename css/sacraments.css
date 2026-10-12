@@ -32,11 +32,6 @@
   margin-bottom: 0.9rem;
 }
 
-.sc-hero-title em {
-  font-style: normal;
-  color: var(--gold);
-}
-
 .sc-hero-body {
   font-size: 0.92rem;
   color: rgba(255, 255, 255, 0.65);
@@ -89,35 +84,41 @@
 }
 
 .sc-section-inner {
-  display: grid;
-  grid-template-columns: 96px 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.sc-section-icon {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: var(--gold-lt);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  color: var(--gold-text);
-  flex-shrink: 0;
-}
-
-.sc-section-text {
-  max-width: 700px;
+  max-width: 760px;
 }
 
 .sc-section-title {
-  font-size: 1.5rem;
-  margin: 0.3rem 0 0.9rem;
+  font-size: 1.75rem;
+  margin: 0 0 0.9rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
 }
 
-.sc-section-text > p {
+/* Greek name: small, gold, body font (Didot is only used at 18px+). */
+.sc-greek {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--gold-text);
+}
+
+.sc-arrange {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--brd);
+  font-size: 0.92rem;
+  color: var(--tx);
+}
+
+.sc-arrange a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.sc-section-inner > p {
+
   font-size: 0.9rem;
   line-height: 1.8;
   color: var(--tx);
@@ -156,14 +157,6 @@
   color: var(--navy-deep);
 }
 
-@media (max-width: 640px) {
-  .sc-section-inner {
-    grid-template-columns: 1fr;
-  }
-  .sc-section-icon {
-    margin-bottom: 0.25rem;
-  }
-}
 
 .sc-substext {
   margin-top: 1.5rem;

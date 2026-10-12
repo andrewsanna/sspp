@@ -39,7 +39,7 @@ const PAYMENT_ITEMS = {
   'festival-tickets': {
     type: 'ticket',
     title: 'Greek Fest Tickets',
-    subtitle: 'Glenview Greek Fest — August 2026',
+    subtitle: 'Glenview Greek Fest, August 2026',
     icon: 'ti-ticket',
     returnTo: { url: 'calendar.html', label: 'Calendar' },
     options: [
@@ -113,7 +113,7 @@ const PAYMENT_ITEMS = {
   'greek-dance-youth': {
     type: 'registration',
     ministry: 'Greek Dance (Youth)',
-    title: 'Greek Dance — Youth',
+    title: 'Greek Dance (Youth)',
     subtitle: '2026–2027 Season',
     icon: 'ti-music',
     description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. Each youth group meets once a week, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
@@ -144,7 +144,7 @@ const PAYMENT_ITEMS = {
   'agape-preschool-fall-2026': {
     type: 'registration',
     ministry: 'AGAPE Preschool',
-    title: 'Agape Preschool — Fall 2026',
+    title: 'Agape Preschool, Fall 2026',
     subtitle: 'Fall Semester',
     icon: 'ti-building-church',
     description: 'AGAPE Preschool is a ministry program of our parish, committed to a high-quality educational experience that emphasizes the Orthodox Christian Faith. Our program provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',

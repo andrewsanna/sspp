@@ -30,7 +30,6 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 .ct-hero-title em {
-  font-style: italic;
   color: var(--gold);
 }
 .ct-hero-body {

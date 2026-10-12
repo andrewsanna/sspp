@@ -105,7 +105,6 @@
 
 .gi-quote-text {
   font-family: var(--font-display);
-  font-style: italic;
   font-size: 1.125rem;
   color: var(--navy-deep);
   line-height: 1.6;

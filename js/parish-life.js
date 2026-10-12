@@ -89,7 +89,7 @@ function plRenderCard(post) {
           </div>
           <div class="pl-title">${plEscapeHtml(post.title)}</div>
           <div class="pl-excerpt">${plEscapeHtml(post.excerpt)}</div>
-          <span class="pl-read-more">Read more <i class="ti ti-arrow-right" aria-hidden="true"></i></span>
+          <span class="pl-read-more">Read more</span>
         </div>
       </button>
     </article>
@@ -110,7 +110,7 @@ function renderParishLifeFeed() {
     root.innerHTML = `
       <div class="no-results">
         <i class="ti ti-mood-empty" aria-hidden="true"></i>
-        <p>Nothing posted yet — check back soon.</p>
+        <p>Nothing posted yet.</p>
       </div>
     `;
     return;

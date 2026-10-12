@@ -173,7 +173,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Sr. GOYA - High School',
         summary: 'High School-aged youth ministry.',
-        description: 'Sr. GOYA (Greek Orthodox Youth of America) continues the groundwork laid in Junior GOYA at a pivotal time during our youths\' lives. High schoolers continue to build on their relationships with each other, the Church, and most importantly, continue on their journey to deepen their faith in Christ through fellowship, worship, and community.',
+        description: 'Sr. GOYA (Greek Orthodox Youth of America) continues the groundwork laid in Junior GOYA at a pivotal time during our youths\' lives. High schoolers continue to build on their relationships with each other, the Church, and most importantly, continue to deepen their faith in Christ through fellowship, worship, and community.',
         image: 'images/ministries/srgoya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
@@ -210,7 +210,7 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'GOYAlumni - College',
-        summary: 'For college-aged adults — service, fellowship, worship.',
+        summary: 'For college-aged adults: service, fellowship, worship.',
         description: 'This is a ministry that enriches our college-aged adults\' experience at school and at home. GOYAlumni aims to be a conduit for the holistic growth of our students with a heavy emphasis on service, fellowship, and worship.',
         image: 'images/ministries/goyalumni.jpg',
         calendarCategory: 'youth',
@@ -280,7 +280,7 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'AGAPE Preschool',
-        summary: 'DCFS-approved preschool rooted in the Orthodox Christian faith.',
+        summary: 'DCFS-approved preschool grounded in the Orthodox Christian faith.',
         description: 'AGAPE School is a ministry program of our parish and operates within our facility. We are committed to a high quality educational experience for pre school and kindergarten that emphasizes the Orthodox Christian Faith. Our program uniquely provides a loving, caring environment where children can develop spiritually, emotionally, socially, cognitively, and physically. We are DCFS approved.',
         image: 'images/ministries/agape.jpg',
         detailPageUrl: 'ministries/agape.html',
@@ -297,11 +297,11 @@ const MINISTRY_CATEGORIES = [
   {
     id: 'adult-learning',
     label: 'Faith & Learning',
-    blurb: 'Deepen your understanding of the Orthodox faith, at any stage of your journey.',
+    blurb: 'Deepen your understanding of the Orthodox faith, wherever you are starting from.',
     ministries: [
       {
         name: 'Book & Icon Store',
-        summary: 'Open Sundays after Liturgy — browse, no commitment needed.',
+        summary: 'Open Sundays after Liturgy. Stop in and browse.',
         description: "The bookstore offers a variety of Christian and specifically Orthodox books that include Orthodox saints, the Divine Liturgy, spirituality, growing in the faith, women and the faith, marriage, and parenting. We also have a wide selection of children's books. We carry the Orthodox Study Bible as well as several children's Bibles. We offer a variety of icons, prayer rope bracelets, religious jewelry, incense and charcoal as well as many other items. Please browse and inquire if the merchandise you seek is not on the shelves! Bookstore is open after Divine Liturgy on Sundays from 11:15 am – 12:00 pm or by appointment.",
         // image: 'images/ministries/bookstore.jpg',
         calendarCategory: 'adult_faith',
@@ -325,7 +325,7 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Bible Study',
-        summary: 'Weekly study of Holy Scripture, open to all — no homework.',
+        summary: 'Weekly study of Holy Scripture, open to all. No homework.',
         description: "Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
         // image: 'images/biblestudy.jpg',
         calendarCategory: 'adult_faith',
@@ -337,8 +337,8 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: "St. Stephen's Men's Group",
-        summary: "Thursday mornings, 6:30–7:30 am — scripture study for men.",
-        description: "This group is an opportunity for men to gather for social, educational, and recreational experience. Every Thursday morning during the school year, we hold an edifying study of the Scripture or religious/spiritual writings. Multi-week topics are presented on a theme, and with a lively and inquisitive group, there is always an interesting tangent or two to explore. We meet from 7—8 am, leaving plenty of time for our men to get to work after our discussions.",
+        summary: "Scripture study for men, Thursday mornings, 6:30–7:30 am.",
+        description: "This group is an opportunity for men to gather for social, educational, and recreational experience. Every Thursday morning during the school year, we hold an edifying study of the Scripture or religious/spiritual writings. Multi-week topics are presented on a theme, and with a lively and inquisitive group, there is always an interesting tangent or two to explore. We meet from 7–8 am, leaving plenty of time for our men to get to work after our discussions.",
         image: 'images/ministries/mensgroup.jpg',
         calendarCategory: 'adult_faith',
         contact: {
@@ -350,7 +350,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Catechism',
         summary: '12-week course for those exploring or joining the faith.',
-        description: 'Introduction to Orthodox Christianity Class is held on Tuesday evenings in the Fall and Monday evenings in the Winter/Spring, 7—9 pm. Class is open to all but especially for those interested in joining the Church through Baptism and/or Chrismation. Class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for anyone of any age (teenage and above) to learn about our Faith.',
+        description: 'Introduction to Orthodox Christianity Class is held on Tuesday evenings in the Fall and Monday evenings in the Winter/Spring, 7–9 pm. Class is open to all but especially for those interested in joining the Church through Baptism and/or Chrismation. Class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for anyone of any age (teenage and above) to learn about our Faith.',
         image: 'images/catechism.jpg',
         calendarCategory: 'adult_faith',
         contact: {
@@ -420,7 +420,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Adult Athletics',
         summary: 'Adult basketball and other leagues.',
-        description: 'Adult athletics leagues, including basketball, give adults in the parish a chance to stay active and build community through sport — the adult counterpart to our youth GOYA athletics programs.',
+        description: 'Adult athletics leagues, including basketball, give adults in the parish a chance to stay active and build community through sport. It is the adult counterpart to the youth GOYA athletics programs.',
         // image: 'images/ministries/athletics-a.jpg',
         calendarCategory: 'athletics',
         contact: {
@@ -521,7 +521,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Grief & Loss Support',
         summary: 'A place to process loss within the context of our faith.',
-        description: 'Death and loss are a part of life but are often difficult to manage because of trauma and pain. This group offers communal and personal support during trying times. Grief is a journey and requires active effort. People who have experienced significant loss can often provide the best care. This ministry is for everyone along the journey of grief.',
+        description: 'Death and loss are a part of life but are often difficult to manage because of trauma and pain. This group offers communal and personal support during trying times. Grief takes time and active effort. People who have experienced significant loss can often provide the best care. This ministry is for everyone along the journey of grief.',
        // image: 'images/ministries/grief.jpg',
         calendarCategory: 'support_groups',
         contact: {

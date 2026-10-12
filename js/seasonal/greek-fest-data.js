@@ -14,7 +14,7 @@ const GF_EVENT = {
     mapUrl: 'https://maps.google.com/?q=1401+Wagner+Rd+Glenview+IL',
   },
   parking: {
-    valet: { cost: '$10', note: 'Limited availability — arrive early' },
+    valet: { cost: '$10', note: 'Limited availability, arrive early' },
     free: {
       location: 'Loyola Academy',
       mapUrl: 'https://www.google.com/maps/?q=Loyola+Academy,+Wilmette,+1100+Laramie+Ave,+Wilmette,+IL+60091',
@@ -43,7 +43,7 @@ const GF_MENU_CATEGORIES = [
       { name: 'Tiropita', description: 'Cheese wrapped in crispy phyllo', price: 8 },
       { name: 'Keftedes', description: 'Meatballs with lemon sauce & pita', price: 8 },
       { name: 'Loukaniko Tacos', description: 'Greek sausage tacos', price: 12 },
-      { name: 'Feta Sliders', description: '2 sliders — choice of regular or spicy feta', price: 12 },
+      { name: 'Feta Sliders', description: '2 sliders, regular or spicy feta', price: 12 },
       { name: 'Lamb', description: 'Lamb on the spit, side of pita and tzatziki', price: 15 },
     ],
   },
@@ -63,7 +63,7 @@ const GF_MENU_CATEGORIES = [
     id: 'loukoumades',
     label: 'Loukoumades',
     items: [
-      { name: 'Loukoumades', description: '15 pieces — warm Greek honey puffs, a festival favorite', price: 14 },
+      { name: 'Loukoumades', description: '15 pieces of warm Greek honey puffs, a festival favorite', price: 14 },
       { name: 'Nutella Loukoumades', description: '', price: 15 },
     ],
   },
@@ -95,8 +95,8 @@ const GF_MENU_CATEGORIES = [
       { name: 'Greek Beer', description: 'Cold and refreshing', price: 10 },
       { name: 'IPA', description: 'Craft IPA', price: 9 },
       { name: 'Michelob Ultra', description: 'Light beer', price: 6 },
-      { name: 'Wine — Glass', description: 'White or rosé', price: 8 },
-      { name: 'Wine — Bottle', description: 'White or rosé', price: 25 },
+      { name: 'Wine (glass)', description: 'White or rosé', price: 8 },
+      { name: 'Wine (bottle)', description: 'White or rosé', price: 25 },
       { name: 'Ouzorita', description: 'Strawberry slushie with ouzo', price: 12 },
       { name: 'Soda', description: 'Assorted soft drinks', price: 3 },
       { name: 'Water', description: 'Bottled water', price: 2 },

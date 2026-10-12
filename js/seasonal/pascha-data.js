@@ -42,8 +42,8 @@ const HW_LENT_WEEKS = [
     dateLabel: 'April 4, 2027',
     icon: 'ti-cross',
     imageUrl: '../images/icons/sunday-holy-cross.jpg',
-    blurb: 'The midpoint of Lent — the Cross is brought out for veneration.',
-    description: 'The Cross is placed in the center of the church for veneration, offering strength and encouragement for the second half of the Lenten journey.',
+    blurb: 'The midpoint of Lent, when the Cross is brought out for veneration.',
+    description: 'The Cross is placed in the center of the church for veneration, offering strength and encouragement for the second half of Lent.',
     learnMoreUrl: 'https://www.goarch.org/sunday-venerationcross-learn',
   },
   {
@@ -53,7 +53,7 @@ const HW_LENT_WEEKS = [
     icon: 'ti-stairs-up',
     imageUrl: '../images/icons/sunday-stjohnclimacus.jpg',
     blurb: 'Honors the author of "The Ladder of Divine Ascent."',
-    description: 'Commemorates St. John of Sinai, whose classic work "The Ladder of Divine Ascent" maps the soul\'s progress toward union with God — especially meaningful during Lent.',
+    description: 'Commemorates St. John of Sinai, whose classic work "The Ladder of Divine Ascent" maps the soul\'s progress toward union with God, especially meaningful during Lent.',
     learnMoreUrl: 'https://www.goarch.org/sunday-stjohnclimacus-learn',
   },
   {
@@ -76,7 +76,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'April 24, 2027',
     icon: 'ti-candle',
     imageUrl: '../images/icons/saturday-lazarus.jpeg',
-    blurb: 'The raising of Lazarus — a preview of Christ\'s own Resurrection.',
+    blurb: 'The raising of Lazarus, a foretaste of Christ\'s own Resurrection.',
     description: 'Great Lent formally ends and this one-day feast bridges into Holy Week: the raising of Lazarus from the dead foreshadows Christ\'s victory over death at Pascha.',
     learnMoreUrl: 'https://www.goarch.org/lazarus-learn',
     services: [
@@ -89,7 +89,7 @@ const HW_HOLY_WEEK_DAYS = [
     dateLabel: 'April 25, 2027',
     icon: 'ti-leaf',
     imageUrl: '../images/icons/palm-sunday.jpg',
-    blurb: 'Christ\'s triumphal entry into Jerusalem — Holy Week begins.',
+    blurb: 'Christ\'s triumphal entry into Jerusalem. Holy Week begins.',
     description: 'Commemorates Christ\'s entry into Jerusalem, welcomed with palm branches. Parishioners receive palm crosses at the Divine Liturgy as Holy Week begins that evening.',
     learnMoreUrl: 'https://www.goarch.org/palmsunday-learn',
     services: [
@@ -161,7 +161,7 @@ const HW_HOLY_WEEK_DAYS = [
     description: 'A strict fast day. Royal Hours in the morning, the Vespers of the Deposition (removing Christ from the Cross) in the afternoon, and Lamentations at the tomb in the evening.',
     services: [
       { name: 'Royal Hours', time: '9:00 AM' },
-      { name: 'Vespers — Apokathelosis (Un-nailing)', time: '3:00 PM' },
+      { name: 'Vespers: Apokathelosis (Un-nailing)', time: '3:00 PM' },
       { name: 'Lamentations at the Epitaphios', time: '7:00 PM' },
     ],
     learnMoreUrl: 'https://www.goarch.org/holyfriday-learn',
@@ -173,7 +173,7 @@ const HW_HOLY_WEEK_DAYS = [
     icon: 'ti-moon',
     theme: 'Christ\'s Descent & the First Resurrection',
     imageUrl: '../images/icons/holy-saturday.jpg',
-    description: 'The morning Vesperal Liturgy proclaims the "first Resurrection." That night, the Paschal service begins — carrying the light out of darkness into the Resurrection of Christ.',
+    description: 'The morning Vesperal Liturgy proclaims the "first Resurrection." That night, the Paschal service begins, carrying the light out of darkness into the Resurrection of Christ.',
     services: [
       { name: 'Vesperal Liturgy of Holy Saturday', time: '9:00 AM' },
       { name: 'Anastasi (Resurrection) Service begins', time: '11:30 PM' },
@@ -183,7 +183,7 @@ const HW_HOLY_WEEK_DAYS = [
 ];
 
 const HW_PASCHA = {
-  description: 'At midnight, the church is darkened, and the priest emerges with the light of the Resurrection to proclaim "Christ is Risen!" It is the central proclamation of the Orthodox faith — the moment the fast, the vigil, and the whole of Holy Week have led to.',
+  description: 'At midnight, the church is darkened, and the priest emerges with the light of the Resurrection to proclaim "Christ is Risen!" It is the central proclamation of the Orthodox faith, the moment the fast, the vigil, and the whole of Holy Week have led to.',
   services: [
     { name: 'Anastasi (Resurrection) Service', time: 'Begins 11:30 PM, Holy Saturday', description: 'Midnight procession, the Paschal proclamation, and the Divine Liturgy of Pascha.' },
     { name: 'Agape Vespers', time: '12:00 PM, Pascha Sunday', description: 'The Gospel of Christ\'s appearance to the disciples, read in many languages, celebrating the Resurrection\'s reach to all nations.' },
@@ -199,7 +199,7 @@ const HW_PENTECOST_SEASON = [
     name: 'Bright Week',
     dateLabel: 'May 2–9, 2027',
     icon: 'ti-sun',
-    description: 'The week following Pascha — no fasting, the royal doors remain open, and the joy of the Resurrection is celebrated daily, ending with Thomas Sunday.',
+    description: 'The week following Pascha: no fasting, the royal doors remain open, and the joy of the Resurrection is celebrated daily, ending with Thomas Sunday.',
     learnMoreUrl: '#',
     // imageUrl: '../images/icons/pascha.jpg',
   },
@@ -226,7 +226,7 @@ const HW_PENTECOST_SEASON = [
     name: 'Pentecost Sunday',
     dateLabel: 'June 20, 2027',
     icon: 'ti-wind',
-    description: 'Fifty days after Pascha, the descent of the Holy Spirit upon the Apostles — traditionally seen as the birthday of the Church.',
+    description: 'Fifty days after Pascha, the descent of the Holy Spirit upon the Apostles, traditionally seen as the birthday of the Church.',
     learnMoreUrl: 'https://www.goarch.org/pentecost',
     imageUrl: '../images/icons/pentecost.jpg',
   },

@@ -182,7 +182,7 @@ function renderLogistics() {
     </div>
     <div class="gf-logistics-card">
       <h4>Valet Parking</h4>
-      <p>${escapeHtml(GF_EVENT.parking.valet.cost)} — ${escapeHtml(GF_EVENT.parking.valet.note)}</p>
+      <p>${escapeHtml(GF_EVENT.parking.valet.cost)}. ${escapeHtml(GF_EVENT.parking.valet.note)}</p>
     </div>
     <div class="gf-logistics-card">
       <h4>Free Parking + Shuttle</h4>

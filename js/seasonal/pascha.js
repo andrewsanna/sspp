@@ -50,7 +50,7 @@ function renderDetailsBand() {
 
 function renderLearnMore(url) {
   if (!url || url === '#') return '';
-  return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="hw-learn-more">Read More <i class="ti ti-arrow-right" aria-hidden="true"></i></a>`;
+  return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="hw-learn-more">Read More</a>`;
 }
 
 function renderLentWeeks() {
@@ -117,7 +117,7 @@ function renderHolyWeekTable() {
   const root = document.getElementById('hw-holy-week-table');
   if (!root) return;
   const rows = HW_HOLY_WEEK_DAYS.map((day) => {
-    const services = (day.services && day.services.length) ? day.services : [{ name: '—', time: '—' }];
+    const services = (day.services && day.services.length) ? day.services : [{ name: 'TBA', time: '' }];
     return services.map((s, idx) => `
       <tr>
         ${idx === 0 ? `
@@ -227,7 +227,7 @@ function renderResources() {
   root.innerHTML = HW_RESOURCES.map((r) => `
     <a href="${r.url}" target="_blank" rel="noopener noreferrer" class="hw-resource-card">
       <span>${escapeHtml(r.name)}</span>
-      <i class="ti ti-arrow-right" aria-hidden="true"></i>
+
     </a>
   `).join('');
 }

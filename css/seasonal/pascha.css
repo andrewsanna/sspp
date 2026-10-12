@@ -440,7 +440,6 @@
 
 .hw-hw-theme {
   font-family: var(--font-display);
-  font-style: italic;
   color: var(--gold-text);
   font-size: 1.125rem;
   margin-bottom: 0.85rem;
