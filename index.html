@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=GFS+Didot&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/calendar.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
@@ -182,11 +182,11 @@
   <section class="section home-faith">
     <div class="container">
       <div class="home-faith-inner">
-        <span class="eyebrow">From the Archdiocese</span>
+        <span class="eyebrow eyebrow--on-dark">From the Archdiocese</span>
         <h2 class="home-faith-title" id="home-faith-title">Loading…</h2>
         <p class="home-faith-blurb" id="home-faith-blurb"></p>
         <div class="home-faith-links">
-          <a id="home-faith-link" href="#" target="_blank" rel="noopener" class="btn btn-navy">Read the article</a>
+          <a id="home-faith-link" href="#" target="_blank" rel="noopener" class="btn btn-gold">Read the article</a>
           <a href="our-faith.html" class="text-link">More on our faith</a>
         </div>
       </div>
@@ -205,42 +205,42 @@
       })();
     </script>
 
-  <!-- SACRAMENTS & SERVICES (matches sacraments.html) -->
+  <!-- SACRAMENTS & SERVICES -->
   <section class="section section--gold">
-    <div class="container home-sac">
-      <figure class="home-sac-photo">
-        <img src="images/anna-wedding.jpg" width="2038" height="1362" alt="A couple at the altar during their wedding at Saints Peter &amp; Paul" loading="lazy" />
-      </figure>
-      <div class="home-sac-body">
-        <h2 class="section-title">Sacraments &amp; Services</h2>
-        <ul class="sac-list">
-          <li class="sac-row">
-            <h3 class="sac-name">Baptism <span class="sac-greek" lang="el">Βάπτισμα</span></h3>
-            <p>Joins a child, or an adult not baptized as an infant, to Christ and the Church.</p>
-            <a href="sacraments.html#baptism" class="sac-link">How to arrange</a>
-          </li>
-          <li class="sac-row">
-            <h3 class="sac-name">Chrismation <span class="sac-greek" lang="el">Χρίσμα</span></h3>
-            <p>Receives a Christian baptized in another tradition into the Orthodox Church.</p>
-            <a href="sacraments.html#chrismation" class="sac-link">How to arrange</a>
-          </li>
-          <li class="sac-row">
-            <h3 class="sac-name">Marriage <span class="sac-greek" lang="el">Γάμος</span></h3>
-            <p>Unites a couple in the Church with the rings, the crowns, and the common cup.</p>
-            <a href="sacraments.html#marriage" class="sac-link">How to arrange</a>
-          </li>
-          <li class="sac-row">
-            <h3 class="sac-name">Confession <span class="sac-greek" lang="el">Εξομολόγηση</span></h3>
-            <p>A private conversation with the priest to receive God's forgiveness and guidance.</p>
-            <a href="sacraments.html#confession" class="sac-link">How to arrange</a>
-          </li>
-          <li class="sac-row">
-            <h3 class="sac-name">Memorials <span class="sac-greek" lang="el">Μνημόσυνο</span></h3>
-            <p>Prayers for the departed at 40 days, through the first year, and on each anniversary.</p>
-            <a href="sacraments.html#memorial" class="sac-link">How to arrange</a>
-          </li>
-        </ul>
-        <p class="sac-call">Planning a baptism, wedding, or memorial? Call the office at <a href="tel:+18477292235">(847) 729-2235</a>.</p>
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Sacraments &amp; Services</h2>
+          <a href="sacraments.html" class="section-link" style="color: var(--gold-text);">Learn more</a>
+        </div>
+      </div>
+
+      <div class="sac-grid">
+        <a class="sac-card" href="sacraments.html#baptism">
+          <i class="ti ti-droplet ph-icon-inline" aria-hidden="true"></i>
+          <h3>Baptism</h3>
+          <p>Welcome a new member into the faith</p>
+        </a>
+        <a class="sac-card" href="sacraments.html#marriage">
+          <i class="ti ti-heart ph-icon-inline" aria-hidden="true"></i>
+          <h3>Marriage</h3>
+          <p>Begin your marriage in the Church</p>
+        </a>
+        <a class="sac-card" href="sacraments.html#chrismation">
+          <i class="ti ti-star ph-icon-inline" aria-hidden="true"></i>
+          <h3>Chrismation</h3>
+          <p>Received into the Orthodox faith</p>
+        </a>
+        <a class="sac-card" href="sacraments.html#memorial">
+          <i class="ti ti-candle ph-icon-inline" aria-hidden="true"></i>
+          <h3>Memorial</h3>
+          <p>Honor and remember loved ones</p>
+        </a>
+        <a class="sac-card" href="sacraments.html#confession">
+          <i class="ti ti-book ph-icon-inline" aria-hidden="true"></i>
+          <h3>Confession</h3>
+          <p>Sacrament of healing &amp; renewal</p>
+        </a>
       </div>
     </div>
   </section>
