@@ -256,8 +256,8 @@
   border-radius: 50%;
   background: var(--navy-deep);
   color: var(--gold);
-  font-family: var(--font-display);
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-weight: 400;
   font-size: 1.05rem;
   display: flex;
   align-items: center;
@@ -431,7 +431,7 @@
 }
 
 .vh-quote-text {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-style: italic;
   font-size: 1.05rem;
   line-height: 1.6;

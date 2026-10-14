@@ -104,7 +104,7 @@
 }
 
 .gi-quote-text {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   color: var(--navy-deep);
   line-height: 1.6;
@@ -176,7 +176,7 @@
 }
 
 .feat-title {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   color: var(--navy-deep);
   margin-bottom: 0.3rem;

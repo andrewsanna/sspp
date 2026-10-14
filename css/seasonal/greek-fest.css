@@ -269,7 +269,7 @@
   border-top: 3px solid var(--gf-blue);
 }
 .gf-about-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 18px;
   color: var(--gf-navy-deep);
   margin-bottom: 8px;
@@ -312,7 +312,7 @@
 
 /* ── Church tours ── */
 .gf-tours-box { border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 28px; }
-.gf-tours-box h3 { color: var(--gf-white); font-family: var(--font-display); margin-bottom: 10px; }
+.gf-tours-box h3 { color: var(--gf-white); font-family: var(--font-heading); margin-bottom: 10px; }
 .gf-tours-box p { color: var(--gf-white); opacity: 0.9; line-height: 1.7; margin-bottom: 8px; }
 .gf-tours-box strong { color: var(--gf-white); }
 .gf-tours-times { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
@@ -360,7 +360,7 @@
   padding: 24px;
   border: 1px solid rgba(0,0,0,0.07);
 }
-.gf-learn-more-card h3 { font-family: var(--font-display); font-size: 18px; color: var(--gf-navy-deep); margin-bottom: 6px; font-weight: 400; }
+.gf-learn-more-card h3 { font-family: var(--font-heading); font-size: 18px; color: var(--gf-navy-deep); margin-bottom: 6px; font-weight: 400; }
 .gf-learn-more-card p { font-size: 14px; color: var(--gf-ink-muted); }
 .gf-learn-more-btn {
   display: inline-flex;
