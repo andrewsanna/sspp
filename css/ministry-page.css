@@ -384,3 +384,21 @@
 
   border-left: 3px solid var(--gold);
 }
+
+/* ---- Content column + phone gutters ----
+   Loose intro content sits in the same 900px column as the info strip
+   and cards; on narrow screens the boxed blocks keep a 2rem gutter. */
+.mp-col {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 964px) {
+  .mp-info-strip,
+  .mp-feature-card,
+  .mp-note-box {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
