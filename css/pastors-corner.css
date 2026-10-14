@@ -21,26 +21,25 @@
 .pc-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: var(--hero-inner-width);
   margin: 0 auto;
 }
 
 .pc-hero-title {
   font-size: var(--hero-title);
-  color: #fff;
-  margin: 0.5rem 0 1rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-  line-height: 1.1;
+  margin-top: 0.5rem;
 }
 
 
 .pc-hero-body {
   color: var(--hero-body-color);
   font-size: var(--hero-body);
-  max-width: 640px;
+  max-width: var(--hero-body-width);
   margin: 0 auto;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Sermons featured card */

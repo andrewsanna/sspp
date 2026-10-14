@@ -33,7 +33,7 @@
 .hw-hero__inner {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: var(--hero-inner-width);
   padding: 0 1.5rem;
   color: #fff;
 }

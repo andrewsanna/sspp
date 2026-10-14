@@ -24,7 +24,7 @@
 }
 
 .vh-hero-inner {
-  max-width: 800px;
+  max-width: var(--hero-inner-width);
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
@@ -33,15 +33,11 @@
 
 .vh-hero-title {
   font-size: var(--hero-title);
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 0.9rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .vh-hero-title em {
   font-style: normal;
-  color: var(--gold);
+  color: inherit;
 }
 
 .vh-hero-body {
@@ -50,6 +46,9 @@
   line-height: 1.6;
   margin-bottom: 1.75rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  max-width: var(--hero-body-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 640px) {

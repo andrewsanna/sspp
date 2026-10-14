@@ -79,27 +79,29 @@
 }
 
 .hero-content {
-  max-width: 760px;
+  max-width: 640px;
 }
 
 .hero-title {
   font-size: var(--hero-title-home);
-  color: #fff;
-  margin-bottom: 1rem;
-  line-height: 1.05;
 }
 
 .hero-body {
   font-size: var(--hero-body);
   color: var(--hero-body-color);
   line-height: 1.6;
-  max-width: 560px;
+  max-width: 32rem;
   margin-bottom: 1.85rem;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
 .hero-body--lead {
   margin-bottom: 0.6rem;
+}
+
+/* Gold is reserved for the hero title */
+.hero .eyebrow {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .hero-cta-row {

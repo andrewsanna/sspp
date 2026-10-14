@@ -18,7 +18,7 @@
 }
 
 .ab-hero-inner {
-  max-width: 800px;
+  max-width: var(--hero-inner-width);
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;
@@ -27,20 +27,20 @@
 
 .ab-hero-title {
   font-size: var(--hero-title);
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 0.9rem;
 }
 
 .ab-hero-title em {
   font-style: normal;
-  color: var(--gold);
+  color: inherit;
 }
 
 .ab-hero-body {
   font-size: var(--hero-body);
   color: var(--hero-body-color);
   line-height: 1.6;
+  max-width: var(--hero-body-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 640px) {

@@ -6,21 +6,22 @@
   justify-content: center;
 }
 .give-card {
-  max-width: 800px;
+  max-width: var(--hero-inner-width);
   color: #fff;
 }
 .give-headline {
   font-family: var(--font-display);
   font-size: var(--hero-title);
-  margin: 0.75rem 0 1rem;
-  color: #fff;
-  line-height: 1.1;
+  margin-top: 0.75rem;
 }
 .give-text {
   color: var(--hero-body-color);
   margin: 0 0 1.75rem;
   font-size: var(--hero-body);
   line-height: 1.6;
+  max-width: var(--hero-body-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 .give-btn {
   display: inline-flex;
