@@ -98,6 +98,10 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 }
 
+.hero-body--lead {
+  margin-bottom: 0.6rem;
+}
+
 .hero-cta-row {
   display: flex;
   align-items: center;
@@ -196,6 +200,12 @@
 
 .home-faith .home-faith-title {
   color: #fff;
+}
+
+.home-faith-source {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: -0.4rem 0 0.9rem;
 }
 
 .home-faith .home-faith-blurb {
