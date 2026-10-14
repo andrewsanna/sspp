@@ -28,9 +28,6 @@
 
 .cal-page-title {
   font-size: var(--hero-title);
-  color: #fff;
-  margin-bottom: 0.3rem;
-  line-height: 1.1;
 }
 
 .cal-page-sub {

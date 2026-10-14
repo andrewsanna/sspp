@@ -18,25 +18,23 @@
 .ct-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: var(--hero-inner-width);
   margin: 0 auto;
   padding: 0 2rem;
   text-align: center;
 }
 .ct-hero-title {
   font-size: var(--hero-title);
-  color: #fff;
-  margin-bottom: 1rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-  line-height: 1.1;
 }
 .ct-hero-body {
   font-size: var(--hero-body);
   color: var(--hero-body-color);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
-  max-width: 640px;
+  max-width: var(--hero-body-width);
   margin: 0 auto;
   line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ct-jumpnav {
