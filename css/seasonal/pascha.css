@@ -146,7 +146,7 @@
 .hw-overview-icon i { font-size: 1.3rem; }
 
 .hw-overview-card h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   color: var(--navy-deep);
   margin-bottom: 0.5rem;
   font-size: 1.125rem;
@@ -434,14 +434,14 @@
 }
 
 .hw-hw-content h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   color: var(--navy-deep);
   font-size: 1.5rem;
   margin: 0.3rem 0 0.35rem;
 }
 
 .hw-hw-theme {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   color: var(--gold-text);
   font-size: 1.125rem;
   margin-bottom: 0.85rem;
@@ -597,7 +597,7 @@
 .hw-pentecost-icon i { font-size: 1.1rem; }
 
 .hw-pentecost-card h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
   font-size: 1.125rem;

@@ -330,7 +330,7 @@
 }
 
 .of-story-text h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.4rem;
   line-height: 1.4;
   color: var(--navy-deep);
@@ -395,7 +395,7 @@
 }
 
 .of-note-quote {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--navy-deep);

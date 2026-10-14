@@ -497,9 +497,9 @@
 }
 
 .reg-modal-price {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--navy-deep);
 }
 

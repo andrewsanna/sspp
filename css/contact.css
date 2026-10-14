@@ -148,7 +148,7 @@
   text-decoration-color: var(--gold-deep);
 }
 .ct-staff-name {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   color: var(--navy-deep);
   font-weight: 400;
