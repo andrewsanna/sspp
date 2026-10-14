@@ -56,8 +56,8 @@
 
 .gf-hero__title {
   font-family: var(--font-display);
+  font-weight: var(--heading-weight);
   font-size: var(--hero-title);
-  font-weight: 400;
   line-height: 1.1;
   color: var(--gf-white);
   margin-bottom: 24px;
@@ -70,8 +70,8 @@
 .gf-hero__dates-day {
   display: block;
   font-family: var(--font-display);
+  font-weight: var(--heading-weight);
   font-size: clamp(1.4rem, 3.4vw, 2.1rem);
-  font-weight: 400;
   color: var(--gf-white);
   margin-bottom: 4px;
 }
@@ -234,8 +234,8 @@
 
 .gf-section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 400;
+  font-weight: var(--heading-weight);
+  font-size: clamp(1.288rem, 2.76vw, 1.84rem);
   margin-bottom: 8px;
   color: var(--gf-navy-deep);
 
@@ -270,10 +270,10 @@
 }
 .gf-about-card h3 {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-weight: var(--heading-weight);
+  font-size: 17px;
   color: var(--gf-navy-deep);
   margin-bottom: 8px;
-  font-weight: 400;
 
 }
 .gf-about-card p {
@@ -312,7 +312,7 @@
 
 /* ── Church tours ── */
 .gf-tours-box { border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; padding: 28px; }
-.gf-tours-box h3 { color: var(--gf-white); font-family: var(--font-heading); margin-bottom: 10px; }
+.gf-tours-box h3 { color: var(--gf-white); font-family: var(--font-heading); font-weight: var(--heading-weight); margin-bottom: 10px; }
 .gf-tours-box p { color: var(--gf-white); opacity: 0.9; line-height: 1.7; margin-bottom: 8px; }
 .gf-tours-box strong { color: var(--gf-white); }
 .gf-tours-times { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
@@ -360,7 +360,7 @@
   padding: 24px;
   border: 1px solid rgba(0,0,0,0.07);
 }
-.gf-learn-more-card h3 { font-family: var(--font-heading); font-size: 18px; color: var(--gf-navy-deep); margin-bottom: 6px; font-weight: 400; }
+.gf-learn-more-card h3 { font-family: var(--font-heading); font-weight: var(--heading-weight); font-size: 17px; color: var(--gf-navy-deep); margin-bottom: 6px; }
 .gf-learn-more-card p { font-size: 14px; color: var(--gf-ink-muted); }
 .gf-learn-more-btn {
   display: inline-flex;

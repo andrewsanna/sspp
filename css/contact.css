@@ -67,7 +67,7 @@
   margin-bottom: 1rem;
 }
 .ct-card-title {
-  font-size: 1.15rem;
+  font-size: 1.058rem;
   margin-bottom: 0.6rem;
 
 
@@ -118,7 +118,7 @@
 }
 /* WHO TO CONTACT */
 .ct-section-title {
-  font-size: 1.75rem;
+  font-size: 1.61rem;
   margin-bottom: 1.75rem;
 
 
@@ -149,9 +149,9 @@
 }
 .ct-staff-name {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
+  font-weight: var(--heading-weight);
+  font-size: 1.035rem;
   color: var(--navy-deep);
-  font-weight: 400;
 
 }
 .ct-staff-role {
@@ -429,7 +429,7 @@
 
 /* Prayer request card: subtitle + private / parish list */
 .ct-prayer-subtitle {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   color: var(--navy-deep);
   margin: -0.4rem 0 0.75rem;
 }

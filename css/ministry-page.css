@@ -146,8 +146,8 @@
 .mp-acc-summary {
   padding: 1.1rem 1.4rem;
   font-size: 1.125rem;
-  font-weight: 400;
   font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
   color: var(--navy-deep);
   cursor: pointer;
   display: flex;
@@ -245,10 +245,10 @@
 }
 .mp-article-card:hover { border-color: var(--gold); box-shadow: var(--shadow-card); }
 .mp-article-card h4 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin: 0 0 0.3rem;
   color: var(--navy-deep);
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 
 
 }
@@ -291,7 +291,7 @@
   flex-shrink: 0;
 }
 .mp-feature-icon i { font-size: 1.3rem; color: var(--gold-deep); }
-.mp-feature-text h3 { font-size: 1.125rem; margin-bottom: 0.35rem; font-weight: 400; }
+.mp-feature-text h3 { font-size: 1.035rem; margin-bottom: 0.35rem; font-weight: var(--heading-weight); }
 .mp-feature-text p { font-size: 0.85rem; color: var(--mt); line-height: 1.6; }
 @media (max-width: 700px) {
   .mp-feature-card { grid-template-columns: 1fr; }

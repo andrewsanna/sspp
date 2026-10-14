@@ -37,7 +37,7 @@
 }
 
 .serve-band__text h3 {
-  font-size: 1.2rem;
+  font-size: 1.104rem;
   margin-bottom: 0.25rem;
 
 
@@ -137,7 +137,7 @@
 }
 
 .ch-modal-title {
-  font-size: 1.4rem;
+  font-size: 1.288rem;
   margin-bottom: 0.5rem;
 }
 
@@ -222,8 +222,8 @@
 
 .date-chip__day {
   font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
   font-size: 1.15rem;
-  font-weight: 400;
   color: var(--navy-deep);
 }
 

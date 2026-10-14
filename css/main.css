@@ -18,8 +18,9 @@
   --brd: #ECE3D0;
 
   /* Type */
-  --font-display: 'Libre Caslon Display', 'GFS Didot', Georgia, serif;
+  --font-display: 'Libre Caslon Text', 'GFS Didot', Georgia, serif;
   --font-heading: 'Libre Caslon Text', 'GFS Didot', Georgia, serif;
+  --heading-weight: 400;        /* change to 700 for bold headings */
   --font-body: 'Commissioner', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 
   /* Type scale (for components added later; matches the original sizes) */
@@ -34,8 +35,8 @@
   --band-pad: max(2rem, calc((100% - 1016px) / 2));
 
   /* Hero text: shared by every page hero */
-  --hero-title: clamp(2rem, 3.2vw, 2.75rem);
-  --hero-title-home: clamp(2.5rem, 4.5vw, 3.75rem);   /* homepage hero title (white) */
+  --hero-title: clamp(2.25rem, 3.8vw, 3.15rem);
+  --hero-title-home: clamp(2.5rem, 4.3vw, 3.6rem);   /* homepage hero title (white) */
   --hero-title-color: #E2C287;
   --hero-body: clamp(1.125rem, 1.4vw, 1.3rem);
   --hero-body-color: rgba(255, 255, 255, 0.92);
@@ -179,14 +180,14 @@ textarea:focus-visible {
 /* ============================================
    Typography
    ============================================ */
-/* Headings use Libre Caslon. Display (one weight, 400) is for hero,
-   page and section titles and anything 1.75rem or larger; Text (400/700)
-   is for smaller headings: cards, items, names, modals, footer.
-   GFS Didot stays in both stacks only as the Greek-character fallback.
-   font-synthesis (body) stops browsers faking a bold Display. */
+/* Headings use Libre Caslon Text (real 400 and 700; no 500/600).
+   --heading-weight sets the weight for every heading rule.
+   --font-display (hero, page and section titles) and --font-heading
+   (cards, items, names, modals) both point to it for now.
+   GFS Didot stays in the stacks only as the Greek-character fallback. */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-weight: var(--heading-weight);
   color: var(--navy-deep);
   line-height: 1.25;
 }
@@ -197,7 +198,7 @@ h1,
 .home-faith-title, .welcome-title, .vh-section-headline, .gi-directory-title,
 .sc-cta h2, .rs-cta h2, .pc-cta h2, .vh-cta h2 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 }
 
 p {
@@ -255,8 +256,8 @@ p {
 
 .acc-title {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
+  font-size: 1.035rem;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
 
@@ -877,7 +878,7 @@ padding: var(--space-5) 0;
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.38rem;
 
 
 }
@@ -1000,7 +1001,7 @@ padding: var(--space-5) 0;
 }
 
 .vb-title {
-  font-size: 1.4rem;
+  font-size: 1.288rem;
   color: #fff;
   margin-bottom: 0.5rem;
 
@@ -1078,7 +1079,7 @@ padding: var(--space-5) 0;
 }
 
 .rs-section-title {
-  font-size: 1.75rem;
+  font-size: 1.61rem;
   margin-bottom: 0.9rem;
 
 
@@ -1086,7 +1087,8 @@ padding: var(--space-5) 0;
 
 .rs-subtitle {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
+  font-weight: var(--heading-weight);
+  font-size: 1.035rem;
   color: var(--navy-deep);
   margin: 2rem 0 1rem;
 
@@ -1223,7 +1225,7 @@ padding: var(--space-5) 0;
 }
 .goarch-callout__icon { font-size: 2rem; color: var(--gold); flex-shrink: 0; }
 .goarch-callout__text { flex: 1; }
-.goarch-callout__text h4 { margin: 0 0 .25rem; color: var(--navy); font-size: 1.125rem; }
+.goarch-callout__text h4 { margin: 0 0 .25rem; color: var(--navy); font-size: 1.035rem; }
 .goarch-callout__text p { margin: 0; }
 .goarch-callout a.btn { white-space: nowrap; }
 @media (max-width: 640px) {
@@ -1246,7 +1248,7 @@ padding: var(--space-5) 0;
 .mp-hero-title, .min-hero-title, .cal-page-title, .gi-intro-title, .pl-intro-title {
   word-spacing: normal;
   letter-spacing: 0;
-  line-height: 1.12;
+  line-height: 1.15;
   text-wrap: balance;
   margin-bottom: 1rem;
   color: var(--hero-title-color);

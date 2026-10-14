@@ -105,11 +105,11 @@
 
 .gi-quote-text {
   font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
   font-size: 1.125rem;
   color: var(--navy-deep);
   line-height: 1.6;
   margin-bottom: 0.3rem;
-  font-weight: 400;
 }
 
 .gi-quote-attr {
@@ -177,10 +177,10 @@
 
 .feat-title {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
+  font-weight: var(--heading-weight);
+  font-size: 1.035rem;
   color: var(--navy-deep);
   margin-bottom: 0.3rem;
-  font-weight: 400;
 
 }
 
@@ -212,7 +212,7 @@
 }
 
 .gi-directory-title {
-  font-size: 1.3rem;
+  font-size: 1.196rem;
   margin-bottom: 0.3rem;
 
 

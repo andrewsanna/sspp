@@ -86,7 +86,7 @@
   font-size: var(--hero-title-home);
   color: #fff;
   margin-bottom: 1rem;
-  line-height: 1.05;
+  line-height: 1.15;
 }
 
 .hero-body {
@@ -221,7 +221,7 @@
 }
 
 .home-faith-title {
-  font-size: 1.75rem;
+  font-size: 1.61rem;
   margin: 0.25rem 0 0.75rem;
   min-height: 1.25em;
 
@@ -474,7 +474,7 @@ a.ts-val:hover {
 }
 
 .welcome-title {
-  font-size: 1.6rem;
+  font-size: 1.472rem;
   margin-bottom: 1rem;
 
 
@@ -603,7 +603,7 @@ a.ts-val:hover {
 }
 
 .min-feature-title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-bottom: 0.5rem;
 
 

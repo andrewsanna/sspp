@@ -168,8 +168,8 @@
 
 .pl-title {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
+  font-size: 1.035rem;
   color: var(--navy-deep);
   line-height: 1.35;
   margin-bottom: 0.4rem;
@@ -338,8 +338,8 @@
 
 .pl-modal-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
+  font-size: 1.38rem;
   color: var(--navy-deep);
   line-height: 1.3;
   margin: 0.5rem 0 0.6rem;
@@ -433,6 +433,6 @@ body.pl-modal-open {
     padding: 1.3rem 1.2rem 1.6rem;
   }
   .pl-modal-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
   }
 }

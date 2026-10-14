@@ -40,7 +40,7 @@
 }
 
 .of-section-title {
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   margin-bottom: 1.25rem;
 
 
@@ -57,9 +57,9 @@
 }
 
 .of-learn-card h3 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin-bottom: 0.5rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 
 
 }
@@ -156,9 +156,9 @@
 }
 
 .of-video-card h3 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin-bottom: 0.35rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 
 
 }
@@ -331,7 +331,8 @@
 
 .of-story-text h2 {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-weight: var(--heading-weight);
+  font-size: 1.288rem;
   line-height: 1.4;
   color: var(--navy-deep);
 }
@@ -396,10 +397,10 @@
 
 .of-note-quote {
   font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--navy-deep);
-  font-weight: 400;
 }
 
 .of-note-sign {
