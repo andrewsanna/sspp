@@ -44,7 +44,7 @@
 }
 
 .pay-header h1 {
-  font-size: 1.9rem;
+  font-size: 1.748rem;
   color: var(--navy-deep);
   margin: 0 0 0.25rem;
 }
@@ -409,7 +409,7 @@
 }
 
 .pay-success h2 {
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   color: var(--navy-deep);
   margin: 0 0 0.5rem;
 }
@@ -435,10 +435,10 @@
 }
 
 .pay-summary h3 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   color: var(--navy-deep);
   margin: 0 0 1rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 
 
 }

@@ -53,7 +53,7 @@
    Section title helper (About-specific sections)
    ============================================ */
 .ab-section-title {
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   margin-bottom: 1.25rem;
 }
 
@@ -104,7 +104,7 @@
 
 .ab-mission-quote {
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-weight: var(--heading-weight);
   font-size: 1.35rem;
   line-height: 1.5;
   color: var(--navy-deep);
@@ -184,7 +184,7 @@
 }
 
 .ab-faith-card-text h2 {
-  font-size: 1.3rem;
+  font-size: 1.196rem;
   margin-bottom: 0.5rem;
 }
 
@@ -326,9 +326,9 @@
 }
 
 .ab-history-full h3 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin: 1.5rem 0 0.75rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 }
 
 .ab-history-full p {
@@ -419,9 +419,9 @@
 }
 
 .ab-history-row-text h3 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin: 0 0 0.75rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 }
 
 .ab-history-row-text p {
@@ -460,9 +460,9 @@
 }
 
 .ab-history-lookback h3 {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin: 0 0 0.75rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 }
 
 /* ============================================
@@ -589,9 +589,9 @@
 }
 
 .ab-staff-name {
-  font-size: 1.125rem;
+  font-size: 1.035rem;
   margin-bottom: 0.3rem;
-  font-weight: 400;
+  font-weight: var(--heading-weight);
 }
 
 .ab-staff-tile-role {
@@ -700,7 +700,7 @@
 }
 
 .staff-modal-name {
-  font-size: 1.3rem;
+  font-size: 1.196rem;
   margin-bottom: 1rem;
 }
 
