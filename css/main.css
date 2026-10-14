@@ -690,21 +690,14 @@ p {
 }
 
 .footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-.footer-logo .nav-mark {
-  width: 22px;
-  height: 22px;
-}
-
-.footer-logo-name {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #fff;
+.footer-logo-img {
+  display: block;
+  width: 220px;
+  max-width: 100%;
+  height: auto;
 }
 
 .footer-addr {
