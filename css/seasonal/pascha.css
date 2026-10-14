@@ -33,7 +33,7 @@
 .hw-hero__inner {
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  max-width: 800px;
   padding: 0 1.5rem;
   color: #fff;
 }
@@ -41,17 +41,18 @@
 .hw-hero__title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: var(--hero-title);
   margin: 0.75rem 0 1rem;
   color: #fff;
-
+  line-height: 1.1;
 }
 
 .hw-hero__subtitle {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--hero-body);
+  color: var(--hero-body-color);
   margin-bottom: 1.75rem;
   letter-spacing: 0.01em;
+  line-height: 1.6;
 }
 
 .hw-hero__ctas {
