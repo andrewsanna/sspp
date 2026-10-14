@@ -177,7 +177,7 @@ function initHistoryToggle() {
     full.classList.toggle('is-open', willOpen);
     toggle.querySelector('span').textContent = willOpen
       ? 'Show less'
-      : 'Read the full parish history';
+      : 'Read More of Our History';
   });
 }
 
