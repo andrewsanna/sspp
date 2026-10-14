@@ -241,6 +241,9 @@
   object-fit: cover;
   border-radius: 8px;
 }
+.story-intro {
+  margin: 0 0 1.25rem;
+}
 .story-list ul {
   list-style: none;
   margin: 1rem 0 0;
