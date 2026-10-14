@@ -33,12 +33,12 @@
   --band-pad: max(2rem, calc((100% - 1016px) / 2));
 
   /* Hero text: shared by every page hero */
-  --hero-title: clamp(2.25rem, 4vw, 3.25rem);
-  --hero-title-home: clamp(2.5rem, 4.5vw, 3.75rem);
+  --hero-title: clamp(2rem, 3.2vw, 2.75rem);
+  --hero-title-home: clamp(3rem, 6.5vw, 5.5rem);   /* homepage: white, as before the gold-title change */
   --hero-title-color: #E2C287;
   --hero-body: clamp(1.125rem, 1.4vw, 1.3rem);
   --hero-body-color: rgba(255, 255, 255, 0.92);
-  --hero-body-width: 36rem;
+  --hero-body-width: 44rem;
   --hero-inner-width: 760px;
 
   /* Spacing scale */
@@ -1237,7 +1237,7 @@ padding: var(--space-5) 0;
    Hero titles (every page): tighter Didot word spacing, one rhythm,
    gold title color. Page CSS sets only the size.
    ============================================ */
-.hero-title, .ab-hero-title, .ct-hero-title, .sc-hero-title, .vh-hero-title,
+.ab-hero-title, .ct-hero-title, .sc-hero-title, .vh-hero-title,
 .of-hero-title, .pc-hero-title, .rs-hero-title, .give-hero-title, .give-headline,
 .mp-hero-title, .min-hero-title, .cal-page-title, .gi-intro-title, .pl-intro-title {
   word-spacing: -0.06em;
