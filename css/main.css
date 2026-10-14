@@ -36,7 +36,9 @@
 
   /* Hero text: shared by every page hero */
   --hero-title: clamp(2.25rem, 3.8vw, 3.15rem);
-  --hero-title-home: clamp(2.5rem, 4.3vw, 3.6rem);   /* homepage hero title (white) */
+  /* homepage hero title (white): one line from tablet up, two lines max on phones */
+  --hero-title-home: clamp(2.25rem, calc((100vw - 4rem) / 15.5), 3.6rem);
+  --hero-title-home-phone: min(2.3rem, calc((100vw - 4rem) / 9));
   --hero-title-color: #E2C287;
   --hero-body: clamp(1.125rem, 1.4vw, 1.3rem);
   --hero-body-color: rgba(255, 255, 255, 0.92);
