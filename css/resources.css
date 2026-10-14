@@ -34,23 +34,24 @@
 .rs-hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
 .rs-hero-title {
-  font-size: 2.25rem;
+  font-size: var(--hero-title);
   color: #fff;
   margin: 0.5rem 0 1rem;
-
+  line-height: 1.1;
 }
 
 
 .rs-hero-body {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.02rem;
-  max-width: 480px;
+  color: var(--hero-body-color);
+  font-size: var(--hero-body);
+  max-width: 640px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* Note: .rs-jumpnav, .rs-section, .rs-section--alt, .rs-section-icon,

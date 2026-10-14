@@ -27,15 +27,16 @@
 }
 
 .cal-page-title {
-  font-size: 1.75rem;
+  font-size: var(--hero-title);
   color: #fff;
   margin-bottom: 0.3rem;
-
+  line-height: 1.1;
 }
 
 .cal-page-sub {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--hero-body);
+  color: var(--hero-body-color);
+  line-height: 1.6;
 }
 
 /* ============================================
