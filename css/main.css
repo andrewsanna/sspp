@@ -34,7 +34,7 @@
 
   /* Hero text: shared by every page hero */
   --hero-title: clamp(2rem, 3.2vw, 2.75rem);
-  --hero-title-home: clamp(3rem, 6.5vw, 5.5rem);   /* homepage: white, as before the gold-title change */
+  --hero-title-home: clamp(2.5rem, 4.5vw, 3.75rem);   /* homepage hero title (white) */
   --hero-title-color: #E2C287;
   --hero-body: clamp(1.125rem, 1.4vw, 1.3rem);
   --hero-body-color: rgba(255, 255, 255, 0.92);
