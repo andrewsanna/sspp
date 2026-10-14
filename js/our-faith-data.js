@@ -94,7 +94,7 @@ const ourFaithSeasons = {
     window: "Late Aug / early Sept, also near the Sept 1 Church New Year",
     active: true,
     articles: [
-      { title: "In the Now: Welcome to Fall", blurb: "A candid look at the 'post-camp crash': how the spiritual high of summer camp fades once school starts, and a challenge to build a faith that holds up in ordinary months, not just camp week.", 
+      { title: "In the Now: Welcome to Fall", blurb: "Ever wonder why that summer camp spiritual high fades the minute school starts? This article breaks down the \"post-camp crash\" and offers practical ways to keep your faith strong during ordinary, busy months.", 
        url: "https://www.goarch.org/en/-/in-the-now-welcome-to-fall" },
       { title: "Why Prayer Matters", blurb: "Why private prayer and the Liturgy aren't an either/or. Without one, the other risks becoming empty ritual or just talking to ourselves. A reminder to hold both together.", 
        url: "https://www.goarch.org/-/why-prayer-matters" }

@@ -430,3 +430,40 @@
 .rs-leader-accordion {
   min-height: 280px;
 }
+
+/* Prayer request card: subtitle + private / parish list */
+.ct-prayer-subtitle {
+  font-size: 1.125rem;
+  color: var(--navy-deep);
+  margin: -0.4rem 0 0.75rem;
+}
+
+.ct-prayer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+}
+
+.ct-prayer-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--mt);
+  line-height: 1.6;
+}
+
+.ct-prayer-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.ct-prayer-list strong {
+  color: var(--navy-deep);
+}
