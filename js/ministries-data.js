@@ -44,7 +44,7 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Stewardship Committee',
-        summary: 'Our committee provides parishioners information regarding annual progress of stewardship goal and allocation of funds ',
+        summary: 'Our committee provides parishioners information regarding annual progress of stewardship goal and allocation of funds.',
         description: 'Our committee does not track or have access to parishioners pledge amounts nor will anyone ever ask a parishioner. We only know monthly total received and number of donors to assess our communication to all parishioners.',
         // image: 'images/ministries/stewardship.jpg',
         calendarCategory: 'ministries',
@@ -62,7 +62,7 @@ const MINISTRY_CATEGORIES = [
         calendarCategory: 'ministries',
         contact: {
           name: 'Elea Bentley',
-          role: 'Group Leader',
+          role: 'Communications Coordinator',
           email: 'elea@ssppglenview.org',
         },
       },
@@ -70,7 +70,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Welcome Committee',
         summary: 'Helping newcomers feel at home from their very first visit.',
         description: 'This group focuses on welcoming visitors and new members to our parish, reaches in to current members, and reaches out to the local community so that our parish remains a visible, active presence that invites everyone into our midst.',
-        image: 'images/ministries/welcome.jpg',
+        // image: 'images/ministries/welcome.jpg',
         calendarCategory: 'ministries',
         contact: {
           name: 'Keith Anderson and Sylvia Creatura',
