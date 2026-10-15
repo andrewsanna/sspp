@@ -568,5 +568,61 @@ const MINISTRY_CATEGORIES = [
         },
       },
     ],
+
+      {
+    id: 'seasonal',
+    label: 'Seasonal Events',
+    blurb: 'Annual traditions that bring our parish together all year long.',
+    ministries: [
+      {
+        name: 'Holiday Faire',
+        summary: 'Philoptochos\' biggest fundraiser: shopping, lunch, Santa, and pastries.',
+        description: 'The Holiday Faire is the biggest fundraiser of the year for Philoptochos, and one of the most festive days on our parish calendar. Shop with outside vendors, enjoy a full luncheon, take photos with Santa, watch a performance by our Greek dancers, and take home some Greek pastries. Volunteers are always welcome, so reach out if you would like to help.',
+        // image: 'images/ministries/holiday-faire.jpg',
+        calendarCategory: 'featured',
+        contact: {
+          name: 'Kris Tsitsis',
+          role: 'Chair',
+          email: 'kristsitsis@sbcglobal.net',
+        },
+      },
+      {
+        name: 'Greek Festival',
+        summary: 'Our annual summer fundraiser and community celebration.',
+        description: 'Every summer, the parish opens its doors for Greek Festival, our annual fundraiser and biggest community event of the year. It takes all hands on deck, and we love having volunteers of every age, from teens to seniors, pitching in. If you would like to join the committee, send us an email.',
+        // image: 'images/ministries/greekfest.jpg',
+        calendarCategory: 'featured',
+        contact: {
+          name: 'Joanne Trahanas, Anna Andrews & Paula Mueller',
+          role: 'Co-Chairs',
+          email: 'greekfest@ssppglenview.org',
+        },
+      },
+      {
+        name: 'Golf Outing',
+        summary: 'Our annual parish golf outing, usually the first weekend in October.',
+        description: 'Our annual golf outing brings parishioners and friends together for a day of fellowship on the course. It is usually held the first weekend in October. Reach out to the committee lead to volunteer or find out how to join.',
+        // image: 'images/ministries/golf.jpg',
+        calendarCategory: 'featured',
+        contact: {
+          name: 'Chris Atsaves',
+          role: 'Chair',
+          email: 'TBD@ssppglenview.org',
+        },
+      },
+      {
+        name: 'Christmas Pageant',
+        summary: 'Our Church School retells the Nativity story each December.',
+        description: 'Each year, our Church School students retell the story of the Nativity in the Christmas Pageant, usually on the Sunday before Christmas. We always need help, especially from creative people who enjoy costumes, sets, props, and working with kids. Reach out if you would like to lend a hand.',
+        // image: 'images/ministries/pageant.jpg',
+        calendarCategory: 'featured',
+        contact: {
+          name: 'Alexis Douglas',
+          role: 'Church School Director',
+          email: 'Churchschool@ssppglenview.org',
+        },
+      },
+    ],
+  },
   },
 ];
