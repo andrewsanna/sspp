@@ -50,7 +50,11 @@
 
     /* Performances */
     .gd-perf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-    .gd-perf { border-left: 3px solid var(--gold); padding: 0.2rem 0 0.2rem 1rem; }
+    .gd-perf {
+      background: #fff; border: 1px solid var(--brd); border-top: 3px solid var(--gold);
+      border-radius: var(--radius-lg); padding: 1.2rem 1.3rem;
+      box-shadow: 0 10px 28px rgba(18, 39, 64, 0.16);
+    }
     .gd-perf h3 { font-size: 1.035rem; font-weight: var(--heading-weight); color: var(--navy-deep); margin: 0 0 0.25rem; }
     .gd-perf-when {
       font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
@@ -79,14 +83,14 @@
     .gd-intro { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.5rem; align-items: center; }
     .gd-intro-text { font-size: 0.95rem; line-height: 1.75; color: var(--mt); margin: 0; }
     .gd-intro-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
-    .gd-intro-note { font-size: 0.8rem; color: var(--mt); margin: 0.9rem 0 0; }
 
     /* Photos placed through the page */
     .gd-photo { margin: 0; }
     .gd-photo img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); }
     .gd-intro-photo { aspect-ratio: 4 / 3; }
-    .gd-perf-photo { margin-bottom: 2rem; }
+    /* Performance cards sit over the lower edge of the photo */
     .gd-perf-photo img { aspect-ratio: 21 / 9; height: auto; }
+    .gd-perf-grid { position: relative; margin: -5.5rem 1.5rem 0; }
     .gd-photo figcaption { font-size: 0.75rem; color: var(--mt); margin-top: 0.5rem; }
 
     /* Help wanted cards inside the gold band */
@@ -103,6 +107,7 @@
 
     @media (max-width: 860px) {
       .gd-groups, .gd-perf-grid { grid-template-columns: 1fr; }
+      .gd-perf-grid { margin: -2.5rem 1rem 0; }
       .gd-group-name { font-size: 1.35rem; }
       .gd-intro { grid-template-columns: 1fr; gap: 1.75rem; }
       .gd-community { grid-template-columns: auto 1fr; }
@@ -162,7 +167,6 @@
               <i class="ti ti-mail" aria-hidden="true"></i> Ask a question
             </a>
           </div>
-          <p class="gd-intro-note">Family pricing: $200 for two dancers, $260 for three.</p>
         </div>
         <figure class="gd-photo gd-intro-photo">
           <img src="../images/ministries/greekdance-y.jpg" width="526" height="396" alt="Youth Greek dancers in traditional costume" loading="lazy">
@@ -213,7 +217,6 @@
 
       <figure class="gd-photo gd-perf-photo">
         <img src="../images/agape-glendi.jpg" width="1178" height="496" alt="Youth dancers performing at Agape Glendi" loading="lazy">
-        <figcaption>Our dancers at Agape Glendi</figcaption>
       </figure>
 
       <div class="gd-perf-grid">
@@ -242,23 +245,6 @@
         </div>
         <a href="mailto:dance@ssppglenview.org?subject=Performance%20request" class="btn btn-outline-navy">Invite us to perform</a>
       </div>    </div>
-  </div>
-
-  <!-- UPCOMING EVENTS -->
-  <div class="section section--alt">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Upcoming on the calendar</h2>
-        </div>
-        <a href="../calendar.html?category=athletics" class="section-link">
-          View full calendar
-        </a>
-      </div>
-      <div id="ministryUpcomingEvents">
-        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
-      </div>
-    </div>
   </div>
 
   <!-- HELP US GROW (gold band) -->
@@ -322,12 +308,6 @@
   <!-- FOOTER -->
   {% include footer.html %}
 
-  <script>
-    // Greek dance has no calendar of its own yet, so it shares Athletics & Dance
-    const MINISTRY_CALENDAR_CATEGORY = 'athletics';
-  </script>
   <script src="../js/main.js"></script>
-  <script src="../js/calendar-config.js"></script>
-  <script src="../js/ministry-events.js"></script>
 </body>
 </html>
