@@ -568,8 +568,9 @@ const MINISTRY_CATEGORIES = [
         },
       },
     ],
+  },
 
-      {
+  {
     id: 'seasonal',
     label: 'Seasonal Events',
     blurb: 'Annual traditions that bring our parish together all year long.',
@@ -623,6 +624,5 @@ const MINISTRY_CATEGORIES = [
         },
       },
     ],
-  },
   },
 ];
