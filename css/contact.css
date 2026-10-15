@@ -309,6 +309,13 @@
   color: var(--mt);
 }
 
+.rs-leader-sub {
+  font-size: 0.72rem;
+  color: var(--mt);
+  line-height: 1.5;
+  margin-top: 0.15rem;
+}
+
 .rs-leader-email {
   width: 32px;
   height: 32px;
