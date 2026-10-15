@@ -51,7 +51,7 @@ const MINISTRY_CATEGORIES = [
         contact: {
           name: 'George Karagiannis',
           role: 'Group Leader',
-          email: 'stewardship@ssppglenview.org',
+          email: 'Kalwmt@aol.com',
         },
       },
       {
