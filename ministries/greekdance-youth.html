@@ -53,7 +53,7 @@
     .gd-perf {
       background: #fff; border: 1px solid var(--brd); border-top: 3px solid var(--gold);
       border-radius: var(--radius-lg); padding: 1.2rem 1.3rem;
-      box-shadow: 0 10px 28px rgba(18, 39, 64, 0.16);
+      box-shadow: 0 4px 14px rgba(18, 39, 64, 0.06);
     }
     .gd-perf h3 { font-size: 1.035rem; font-weight: var(--heading-weight); color: var(--navy-deep); margin: 0 0 0.25rem; }
     .gd-perf-when {
@@ -88,9 +88,9 @@
     .gd-photo { margin: 0; }
     .gd-photo img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); }
     .gd-intro-photo { aspect-ratio: 4 / 3; }
-    /* Performance cards sit over the lower edge of the photo */
+    /* Performance cards sit above the photo */
+    .gd-perf-photo { margin-top: 1.5rem; }
     .gd-perf-photo img { aspect-ratio: 21 / 9; height: auto; }
-    .gd-perf-grid { position: relative; margin: -5.5rem 1.5rem 0; }
     .gd-photo figcaption { font-size: 0.75rem; color: var(--mt); margin-top: 0.5rem; }
 
     /* Help wanted cards inside the gold band */
@@ -107,7 +107,6 @@
 
     @media (max-width: 860px) {
       .gd-groups, .gd-perf-grid { grid-template-columns: 1fr; }
-      .gd-perf-grid { margin: -2.5rem 1rem 0; }
       .gd-group-name { font-size: 1.35rem; }
       .gd-intro { grid-template-columns: 1fr; gap: 1.75rem; }
       .gd-community { grid-template-columns: auto 1fr; }
@@ -215,9 +214,6 @@
       <h2 class="section-title" style="margin-bottom: 0.4rem;">Where you'll see us dance</h2>
       <p class="mp-lede" style="margin-bottom: 1.75rem;">Our kids love to perform, and every performance is a chance to share our heritage with the community.</p>
 
-      <figure class="gd-photo gd-perf-photo">
-        <img src="../images/agape-glendi.jpg" width="1178" height="496" alt="Youth dancers performing at Agape Glendi" loading="lazy">
-      </figure>
 
       <div class="gd-perf-grid">
         <div class="gd-perf">
@@ -236,6 +232,10 @@
           <p>Our biggest stage of the year, sharing our heritage with festival guests from all over. <a href="../seasonal/greek-fest.html">About the festival</a></p>
         </div>
       </div>
+
+      <figure class="gd-photo gd-perf-photo">
+        <img src="../images/agape-glendi.jpg" width="1178" height="496" alt="Youth dancers performing at Agape Glendi" loading="lazy">
+      </figure>
 
       <div class="gd-community">
         <div class="gd-community-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
