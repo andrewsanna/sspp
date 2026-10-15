@@ -238,6 +238,7 @@ const MINISTRY_CATEGORIES = [
         description: "The Youth Greek Dance ministry brings our young people together to celebrate our rich cultural heritage through traditional music and dance. Dancers meet weekly by age group to learn regional dances from across Greece, build confidence, and forge lifelong parish friendships. Throughout the year, groups perform at parish celebrations, local festivals, and community events.",
         image: 'images/ministries/greekdance-y.jpg',
         calendarCategory: 'athletics',
+        detailPageUrl: 'ministries/greekdance-youth.html',
         contact: {
           name: 'Anna Andrews',
           role: 'Group Leader',
