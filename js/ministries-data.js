@@ -11,10 +11,10 @@
 // ============================================
 
 const MINISTRY_CATEGORIES = [
-    {
-    id: 'leadership',
-    label: 'Parish Governance',
-    blurb: 'How our parish is administered, and how to get involved.',
+  {
+    id: 'committees',
+    label: 'Parish Committees',
+    blurb: 'The groups that guide, strengthen, and improve our parish.',
     ministries: [
       {
         name: 'Parish Council',
@@ -29,22 +29,58 @@ const MINISTRY_CATEGORIES = [
           email: 'PCpresident@ssppglenview.org',
         },
       },
-        {
+      {
         name: 'Parish Vitality Team',
         summary: 'Working to strengthen the long-term health of our parish.',
         description: 'The Parish Vitality Team works alongside the pastor and Parish Council to assess and strengthen the long-term health of our parish community, guided by our Parish Health Plan.',
         // image: 'images/ministries/vitalityteam.jpg',
         detailPageUrl: 'https://ssppglenview.org/wp-content/uploads/2025/12/SSPP-Parish-Health-Plan-2025-1.0.pdf',
-            // calendarCategory: 'ministries',
+        calendarCategory: 'ministries',
         contact: {
           name: 'Keith Anderson',
           role: 'Group Leader',
           email: 'vitalityteam@ssppglenview.org',
         },
       },
+      {
+        name: 'Stewardship Committee',
+        summary: 'Our committee provides parishioners information regarding annual progress of stewardship goal and allocation of funds ',
+        description: 'Our committee does not track or have access to parishioners pledge amounts nor will anyone ever ask a parishioner. We only know monthly total received and number of donors to assess our communication to all parishioners.',
+        // image: 'images/ministries/stewardship.jpg',
+        calendarCategory: 'ministries',
+        contact: {
+          name: 'George Karagiannis',
+          role: 'Group Leader',
+          email: 'stewardship@ssppglenview.org',
+        },
+      },
+      {
+        name: 'Communications Committee',
+        summary: 'Keeping parish news current and making it easier to get involved.',
+        description: 'The Communications Committee keeps our parish information current and easy to find. Through the website, social media, the Messenger, and weekly emails, the committee works to make sure everyone has access to what is happening and can find a simple way to get involved, whether you have been a parishioner for decades or are visiting for the first time.',
+        // image: 'images/ministries/communications.jpg',
+        calendarCategory: 'ministries',
+        contact: {
+          name: 'Elea Bentley',
+          role: 'Group Leader',
+          email: 'elea@ssppglenview.org',
+        },
+      },
+      {
+        name: 'Welcome Committee',
+        summary: 'Helping newcomers feel at home from their very first visit.',
+        description: 'This group focuses on welcoming visitors and new members to our parish, reaches in to current members, and reaches out to the local community so that our parish remains a visible, active presence that invites everyone into our midst.',
+        image: 'images/ministries/welcome.jpg',
+        calendarCategory: 'ministries',
+        contact: {
+          name: 'Keith Anderson and Sylvia Creatura',
+          role: 'Group Leader',
+          email: 'welcome@ssppglenview.org',
+        },
+      },
     ],
   },
-  
+
   {
     id: 'worship',
     label: 'Worship & Liturgical Life',
@@ -60,7 +96,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Bo LaMotte',
           role: 'Group Leader',
           email: 'ushers@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Chanters',
@@ -72,7 +108,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Chris Atsaves',
           role: 'Chanter',
           email: 'Chanters@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Choir',
@@ -84,7 +120,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Therese Speropoulos',
           role: 'Choir Director',
           email: 'Choir@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Readers',
@@ -96,7 +132,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Steven Thell',
           role: 'TBD',
           email: 'readers@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Prosphora Bakers',
@@ -108,7 +144,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Tracy Ronstadt',
           role: 'Group Leader',
           email: 'prosphora@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Myrrhbearers',
@@ -120,7 +156,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Steven Thell',
           role: 'TBD',
           email: 'myrrhbearers@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Acolytes',
@@ -132,29 +168,29 @@ const MINISTRY_CATEGORIES = [
           name: 'Steven Thell',
           role: 'Youth Director',
           email: 'acolytes@ssppglenview.org',
-      },
+        },
       },
     ],
   },
 
-    {
+  {
     id: 'youth',
     label: 'Youth & Young Adults',
     blurb: 'Programs for every age, from elementary school through young adulthood.',
     ministries: [
-         {
+      {
         name: 'FLJ - Elementary age',
         summary: 'Elementary-age fellowship, education, and service.',
         description: 'Faith, Love & Joy (Junior Orthodox Youth) seeks to foster growth toward a deepening of our elementary children\'s relationship with Christ and His Church through shared fellowship, education and service.',
         image: 'images/ministries/flj.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
-        calendarTag: 'goya',   
+        calendarTag: 'goya',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
           email: 'youthdirector@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Jr. GOYA - Jr. High',
@@ -168,7 +204,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Steven Thell',
           role: 'Youth Director',
           email: 'youthdirector@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Sr. GOYA - High School',
@@ -177,12 +213,12 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/srgoya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
-         calendarTag: 'goya',
+        calendarTag: 'goya',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
           email: 'youthdirector@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Athletics',
@@ -194,7 +230,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
           email: 'athletics@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Greek Dance (Youth)',
@@ -206,7 +242,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Anna Andrews',
           role: 'Group Leader',
           email: 'dance@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'GOYAlumni - College',
@@ -214,11 +250,11 @@ const MINISTRY_CATEGORIES = [
         description: 'This is a ministry that enriches our college-aged adults\' experience at school and at home. GOYAlumni aims to be a conduit for the holistic growth of our students with a heavy emphasis on service, fellowship, and worship.',
         image: 'images/ministries/goyalumni.jpg',
         calendarCategory: 'youth',
-          contact: {
+        contact: {
           name: 'Niki Alexis & Ana Arzoumanidis',
           role: 'Group Leader',
           email: 'goyalumni@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Young Adult League (YAL)',
@@ -226,11 +262,11 @@ const MINISTRY_CATEGORIES = [
         description: 'The Young Adult League (YAL) aims to aid the growth of our parish young adults toward Christ and His Church. Our YAL strives to accomplish this mission by intentional gatherings of worship, fellowship, outreach, and education, giving them a place to encounter the newest challenges in our society.',
         image: 'images/ministries/yal.jpg',
         calendarCategory: 'youth',
-          contact: {
+        contact: {
           name: 'Maria Mantice',
           role: 'Group Leader',
           email: 'yal@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'HOPE',
@@ -239,11 +275,11 @@ const MINISTRY_CATEGORIES = [
         inactive: true,
         // calendarCategory: 'youth',
         // image: 'images/ministries/hope.jpg',
-      //    contact: {
-      //     name: 'Steven Thell',
-      //     role: 'Youth Director',
-      //     email: 'youthdirector@ssppglenview.org',
-      // },
+        // contact: {
+        //   name: 'Steven Thell',
+        //   role: 'Youth Director',
+        //   email: 'youthdirector@ssppglenview.org',
+        // },
       },
     ],
   },
@@ -263,8 +299,8 @@ const MINISTRY_CATEGORIES = [
         contact: {
           name: 'Alexis Douglas',
           role: 'Church School Director',
-          email: "Churchschool@ssppglenview.org",
-      },
+          email: 'Churchschool@ssppglenview.org',
+        },
       },
       {
         name: 'Greek School',
@@ -276,7 +312,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Stella Theoharopoulos',
           role: 'Greek School Director',
           email: 'greekschool@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'AGAPE Preschool',
@@ -289,7 +325,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Julie Mantice',
           role: 'Agape Preschool Director',
           email: 'agape@ssppglenview.org',
-      },
+        },
       },
     ],
   },
@@ -309,7 +345,7 @@ const MINISTRY_CATEGORIES = [
           name: "Tina O'Donnell",
           role: 'Group Leader',
           email: 'bookstore@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Coffee Connection',
@@ -321,7 +357,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Doreen DeSent',
           role: 'Group Leader',
           email: 'coffeeconnection@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Bible Study',
@@ -333,7 +369,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Dr. Helen Theodoropoulos',
           role: 'Group Leader',
           email: 'biblestudy@ssppglenview.org',
-      },
+        },
       },
       {
         name: "St. Stephen's Men's Group",
@@ -345,7 +381,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Joe Kolbaba & Dean Matsas',
           role: 'Group Leader',
           email: 'mensgroup@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Catechism',
@@ -357,20 +393,20 @@ const MINISTRY_CATEGORIES = [
           name: 'Fr. Richard Andrews',
           role: 'Spiritual Father',
           email: 'catechism@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Orthodox Couples Club (OCC)',
         summary: 'Fellowship and small groups for married couples.',
         description: 'The Orthodox Couples Club (OCC) is a group based around ministering to the married couples within our community. We split our time between large fellowship activities and small breakout groups which meet in members\' homes. On top of ministering to the specific needs of married couples, one other goal of the OCC is to take a parish of over 600 families and make it feel much smaller by bringing couples together in our small group settings.',
         inactive: true,
-          // calendarCategory: 'adult_faith',
+        // calendarCategory: 'adult_faith',
         image: 'images/ministries/occ.jpg',
-      //    contact: {
-      //     name: '',
-      //     role: '',
-      //     email: 'occ@ssppglenview.org',
-      // },
+        // contact: {
+        //   name: '',
+        //   role: '',
+        //   email: 'occ@ssppglenview.org',
+        // },
       },
     ],
   },
@@ -380,29 +416,17 @@ const MINISTRY_CATEGORIES = [
     label: 'Community Activities',
     blurb: 'Stay active and connected through sport, dance, and senior programming.',
     ministries: [
-     {
+      {
         name: 'Coffee Fellowship',
-        summary: 'Fellowship and connection after Divine Liturgy.',
-        description: 'We welcome families and ministry groups to host a Coffee Fellowship following the Sunday Divine Liturgy. It is an opportunity to promote interaction among our parishioners and visitors by offering hospitality and refreshments. Your family, or a group, can celebrate a special occasion (nameday, birthday, anniversary, memorial, graduation, etc) or host for no reason at all.',
+        summary: 'Coffee Fellowship is a cherished time after Divine Liturgy to connect and strengthen our community through coffee and company.',
+        description: 'Coffee Fellowship helps to build a community of friends and family and provides opportunities to connect with your church family – the same people who can love and support you throughout your spiritual journey. This important ministry also is a wonderful way to commemorate an anniversary, birthday, family milestone, or memorial. It’s a minimal time commitment that goes a long way in expressing appreciation and gratitude.',
         signup: 'coffee-host', // shows a "Sign Up to Host" button in the modal
         // image: 'images/ministries/dynamis.jpg',
         // calendarCategory: 'activities',
         contact: {
           name: 'Carolyn Kolbaba',
           role: 'Group Leader',
-          email: 'carolyn@ssppglenview.org',
-      },
-      },
-      {
-        name: 'Welcome Committee',
-        summary: 'Helping newcomers feel at home from their very first visit.',
-        description: 'This group focuses on welcoming visitors and new members to our parish, reaches in to current members, and reaches out to the local community so that our parish remains a visible, active presence that invites everyone into our midst.',
-        image: 'images/ministries/welcome.jpg',
-        calendarCategory: 'ministries',
-        contact: {
-          name: 'Keith Anderson and Sylvia Creatura',
-          role: 'Group Leader',
-          email: 'welcome@ssppglenview.org',
+          email: 'fellowship@ssppglenview.org',
         },
       },
       {
@@ -415,7 +439,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Vicky Nestor',
           role: 'Group Leader',
           email: 'dynamis@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Adult Athletics',
@@ -427,7 +451,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
           email: 'athletics@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Greek Dance (Adult)',
@@ -439,7 +463,7 @@ const MINISTRY_CATEGORIES = [
           name: 'Anna Andrews',
           role: 'Group Leader',
           email: 'dance@ssppglenview.org',
-      },
+        },
       },
     ],
   },
@@ -460,43 +484,43 @@ const MINISTRY_CATEGORIES = [
           name: 'Julie Anastos',
           role: 'Philoptochos President',
           email: 'philoptochos@ssppglenview.org',
-      },
+        },
       },
       {
         name: "St. Basil's Philanthropy",
         summary: 'Partnering with local charities to serve those in need.',
         description: 'On behalf of the Parish, the Philanthropy Ministry partners with local charitable organizations, including Vitalant Blood Banks, Habitat for Humanity, Glenview Youth Services, and Interfaith Action of Evanston in order to fulfill every commandment of Christ in Matthew 25:35. The ministry works with every other ministry of our parish to find more opportunities to give back.',
-      // image: 'images/ministries/stbasil.jpg',
+        // image: 'images/ministries/stbasil.jpg',
         calendarCategory: 'philanthropy',
         contact: {
           name: 'Christy Gouletas',
           role: 'Group Leader',
           email: 'philanthropy@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Care for Creation',
-        summary: 'Stewardship of our environment and parish grounds.',
-        description: 'As Orthodox Christians, we have a responsibility for the stewardship of our environment. The purpose of our Care for Creation Ministry is to encourage commitment, implement programs, and establish community through this stewardship. We also tend to the beautification and conservation of our parish landscape, including planting trees, shrubs, plants, and landscaping projects. We also coordinate an annual Vespers on August 31st for the Protection of the Environment.',
-      // image: 'images/ministries/careforcreation.jpg',
+        summary: 'Promoting responsibility for the stewardship of our environment.',
+        description: 'Through our ministry, we foster a spirit of volunteerism, community, and collaboration in support of our earth and the life it sustains. The purpose of our Care for Creation Ministry is to encourage commitment, implement programs, and establish community through this stewardship. In addition, we also tend to the beautification and conservation of our parish landscape including planting trees, shrubs, plants, and landscaping projects.',
+        // image: 'images/ministries/careforcreation.jpg',
         calendarCategory: 'philanthropy',
         contact: {
           name: 'John Kiriklakis',
           role: 'Group Leader',
           email: 'careforcreate@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Prison Outreach',
         summary: 'Ministering to those who are incarcerated.',
         description: 'In Matthew 25 Jesus emphasizes ministry to prisoners as essential to our own salvation. Currently, with a blessing from the priest and training from experts, parishioners can participate in letter-writing to prisoners and provide material support to their families. Additional opportunities are anticipated in the future.',
-      // image: 'images/ministries/prison.jpg',
+        // image: 'images/ministries/prison.jpg',
         calendarCategory: 'philanthropy',
         contact: {
           name: 'Brad DeSent',
           role: 'Group Leader',
           email: 'prisonoutreach@ssppglenview.org',
-      },
+        },
       },
     ],
   },
@@ -510,38 +534,38 @@ const MINISTRY_CATEGORIES = [
         name: 'Georgia Photopulos Cancer Support Group',
         summary: 'Compassionate support for those affected by cancer.',
         description: "The Cancer Support Ministry, started in 1981 by Georgia Photopulos and Fr. George Scoulas, was renamed in Georgia's memory in 2012. Her spirit of compassionate emotional support, gentle guidance, faith and good humor continue to be the foundation of our group. Meetings are held on the second Tuesday of each month. They are open to our parishioners and those of other Orthodox churches, as well as individuals from other denominations.",
-       // image: 'images/ministries/cancer.jpg',
+        // image: 'images/ministries/cancer.jpg',
         calendarCategory: 'support_groups',
         contact: {
           name: 'Bud Photopulos',
           role: 'Group Leader',
           email: 'cancersupport@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Grief & Loss Support',
         summary: 'A place to process loss within the context of our faith.',
         description: 'Death and loss are a part of life but are often difficult to manage because of trauma and pain. This group offers communal and personal support during trying times. Grief takes time and active effort. People who have experienced significant loss can often provide the best care. This ministry is for everyone along the journey of grief.',
-       // image: 'images/ministries/grief.jpg',
+        // image: 'images/ministries/grief.jpg',
         calendarCategory: 'support_groups',
         contact: {
           name: 'Tracy Ronstadt',
           role: 'Group Leader',
           email: 'griefsupport@ssppglenview.org',
-      },
+        },
       },
       {
         name: 'Divorce Rebuilders',
         summary: 'Support, guidance, and hope for the separated and divorced.',
         description: "Saints Peter and Paul's Divorce Rebuilders Group (Hybrid - Online and In-Person SSPP Library) is an Orthodox ministry that offers support, guidance, and hope to those who are separated and divorced. For the last nine years, Divorce Rebuilders has addressed the contemporary needs of Orthodox Christians by offering them a place to process the many aspects of the divorce experience. Group session activities are grounded in psychoeducational and faith-based principles and references. One group session is led by the parish priest. An important program component includes opportunities to socialize with other group participants.",
-         // image: 'images/ministries/divorce.jpg',
+        // image: 'images/ministries/divorce.jpg',
         detailPageUrl: 'ministries/divorcerebuilders.html',
         calendarCategory: 'support_groups',
         contact: {
           name: 'Maria Boyle',
           role: 'Group Leader',
           email: 'divorcerebuilders@ssppglenview.org',
-      },
+        },
       },
     ],
   },
