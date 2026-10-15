@@ -16,6 +16,7 @@ const CATEGORY_CAL_LABELS = {
   'adult-activities': 'Activities',
   'outreach': 'Philanthropy',
   'support': 'Support',
+  'seasonal': 'Events',
 };
 
 function getCategoryCalendar(cat) {
