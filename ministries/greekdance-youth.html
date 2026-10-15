@@ -58,7 +58,36 @@
     }
     .gd-perf p { font-size: 0.83rem; line-height: 1.6; color: var(--mt); margin: 0; }
     .gd-perf a { color: var(--blue); text-decoration: none; font-weight: 600; }
-    .gd-community { margin-top: 2rem; font-size: 0.87rem; line-height: 1.7; color: var(--tx); }
+    .gd-community {
+      margin-top: 2.25rem;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.25rem;
+      background: var(--cream); border: 1px solid var(--brd); border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg); padding: 1.4rem 1.75rem;
+    }
+    .gd-community-icon {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-text);
+      display: flex; align-items: center; justify-content: center; font-size: 1.35rem;
+    }
+    .gd-community-text h3 { font-size: 1.035rem; font-weight: var(--heading-weight); color: var(--navy-deep); margin: 0 0 0.25rem; }
+    .gd-community-text p { font-size: 0.85rem; line-height: 1.6; color: var(--mt); margin: 0; }
+
+    /* Quick facts: same width as the 1000px content column below */
+    .mp-info-strip { max-width: 936px; }
+
+    /* Intro: text beside a photo */
+    .gd-intro { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2.5rem; align-items: center; }
+    .gd-intro-text { font-size: 0.95rem; line-height: 1.75; color: var(--mt); margin: 0; }
+    .gd-intro-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .gd-intro-note { font-size: 0.8rem; color: var(--mt); margin: 0.9rem 0 0; }
+
+    /* Photos placed through the page */
+    .gd-photo { margin: 0; }
+    .gd-photo img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); }
+    .gd-intro-photo { aspect-ratio: 4 / 3; }
+    .gd-perf-photo { margin-bottom: 2rem; }
+    .gd-perf-photo img { aspect-ratio: 21 / 9; height: auto; }
+    .gd-photo figcaption { font-size: 0.75rem; color: var(--mt); margin-top: 0.5rem; }
 
     /* Help wanted cards inside the gold band */
     .gd-help-intro { font-size: 0.92rem; line-height: 1.7; color: var(--tx); max-width: 620px; margin: 0.5rem 0 1.5rem; }
@@ -75,9 +104,14 @@
     @media (max-width: 860px) {
       .gd-groups, .gd-perf-grid { grid-template-columns: 1fr; }
       .gd-group-name { font-size: 1.35rem; }
+      .gd-intro { grid-template-columns: 1fr; gap: 1.75rem; }
+      .gd-community { grid-template-columns: auto 1fr; }
+      .gd-community .btn { grid-column: 1 / -1; justify-self: start; }
     }
     @media (max-width: 640px) {
       .gd-help-grid { grid-template-columns: 1fr; }
+      .gd-community { grid-template-columns: 1fr; gap: 0.9rem; padding: 1.4rem; }
+      .gd-perf-photo img { aspect-ratio: 16 / 10; }
     }
   </style>
 </head>
@@ -96,38 +130,8 @@
     </div>
   </section>
 
-  <!-- PHOTO GALLERY / SLIDESHOW -->
-  <div class="section">
-    <div class="mp-gallery">
-      <div class="mp-gallery-frame" id="danceGallery">
-        <div class="mp-gallery-slide is-active">
-          <img src="../images/ministries/greekdance-y.jpg" width="526" height="396" alt="Youth Greek dancers performing in traditional costume">
-        </div>
-        <div class="mp-gallery-slide">
-          <img src="../images/ministries/greekdance-gallery-2-PLACEHOLDER.jpg" alt="Youth Greek Dance photo">
-        </div>
-        <div class="mp-gallery-slide">
-          <img src="../images/ministries/greekdance-gallery-3-PLACEHOLDER.jpg" alt="Youth Greek Dance photo">
-        </div>
-
-        <button class="mp-gallery-nav mp-gallery-prev" aria-label="Previous photo">
-          <i class="ti ti-chevron-left" aria-hidden="true"></i>
-        </button>
-        <button class="mp-gallery-nav mp-gallery-next" aria-label="Next photo">
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-        </button>
-
-        <div class="mp-gallery-dots">
-          <button class="mp-gallery-dot is-active" aria-label="Photo 1"></button>
-          <button class="mp-gallery-dot" aria-label="Photo 2"></button>
-          <button class="mp-gallery-dot" aria-label="Photo 3"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- QUICK FACTS -->
-  <div class="section" style="padding-top: 0;">
+  <div class="section">
     <div class="mp-info-strip">
       <div class="mp-info-item">
         <div class="mp-info-label">Grades</div>
@@ -135,34 +139,35 @@
       </div>
       <div class="mp-info-item">
         <div class="mp-info-label">Groups</div>
-        <div class="mp-info-value">3 by Age</div>
+        <div class="mp-info-value">3</div>
       </div>
       <div class="mp-info-item">
         <div class="mp-info-label">Practice</div>
         <div class="mp-info-value">Weekly</div>
-      </div>
-      <div class="mp-info-item">
-        <div class="mp-info-label">Season Fee</div>
-        <div class="mp-info-value">$120 per Dancer</div>
       </div>
     </div>
   </div>
 
   <!-- INTRO + CTAs -->
   <div class="section" style="padding-top: 0;">
-    <div class="mp-col">
-      <p class="mp-lede">Dancers meet weekly by age group to learn regional dances from across Greece, build confidence, and forge lifelong parish friendships. Throughout the year, our groups perform at parish celebrations, local festivals, and community events. No experience needed. Every dancer starts somewhere, and our directors will meet your child where they are.</p>
-      <div style="display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; margin-top: 1.5rem;">
-        <a href="../payment.html?item=greek-dance-youth" class="btn btn-gold-lg">
-          <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register for 2026–27
-        </a>
-        <a href="mailto:dance@ssppglenview.org?subject=Youth%20Greek%20Dance" class="btn btn-outline-navy">
-          <i class="ti ti-mail" aria-hidden="true"></i> Ask a question
-        </a>
+    <div class="container" style="max-width: 1000px;">
+      <div class="gd-intro">
+        <div>
+          <p class="gd-intro-text">Dancers meet weekly by age group to learn regional dances from across Greece, build confidence, and forge lifelong parish friendships. Throughout the year, our groups perform at parish celebrations, local festivals, and community events. No experience needed. Every dancer starts somewhere, and our directors will meet your child where they are.</p>
+          <div class="gd-intro-ctas">
+            <a href="../payment.html?item=greek-dance-youth" class="btn btn-gold-lg">
+              <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register for 2026–27
+            </a>
+            <a href="mailto:dance@ssppglenview.org?subject=Youth%20Greek%20Dance" class="btn btn-outline-navy">
+              <i class="ti ti-mail" aria-hidden="true"></i> Ask a question
+            </a>
+          </div>
+          <p class="gd-intro-note">Family pricing: $200 for two dancers, $260 for three.</p>
+        </div>
+        <figure class="gd-photo gd-intro-photo">
+          <img src="../images/ministries/greekdance-y.jpg" width="526" height="396" alt="Youth Greek dancers in traditional costume" loading="lazy">
+        </figure>
       </div>
-      <p style="font-size: 0.8rem; color: var(--mt); margin-top: 0.9rem;">
-        Family pricing: $200 for two dancers, $260 for three.
-      </p>
     </div>
   </div>
 
@@ -206,6 +211,11 @@
       <h2 class="section-title" style="margin-bottom: 0.4rem;">Where you'll see us dance</h2>
       <p class="mp-lede" style="margin-bottom: 1.75rem;">Our kids love to perform, and every performance is a chance to share our heritage with the community.</p>
 
+      <figure class="gd-photo gd-perf-photo">
+        <img src="../images/agape-glendi.jpg" width="1178" height="496" alt="Youth dancers performing at Agape Glendi" loading="lazy">
+        <figcaption>Our dancers at Agape Glendi</figcaption>
+      </figure>
+
       <div class="gd-perf-grid">
         <div class="gd-perf">
           <div class="gd-perf-when">Parish Celebration</div>
@@ -224,11 +234,14 @@
         </div>
       </div>
 
-      <p class="gd-community">
-        <strong>Out in the community:</strong> our groups have also performed at the Greek American Nursing Home and at local school heritage events.
-        Have an event that would welcome Greek dancers? <a href="mailto:dance@ssppglenview.org?subject=Performance%20request" style="color: var(--blue); text-decoration: none; font-weight: 600;">Invite us to perform</a>.
-      </p>
-    </div>
+      <div class="gd-community">
+        <div class="gd-community-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></div>
+        <div class="gd-community-text">
+          <h3>Out in the community</h3>
+          <p>Our groups have also performed at the Greek American Nursing Home and at local school heritage events. Have an event that would welcome Greek dancers?</p>
+        </div>
+        <a href="mailto:dance@ssppglenview.org?subject=Performance%20request" class="btn btn-outline-navy">Invite us to perform</a>
+      </div>    </div>
   </div>
 
   <!-- UPCOMING EVENTS -->
@@ -312,38 +325,6 @@
   <script>
     // Greek dance has no calendar of its own yet, so it shares Athletics & Dance
     const MINISTRY_CALENDAR_CATEGORY = 'athletics';
-
-    // Simple gallery slideshow — auto-advance + manual controls
-    (function () {
-      const frame = document.getElementById('danceGallery');
-      if (!frame) return;
-      const slides = frame.querySelectorAll('.mp-gallery-slide');
-      const dots = frame.querySelectorAll('.mp-gallery-dot');
-      let current = 0;
-      let timer;
-
-      function show(index) {
-        slides[current].classList.remove('is-active');
-        dots[current].classList.remove('is-active');
-        current = (index + slides.length) % slides.length;
-        slides[current].classList.add('is-active');
-        dots[current].classList.add('is-active');
-      }
-
-      function next() { show(current + 1); }
-      function prev() { show(current - 1); }
-
-      function restartTimer() {
-        clearInterval(timer);
-        timer = setInterval(next, 5000);
-      }
-
-      frame.querySelector('.mp-gallery-next').addEventListener('click', () => { next(); restartTimer(); });
-      frame.querySelector('.mp-gallery-prev').addEventListener('click', () => { prev(); restartTimer(); });
-      dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restartTimer(); }));
-
-      restartTimer();
-    })();
   </script>
   <script src="../js/main.js"></script>
   <script src="../js/calendar-config.js"></script>
