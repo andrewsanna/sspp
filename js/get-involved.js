@@ -5,10 +5,10 @@
 // ============================================
 
 // One-word label for each category's calendar button. Keyed by
-// category id since a couple of these (PC, Philanthropy) can't be
+// category id since a couple of these (Committees, Philanthropy) can't be
 // derived from the category label automatically.
 const CATEGORY_CAL_LABELS = {
-  'leadership': 'PC',
+  'committees': 'Committees',
   'worship': 'Worship',
   'youth': 'Youth',
   'children': 'Education',
