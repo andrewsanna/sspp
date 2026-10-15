@@ -349,13 +349,31 @@
   background: #fff;
   border: 1px solid var(--brd);
   border-radius: var(--radius-md);
-  padding: 1.5rem 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
 }
-.mp-info-item { }
+.mp-info-item {
+  text-align: center;
+  padding: 0 1.25rem;
+}
+.mp-info-item + .mp-info-item {
+  border-left: 1px solid var(--brd);
+}
+@media (max-width: 560px) {
+  .mp-info-strip {
+    grid-auto-flow: row;
+    padding: 0 1.25rem;
+  }
+  .mp-info-item {
+    padding: 1rem 0;
+  }
+  .mp-info-item + .mp-info-item {
+    border-left: none;
+    border-top: 1px solid var(--brd);
+  }
+}
 .mp-info-label {
   font-size: 0.68rem;
   font-weight: 600;
