@@ -115,24 +115,35 @@
 
 .hero-microlinks {
   display: flex;
-  gap: 1.1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
+/* Secondary hero buttons: outlined on the dark hero, same height as the gold button */
 .micro-link {
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.8rem;
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-  padding-bottom: 1px;
+  gap: 0.5rem;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: calc(0.9rem - 1px) 1.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.micro-link i {
+  font-size: 1.1rem;
 }
 
 .micro-link:hover {
   color: var(--gold);
   border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Homepage-only overrides for the featured-event-compact cards —
