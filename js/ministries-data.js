@@ -234,8 +234,8 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Greek Dance (Youth)',
-        summary: 'Learn traditional Greek dances and build friendships.',
-        description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. Each youth group meets once a week, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
+        summary: 'Connecting youth to Greek culture, faith, and community through dance.',
+        description: "The Youth Greek Dance ministry brings our young people together to celebrate our rich cultural heritage through traditional music and dance. Dancers meet weekly by age group to learn regional dances from across Greece, build confidence, and forge lifelong parish friendships. Throughout the year, groups perform at parish celebrations, local festivals, and community events.",
         image: 'images/ministries/greekdance-y.jpg',
         calendarCategory: 'athletics',
         contact: {
@@ -455,8 +455,8 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Greek Dance (Adult)',
-        summary: 'Celebrate Greek heritage through traditional song and dance.',
-        description: 'The Greek Dance ministry at SSPP is dedicated to promoting, celebrating, and preserving our Greek heritage through the art of song and dance. The adult group meets regularly, providing the opportunity to build friendships while learning a variety of dances from different regions of Greece.',
+        summary: 'Traditional Greek music, fellowship, and dance for adults of all skill levels.',
+        description: 'Whether you’ve danced for years or are stepping onto the floor for the first time, Adult Greek Dance is a fun, welcoming way to stay active and celebrate our heritage. The group meets regularly to learn traditional regional dances, enjoy great fellowship, and share the joy of dance at church festivals and special parish gatherings.',
         image: 'images/ministries/greekdance-a.jpg',
         calendarCategory: 'athletics',
         contact: {
