@@ -45,7 +45,7 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Stewardship Committee',
         summary: 'Our committee provides parishioners information regarding annual progress of stewardship goal and allocation of funds.',
-        description: 'Our committee does not track or have access to parishioners pledge amounts nor will anyone ever ask a parishioner. We only know monthly total received and number of donors to assess our communication to all parishioners.',
+        description: "The mission of SSPP Stewardship Ministry is to inspire joyful, generous and sacrificial giving of our Time, Talents and Treasure to care for God's House-our first home-and for one another through Christian love",
         // image: 'images/ministries/stewardship.jpg',
         calendarCategory: 'ministries',
         contact: {
@@ -350,8 +350,8 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Coffee Connection',
-        summary: 'Adult discussion group, twice a month after church school.',
-        description: 'Coffee Connection is an educational ministry for adults that aims to strengthen knowledge and practice of the Orthodox faith. Twice a month, all interested adults meet in the Youth Room (under the gym) immediately following Holy Communion, until church school is dismissed, at 11:45 am. There we share in fellowship, provide educational materials, and offer a presentation and discussion on the topic of the week. The presentation is an opportunity to learn more about our faith, while the discussion emphasizes how to practice Orthodox traditions in our lives.',
+        summary: 'Connection in Faith and Fellowship- An Educational Ministry Open to All Adults',
+        description: 'We are an adult educational ministry that strengthens knowledge and practice of the Orthodox faith.  Our presentations provide participants with foundational knowledge, while group discussions offer ideas for how to apply this knowledge in everyday life.',
         // image: 'images/ministries/coffeeconnection.jpg',
         calendarCategory: 'adult_faith',
         contact: {
