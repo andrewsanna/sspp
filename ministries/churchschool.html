@@ -164,6 +164,22 @@
     }
     .cs-perk { font-size: 0.78rem; font-style: italic; color: var(--gold-text); }
 
+    /* ---- Hero register button, pickup note, full-width photo break ---- */
+    .cs-hero-cta { margin-top: 1.5rem; }
+    .cs-pickup {
+      max-width: 900px;   /* same width as the quick-facts strip */
+      margin-top: 1rem;
+      margin-bottom: 0;
+      padding: 0.85rem 1.2rem;
+      border-left: 3px solid var(--gold);
+    }
+    .cs-photo-break { margin: 0; }
+    .cs-photo-break img {
+      display: block; width: 100%;
+      height: clamp(220px, 32vw, 420px);
+      object-fit: cover;
+    }
+
     @media (max-width: 960px) { .cs-help-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 760px) {
       .cs-tabs { gap: 0.5rem; }
@@ -198,6 +214,9 @@
     <div class="mp-hero-inner">
       <h1 class="mp-hero-title">A joyful start to every Sunday.</h1>
       <p class="mp-hero-body">Church School begins with family worship in Divine Liturgy, and continues with classes for every age, from Pre-K through 12th grade.</p>
+      <a href="https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx" target="_blank" rel="noopener noreferrer" class="btn btn-gold-lg cs-hero-cta">
+        <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register for Church School
+      </a>
     </div>
   </section>
 
@@ -217,6 +236,7 @@
         <div class="mp-info-value">11:45 AM</div>
       </div>
     </div>
+    <p class="mp-note-box cs-pickup"><strong>Pickup:</strong> All students 3rd grade and younger must be picked up by a parent or older sibling.</p>
   </div>
 
   <!-- INTRO + REGISTER -->
@@ -224,8 +244,7 @@
     <div class="container" style="max-width: 1000px;">
       <div class="mp-intro">
         <div>
-          <p class="mp-intro-text">Classes begin with family worship in Divine Liturgy at 9:30 a.m. on Sunday mornings. We welcome all students to proceed to class following Holy Communion. Our knowledgeable and dedicated teachers are committed to inspiring students to grow their faith in Christ through age-appropriate curriculum and activities each week, fostering an environment for students to form lasting connections with their Orthodox classmates.</p>
-          <p class="mp-intro-text">Classes end at 11:45 a.m. All students 3rd grade and younger must be picked up by a parent or older sibling.</p>
+          <p class="mp-intro-text">Classes begin with family worship in Divine Liturgy on Sunday mornings. We welcome all students to proceed to class following Holy Communion. Our knowledgeable and dedicated teachers are committed to inspiring students to grow their faith in Christ through age-appropriate curriculum and activities each week, fostering an environment for students to form lasting connections with their Orthodox classmates.</p>
           <a href="https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx" target="_blank" rel="noopener noreferrer" class="btn btn-gold-lg mp-intro-cta">
             <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register for Church School
           </a>
@@ -234,10 +253,6 @@
           <img src="../images/childrens-sermon.jpg" width="1310" height="840" alt="Children gathered at the front of the church during Divine Liturgy" loading="lazy">
         </figure>
       </div>
-
-      <figure class="mp-photo mp-photo-wide">
-        <img src="../images/ministries/churchschool.jpg" width="3185" height="1316" alt="Church School students and teachers with the clergy in the church" loading="lazy">
-      </figure>
     </div>
   </div>
 
@@ -300,7 +315,7 @@
           </div>
         </div>
         <div class="cs-panel" role="tabpanel" id="cs-panel-pageant" aria-labelledby="cs-tab-pageant" hidden>
-          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/christmaspageant.jpg" alt="Church School students performing in the Christmas Pageant"></div>
+          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/christmaspageant.jpg" loading="lazy" alt="Church School students performing in the Christmas Pageant"></div>
           <div class="cs-panel-text">
             <span class="cs-label">Christmas Season</span>
             <h3>Christmas Pageant</h3>
@@ -319,7 +334,7 @@
           </div>
         </div>
         <div class="cs-panel" role="tabpanel" id="cs-panel-oratorical" aria-labelledby="cs-tab-oratorical" hidden>
-          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/oratorical.jpg" alt="A student speaking at the Oratorical Festival"></div>
+          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/oratorical.jpg" loading="lazy" alt="A student speaking at the Oratorical Festival"></div>
           <div class="cs-panel-text">
             <span class="cs-label">Grades 7–12</span>
             <h3>Oratorical Festival</h3>
@@ -341,11 +356,16 @@
     </div>
   </div>
 
+  <!-- FULL-WIDTH PHOTO BREAK -->
+  <figure class="cs-photo-break">
+    <img src="../images/ministries/churchschool.jpg" width="3185" height="1316" alt="Church School students and teachers with the clergy in the church" loading="lazy">
+  </figure>
+
   <!-- ROW 2: HOW YOU CAN HELP (equal-height icon cards on the gold band) -->
   <section class="mp-acc-section">
     <div style="max-width: calc(1000px - 4rem); margin: 0 auto;">
       <h2 class="section-title">How you can help</h2>
-      <p class="cs-intro">Many volunteers are needed to make each program successful, so we ask families to consider volunteering for one or more Church School events. Sign-up takes place annually during Church School registration. Your service to the Church School program is an example to our children and a support to our community.</p>
+      <p class="cs-intro">Every Church School program runs on parent volunteers. Sign up for one or more roles each year when you register. Your service is an example to our children.</p>
 
       <div class="cs-help-grid">
         <article class="cs-help">
@@ -361,6 +381,7 @@
         <article class="cs-help">
           <div class="cs-help-icon"><i class="ti ti-coffee" aria-hidden="true"></i></div>
           <h3>Coffee Hour</h3>
+          <p>Host Sunday fellowship when it's the Church School's turn.</p>
           <ul class="mp-list">
             <li>Set up and clean up</li>
             <li>Serve during coffee hour</li>
@@ -381,6 +402,7 @@
         <article class="cs-help">
           <div class="cs-help-icon"><i class="ti ti-camera" aria-hidden="true"></i></div>
           <h3>Photographer</h3>
+          <p>Capture the big moments of the Church School year.</p>
           <ul class="mp-list">
             <li>Capture group shots on major event days</li>
             <li>Save them to a shared file</li>
@@ -396,9 +418,6 @@
         <a href="https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
           <i class="ti ti-clipboard-check" aria-hidden="true"></i> Sign up when you register
         </a>
-        <span style="font-size: 0.85rem; color: var(--tx);">
-          Questions? Email <a href="mailto:churchschool@ssppglenview.org" style="color: var(--blue); text-decoration: none; font-weight: 600;">churchschool@ssppglenview.org</a>
-        </span>
       </div>
     </div>
   </section>
@@ -435,6 +454,14 @@
           document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
         });
       }
+      // Open the event that's coming up next: Pageant Sep–Dec (and over the
+      // summer), Oratorical Jan–Feb, Project Hope (Lent) Mar–Apr.
+      const month = new Date().getMonth(); // 0 = January
+      const seasonTab = month <= 1 ? 'cs-tab-oratorical'
+        : month <= 3 ? 'cs-tab-projecthope'
+        : 'cs-tab-pageant';
+      select(document.getElementById(seasonTab) || tabs[0]);
+
       tabs.forEach((tab, i) => {
         tab.addEventListener('click', () => select(tab));
         tab.addEventListener('keydown', e => {
