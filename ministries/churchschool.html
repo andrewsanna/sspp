@@ -15,125 +15,140 @@
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <style>
-    /* ---- Church School: event + help cards with dropdown details ---- */
-    .cs-grid {
-      display: grid;
-      gap: 1.1rem;
-      align-items: start; /* opening one card doesn't stretch its neighbors */
+    /* ---- Shared: section intro ---- */
+    .cs-intro {
+      font-size: 0.92rem; line-height: 1.7; color: var(--tx);
+      max-width: 640px; margin: 0.5rem 0 1.75rem;
     }
-    .cs-grid--events { grid-template-columns: repeat(3, 1fr); }
-    .cs-grid--help { grid-template-columns: repeat(4, 1fr); }
+    .cs-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+    .cs-volunteer {
+      background: var(--gold-lt);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 1rem 1.2rem;
+      margin-top: 1.25rem;
+    }
+    .cs-volunteer .cs-label { display: block; margin-bottom: 0.4rem; }
+    .cs-volunteer .mp-list li { font-size: 0.82rem; }
+    .cs-volunteer-link {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      margin-top: 0.7rem; font-size: 0.8rem; font-weight: 600;
+      color: var(--blue); text-decoration: none;
+    }
 
-    .cs-card {
+    /* ---- Events: spotlight tabs ---- */
+    .cs-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .cs-tab {
+      display: flex; align-items: center; gap: 0.8rem;
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 0.6rem;
+      cursor: pointer;
+      font: inherit;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cs-tab:hover { border-color: var(--gold); }
+    .cs-tab.is-active {
+      border-color: var(--gold);
+      box-shadow: inset 0 -3px 0 var(--gold), var(--shadow-card);
+    }
+    .cs-tab-thumb {
+      width: 56px; height: 56px; border-radius: var(--radius-sm);
+      object-fit: cover; flex-shrink: 0; background: var(--brd);
+    }
+    .cs-tab .cs-label { display: block; font-size: 0.62rem; }
+    .cs-tab-name {
+      display: block;
+      font-family: var(--font-heading); font-weight: var(--heading-weight);
+      font-size: 1rem; color: var(--navy-deep); margin-top: 0.15rem;
+    }
+    .cs-panel {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
       background: #fff;
       border: 1px solid var(--brd);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: var(--shadow-card);
+      min-height: 400px;
     }
-    .cs-card:hover { box-shadow: var(--shadow-card); }
-    .cs-card:has(details[open]) { border-color: var(--gold); box-shadow: var(--shadow-card); }
+    .cs-panel[hidden] { display: none; }
+    .cs-panel-img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--brd); }
+    .cs-panel-text { padding: 2rem 2.1rem; }
+    .cs-panel-text h3 {
+      font-size: 1.6rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0.35rem 0 0.75rem; line-height: 1.2;
+    }
+    .cs-sub {
+      display: block; font-size: 0.95rem; font-style: italic;
+      color: var(--mt); margin-top: 0.2rem;
+    }
+    .cs-panel-text p { font-size: 0.9rem; line-height: 1.7; color: var(--tx); margin: 0; }
 
-    .cs-card-img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
-      background: var(--brd);
+    /* ---- Help row: equal-height cards, details always visible ---- */
+    .cs-help-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
     }
-    .cs-card-body { padding: 1.2rem 1.3rem 0.4rem; }
-    .cs-card-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold-text);
-      margin-bottom: 0.35rem;
-    }
-    .cs-card h3 {
-      font-size: 1.125rem;
-      font-weight: var(--heading-weight);
-      color: var(--navy-deep);
-      margin: 0 0 0.4rem;
-      line-height: 1.3;
-    }
-    .cs-card-summary {
-      font-size: 0.83rem;
-      line-height: 1.6;
-      color: var(--mt);
-      margin: 0;
-    }
-
-    /* dropdown */
-    .cs-more { padding: 0 1.3rem; }
-    .cs-more > summary {
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--navy-deep);
-      padding: 0.85rem 0 1rem;
-      margin-top: 0.6rem;
-      border-top: 1px solid var(--brd);
-    }
-    .cs-more > summary::-webkit-details-marker { display: none; }
-    .cs-more > summary i {
-      color: var(--gold-deep);
-      transition: transform 0.2s ease;
-    }
-    .cs-more[open] > summary i { transform: rotate(180deg); }
-    .cs-more-body {
-      padding-bottom: 1.2rem;
-      font-size: 0.83rem;
-      line-height: 1.65;
-      color: var(--tx);
-    }
-    .cs-more-body p { margin: 0 0 0.9rem; }
-    .cs-more-head {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold-text);
-      margin-bottom: 0.35rem;
-    }
-
-    /* help cards: icon instead of photo, cream on the gold band */
-    .cs-card--help { background: var(--cream); }
-    .cs-card--help .cs-card-body { padding-top: 1.3rem; }
-    .cs-card-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: #fff;
+    .cs-help {
+      background: var(--cream);
       border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.3rem 1.3rem;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.8rem;
+      flex-direction: column;
     }
-    .cs-card-icon i { font-size: 1.15rem; color: var(--gold-deep); }
+    .cs-help-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #fff; border: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.85rem;
+    }
+    .cs-help-icon i { font-size: 1.15rem; color: var(--gold-deep); }
+    .cs-help h3 {
+      font-size: 1.08rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.5rem;
+    }
+    .cs-help p {
+      font-size: 0.83rem; line-height: 1.6; color: var(--mt); margin: 0 0 0.6rem;
+    }
+    .cs-help .mp-list li { font-size: 0.8rem; }
+    .cs-help-foot {
+      margin-top: auto; /* pins tags/perk to the bottom of every card */
+      padding-top: 0.9rem;
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+    }
+    .cs-tag {
+      font-size: 0.68rem; font-weight: 600; color: var(--navy-deep);
+      background: #fff; border: 1px solid var(--brd);
+      border-radius: 999px; padding: 0.25rem 0.6rem;
+    }
+    .cs-perk { font-size: 0.78rem; font-style: italic; color: var(--gold-text); }
 
-    .cs-intro {
-      font-size: 0.92rem;
-      line-height: 1.7;
-      color: var(--tx);
-      max-width: 640px;
-      margin: 0.5rem 0 1.75rem;
-    }
-
-    @media (max-width: 960px) {
-      .cs-grid--help { grid-template-columns: repeat(2, 1fr); }
-    }
+    @media (max-width: 960px) { .cs-help-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 760px) {
-      .cs-grid--events { grid-template-columns: 1fr; }
+      .cs-tabs { gap: 0.5rem; }
+      .cs-tab { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding: 0.5rem; }
+      .cs-tab-thumb { width: 100%; height: 64px; }
+      .cs-tab .cs-label { display: none; }
+      .cs-tab-name { font-size: 0.85rem; }
+      .cs-panel { grid-template-columns: 1fr; min-height: 0; }
+      .cs-panel-img { aspect-ratio: 16 / 10; height: auto; }
+      .cs-panel-text { padding: 1.4rem 1.3rem; }
+      .cs-panel-text h3 { font-size: 1.35rem; }
     }
-    @media (max-width: 520px) {
-      .cs-grid--help { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 520px) { .cs-help-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -207,171 +222,132 @@
     </div>
   </div>
 
-  <!-- ROW 1: CHURCH SCHOOL EVENTS (photo cards, plain background) -->
+  <!-- ROW 1: CHURCH SCHOOL EVENTS (spotlight tabs) -->
   <div class="section section--alt">
     <div class="container" style="max-width: 1000px;">
       <h2 class="section-title">Church School events</h2>
       <p class="cs-intro">Saints Peter and Paul Church School offers a variety of events and participation opportunities for students, with the goal of deepening their faith and bringing Christ's teachings into their everyday lives.</p>
 
-      <div class="cs-grid cs-grid--events">
-
-        <!-- PROJECT HOPE -->
-        <article class="cs-card">
-          <img class="cs-card-img" src="../images/ministries/projecthope.jpg" alt="Church School students with Brown Bag Sunday food donations">
-          <div class="cs-card-body">
-            <div class="cs-card-label">During Lent</div>
-            <h3>Project Hope Food Drive</h3>
-            <p class="cs-card-summary">"Brown Bag Sunday": our Lenten project that sets the example of giving.</p>
-          </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <p>During Lent, the Church School takes part in this Lenten project to set the example of giving during this season of reflection.</p>
-              <div class="cs-more-head">Volunteer for this event</div>
+      <div class="cs-tabs" role="tablist" aria-label="Church School events">
+        <button class="cs-tab is-active" role="tab" id="cs-tab-projecthope" aria-controls="cs-panel-projecthope" aria-selected="true">
+          <img src="../images/ministries/projecthope.jpg" alt="" class="cs-tab-thumb">
+          <span><span class="cs-label">During Lent</span><span class="cs-tab-name">Project Hope</span></span>
+        </button>
+        <button class="cs-tab" role="tab" id="cs-tab-pageant" aria-controls="cs-panel-pageant" aria-selected="false" tabindex="-1">
+          <img src="../images/ministries/christmaspageant.jpg" alt="" class="cs-tab-thumb">
+          <span><span class="cs-label">Christmas Season</span><span class="cs-tab-name">Christmas Pageant</span></span>
+        </button>
+        <button class="cs-tab" role="tab" id="cs-tab-oratorical" aria-controls="cs-panel-oratorical" aria-selected="false" tabindex="-1">
+          <img src="../images/ministries/oratorical.jpg" alt="" class="cs-tab-thumb">
+          <span><span class="cs-label">Grades 7–12</span><span class="cs-tab-name">Oratorical Festival</span></span>
+        </button>
+      </div>
+      <div class="cs-panels">
+        <div class="cs-panel" role="tabpanel" id="cs-panel-projecthope" aria-labelledby="cs-tab-projecthope">
+          <img class="cs-panel-img" src="../images/ministries/projecthope.jpg" alt="Church School students with Brown Bag Sunday food donations">
+          <div class="cs-panel-text">
+            <span class="cs-label">During Lent</span>
+            <h3>Project Hope Food Drive <span class="cs-sub">“Brown Bag Sunday”</span></h3>
+            <p>During Lent, the Church School takes part in this Lenten project to set the example of giving during this season of reflection.</p>
+            <div class="cs-volunteer">
+              <span class="cs-label">Volunteer for this event</span>
               <ul class="mp-list">
                 <li>Serve as the main point of contact with the recipient organization</li>
                 <li>Create the list of goods needed</li>
                 <li>Distribute bags to classrooms ahead of time</li>
                 <li>Coordinate collecting the bags and delivering them to the recipient organization</li>
               </ul>
+              <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Project%20Hope%20Food%20Drive%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
             </div>
-          </details>
-        </article>
-
-        <!-- CHRISTMAS PAGEANT -->
-        <article class="cs-card">
-          <img class="cs-card-img" src="../images/ministries/christmaspageant.jpg" alt="Church School students performing in the Christmas Pageant">
-          <div class="cs-card-body">
-            <div class="cs-card-label">Christmas Season</div>
-            <h3>Christmas Pageant</h3>
-            <p class="cs-card-summary">Our wonderful cast of children brings the parish together to celebrate the season.</p>
           </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <p>This event is vital to bringing our community together to celebrate the season with our wonderful cast of children. We have a coordinator and need enthusiastic supporters.</p>
-              <div class="cs-more-head">Volunteer for this event</div>
+        </div>
+        <div class="cs-panel" role="tabpanel" id="cs-panel-pageant" aria-labelledby="cs-tab-pageant" hidden>
+          <img class="cs-panel-img" src="../images/ministries/christmaspageant.jpg" alt="Church School students performing in the Christmas Pageant">
+          <div class="cs-panel-text">
+            <span class="cs-label">Christmas Season</span>
+            <h3>Christmas Pageant</h3>
+            <p>This event is vital to bringing our community together to celebrate the season with our wonderful cast of children. We have a coordinator and need enthusiastic supporters.</p>
+            <div class="cs-volunteer">
+              <span class="cs-label">Volunteer for this event</span>
               <ul class="mp-list">
                 <li>Costumes and sets</li>
                 <li>Casting: the sign-up and role assignment process for the children</li>
                 <li>Day-of oversight and logistics</li>
               </ul>
+              <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Christmas%20Pageant%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
             </div>
-          </details>
-        </article>
-
-        <!-- ORATORICAL FESTIVAL -->
-        <article class="cs-card">
-          <img class="cs-card-img" src="../images/ministries/oratorical.jpg" alt="A student speaking at the Oratorical Festival">
-          <div class="cs-card-body">
-            <div class="cs-card-label">Grades 7–12</div>
-            <h3>Oratorical Festival</h3>
-            <p class="cs-card-summary">Students express their faith through speech, essay, song, chanting, or iconography.</p>
           </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <p>Our annual Oratorical Festival gives students in 7th–12th grades a chance to delve into their faith and express their learning through speech, essay, song, chanting, or iconography.</p>
-              <div class="cs-more-head">Volunteer for this event</div>
+        </div>
+        <div class="cs-panel" role="tabpanel" id="cs-panel-oratorical" aria-labelledby="cs-tab-oratorical" hidden>
+          <img class="cs-panel-img" src="../images/ministries/oratorical.jpg" alt="A student speaking at the Oratorical Festival">
+          <div class="cs-panel-text">
+            <span class="cs-label">Grades 7–12</span>
+            <h3>Oratorical Festival</h3>
+            <p>Our annual Oratorical Festival gives students in 7th–12th grades a chance to delve into their faith and express their learning through speech, essay, song, chanting, or iconography.</p>
+            <div class="cs-volunteer">
+              <span class="cs-label">Volunteer for this event</span>
               <ul class="mp-list">
                 <li>Coordinators assist with promotion, registration, and selecting judges</li>
                 <li>Judge a category (judges cannot have family members participating)</li>
                 <li>Coordinate documents to align with Metropolis rules and submit them by strict deadlines</li>
               </ul>
+              <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Oratorical%20Festival%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
             </div>
-          </details>
-        </article>
-
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ROW 2: HOW YOU CAN HELP (icon cards on the gold band) -->
+  <!-- ROW 2: HOW YOU CAN HELP (equal-height icon cards on the gold band) -->
   <section class="mp-acc-section">
-    <div style="max-width: calc(1000px - 4rem); margin: 0 auto;"> <!-- lines up with row 1's .container -->
+    <div style="max-width: calc(1000px - 4rem); margin: 0 auto;">
       <h2 class="section-title">How you can help</h2>
       <p class="cs-intro">Many volunteers are needed to make each program successful, so we ask families to consider volunteering for one or more Church School events. Sign-up takes place annually during Church School registration. Your service to the Church School program is an example to our children and a support to our community.</p>
 
-      <div class="cs-grid cs-grid--help">
-
-        <!-- SUBSTITUTE TEACHER -->
-        <article class="cs-card cs-card--help">
-          <div class="cs-card-body">
-            <div class="cs-card-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
-            <h3>Substitute Teacher</h3>
-            <p class="cs-card-summary">Step in when one of our usual teachers must miss a week.</p>
+      <div class="cs-help-grid">
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+          <h3>Substitute Teacher</h3>
+          <p>Step in when a regular teacher must miss a week. Lessons are planned, and you'll support the teacher who is present.</p>
+          <div class="cs-help-foot">
+            <span class="cs-tag">Youth safety training</span>
+            <span class="cs-tag">Background check</span>
           </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <p>We always need a bench of substitute teachers to make Sundays run smoothly. Lessons are planned, and you generally have a supporting role alongside the other teacher who is present. It's a chance to make a meaningful and direct impact.</p>
-              <div class="cs-more-head">Requirements</div>
-              <ul class="mp-list">
-                <li>Mandatory youth safety training</li>
-                <li>Background check</li>
-              </ul>
-            </div>
-          </details>
         </article>
 
-        <!-- COFFEE HOUR -->
-        <article class="cs-card cs-card--help">
-          <div class="cs-card-body">
-            <div class="cs-card-icon"><i class="ti ti-coffee" aria-hidden="true"></i></div>
-            <h3>Coffee Hour</h3>
-            <p class="cs-card-summary">Help host Church School Coffee Hour for the parish.</p>
-          </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <ul class="mp-list">
-                <li>Set up and clean up</li>
-                <li>Serve during coffee hour</li>
-                <li>Organize the SignUpGenius list for parents to bring food items</li>
-              </ul>
-            </div>
-          </details>
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-coffee" aria-hidden="true"></i></div>
+          <h3>Coffee Hour</h3>
+          <ul class="mp-list">
+            <li>Set up and clean up</li>
+            <li>Serve during coffee hour</li>
+            <li>Organize the SignUpGenius list for parents to bring food</li>
+          </ul>
         </article>
 
-        <!-- SUNDAY BAGELS -->
-        <article class="cs-card cs-card--help">
-          <div class="cs-card-body">
-            <div class="cs-card-icon"><i class="ti ti-bread" aria-hidden="true"></i></div>
-            <h3>Sunday Bagels</h3>
-            <p class="cs-card-summary">Be a friendly face as students break their communion fast.</p>
-          </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <p>Each Sunday, your children break their communion fast with mini bagels.</p>
-              <ul class="mp-list">
-                <li>Pick up the bagels from their delivery spot and get them to the atrium</li>
-                <li>Be a friendly face passing them out</li>
-              </ul>
-            </div>
-          </details>
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-bread" aria-hidden="true"></i></div>
+          <h3>Sunday Bagels</h3>
+          <p>Each Sunday, students break their communion fast with mini bagels.</p>
+          <ul class="mp-list">
+            <li>Pick up the bagels and bring them to the atrium</li>
+            <li>Be a friendly face passing them out</li>
+          </ul>
         </article>
 
-        <!-- PHOTOGRAPHER -->
-        <article class="cs-card cs-card--help">
-          <div class="cs-card-body">
-            <div class="cs-card-icon"><i class="ti ti-camera" aria-hidden="true"></i></div>
-            <h3>Photographer</h3>
-            <p class="cs-card-summary">Capture group shots on our major event days.</p>
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-camera" aria-hidden="true"></i></div>
+          <h3>Photographer</h3>
+          <ul class="mp-list">
+            <li>Capture group shots on major event days</li>
+            <li>Save them to a shared file</li>
+            <li>Share them with the Office for the bulletin and social media</li>
+          </ul>
+          <div class="cs-help-foot">
+            <span class="cs-perk">Perk: front-and-center shots of your kids!</span>
           </div>
-          <details class="cs-more">
-            <summary>Details <i class="ti ti-chevron-down" aria-hidden="true"></i></summary>
-            <div class="cs-more-body">
-              <p>Perks include getting the shots of your children from front and center!</p>
-              <ul class="mp-list">
-                <li>Capture group shots on days of major events</li>
-                <li>Save them to a shared file</li>
-                <li>Coordinate with the Office to share them in the bulletin and on social media</li>
-              </ul>
-            </div>
-          </details>
         </article>
-
       </div>
 
       <div style="display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; margin-top: 1.75rem;">
@@ -403,6 +379,30 @@
   <script>
     // Church School classes + Church School events calendars only
     const MINISTRY_CALENDAR_TAG = ['church_school', 'church_school_events'];
+
+    // Event spotlight tabs (click + arrow keys)
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.cs-tab'));
+      if (!tabs.length) return;
+      function select(tab) {
+        tabs.forEach(t => {
+          const on = t === tab;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on);
+          t.tabIndex = on ? 0 : -1;
+          document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+        });
+      }
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(tab));
+        tab.addEventListener('keydown', e => {
+          const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!step) return;
+          const next = tabs[(i + step + tabs.length) % tabs.length];
+          select(next); next.focus();
+        });
+      });
+    })();
   </script>
   <script src="../js/main.js"></script>
   <script src="../js/calendar-config.js"></script>
