@@ -30,7 +30,6 @@
     <div class="hero-video-embed" aria-hidden="true">
       <iframe
         id="heroVideoFrame"
-        src="https://www.youtube.com/embed/tNkNY9oiGOY?start=9&autoplay=1&mute=1&loop=1&playlist=tNkNY9oiGOY&controls=0&modestbranding=1&playsinline=1&rel=0&showinfo=0&iv_load_policy=3"
         title="Saints Peter & Paul hero video"
         frameborder="0"
         allow="autoplay; encrypted-media"
@@ -320,12 +319,64 @@
     // the video starts rendering), so it softens but doesn't fully
     // eliminate the pop — a self-hosted <video> with a poster image
     // would be the complete fix if that's ever worth the asset work.
+    //
+    // The embed URL is built here so the trim points are easy to change.
+    // HERO_VIDEO_END_SECONDS stops the video before the closing
+    // "Filmed and Produced By" credit card.
+    var HERO_VIDEO_ID = 'tNkNY9oiGOY';
+    var HERO_VIDEO_START_SECONDS = 9;
+    var HERO_VIDEO_END_SECONDS = 115;   // 1:55
+
     (function () {
       var frame = document.getElementById('heroVideoFrame');
       if (!frame) return;
       frame.addEventListener('load', function () {
         frame.classList.add('is-loaded');
       });
+
+      var params = [
+        'start=' + HERO_VIDEO_START_SECONDS,
+        'end=' + HERO_VIDEO_END_SECONDS,
+        'autoplay=1',
+        'mute=1',
+        'loop=1',
+        'playlist=' + HERO_VIDEO_ID,   // loop only works when playlist = the same video id
+        'controls=0',
+        'modestbranding=1',
+        'playsinline=1',
+        'rel=0',
+        'showinfo=0',
+        'iv_load_policy=3',
+        'enablejsapi=1'
+      ];
+      frame.src = 'https://www.youtube.com/embed/' + HERO_VIDEO_ID + '?' + params.join('&');
+
+      // YouTube applies start/end only to the first play of a looped
+      // video, so later loops would run into the credits. Watch the
+      // playhead and jump back to the start once it reaches the end time.
+      window.onYouTubeIframeAPIReady = function () {
+        var player = new YT.Player('heroVideoFrame', {
+          events: {
+            onReady: function () {
+              setInterval(function () {
+                if (player.getCurrentTime && player.getCurrentTime() >= HERO_VIDEO_END_SECONDS) {
+                  player.seekTo(HERO_VIDEO_START_SECONDS, true);
+                }
+              }, 500);
+            },
+            onStateChange: function (e) {
+              // If the end param stops playback first, restart from the start.
+              if (e.data === YT.PlayerState.ENDED) {
+                player.seekTo(HERO_VIDEO_START_SECONDS, true);
+                player.playVideo();
+              }
+            }
+          }
+        });
+      };
+      var api = document.createElement('script');
+      api.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(api);
     })();
   </script>
 </body>

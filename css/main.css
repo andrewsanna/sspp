@@ -37,8 +37,8 @@
   /* Hero text: shared by every page hero */
   --hero-title: clamp(2.25rem, 3.8vw, 3.15rem);
   /* homepage hero title (white): one line from tablet up, two lines max on phones */
-  --hero-title-home: clamp(2.25rem, calc((100vw - 4rem) / 15.5), 3.6rem);
-  --hero-title-home-phone: min(2.3rem, calc((100vw - 4rem) / 9));
+  --hero-title-home: clamp(2rem, calc((100vw - 4rem) / 15.5), 3.2rem);   /* same px as before the 18px base */
+  --hero-title-home-phone: min(2.05rem, calc((100vw - 4rem) / 9));
   --hero-title-color: #E2C287;
   --hero-body: clamp(1.125rem, 1.4vw, 1.3rem);
   --hero-body-color: rgba(255, 255, 255, 0.92);
@@ -72,6 +72,7 @@
 }
 
 html {
+  font-size: 112.5%; /* 18px base; type is in rem, so this scales the whole site */
   scroll-behavior: smooth;
 }
 
@@ -259,7 +260,7 @@ p {
 .acc-title {
   font-family: var(--font-heading);
   font-weight: var(--heading-weight);
-  font-size: 1.035rem;
+  font-size: 1.25rem;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
 
@@ -270,7 +271,7 @@ p {
 }
 
 .acc-blurb {
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   color: var(--mt);
 }
 
@@ -286,7 +287,7 @@ p {
 }
 
 .acc-count {
-  font-size: 0.72rem;
+  font-size: 0.9rem;
   color: var(--mt);
   white-space: nowrap;
 }
@@ -296,7 +297,7 @@ p {
 }
 
 .acc-chevron {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: var(--mt);
   transition: transform 0.2s ease;
 }
@@ -477,13 +478,20 @@ p {
 
 .nav-logo-sub {
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
   gap: 1.75rem;
+}
+
+/* Tighter link spacing on narrower desktops so the 18px base type fits */
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 0.75rem;
+  }
 }
 
 .nav-links a {
@@ -705,7 +713,7 @@ p {
 
 .footer-addr {
   font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
 }
 
@@ -729,7 +737,7 @@ p {
   font-size: 0.66rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0.75rem;
 }
 
@@ -741,7 +749,7 @@ p {
 
 .footer-links a {
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
 }
 
@@ -763,7 +771,7 @@ p {
 
 .footer-copy {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-bottom-links {
@@ -771,9 +779,18 @@ p {
   gap: 1.25rem;
 }
 
+/* Homepage video credit: only shown on the homepage (see home.css) */
+.footer-video-credit {
+  display: none;
+  flex-basis: 100%;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
 .footer-bottom-links a {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
 }
 
@@ -1012,7 +1029,7 @@ padding: var(--space-5) 0;
 
 .vb-body {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
   max-width: 520px;
 }

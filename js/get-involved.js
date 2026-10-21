@@ -224,18 +224,6 @@ function attachCardHandlers() {
   });
 }
 
-function attachFeaturedCardHandlers() {
-  document.querySelectorAll('.feat-card').forEach((card) => {
-    card.addEventListener('click', () => {
-      const catId = card.dataset.cat;
-      const name = card.dataset.ministry;
-      const category = MINISTRY_CATEGORIES.find((c) => c.id === catId);
-      const ministry = category?.ministries.find((m) => m.name === name);
-      if (ministry) openMinistryModal(ministry, category);
-    });
-  });
-}
-
 function openMinistryModal(ministry, category) {
   const overlay = document.getElementById('ministryModalOverlay');
   document.getElementById('ministryModalCategory').textContent = category.label;
@@ -349,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAccordion();
   initSearch();
   initMinistryModal();
-  attachFeaturedCardHandlers();
 
   if (deepLink) {
     const card = document.getElementById(hash);
