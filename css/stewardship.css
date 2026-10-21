@@ -331,6 +331,23 @@
 }
 .giving-table tbody tr:last-child td { border-bottom: none; }
 
+/* Follow-up questions, under the FAQ list */
+.faq-followup {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.4rem;
+}
+.faq-followup p { margin: 0; font-size: 0.92rem; color: var(--tx); }
+.faq-followup strong { color: var(--navy-deep); }
+
 /* Inline bullet list inside FAQ answers */
 .faq-list-inline {
   margin: 0.75rem 0;
@@ -430,10 +447,36 @@
 
 @media (max-width: 720px) {
   .mission-budget-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
 
 /* Closing thank-you text (light background, not the hero's white-on-dark style) */
 .closing-text {
   max-width: 640px;
-  margin: 0.75rem auto 0;
+  margin: 0.75rem 0 0;
   color: var(--navy);
+}
+
+/* Stewardship mission, inside the hero under the opening statement */
+.give-mission {
+  max-width: var(--hero-body-width);
+  margin: 1.5rem auto 1.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(226, 194, 135, 0.45);
+}
+.give-mission-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.give-mission p {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.6;
+  color: var(--hero-body-color);
+  margin: 0;
 }
