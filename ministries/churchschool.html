@@ -28,14 +28,17 @@
       background: var(--gold-lt);
       border-left: 3px solid var(--gold);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding: 1rem 1.2rem;
-      margin-top: 1.25rem;
+      padding: 0.85rem 1.1rem;
+      margin-top: 1rem;
     }
-    .cs-volunteer .cs-label { display: block; margin-bottom: 0.4rem; }
+    .cs-volunteer-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 1rem; flex-wrap: wrap; margin-bottom: 0.35rem;
+    }
     .cs-volunteer .mp-list li { font-size: 0.82rem; }
     .cs-volunteer-link {
       display: inline-flex; align-items: center; gap: 0.3rem;
-      margin-top: 0.7rem; font-size: 0.8rem; font-weight: 600;
+      font-size: 0.78rem; font-weight: 600;
       color: var(--blue); text-decoration: none;
     }
 
@@ -74,26 +77,51 @@
     }
     .cs-panel {
       display: grid;
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: 36% 1fr;
       background: #fff;
       border: 1px solid var(--brd);
       border-radius: var(--radius-lg);
       overflow: hidden;
       box-shadow: var(--shadow-card);
-      min-height: 400px;
     }
     .cs-panel[hidden] { display: none; }
-    .cs-panel-img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--brd); }
-    .cs-panel-text { padding: 2rem 2.1rem; }
+    /* photo fills its column but never sets the panel height: the text does */
+    .cs-panel-media { position: relative; min-height: 240px; background: var(--brd); }
+    .cs-panel-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cs-panel-text { padding: 1.5rem 1.75rem; }
     .cs-panel-text h3 {
-      font-size: 1.6rem; font-weight: var(--heading-weight);
-      color: var(--navy-deep); margin: 0.35rem 0 0.75rem; line-height: 1.2;
+      font-size: 1.35rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0.25rem 0 0.5rem; line-height: 1.2;
     }
     .cs-sub {
-      display: block; font-size: 0.95rem; font-style: italic;
-      color: var(--mt); margin-top: 0.2rem;
+      display: inline; font-size: 0.9rem; font-style: italic;
+      color: var(--mt); margin-left: 0.35rem;
     }
-    .cs-panel-text p { font-size: 0.9rem; line-height: 1.7; color: var(--tx); margin: 0; }
+    .cs-panel-text p { font-size: 0.86rem; line-height: 1.65; color: var(--tx); margin: 0; }
+
+    /* ---- Upcoming calendar: white callout card ---- */
+    .cs-cal {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+    .cs-cal .section-header { margin-bottom: 1rem; }
+    .cs-cal-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.25rem; margin: 0;
+    }
+    .cs-cal-title i {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+    }
+    @media (max-width: 964px) { .cs-cal { margin-left: 2rem; margin-right: 2rem; } }
 
     /* ---- Help row: equal-height cards, details always visible ---- */
     .cs-help-grid {
@@ -140,13 +168,21 @@
     @media (max-width: 760px) {
       .cs-tabs { gap: 0.5rem; }
       .cs-tab { flex-direction: column; align-items: flex-start; gap: 0.4rem; padding: 0.5rem; }
-      .cs-tab-thumb { width: 100%; height: 64px; }
+      .cs-tab-thumb { width: 100%; height: 48px; }
       .cs-tab .cs-label { display: none; }
       .cs-tab-name { font-size: 0.85rem; }
-      .cs-panel { grid-template-columns: 1fr; min-height: 0; }
-      .cs-panel-img { aspect-ratio: 16 / 10; height: auto; }
-      .cs-panel-text { padding: 1.4rem 1.3rem; }
-      .cs-panel-text h3 { font-size: 1.35rem; }
+      .cs-panel { grid-template-columns: 1fr; }
+      .cs-panel-media { min-height: 0; aspect-ratio: 16 / 7; }
+      .cs-panel-text { padding: 1.2rem 1.2rem 1.3rem; }
+      .cs-panel-text h3 { font-size: 1.2rem; }
+      .cs-sub { display: block; margin: 0.15rem 0 0; }
+      .cs-cal { padding: 1.25rem 1.2rem; }
+      /* phones: "I'd like to help" drops below the list */
+      .cs-volunteer { display: flex; flex-direction: column; }
+      .cs-volunteer-head { display: contents; }
+      .cs-volunteer .cs-label { margin-bottom: 0.35rem; }
+      .cs-volunteer .mp-list { order: 1; }
+      .cs-volunteer-link { order: 2; margin-top: 0.6rem; }
     }
     @media (max-width: 520px) { .cs-help-grid { grid-template-columns: 1fr; } }
   </style>
@@ -205,12 +241,12 @@
     </div>
   </div>
 
-  <!-- UPCOMING EVENTS -->
-  <div class="section">
-    <div class="container" style="max-width: 900px;">
+  <!-- UPCOMING EVENTS (white callout card) -->
+  <div class="section" style="padding-top: 0;">
+    <div class="cs-cal">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Upcoming on the calendar</h2>
+          <h2 class="section-title cs-cal-title"><i class="ti ti-calendar-event" aria-hidden="true"></i> Upcoming on the calendar</h2>
         </div>
         <a href="../calendar.html?category=youth&amp;tag=church_school,church_school_events" class="section-link">
           View full calendar
@@ -244,54 +280,60 @@
       </div>
       <div class="cs-panels">
         <div class="cs-panel" role="tabpanel" id="cs-panel-projecthope" aria-labelledby="cs-tab-projecthope">
-          <img class="cs-panel-img" src="../images/ministries/projecthope.jpg" alt="Church School students with Brown Bag Sunday food donations">
+          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/projecthope.jpg" alt="Church School students with Brown Bag Sunday food donations"></div>
           <div class="cs-panel-text">
             <span class="cs-label">During Lent</span>
             <h3>Project Hope Food Drive <span class="cs-sub">“Brown Bag Sunday”</span></h3>
             <p>During Lent, the Church School takes part in this Lenten project to set the example of giving during this season of reflection.</p>
             <div class="cs-volunteer">
-              <span class="cs-label">Volunteer for this event</span>
+              <div class="cs-volunteer-head">
+                <span class="cs-label">Volunteer for this event</span>
+                <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Project%20Hope%20Food%20Drive%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+              </div>
               <ul class="mp-list">
                 <li>Serve as the main point of contact with the recipient organization</li>
                 <li>Create the list of goods needed</li>
                 <li>Distribute bags to classrooms ahead of time</li>
                 <li>Coordinate collecting the bags and delivering them to the recipient organization</li>
               </ul>
-              <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Project%20Hope%20Food%20Drive%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
         <div class="cs-panel" role="tabpanel" id="cs-panel-pageant" aria-labelledby="cs-tab-pageant" hidden>
-          <img class="cs-panel-img" src="../images/ministries/christmaspageant.jpg" alt="Church School students performing in the Christmas Pageant">
+          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/christmaspageant.jpg" alt="Church School students performing in the Christmas Pageant"></div>
           <div class="cs-panel-text">
             <span class="cs-label">Christmas Season</span>
             <h3>Christmas Pageant</h3>
             <p>This event is vital to bringing our community together to celebrate the season with our wonderful cast of children. We have a coordinator and need enthusiastic supporters.</p>
             <div class="cs-volunteer">
-              <span class="cs-label">Volunteer for this event</span>
+              <div class="cs-volunteer-head">
+                <span class="cs-label">Volunteer for this event</span>
+                <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Christmas%20Pageant%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+              </div>
               <ul class="mp-list">
                 <li>Costumes and sets</li>
                 <li>Casting: the sign-up and role assignment process for the children</li>
                 <li>Day-of oversight and logistics</li>
               </ul>
-              <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Christmas%20Pageant%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
         <div class="cs-panel" role="tabpanel" id="cs-panel-oratorical" aria-labelledby="cs-tab-oratorical" hidden>
-          <img class="cs-panel-img" src="../images/ministries/oratorical.jpg" alt="A student speaking at the Oratorical Festival">
+          <div class="cs-panel-media"><img class="cs-panel-img" src="../images/ministries/oratorical.jpg" alt="A student speaking at the Oratorical Festival"></div>
           <div class="cs-panel-text">
             <span class="cs-label">Grades 7–12</span>
             <h3>Oratorical Festival</h3>
             <p>Our annual Oratorical Festival gives students in 7th–12th grades a chance to delve into their faith and express their learning through speech, essay, song, chanting, or iconography.</p>
             <div class="cs-volunteer">
-              <span class="cs-label">Volunteer for this event</span>
+              <div class="cs-volunteer-head">
+                <span class="cs-label">Volunteer for this event</span>
+                <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Oratorical%20Festival%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+              </div>
               <ul class="mp-list">
                 <li>Coordinators assist with promotion, registration, and selecting judges</li>
                 <li>Judge a category (judges cannot have family members participating)</li>
                 <li>Coordinate documents to align with Metropolis rules and submit them by strict deadlines</li>
               </ul>
-              <a class="cs-volunteer-link" href="mailto:churchschool@ssppglenview.org?subject=Oratorical%20Festival%20volunteer">I'd like to help <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
