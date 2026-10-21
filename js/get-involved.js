@@ -27,10 +27,20 @@ function getCategoryCalendar(cat) {
   const entries = Object.entries(counts);
   if (entries.length === 0) return null;
 
+  // A category can name its calendar outright; otherwise use the most common one.
   entries.sort((a, b) => b[1] - a[1]);
-  const calendarCategory = entries[0][0];
+  const calendarCategory = cat.calendarCategory || entries[0][0];
   const label = CATEGORY_CAL_LABELS[cat.id] || cat.label.split(' ')[0];
-  return { calendarCategory, label };
+
+  // Narrow to this category's own calendars when every ministry using that
+  // calendar category has a calendarTag (e.g. Church School + Greek School,
+  // not all of Youth). Otherwise show the whole calendar category.
+  const using = cat.ministries.filter((m) => m.calendarCategory === calendarCategory);
+  const tags = using.every((m) => m.calendarTag)
+    ? [...new Set(using.flatMap((m) => [].concat(m.calendarTag)))]
+    : [];
+
+  return { calendarCategory, label, tags };
 }
 
 let openCategoryId = null;
@@ -79,7 +89,7 @@ function renderAccordion(filterText = '') {
 
     const cal = getCategoryCalendar(cat);
     const calButton = cal
-      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
+      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}${cal.tags.length ? `&tag=${encodeURIComponent(cal.tags.join(','))}` : ''}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
            <i class="ti ti-calendar" aria-hidden="true"></i> ${escapeHtml(cal.label)} Calendar
          </a>`
       : '';

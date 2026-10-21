@@ -23,6 +23,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/parishcouncil.jpg',
         detailPageUrl: 'contact.html?to=#council',
         calendarCategory: 'ministries',
+        calendarTag: 'parish_council',
         contact: {
           name: 'George Seletos',
           role: 'Parish Council President',
@@ -48,6 +49,7 @@ const MINISTRY_CATEGORIES = [
         description: "The mission of SSPP Stewardship Ministry is to inspire joyful, generous and sacrificial giving of our Time, Talents and Treasure to care for God's House-our first home-and for one another through Christian love",
         // image: 'images/ministries/stewardship.jpg',
         calendarCategory: 'ministries',
+        calendarTag: 'stewardship',
         contact: {
           name: 'George Karagiannis',
           role: 'Group Leader',
@@ -72,6 +74,7 @@ const MINISTRY_CATEGORIES = [
         description: 'This group focuses on welcoming visitors and new members to our parish, reaches in to current members, and reaches out to the local community so that our parish remains a visible, active presence that invites everyone into our midst.',
         // image: 'images/ministries/welcome.jpg',
         calendarCategory: 'ministries',
+        calendarTag: 'welcome_committee',
         contact: {
           name: 'Keith Anderson and Sylvia Creatura',
           role: 'Group Leader',
@@ -185,7 +188,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/flj.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
-        calendarTag: 'goya',
+        calendarTag: 'flj',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
@@ -199,7 +202,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/jr-goya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
-        calendarTag: 'goya',
+        calendarTag: 'jr_goya',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
@@ -213,7 +216,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/srgoya.jpg',
         detailPageUrl: 'ministries/youth.html',
         calendarCategory: 'youth',
-        calendarTag: 'goya',
+        calendarTag: 'sr_goya',
         contact: {
           name: 'Steven Thell',
           role: 'Youth Director',
@@ -226,6 +229,7 @@ const MINISTRY_CATEGORIES = [
         description: "As an extension of our Saints Peter and Paul parish family, we offer many wonderful opportunities for growth in fellowship, teamwork, Christian competition, and athletic excellence, including: Greek Orthodox Athletic League Basketball, Metropolis of Chicago Junior Olympics, Men's Adult Pick-up Basketball, Volleyball, Women's Adult Pick-up Basketball.",
         image: 'images/highschool.jpg',
         calendarCategory: 'athletics',
+        calendarTag: 'athletics',
         contact: {
           name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
@@ -251,6 +255,7 @@ const MINISTRY_CATEGORIES = [
         description: 'This is a ministry that enriches our college-aged adults\' experience at school and at home. GOYAlumni aims to be a conduit for the holistic growth of our students with a heavy emphasis on service, fellowship, and worship.',
         image: 'images/ministries/goyalumni.jpg',
         calendarCategory: 'youth',
+        calendarTag: 'goyalumni',
         contact: {
           name: 'Niki Alexis & Ana Arzoumanidis',
           role: 'Group Leader',
@@ -263,6 +268,7 @@ const MINISTRY_CATEGORIES = [
         description: 'The Young Adult League (YAL) aims to aid the growth of our parish young adults toward Christ and His Church. Our YAL strives to accomplish this mission by intentional gatherings of worship, fellowship, outreach, and education, giving them a place to encounter the newest challenges in our society.',
         image: 'images/ministries/yal.jpg',
         calendarCategory: 'youth',
+        calendarTag: 'yal',
         contact: {
           name: 'Maria Mantice',
           role: 'Group Leader',
@@ -297,6 +303,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/churchschool.jpg',
         detailPageUrl: 'ministries/churchschool.html',
         calendarCategory: 'youth',
+        calendarTag: ['church_school', 'church_school_events'],
         contact: {
           name: 'Alexis Douglas',
           role: 'Church School Director',
@@ -309,6 +316,7 @@ const MINISTRY_CATEGORIES = [
         description: 'The Saints Peter and Paul Greek School is committed to providing an excellent educational program, in a child-centered, child-friendly environment where learning can be fun. Our overall purpose is to teach our students the skills needed to communicate using the Greek language; therefore we put emphasis on conversation and introduce them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful. The small number of students in each level enables the teachers to focus on each child\'s individual needs.',
         image: 'images/ministries/greekschool.jpg',
         calendarCategory: 'youth',
+        calendarTag: 'greek_school',
         contact: {
           name: 'Stella Theoharopoulos',
           role: 'Greek School Director',
@@ -322,6 +330,7 @@ const MINISTRY_CATEGORIES = [
         image: 'images/ministries/agape.jpg',
         detailPageUrl: 'ministries/agape.html',
         calendarCategory: 'agape',
+        calendarTag: 'agape',
         contact: {
           name: 'Julie Mantice',
           role: 'Agape Preschool Director',
@@ -354,6 +363,7 @@ const MINISTRY_CATEGORIES = [
         description: 'We are an adult educational ministry that strengthens knowledge and practice of the Orthodox faith.  Our presentations provide participants with foundational knowledge, while group discussions offer ideas for how to apply this knowledge in everyday life.',
         // image: 'images/ministries/coffeeconnection.jpg',
         calendarCategory: 'adult_faith',
+        calendarTag: 'coffee_connection',
         contact: {
           name: 'Doreen DeSent',
           role: 'Group Leader',
@@ -366,6 +376,7 @@ const MINISTRY_CATEGORIES = [
         description: "Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
         // image: 'images/biblestudy.jpg',
         calendarCategory: 'adult_faith',
+        calendarTag: 'bible_study',
         contact: {
           name: 'Dr. Helen Theodoropoulos',
           role: 'Group Leader',
@@ -390,6 +401,7 @@ const MINISTRY_CATEGORIES = [
         description: 'Introduction to Orthodox Christianity Class is held on Tuesday evenings in the Fall and Monday evenings in the Winter/Spring, 7–9 pm. Class is open to all but especially for those interested in joining the Church through Baptism and/or Chrismation. Class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for anyone of any age (teenage and above) to learn about our Faith.',
         image: 'images/catechism.jpg',
         calendarCategory: 'adult_faith',
+        calendarTag: 'catechism',
         contact: {
           name: 'Fr. Richard Andrews',
           role: 'Spiritual Father',
@@ -416,6 +428,7 @@ const MINISTRY_CATEGORIES = [
     id: 'adult-activities',
     label: 'Community Activities',
     blurb: 'Stay active and connected through sport, dance, and senior programming.',
+    calendarCategory: 'adult_activities', // calendar button: the Community Activities calendar, not Athletics
     ministries: [
       {
         name: 'Coffee Fellowship',
@@ -423,7 +436,8 @@ const MINISTRY_CATEGORIES = [
         description: 'Coffee Fellowship helps to build a community of friends and family and provides opportunities to connect with your church family – the same people who can love and support you throughout your spiritual journey. This important ministry also is a wonderful way to commemorate an anniversary, birthday, family milestone, or memorial. It’s a minimal time commitment that goes a long way in expressing appreciation and gratitude.',
         signup: 'coffee-host', // shows a "Sign Up to Host" button in the modal
         // image: 'images/ministries/dynamis.jpg',
-        // calendarCategory: 'activities',
+        calendarCategory: 'adult_activities',
+        calendarTag: 'fellowship',
         contact: {
           name: 'Carolyn Kolbaba',
           role: 'Group Leader',
@@ -436,6 +450,7 @@ const MINISTRY_CATEGORIES = [
         description: "Dynamis means \"power\" or \"strength\" and it is a fellowship ministry for seniors, retired people and others in their golden years. Lunches, dinners, day trips, lectures and other activities are ministry features.",
         // image: 'images/ministries/dynamis.jpg',
         calendarCategory: 'adult_activities',
+        calendarTag: 'dynamis',
         contact: {
           name: 'Vicky Nestor',
           role: 'Group Leader',
@@ -448,6 +463,7 @@ const MINISTRY_CATEGORIES = [
         description: 'Adult athletics leagues, including basketball, give adults in the parish a chance to stay active and build community through sport. It is the adult counterpart to the youth GOYA athletics programs.',
         // image: 'images/ministries/athletics-a.jpg',
         calendarCategory: 'athletics',
+        calendarTag: 'athletics',
         contact: {
           name: 'Steven Conway & Chris Batrich',
           role: 'Athletics Director',
@@ -480,6 +496,7 @@ const MINISTRY_CATEGORIES = [
         description: 'The Greek Orthodox Ladies Philoptochos Society, Inc. is the philanthropic arm of the Greek Orthodox Archdiocese of America. It has offered eighty years of helping those in need and supports organizations and programs that do the same. Philoptochos makes a difference in the lives of people in greater Chicago, the United States and throughout the world. Our local parish chapter has been working since the founding of our community in the early 1960s. Our women engage in a multitude of fundraising and educational programs to accomplish the mission of Philoptochos.',
         image: 'images/ministries/philo.jpg',
         calendarCategory: 'philanthropy',
+        calendarTag: 'philoptochos',
         detailPageUrl: 'https://www.sspp-philo.org/',
         contact: {
           name: 'Julie Anastos',
@@ -493,6 +510,7 @@ const MINISTRY_CATEGORIES = [
         description: 'On behalf of the Parish, the Philanthropy Ministry partners with local charitable organizations, including Vitalant Blood Banks, Habitat for Humanity, Glenview Youth Services, and Interfaith Action of Evanston in order to fulfill every commandment of Christ in Matthew 25:35. The ministry works with every other ministry of our parish to find more opportunities to give back.',
         // image: 'images/ministries/stbasil.jpg',
         calendarCategory: 'philanthropy',
+        calendarTag: 'philanthropy',
         contact: {
           name: 'Christy Gouletas',
           role: 'Group Leader',
@@ -505,6 +523,7 @@ const MINISTRY_CATEGORIES = [
         description: 'Through our ministry, we foster a spirit of volunteerism, community, and collaboration in support of our earth and the life it sustains. The purpose of our Care for Creation Ministry is to encourage commitment, implement programs, and establish community through this stewardship. In addition, we also tend to the beautification and conservation of our parish landscape including planting trees, shrubs, plants, and landscaping projects.',
         // image: 'images/ministries/careforcreation.jpg',
         calendarCategory: 'philanthropy',
+        calendarTag: 'care_for_creation',
         contact: {
           name: 'John Kiriklakis',
           role: 'Group Leader',
@@ -537,6 +556,7 @@ const MINISTRY_CATEGORIES = [
         description: "The Cancer Support Ministry, started in 1981 by Georgia Photopulos and Fr. George Scoulas, was renamed in Georgia's memory in 2012. Her spirit of compassionate emotional support, gentle guidance, faith and good humor continue to be the foundation of our group. Meetings are held on the second Tuesday of each month. They are open to our parishioners and those of other Orthodox churches, as well as individuals from other denominations.",
         // image: 'images/ministries/cancer.jpg',
         calendarCategory: 'support_groups',
+        calendarTag: 'cancer',
         contact: {
           name: 'Bud Photopulos',
           role: 'Group Leader',
@@ -549,6 +569,7 @@ const MINISTRY_CATEGORIES = [
         description: 'Death and loss are a part of life but are often difficult to manage because of trauma and pain. This group offers communal and personal support during trying times. Grief takes time and active effort. People who have experienced significant loss can often provide the best care. This ministry is for everyone along the journey of grief.',
         // image: 'images/ministries/grief.jpg',
         calendarCategory: 'support_groups',
+        calendarTag: 'grief_support',
         contact: {
           name: 'Tracy Ronstadt',
           role: 'Group Leader',
@@ -562,6 +583,7 @@ const MINISTRY_CATEGORIES = [
         // image: 'images/ministries/divorce.jpg',
         detailPageUrl: 'ministries/divorcerebuilders.html',
         calendarCategory: 'support_groups',
+        calendarTag: 'divorce',
         contact: {
           name: 'Maria Boyle',
           role: 'Group Leader',

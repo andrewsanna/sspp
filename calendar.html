@@ -168,10 +168,13 @@
   (function () {
     const params = new URLSearchParams(window.location.search);
     const category = params.get('category');
+    const tag = params.get('tag');
     const view = params.get('view');
 
     window.addEventListener('load', () => {
-      if (category) {
+      // With ?tag=, calendar.js has already selected the chip and narrowed
+      // to those calendars; clicking the chip here would clear that.
+      if (category && !tag) {
         const chip = document.querySelector(`.filter-chip[data-filter="${category}"]`);
         if (chip) chip.click();
       }

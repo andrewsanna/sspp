@@ -3,7 +3,8 @@
 // Requires js/calendar-config.js loaded first, and ONE of these
 // page-level variables set before this script runs:
 //   MINISTRY_CALENDAR_CATEGORY — matches a calendar's `category`
-//   MINISTRY_CALENDAR_TAG      — matches anything in a calendar's `tags`
+//   MINISTRY_CALENDAR_TAG      — matches anything in a calendar's `tags`;
+//                                a string, or an array to combine several tags
 // Use TAG when a page needs a narrower slice than a whole category
 // (e.g. just GOYA's 3 calendars, not all 9 youth calendars).
 // ============================================
@@ -44,7 +45,8 @@ function normalizeEvent(raw) {
 
 function getRelevantCalendars() {
   if (typeof MINISTRY_CALENDAR_TAG !== 'undefined') {
-    return CALENDARS.filter((c) => c.tags?.includes(MINISTRY_CALENDAR_TAG));
+    const tags = [].concat(MINISTRY_CALENDAR_TAG);
+    return CALENDARS.filter((c) => c.tags?.some((t) => tags.includes(t)));
   }
   if (typeof MINISTRY_CALENDAR_CATEGORY !== 'undefined') {
     return CALENDARS.filter((c) => c.category === MINISTRY_CALENDAR_CATEGORY);
