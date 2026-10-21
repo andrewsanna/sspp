@@ -42,6 +42,16 @@ const ACTION_LABELS = {
 // ============================================
 let allEvents = [];
 let activeFilter = 'all';
+// Optional narrower filter from the URL (?tag=church_school,church_school_events),
+// set by ministry pages; cleared when a filter chip is clicked.
+let activeTags = null;
+
+function getFilteredEvents() {
+  if (activeTags) return allEvents.filter((e) => e.tags.some((t) => activeTags.includes(t)));
+  return activeFilter === 'all'
+    ? allEvents.filter((e) => !e.title.trim().startsWith('+'))
+    : allEvents.filter((e) => e.category === activeFilter);
+}
 let viewMode = 'month'; // 'month' | 'week' | 'day'
 
 // Anchor date used to derive the visible month (1st of month), the
@@ -115,6 +125,7 @@ function normalizeEvent(raw, calendarConfig) {
     end,
     isAllDay,
     category: calendarConfig.category,
+    tags: calendarConfig.tags || [],
     isFeaturedCalendar: calendarConfig.featured,
     htmlLink: raw.htmlLink || '#',
   };
@@ -345,9 +356,7 @@ function renderMonthGrid() {
 
   const cells = getVisibleCells();
   const today = new Date();
-  const filtered = activeFilter === 'all'
-    ? allEvents.filter((e) => !e.title.trim().startsWith('+'))
-    : allEvents.filter((e) => e.category === activeFilter);
+  const filtered = getFilteredEvents();
 
   // Week view has a lot more vertical room per day, so show more pills.
   const MAX_VISIBLE = viewMode === 'week' ? 8 : 3;
@@ -402,9 +411,7 @@ function renderDayView() {
   const dayList = document.getElementById('dayList');
   if (!dayList) return;
 
-  const filtered = activeFilter === 'all'
-    ? allEvents.filter((e) => !e.title.trim().startsWith('+'))
-    : allEvents.filter((e) => e.category === activeFilter);
+  const filtered = getFilteredEvents();
 
   const dayEvents = filtered
     .filter((e) => eventCoversDay(e, anchorDate))
@@ -670,6 +677,7 @@ function initFilterChips() {
       chips.forEach((c) => c.classList.remove('active'));
       chip.classList.add('active');
       activeFilter = chip.dataset.filter;
+      activeTags = null;
       renderMonthGrid();
     });
   });
@@ -686,6 +694,8 @@ function initFilterChips() {
       activeFilter = requestedCategory;
     }
   }
+  const requestedTags = params.get('tag');
+  if (requestedTags) activeTags = requestedTags.split(',').filter(Boolean);
 }
 
 // ============================================

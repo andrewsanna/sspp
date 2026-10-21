@@ -77,7 +77,7 @@
         <div>
           <h2 class="section-title">Upcoming on the calendar</h2>
         </div>
-        <a href="../calendar.html?category=youth" class="section-link">
+        <a href="../calendar.html?category=youth&amp;tag=flj,jr_goya,sr_goya" class="section-link">
           View full calendar
         </a>
       </div>
@@ -261,7 +261,7 @@
   {% include footer.html %}
 
   <script>
-    const MINISTRY_CALENDAR_CATEGORY = 'youth';
+    const MINISTRY_CALENDAR_TAG = ['flj', 'jr_goya', 'sr_goya'];   // FLJ, Jr. GOYA and Sr. GOYA calendars only
 
     // Simple gallery slideshow — auto-advance + manual controls
     (function () {
