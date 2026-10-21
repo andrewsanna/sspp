@@ -37,8 +37,8 @@
   /* Hero text: shared by every page hero */
   --hero-title: clamp(2.25rem, 3.8vw, 3.15rem);
   /* homepage hero title (white): one line from tablet up, two lines max on phones */
-  --hero-title-home: clamp(2.12rem, calc((100vw - 4rem) / 15.5), 3.39rem);   /* 36–57.6px at the 17px base */
-  --hero-title-home-phone: min(2.17rem, calc((100vw - 4rem) / 9));
+  --hero-title-home: clamp(2.25rem, calc((100vw - 4rem) / 15.5), 3.6rem);
+  --hero-title-home-phone: min(2.3rem, calc((100vw - 4rem) / 9));
   --hero-title-color: #E2C287;
   --hero-body: clamp(1.125rem, 1.4vw, 1.3rem);
   --hero-body-color: rgba(255, 255, 255, 0.92);
@@ -72,7 +72,7 @@
 }
 
 html {
-  font-size: 106.25%; /* 17px base; type is in rem, so this scales the whole site */
+  font-size: 100%; /* 16px base; type is in rem, so this scales the whole site */
   scroll-behavior: smooth;
 }
 
@@ -260,7 +260,7 @@ p {
 .acc-title {
   font-family: var(--font-heading);
   font-weight: var(--heading-weight);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
 
@@ -271,7 +271,7 @@ p {
 }
 
 .acc-blurb {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   color: var(--mt);
 }
 
@@ -287,7 +287,7 @@ p {
 }
 
 .acc-count {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--mt);
   white-space: nowrap;
 }
@@ -297,7 +297,7 @@ p {
 }
 
 .acc-chevron {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--mt);
   transition: transform 0.2s ease;
 }

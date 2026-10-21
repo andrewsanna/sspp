@@ -171,13 +171,13 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  padding: 0.9rem 1.2rem;
-  max-width: 720px;
+  padding: 0.75rem 1.1rem;
+  max-width: 640px;
 }
 
 .gi-search-box i {
   color: var(--gold);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
 }
 
@@ -187,7 +187,7 @@
   border: none;
   outline: none;
   color: #fff;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
 }
 
 .gi-search-box input::placeholder {
@@ -304,8 +304,8 @@
 }
 
 .ministry-card-photo {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 7px;
   flex-shrink: 0;
   overflow: hidden;
@@ -329,7 +329,7 @@
 }
 
 .ministry-card-title {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
@@ -342,7 +342,7 @@
 }
 
 .ministry-card-summary {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   color: var(--mt);
   line-height: 1.4;
 }
