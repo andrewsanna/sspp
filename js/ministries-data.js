@@ -228,6 +228,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'GOYA basketball league and other youth sports.',
         description: "As an extension of our Saints Peter and Paul parish family, we offer many wonderful opportunities for growth in fellowship, teamwork, Christian competition, and athletic excellence, including: Greek Orthodox Athletic League Basketball, Metropolis of Chicago Junior Olympics, Men's Adult Pick-up Basketball, Volleyball, Women's Adult Pick-up Basketball.",
         image: 'images/highschool.jpg',
+        detailPageUrl: 'ministries/athletics.html',
         calendarCategory: 'athletics',
         calendarTag: 'athletics',
         contact: {

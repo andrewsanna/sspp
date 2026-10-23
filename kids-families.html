@@ -188,7 +188,7 @@
 
     // Program cards: every active ministry in the Children's Education and
     // Youth categories, minus the young-adult groups (college and post-college).
-    // FLJ, Jr. GOYA and Sr. GOYA share one "Youth Groups" card.
+    // FLJ, Jr. GOYA and Sr. GOYA share one "Youth Groups" card, shown second.
     (function () {
       const grid = document.getElementById('kfGrid');
       if (!grid || typeof MINISTRY_CATEGORIES === 'undefined') return;
@@ -204,6 +204,14 @@
         title: 'Youth Groups',
         summary: 'FLJ, Jr. GOYA, and Sr. GOYA: fellowship, faith, retreats, and outreach.',
         go: 'Visit page',
+      };
+      // Hub-specific wording for cards built from the data
+      const CARD_OVERRIDES = {
+        'Athletics': {
+          label: '3rd – 12th Grade',
+          summary: 'GOYA basketball, the Metropolis Junior Olympics, and more.',
+        },
+        'Greek Dance (Youth)': { title: 'Greek Dance' },
       };
 
       const esc = (str) => {
@@ -231,21 +239,21 @@
         cat.ministries.forEach((m) => {
           if (m.inactive || SKIP.includes(m.name)) return;
           if (YOUTH_GROUPS.includes(m.name)) {
-            if (!youthGroupsAdded) cards.push(renderCard(YOUTH_GROUPS_CARD));
-            youthGroupsAdded = true;
+            youthGroupsAdded = true;   // placed as the 2nd card below
             return;
           }
           const ownPage = typeof m.detailPageUrl === 'string' && m.detailPageUrl.startsWith('ministries/');
-          cards.push(renderCard({
+          cards.push(renderCard(Object.assign({
             href: ownPage ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name),
             image: m.image,
             label: LABELS[id] || cat.label,
             title: m.name,
             summary: m.summary,
             go: ownPage ? 'Visit page' : 'Learn more',
-          }));
+          }, CARD_OVERRIDES[m.name])));
         });
       });
+      if (youthGroupsAdded) cards.splice(1, 0, renderCard(YOUTH_GROUPS_CARD));
       grid.innerHTML = cards.join('');
     })();
   </script>
