@@ -1,6 +1,6 @@
 // ============================================
 // main.js — Mobile nav toggle, nav dropdowns
-// (Community, Calendar), and automatic
+// (Community, Calendar, Resources), and automatic
 // active-link highlighting
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Nav dropdowns (Community, Calendar) ---
+  // --- Nav dropdowns (Community, Calendar, Resources) ---
   // Two kinds share this code: a plain dropdown whose label is a
-  // <button class="nav-dropdown-toggle"> (Community), and a link + separate
+  // <button class="nav-dropdown-toggle"> (Community, Resources), and a link + separate
   // caret button (Calendar: the label goes to calendar.html). Either way the
   // control below opens/closes the submenu.
   const dropdowns = document.querySelectorAll('.nav-dropdown');
