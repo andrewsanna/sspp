@@ -14,6 +14,103 @@
   <link rel="stylesheet" href="../css/get-involved.css" />
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ---- Our Staff (same card look as the About page staff tiles, no photos) ---- */
+    .ag-staff-lead {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 660px;
+      margin: 0 auto 1.5rem;
+    }
+    .ag-staff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .ag-staff-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem;
+    }
+    .ag-staff-card.is-featured { border: 3px solid var(--gold); }
+    .ag-staff-avatar {
+      flex: 0 0 auto;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--gold-lt);
+      color: var(--gold-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .ag-staff-card.is-featured .ag-staff-avatar { background: var(--navy-deep); color: var(--gold); }
+    .ag-staff-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      background: var(--gold-lt);
+      color: var(--gold-text);
+      margin-bottom: 0.5rem;
+    }
+    .ag-staff-card.is-featured .ag-staff-badge { background: var(--navy-deep); color: var(--gold); }
+    .ag-staff-name {
+      font-size: 1.035rem;
+      font-weight: var(--heading-weight);
+      margin: 0;
+    }
+
+    /* ---- History ---- */
+    .ag-history p { margin: 0 0 1rem; line-height: 1.75; color: var(--tx); }
+    .ag-history p:last-child { margin-bottom: 0; }
+
+    /* ---- Directions & contact ---- */
+    .ag-visit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 900px;
+    }
+    .ag-visit-card {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 1.75rem;
+    }
+    .ag-visit-card h3 {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 1.15rem;
+      margin: 0 0 0.9rem;
+    }
+    .ag-visit-card h3 i {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .ag-visit-card p { font-size: 0.95rem; line-height: 1.65; margin: 0 0 0.75rem; }
+    .ag-visit-card p:last-child { margin-bottom: 0; }
+    .ag-visit-card a:not(.btn) { color: var(--navy); font-weight: 700; text-decoration: none; }
+    .ag-visit-card .btn { margin-top: 0.5rem; }
+
+    @media (max-width: 900px) {
+      .ag-staff-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .ag-staff-lead,
+      .ag-staff-grid,
+      .ag-visit { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -154,32 +251,137 @@
     </div>
   </div>
 
-  <!-- LEARN MORE ABOUT OUR SCHOOL -->
-  <div class="section">
+  <!-- OUR STAFF -->
+  <div class="section" id="staff">
+    <div class="container" style="max-width: 1000px;">
+      <h2 class="section-title" style="margin-bottom: 1.5rem; text-align: center;">Our Staff</h2>
+      <div class="ag-staff-lead">
+        <div class="ag-staff-card is-featured">
+          <span class="ag-staff-avatar"><i class="ti ti-user" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Director</span>
+            <h3 class="ag-staff-name">Julie Mantice</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card is-featured">
+          <span class="ag-staff-avatar"><i class="ti ti-user" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Assistant Director</span>
+            <h3 class="ag-staff-name">Seong Park McGarry</h3>
+          </div>
+        </div>
+      </div>
+      <div class="ag-staff-grid">
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Dove Class Teachers</span>
+            <h3 class="ag-staff-name">Eirini Kourentzis, Sandy O&rsquo;Malley &amp; Katerina Sotirakos</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Fishermen Class Teachers</span>
+            <h3 class="ag-staff-name">Eirini Kourentzis, Sandy O&rsquo;Malley &amp; Katerina Sotirakos</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Disciple Class Teachers</span>
+            <h3 class="ag-staff-name">Jovana Jevtic &amp; Seong Park McGarry</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Apostle (Pre-K) Class Teachers</span>
+            <h3 class="ag-staff-name">Dionna Nikas &amp; Julie Mantice</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Saints (K) Class Teachers</span>
+            <h3 class="ag-staff-name">Margaret Jesse &amp; Jovana Jevtic</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-chef-hat" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Cooking Teacher</span>
+            <h3 class="ag-staff-name">Katerina Metropoulos</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-palette" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Art Teacher</span>
+            <h3 class="ag-staff-name">Gail Belian</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-book" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Religion Teacher</span>
+            <h3 class="ag-staff-name">Steven Thell</h3>
+          </div>
+        </div>
+        <div class="ag-staff-card">
+          <span class="ag-staff-avatar"><i class="ti ti-cross" aria-hidden="true"></i></span>
+          <div>
+            <span class="ag-staff-badge">Come &amp; See Instructors</span>
+            <h3 class="ag-staff-name">Father Rick Andrews &amp; Father Peter Sarolas</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTORY -->
+  <div class="section section--alt" id="history">
+    <div class="mp-col ag-history">
+      <h2 class="section-title" style="margin-bottom: 1rem;">Our History</h2>
+      <p>In 2000, upon approval of the Ss. Peter and Paul Parish Council and the support of Father Angelo Artemas, AGAPE Christian Academy was created. The idea of a Preschool began with the love and support of Carrie and John Colis along with five other founders including Elizabeth Cox and Julia Mantice. The founders worked together to plan, organize, and develop an Orthodox Christian Preschool that would nurture the spiritual, emotional, cognitive, and physical growth of young Orthodox Christians.</p>
+      <p>AGAPE opened its doors to the public on September 4th, 2001. Upon the creation of the preschool, the staff ensured that the school was certified and approved by DCFS. Back in 2001 when the preschool first began, it only offered two programs: the Disciple or 3-Year-Old Class and the Apostle or 4-Year-Old Class. Over the past twenty years, AGAPE has added classes for two-year-old children which is referred to as the Doves and Fishermen Class. We have also extended the school day for the 3-year-old and 4-year-old students to 1 o&rsquo;clock or 2 o&rsquo;clock pm. Some of the other additions through the years have been Greek, cooking, music, and art instruction, and Come and See Time with the parish priest, Greek instruction. Throughout AGAPE Preschool&rsquo;s existence, it is proud to have grown and adapted to fit the ever-changing needs of its community.</p>
+    </div>
+  </div>
+
+  <!-- JOB OPENINGS -->
+  <div class="section" id="jobs">
     <div class="mp-col">
-      <h2 class="section-title" style="margin-bottom: 1rem;">About our school</h2>
-      <p class="mp-lede" style="margin-bottom: 1.25rem;">Curious about our history, our teachers, or how to find us?</p>
-      <div style="display: flex; gap: 1.5rem; justify-content: flex-start; flex-wrap: wrap; font-size: 0.85rem;">
-        <a href="https://ssppglenview.org/agape-preschool-history/" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">Our History</a>
-        <a href="https://ssppglenview.org/agape-preschool/agape-preschool-staff/" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">Meet Our Staff</a>
-        <a href="https://ssppglenview.org/agape-preschool/agape-directions-contact-info/" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">Directions &amp; Contact</a>
-      </div>
+      <h2 class="section-title" style="margin-bottom: 1rem;">Job Openings</h2>
+      <!-- When a position opens, replace the note below with a short listing
+           (title, schedule, how to apply) for each opening. -->
+      <p class="mp-note-box" style="padding: 0.85rem 1.2rem; border-left: 3px solid var(--gold); margin-bottom: 0;">
+        <strong>There are no open positions right now.</strong> Please check back here for future openings, or <a href="mailto:agape@ssppglenview.org" style="color: var(--navy); font-weight: 700; text-decoration: none;">email us</a> to express your interest.
+      </p>
     </div>
   </div>
 
-  <!-- CONTACT CALLOUT -->
-  <div class="section section--alt">
-    <div class="mp-feature-card">
-      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
-      <div class="mp-feature-text">
-        <h3>Questions about AGAPE?</h3>
-        <p>Reach out to Julie Mantice, our AGAPE Preschool Director, at 847-849-7870 or by email.</p>
+  <!-- DIRECTIONS & CONTACT -->
+  <div class="section section--alt" id="contact">
+    <div class="container" style="max-width: 900px;">
+      <h2 class="section-title" style="margin-bottom: 1.5rem; text-align: center;">Directions &amp; Contact</h2>
+    </div>
+    <div class="container ag-visit">
+      <div class="ag-visit-card">
+        <h3><i class="ti ti-map-pin" aria-hidden="true"></i> Find us</h3>
+        <p>1401 Wagner Road, Glenview, IL<br>(corner of Lake Ave. and Wagner Rd.)</p>
+        <p>We meet in the Fr. Latto Community Center at Sts. Peter &amp; Paul Greek Orthodox Church.</p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=1401+Wagner+Road+Glenview+IL" target="_blank" rel="noopener noreferrer" class="btn btn-outline-navy">
+          <i class="ti ti-directions" aria-hidden="true"></i> Get directions
+        </a>
       </div>
-      <a href="mailto:agape@ssppglenview.org" class="btn btn-gold">Email us</a>
+      <div class="ag-visit-card">
+        <h3><i class="ti ti-mail" aria-hidden="true"></i> Questions?</h3>
+        <p>Reach out to Julie Mantice, our AGAPE Preschool Director.</p>
+        <p><a href="tel:+18478497870">(847) 849-7870</a><br><a href="mailto:agape@ssppglenview.org">agape@ssppglenview.org</a></p>
+        <a href="mailto:agape@ssppglenview.org" class="btn btn-gold">Email us</a>
+      </div>
     </div>
   </div>
-
-
 
   <!-- FOOTER -->
   {% include footer.html %}
