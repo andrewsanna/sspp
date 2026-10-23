@@ -186,7 +186,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Elementary-age fellowship, education, and service.',
         description: 'Faith, Love & Joy (Junior Orthodox Youth) seeks to foster growth toward a deepening of our elementary children\'s relationship with Christ and His Church through shared fellowship, education and service.',
         image: 'images/ministries/flj.jpg',
-        detailPageUrl: 'ministries/youth.html',
+        detailPageUrl: 'ministries/youth.html#flj',
         calendarCategory: 'youth',
         calendarTag: 'flj',
         contact: {
@@ -200,7 +200,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Junior High (6th–8th grade) youth ministry.',
         description: 'Jr. GOYA (Greek Orthodox Youth of America) focuses on establishing and maintaining a relationship with Christ. Middle schoolers gather several times throughout the month to strengthen and build continuous relationships to each other, the Church, and their faith through discussion, outreach activities, and worship.',
         image: 'images/ministries/jr-goya.jpg',
-        detailPageUrl: 'ministries/youth.html',
+        detailPageUrl: 'ministries/youth.html#jr-goya',
         calendarCategory: 'youth',
         calendarTag: 'jr_goya',
         contact: {
@@ -214,7 +214,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'High School-aged youth ministry.',
         description: 'Sr. GOYA (Greek Orthodox Youth of America) continues the groundwork laid in Junior GOYA at a pivotal time during our youths\' lives. High schoolers continue to build on their relationships with each other, the Church, and most importantly, continue to deepen their faith in Christ through fellowship, worship, and community.',
         image: 'images/ministries/srgoya.jpg',
-        detailPageUrl: 'ministries/youth.html',
+        detailPageUrl: 'ministries/youth.html#sr-goya',
         calendarCategory: 'youth',
         calendarTag: 'sr_goya',
         contact: {

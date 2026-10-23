@@ -188,6 +188,7 @@
 
     // Program cards: every active ministry in the Children's Education and
     // Youth categories, minus the young-adult groups (college and post-college).
+    // FLJ, Jr. GOYA and Sr. GOYA share one "Youth Groups" card.
     (function () {
       const grid = document.getElementById('kfGrid');
       if (!grid || typeof MINISTRY_CATEGORIES === 'undefined') return;
@@ -195,6 +196,15 @@
       const CATEGORY_IDS = ['children', 'youth'];
       const SKIP = ['GOYAlumni - College', 'Young Adult League (YAL)'];
       const LABELS = { children: "Children's Education", youth: 'Youth' };
+      const YOUTH_GROUPS = ['FLJ - Elementary age', 'Jr. GOYA - Jr. High', 'Sr. GOYA - High School'];
+      const YOUTH_GROUPS_CARD = {
+        href: 'ministries/youth.html',
+        image: 'images/ministries/srgoya.jpg',
+        label: '1st – 12th Grade',
+        title: 'Youth Groups',
+        summary: 'FLJ, Jr. GOYA, and Sr. GOYA: fellowship, faith, retreats, and outreach.',
+        go: 'Visit page',
+      };
 
       const esc = (str) => {
         const d = document.createElement('div');
@@ -202,25 +212,38 @@
         return d.innerHTML;
       };
       const slugify = (str) => str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const renderCard = (c) => `
+            <a class="kf-card" href="${esc(c.href)}">
+              ${c.image ? `<img class="kf-card-img" src="${esc(c.image)}" alt="" loading="lazy">` : '<div class="kf-card-img"></div>'}
+              <div class="kf-card-body">
+                <div class="kf-card-label">${esc(c.label)}</div>
+                <h2 class="kf-card-title">${esc(c.title)}</h2>
+                <p class="kf-card-summary">${esc(c.summary)}</p>
+                <span class="kf-card-go text-link">${c.go}</span>
+              </div>
+            </a>`;
 
       const cards = [];
+      let youthGroupsAdded = false;
       CATEGORY_IDS.forEach((id) => {
         const cat = MINISTRY_CATEGORIES.find((c) => c.id === id);
         if (!cat) return;
         cat.ministries.forEach((m) => {
           if (m.inactive || SKIP.includes(m.name)) return;
+          if (YOUTH_GROUPS.includes(m.name)) {
+            if (!youthGroupsAdded) cards.push(renderCard(YOUTH_GROUPS_CARD));
+            youthGroupsAdded = true;
+            return;
+          }
           const ownPage = typeof m.detailPageUrl === 'string' && m.detailPageUrl.startsWith('ministries/');
-          const href = ownPage ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name);
-          cards.push(`
-            <a class="kf-card" href="${esc(href)}">
-              ${m.image ? `<img class="kf-card-img" src="${esc(m.image)}" alt="" loading="lazy">` : '<div class="kf-card-img"></div>'}
-              <div class="kf-card-body">
-                <div class="kf-card-label">${esc(LABELS[id] || cat.label)}</div>
-                <h2 class="kf-card-title">${esc(m.name)}</h2>
-                <p class="kf-card-summary">${esc(m.summary)}</p>
-                <span class="kf-card-go text-link">${ownPage ? 'Visit page' : 'Learn more'}</span>
-              </div>
-            </a>`);
+          cards.push(renderCard({
+            href: ownPage ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name),
+            image: m.image,
+            label: LABELS[id] || cat.label,
+            title: m.name,
+            summary: m.summary,
+            go: ownPage ? 'Visit page' : 'Learn more',
+          }));
         });
       });
       grid.innerHTML = cards.join('');
