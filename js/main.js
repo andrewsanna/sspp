@@ -53,6 +53,12 @@ document.addEventListener('DOMContentLoaded', function () {
     control.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      // A click right after hover opened the menu should keep it open,
+      // not toggle it shut.
+      if (dropdown.dataset.hoverOpened === 'true') {
+        dropdown.dataset.hoverOpened = 'false';
+        return;
+      }
       const willOpen = !dropdown.classList.contains('is-open');
       closeAllDropdowns(willOpen ? dropdown : null);
       setOpen(dropdown, willOpen);
@@ -62,11 +68,15 @@ document.addEventListener('DOMContentLoaded', function () {
     dropdown.addEventListener('mouseenter', function () {
       if (window.innerWidth > 860) {
         closeAllDropdowns(dropdown);
+        dropdown.dataset.hoverOpened = dropdown.classList.contains('is-open') ? 'false' : 'true';
         setOpen(dropdown, true);
       }
     });
     dropdown.addEventListener('mouseleave', function () {
-      if (window.innerWidth > 860) setOpen(dropdown, false);
+      if (window.innerWidth > 860) {
+        dropdown.dataset.hoverOpened = 'false';
+        setOpen(dropdown, false);
+      }
     });
   });
 
