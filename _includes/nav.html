@@ -20,15 +20,14 @@
       <a href="{{ '/visit.html' | relative_url }}" data-page="visit.html">Visit</a>
       <a href="{{ '/about.html' | relative_url }}" data-page="about.html">About</a>
 
-      <!-- COMMUNITY: clickable link to Parish Life + dropdown caret -->
-      <div class="nav-dropdown" data-dropdown="community">
-        <a href="{{ '/parish-life.html' | relative_url }}" class="nav-dropdown-link" data-page="parish-life.html">
-          Community
-        </a>
-        <button class="nav-dropdown-caret-btn" data-dropdown-toggle="community" aria-expanded="false" aria-controls="communityMenu" aria-label="Toggle Community menu">
-          <i class="ti ti-chevron-down nav-dropdown-caret" aria-hidden="true"></i>
+      <!-- COMMUNITY: plain dropdown (the label opens the menu; it isn't a link).
+           data-active-path also highlights Community on every /ministries/ page. -->
+      <div class="nav-dropdown" data-dropdown="community" data-active-path="/ministries/">
+        <button type="button" class="nav-dropdown-toggle" aria-expanded="false" aria-controls="communityMenu">
+          Community <i class="ti ti-chevron-down nav-dropdown-caret" aria-hidden="true"></i>
         </button>
         <div class="nav-dropdown-menu" id="communityMenu">
+          <a href="{{ '/parish-life.html' | relative_url }}" data-page="parish-life.html">Parish Life</a>
           <a href="{{ '/get-involved.html' | relative_url }}" data-page="get-involved.html">Ministries</a>
           <a href="{{ '/kids-families.html' | relative_url }}" data-page="kids-families.html">Kids &amp; Families</a>
           <a href="{{ '/sacraments.html' | relative_url }}" data-page="sacraments.html">Sacraments</a>
