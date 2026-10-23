@@ -15,6 +15,31 @@
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <style>
+    /* ---- Upcoming events: white callout card (same as Church School / Youth) ---- */
+    .cs-cal {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+    .cs-cal .section-header { margin-bottom: 1rem; }
+    .cs-cal-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.25rem; margin: 0;
+    }
+    .cs-cal-title i {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+    }
+    @media (max-width: 964px) { .cs-cal { margin-left: 2rem; margin-right: 2rem; } }
+    @media (max-width: 760px) { .cs-cal { padding: 1.25rem 1.2rem; } }
+
     /* ---- Our Staff (same layout as the About page staff tiles) ---- */
     .ag-staff-grid {
       display: grid;
@@ -63,6 +88,13 @@
     /* ---- History ---- */
     .ag-history p { margin: 0 0 1rem; line-height: 1.75; color: var(--tx); }
     .ag-history p:last-child { margin-bottom: 0; }
+    .ag-history-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-top: 1.75rem;
+      border-radius: var(--radius-lg);
+    }
 
     /* ---- Directions & contact ---- */
     .ag-visit {
@@ -112,7 +144,7 @@
   {% include nav.html %}
 
   <!-- HERO -->
-  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/agape-hero-PLACEHOLDER.jpg');">
+  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/agape.jpg');">
     <div class="mp-hero-overlay"></div>
     <div class="mp-hero-inner">
       <h1 class="mp-hero-title">Where little ones grow in faith and joy.</h1>
@@ -158,12 +190,12 @@
     </div>
   </div>
 
-    <!-- UPCOMING EVENTS -->
-  <div class="section">
-    <div class="container" style="max-width: 900px;">
+  <!-- UPCOMING EVENTS (white callout card, same as Church School / Youth) -->
+  <div class="section" style="padding-top: 0;">
+    <div class="cs-cal">
       <div class="section-header">
         <div>
-          <h2 class="section-title">Upcoming on the calendar</h2>
+          <h2 class="section-title cs-cal-title"><i class="ti ti-calendar-event" aria-hidden="true"></i> Upcoming on the calendar</h2>
         </div>
         <a href="../calendar.html?category=agape" class="section-link">
           View full calendar
@@ -270,11 +302,11 @@
         </div>
         <div class="ag-staff-tile">
           <div class="ag-staff-tile-photo">
-            <img src="../images/staff/agape/katerina-sotirakos.png" alt="Katerina Sotirakos" loading="lazy" onerror="this.remove()">
+            <img src="../images/staff/agape/katerina-arvanitis.png" alt="Katerina Arvanitis" loading="lazy" onerror="this.remove()">
           </div>
           <div class="ag-staff-tile-text">
             <span class="ag-staff-badge is-staff">Staff</span>
-            <h3 class="ag-staff-name">Katerina Sotirakos</h3>
+            <h3 class="ag-staff-name">Katerina Arvanitis</h3>
             <p class="ag-staff-tile-role">Doves &amp; Fishermen Class Teacher</p>
           </div>
         </div>
@@ -368,6 +400,7 @@
       <h2 class="section-title" style="margin-bottom: 1rem;">Our History</h2>
       <p>In 2000, upon approval of the Ss. Peter and Paul Parish Council and the support of Father Angelo Artemas, AGAPE Christian Academy was created. The idea of a Preschool began with the love and support of Carrie and John Colis along with five other founders including Elizabeth Cox and Julia Mantice. The founders worked together to plan, organize, and develop an Orthodox Christian Preschool that would nurture the spiritual, emotional, cognitive, and physical growth of young Orthodox Christians.</p>
       <p>AGAPE opened its doors to the public on September 4th, 2001. Upon the creation of the preschool, the staff ensured that the school was certified and approved by DCFS. Back in 2001 when the preschool first began, it only offered two programs: the Disciple or 3-Year-Old Class and the Apostle or 4-Year-Old Class. Over the past twenty years, AGAPE has added classes for two-year-old children which is referred to as the Doves and Fishermen Class. We have also extended the school day for the 3-year-old and 4-year-old students to 1 o&rsquo;clock or 2 o&rsquo;clock pm. Some of the other additions through the years have been Greek, cooking, music, and art instruction, and Come and See Time with the parish priest, Greek instruction. Throughout AGAPE Preschool&rsquo;s existence, it is proud to have grown and adapted to fit the ever-changing needs of its community.</p>
+      <img class="ag-history-photo" src="../images/agape-glendi.jpg" alt="Children in white shirts and red sashes Greek dancing at the AGAPE Glendi" loading="lazy">
     </div>
   </div>
 
