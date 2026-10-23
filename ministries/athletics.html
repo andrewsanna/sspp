@@ -1,0 +1,420 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athletics | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Athletics at Saints Peter & Paul Greek Orthodox Church: GOYA basketball in the Greek Orthodox Athletic League, the Metropolis Junior Olympics, and adult pick-up games." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/get-involved.css" />
+  <link rel="stylesheet" href="../css/ministry-page.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ==== Copied from churchschool.html (same cs- names, may move to ministry-page.css) ==== */
+
+    /* ---- Intro: centered statement ---- */
+    .cs-lead {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .cs-lead p {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-size: 1.22rem;
+      line-height: 1.65;
+      color: var(--navy-deep);
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .cs-lead p { font-size: 1.08rem; }
+    }
+
+    /* ---- Small label + pill tag ---- */
+    .cs-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+    .cs-tag {
+      font-size: 0.68rem; font-weight: 600; color: var(--navy-deep);
+      background: #fff; border: 1px solid var(--brd);
+      border-radius: 999px; padding: 0.25rem 0.6rem;
+    }
+
+    /* ---- Upcoming calendar: white callout card ---- */
+    .cs-cal {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+    .cs-cal .section-header { margin-bottom: 1rem; }
+    .cs-cal-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.25rem; margin: 0;
+    }
+    .cs-cal-title i {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+    }
+    @media (max-width: 964px) { .cs-cal { margin-left: 2rem; margin-right: 2rem; } }
+    @media (max-width: 760px) { .cs-cal { padding: 1.25rem 1.2rem; } }
+
+    /* ---- Hero button ---- */
+    .cs-hero-cta { margin-top: 1.5rem; }
+
+    /* ==== Athletics-only ==== */
+
+    .ath-subtitle { font-size: 0.92rem; color: var(--mt); margin: 0.3rem 0 1.5rem; }
+
+    /* Basketball: two white cards side by side */
+    .ath-cols {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .ath-card {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.4rem 1.5rem 1.5rem;
+    }
+    .ath-card h3 {
+      font-size: 1.2rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0;
+    }
+    .ath-note { font-size: 0.78rem; color: var(--mt); margin: 0.2rem 0 1rem; }
+
+    /* Practice schedule */
+    .ath-group + .ath-group { margin-top: 1.1rem; }
+    .ath-group .cs-label { display: block; margin-bottom: 0.35rem; }
+    .ath-team {
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--brd);
+    }
+    .ath-team-name {
+      font-family: var(--font-heading); font-weight: var(--heading-weight);
+      font-size: 0.98rem; color: var(--navy-deep);
+    }
+    .ath-team-time { font-size: 0.8rem; color: var(--mt); margin-top: 0.1rem; }
+
+    /* Game schedule */
+    .ath-games { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+    .ath-game {
+      display: flex; align-items: center; gap: 0.9rem;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 0.6rem 0.75rem;
+      background: #fff;
+    }
+    .ath-game.is-past { opacity: 0.5; }
+    .ath-game.is-next { border-color: var(--gold); box-shadow: inset 3px 0 0 var(--gold); }
+    .ath-date {
+      flex-shrink: 0;
+      width: 52px;
+      text-align: center;
+      background: var(--gold-lt);
+      border-radius: var(--radius-sm);
+      padding: 0.3rem 0;
+      color: var(--gold-text);
+      line-height: 1.1;
+    }
+    .ath-date-mon { display: block; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
+    .ath-date-day { display: block; font-family: var(--font-heading); font-size: 1.3rem; color: var(--gold-deep); }
+    .ath-game-main { flex: 1; min-width: 0; }
+    .ath-game-next { display: block; margin-bottom: 0.1rem; }
+    .ath-opponent {
+      font-family: var(--font-heading); font-weight: var(--heading-weight);
+      font-size: 0.98rem; color: var(--navy-deep);
+    }
+    .ath-game-meta {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 0.45rem;
+      margin-top: 0.25rem; font-size: 0.78rem; color: var(--mt);
+    }
+    .ath-game-meta a { color: var(--navy); font-weight: 600; text-decoration: none; }
+    .ath-game-meta a:hover { color: var(--gold-deep); }
+    .ath-pill {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em;
+      border-radius: 999px; padding: 0.15rem 0.5rem;
+    }
+    .ath-pill--home { background: var(--navy); color: #fff; }
+    .ath-pill--away { background: #fff; color: var(--navy-deep); border: 1px solid var(--brd); }
+
+    /* Junior Olympics: horizontal card on the gold band */
+    .ath-band-inner { max-width: calc(1000px - 4rem); margin: 0 auto; }
+    .ath-feature {
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .ath-feature-media { position: relative; min-height: 260px; background: var(--brd); margin: 0; }
+    .ath-feature-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ath-feature-text { padding: 1.75rem 2rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+    .ath-feature-text h2 { font-size: 1.5rem; margin: 0.3rem 0 0.6rem; }
+    .ath-feature-text p { font-size: 0.9rem; line-height: 1.65; color: var(--tx); margin: 0 0 1.25rem; }
+
+    /* More ways to play */
+    .ath-more { text-align: center; padding: 0 2rem; }
+    .ath-more h2 { font-size: 1.3rem; margin: 0 0 0.85rem; }
+    .ath-more-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+    .ath-more-tags .cs-tag { font-size: 0.8rem; padding: 0.35rem 0.85rem; }
+    .ath-more p { font-size: 0.88rem; color: var(--mt); margin: 0.85rem 0 0; }
+
+    @media (max-width: 860px) {
+      .ath-cols { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .ath-feature { grid-template-columns: 1fr; }
+      .ath-feature-media { min-height: 0; aspect-ratio: 16 / 7; }
+      .ath-feature-text { padding: 1.3rem 1.3rem 1.4rem; }
+      .ath-card { padding: 1.2rem 1.1rem 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <!-- TODO: highschool.jpg is 548px wide; swap in a wider, sharper photo when one is available -->
+  <section id="main-content" class="mp-hero" style="background-image: url('../images/highschool.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <h1 class="mp-hero-title">Faith, fellowship, and friendly competition.</h1>
+      <p class="mp-hero-body">From GOYA basketball to the Metropolis Junior Olympics, our athletes grow in teamwork, sportsmanship, and friendship.</p>
+      <a href="mailto:athletics@ssppglenview.org" class="btn btn-gold-lg cs-hero-cta">
+        <i class="ti ti-mail" aria-hidden="true"></i> Email Athletics
+      </a>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <div class="section">
+    <div class="mp-info-strip">
+      <div class="mp-info-item">
+        <div class="mp-info-label">Basketball</div>
+        <div class="mp-info-value">3rd – 12th Grade</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Season</div>
+        <div class="mp-info-value">November – January</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">League</div>
+        <div class="mp-info-value">GOAL Basketball</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO (centered statement) -->
+  <div class="section" style="padding-top: 0;">
+    <div class="cs-lead">
+      <p>As an extension of our Saints Peter and Paul parish family, we offer many wonderful opportunities for growth in fellowship, teamwork, Christian competition, and athletic excellence.</p>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS (white callout card) -->
+  <div class="section" style="padding-top: 0;">
+    <div class="cs-cal">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title cs-cal-title"><i class="ti ti-calendar-event" aria-hidden="true"></i> Upcoming on the calendar</h2>
+        </div>
+        <a href="../calendar.html?category=athletics&amp;tag=athletics" class="section-link">
+          View full calendar
+        </a>
+      </div>
+      <div id="ministryUpcomingEvents">
+        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOAL BASKETBALL -->
+  <div class="section section--alt">
+    <div class="container" style="max-width: 1000px;">
+      <h2 class="section-title" style="margin: 0;">GOYA Basketball</h2>
+      <p class="ath-subtitle">Greek Orthodox Athletic League</p>
+
+      <div class="ath-cols">
+        <!-- PRACTICE SCHEDULE -->
+        <div class="ath-card">
+          <h3>Practice schedule</h3>
+          <p class="ath-note">Schedule as of October 26</p>
+
+          <div class="ath-group">
+            <span class="cs-label">Boys</span>
+            <div class="ath-team">
+              <div class="ath-team-name">3rd–4th Grade Boys</div>
+              <div class="ath-team-time">Wednesdays · 5:00–6:00 PM</div>
+            </div>
+            <div class="ath-team">
+              <div class="ath-team-name">5th–6th Grade Boys</div>
+              <div class="ath-team-time">Thursdays · 5:00–6:00 PM</div>
+            </div>
+            <div class="ath-team">
+              <div class="ath-team-name">7th–8th Grade Boys</div>
+              <div class="ath-team-time">Mondays · 7:00–8:00 PM</div>
+            </div>
+            <div class="ath-team">
+              <div class="ath-team-name">High School Boys</div>
+              <div class="ath-team-time">Thursdays · 7:45–9:15 PM</div>
+            </div>
+          </div>
+
+          <div class="ath-group">
+            <span class="cs-label">Girls</span>
+            <div class="ath-team">
+              <div class="ath-team-name">3rd–6th Grade Girls</div>
+              <div class="ath-team-time">Wednesdays · 6:00–7:00 PM</div>
+            </div>
+            <div class="ath-team">
+              <div class="ath-team-name">7th–12th Grade Girls</div>
+              <div class="ath-team-time">Wednesdays · 7:00–8:00 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GAME SCHEDULE (rows rendered from ATH_GAMES below) -->
+        <div class="ath-card">
+          <h3>Game schedule</h3>
+          <p class="ath-note">Game times to be announced</p>
+          <!-- TODO: Schererville host church + address; game times -->
+          <ul class="ath-games" id="athGames"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JUNIOR OLYMPICS (gold band) -->
+  <section class="mp-acc-section">
+    <div class="ath-band-inner">
+      <!-- TODO: dates, sports/events, registration link -->
+      <article class="ath-feature">
+        <figure class="ath-feature-media">
+          <img src="../images/youth-jrolympics.jpg" alt="Saints Peter &amp; Paul young athletes in team shirts on a sports field at the Junior Olympics" loading="lazy">
+        </figure>
+        <div class="ath-feature-text">
+          <span class="cs-label">Metropolis of Chicago</span>
+          <h2 class="section-title">Junior Olympics</h2>
+          <p>One of the biggest weekends of our athletics year: our young athletes compete alongside parishes from across the Metropolis of Chicago.</p>
+          <a href="mailto:athletics@ssppglenview.org?subject=Junior%20Olympics" class="btn btn-gold">
+            <i class="ti ti-mail" aria-hidden="true"></i> Email Athletics
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MORE WAYS TO PLAY -->
+  <div class="section">
+    <div class="ath-more">
+      <h2 class="section-title">Adult athletics</h2>
+      <div class="ath-more-tags">
+        <span class="cs-tag">Men's Pick-up Basketball</span>
+        <span class="cs-tag">Women's Pick-up Basketball</span>
+        <span class="cs-tag">Volleyball</span>
+      </div>
+      <p>Email us for days and times.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT CALLOUT -->
+  <div class="section" style="padding-top: 0;">
+    <div class="mp-feature-card">
+      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="mp-feature-text">
+        <h3>Questions about athletics?</h3>
+        <p>Reach out to Steven Conway and Chris Batrich, our Athletics Directors.</p>
+      </div>
+      <a href="mailto:athletics@ssppglenview.org" class="btn btn-gold">Email us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script>
+    const MINISTRY_CALENDAR_TAG = ['athletics'];
+
+    // GOAL basketball games. Edit this list to update the schedule.
+    // date: YYYY-MM-DD · home: true for games at SSPP · address: away games only
+    const ATH_GAMES = [
+      { date: '2026-11-08', home: false, opponent: 'Schererville', address: 'Schererville, IN' },
+      { date: '2026-11-21', home: false, opponent: 'St. Demetrios Elmhurst', address: '893 N Church Rd, Elmhurst, IL 60126' },
+      { date: '2026-12-13', home: false, opponent: 'St. Demetrios Chicago', address: '2727 W Winona St, Chicago, IL 60625' },
+      { date: '2026-12-20', home: true, opponent: "St. John's" },
+      { date: '2026-12-20', home: true, opponent: 'St. Andrew' },
+      { date: '2027-01-09', home: true, opponent: 'St. Nectarios' },
+      { date: '2027-01-10', home: false, opponent: 'Holy Cross / Holy Apostles', address: '2501 S Wolf Rd, Westchester, IL 60154' },
+      { date: '2027-01-23', home: true, opponent: 'St. Haralambos' },
+      { date: '2027-01-24', home: true, opponent: 'St. Constantine & Helen' },
+    ];
+
+    (function () {
+      const list = document.getElementById('athGames');
+      if (!list) return;
+      const esc = (str) => {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+      };
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      let nextMarked = false;
+
+      list.innerHTML = ATH_GAMES.map((g) => {
+        const [y, m, d] = g.date.split('-').map(Number);
+        const date = new Date(y, m - 1, d);
+        const isPast = date < today;
+        const isNext = !isPast && !nextMarked;
+        if (isNext) nextMarked = true;
+
+        const full = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+        const mon = date.toLocaleDateString('en-US', { month: 'short' });
+        const where = g.home
+          ? 'SSPP, Glenview'
+          : `<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(g.address)}" target="_blank" rel="noopener noreferrer">${esc(g.address)}</a>`;
+
+        return `
+          <li class="ath-game${isPast ? ' is-past' : ''}${isNext ? ' is-next' : ''}">
+            <span class="ath-date" title="${full}" aria-label="${full}">
+              <span class="ath-date-mon" aria-hidden="true">${mon}</span>
+              <span class="ath-date-day" aria-hidden="true">${d}</span>
+            </span>
+            <div class="ath-game-main">
+              ${isNext ? '<span class="cs-label ath-game-next">Next game</span>' : ''}
+              <div class="ath-opponent">${g.home ? 'vs.' : '@'} ${esc(g.opponent)}</div>
+              <div class="ath-game-meta">
+                <span class="ath-pill ${g.home ? 'ath-pill--home' : 'ath-pill--away'}">${g.home ? 'HOME' : 'AWAY'}</span>
+                <span>${where}</span>
+              </div>
+            </div>
+          </li>`;
+      }).join('');
+    })();
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/calendar-config.js"></script>
+  <script src="../js/ministry-events.js"></script>
+</body>
+</html>
