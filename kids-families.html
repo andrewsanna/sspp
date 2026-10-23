@@ -1,0 +1,227 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kids &amp; Families | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Kids and families at Saints Peter & Paul Greek Orthodox Church: preschool, Church School, Greek School, youth groups, Greek dance, and athletics." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/get-involved.css" />
+  <link rel="stylesheet" href="css/ministry-page.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ---- Kids & Families hub ---- */
+    .kf-wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+
+    /* 6-column grid, each card spans 2 → 3 per row; a last row of 2 is centered */
+    .kf-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.25rem;
+    }
+    .kf-card {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .kf-card:hover,
+    .kf-card:focus-visible {
+      border-color: var(--gold);
+      box-shadow: var(--shadow-card);
+    }
+    .kf-card:nth-last-child(2):nth-child(3n + 1) { grid-column: 2 / span 2; }
+
+    .kf-card-img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: var(--brd);
+    }
+    .kf-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.1rem 1.25rem 1.2rem;
+    }
+    .kf-card-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold-text);
+      margin-bottom: 0.3rem;
+    }
+    .kf-card-title {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-size: 1.15rem;
+      color: var(--navy-deep);
+      line-height: 1.3;
+      margin: 0 0 0.35rem;
+    }
+    .kf-card-summary {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: var(--mt);
+      margin: 0;
+    }
+    .kf-card-go {
+      margin-top: auto;      /* pins the link line to the bottom so cards line up */
+      padding-top: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    /* Upcoming events: white callout card (same look as Church School's) */
+    .kf-cal {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+    .kf-cal .section-header { margin-bottom: 1rem; }
+    .kf-cal-title {
+      display: flex; align-items: center; gap: 0.7rem;
+      font-size: 1.25rem; margin: 0;
+    }
+    .kf-cal-title i {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.05rem;
+    }
+
+    .kf-more {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--tx);
+      margin: 0;
+    }
+
+    @media (max-width: 1064px) { .kf-cal { margin-left: 2rem; margin-right: 2rem; } }
+    @media (max-width: 960px) {
+      .kf-grid { grid-template-columns: repeat(2, 1fr); }
+      .kf-card,
+      .kf-card:nth-last-child(2):nth-child(3n + 1) { grid-column: auto; }
+    }
+    @media (max-width: 520px) {
+      .kf-grid { grid-template-columns: 1fr; }
+      .kf-cal { padding: 1.25rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <section id="main-content" class="mp-hero" style="background-image: url('images/kids-church.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <h1 class="mp-hero-title">Kids &amp; Families</h1>
+      <p class="mp-hero-body">From preschool through high school, there's a place for every child to grow in faith, friendship, and our Greek Orthodox heritage.</p>
+    </div>
+  </section>
+
+  <!-- PROGRAM CARDS (built from js/ministries-data.js) -->
+  <div class="section">
+    <div class="kf-wrap">
+      <div class="kf-grid" id="kfGrid">
+        <noscript>
+          <p class="kf-more">See all of our children's and youth programs on the <a class="text-link" href="get-involved.html">Ministries</a> page.</p>
+        </noscript>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <div class="section section--alt">
+    <div class="kf-cal">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title kf-cal-title"><i class="ti ti-calendar-event" aria-hidden="true"></i> Upcoming on the calendar</h2>
+        </div>
+        <a href="calendar.html?category=youth" class="section-link">
+          View full calendar
+        </a>
+      </div>
+      <div id="ministryUpcomingEvents">
+        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING -->
+  <div class="section">
+    <p class="kf-more">Looking for something else? <a class="text-link" href="get-involved.html">Browse all ministries</a></p>
+  </div>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script src="js/main.js"></script>
+  <script src="js/ministries-data.js"></script>
+  <script>
+    const MINISTRY_CALENDAR_CATEGORY = 'youth';
+
+    // Program cards: every active ministry in the Children's Education and
+    // Youth categories, minus the young-adult groups (college and post-college).
+    (function () {
+      const grid = document.getElementById('kfGrid');
+      if (!grid || typeof MINISTRY_CATEGORIES === 'undefined') return;
+
+      const CATEGORY_IDS = ['children', 'youth'];
+      const SKIP = ['GOYAlumni - College', 'Young Adult League (YAL)'];
+      const LABELS = { children: "Children's Education", youth: 'Youth' };
+
+      const esc = (str) => {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+      };
+      const slugify = (str) => str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+      const cards = [];
+      CATEGORY_IDS.forEach((id) => {
+        const cat = MINISTRY_CATEGORIES.find((c) => c.id === id);
+        if (!cat) return;
+        cat.ministries.forEach((m) => {
+          if (m.inactive || SKIP.includes(m.name)) return;
+          const ownPage = typeof m.detailPageUrl === 'string' && m.detailPageUrl.startsWith('ministries/');
+          const href = ownPage ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name);
+          cards.push(`
+            <a class="kf-card" href="${esc(href)}">
+              ${m.image ? `<img class="kf-card-img" src="${esc(m.image)}" alt="" loading="lazy">` : '<div class="kf-card-img"></div>'}
+              <div class="kf-card-body">
+                <div class="kf-card-label">${esc(LABELS[id] || cat.label)}</div>
+                <h2 class="kf-card-title">${esc(m.name)}</h2>
+                <p class="kf-card-summary">${esc(m.summary)}</p>
+                <span class="kf-card-go text-link">${ownPage ? 'Visit page' : 'Learn more'}</span>
+              </div>
+            </a>`);
+        });
+      });
+      grid.innerHTML = cards.join('');
+    })();
+  </script>
+  <script src="js/calendar-config.js"></script>
+  <script src="js/ministry-events.js"></script>
+</body>
+</html>

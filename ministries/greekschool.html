@@ -1,0 +1,87 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greek School | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Greek School at Saints Peter & Paul Greek Orthodox Church: Greek language, culture, and traditions for children." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/get-involved.css" />
+  <link rel="stylesheet" href="../css/ministry-page.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <!-- TODO: swap in a wider, higher-resolution Greek School photo (greekschool.jpg is 628px wide) -->
+  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/greekschool.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <h1 class="mp-hero-title">Greek School</h1>
+      <p class="mp-hero-body">Greek language, culture, and traditions for children.</p>
+    </div>
+  </section>
+
+  <!-- PLACEHOLDER NOTE -->
+  <div class="section">
+    <p class="mp-note-box" style="padding: 0.85rem 1.2rem; border-left: 3px solid var(--gold); margin-bottom: 0;">
+      <strong>More details coming soon.</strong> Class levels, schedule, and registration information will be posted here. In the meantime, <a href="mailto:greekschool@ssppglenview.org" style="color: var(--navy); font-weight: 700; text-decoration: none;">email the Greek School</a> with any questions.
+    </p>
+  </div>
+
+  <!-- INTRO -->
+  <div class="section" style="padding-top: 0;">
+    <div class="mp-col">
+      <p class="mp-lede">The Saints Peter and Paul Greek School is committed to providing an excellent educational program, in a child-centered, child-friendly environment where learning can be fun. Our overall purpose is to teach our students the skills needed to communicate using the Greek language; therefore we put emphasis on conversation and introduce them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful. The small number of students in each level enables the teachers to focus on each child's individual needs.</p>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS -->
+  <div class="section section--alt">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Upcoming on the calendar</h2>
+        </div>
+        <a href="../calendar.html?category=youth&amp;tag=greek_school" class="section-link">
+          View full calendar
+        </a>
+      </div>
+      <div id="ministryUpcomingEvents">
+        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT CALLOUT -->
+  <div class="section">
+    <div class="mp-feature-card">
+      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="mp-feature-text">
+        <h3>Questions about Greek School?</h3>
+        <p>Reach out to Stella Theoharopoulos, our Greek School Director.</p>
+      </div>
+      <a href="mailto:greekschool@ssppglenview.org" class="btn btn-gold">Email us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script>
+    // Greek School calendar only
+    const MINISTRY_CALENDAR_TAG = 'greek_school';
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/calendar-config.js"></script>
+  <script src="../js/ministry-events.js"></script>
+</body>
+</html>
