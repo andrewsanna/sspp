@@ -15,6 +15,25 @@
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <style>
+    /* ---- Intro: centered statement ---- */
+    .cs-lead {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .cs-lead p {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-size: 1.22rem;
+      line-height: 1.65;
+      color: var(--navy-deep);
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .cs-lead p { font-size: 1.08rem; }
+    }
+
     /* ---- Shared: section intro ---- */
     .cs-intro {
       font-size: 0.92rem; line-height: 1.7; color: var(--tx);
@@ -239,20 +258,11 @@
     <p class="mp-note-box cs-pickup"><strong>Pickup:</strong> All students 3rd grade and younger must be picked up by a parent or older sibling.</p>
   </div>
 
-  <!-- INTRO + REGISTER -->
+  <!-- INTRO (centered statement) -->
   <div class="section" style="padding-top: 0;">
-    <div class="container" style="max-width: 1000px;">
-      <div class="mp-intro">
-        <div>
-          <p class="mp-intro-text">Classes begin with family worship in Divine Liturgy on Sunday mornings. We welcome all students to proceed to class following Holy Communion. Our knowledgeable and dedicated teachers are committed to inspiring students to grow their faith in Christ through age-appropriate curriculum and activities each week, fostering an environment for students to form lasting connections with their Orthodox classmates.</p>
-          <a href="https://onrealm.org/ssppglenview/PublicRegistrations/Event?linkString=Njg2MDE5OWQtNGM2My00N2E3LTk5MWQtYjQ3NTAxMDhiNWQx" target="_blank" rel="noopener noreferrer" class="btn btn-gold-lg mp-intro-cta">
-            <i class="ti ti-clipboard-check" aria-hidden="true"></i> Register for Church School
-          </a>
-        </div>
-        <figure class="mp-photo mp-intro-photo">
-          <img src="../images/childrens-sermon.jpg" width="1310" height="840" alt="Children gathered at the front of the church during Divine Liturgy" loading="lazy">
-        </figure>
-      </div>
+    <div class="cs-lead">
+      <p>Classes begin with family worship in Divine Liturgy on Sunday mornings. We welcome all students to proceed to class following Holy Communion. Our knowledgeable and dedicated teachers are committed to inspiring students to grow their faith in Christ through age-appropriate curriculum and activities each week, fostering an environment for students to form lasting connections with their Orthodox classmates.</p>
+      <!-- to keep a second Register button, paste the btn-gold-lg link here and change margin: 0 above to margin: 0 0 1.75rem -->
     </div>
   </div>
 
