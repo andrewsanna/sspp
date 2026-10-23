@@ -299,6 +299,22 @@
   box-shadow: var(--shadow-card);
 }
 
+/* Cards that link to their own ministry page */
+.ministry-card.is-linked {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding-right: 2rem;
+}
+
+.ministry-card-go {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--gold-deep);
+}
+
 .ministry-card.is-inactive {
   opacity: 0.6;
 }

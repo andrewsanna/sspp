@@ -60,9 +60,16 @@ function slugify(str) {
 }
 
 function findMinistryBySlug(slug) {
-  for (const cat of MINISTRY_CATEGORIES) {
-    const ministry = cat.ministries.find((m) => slugify(m.name) === slug);
-    if (ministry) return { ministry, category: cat };
+  // Exact match first, then a short form of the name: #sr-goya finds
+  // "Sr. GOYA - High School" (card id sr-goya-high-school).
+  for (const exact of [true, false]) {
+    for (const cat of MINISTRY_CATEGORIES) {
+      const ministry = cat.ministries.find((m) => {
+        const s = slugify(m.name);
+        return exact ? s === slug : s.startsWith(slug + '-');
+      });
+      if (ministry) return { ministry, category: cat };
+    }
   }
   return null;
 }
@@ -138,15 +145,33 @@ function renderMinistryCard(ministry, category) {
     ? `<div class="ministry-card-photo"><img src="${escapeHtml(ministry.image)}" alt="" loading="lazy"></div>`
     : '';
 
-  return `
-    <button class="ministry-card ${ministry.inactive ? 'is-inactive' : ''} ${ministry.image ? '' : 'no-photo'}" id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}">
+  const classes = `ministry-card ${ministry.inactive ? 'is-inactive' : ''} ${ministry.image ? '' : 'no-photo'}`;
+  const attrs = `id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}"`;
+  const inner = `
       ${photo}
       <div class="ministry-card-text">
         <div class="ministry-card-title">${escapeHtml(ministry.name)} ${inactiveBadge}</div>
         <div class="ministry-card-summary">${escapeHtml(ministry.summary)}</div>
-      </div>
+      </div>`;
+
+  // Ministries with their own page on this site link straight to it;
+  // external, PDF and contact links keep the detail modal.
+  if (hasOwnPage(ministry)) {
+    return `
+    <a class="${classes} is-linked" href="${escapeHtml(ministry.detailPageUrl)}" ${attrs}>${inner}
+      <i class="ti ti-arrow-up-right ministry-card-go" aria-hidden="true"></i>
+    </a>
+  `;
+  }
+
+  return `
+    <button class="${classes}" ${attrs}>${inner}
     </button>
   `;
+}
+
+function hasOwnPage(ministry) {
+  return typeof ministry.detailPageUrl === 'string' && ministry.detailPageUrl.startsWith('ministries/');
 }
 
 function attachAccordionHandlers() {
@@ -223,7 +248,8 @@ function attachAccordionHandlers() {
 }
 
 function attachCardHandlers() {
-  document.querySelectorAll('.ministry-card').forEach((card) => {
+  // Linked cards (<a class="ministry-card is-linked">) navigate on their own.
+  document.querySelectorAll('.ministry-card:not(.is-linked)').forEach((card) => {
     card.addEventListener('click', () => {
       const catId = card.dataset.cat;
       const name = card.dataset.ministry;
@@ -349,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMinistryModal();
 
   if (deepLink) {
-    const card = document.getElementById(hash);
+    const card = document.getElementById(slugify(deepLink.ministry.name));
     if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
     openMinistryModal(deepLink.ministry, deepLink.category);
   }

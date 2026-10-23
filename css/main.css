@@ -546,6 +546,11 @@ p {
     visibility: visible;
   }
 
+  /* the floating social buttons would sit on top of the open menu */
+  .nav-inner:has(.nav-links.is-open) .follow-float {
+    display: none;
+  }
+
   .nav-toggle {
     display: block;
     position: relative;
@@ -554,9 +559,10 @@ p {
 }
 
 /* ============================================
-   Nav dropdowns (Community, Resources) —
-   each is a clickable link + a separate caret
-   button that opens/closes the submenu
+   Nav dropdowns
+   - Community: the label is a <button class="nav-dropdown-toggle">
+     that opens/closes the submenu
+   - Calendar: a link (.nav-dropdown-link) + a separate caret button
    ============================================ */
 .nav-dropdown {
   position: relative;
@@ -575,6 +581,26 @@ p {
 
 .nav-dropdown-link:hover,
 .nav-dropdown-link.active {
+  color: var(--gold);
+}
+
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+  padding: 0.25rem 0;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.nav-dropdown-toggle:hover,
+.nav-dropdown-toggle.active,
+.nav-dropdown.is-open .nav-dropdown-toggle {
   color: var(--gold);
 }
 
@@ -678,6 +704,7 @@ p {
   .nav-dropdown.is-open .nav-dropdown-menu {
     max-height: 300px;
     margin-top: 0.5rem;
+    transform: none;   /* the desktop rule centers the open menu with translateX(-50%) */
   }
 
   .nav-dropdown-menu a {

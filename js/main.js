@@ -1,6 +1,6 @@
 // ============================================
 // main.js — Mobile nav toggle, nav dropdowns
-// (Community, Resources), and automatic
+// (Community, Calendar), and automatic
 // active-link highlighting
 // ============================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,47 +26,56 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Nav dropdowns (Community, Resources) ---
-  // Each dropdown is a link (navigates to its own page, e.g. Community ->
-  // parish-life.html) plus a separate caret button that opens/closes its
-  // submenu. Handles any number of .nav-dropdown elements the same way,
-  // so adding a third one later needs no JS changes.
+  // --- Nav dropdowns (Community, Calendar) ---
+  // Two kinds share this code: a plain dropdown whose label is a
+  // <button class="nav-dropdown-toggle"> (Community), and a link + separate
+  // caret button (Calendar: the label goes to calendar.html). Either way the
+  // control below opens/closes the submenu.
   const dropdowns = document.querySelectorAll('.nav-dropdown');
+  const CONTROL = '.nav-dropdown-toggle, .nav-dropdown-caret-btn';
+
+  function setOpen(dropdown, open) {
+    dropdown.classList.toggle('is-open', open);
+    const control = dropdown.querySelector(CONTROL);
+    if (control) control.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
 
   function closeAllDropdowns(except) {
     dropdowns.forEach(function (dd) {
-      if (dd === except) return;
-      dd.classList.remove('is-open');
-      const caret = dd.querySelector('.nav-dropdown-caret-btn');
-      if (caret) caret.setAttribute('aria-expanded', 'false');
+      if (dd !== except) setOpen(dd, false);
     });
   }
 
   dropdowns.forEach(function (dropdown) {
-    const caret = dropdown.querySelector('.nav-dropdown-caret-btn');
-    if (!caret) return;
+    const control = dropdown.querySelector(CONTROL);
+    if (!control) return;
 
-    caret.addEventListener('click', function (e) {
+    control.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
+      // A click right after hover opened the menu should keep it open,
+      // not toggle it shut.
+      if (dropdown.dataset.hoverOpened === 'true') {
+        dropdown.dataset.hoverOpened = 'false';
+        return;
+      }
       const willOpen = !dropdown.classList.contains('is-open');
       closeAllDropdowns(willOpen ? dropdown : null);
-      dropdown.classList.toggle('is-open', willOpen);
-      caret.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      setOpen(dropdown, willOpen);
     });
 
     // Desktop hover open
     dropdown.addEventListener('mouseenter', function () {
       if (window.innerWidth > 860) {
         closeAllDropdowns(dropdown);
-        dropdown.classList.add('is-open');
-        caret.setAttribute('aria-expanded', 'true');
+        dropdown.dataset.hoverOpened = dropdown.classList.contains('is-open') ? 'false' : 'true';
+        setOpen(dropdown, true);
       }
     });
     dropdown.addEventListener('mouseleave', function () {
       if (window.innerWidth > 860) {
-        dropdown.classList.remove('is-open');
-        caret.setAttribute('aria-expanded', 'false');
+        dropdown.dataset.hoverOpened = 'false';
+        setOpen(dropdown, false);
       }
     });
   });
@@ -74,11 +83,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close any open dropdown on outside click
   document.addEventListener('click', function (e) {
     dropdowns.forEach(function (dropdown) {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('is-open');
-        const caret = dropdown.querySelector('.nav-dropdown-caret-btn');
-        if (caret) caret.setAttribute('aria-expanded', 'false');
-      }
+      if (!dropdown.contains(e.target)) setOpen(dropdown, false);
+    });
+  });
+
+  // Escape closes an open dropdown and returns focus to its control
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    dropdowns.forEach(function (dropdown) {
+      if (!dropdown.classList.contains('is-open')) return;
+      setOpen(dropdown, false);
+      const control = dropdown.querySelector(CONTROL);
+      if (control && dropdown.contains(document.activeElement)) control.focus();
     });
   });
 
@@ -96,9 +112,16 @@ document.addEventListener('DOMContentLoaded', function () {
       // highlighted even though the visible label is the parent's.
       const parentDropdown = link.closest('.nav-dropdown');
       if (parentDropdown) {
-        const parentLink = parentDropdown.querySelector('.nav-dropdown-link');
-        if (parentLink) parentLink.classList.add('active');
+        const parentLabel = parentDropdown.querySelector('.nav-dropdown-toggle, .nav-dropdown-link');
+        if (parentLabel) parentLabel.classList.add('active');
       }
     }
+  });
+
+  // Whole sections (e.g. every /ministries/ page under Community)
+  document.querySelectorAll('.nav-dropdown[data-active-path]').forEach(function (dropdown) {
+    if (window.location.pathname.indexOf(dropdown.getAttribute('data-active-path')) === -1) return;
+    const label = dropdown.querySelector('.nav-dropdown-toggle, .nav-dropdown-link');
+    if (label) label.classList.add('active');
   });
 });

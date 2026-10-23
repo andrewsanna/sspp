@@ -315,6 +315,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Greek language, culture, and traditions for children.',
         description: 'The Saints Peter and Paul Greek School is committed to providing an excellent educational program, in a child-centered, child-friendly environment where learning can be fun. Our overall purpose is to teach our students the skills needed to communicate using the Greek language; therefore we put emphasis on conversation and introduce them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful. The small number of students in each level enables the teachers to focus on each child\'s individual needs.',
         image: 'images/ministries/greekschool.jpg',
+        detailPageUrl: 'ministries/greekschool.html',
         calendarCategory: 'youth',
         calendarTag: 'greek_school',
         contact: {
