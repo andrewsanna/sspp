@@ -15,39 +15,31 @@
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
   <style>
-    /* ---- Our Staff (same card look as the About page staff tiles, no photos) ---- */
-    .ag-staff-lead {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      max-width: 660px;
-      margin: 0 auto 1.5rem;
-    }
+    /* ---- Our Staff (same layout as the About page staff tiles) ---- */
     .ag-staff-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
-    .ag-staff-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.9rem;
+    .ag-staff-tile {
       background: #fff;
       border: 1px solid var(--brd);
       border-radius: var(--radius-lg);
-      padding: 1.1rem;
+      overflow: hidden;
     }
-    .ag-staff-card.is-featured { border: 3px solid var(--gold); }
-    .ag-staff-avatar {
-      flex: 0 0 auto;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--gold-lt);
-      color: var(--gold-deep);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
+    .ag-staff-tile.is-featured { border: 3px solid var(--gold); }
+    .ag-staff-tile-photo {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--brd);   /* shows until the photo is uploaded */
     }
-    .ag-staff-card.is-featured .ag-staff-avatar { background: var(--navy-deep); color: var(--gold); }
+    .ag-staff-tile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .ag-staff-tile-text { padding: 1.1rem; }
     .ag-staff-badge {
       display: inline-block;
       font-size: 0.65rem;
@@ -56,16 +48,16 @@
       text-transform: uppercase;
       padding: 0.2rem 0.55rem;
       border-radius: 20px;
-      background: var(--gold-lt);
-      color: var(--gold-text);
       margin-bottom: 0.5rem;
     }
-    .ag-staff-card.is-featured .ag-staff-badge { background: var(--navy-deep); color: var(--gold); }
+    .ag-staff-badge.is-clergy { background: var(--navy-deep); color: var(--gold); }
+    .ag-staff-badge.is-staff { background: var(--gold-lt); color: var(--gold-text); }
     .ag-staff-name {
       font-size: 1.035rem;
+      margin: 0 0 0.3rem;
       font-weight: var(--heading-weight);
-      margin: 0;
     }
+    .ag-staff-tile-role { font-size: 0.8rem; color: var(--mt); margin: 0; }
 
     /* ---- History ---- */
     .ag-history p { margin: 0 0 1rem; line-height: 1.75; color: var(--tx); }
@@ -106,9 +98,10 @@
       .ag-staff-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
-      .ag-staff-lead,
-      .ag-staff-grid,
       .ag-visit { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .ag-staff-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -126,38 +119,8 @@
     </div>
   </section>
 
-  <!-- PHOTO GALLERY / SLIDESHOW -->
-  <div class="section">
-    <div class="mp-gallery">
-      <div class="mp-gallery-frame" id="agapeGallery">
-        <div class="mp-gallery-slide is-active">
-          <img src="../images/ministries/agape-gallery-1-PLACEHOLDER.jpg" alt="AGAPE Preschool photo">
-        </div>
-        <div class="mp-gallery-slide">
-          <img src="../images/ministries/agape-gallery-2-PLACEHOLDER.jpg" alt="AGAPE Preschool photo">
-        </div>
-        <div class="mp-gallery-slide">
-          <img src="../images/ministries/agape-gallery-3-PLACEHOLDER.jpg" alt="AGAPE Preschool photo">
-        </div>
-
-        <button class="mp-gallery-nav mp-gallery-prev" aria-label="Previous photo">
-          <i class="ti ti-chevron-left" aria-hidden="true"></i>
-        </button>
-        <button class="mp-gallery-nav mp-gallery-next" aria-label="Next photo">
-          <i class="ti ti-chevron-right" aria-hidden="true"></i>
-        </button>
-
-        <div class="mp-gallery-dots">
-          <button class="mp-gallery-dot is-active" aria-label="Photo 1"></button>
-          <button class="mp-gallery-dot" aria-label="Photo 2"></button>
-          <button class="mp-gallery-dot" aria-label="Photo 3"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- QUICK FACTS -->
-  <div class="section" style="padding-top: 0;">
+  <div class="section">
     <div class="mp-info-strip">
       <div class="mp-info-item">
         <div class="mp-info-label">Ages Served</div>
@@ -174,10 +137,15 @@
     </div>
   </div>
 
-  <!-- INTRO + CTAs -->
+  <!-- MISSION + PHILOSOPHY + CTAs -->
   <div class="section" style="padding-top: 0;">
-    <div class="mp-col">
-      <p class="mp-lede">Our programs are built around the idea that play is a young child's work. Through daily social interaction, hands-on exploration, and a curriculum grounded in the Orthodox Christian faith, children grow cognitively, socially, and spiritually alongside teachers and friends who become like family.</p>
+    <div class="mp-col ag-history">
+      <h2 class="section-title" style="margin-bottom: 1rem;">Our Mission</h2>
+      <p>We at AGAPE Orthodox Christian Preschool are committed to providing an educational experience which emphasizes the Orthodox faith. We are also committed to providing a loving, caring preschool environment where children can develop spiritually, emotionally, socially, cognitively and physically.</p>
+
+      <h2 class="section-title" style="margin: 2.25rem 0 1rem;">Our Philosophy</h2>
+      <p><strong>At AGAPE Preschool our programs are play-based.</strong></p>
+      <p>We believe that play is the work of young children and by creating a curriculum centered around the idea of play, children are given the opportunity to learn in an effective way. When children are encouraged to play, social interaction results. AGAPE Preschool believes that the social interaction that occurs through play is essential to the healthy development of children. We have found that children learn through social interactions with others. More specifically, the language and social skills children use when working cooperatively and collaboratively with peers and teachers promotes cognitive development.</p>
       <div style="display: flex; gap: 1rem; justify-content: flex-start; flex-wrap: wrap; margin-top: 1.5rem;">
         <a href="https://schools.mybrightwheel.com/sign-in?redirect_path=/admissions/packet/4a487485-c898-4ddf-ba7b-92eac4c01a21/fill?school_id=37c37844-de62-497e-b879-ed4b89a14f9f" target="_blank" rel="noopener noreferrer" class="btn btn-gold-lg">
           <i class="ti ti-clipboard-check" aria-hidden="true"></i> 2026–27 Enrollment Application
@@ -254,85 +222,139 @@
   <!-- OUR STAFF -->
   <div class="section" id="staff">
     <div class="container" style="max-width: 1000px;">
-      <h2 class="section-title" style="margin-bottom: 1.5rem; text-align: center;">Our Staff</h2>
-      <div class="ag-staff-lead">
-        <div class="ag-staff-card is-featured">
-          <span class="ag-staff-avatar"><i class="ti ti-user" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Director</span>
-            <h3 class="ag-staff-name">Julie Mantice</h3>
-          </div>
-        </div>
-        <div class="ag-staff-card is-featured">
-          <span class="ag-staff-avatar"><i class="ti ti-user" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Assistant Director</span>
-            <h3 class="ag-staff-name">Seong Park McGarry</h3>
-          </div>
-        </div>
-      </div>
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">Our Staff</h2>
+      <!-- Staff photos: upload to images/staff/agape/ using the file names
+           below (first-last.jpg). Until a photo is uploaded, the tile shows
+           a plain square. -->
       <div class="ag-staff-grid">
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Dove Class Teachers</span>
-            <h3 class="ag-staff-name">Eirini Kourentzis, Sandy O&rsquo;Malley &amp; Katerina Sotirakos</h3>
+        <div class="ag-staff-tile is-featured">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/julie-mantice.jpg" alt="Julie Mantice" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Julie Mantice</h3>
+            <p class="ag-staff-tile-role">Director · Apostle (Pre-K) Class Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Fishermen Class Teachers</span>
-            <h3 class="ag-staff-name">Eirini Kourentzis, Sandy O&rsquo;Malley &amp; Katerina Sotirakos</h3>
+        <div class="ag-staff-tile is-featured">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/seong-park-mcgarry.jpg" alt="Seong Park McGarry" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Seong Park McGarry</h3>
+            <p class="ag-staff-tile-role">Assistant Director · Disciple Class Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Disciple Class Teachers</span>
-            <h3 class="ag-staff-name">Jovana Jevtic &amp; Seong Park McGarry</h3>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/eirini-kourentzis.jpg" alt="Eirini Kourentzis" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Eirini Kourentzis</h3>
+            <p class="ag-staff-tile-role">Doves &amp; Fishermen Class Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Apostle (Pre-K) Class Teachers</span>
-            <h3 class="ag-staff-name">Dionna Nikas &amp; Julie Mantice</h3>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/sandy-omalley.jpg" alt="Sandy O'Malley" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Sandy O&rsquo;Malley</h3>
+            <p class="ag-staff-tile-role">Doves &amp; Fishermen Class Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-users" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Saints (K) Class Teachers</span>
-            <h3 class="ag-staff-name">Margaret Jesse &amp; Jovana Jevtic</h3>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/katerina-sotirakos.jpg" alt="Katerina Sotirakos" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Katerina Sotirakos</h3>
+            <p class="ag-staff-tile-role">Doves &amp; Fishermen Class Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-chef-hat" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Cooking Teacher</span>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/jovana-jevtic.jpg" alt="Jovana Jevtic" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Jovana Jevtic</h3>
+            <p class="ag-staff-tile-role">Disciple &amp; Saints (K) Class Teacher</p>
+          </div>
+        </div>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/dionna-nikas.jpg" alt="Dionna Nikas" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Dionna Nikas</h3>
+            <p class="ag-staff-tile-role">Apostle (Pre-K) Class Teacher</p>
+          </div>
+        </div>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/margaret-jesse.jpg" alt="Margaret Jesse" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
+            <h3 class="ag-staff-name">Margaret Jesse</h3>
+            <p class="ag-staff-tile-role">Saints (K) Class Teacher</p>
+          </div>
+        </div>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/katerina-metropoulos.jpg" alt="Katerina Metropoulos" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
             <h3 class="ag-staff-name">Katerina Metropoulos</h3>
+            <p class="ag-staff-tile-role">Cooking Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-palette" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Art Teacher</span>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/agape/gail-belian.jpg" alt="Gail Belian" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
             <h3 class="ag-staff-name">Gail Belian</h3>
+            <p class="ag-staff-tile-role">Art Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-book" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Religion Teacher</span>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/steven.jpg" alt="Steven Thell" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-staff">Staff</span>
             <h3 class="ag-staff-name">Steven Thell</h3>
+            <p class="ag-staff-tile-role">Religion Teacher</p>
           </div>
         </div>
-        <div class="ag-staff-card">
-          <span class="ag-staff-avatar"><i class="ti ti-cross" aria-hidden="true"></i></span>
-          <div>
-            <span class="ag-staff-badge">Come &amp; See Instructors</span>
-            <h3 class="ag-staff-name">Father Rick Andrews &amp; Father Peter Sarolas</h3>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/fr-rick.jpg" alt="Father Rick Andrews" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-clergy">Clergy</span>
+            <h3 class="ag-staff-name">Father Rick Andrews</h3>
+            <p class="ag-staff-tile-role">Come &amp; See Instructor</p>
+          </div>
+        </div>
+        <div class="ag-staff-tile">
+          <div class="ag-staff-tile-photo">
+            <img src="../images/staff/fr-peter.jpg" alt="Father Peter Sarolas" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ag-staff-tile-text">
+            <span class="ag-staff-badge is-clergy">Clergy</span>
+            <h3 class="ag-staff-name">Father Peter Sarolas</h3>
+            <p class="ag-staff-tile-role">Come &amp; See Instructor</p>
           </div>
         </div>
       </div>
@@ -389,37 +411,6 @@
   <script>
     const MINISTRY_CALENDAR_CATEGORY = 'agape';
 
-    // Simple gallery slideshow — auto-advance + manual controls
-    (function () {
-      const frame = document.getElementById('agapeGallery');
-      if (!frame) return;
-      const slides = frame.querySelectorAll('.mp-gallery-slide');
-      const dots = frame.querySelectorAll('.mp-gallery-dot');
-      let current = 0;
-      let timer;
-
-      function show(index) {
-        slides[current].classList.remove('is-active');
-        dots[current].classList.remove('is-active');
-        current = (index + slides.length) % slides.length;
-        slides[current].classList.add('is-active');
-        dots[current].classList.add('is-active');
-      }
-
-      function next() { show(current + 1); }
-      function prev() { show(current - 1); }
-
-      function restartTimer() {
-        clearInterval(timer);
-        timer = setInterval(next, 5000);
-      }
-
-      frame.querySelector('.mp-gallery-next').addEventListener('click', () => { next(); restartTimer(); });
-      frame.querySelector('.mp-gallery-prev').addEventListener('click', () => { prev(); restartTimer(); });
-      dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restartTimer(); }));
-
-      restartTimer();
-    })();
   </script>
   <script src="../js/main.js"></script>
   <script src="../js/calendar-config.js"></script>
