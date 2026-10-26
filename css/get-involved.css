@@ -171,13 +171,13 @@
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  padding: 0.75rem 1.1rem;
-  max-width: 640px;
+  padding: 0.9rem 1.2rem;
+  max-width: 720px;
 }
 
 .gi-search-box i {
   color: var(--gold);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -187,7 +187,7 @@
   border: none;
   outline: none;
   color: #fff;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .gi-search-box input::placeholder {
@@ -195,64 +195,80 @@
 }
 
 /* ============================================
-   Accordion
+   Category sections (always visible)
    ============================================ */
+.gi-category + .gi-category {
+  margin-top: 2.5rem;
+}
 
-.acc-right {
+.gi-category-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--brd);
+}
+
+.gi-category-title {
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
+  font-size: 1.4rem;
+  color: var(--navy-deep);
+  margin: 0 0 0.2rem;
+}
+
+.gi-category-blurb {
+  font-size: 0.85rem;
+  color: var(--mt);
+  margin: 0;
+}
+
+.gi-category-meta {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-shrink: 0;
 }
 
-.acc-cal-slot {
-  width: 200px;
-  display: flex;
-  justify-content: flex-start;
+.gi-category-count {
+  font-size: 0.8rem;
+  color: var(--mt);
+  white-space: nowrap;
 }
 
-.acc-cal-btn {
+/* Category calendar link (was the accordion header's calendar button) */
+.gi-category-cal {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.35rem;
   background: var(--gold);
   color: var(--navy-deep);
-  border: none;
   font-size: 0.72rem;
   font-weight: 700;
-  padding: 0.4rem 0.6rem;
+  padding: 0.4rem 0.75rem;
   border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
-  width: 190px;
   transition: background 0.15s ease;
 }
 
-.acc-cal-btn:hover {
+.gi-category-cal:hover {
   background: #c9a25c;
 }
 
-.acc-cal-btn i {
+.gi-category-cal i {
   font-size: 0.8rem;
 }
 
-.acc-meta {
-  padding-left: 1.25rem;
-  border-left: 1px solid var(--brd);
+@media (max-width: 600px) {
+  .gi-category-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
 }
 
-@media (max-width: 600px) {
-  .acc-right {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-  }
-  .acc-meta {
-    padding-left: 0;
-    border-left: none;
-  }
-}
 .gi-content {
   max-width: 1100px;
   margin: 0 auto;
@@ -260,21 +276,17 @@
 }
 
 /* Reserve space for the full ministry directory before JS renders it —
-   it's long (9 categories), so without this the page loads looking
-   almost empty below the search bar, then suddenly grows a lot. */
-#ministryAccordion {
-  min-height: 600px;
+   every category is expanded, so without this the page loads looking
+   almost empty below the search bar, then suddenly grows a lot. Only
+   while empty, so a short search result doesn't leave a big gap. */
+#ministryDirectory:empty {
+  min-height: 1200px;
 }
 
-/* Note: the accordion component (.acc-item, .acc-head, .acc-title, etc.)
-   is defined once, canonically, in main.css under "Accordion (shared)" —
-   an old, already-disabled duplicate copy that used to sit here was
-   removed in the cleanup pass. */
-
 .ministry-grid {
-  padding: 1.1rem;
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.7rem;
 }
 
@@ -320,8 +332,8 @@
 }
 
 .ministry-card-photo {
-  width: 56px;
-  height: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 7px;
   flex-shrink: 0;
   overflow: hidden;
@@ -345,7 +357,7 @@
 }
 
 .ministry-card-title {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--navy-deep);
   margin-bottom: 0.2rem;
@@ -358,7 +370,7 @@
 }
 
 .ministry-card-summary {
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   color: var(--mt);
   line-height: 1.4;
 }
@@ -391,23 +403,9 @@
   color: var(--blue);
 }
 
-@media (max-width: 860px) {
-  .ministry-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .ministry-grid {
     grid-template-columns: 1fr;
-  }
-  .acc-head {
-    padding: 1rem;
-  }
-  .acc-meta {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.3rem;
   }
 }
 
