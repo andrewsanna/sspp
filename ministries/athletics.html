@@ -153,8 +153,85 @@
     .ath-more-tags .cs-tag { font-size: 0.8rem; padding: 0.35rem 0.85rem; }
     .ath-more p { font-size: 0.88rem; color: var(--mt); margin: 0.85rem 0 0; }
 
+    /* How you can help: same icon cards as Church School / Youth */
+    .cs-intro {
+      font-size: 0.92rem; line-height: 1.7; color: var(--tx);
+      max-width: 640px; margin: 0.5rem 0 1.75rem;
+    }
+    .cs-help-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+    }
+    .cs-help {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.3rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-help-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--cream); border: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.85rem;
+    }
+    .cs-help-icon i { font-size: 1.15rem; color: var(--gold-deep); }
+    .cs-help h3 {
+      font-size: 1.08rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.5rem;
+    }
+    .cs-help p {
+      font-size: 0.83rem; line-height: 1.6; color: var(--mt); margin: 0 0 0.6rem;
+    }
+    .cs-help-foot {
+      margin-top: auto;
+      padding-top: 0.9rem;
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+    }
+
+    /* Stay in the loop: compact link cards above the contact card (same as Youth) */
+    .ath-updates-title { max-width: 900px; margin: 0 auto 0.9rem; }
+    .ath-updates {
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .ath-update {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 0.8rem 0.95rem;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.15s ease;
+    }
+    .ath-update:hover,
+    .ath-update:focus-visible { border-color: var(--gold); }
+    .ath-update-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      border-radius: 50%; background: var(--cream); border: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold-deep); font-size: 1.05rem;
+    }
+    .ath-update-name { font-size: 0.85rem; font-weight: 700; color: var(--navy-deep); }
+    .ath-update-line { font-size: 0.75rem; color: var(--mt); line-height: 1.4; }
+
+    @media (max-width: 964px) {
+      .ath-updates,
+      .ath-updates-title { margin-left: 2rem; margin-right: 2rem; }
+    }
+    @media (max-width: 960px) { .cs-help-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 860px) {
       .ath-cols { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .cs-help-grid,
+      .ath-updates { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
       .ath-feature { grid-template-columns: 1fr; }
@@ -296,8 +373,65 @@
     </div>
   </div> -->
 
-  <!-- CONTACT CALLOUT -->
+  <!-- HOW YOU CAN HELP (same cards as Church School / Youth) -->
+  <!-- PLACEHOLDER: roles and wording drafted; confirm with the Athletics Directors -->
+  <div class="section">
+    <div class="container" style="max-width: 1000px;">
+      <h2 class="section-title">How you can help</h2>
+      <p class="cs-intro">Our teams run on parent volunteers. Lend a hand at a game, a practice, or the whole season.</p>
+
+      <div class="cs-help-grid">
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-ball-basketball" aria-hidden="true"></i></div>
+          <h3>Coach</h3>
+          <p>Lead a team or help an assistant coach at practices and on the bench during games.</p>
+          <div class="cs-help-foot">
+            <span class="cs-tag">Youth safety training</span>
+            <span class="cs-tag">Background check</span>
+          </div>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-car" aria-hidden="true"></i></div>
+          <h3>Drive</h3>
+          <p>Help get players to away games across Chicagoland and Northwest Indiana.</p>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-clock" aria-hidden="true"></i></div>
+          <h3>Scoreboard</h3>
+          <p>Run the clock or keep the scorebook at home games. We'll show you how.</p>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i></div>
+          <h3>Concessions</h3>
+          <p>Staff the snack table at home games and tournaments to support the program.</p>
+        </article>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top: 2rem;">
+        <a href="mailto:athletics@ssppglenview.org?subject=Athletics%20volunteering" class="btn btn-gold">
+          <i class="ti ti-mail" aria-hidden="true"></i> Email us
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAY IN THE LOOP + CONTACT CALLOUT -->
+  <!-- PLACEHOLDER: confirm with the Youth Director how parents get updates -->
   <div class="section" style="padding-top: 0;">
+    <h2 class="section-title ath-updates-title">Stay in the loop</h2>
+    <div class="ath-updates">
+      <a class="ath-update" href="mailto:youthdirector@ssppglenview.org?subject=Add%20me%20to%20the%20youth%20group%20text">
+        <span class="ath-update-icon"><i class="ti ti-message-circle" aria-hidden="true"></i></span>
+        <span><span class="ath-update-name">Group text</span><br><span class="ath-update-line">Ask to be added to the group</span></span>
+      </a>
+      <a class="ath-update" href="mailto:youthdirector@ssppglenview.org?subject=Add%20me%20to%20the%20youth%20email%20list">
+        <span class="ath-update-icon"><i class="ti ti-mail" aria-hidden="true"></i></span>
+        <span><span class="ath-update-name">Email list</span><br><span class="ath-update-line">Monthly updates for parents</span></span>
+      </a>
+    </div>
     <div class="mp-feature-card">
       <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
       <div class="mp-feature-text">
