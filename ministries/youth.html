@@ -243,11 +243,71 @@
       display: flex; align-items: center; justify-content: center;
       color: var(--gold-deep); font-size: 1.05rem;
     }
+    .yg-serve-item > div { flex: 1; }
     .yg-serve-item h3 {
-      flex: 1;
       font-size: 1rem; font-weight: var(--heading-weight);
       color: var(--navy-deep); margin: 0; line-height: 1.3;
     }
+
+    .yg-serve-item p { font-size: 0.8rem; line-height: 1.5; color: var(--mt); margin: 0.15rem 0 0; }
+
+    /* How you can help: same icon cards as Church School, white on the plain section */
+    .cs-help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+    .cs-help {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.3rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-help-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--cream); border: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.85rem;
+    }
+    .cs-help-icon i { font-size: 1.15rem; color: var(--gold-deep); }
+    .cs-help h3 {
+      font-size: 1.08rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.5rem;
+    }
+    .cs-help p {
+      font-size: 0.83rem; line-height: 1.6; color: var(--mt); margin: 0 0 0.6rem;
+    }
+    .cs-help-foot {
+      margin-top: auto;
+      padding-top: 0.9rem;
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+    }
+
+    /* Stay in the loop: three compact link cards above the contact card */
+    .yg-updates {
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .yg-update {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 0.8rem 0.95rem;
+      color: inherit;
+      text-decoration: none;
+      transition: border-color 0.15s ease;
+    }
+    a.yg-update:hover,
+    a.yg-update:focus-visible { border-color: var(--gold); }
+    .yg-update-name { font-size: 0.85rem; font-weight: 700; color: var(--navy-deep); }
+    .yg-update-line { font-size: 0.75rem; color: var(--mt); line-height: 1.4; }
+    .yg-updates-title { max-width: 900px; margin: 0 auto 0.9rem; }
 
     /* After high school line */
     .yg-after { text-align: center; font-size: 0.95rem; color: var(--tx); margin: 0; padding: 0 2rem; }
@@ -255,7 +315,13 @@
     .yg-after a:hover { color: var(--gold-deep); }
 
     @media (max-width: 860px) {
-      .yg-trips { grid-template-columns: 1fr; }
+      .yg-trips,
+      .cs-help-grid,
+      .yg-updates { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 964px) {
+      .yg-updates,
+      .yg-updates-title { margin-left: 2rem; margin-right: 2rem; }
     }
     @media (max-width: 760px) {
       /* phones: photos become short banners on top */
@@ -479,32 +545,97 @@
       <div class="yg-serve-text">
         <h2 class="section-title">Serving others</h2>
         <p class="cs-intro">Outreach is part of every month for our Jr. and Sr. GOYAns.</p>
-        <!-- TODO: one-line description per outreach from Youth Director -->
+        <!-- PLACEHOLDER: one-line descriptions drafted; confirm wording with Steven -->
         <ul class="yg-serve-list">
           <li class="yg-serve-item">
             <span class="yg-serve-icon"><i class="ti ti-bowl" aria-hidden="true"></i></span>
-            <h3>Feed My Starving Children</h3>
+            <div>
+              <h3>Feed My Starving Children</h3>
+              <p>Packing meals for children in need around the world.</p>
+            </div>
           </li>
           <li class="yg-serve-item">
             <span class="yg-serve-icon"><i class="ti ti-shopping-bag" aria-hidden="true"></i></span>
-            <h3>Blessing Bags</h3>
+            <div>
+              <h3>Blessing Bags</h3>
+              <p>Assembling bags of everyday essentials for neighbors experiencing homelessness.</p>
+            </div>
           </li>
           <li class="yg-serve-item">
             <span class="yg-serve-icon"><i class="ti ti-heart-handshake" aria-hidden="true"></i></span>
-            <h3>Visits to the Greek American Nursing Home</h3>
+            <div>
+              <h3>Visits to the Greek American Nursing Home</h3>
+              <p>Spending time with residents, from conversation to holiday visits.</p>
+            </div>
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- AFTER HIGH SCHOOL -->
+  <!-- HOW YOU CAN HELP (same cards as Church School) -->
+  <!-- PLACEHOLDER: roles and wording drafted; confirm with Steven -->
   <div class="section">
+    <div class="container" style="max-width: 1000px;">
+      <h2 class="section-title">How you can help</h2>
+      <p class="cs-intro">Our youth programs run on parent volunteers. Pitch in once or all year long.</p>
+
+      <div class="cs-help-grid">
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <h3>Chaperone</h3>
+          <p>Join us on outings, lock-ins, and retreats so there are enough adults on every trip.</p>
+          <div class="cs-help-foot">
+            <span class="cs-tag">Youth safety training</span>
+            <span class="cs-tag">Background check</span>
+          </div>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-car" aria-hidden="true"></i></div>
+          <h3>Drive</h3>
+          <p>Help get our kids to and from outings, outreach, and away events.</p>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-tools-kitchen-2" aria-hidden="true"></i></div>
+          <h3>FLJ Dinners</h3>
+          <p>Bring or serve dinner at a monthly FLJ gathering.</p>
+        </article>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top: 2rem;">
+        <a href="mailto:youthdirector@ssppglenview.org?subject=Youth%20volunteering" class="btn btn-gold">
+          <i class="ti ti-mail" aria-hidden="true"></i> Email us
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFTER HIGH SCHOOL -->
+  <div class="section" style="padding-top: 0;">
     <p class="yg-after">After high school, stay connected through <a href="../get-involved.html#goyalumni-college">GOYAlumni</a> (college) and the <a href="../get-involved.html#young-adult-league-yal">Young Adult League</a>.</p>
   </div>
 
-  <!-- CONTACT CALLOUT -->
+  <!-- STAY IN THE LOOP + CONTACT CALLOUT -->
+  <!-- PLACEHOLDER: confirm with Steven how parents get updates. Instagram points
+       to the parish account; swap in a youth account if there is one. -->
   <div class="section" style="padding-top: 0;">
+    <h2 class="section-title yg-updates-title">Stay in the loop</h2>
+    <div class="yg-updates">
+      <a class="yg-update" href="mailto:youthdirector@ssppglenview.org?subject=Add%20me%20to%20the%20youth%20group%20text">
+        <span class="yg-serve-icon"><i class="ti ti-message-circle" aria-hidden="true"></i></span>
+        <span><span class="yg-update-name">Group text</span><br><span class="yg-update-line">Ask Steven to add your number</span></span>
+      </a>
+      <a class="yg-update" href="mailto:youthdirector@ssppglenview.org?subject=Add%20me%20to%20the%20youth%20email%20list">
+        <span class="yg-serve-icon"><i class="ti ti-mail" aria-hidden="true"></i></span>
+        <span><span class="yg-update-name">Email list</span><br><span class="yg-update-line">Monthly updates for parents</span></span>
+      </a>
+      <a class="yg-update" href="https://www.instagram.com/ssppglen" target="_blank" rel="noopener noreferrer">
+        <span class="yg-serve-icon"><i class="ti ti-brand-instagram" aria-hidden="true"></i></span>
+        <span><span class="yg-update-name">Follow @ssppglen</span><br><span class="yg-update-line">Photos from outings &amp; events</span></span>
+      </a>
+    </div>
     <div class="mp-feature-card">
       <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
       <div class="mp-feature-text">
