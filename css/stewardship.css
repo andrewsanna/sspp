@@ -86,9 +86,11 @@
   color: var(--gold);
   margin-bottom: 0.6rem;
   display: inline-block;
+  align-self: center;
 }
 .give-info-card h3 {
   margin: 0 0 0.5rem;
+  text-align: center;
   font-size: 1.035rem;
   font-weight: var(--heading-weight);
 
