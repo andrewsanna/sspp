@@ -64,7 +64,7 @@ const MINISTRY_CATEGORIES = [
         calendarCategory: 'ministries',
         contact: {
           name: 'Elea Bentley',
-          role: 'Communications Coordinator',
+          role: 'Group Leader',
           email: 'elea@ssppglenview.org',
         },
       },
@@ -77,7 +77,7 @@ const MINISTRY_CATEGORIES = [
         calendarTag: 'welcome_committee',
         contact: {
           name: 'Keith Anderson and Sylvia Creatura',
-          role: 'Group Leader',
+          role: 'Group Leaders',
           email: 'welcome@ssppglenview.org',
         },
       },
@@ -133,7 +133,7 @@ const MINISTRY_CATEGORIES = [
         calendarCategory: 'liturgical',
         contact: {
           name: 'Steven Thell',
-          role: 'TBD',
+          role: 'Youth Director',
           email: 'readers@ssppglenview.org',
         },
       },
@@ -157,7 +157,7 @@ const MINISTRY_CATEGORIES = [
         calendarCategory: 'liturgical',
         contact: {
           name: 'Steven Thell',
-          role: 'TBD',
+          role: 'Youth Director',
           email: 'myrrhbearers@ssppglenview.org',
         },
       },
@@ -233,7 +233,7 @@ const MINISTRY_CATEGORIES = [
         calendarTag: 'athletics',
         contact: {
           name: 'Steven Conway & Chris Batrich',
-          role: 'Athletics Director',
+          role: 'Athletics Directors',
           email: 'athletics@ssppglenview.org',
         },
       },
@@ -259,7 +259,7 @@ const MINISTRY_CATEGORIES = [
         calendarTag: 'goyalumni',
         contact: {
           name: 'Niki Alexis & Ana Arzoumanidis',
-          role: 'Group Leader',
+          role: 'Group Leaders',
           email: 'goyalumni@ssppglenview.org',
         },
       },
@@ -393,7 +393,7 @@ const MINISTRY_CATEGORIES = [
         calendarCategory: 'adult_faith',
         contact: {
           name: 'Joe Kolbaba & Dean Matsas',
-          role: 'Group Leader',
+          role: 'Group Leaders',
           email: 'mensgroup@ssppglenview.org',
         },
       },
@@ -406,7 +406,7 @@ const MINISTRY_CATEGORIES = [
         calendarTag: 'catechism',
         contact: {
           name: 'Fr. Richard Andrews',
-          role: 'Spiritual Father',
+          role: 'Head Priest',
           email: 'catechism@ssppglenview.org',
         },
       },
@@ -468,7 +468,7 @@ const MINISTRY_CATEGORIES = [
         calendarTag: 'athletics',
         contact: {
           name: 'Steven Conway & Chris Batrich',
-          role: 'Athletics Director',
+          role: 'Athletics Directors',
           email: 'athletics@ssppglenview.org',
         },
       },
