@@ -47,31 +47,6 @@
       border-radius: 999px; padding: 0.25rem 0.6rem;
     }
 
-    /* ---- Upcoming calendar: white callout card ---- */
-    .cs-cal {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid var(--brd);
-      border-left: 4px solid var(--gold);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      padding: 1.5rem 1.75rem 1.75rem;
-    }
-    .cs-cal .section-header { margin-bottom: 1rem; }
-    .cs-cal-title {
-      display: flex; align-items: center; gap: 0.7rem;
-      font-size: 1.25rem; margin: 0;
-    }
-    .cs-cal-title i {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: var(--gold-lt); color: var(--gold-deep);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 1.05rem;
-    }
-    @media (max-width: 964px) { .cs-cal { margin-left: 2rem; margin-right: 2rem; } }
-    @media (max-width: 760px) { .cs-cal { padding: 1.25rem 1.2rem; } }
-
     /* ---- Hero button ---- */
     .cs-hero-cta { margin-top: 1.5rem; }
 
@@ -232,23 +207,6 @@
     </div>
   </div>
 
-  <!-- UPCOMING EVENTS (white callout card) -->
-  <div class="section" style="padding-top: 0;">
-    <div class="cs-cal">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title cs-cal-title"><i class="ti ti-calendar-event" aria-hidden="true"></i> Upcoming on the calendar</h2>
-        </div>
-        <a href="../calendar.html?category=athletics&amp;tag=athletics" class="section-link">
-          View full calendar
-        </a>
-      </div>
-      <div id="ministryUpcomingEvents">
-        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
-      </div>
-    </div>
-  </div>
-
   <!-- GOAL BASKETBALL -->
   <div class="section section--alt">
     <div class="container" style="max-width: 1000px;">
@@ -354,8 +312,6 @@
   {% include footer.html %}
 
   <script>
-    const MINISTRY_CALENDAR_TAG = ['athletics'];
-
     // GOAL basketball games. Edit this list to update the schedule.
     // date: YYYY-MM-DD · home: true for games at SSPP · address: away games only
     const ATH_GAMES = [
@@ -414,7 +370,5 @@
     })();
   </script>
   <script src="../js/main.js"></script>
-  <script src="../js/calendar-config.js"></script>
-  <script src="../js/ministry-events.js"></script>
 </body>
 </html>
