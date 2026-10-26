@@ -81,11 +81,12 @@ function renderDirectory(filterText = '') {
   const isSearching = query.length > 0;
 
   const html = MINISTRY_CATEGORIES.map((cat) => {
+    // Search matches ministry names and category names only (not summaries
+    // or descriptions). A category-name match shows that whole category.
+    const categoryMatches = isSearching && cat.label.toLowerCase().includes(query);
     const list = cat.ministries.filter((m) => {
-      if (!isSearching) return true;
-      return m.name.toLowerCase().includes(query) ||
-        m.summary.toLowerCase().includes(query) ||
-        m.description.toLowerCase().includes(query);
+      if (!isSearching || categoryMatches) return true;
+      return m.name.toLowerCase().includes(query);
     });
 
     // While searching, a category with no matches is hidden entirely.
