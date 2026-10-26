@@ -74,33 +74,37 @@
     }
     .ath-note { font-size: 0.78rem; color: var(--mt); margin: 0.2rem 0 1rem; }
 
-    /* Practice schedule: one row per team (name · day & time), coaches below */
-    .ath-group + .ath-group { margin-top: 1.5rem; }
-    .ath-group .cs-label { display: block; margin-bottom: 0.2rem; }
-    .ath-team {
+    /* Practice schedule: gym-style, grouped by day (rows rendered from ATH_PRACTICES) */
+    .ath-day + .ath-day { margin-top: 14px; }
+    .ath-day-head {
+      background: var(--gold-lt);
+      border-radius: 4px;
+      padding: 6px 10px;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-text);
+    }
+    .ath-practice {
       display: grid;
-      grid-template-columns: 1fr auto;
-      column-gap: 1rem;
+      grid-template-columns: 108px 1fr;
+      gap: 14px;
+      padding: 11px 10px;
       align-items: baseline;
-      padding: 0.55rem 0;
     }
-    .ath-team + .ath-team { border-top: 1px solid var(--brd); }
-    .ath-team-name {
+    .ath-practice + .ath-practice { border-top: 1px solid var(--brd); }
+    .ath-practice-time {
+      font-size: 0.82rem; font-weight: 700; color: var(--navy);
+      white-space: nowrap;
+    }
+    .ath-practice-time.is-tbd { color: var(--mt); }
+    .ath-practice-team {
       font-family: var(--font-heading); font-weight: var(--heading-weight);
-      font-size: 0.98rem; color: var(--navy-deep);
+      font-size: 1.05rem; color: var(--navy-deep); line-height: 1.3;
     }
-    .ath-team-time {
-      font-size: 0.8rem; color: var(--navy);
-      text-align: right; white-space: nowrap;
-    }
-    .ath-team-time.is-tbd { color: var(--mt); }
-    .ath-team-coach {
-      grid-column: 1 / -1;
-      font-size: 0.75rem; color: var(--mt); margin-top: 0.15rem;
-    }
+    .ath-practice-coach { font-size: 0.75rem; color: var(--mt); margin-top: 0.15rem; }
+    .ath-practice-coach strong { font-weight: 600; }
     @media (max-width: 520px) {
-      .ath-team { grid-template-columns: 1fr; }
-      .ath-team-time { text-align: left; margin-top: 0.1rem; }
+      .ath-practice { grid-template-columns: 92px 1fr; }
     }
 
     /* Game schedule */
@@ -311,52 +315,7 @@
           <h3>Practice schedule</h3>
           <p class="ath-note">Schedule as of October 26</p>
 
-          <div class="ath-group">
-            <span class="cs-label">Co-Ed</span>
-            <div class="ath-team">
-              <div class="ath-team-name">1st–2nd Grade Co-Ed</div>
-              <div class="ath-team-time is-tbd">TBD</div>
-              <div class="ath-team-coach">Coaches: Chris Astaves &amp; Alex Nellessen</div>
-            </div>
-          </div>
-
-          <div class="ath-group">
-            <span class="cs-label">Boys</span>
-            <div class="ath-team">
-              <div class="ath-team-name">3rd–4th Grade Boys</div>
-              <div class="ath-team-time">Wednesdays · 5:00–6:00 PM</div>
-              <div class="ath-team-coach">Coach: Tasos Angelopoulos</div>
-            </div>
-            <div class="ath-team">
-              <div class="ath-team-name">5th–6th Grade Boys</div>
-              <div class="ath-team-time">Thursdays · 5:00–6:00 PM</div>
-              <div class="ath-team-coach">Coach: Evan Adams</div>
-            </div>
-            <div class="ath-team">
-              <div class="ath-team-name">7th–8th Grade Boys</div>
-              <div class="ath-team-time">Mondays · 7:00–8:00 PM</div>
-              <div class="ath-team-coach">Coaches: Matthew Christopoulos &amp; Steven Conway</div>
-            </div>
-            <div class="ath-team">
-              <div class="ath-team-name">High School Boys</div>
-              <div class="ath-team-time">Thursdays · 7:45–9:15 PM</div>
-              <div class="ath-team-coach">Coaches: Matthew Assimos, Peter Kokkinias, Chris Batrich, Nicky Assimos &amp; Steven Thell</div>
-            </div>
-          </div>
-
-          <div class="ath-group">
-            <span class="cs-label">Girls</span>
-            <div class="ath-team">
-              <div class="ath-team-name">3rd–6th Grade Girls</div>
-              <div class="ath-team-time">Wednesdays · 6:00–7:00 PM</div>
-              <div class="ath-team-coach">Coach: Anne Marie Adams</div>
-            </div>
-            <div class="ath-team">
-              <div class="ath-team-name">7th–12th Grade Girls</div>
-              <div class="ath-team-time">Wednesdays · 7:00–8:00 PM</div>
-              <div class="ath-team-coach">Coaches: Anne Marie Adams &amp; Sophia Kanellos</div>
-            </div>
-          </div>
+          <div id="athPractices"></div>
         </div>
 
         <!-- GAME SCHEDULE (rows rendered from ATH_GAMES below) -->
@@ -476,6 +435,52 @@
   {% include footer.html %}
 
   <script>
+    // Practice schedule. Edit this list to update it; rows are grouped by
+    // day and sorted by start time automatically.
+    // day: 'Monday' … 'Sunday', or 'TBD' · start: 24-hour "HH:MM" (sorting only)
+    const ATH_PRACTICES = [
+      { day: 'Monday', start: '19:00', time: '7:00–8:00 PM', team: '7th–8th Grade Boys', coaches: ['Matthew Christopoulos', 'Steven Conway'] },
+      { day: 'Wednesday', start: '17:00', time: '5:00–6:00 PM', team: '3rd–4th Grade Boys', coaches: ['Tasos Angelopoulos'] },
+      { day: 'Wednesday', start: '18:00', time: '6:00–7:00 PM', team: '3rd–6th Grade Girls', coaches: ['Anne Marie Adams'] },
+      { day: 'Wednesday', start: '19:00', time: '7:00–8:00 PM', team: '7th–12th Grade Girls', coaches: ['Anne Marie Adams', 'Sophia Kanellos'] },
+      { day: 'Thursday', start: '17:00', time: '5:00–6:00 PM', team: '5th–6th Grade Boys', coaches: ['Evan Adams'] },
+      { day: 'Thursday', start: '19:45', time: '7:45–9:15 PM', team: 'High School Boys', coaches: ['Matthew Assimos', 'Peter Kokkinias', 'Chris Batrich', 'Nicky Assimos', 'Steven Thell'] },
+      { day: 'TBD', team: '1st–2nd Grade Co-Ed', coaches: ['Chris Astaves', 'Alex Nellessen'] },
+    ];
+
+    (function () {
+      const root = document.getElementById('athPractices');
+      if (!root) return;
+      const esc = (str) => {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+      };
+      const DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'TBD'];
+      const joinNames = (names) => names.length < 2
+        ? names.join('')
+        : names.slice(0, -1).join(', ') + ' & ' + names[names.length - 1];
+
+      root.innerHTML = DAYS.map((day) => {
+        const rows = ATH_PRACTICES
+          .filter((p) => p.day === day)
+          .sort((a, b) => (a.start || '').localeCompare(b.start || ''));
+        if (!rows.length) return '';
+        return `
+          <div class="ath-day">
+            <div class="ath-day-head">${day === 'TBD' ? 'Time TBD' : esc(day)}</div>
+            ${rows.map((p) => `
+            <div class="ath-practice">
+              <div class="ath-practice-time${p.time ? '' : ' is-tbd'}">${p.time ? esc(p.time) : 'TBD'}</div>
+              <div>
+                <div class="ath-practice-team">${esc(p.team)}</div>
+                <div class="ath-practice-coach"><strong>${p.coaches.length === 1 ? 'Coach' : 'Coaches'}:</strong> ${esc(joinNames(p.coaches))}</div>
+              </div>
+            </div>`).join('')}
+          </div>`;
+      }).join('');
+    })();
+
     // GOAL basketball games. Edit this list to update the schedule.
     // date: YYYY-MM-DD · home: true for games at SSPP · address: away games only
     const ATH_GAMES = [
