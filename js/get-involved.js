@@ -1,7 +1,8 @@
 // ============================================
 // SSPP Get Involved page
 // Renders MINISTRY_CATEGORIES (js/ministries-data.js) as a searchable
-// accordion of ministry cards, with a detail modal on click.
+// directory: one always-visible section per category, each with a grid of
+// ministry cards and a detail modal on click.
 // ============================================
 
 // One-word label for each category's calendar button. Keyed by
@@ -43,8 +44,6 @@ function getCategoryCalendar(cat) {
   return { calendarCategory, label, tags };
 }
 
-let openCategoryId = null;
-
 function escapeHtml(str) {
   const div = document.createElement('div');
   div.textContent = str;
@@ -74,54 +73,48 @@ function findMinistryBySlug(slug) {
   return null;
 }
 
-function renderAccordion(filterText = '') {
-  const root = document.getElementById('ministryAccordion');
+function renderDirectory(filterText = '') {
+  const root = document.getElementById('ministryDirectory');
   if (!root) return;
 
   const query = filterText.trim().toLowerCase();
   const isSearching = query.length > 0;
 
   const html = MINISTRY_CATEGORIES.map((cat) => {
-    const matches = cat.ministries.filter((m) => {
+    const list = cat.ministries.filter((m) => {
       if (!isSearching) return true;
       return m.name.toLowerCase().includes(query) ||
         m.summary.toLowerCase().includes(query) ||
         m.description.toLowerCase().includes(query);
     });
 
-    if (isSearching && matches.length === 0) return '';
-
-    const isOpen = isSearching ? true : openCategoryId === cat.id;
-    const list = isSearching ? matches : cat.ministries;
+    // While searching, a category with no matches is hidden entirely.
+    if (list.length === 0) return '';
 
     const cal = getCategoryCalendar(cat);
-    const calButton = cal
-      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}${cal.tags.length ? `&tag=${encodeURIComponent(cal.tags.join(','))}` : ''}" class="acc-cal-btn" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
+    const calLink = cal
+      ? `<a href="calendar.html?category=${encodeURIComponent(cal.calendarCategory)}${cal.tags.length ? `&tag=${encodeURIComponent(cal.tags.join(','))}` : ''}" class="gi-category-cal" aria-label="View ${escapeHtml(cal.label)} Calendar" title="View ${escapeHtml(cal.label)} Calendar">
            <i class="ti ti-calendar" aria-hidden="true"></i> ${escapeHtml(cal.label)} Calendar
          </a>`
       : '';
 
+    const id = slugify(cat.label);
     return `
-      <div class="acc-item" data-cat-id="${cat.id}">
-        <div class="acc-head ${isOpen ? 'open' : ''}" role="button" tabindex="0" data-toggle-cat="${cat.id}" aria-expanded="${isOpen}">
-          <div class="acc-head-text">
-            <div class="acc-title">${escapeHtml(cat.label)}</div>
-            <div class="acc-blurb">${escapeHtml(cat.blurb)}</div>
+      <section class="gi-category" id="${id}" data-cat-id="${cat.id}" aria-labelledby="${id}-title">
+        <div class="gi-category-head">
+          <div class="gi-category-text">
+            <h2 class="gi-category-title" id="${id}-title">${escapeHtml(cat.label)}</h2>
+            <p class="gi-category-blurb">${escapeHtml(cat.blurb)}</p>
           </div>
-          <div class="acc-right">
-          ${calButton}
-          <div class="acc-meta">
-            <span class="acc-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
-            <i class="ti ti-chevron-down acc-chevron" aria-hidden="true"></i>
+          <div class="gi-category-meta">
+            ${calLink}
+            <span class="gi-category-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
           </div>
         </div>
+        <div class="ministry-grid">
+          ${list.map((m) => renderMinistryCard(m, cat)).join('')}
         </div>
-        <div class="acc-body ${isOpen ? 'is-open' : ''}">
-          <div class="ministry-grid">
-            ${list.map((m) => renderMinistryCard(m, cat)).join('')}
-          </div>
-        </div>
-      </div>
+      </section>
     `;
   }).join('');
 
@@ -132,7 +125,6 @@ function renderAccordion(filterText = '') {
     </div>
   `;
 
-  attachAccordionHandlers();
   attachCardHandlers();
 }
 
@@ -172,79 +164,6 @@ function renderMinistryCard(ministry, category) {
 
 function hasOwnPage(ministry) {
   return typeof ministry.detailPageUrl === 'string' && ministry.detailPageUrl.startsWith('ministries/');
-}
-
-function attachAccordionHandlers() {
-  document.querySelectorAll('[data-toggle-cat]').forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.preventDefault();
-
-      const catId = btn.dataset.toggleCat;
-      const item = document.querySelector(`[data-cat-id="${catId}"]`);
-      if (!item) return;
-
-      const isCurrentlyOpen = btn.classList.contains('open');
-      const willOpen = !isCurrentlyOpen;
-
-      // Hard scroll lock: pin the body in place with position:fixed for
-      // the duration of the DOM mutation, then release it. This is the
-      // standard technique modal/dialog libraries use to guarantee zero
-      // scroll movement during a layout change.
-      const lockedScrollY = window.scrollY;
-      const bodyEl = document.body;
-      bodyEl.style.position = 'fixed';
-      bodyEl.style.top = `-${lockedScrollY}px`;
-      bodyEl.style.left = '0';
-      bodyEl.style.right = '0';
-
-      if (willOpen) {
-        document.querySelectorAll('.acc-head.open').forEach((openBtn) => {
-          if (openBtn !== btn) {
-            openBtn.classList.remove('open');
-            openBtn.setAttribute('aria-expanded', 'false');
-            const otherBody = openBtn.parentElement.querySelector('.acc-body');
-            if (otherBody) otherBody.classList.remove('is-open');
-          }
-        });
-      }
-
-      btn.classList.toggle('open', willOpen);
-      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
-      const body = item.querySelector('.acc-body');
-      if (body) body.classList.toggle('is-open', willOpen);
-
-      openCategoryId = willOpen ? catId : null;
-
-      // Release the lock on the next frame, after layout has settled.
-      // Use behavior:'instant' explicitly — the page has global
-      // scroll-behavior:smooth (see main.css), which would otherwise
-      // animate this restoration and look like an unwanted jump.
-      requestAnimationFrame(() => {
-        bodyEl.style.position = '';
-        bodyEl.style.top = '';
-        bodyEl.style.left = '';
-        bodyEl.style.right = '';
-        window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
-      });
-    });
-
-    // acc-head is a <div role="button"> (not a real <button>) so that it
-    // can contain the calendar <a> link — restore keyboard activation.
-    btn.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        btn.click();
-      }
-    });
-  });
-
-  // The calendar link is nested inside the acc-head div, so its click
-  // would bubble up and also toggle the accordion — stop that here.
-  document.querySelectorAll('.acc-cal-btn').forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.stopPropagation();
-    });
-  });
 }
 
 function attachCardHandlers() {
@@ -290,7 +209,7 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
   }
 
   // ---- Per-ministry "View Calendar" link — replaced by the
-  // category-level calendar button in the accordion header. Left here,
+  // category-level calendar link in each category's header row. Left here,
   // commented out, in case we ever want to switch back.
   //
   // const calLinkEl = document.getElementById('ministryModalCalLink');
@@ -356,23 +275,31 @@ function initSearch() {
   const input = document.getElementById('ministrySearch');
   if (!input) return;
   input.addEventListener('input', () => {
-    renderAccordion(input.value);
+    renderDirectory(input.value);
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Deep-link support: get-involved.html#sr-goya should land with that
-  // ministry's category already open, the card scrolled into view, and
-  // its detail modal open — used by the homepage "Ministry Spotlight"
-  // links (and anywhere else that wants to point at one specific
-  // ministry instead of the general page).
+  // Deep-link support:
+  // - get-involved.html#youth-young-adults scrolls to that category section
+  //   (section ids are the slugified category label).
+  // - get-involved.html#sr-goya scrolls that ministry's card into view and
+  //   opens its detail modal — used by the homepage "Ministry Spotlight"
+  //   links (and anywhere else that points at one specific ministry).
+  // The sections are rendered by JS after load, so the browser can't jump
+  // to the hash on its own; do it here once they exist.
   const hash = window.location.hash.replace('#', '');
-  const deepLink = hash ? findMinistryBySlug(hash) : null;
-  if (deepLink) openCategoryId = deepLink.category.id;
+  const categoryLink = hash ? MINISTRY_CATEGORIES.find((c) => slugify(c.label) === hash) : null;
+  const deepLink = hash && !categoryLink ? findMinistryBySlug(hash) : null;
 
-  renderAccordion();
+  renderDirectory();
   initSearch();
   initMinistryModal();
+
+  if (categoryLink) {
+    const section = document.getElementById(hash);
+    if (section) section.scrollIntoView();
+  }
 
   if (deepLink) {
     const card = document.getElementById(slugify(deepLink.ministry.name));
