@@ -197,31 +197,47 @@
 /* ============================================
    Category sections (always visible)
    ============================================ */
-.gi-category + .gi-category {
-  margin-top: 2.5rem;
+/* Gold rule between categories (same as .section--divided in main.css) */
+.gi-category {
+  margin-bottom: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 3px solid var(--gold);
+  /* lands the gold rule just under the sticky nav on #category links */
+  scroll-margin-top: 80px;
+}
+
+.gi-category:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.gi-category:last-child {
+  margin-bottom: 0; /* .gi-content already pads the bottom */
 }
 
 .gi-category-head {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--brd);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.5rem;
 }
 
 .gi-category-title {
   font-family: var(--font-heading);
-  font-weight: var(--heading-weight);
-  font-size: 1.4rem;
+  font-size: 1.9rem;
+  font-weight: 600;
   color: var(--navy-deep);
-  margin: 0 0 0.2rem;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .gi-category-blurb {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--mt);
-  margin: 0;
+  margin: 0.25rem 0 0;
 }
 
 .gi-category-meta {
@@ -229,6 +245,8 @@
   align-items: center;
   gap: 1rem;
   flex-shrink: 0;
+  /* one title line tall, so the pill and count sit centered on the title */
+  min-height: calc(1.9rem * 1.2);
 }
 
 .gi-category-count {
@@ -267,6 +285,11 @@
     align-items: flex-start;
     gap: 0.6rem;
   }
+  .gi-category-meta {
+    min-height: 0;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
 }
 
 .gi-content {
@@ -284,7 +307,6 @@
 }
 
 .ministry-grid {
-  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.7rem;
