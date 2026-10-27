@@ -151,14 +151,14 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Myrrhbearers',
-        summary: 'Girls (1st–12th grade) serving in the liturgical life of the parish.',
-        description: 'The Myrrhbearers Ministry provides opportunities for our girls to participate in the liturgical life of our parish so that they can cultivate a deeper love for Christ. During the year 3rd-12th grade Myrrhbearers have liturgical roles similar to and alongside the Acolytes during Divine Liturgy and other weekday services. During Holy Week, 1st-12th grade Myrrhbearers not only participate in roles similar to the Acolytes but also in unique roles that reflect the presence of the Myrrhbearing women during Christ\'s Passion and Resurrection.',
+        summary: 'Our altar-serving ministry for young women, providing opportunities for them to be intimately involved in the liturgical services so that they might cultivate a deeper love for Christ through worship.',
+        description: 'In 2022, His Eminence Metropolitan Nathaniel invited Saints Peter & Paul to address the need to more deeply engage girls in the liturgy, giving us the blessing to to invite our Myrrhbearers to serve alongside the acolytes during our liturgical services. The Myrrhbearers are trained alongside the Acolytes and assist the clergy in the liturgical services. Service in the Holy Altar is a beautiful ministry of the Church which spiritually enriches the altar servers and the whole community. The young women in our church are now blessed with the opportunity to deeply engage in liturgy, emulating the love, closeness, and service to Christ of their namesakes, the Myrrhbearing Women.',
         image: 'images/myrrbearers.jpg',
         calendarCategory: 'liturgical',
         contact: {
-          name: 'Steven Thell',
-          role: 'Youth Director',
-          email: 'myrrhbearers@ssppglenview.org',
+          name: 'Anna Kallis',
+          role: 'Group Leader',
+          email: 'annavkallis@gmail.com',
         },
       },
       {
