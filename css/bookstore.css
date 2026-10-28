@@ -1,0 +1,205 @@
+/* ============================================
+   Book & Icon Store (bookstore.html)
+   ============================================ */
+
+/* ---- Hero (same structure as the other page heroes) ---- */
+.bs-hero {
+  background: var(--navy-deep);
+  background-size: cover;
+  background-position: center 40%;
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 2rem 5rem;
+  text-align: center;
+}
+
+/* Starts from the same values as .rs-hero-overlay; tune once the photo is in. */
+.bs-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 30, 51, 0.88) 0%, rgba(11, 30, 51, 0.72) 60%, rgba(11, 30, 51, 0.85) 100%);
+}
+
+.bs-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--hero-inner-width);
+  margin: 0 auto;
+}
+
+.bs-hero-title {
+  font-size: var(--hero-title);
+  margin-top: 0.5rem;
+}
+
+.bs-hero-body {
+  color: var(--hero-body-color);
+  font-size: var(--hero-body);
+  max-width: var(--hero-body-width);
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---- Hours strip (same look as the Visit page's service-info strip) ---- */
+.bs-info-strip {
+  background: #fff;
+  border-bottom: 1px solid var(--brd);
+  padding: 1.6rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.bs-info-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin-bottom: 0.35rem;
+}
+
+.bs-info-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy-deep);
+}
+
+.bs-info-value a {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.bs-info-value a:hover { color: var(--gold-deep); }
+
+/* ---- Shared section width ---- */
+.bs-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.bs-wrap .section-title { margin-bottom: 1.5rem; }
+
+/* ---- What you'll find: category tiles ---- */
+.bs-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.bs-tile {
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Cream block shows until the photo exists (the <img> removes itself on error). */
+.bs-tile-photo {
+  aspect-ratio: 4 / 3;
+  background: var(--cream);
+}
+
+.bs-tile-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bs-tile-text { padding: 1.1rem 1.25rem 1.25rem; }
+
+.bs-tile-text h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.bs-tile-text p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--tx);
+  margin: 0;
+}
+
+/* Wide tile: spans the row, photo left (~50%), text right */
+.bs-tile--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.bs-tile--wide .bs-tile-photo { height: 100%; }
+.bs-tile--wide .bs-tile-text { padding: 1.5rem 1.75rem; }
+
+/* ---- Looking for something specific? ---- */
+.bs-ask { background: #fff; }
+
+.bs-ask p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--tx);
+  max-width: 640px;
+  margin: 0 0 1.5rem;
+}
+
+.bs-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ---- Meet Tina ---- */
+.bs-tina { background: var(--cream); }
+
+.bs-tina-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.bs-tina-photo {
+  aspect-ratio: 4 / 5;
+  background: var(--gold-lt);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.bs-tina-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bs-tina-text h2 { margin-bottom: 0.75rem; }
+
+.bs-tina-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--tx);
+  max-width: 560px;
+  margin: 0 0 1.1rem;
+}
+
+@media (max-width: 860px) {
+  .bs-tiles { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .bs-info-strip { gap: 1.75rem; }
+  .bs-tina-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .bs-tina-photo { max-width: 280px; }
+}
+
+@media (max-width: 560px) {
+  .bs-info-strip { flex-direction: column; gap: 1.1rem; }
+  .bs-tiles { grid-template-columns: 1fr; }
+  .bs-tile--wide { display: block; }
+  .bs-tile--wide .bs-tile-photo { height: auto; }
+  .bs-tile--wide .bs-tile-text { padding: 1.1rem 1.25rem 1.25rem; }
+}

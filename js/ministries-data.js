@@ -354,18 +354,6 @@ const MINISTRY_CATEGORIES = [
     blurb: 'Deepen your understanding of the Orthodox faith, wherever you are starting from.',
     ministries: [
       {
-        name: 'Book & Icon Store',
-        summary: 'Open Sundays after Liturgy. Stop in and browse.',
-        description: "The bookstore offers a variety of Christian and specifically Orthodox books that include Orthodox saints, the Divine Liturgy, spirituality, growing in the faith, women and the faith, marriage, and parenting. We also have a wide selection of children's books. We carry the Orthodox Study Bible as well as several children's Bibles. We offer a variety of icons, prayer rope bracelets, religious jewelry, incense and charcoal as well as many other items. Please browse and inquire if the merchandise you seek is not on the shelves! Bookstore is open after Divine Liturgy on Sundays from 11:15 am – 12:00 pm or by appointment.",
-        // image: 'images/ministries/bookstore.jpg',
-        calendarCategory: 'adult_faith',
-        contact: {
-          name: "Tina O'Donnell",
-          role: 'Group Leader',
-          email: 'bookstore@ssppglenview.org',
-        },
-      },
-      {
         name: 'Coffee Connection',
         summary: 'Connection in Faith and Fellowship- An Educational Ministry Open to All Adults',
         description: 'We are an adult educational ministry that strengthens knowledge and practice of the Orthodox faith.  Our presentations provide participants with foundational knowledge, while group discussions offer ideas for how to apply this knowledge in everyday life.',

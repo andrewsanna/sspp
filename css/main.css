@@ -1291,7 +1291,8 @@ padding: var(--space-5) 0;
    ============================================ */
 .ab-hero-title, .ct-hero-title, .sc-hero-title, .vh-hero-title,
 .of-hero-title, .pc-hero-title, .rs-hero-title, .give-hero-title, .give-headline,
-.mp-hero-title, .min-hero-title, .cal-page-title, .gi-intro-title, .pl-intro-title {
+.mp-hero-title, .min-hero-title, .cal-page-title, .gi-intro-title, .pl-intro-title,
+.bs-hero-title {
   word-spacing: normal;
   letter-spacing: 0;
   line-height: 1.15;
