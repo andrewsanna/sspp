@@ -33,24 +33,24 @@
     }
 
     /* ---- Sunday pill (small, right under the hero) ---- */
-    .kf-sunday-wrap { display: flex; justify-content: center; padding: 1.25rem 1rem 0; }
+    .kf-sunday-wrap { display: flex; justify-content: center; padding: 1.5rem 1rem 0; }
     .kf-sunday {
       display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center;
       gap: 0.35rem 0.5rem;
       background: #fff;
       border: 1px solid var(--brd);
       border-radius: 999px;
-      padding: 10px 20px;
-      font-size: 0.78rem;
+      padding: 12px 26px;
+      font-size: 0.9rem;
       color: var(--navy);
       text-align: center;
     }
     .kf-sunday-label {
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em;
       text-transform: uppercase; color: var(--gold-text);
     }
     .kf-sunday-sep { color: var(--brd); }
-    .kf-sunday i { color: var(--gold-deep); font-size: 0.8rem; }
+    .kf-sunday i { color: var(--gold-deep); font-size: 0.95rem; }
 
     /* ---- Programs: labeled groups of compact horizontal cards ---- */
     .kf-group + .kf-group { margin-top: 1.6rem; }
@@ -198,7 +198,9 @@
     @media (max-width: 560px) {
       .kf-group-cards,
       .kf-seasons { grid-template-columns: 1fr; }
-      .kf-sunday { border-radius: 12px; }
+      .kf-sunday { border-radius: 12px; padding: 10px 12px; font-size: 0.8rem; gap: 0.35rem 0.35rem; }
+      .kf-sunday-label { font-size: 0.7rem; margin-right: 0.25rem; }
+      .kf-sunday-sep { display: none; }
       .kf-cal { padding: 1.25rem 1.2rem; }
     }
   </style>
