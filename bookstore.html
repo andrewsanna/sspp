@@ -1,0 +1,126 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book &amp; Icon Store | Saints Peter &amp; Paul</title>
+  <meta name="description" content="The Book & Icon Store at Saints Peter & Paul Greek Orthodox Church: Orthodox books, Bibles, icons, prayer ropes, incense and gifts, open after Sunday Liturgy." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bookstore.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <section id="main-content" class="bs-hero" style="background-image: url('images/bookstore/hero.jpg');">
+    <div class="bs-hero-overlay" aria-hidden="true"></div>
+    <div class="bs-hero-inner">
+      <h1 class="bs-hero-title">Book &amp; Icon Store</h1>
+      <!-- QUESTION: where in the building is the store? If it's just off the
+           narthex, the body can read "…and gifts, just off the narthex after
+           Sunday Liturgy." -->
+      <p class="bs-hero-body">Orthodox books, icons, prayer ropes and gifts, after Sunday Liturgy.</p>
+    </div>
+  </section>
+
+  <!-- HOURS -->
+  <section class="bs-info-strip" aria-label="Store hours and contact">
+    <div class="bs-info-item">
+      <div class="bs-info-label">Sundays</div>
+      <div class="bs-info-value">After Divine Liturgy, 11:15 AM – 12:00 PM</div>
+    </div>
+    <div class="bs-info-item">
+      <div class="bs-info-label">Weekdays</div>
+      <div class="bs-info-value">By appointment</div>
+    </div>
+    <div class="bs-info-item">
+      <div class="bs-info-label">Contact</div>
+      <div class="bs-info-value"><a href="mailto:bookstore@ssppglenview.org">bookstore@ssppglenview.org</a></div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU'LL FIND (tiles built from BS_CATEGORIES below) -->
+  <div class="section section--alt">
+    <div class="bs-wrap">
+      <h2 class="section-title">What you'll find</h2>
+      <div class="bs-tiles" id="bsTiles"></div>
+    </div>
+  </div>
+
+  <!-- LOOKING FOR SOMETHING SPECIFIC? -->
+  <div class="section bs-ask">
+    <div class="bs-wrap">
+      <h2 class="section-title">Looking for something specific?</h2>
+      <p>If it's not on the shelves, ask us. We're happy to help you find or order a book, an icon of a particular saint, or a gift for a baptism, wedding or name day.</p>
+      <div class="bs-actions">
+        <a href="mailto:bookstore@ssppglenview.org" class="btn btn-gold">Email the bookstore</a>
+        <a href="mailto:bookstore@ssppglenview.org?subject=Weekday%20bookstore%20appointment" class="btn btn-outline-navy">Book a weekday visit</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEET TINA -->
+  <div class="section bs-tina">
+    <div class="bs-wrap bs-tina-grid">
+      <div class="bs-tina-photo">
+        <img src="images/bookstore/tina.jpg" alt="Tina O'Donnell, who runs the Book &amp; Icon Store" loading="lazy" onerror="this.remove()">
+      </div>
+      <div class="bs-tina-text">
+        <h2 class="section-title">Say hello to Tina</h2>
+        <p>The Book &amp; Icon Store is run by our very own Tina O'Donnell. If you've been to SSPP on a Sunday, you probably already know her. Stop by after Liturgy, or email her with any question, from the right Bible for a new reader to the perfect gift for a godchild.</p>
+        <a class="text-link" href="mailto:bookstore@ssppglenview.org">Email Tina</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script src="js/main.js"></script>
+  <script>
+    // What you'll find: one entry per category tile.
+    // - To add a category, add a line in the order you want it to appear.
+    // - To remove one, delete its line.
+    // - To swap a photo, upload it to images/bookstore/ and change "image".
+    //   Until a photo exists, the tile shows a plain cream block instead.
+    // - wide: true makes the tile span the whole row (photo left, text right).
+    const BS_CATEGORIES = [
+      { title: 'Books', text: 'Orthodox saints, the Divine Liturgy, spirituality, marriage, parenting, and growing in the faith.', image: 'images/bookstore/books.jpg' },
+      { title: 'Bibles', text: "The Orthodox Study Bible and several children's Bibles.", image: 'images/bookstore/bibles.jpg' },
+      { title: "Children's books", text: 'A wide selection for kids of all ages.', image: 'images/bookstore/childrens.jpg' },
+      { title: 'Icons', text: 'Icons of Christ, the Theotokos and the saints, for the home or as gifts.', image: 'images/bookstore/icons.jpg' },
+      { title: 'Prayer ropes & jewelry', text: 'Prayer rope bracelets, crosses and religious jewelry.', image: 'images/bookstore/jewelry.jpg' },
+      { title: 'Incense & charcoal', text: 'For prayer at home.', image: 'images/bookstore/incense.jpg' },
+      { title: 'Gifts & accessories', text: 'Fun little extras like keychains, magnets, ornaments and bookmarks. Easy gifts for name days, godchildren and friends.', image: 'images/bookstore/accessories.jpg', wide: true },
+    ];
+
+    (function () {
+      const root = document.getElementById('bsTiles');
+      if (!root) return;
+      const esc = (str) => {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+      };
+      root.innerHTML = BS_CATEGORIES.map((c) => `
+        <article class="bs-tile${c.wide ? ' bs-tile--wide' : ''}">
+          <div class="bs-tile-photo">
+            <img src="${esc(c.image)}" alt="${esc(c.title)} at the Book &amp; Icon Store" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="bs-tile-text">
+            <h3>${esc(c.title)}</h3>
+            <p>${esc(c.text)}</p>
+          </div>
+        </article>`).join('');
+    })();
+  </script>
+</body>
+</html>
