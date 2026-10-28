@@ -180,6 +180,9 @@
       font-size: 0.72rem; font-weight: 600; color: var(--gold-text);
       margin: 0.1rem 0 0.3rem;
     }
+    /* Meeting schedule: frequency, then days, then time, one per line */
+    .yg-sched span { display: block; }
+    .yg-sched span + span { color: var(--navy-deep); font-size: 0.78rem; margin-top: 0.1rem; }
     .cs-panel-text .yg-gathering p { font-size: 0.8rem; line-height: 1.5; color: var(--mt); }
 
     /* Retreats, camps & sports: three cards, photo on top */
@@ -423,7 +426,7 @@
             <div class="yg-gatherings">
               <div class="yg-gathering">
                 <div class="yg-gathering-name">Gathering</div>
-                <div class="yg-gathering-time">Usually the 1st Friday &amp; 3rd Wednesday, 6:00–7:30pm</div>
+                <div class="yg-gathering-time yg-sched"><span class="yg-sched-freq">2x Monthly</span><span>1st Friday | 3rd Wednesday</span><span>6:00 – 7:30 PM</span></div>
                 <p>Dinner together (parents welcome, pizza's on us) · A theme night with three rotations: Orthodox Life Lesson, Arts &amp; Crafts, and Gym Time</p>
               </div>
               <div class="yg-gathering">
@@ -445,7 +448,7 @@
             <div class="yg-gatherings">
               <div class="yg-gathering">
                 <div class="yg-gathering-name">Meeting</div>
-                <div class="yg-gathering-time">3x a month · 2nd &amp; 4th Friday, 3rd Thursday, 6:30–8:00pm</div>
+                <div class="yg-gathering-time yg-sched"><span class="yg-sched-freq">3x Monthly</span><span>2nd &amp; 4th Fridays | 3rd Thursday</span><span>6:30 – 8:00 PM</span></div>
                 <p>Dinner, new &amp; old business, a session on the year's theme, and time in the gym</p>
               </div>
               <a class="yg-gathering" href="#serving">
@@ -467,7 +470,7 @@
             <div class="yg-gatherings">
               <div class="yg-gathering">
                 <div class="yg-gathering-name">Meeting</div>
-                <div class="yg-gathering-time">Weekly · 1st Tuesday, 2nd Wednesday, 3rd Friday, 4th Wednesday, 7:00–8:30pm</div>
+                <div class="yg-gathering-time yg-sched"><span class="yg-sched-freq">Weekly</span><span>1st Tuesday | 2nd &amp; 4th Wednesdays | 3rd Friday</span><span>7:00 – 8:30 PM</span></div>
                 <p>Dinner, new &amp; old business, a session on the year's theme</p>
               </div>
               <a class="yg-gathering" href="#serving">
