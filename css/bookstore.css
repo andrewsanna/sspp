@@ -87,20 +87,25 @@
 .bs-tiles {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .bs-tile {
+  display: flex;
+  min-height: 110px;
   background: #fff;
   border: 1px solid var(--brd);
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
-/* Cream block shows until the photo exists (the <img> removes itself on error). */
+/* Square photo on the left; cream block shows until the photo exists
+   (the <img> removes itself on error). */
 .bs-tile-photo {
-  aspect-ratio: 4 / 3;
+  flex: 0 0 110px;
+  width: 110px;
   background: var(--cream);
+  border-right: 1px solid var(--brd);
 }
 
 .bs-tile-photo img {
@@ -110,33 +115,35 @@
   object-fit: cover;
 }
 
-.bs-tile-text { padding: 1.1rem 1.25rem 1.25rem; }
+.bs-tile-text {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 0.95rem;
+  align-self: center;
+}
 
 .bs-tile-text h3 {
-  font-size: 1.15rem;
-  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
 }
 
 .bs-tile-text p {
-  font-size: 0.9rem;
-  line-height: 1.6;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--tx);
   margin: 0;
 }
 
-/* Wide tile: spans the row, photo left (~50%), text right */
-.bs-tile--wide {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+/* Wide tile: spans the whole row */
+.bs-tile--wide { grid-column: 1 / -1; }
+
+/* ---- Looking for something specific? (gold band, like the site's other gold bands) ---- */
+.bs-ask {
+  background: var(--gold-lt);
+  border-top: 4px solid var(--gold);
+  border-bottom: 4px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
-
-.bs-tile--wide .bs-tile-photo { height: 100%; }
-.bs-tile--wide .bs-tile-text { padding: 1.5rem 1.75rem; }
-
-/* ---- Looking for something specific? ---- */
-.bs-ask { background: #fff; }
 
 .bs-ask p {
   font-size: 1rem;
@@ -199,7 +206,6 @@
 @media (max-width: 560px) {
   .bs-info-strip { flex-direction: column; gap: 1.1rem; }
   .bs-tiles { grid-template-columns: 1fr; }
-  .bs-tile--wide { display: block; }
-  .bs-tile--wide .bs-tile-photo { height: auto; }
-  .bs-tile--wide .bs-tile-text { padding: 1.1rem 1.25rem 1.25rem; }
+  .bs-tile { min-height: 96px; }
+  .bs-tile-photo { flex-basis: 96px; width: 96px; }
 }
