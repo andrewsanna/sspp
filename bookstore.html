@@ -51,7 +51,7 @@
   <div class="section section--alt">
     <div class="bs-wrap">
       <h2 class="section-title">What you'll find</h2>
-      <div class="bs-tiles" id="bsTiles"></div>
+      <div class="bs-mosaic" id="bsTiles"></div>
     </div>
   </div>
 
@@ -86,20 +86,21 @@
 
   <script src="js/main.js"></script>
   <script>
-    // What you'll find: one entry per category tile.
-    // - To add a category, add a line in the order you want it to appear.
-    // - To remove one, delete its line.
-    // - To swap a photo, upload it to images/bookstore/ and change "image".
-    //   Until a photo exists, the tile shows a plain cream block instead.
-    // - wide: true makes the tile span the whole row (photo left, text right).
+    // What you'll find: a photo mosaic, one entry per tile.
+    // - To swap a photo, upload it to images/bookstore/ and change "image";
+    //   also update "alt" to describe what the photo shows.
+    //   Until a photo exists, the tile shows a plain navy block with its label.
+    // - "area" places the tile in the mosaic (see .bs-mosaic in css/bookstore.css).
+    //   To add or remove a category, change this list AND the grid-template-areas
+    //   there, so the mosaic has no gaps.
     const BS_CATEGORIES = [
-      { title: 'Books', text: 'Orthodox saints, the Divine Liturgy, spirituality, marriage, parenting, and growing in the faith.', image: 'images/bookstore/books.jpg' },
-      { title: 'Bibles', text: "The Orthodox Study Bible and several children's Bibles.", image: 'images/bookstore/bibles.jpg' },
-      { title: "Children's books", text: 'A wide selection for kids of all ages.', image: 'images/bookstore/childrens.jpg' },
-      { title: 'Icons', text: 'Icons of Christ, the Theotokos and the saints, for the home or as gifts.', image: 'images/bookstore/icons.jpg' },
-      { title: 'Prayer ropes & jewelry', text: 'Prayer rope bracelets, crosses and religious jewelry.', image: 'images/bookstore/jewelry.jpg' },
-      { title: 'Incense & charcoal', text: 'For prayer at home.', image: 'images/bookstore/incense.jpg' },
-      { title: 'Gifts & accessories', text: 'Fun little extras like keychains, magnets, ornaments and bookmarks. Easy gifts for name days, godchildren and friends.', image: 'images/bookstore/accessories.jpg', wide: true },
+      { area: 'icons', title: 'Icons', text: 'Christ, the Theotokos and the saints, for home or as gifts.', image: 'images/bookstore/icons.jpg', alt: 'Hand-painted icons on display in the store' },
+      { area: 'books', title: 'Books', text: 'Saints, spirituality, marriage and parenting.', image: 'images/bookstore/books.jpg', alt: 'Shelves of Orthodox books' },
+      { area: 'bibles', title: 'Bibles', text: "Orthodox Study Bibles and children's Bibles.", image: 'images/bookstore/bibles.jpg', alt: 'Orthodox Study Bibles and children\'s Bibles on a shelf' },
+      { area: 'jewelry', title: 'Prayer ropes & jewelry', text: 'Prayer rope bracelets, crosses and jewelry.', image: 'images/bookstore/jewelry.jpg', alt: 'Prayer rope bracelets and crosses laid out on a table' },
+      { area: 'kids', title: "Children's books", text: 'Stories for kids of all ages.', image: 'images/bookstore/childrens.jpg', alt: "Colorful children's books on a low shelf" },
+      { area: 'incense', title: 'Incense & charcoal', text: 'For prayer at home.', image: 'images/bookstore/incense.jpg', alt: 'Boxes of incense and charcoal' },
+      { area: 'gifts', title: 'Gifts & accessories', text: 'Keychains, magnets, ornaments and bookmarks.', image: 'images/bookstore/accessories.jpg', alt: 'Keychains, magnets, ornaments and bookmarks' },
     ];
 
     (function () {
@@ -111,15 +112,13 @@
         return d.innerHTML;
       };
       root.innerHTML = BS_CATEGORIES.map((c) => `
-        <article class="bs-tile${c.wide ? ' bs-tile--wide' : ''}">
-          <div class="bs-tile-photo">
-            <img src="${esc(c.image)}" alt="${esc(c.title)} at the Book &amp; Icon Store" loading="lazy" onerror="this.remove()">
-          </div>
-          <div class="bs-tile-text">
+        <figure class="bs-m-tile bs-m-${esc(c.area)}">
+          <img src="${esc(c.image)}" alt="${esc(c.alt)}" loading="lazy" onerror="this.remove()">
+          <figcaption>
             <h3>${esc(c.title)}</h3>
             <p>${esc(c.text)}</p>
-          </div>
-        </article>`).join('');
+          </figcaption>
+        </figure>`).join('');
     })();
   </script>
 </body>
