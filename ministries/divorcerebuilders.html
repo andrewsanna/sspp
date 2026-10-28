@@ -14,6 +14,42 @@
   <link rel="stylesheet" href="../css/get-involved.css" />
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ---- About the program ---- */
+    .dr-about p { font-size: 0.92rem; line-height: 1.75; color: var(--tx); margin: 0 0 1rem; max-width: 760px; }
+    .dr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.75rem;
+      align-items: start;
+    }
+    .dr-grid h3 {
+      font-size: 1.15rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.75rem;
+    }
+    .dr-topics .mp-list li { font-size: 0.88rem; color: var(--tx); padding-left: 1.4rem; margin-bottom: 0.3rem; }
+    .dr-topics p { font-size: 0.88rem; line-height: 1.7; color: var(--tx); margin: 1.1rem 0 0; }
+    .dr-card {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 1.4rem 1.5rem;
+    }
+    .dr-card p { font-size: 0.88rem; line-height: 1.7; color: var(--tx); margin: 0; }
+    .dr-card .dr-note {
+      display: flex; gap: 0.6rem; align-items: flex-start;
+      margin-top: 1.1rem; padding-top: 1rem;
+      border-top: 1px solid var(--brd);
+      font-size: 0.8rem; line-height: 1.6; color: var(--mt);
+    }
+    .dr-note i { color: var(--gold-deep); font-size: 1rem; margin-top: 0.15rem; flex-shrink: 0; }
+    @media (max-width: 760px) {
+      .dr-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -39,11 +75,36 @@
     </div>
   </div>
 
-  <!-- PRIVACY NOTE -->
+  <!-- ABOUT THE PROGRAM -->
   <div class="section" style="padding-top: 0;">
-    <div class="mp-note-box">
-      <i class="ti ti-lock" aria-hidden="true"></i>
-      We keep meeting details private out of respect for everyone's confidentiality. Reach out to our Group Leader below and we'll share current meeting times and location directly with you.
+    <div class="mp-col dr-about">
+      <p>Saints Peter &amp; Paul’s Divorce Rebuilders Group is an Orthodox ministry offering support, guidance, and hope to those navigating separation and divorce. For more than two decades, Divorce Rebuilders has served the contemporary needs of Orthodox Christians by providing a safe, compassionate space to process the emotional, relational, and spiritual aspects of divorce.</p>
+      <p>Grounded in evidence-based counseling practices, the group equips participants with practical tools, fresh perspectives, and the insight needed to heal and rebuild. Session activities combine psychoeducational principles with Orthodox faith, including a special session led by our parish priest and regular opportunities for fellowship and social connection with fellow participants.</p>
+
+      <div class="dr-grid">
+        <div class="dr-topics">
+          <h3>Topics Covered Include:</h3>
+          <ul class="mp-list">
+            <li>Understanding the core components of the divorce experience</li>
+            <li>Navigating the grieving process and the path toward recovery</li>
+            <li>Gaining clarity, self-awareness, and personal growth</li>
+            <li>Embracing necessary endings and new beginnings</li>
+            <li>Overcoming loneliness and negative self-talk</li>
+            <li>Practical steps and strategies for rebuilding your life</li>
+            <li>The vital role of spiritual growth in healing and hope</li>
+          </ul>
+          <p>The program holds a 100% success rate as evaluated by past participants, who consistently report a deeper connection to their Orthodox faith, renewed personal goals, and meaningful spiritual growth. Participants are welcome to repeat the program as often as they wish.</p>
+        </div>
+
+        <div class="dr-card">
+          <h3>Program Details &amp; Schedule</h3>
+          <p>Divorce Rebuilders runs twice a year as a 6-week series starting every October and February. Meetings take place in person at designated Greek Orthodox churches in the Chicago area, as well as virtually via Zoom. There is no cost to attend, and the program is open to both Orthodox and non-Orthodox participants.</p>
+          <p class="dr-note">
+            <i class="ti ti-lock" aria-hidden="true"></i>
+            <span>We keep meeting details private out of respect for everyone's confidentiality. Reach out to our Group Leader below and we'll share current meeting times and location directly with you.</span>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 
