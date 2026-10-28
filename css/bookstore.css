@@ -83,59 +83,84 @@
 
 .bs-wrap .section-title { margin-bottom: 1.5rem; }
 
-/* ---- What you'll find: category tiles ---- */
-.bs-tiles {
+/* ---- What you'll find: photo mosaic ----
+   Tiles are placed by grid-area (bs-m-<area> from BS_CATEGORIES in
+   bookstore.html). Change the areas below if categories are added/removed. */
+.bs-mosaic {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(160px, 18vw, 240px);
+  grid-template-areas:
+    "icons icons books   bibles"
+    "icons icons jewelry jewelry"
+    "kids  incense gifts gifts";
 }
 
-.bs-tile {
-  display: flex;
-  min-height: 110px;
-  background: #fff;
-  border: 1px solid var(--brd);
-  border-radius: var(--radius-lg);
+.bs-m-icons   { grid-area: icons; }
+.bs-m-books   { grid-area: books; }
+.bs-m-bibles  { grid-area: bibles; }
+.bs-m-jewelry { grid-area: jewelry; }
+.bs-m-kids    { grid-area: kids; }
+.bs-m-incense { grid-area: incense; }
+.bs-m-gifts   { grid-area: gifts; }
+
+/* Navy shows until the photo exists (the <img> removes itself on error). */
+.bs-m-tile {
+  position: relative;
+  margin: 0;
   overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--navy);
 }
 
-/* Square photo on the left; cream block shows until the photo exists
-   (the <img> removes itself on error). */
-.bs-tile-photo {
-  flex: 0 0 110px;
-  width: 110px;
-  background: var(--cream);
-  border-right: 1px solid var(--brd);
-}
-
-.bs-tile-photo img {
-  display: block;
+.bs-m-tile img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.bs-tile-text {
-  flex: 1;
-  min-width: 0;
-  padding: 0.75rem 0.95rem;
-  align-self: center;
+/* Navy scrim on the bottom 55% so the label stays readable */
+.bs-m-tile::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(11, 30, 51, 0.78) 0%, rgba(11, 30, 51, 0.35) 55%, transparent 100%);
+  pointer-events: none;
 }
 
-.bs-tile-text h3 {
-  font-size: 1.05rem;
+.bs-m-tile figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: 1rem 1.25rem;
+  text-shadow: 0 1px 8px rgba(11, 30, 51, 0.45);
+}
+
+.bs-m-tile h3 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: #fff;
   margin: 0 0 0.2rem;
 }
 
-.bs-tile-text p {
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: var(--tx);
+.bs-m-icons h3 { font-size: 1.9rem; }
+
+.bs-m-tile p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.88);
   margin: 0;
 }
 
-/* Wide tile: spans the whole row */
-.bs-tile--wide { grid-column: 1 / -1; }
+@media (hover: hover) and (min-width: 900px) {
+  .bs-m-tile:hover img { transform: scale(1.04); }
+}
 
 /* ---- Looking for something specific? (gold band, like the site's other gold bands) ---- */
 .bs-ask {
@@ -193,9 +218,6 @@
   margin: 0 0 1.1rem;
 }
 
-@media (max-width: 860px) {
-  .bs-tiles { grid-template-columns: 1fr 1fr; }
-}
 
 @media (max-width: 640px) {
   .bs-info-strip { gap: 1.75rem; }
@@ -205,7 +227,28 @@
 
 @media (max-width: 560px) {
   .bs-info-strip { flex-direction: column; gap: 1.1rem; }
-  .bs-tiles { grid-template-columns: 1fr; }
-  .bs-tile { min-height: 96px; }
-  .bs-tile-photo { flex-basis: 96px; width: 96px; }
+}
+
+/* Mosaic: tablet = 2 columns, phone = 1 column */
+@media (max-width: 899px) {
+  .bs-mosaic {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+    grid-template-areas:
+      "icons   icons"
+      "books   bibles"
+      "jewelry jewelry"
+      "kids    incense"
+      "gifts   gifts";
+  }
+}
+
+@media (max-width: 599px) {
+  .bs-mosaic {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: none;
+  }
+  .bs-m-tile { grid-area: auto; aspect-ratio: 4 / 3; }
+  .bs-m-icons h3 { font-size: 1.6rem; }
 }
