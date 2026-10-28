@@ -130,7 +130,6 @@
     .ath-date-mon { display: block; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; }
     .ath-date-day { display: block; font-family: var(--font-heading); font-size: 1.3rem; color: var(--gold-deep); }
     .ath-game-main { flex: 1; min-width: 0; }
-    .ath-game-next { display: block; margin-bottom: 0.1rem; }
     .ath-opponent {
       font-family: var(--font-heading); font-weight: var(--heading-weight);
       font-size: 0.98rem; color: var(--navy-deep);
@@ -322,7 +321,7 @@
         <div class="ath-card">
           <h3>Game schedule</h3>
           <p class="ath-note">Game times to be announced</p>
-          <!-- TODO: Schererville host church + address; game times -->
+          <!-- TODO: game times -->
           <ul class="ath-games" id="athGames"></ul>
         </div>
       </div>
@@ -484,7 +483,7 @@
     // GOAL basketball games. Edit this list to update the schedule.
     // date: YYYY-MM-DD · home: true for games at SSPP · address: away games only
     const ATH_GAMES = [
-      { date: '2026-11-08', home: false, opponent: 'Schererville', address: 'Schererville, IN' },
+      { date: '2026-11-08', home: false, opponent: 'Trinity Lutheran Church', address: '1165 S Westmore Meyers Rd, Lombard, IL' },
       { date: '2026-11-21', home: false, opponent: 'St. Demetrios Elmhurst', address: '893 N Church Rd, Elmhurst, IL 60126' },
       { date: '2026-12-13', home: false, opponent: 'St. Demetrios Chicago', address: '2727 W Winona St, Chicago, IL 60625' },
       { date: '2026-12-20', home: true, opponent: "St. John's" },
@@ -505,14 +504,11 @@
       };
       const today = new Date();
       today.setHours(0, 0, 0, 0);
-      let nextMarked = false;
 
       list.innerHTML = ATH_GAMES.map((g) => {
         const [y, m, d] = g.date.split('-').map(Number);
         const date = new Date(y, m - 1, d);
         const isPast = date < today;
-        const isNext = !isPast && !nextMarked;
-        if (isNext) nextMarked = true;
 
         const full = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
         const mon = date.toLocaleDateString('en-US', { month: 'short' });
@@ -521,13 +517,12 @@
           : `<a href="https://www.google.com/maps/search/?api=1&amp;query=${encodeURIComponent(g.address)}" target="_blank" rel="noopener noreferrer">${esc(g.address)}</a>`;
 
         return `
-          <li class="ath-game${isPast ? ' is-past' : ''}${isNext ? ' is-next' : ''}">
+          <li class="ath-game${isPast ? ' is-past' : ''}">
             <span class="ath-date" title="${full}" aria-label="${full}">
               <span class="ath-date-mon" aria-hidden="true">${mon}</span>
               <span class="ath-date-day" aria-hidden="true">${d}</span>
             </span>
             <div class="ath-game-main">
-              ${isNext ? '<span class="cs-label ath-game-next">Next game</span>' : ''}
               <div class="ath-opponent">${g.home ? 'vs.' : '@'} ${esc(g.opponent)}</div>
               <div class="ath-game-meta">
                 <span class="ath-pill ${g.home ? 'ath-pill--home' : 'ath-pill--away'}">${g.home ? 'HOME' : 'AWAY'}</span>
