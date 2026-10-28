@@ -17,17 +17,59 @@
   <style>
     /* ---- Kids & Families hub ---- */
     .kf-wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .kf-intro { font-size: 0.92rem; line-height: 1.7; color: var(--tx); margin: 0.4rem 0 1.5rem; }
+    #programs,
+    #help { scroll-margin-top: 64px; }
 
-    /* 6-column grid, each card spans 2 → 3 per row; a last row of 2 is centered */
-    .kf-grid {
+    /* ---- Hero buttons ---- */
+    .kf-hero-actions {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .kf-hero-actions .btn-outline-white {
+      border-color: #fff;
+      font-size: 0.95rem;
+      padding: 0.9rem 2rem;
+    }
+
+    /* ---- Sunday pill (small, right under the hero) ---- */
+    .kf-sunday-wrap { display: flex; justify-content: center; padding: 1.25rem 1rem 0; }
+    .kf-sunday {
+      display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center;
+      gap: 0.35rem 0.5rem;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 0.78rem;
+      color: var(--navy);
+      text-align: center;
+    }
+    .kf-sunday-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+    .kf-sunday-sep { color: var(--brd); }
+    .kf-sunday i { color: var(--gold-deep); font-size: 0.8rem; }
+
+    /* ---- Programs: labeled groups of compact horizontal cards ---- */
+    .kf-group + .kf-group { margin-top: 1.6rem; }
+    .kf-group-label {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-body);
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+      margin-bottom: 0.75rem;
+    }
+    .kf-group-label::after { content: ''; flex: 1; height: 1px; background: var(--brd); }
+    .kf-group-cards {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 1.25rem;
+      grid-template-columns: repeat(var(--kf-cols, 3), minmax(0, 1fr));
+      gap: 1rem;
     }
     .kf-card {
-      grid-column: span 2;
       display: flex;
-      flex-direction: column;
+      min-height: 118px;
       background: #fff;
       border: 1px solid var(--brd);
       border-radius: var(--radius-lg);
@@ -41,50 +83,31 @@
       border-color: var(--gold);
       box-shadow: var(--shadow-card);
     }
-    .kf-card:nth-last-child(2):nth-child(3n + 1) { grid-column: 2 / span 2; }
-
     .kf-card-img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 3;
+      flex: 0 0 118px;
+      width: 118px;
       object-fit: cover;
+      display: block;
       background: var(--brd);
     }
     .kf-card-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 1.1rem 1.25rem 1.2rem;
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column;
+      padding: 0.8rem 1rem 0.85rem;
     }
     .kf-card-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--gold-text);
-      margin-bottom: 0.3rem;
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
     }
     .kf-card-title {
-      font-family: var(--font-heading);
-      font-weight: var(--heading-weight);
-      font-size: 1.15rem;
-      color: var(--navy-deep);
-      line-height: 1.3;
-      margin: 0 0 0.35rem;
+      font-family: var(--font-heading); font-weight: var(--heading-weight);
+      font-size: 1.1rem; color: var(--navy-deep); line-height: 1.25;
+      margin: 0.15rem 0 0.2rem;
     }
-    .kf-card-summary {
-      font-size: 0.85rem;
-      line-height: 1.55;
-      color: var(--mt);
-      margin: 0;
-    }
-    .kf-card-go {
-      margin-top: auto;      /* pins the link line to the bottom so cards line up */
-      padding-top: 0.9rem;
-      font-size: 0.85rem;
-    }
+    .kf-card-summary { font-size: 0.76rem; line-height: 1.45; color: var(--mt); margin: 0; }
+    .kf-card-go { margin-top: auto; padding-top: 0.5rem; font-size: 0.8rem; }
 
-    /* Upcoming events: white callout card (same look as Church School's) */
+    /* ---- Upcoming events: white callout card (same look as Church School's) ---- */
     .kf-cal {
       max-width: 1000px;
       margin: 0 auto;
@@ -107,65 +130,75 @@
       font-size: 1.05rem;
     }
 
-    .kf-hero-cta { margin-top: 1.5rem; }
-
-    /* Serving in the Church: one wide horizontal card */
-    .kf-intro { font-size: 0.92rem; line-height: 1.7; color: var(--tx); margin: 0.4rem 0 1.25rem; }
-    .kf-serve {
+    /* ---- Throughout the year: four season cards ---- */
+    .kf-seasons {
       display: grid;
-      grid-template-columns: 40% 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .kf-season {
       background: #fff;
       border: 1px solid var(--brd);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      color: inherit;
+      border-top: 3px solid var(--gold);
+      border-radius: 10px;
+      padding: 1.1rem 1.1rem 0.6rem;
+    }
+    .kf-season h3 {
+      font-size: 1.1rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.4rem;
+    }
+    .kf-season ul { list-style: none; margin: 0; padding: 0; }
+    .kf-season li + li { border-top: 1px solid var(--brd); }
+    .kf-season a {
+      display: block; padding: 0.55rem 0;
+      font-size: 0.8rem; font-weight: 600; color: var(--navy);
       text-decoration: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
-    .kf-serve:hover,
-    .kf-serve:focus-visible {
-      border-color: var(--gold);
-      box-shadow: var(--shadow-card);
-    }
-    .kf-serve-media { position: relative; min-height: 240px; background: var(--brd); }
-    .kf-serve-media img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-    }
-    .kf-serve-body {
-      display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
-      padding: 1.5rem 1.75rem;
-    }
-    .kf-serve-body .kf-card-title { font-size: 1.35rem; margin-bottom: 0.6rem; }
-    .kf-serve-body .kf-card-go { margin-top: 0; padding-top: 0.75rem; }
-    .kf-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.75rem; }
-    .kf-tag {
-      font-size: 0.68rem; font-weight: 600; color: var(--navy-deep);
-      background: #fff; border: 1px solid var(--brd);
-      border-radius: 999px; padding: 0.25rem 0.6rem;
+    .kf-season a:hover { color: var(--gold-deep); }
+    .kf-season-prog {
+      display: block; font-size: 0.7rem; font-weight: 400; color: var(--mt); margin-top: 0.1rem;
     }
 
-    .kf-more {
-      text-align: center;
-      font-size: 0.95rem;
-      color: var(--tx);
-      margin: 0;
+    /* ---- How you can help (gold band) ---- */
+    .kf-help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
     }
+    .kf-help {
+      background: var(--cream);
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.25rem 0.7rem;
+    }
+    .kf-help h3 {
+      font-size: 1.1rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.4rem;
+    }
+    .kf-help ul { list-style: none; margin: 0; padding: 0; }
+    .kf-help li + li { border-top: 1px solid var(--brd); }
+    .kf-help a {
+      display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem;
+      padding: 0.55rem 0;
+      text-decoration: none;
+    }
+    .kf-help-role { font-size: 0.8rem; font-weight: 600; color: var(--navy); }
+    .kf-help-prog { font-size: 0.7rem; color: var(--mt); text-align: right; white-space: nowrap; }
+    .kf-help a:hover .kf-help-role { color: var(--gold-deep); }
+    .kf-help-more { text-align: center; font-size: 0.92rem; color: var(--tx); margin: 1.5rem 0 0; }
 
     @media (max-width: 1064px) { .kf-cal { margin-left: 2rem; margin-right: 2rem; } }
-    @media (max-width: 960px) {
-      .kf-grid { grid-template-columns: repeat(2, 1fr); }
-      .kf-card,
-      .kf-card:nth-last-child(2):nth-child(3n + 1) { grid-column: auto; }
+    @media (max-width: 860px) {
+      .kf-group-cards { grid-template-columns: 1fr 1fr; }
+      .kf-seasons { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 760px) {
-      .kf-serve { grid-template-columns: 1fr; }
-      .kf-serve-media { min-height: 0; aspect-ratio: 16 / 9; }
-      .kf-serve-body { padding: 1.25rem 1.3rem 1.4rem; }
+      .kf-help-grid { grid-template-columns: 1fr; }
     }
-    @media (max-width: 520px) {
-      .kf-grid { grid-template-columns: 1fr; }
+    @media (max-width: 560px) {
+      .kf-group-cards,
+      .kf-seasons { grid-template-columns: 1fr; }
+      .kf-sunday { border-radius: 12px; }
       .kf-cal { padding: 1.25rem 1.2rem; }
     }
   </style>
@@ -181,48 +214,39 @@
     <div class="mp-hero-inner">
       <h1 class="mp-hero-title">Kids &amp; Families</h1>
       <p class="mp-hero-body">From preschool through high school, there's a place for every child to grow in faith, friendship, and our Greek Orthodox heritage.</p>
-      <a href="mailto:youthdirector@ssppglenview.org" class="btn btn-gold-lg kf-hero-cta">
-        <i class="ti ti-mail" aria-hidden="true"></i> Email the Youth Director
-      </a>
+      <div class="kf-hero-actions">
+        <a href="#programs" class="btn btn-gold-lg">Explore programs</a>
+        <a href="#help" class="btn btn-outline-white">How you can help</a>
+      </div>
     </div>
   </section>
 
-  <!-- PROGRAM CARDS (built from js/ministries-data.js) -->
-  <div class="section">
-    <div class="kf-wrap">
-      <div class="kf-grid" id="kfGrid">
-        <noscript>
-          <p class="kf-more">See all of our children's and youth programs on the <a class="text-link" href="get-involved.html">Ministries</a> page.</p>
-        </noscript>
-      </div>
-    </div>
+  <!-- SUNDAY PILL -->
+  <div class="kf-sunday-wrap">
+    <p class="kf-sunday">
+      <span class="kf-sunday-label">A Sunday for kids</span>
+      <span class="kf-sunday-sep" aria-hidden="true">·</span>
+      <span><strong>9:30</strong> Divine Liturgy</span>
+      <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      <span>Holy Communion</span>
+      <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      <span>Church School</span>
+      <i class="ti ti-arrow-right" aria-hidden="true"></i>
+      <span><strong>11:45</strong> Pickup</span>
+    </p>
   </div>
 
-  <!-- SERVING IN THE CHURCH -->
-  <div class="section section--alt">
+  <!-- PROGRAMS (built from js/ministries-data.js + manual cards) -->
+  <div class="section" id="programs">
     <div class="kf-wrap">
-      <h2 class="section-title">Serving in the Church</h2>
-      <p class="kf-intro">Readers, Acolytes, and Myrrhbearers take part in the Divine Liturgy each Sunday.</p>
-      <a class="kf-serve" href="ministries/serving.html">
-        <div class="kf-serve-media">
-          <img src="images/ministries/acolytes.jpg" alt="Acolytes in gold robes holding processional fans and the cross" loading="lazy">
-        </div>
-        <div class="kf-serve-body">
-          <h3 class="kf-card-title">Serving in the Church</h3>
-          <div class="kf-tags">
-            <span class="kf-tag">Readers</span>
-            <span class="kf-tag">Acolytes</span>
-            <span class="kf-tag">Myrrhbearers</span>
-          </div>
-          <p class="kf-card-summary">Read, serve in the Holy Altar, and grow closer to Christ through worship.</p>
-          <span class="kf-card-go text-link">Visit page</span>
-        </div>
-      </a>
+      <h2 class="section-title">Programs</h2>
+      <p class="kf-intro">Every program has its own page with schedules, contacts, and how to join.</p>
+      <div id="kfPrograms"></div>
     </div>
   </div>
 
   <!-- UPCOMING EVENTS -->
-  <div class="section">
+  <div class="section" style="padding-top: 0;">
     <div class="kf-cal">
       <div class="section-header">
         <div>
@@ -238,9 +262,61 @@
     </div>
   </div>
 
-  <!-- CLOSING -->
+  <!-- THROUGHOUT THE YEAR (season cards built from KF_SEASONS below) -->
+  <!-- TODO: Lenten Retreat details (dates, grades, who runs it) — no page yet -->
+  <div class="section section--alt">
+    <div class="kf-wrap">
+      <h2 class="section-title">Throughout the year</h2>
+      <p class="kf-intro">Special events for our kids across the church year.</p>
+      <div class="kf-seasons" id="kfSeasons"></div>
+    </div>
+  </div>
+
+  <!-- HOW YOU CAN HELP (gold band) -->
+  <section class="mp-acc-section" id="help">
+    <div style="max-width: calc(1000px - 4rem); margin: 0 auto;">
+      <h2 class="section-title">How you can help</h2>
+      <p class="kf-intro">Our kids' programs run on parent volunteers. Find a role that fits your schedule.</p>
+      <div class="kf-help-grid">
+        <div class="kf-help">
+          <h3>In the classroom</h3>
+          <ul>
+            <li><a href="ministries/churchschool.html#help"><span class="kf-help-role">Substitute Teacher</span><span class="kf-help-prog">Church School</span></a></li>
+            <li><a href="ministries/greekdance-youth.html#help"><span class="kf-help-role">Teaching help</span><span class="kf-help-prog">Greek Dance</span></a></li>
+          </ul>
+        </div>
+        <div class="kf-help">
+          <h3>At events</h3>
+          <ul>
+            <li><a href="ministries/churchschool.html#events"><span class="kf-help-role">Christmas Pageant crew</span><span class="kf-help-prog">Church School</span></a></li>
+            <li><a href="ministries/churchschool.html#events"><span class="kf-help-role">Oratorical judges</span><span class="kf-help-prog">Church School</span></a></li>
+            <li><a href="ministries/churchschool.html#events"><span class="kf-help-role">Project Hope coordinator</span><span class="kf-help-prog">Church School</span></a></li>
+            <li><a href="ministries/churchschool.html#help"><span class="kf-help-role">Coffee Hour</span><span class="kf-help-prog">Church School</span></a></li>
+          </ul>
+        </div>
+        <div class="kf-help">
+          <h3>Behind the scenes</h3>
+          <ul>
+            <li><a href="ministries/churchschool.html#help"><span class="kf-help-role">Sunday Bagels</span><span class="kf-help-prog">Church School</span></a></li>
+            <li><a href="ministries/churchschool.html#help"><span class="kf-help-role">Photographer</span><span class="kf-help-prog">Church School</span></a></li>
+            <li><a href="ministries/greekdance-youth.html#help"><span class="kf-help-role">Costumes</span><span class="kf-help-prog">Greek Dance</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="kf-help-more">Not sure where you fit? <a class="text-link" href="mailto:youthdirector@ssppglenview.org">Email the Youth Director</a></p>
+    </div>
+  </section>
+
+  <!-- CONTACT CALLOUT -->
   <div class="section">
-    <p class="kf-more">Looking for something else? <a class="text-link" href="get-involved.html">Browse all ministries</a></p>
+    <div class="mp-feature-card">
+      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="mp-feature-text">
+        <h3>Questions about our kids' programs?</h3>
+        <p>Reach out to Steven Thell, our Youth Director, and we'll help you find the right fit.</p>
+      </div>
+      <a href="mailto:youthdirector@ssppglenview.org" class="btn btn-gold">Email us</a>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -251,75 +327,123 @@
   <script>
     const MINISTRY_CALENDAR_CATEGORY = 'youth';
 
-    // Program cards: every active ministry in the Children's Education and
-    // Youth categories, minus the young-adult groups (college and post-college).
-    // FLJ, Jr. GOYA and Sr. GOYA share one "Youth Groups" card, shown second.
+    const esc = (str) => {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    };
+
+    // Programs: grouped compact cards. Cards come from js/ministries-data.js
+    // (image + link) with hub-specific labels and one-line summaries here;
+    // Youth Groups and Serving in the Church are manual cards. Any active
+    // Children's Education / Youth ministry not placed in a group lands in
+    // "More" so nothing silently disappears.
     (function () {
-      const grid = document.getElementById('kfGrid');
-      if (!grid || typeof MINISTRY_CATEGORIES === 'undefined') return;
+      const root = document.getElementById('kfPrograms');
+      if (!root || typeof MINISTRY_CATEGORIES === 'undefined') return;
 
-      const CATEGORY_IDS = ['children', 'youth'];
-      const SKIP = ['GOYAlumni - College', 'Young Adult League (YAL)'];
-      const LABELS = { children: "Children's Education", youth: 'Youth' };
-      const YOUTH_GROUPS = ['FLJ - Elementary age', 'Jr. GOYA - Jr. High', 'Sr. GOYA - High School'];
-      const YOUTH_GROUPS_CARD = {
-        href: 'ministries/youth.html',
-        image: 'images/ministries/srgoya.jpg',
-        label: 'Pre-K – 12th Grade',
-        title: 'Youth Groups',
-        summary: 'FLJ, Jr. GOYA, and Sr. GOYA: fellowship, faith, retreats, and outreach.',
-        go: 'Visit page',
+      const MANUAL = {
+        'Youth Groups': { href: 'ministries/youth.html', image: 'images/ministries/srgoya.jpg' },
+        'Serving in the Church': { href: 'ministries/serving.html', image: 'images/ministries/acolytes.jpg' },
       };
-      // Hub-specific wording for cards built from the data
-      const CARD_OVERRIDES = {
-        'Athletics': {
-          label: '1st – 12th Grade',
-          summary: 'GOYA basketball, the Metropolis Junior Olympics, and more.',
-        },
-        'Greek Dance (Youth)': { title: 'Greek Dance' },
-      };
+      const GROUPS = [
+        { label: 'Faith & Worship', cards: [
+          { name: 'Church School', label: 'Pre-K – 12th', summary: 'Sunday classes after Holy Communion.' },
+          { name: 'Youth Groups', label: 'Pre-K – 12th', summary: 'FLJ, Jr. GOYA & Sr. GOYA.' },
+          { name: 'Serving in the Church', label: 'All ages', summary: 'Readers, Acolytes & Myrrhbearers.' },
+        ] },
+        { label: 'School & Learning', cards: [
+          { name: 'AGAPE Preschool', label: 'Ages 2 – K', summary: 'Play-based Orthodox preschool & kindergarten.' },
+          { name: 'Greek School', label: 'Language & culture', summary: 'Greek language, culture, and traditions.' },
+        ] },
+        { label: 'Activities', cards: [
+          { name: 'Greek Dance (Youth)', title: 'Greek Dance', label: 'K – 10th', summary: 'Weekly practice by age group.' },
+          { name: 'Athletics', label: '1st – 12th', summary: 'GOYA basketball & Jr. Olympics.' },
+        ] },
+      ];
+      // Covered elsewhere (Youth Groups card) or not for kids
+      const SKIP = ['FLJ - Elementary age', 'Jr. GOYA - Jr. High', 'Sr. GOYA - High School',
+        'GOYAlumni - College', 'Young Adult League (YAL)'];
 
-      const esc = (str) => {
-        const d = document.createElement('div');
-        d.textContent = str || '';
-        return d.innerHTML;
-      };
+      const kidsMinistries = MINISTRY_CATEGORIES
+        .filter((c) => c.id === 'children' || c.id === 'youth')
+        .flatMap((c) => c.ministries.filter((m) => !m.inactive));
+      const byName = (name) => kidsMinistries.find((m) => m.name === name);
+      const ownPage = (m) => typeof m.detailPageUrl === 'string' && m.detailPageUrl.startsWith('ministries/');
       const slugify = (str) => str.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-      const renderCard = (c) => `
-            <a class="kf-card" href="${esc(c.href)}">
-              ${c.image ? `<img class="kf-card-img" src="${esc(c.image)}" alt="" loading="lazy">` : '<div class="kf-card-img"></div>'}
-              <div class="kf-card-body">
-                <div class="kf-card-label">${esc(c.label)}</div>
-                <h2 class="kf-card-title">${esc(c.title)}</h2>
-                <p class="kf-card-summary">${esc(c.summary)}</p>
-                <span class="kf-card-go text-link">${c.go}</span>
-              </div>
-            </a>`;
 
-      const cards = [];
-      let youthGroupsAdded = false;
-      CATEGORY_IDS.forEach((id) => {
-        const cat = MINISTRY_CATEGORIES.find((c) => c.id === id);
-        if (!cat) return;
-        cat.ministries.forEach((m) => {
-          if (m.inactive || SKIP.includes(m.name)) return;
-          if (YOUTH_GROUPS.includes(m.name)) {
-            youthGroupsAdded = true;   // placed as the 2nd card below
-            return;
-          }
-          const ownPage = typeof m.detailPageUrl === 'string' && m.detailPageUrl.startsWith('ministries/');
-          cards.push(renderCard(Object.assign({
-            href: ownPage ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name),
-            image: m.image,
-            label: LABELS[id] || cat.label,
-            title: m.name,
-            summary: m.summary,
-            go: ownPage ? 'Visit page' : 'Learn more',
-          }, CARD_OVERRIDES[m.name])));
+      const placed = new Set(SKIP);
+      const resolve = (c) => {
+        placed.add(c.name);
+        const m = byName(c.name);
+        const src = MANUAL[c.name] || (m && {
+          href: ownPage(m) ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name),
+          image: m.image,
         });
-      });
-      if (youthGroupsAdded) cards.splice(1, 0, renderCard(YOUTH_GROUPS_CARD));
-      grid.innerHTML = cards.join('');
+        if (!src) return null;
+        return Object.assign({ title: c.title || c.name }, c, src);
+      };
+
+      const groups = GROUPS.map((g) => ({ label: g.label, cards: g.cards.map(resolve).filter(Boolean) }));
+      const more = kidsMinistries.filter((m) => !placed.has(m.name)).map((m) => ({
+        title: m.name, label: '', summary: m.summary, image: m.image,
+        href: ownPage(m) ? m.detailPageUrl : 'get-involved.html#' + slugify(m.name),
+      }));
+      if (more.length) groups.push({ label: 'More', cards: more });
+
+      const renderCard = (c) => `
+          <a class="kf-card" href="${esc(c.href)}">
+            ${c.image ? `<img class="kf-card-img" src="${esc(c.image)}" alt="" loading="lazy">` : '<span class="kf-card-img"></span>'}
+            <span class="kf-card-body">
+              ${c.label ? `<span class="kf-card-label">${esc(c.label)}</span>` : ''}
+              <span class="kf-card-title">${esc(c.title)}</span>
+              <span class="kf-card-summary">${esc(c.summary)}</span>
+              <span class="kf-card-go text-link">Visit page</span>
+            </span>
+          </a>`;
+
+      root.innerHTML = groups.filter((g) => g.cards.length).map((g) => `
+        <div class="kf-group">
+          <h3 class="kf-group-label">${esc(g.label)}</h3>
+          <div class="kf-group-cards" style="--kf-cols: ${Math.min(g.cards.length, 3)};">
+            ${g.cards.map(renderCard).join('')}
+          </div>
+        </div>`).join('');
+    })();
+
+    // Throughout the year. Edit this list to add or change events.
+    const KF_SEASONS = [
+      { season: 'Fall', events: [
+        { name: 'GOYA Fall Retreat', program: 'Sr. GOYA · Youth', href: 'ministries/youth.html' },
+        { name: 'Basketball season begins', program: 'Athletics', href: 'ministries/athletics.html' },
+      ] },
+      { season: 'Winter', events: [
+        { name: 'Christmas Pageant', program: 'Church School', href: 'ministries/churchschool.html#events' },
+        { name: 'Holiday Faire performance', program: 'Greek Dance', href: 'ministries/greekdance-youth.html' },
+        { name: 'Oratorical Festival', program: 'Church School · 7th–12th', href: 'ministries/churchschool.html#events' },
+      ] },
+      { season: 'Lent & Pascha', events: [
+        { name: 'Lenten Retreat', program: 'Kids', href: 'mailto:youthdirector@ssppglenview.org?subject=Lenten%20Retreat' },
+        { name: 'Project Hope food drive', program: 'Church School', href: 'ministries/churchschool.html#events' },
+      ] },
+      { season: 'Summer', events: [
+        { name: 'Fanari Camp', program: 'Sr. GOYA · Youth', href: 'ministries/youth.html' },
+        { name: 'Greek Festival performance', program: 'Greek Dance', href: 'ministries/greekdance-youth.html' },
+        { name: 'Jr. Olympics', program: 'Athletics', href: 'ministries/athletics.html' },
+      ] },
+    ];
+
+    (function () {
+      const root = document.getElementById('kfSeasons');
+      if (!root) return;
+      root.innerHTML = KF_SEASONS.map((s) => `
+        <div class="kf-season">
+          <h3>${esc(s.season)}</h3>
+          <ul>
+            ${s.events.map((e) => `
+            <li><a href="${esc(e.href)}">${esc(e.name)}<span class="kf-season-prog">${esc(e.program)}</span></a></li>`).join('')}
+          </ul>
+        </div>`).join('');
     })();
   </script>
   <script src="js/calendar-config.js"></script>
