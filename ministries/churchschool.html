@@ -211,6 +211,10 @@
       .cs-volunteer-link { order: 2; margin-top: 0.6rem; }
     }
     @media (max-width: 520px) { .cs-help-grid { grid-template-columns: 1fr; } }
+
+    /* linked from kids-families.html (#events, #help); clears the sticky nav */
+    #events,
+    #help { scroll-margin-top: 64px; }
   </style>
 </head>
 <body>
@@ -275,7 +279,7 @@
   </div>
 
   <!-- ROW 1: CHURCH SCHOOL EVENTS (spotlight tabs) -->
-  <div class="section section--alt">
+  <div class="section section--alt" id="events">
     <div class="container" style="max-width: 1000px;">
       <h2 class="section-title">Church School events</h2>
       <p class="cs-intro">Saints Peter and Paul Church School offers a variety of events and participation opportunities for students, with the goal of deepening their faith and bringing Christ's teachings into their everyday lives.</p>
@@ -358,7 +362,7 @@
   </div>
 
   <!-- ROW 2: HOW YOU CAN HELP (equal-height icon cards on the gold band) -->
-  <section class="mp-acc-section">
+  <section class="mp-acc-section" id="help">
     <div style="max-width: calc(1000px - 4rem); margin: 0 auto;">
       <h2 class="section-title">How you can help</h2>
       <p class="cs-intro">Every Church School program runs on parent volunteers. Sign up for one or more roles each year when you register. Your service is an example to our children.</p>
