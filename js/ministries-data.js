@@ -130,6 +130,8 @@ const MINISTRY_CATEGORIES = [
         summary: 'Read psalms and epistles during services.',
         description: 'During the worship services, lay persons are called upon to read Psalms, Epistles and Old Testament prophecies and wisdom passages. This requires training and preparation with comprehension, vocal diction and projection. This ministry is open to males and females of all ages. Saturday Vespers, Sunday Orthros and Liturgy, Feasts, Lent and Holy Week provide plenty of opportunity for involvement.',
         image: 'images/ministries/readers.jpg',
+        detailPageUrl: 'ministries/serving.html#readers',
+        signupUrl: 'https://www.signupgenius.com/', // TODO: current SignUpGenius link (changes each season)
         calendarCategory: 'liturgical',
         contact: {
           name: 'Steven Thell',
@@ -152,8 +154,9 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Myrrhbearers',
         summary: 'Our altar-serving ministry for young women, providing opportunities for them to be intimately involved in the liturgical services so that they might cultivate a deeper love for Christ through worship.',
-        description: 'In 2022, His Eminence Metropolitan Nathaniel invited Saints Peter & Paul to address the need to more deeply engage girls in the liturgy, giving us the blessing to to invite our Myrrhbearers to serve alongside the acolytes during our liturgical services. The Myrrhbearers are trained alongside the Acolytes and assist the clergy in the liturgical services. Service in the Holy Altar is a beautiful ministry of the Church which spiritually enriches the altar servers and the whole community. The young women in our church are now blessed with the opportunity to deeply engage in liturgy, emulating the love, closeness, and service to Christ of their namesakes, the Myrrhbearing Women.',
+        description: 'In 2022, His Eminence Metropolitan Nathaniel invited Saints Peter & Paul to address the need to more deeply engage girls in the liturgy, giving us the blessing to invite our Myrrhbearers to serve alongside the acolytes during our liturgical services. The Myrrhbearers are trained alongside the Acolytes and assist the clergy in the liturgical services. Service in the Holy Altar is a beautiful ministry of the Church which spiritually enriches the altar servers and the whole community. The young women in our church are now blessed with the opportunity to deeply engage in liturgy, emulating the love, closeness, and service to Christ of their namesakes, the Myrrhbearing Women.',
         image: 'images/myrrbearers.jpg',
+        detailPageUrl: 'ministries/serving.html#myrrhbearers',
         calendarCategory: 'liturgical',
         contact: {
           name: 'Anna Kallis',
@@ -163,9 +166,10 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Acolytes',
-        summary: 'Boys 8+ assisting the clergy in the Holy Altar.',
+        summary: 'Boys assisting the clergy in the Holy Altar.',
         description: "An acolyte is a boy or a man who assists the clergy during the divine services, especially Sunday Divine Liturgy. Service in the Holy Altar is a beautiful ministry of the Church which spiritually enriches the acolytes and the whole community. In addition to knowing the divine worship services, the acolytes are trained to know the areas of the sanctuary and its sacred instruments.",
         image: 'images/ministries/acolytes.jpg',
+        detailPageUrl: 'ministries/serving.html#acolytes',
         calendarCategory: 'liturgical',
         contact: {
           name: 'Steven Thell',

@@ -1,0 +1,240 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serving in the Church | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Readers, Acolytes, and Myrrhbearers at Saints Peter & Paul Greek Orthodox Church: young people serving in the Divine Liturgy alongside our clergy." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/get-involved.css" />
+  <link rel="stylesheet" href="../css/ministry-page.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ---- Small label (same as Church School) ---- */
+    .cs-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+
+    /* ---- Ministry rows: photo one side, text the other ---- */
+    .sv-row {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      scroll-margin-top: 64px;
+    }
+    .sv-row.is-flipped .sv-media { order: 2; }
+    .sv-media {
+      position: relative;
+      min-height: 340px;
+      margin: 0;
+      align-self: stretch;
+    }
+    .sv-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      border-radius: var(--radius-lg);
+    }
+    .sv-text h2 { margin: 0.3rem 0 0.75rem; }
+    .sv-desc { font-size: 0.92rem; line-height: 1.7; color: var(--tx); margin: 0 0 1.25rem; }
+
+    /* "To serve" checklist box */
+    .sv-req {
+      background: var(--gold-lt);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 1.4rem;
+    }
+    .sv-req-title {
+      font-size: 0.85rem; font-weight: 700; color: var(--navy-deep);
+      margin: 0 0 0.45rem;
+    }
+    .sv-req ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+    .sv-req li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.88rem; line-height: 1.5; color: var(--tx);
+    }
+    .sv-req li i { color: var(--gold-deep); font-size: 1rem; margin-top: 0.12rem; flex-shrink: 0; }
+
+    .sv-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
+
+    @media (max-width: 760px) {
+      .sv-row { grid-template-columns: 1fr; gap: 1.5rem; }
+      .sv-row.is-flipped .sv-media { order: 0; }
+      .sv-media { min-height: 0; aspect-ratio: 16 / 9; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <!-- TODO: acolytes.jpg is 596px wide; swap in a wider, sharper photo when one is available -->
+  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/acolytes.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <h1 class="mp-hero-title">Serving in the Church</h1>
+      <p class="mp-hero-body">Our young people take part in the Divine Liturgy as Readers, Acolytes, and Myrrhbearers, serving alongside our clergy and growing closer to Christ through worship.</p>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS: who can serve -->
+  <div class="section">
+    <div class="mp-info-strip">
+      <div class="mp-info-item">
+        <div class="mp-info-label">Readers</div>
+        <div class="mp-info-value">All ages</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Acolytes</div>
+        <div class="mp-info-value">Boys, any age</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Myrrhbearers</div>
+        <div class="mp-info-value">Girls, 3rd grade +</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Descriptions, the Readers sign-up link, and the Myrrhbearers email
+       are filled in from js/ministries-data.js (data-ministry below), so
+       they only need updating in one place. -->
+
+  <!-- READERS -->
+  <div class="section section--alt">
+    <div class="sv-row" id="readers">
+      <figure class="sv-media">
+        <img src="../images/ministries/readers.jpg" alt="Two teen readers at the lectern reading aloud to the congregation" loading="lazy">
+      </figure>
+      <div class="sv-text">
+        <span class="cs-label">All ages</span>
+        <h2 class="section-title">Readers</h2>
+        <p class="sv-desc" data-ministry="Readers"></p>
+        <div class="sv-req">
+          <p class="sv-req-title">To serve</p>
+          <ul>
+            <li><i class="ti ti-check" aria-hidden="true"></i> Sign up for the Sundays you'd like to read</li>
+          </ul>
+        </div>
+        <div class="sv-actions">
+          <a class="btn btn-gold" id="readersSignup" href="https://www.signupgenius.com/" target="_blank" rel="noopener noreferrer">Sign up to read</a>
+          <a class="text-link" href="mailto:readers@ssppglenview.org">Questions? Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACOLYTES -->
+  <div class="section">
+    <div class="sv-row is-flipped" id="acolytes">
+      <figure class="sv-media">
+        <img src="../images/ministries/acolytes.jpg" alt="Acolytes in gold robes holding processional fans and the cross" loading="lazy">
+      </figure>
+      <div class="sv-text">
+        <span class="cs-label">Boys · No age requirement</span>
+        <h2 class="section-title">Acolytes</h2>
+        <p class="sv-desc" data-ministry="Acolytes"></p>
+        <div class="sv-req">
+          <p class="sv-req-title">To serve</p>
+          <ul>
+            <li><i class="ti ti-check" aria-hidden="true"></i> Memorize the Nicene Creed and the Lord's Prayer</li>
+            <li><i class="ti ti-check" aria-hidden="true"></i> Arrive at church before Divine Liturgy begins (9:30 AM) to serve that day</li>
+          </ul>
+        </div>
+        <div class="sv-actions">
+          <a class="btn btn-gold" href="mailto:acolytes@ssppglenview.org">Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MYRRHBEARERS -->
+  <div class="section section--alt">
+    <div class="sv-row" id="myrrhbearers">
+      <figure class="sv-media">
+        <img src="../images/myrrbearers.jpg" alt="Myrrhbearers in red robes holding lit candles at night" loading="lazy">
+      </figure>
+      <div class="sv-text">
+        <span class="cs-label">Girls · 3rd grade and older</span>
+        <h2 class="section-title">Myrrhbearers</h2>
+        <p class="sv-desc" data-ministry="Myrrhbearers"></p>
+        <div class="sv-req">
+          <p class="sv-req-title">To serve</p>
+          <ul>
+            <li><i class="ti ti-check" aria-hidden="true"></i> 3rd grade or older</li>
+            <li><i class="ti ti-check" aria-hidden="true"></i> Memorize the Nicene Creed and the Lord's Prayer</li>
+            <li><i class="ti ti-check" aria-hidden="true"></i> Arrive at church before Divine Liturgy begins (9:30 AM) to serve that day</li>
+          </ul>
+        </div>
+        <div class="sv-actions">
+          <a class="btn btn-gold" id="myrrhbearersEmail" href="mailto:youthdirector@ssppglenview.org">Email us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT CALLOUT -->
+  <div class="section">
+    <div class="mp-feature-card">
+      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <div class="mp-feature-text">
+        <h3>Questions about serving?</h3>
+        <p>Reach out to Steven Thell, our Youth Director, and we'll help your child get started.</p>
+      </div>
+      <a href="mailto:youthdirector@ssppglenview.org" class="btn btn-gold">Email us</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script src="../js/main.js"></script>
+  <script src="../js/ministries-data.js"></script>
+  <script>
+    // Fill in each row from js/ministries-data.js, then honor #readers /
+    // #acolytes / #myrrhbearers (the filled-in text changes the layout,
+    // so jump again once it's in place).
+    (function () {
+      if (typeof MINISTRY_CATEGORIES === 'undefined') return;
+      const find = (name) => {
+        for (const cat of MINISTRY_CATEGORIES) {
+          const m = cat.ministries.find((x) => x.name === name);
+          if (m) return m;
+        }
+        return null;
+      };
+
+      document.querySelectorAll('.sv-desc[data-ministry]').forEach((el) => {
+        const m = find(el.dataset.ministry);
+        if (m) el.textContent = m.description;
+      });
+
+      const readers = find('Readers');
+      const signup = document.getElementById('readersSignup');
+      if (readers && readers.signupUrl && signup) signup.href = readers.signupUrl;
+
+      const myrrh = find('Myrrhbearers');
+      const myrrhEmail = document.getElementById('myrrhbearersEmail');
+      if (myrrh && myrrh.contact && myrrh.contact.email && myrrhEmail) {
+        myrrhEmail.href = 'mailto:' + myrrh.contact.email;
+      }
+
+      const target = window.location.hash && document.getElementById(window.location.hash.slice(1));
+      if (target && target.classList.contains('sv-row')) target.scrollIntoView();
+    })();
+  </script>
+</body>
+</html>
