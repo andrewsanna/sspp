@@ -106,6 +106,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Lead the musical expression of our faith during services.',
         description: 'Music and singing are an integral part of worship in the Orthodox Church. The musical expression of our faith is led by both Chanters and our Choir, yet all the faithful are encouraged to raise their voice in song during the services.',
         image: 'images/ministries/chantors.jpg',
+        detailPageUrl: 'ministries/choir.html#chanters',
         calendarCategory: 'liturgical',
         contact: {
           name: 'Chris Atsaves',
@@ -118,6 +119,7 @@ const MINISTRY_CATEGORIES = [
         summary: 'Lead the musical expression of our faith during services.',
         description: 'Music and singing are an integral part of worship in the Orthodox Church. The musical expression of our faith is led by both Chanters and our Choir, yet all the faithful are encouraged to raise their voice in song during the services.',
         image: 'images/ministries/choir.jpg',
+        detailPageUrl: 'ministries/choir.html#choir',
         calendarCategory: 'liturgical',
         contact: {
           name: 'Therese Speropoulos',

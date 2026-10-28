@@ -1,0 +1,445 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choir &amp; Chanters | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Choir and Chanters at Saints Peter & Paul Greek Orthodox Church: lift your voice in the Divine Liturgy. No experience or Greek needed." />
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/get-involved.css" />
+  <link rel="stylesheet" href="../css/ministry-page.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* Remove the .ch-tbd highlight before launch: set background: none */
+    .ch-tbd {
+      background: #FFF3C4;
+      padding: 0 0.25em;
+      border-radius: 3px;
+    }
+
+    /* ---- Shared with Church School ---- */
+    .cs-lead {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .cs-lead p {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-size: 1.22rem;
+      line-height: 1.65;
+      color: var(--navy-deep);
+      margin: 0;
+    }
+    .cs-intro {
+      font-size: 0.92rem; line-height: 1.7; color: var(--tx);
+      max-width: 640px; margin: 0.5rem 0 1.75rem;
+    }
+    .cs-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+    .cs-hero-cta { margin-top: 1.5rem; }
+
+    /* ---- Page layout ---- */
+    .ch-wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    #choir,
+    #chanters { scroll-margin-top: 64px; }
+    .ch-facts-note {
+      text-align: center; font-size: 0.8rem; color: var(--mt);
+      margin: 0.85rem 0 0; padding: 0 2rem;
+    }
+
+    /* ---- You don't need to… ---- */
+    .ch-needs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+    .ch-need {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.3rem 1.3rem;
+    }
+    .ch-need-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--gold-lt); color: var(--gold-deep);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 0.85rem;
+    }
+    .ch-need h3 {
+      font-size: 1.12rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.45rem;
+    }
+    .ch-need p { font-size: 0.85rem; line-height: 1.6; color: var(--mt); margin: 0; }
+    .ch-need p + p { margin-top: 0.6rem; }
+
+    /* ---- Your first rehearsal: slim numbered step strip ---- */
+    .ch-steps {
+      list-style: none;
+      margin: 0 auto;
+      padding: 12px 22px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem 0.9rem;
+      width: fit-content; max-width: 100%;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: 999px;
+    }
+    .ch-steps li {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; color: var(--navy);
+    }
+    .ch-steps li:not(:last-child)::after {
+      content: '→'; color: var(--gold-deep); margin-left: 0.4rem;
+    }
+    .ch-step-num {
+      flex-shrink: 0;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--gold); color: var(--navy-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700;
+    }
+    .ch-steps-link { text-align: center; margin: 1rem 0 0; font-size: 0.9rem; }
+
+    /* ---- Hear us sing ---- */
+    .ch-video {
+      max-width: 800px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      background: var(--brd);
+      border-radius: var(--radius-lg);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--mt); font-size: 0.9rem;
+    }
+
+    /* ---- Seasons ---- */
+    .ch-seasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+    .ch-season {
+      display: flex; flex-direction: column; align-items: flex-start;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-top: 3px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 1.3rem 1.4rem;
+    }
+    .ch-season h3 {
+      font-size: 1.15rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.45rem;
+    }
+    .ch-season p { font-size: 0.86rem; line-height: 1.6; color: var(--tx); margin: 0 0 1rem; }
+    .ch-season .btn { margin-top: auto; }
+
+    /* ---- Member quote (same look as .min-spotlight) ---- */
+    .ch-quote {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--gold-lt);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+    }
+    .ch-quote-text {
+      font-family: var(--font-heading);
+      font-weight: var(--heading-weight);
+      font-style: italic;
+      font-size: 1.125rem;
+      color: var(--navy-deep);
+      line-height: 1.6;
+      margin: 0 0 0.4rem;
+    }
+    .ch-quote-attr {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--gold-text);
+      margin: 0;
+    }
+
+    /* ---- Chanters: photo beside text ---- */
+    .ch-chanters {
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .ch-chanters-media { position: relative; min-height: 320px; margin: 0; align-self: stretch; }
+    .ch-chanters-media img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      border-radius: var(--radius-lg);
+    }
+    .ch-chanters-text h2 { margin: 0.3rem 0 0.75rem; }
+    .ch-chanters-text p { font-size: 0.92rem; line-height: 1.7; color: var(--tx); margin: 0 0 1rem; }
+    .ch-chanters-text .btn { margin-top: 0.25rem; }
+
+    /* ---- History photo ---- */
+    .ch-history { max-width: 700px; margin: 0 auto; }
+    .ch-history img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); }
+    .ch-history figcaption { text-align: center; font-size: 0.85rem; color: var(--mt); margin-top: 0.75rem; }
+
+    /* ---- Two contact cards ---- */
+    .ch-contacts {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.1rem;
+    }
+    .ch-contacts .mp-feature-card {
+      max-width: none;
+      margin: 0;
+      gap: 1.1rem;
+      padding: 1.4rem 1.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .ch-steps {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: auto;
+        border-radius: 12px;
+        padding: 14px 18px;
+      }
+      .ch-steps li:not(:last-child)::after { content: none; }
+      .ch-contacts { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .ch-needs,
+      .ch-seasons { grid-template-columns: 1fr; }
+      .ch-chanters { grid-template-columns: 1fr; gap: 1.5rem; }
+      .ch-chanters-media { min-height: 0; aspect-ratio: 16 / 9; }
+    }
+    @media (max-width: 560px) {
+      .ch-steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .cs-lead p { font-size: 1.08rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  {% include nav.html %}
+
+  <!-- HERO -->
+  <!-- TODO: choir.jpg is 596px wide; swap in a wider, sharper photo when one is available -->
+  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/choir.jpg');">
+    <div class="mp-hero-overlay"></div>
+    <div class="mp-hero-inner">
+      <h1 class="mp-hero-title">Lift your voice.</h1>
+      <p class="mp-hero-body">Music is how our whole parish prays together. If you love to sing, there's a place for you in our choir.</p>
+      <a href="mailto:choir@ssppglenview.org?subject=Joining%20the%20choir" class="btn btn-gold-lg cs-hero-cta">
+        <i class="ti ti-mail" aria-hidden="true"></i> Join the choir
+      </a>
+    </div>
+  </section>
+
+  <div id="choir">
+
+  <!-- QUICK FACTS -->
+  <div class="section">
+    <div class="mp-info-strip">
+      <div class="mp-info-item">
+        <div class="mp-info-label">Rehearsals</div>
+        <div class="mp-info-value">Wednesdays, 7–8 PM</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">We sing</div>
+        <!-- TBD: which services the choir sings (every Sunday? some Sundays? feasts?) -->
+        <div class="mp-info-value"><span class="ch-tbd">TBD (e.g. every Sunday?)</span></div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Experience</div>
+        <div class="mp-info-value">None needed</div>
+      </div>
+    </div>
+    <!-- TBD: rehearsal room, and the youngest age who can join -->
+    <p class="ch-facts-note">Rehearsal room: <span class="ch-tbd">TBD</span> · Ages: <span class="ch-tbd">TBD</span></p>
+  </div>
+
+  <!-- INTRO (centered statement) -->
+  <div class="section" style="padding-top: 0;">
+    <div class="cs-lead">
+      <p>Music and singing are an integral part of worship in the Orthodox Church. Our choir leads the faithful in song at the Divine Liturgy, and new voices are always welcome.</p>
+    </div>
+  </div>
+
+  <!-- YOU DON'T NEED TO… -->
+  <div class="section section--alt" id="no-experience">
+    <div class="ch-wrap">
+      <h2 class="section-title" style="margin-bottom: 1.25rem;">You don't need to…</h2>
+      <div class="ch-needs">
+        <article class="ch-need">
+          <div class="ch-need-icon"><i class="ti ti-language" aria-hidden="true"></i></div>
+          <h3>Read Greek</h3>
+          <p>All of our music is written out phonetically, so you sing exactly what you see on the page.</p>
+        </article>
+        <article class="ch-need">
+          <div class="ch-need-icon"><i class="ti ti-music" aria-hidden="true"></i></div>
+          <h3>Read music</h3>
+          <p>Many of our singers learn by ear, sitting next to experienced voices in their section.</p>
+          <!-- TBD: link to practice recordings, if there are any -->
+          <p>Practice recordings: <span class="ch-tbd">TBD</span></p>
+        </article>
+        <article class="ch-need">
+          <div class="ch-need-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+          <h3>Have experience</h3>
+          <p>Beginners are welcome. We'll help you find your voice part, whether soprano, alto, tenor, or bass.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- YOUR FIRST REHEARSAL -->
+  <div class="section">
+    <div class="ch-wrap">
+      <h2 class="section-title" style="margin-bottom: 1.25rem; text-align: center;">Your first rehearsal</h2>
+      <ol class="ch-steps">
+        <li><span class="ch-step-num">1</span> Email Therese</li>
+        <li><span class="ch-step-num">2</span> Come to a Wednesday rehearsal</li>
+        <li><span class="ch-step-num">3</span> Sit with your section</li>
+        <li><span class="ch-step-num">4</span> Sing on a Sunday when you're ready</li>
+      </ol>
+      <p class="ch-steps-link"><a class="text-link" href="mailto:choir@ssppglenview.org">Email Therese to get started</a></p>
+    </div>
+  </div>
+
+  <!-- HEAR US SING -->
+  <div class="section" style="padding-top: 0;">
+    <div class="ch-wrap">
+      <h2 class="section-title" style="margin-bottom: 1.25rem;">Hear us sing</h2>
+      <!-- TBD: YouTube/livestream clip of the choir -->
+      <div class="ch-video"><span class="ch-tbd">Recording TBD</span></div>
+    </div>
+  </div>
+
+  <!-- SEASONS TO START -->
+  <!-- Confirm with Therese whether to offer seasonal sign-ups; remove this section if not -->
+  <div class="section" style="padding-top: 0;">
+    <div class="ch-wrap">
+      <h2 class="section-title">Join us for a season</h2>
+      <p class="cs-intro">Not ready for every Sunday? Sing with us for one season.</p>
+      <div class="ch-seasons">
+        <article class="ch-season">
+          <h3>Christmas</h3>
+          <!-- TBD: Christmas rehearsal dates and how many rehearsals/services it involves -->
+          <p><span class="ch-tbd">TBD: rehearsal dates and commitment</span></p>
+          <a class="btn btn-outline-gold" href="mailto:choir@ssppglenview.org?subject=Christmas%20choir">I'm interested</a>
+        </article>
+        <article class="ch-season">
+          <h3>Holy Week &amp; Pascha</h3>
+          <!-- TBD: Holy Week rehearsal dates and how many rehearsals/services it involves -->
+          <p><span class="ch-tbd">TBD: rehearsal dates and commitment</span></p>
+          <a class="btn btn-outline-gold" href="mailto:choir@ssppglenview.org?subject=Holy%20Week%20choir">I'm interested</a>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEMBER QUOTE -->
+  <div class="section" style="padding-top: 0;">
+    <div class="ch-wrap">
+      <!-- TBD: a real quote from a choir member, and their name -->
+      <div class="ch-quote">
+        <p class="ch-quote-text"><span class="ch-tbd">TBD: a line from a choir member</span></p>
+        <p class="ch-quote-attr"><span class="ch-tbd">TBD</span></p>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /#choir -->
+
+  <!-- CHANTERS -->
+  <div class="section section--alt" id="chanters">
+    <div class="ch-wrap ch-chanters">
+      <figure class="ch-chanters-media">
+        <img src="../images/ministries/chantors.jpg" alt="Three chanters in black robes chanting from books at the chanter's stand" loading="lazy">
+      </figure>
+      <div class="ch-chanters-text">
+        <span class="cs-label">Byzantine chant</span>
+        <h2 class="section-title">Chanters</h2>
+        <!-- Filled in from the Chanters description in js/ministries-data.js -->
+        <p data-ministry="Chanters"></p>
+        <p>Our chanters lead the hymns of Orthros and the Divine Liturgy from the chanter's stand.</p>
+        <!-- TBD: how someone can learn to chant (mentoring? classes?) -->
+        <p>Interested in learning to chant? <span class="ch-tbd">TBD: how to learn (mentoring/classes)</span></p>
+        <a class="btn btn-gold" href="mailto:chanters@ssppglenview.org">Email Chris</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUR CHOIR THROUGH THE YEARS -->
+  <!-- Optional: remove if no history to share -->
+  <div class="section">
+    <div class="ch-wrap">
+      <h2 class="section-title" style="margin-bottom: 1.25rem;">Our choir through the years</h2>
+      <figure class="ch-history" style="margin: 0 auto;">
+        <img src="../images/ministries/choir-old.jpg" alt="The choir in red robes gathered with a priest in front of the iconostasis" loading="lazy">
+        <!-- TBD: a sentence of choir history (founding year, a notable moment, etc.) -->
+        <figcaption><span class="ch-tbd">TBD: a line of choir history</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" style="padding-top: 0;">
+    <div class="ch-contacts">
+      <div class="mp-feature-card">
+        <div class="mp-feature-icon"><i class="ti ti-music" aria-hidden="true"></i></div>
+        <div class="mp-feature-text">
+          <h3>Choir</h3>
+          <p>Therese Speropoulos, Choir Director</p>
+        </div>
+        <a href="mailto:choir@ssppglenview.org" class="btn btn-gold">Email us</a>
+      </div>
+      <div class="mp-feature-card">
+        <div class="mp-feature-icon"><i class="ti ti-book" aria-hidden="true"></i></div>
+        <div class="mp-feature-text">
+          <h3>Chanters</h3>
+          <p>Chris Atsaves, Chanter</p>
+        </div>
+        <a href="mailto:chanters@ssppglenview.org" class="btn btn-gold">Email us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script src="../js/main.js"></script>
+  <script src="../js/ministries-data.js"></script>
+  <script>
+    // Chanters description from js/ministries-data.js, then honor #choir /
+    // #chanters (the filled-in text can shift the layout, so jump again).
+    (function () {
+      if (typeof MINISTRY_CATEGORIES !== 'undefined') {
+        document.querySelectorAll('[data-ministry]').forEach((el) => {
+          for (const cat of MINISTRY_CATEGORIES) {
+            const m = cat.ministries.find((x) => x.name === el.dataset.ministry);
+            if (m) { el.textContent = m.description; break; }
+          }
+        });
+      }
+      const id = window.location.hash.slice(1);
+      if (id === 'choir' || id === 'chanters') {
+        const target = document.getElementById(id);
+        if (target) target.scrollIntoView();
+      }
+    })();
+  </script>
+</body>
+</html>
