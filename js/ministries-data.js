@@ -183,11 +183,11 @@ const MINISTRY_CATEGORIES = [
   {
     id: 'youth',
     label: 'Youth & Young Adults',
-    blurb: 'Programs for every age, from elementary school through young adulthood.',
+    blurb: 'Programs for every age, from Pre-K through young adulthood.',
     ministries: [
       {
-        name: 'FLJ - Elementary age',
-        summary: 'Elementary-age fellowship, education, and service.',
+        name: 'FLJ - Pre-K – 5th Grade',
+        summary: 'Pre-K – 5th grade fellowship, education, and service.',
         description: 'Faith, Love & Joy (Junior Orthodox Youth) seeks to foster growth toward a deepening of our elementary children\'s relationship with Christ and His Church through shared fellowship, education and service.',
         image: 'images/ministries/flj.jpg',
         detailPageUrl: 'ministries/youth.html#flj',
