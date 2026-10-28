@@ -433,7 +433,7 @@ const MINISTRY_CATEGORIES = [
   {
     id: 'adult-activities',
     label: 'Community Activities',
-    blurb: 'Stay active and connected through sport, dance, and senior programming.',
+    blurb: 'Stay active and connected through fellowship, sport, dance, and programs for every age.',
     calendarCategory: 'adult_activities', // calendar button: the Community Activities calendar, not Athletics
     ministries: [
       {
@@ -486,6 +486,17 @@ const MINISTRY_CATEGORIES = [
           name: 'Anna Andrews',
           role: 'Group Leader',
           email: 'dance@ssppglenview.org',
+        },
+      },
+      {
+        name: 'ALL IN',
+        summary: 'Belonging and support for people with disabilities and their families. Just getting started at SSPP.',
+        description: "ALL IN is the Greek Orthodox Metropolis of Chicago's ministry to empower those with disabilities and their families, to deepen the connection to Christ and His Church by creating awareness, fostering belonging, and embracing the gifts that all offer to Christ and His Church. Its patron saint is St. John Maximovitch (St. John the Wonderworker), whose deep compassion, love for the marginalized, and belief in the value of every person make him an inspiring example of belonging, dignity, and care. Here at Saints Peter & Paul, ALL IN is just getting started, and right now we're focused on building awareness in our community. Our hope is to grow into activities for families, parents, and children, and to offer helpers who can assist children in joining programs like Church School and FLJ. If you're interested in helping bring ALL IN to life at our church, please reach out to Fr. Peter.",
+        // image: 'images/ministries/allin.jpg',
+        contact: {
+          name: 'Fr. Peter Sarolas',
+          role: 'Associate Priest',
+          email: 'frpeter@ssppglenview.org',
         },
       },
     ],
