@@ -91,7 +91,7 @@ const MINISTRY_CATEGORIES = [
     ministries: [
       {
         name: 'Greeters / Ushers',
-        summary: 'Welcome and seat worshipers on Sunday mornings.',
+        summary: 'Welcome and seat worshipers on Sunday mornings, ages 16+.',
         description: "For each service at the Church, the Usher's main job is to make people feel welcome, control the flow, and assist Father to ensure smooth Liturgy as well as creating an orderly environment for worship. Ushers serve every 6-8 weeks except for Holy Week which can be up to 4 times. Services are usually Sunday and Saturday but can be any day of the week depending on the Liturgical Calendar.",
         // image: 'images/ministries/greeters.jpg',
         calendarCategory: 'liturgical',
@@ -131,7 +131,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Readers',
         summary: 'Read psalms and epistles during services.',
         description: 'During the worship services, lay persons are called upon to read Psalms, Epistles and Old Testament prophecies and wisdom passages. This requires training and preparation with comprehension, vocal diction and projection. This ministry is open to males and females of all ages. Saturday Vespers, Sunday Orthros and Liturgy, Feasts, Lent and Holy Week provide plenty of opportunity for involvement.',
-        image: 'images/ministries/readers.jpg',
+        image: 'images/ministries/readers.png',
         detailPageUrl: 'ministries/serving.html#readers',
         signupUrl: 'https://www.signupgenius.com/', // TODO: current SignUpGenius link (changes each season)
         calendarCategory: 'liturgical',
