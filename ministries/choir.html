@@ -60,7 +60,7 @@
     /* practical info under the quick facts (dark text for readability) */
     .ch-facts-note {
       text-align: center; font-size: 0.95rem; line-height: 1.6; color: var(--tx);
-      margin: 0.85rem 0 0; padding: 0 2rem;
+      max-width: 680px; margin: 0.85rem auto 0; padding: 0 2rem;
     }
     .ch-facts-note + .ch-facts-note { margin-top: 0.4rem; }
 
@@ -78,37 +78,90 @@
     .ch-noexp li i { color: var(--gold-deep); font-size: 1.1rem; margin-top: 0.2rem; flex-shrink: 0; }
     .ch-noexp-note { font-size: 0.9rem; color: var(--mt); margin: 1.1rem 0 0; }
 
-    /* ---- Hear us sing ---- */
-    .ch-video {
-      max-width: 480px;
-      margin: 0;
-      aspect-ratio: 16 / 9;
-      background: var(--brd);
-      border-radius: var(--radius-lg);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--mt); font-size: 0.9rem;
-    }
-
-    /* ---- Seasons ---- */
-    .ch-seasons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.1rem;
-    }
-    .ch-season {
-      display: flex; flex-direction: column; align-items: flex-start;
+    /* ---- Follow along card (under the intro) ---- */
+    .ch-follow {
+      max-width: min(640px, calc(100% - 4rem));
+      margin: 1.5rem auto 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
       background: #fff;
       border: 1px solid var(--brd);
-      border-top: 3px solid var(--gold);
       border-radius: var(--radius-lg);
-      padding: 1.3rem 1.4rem;
+      padding: 0.9rem 1.25rem;
+      min-height: 44px;
+      color: var(--navy-deep);
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.15s ease;
     }
-    .ch-season h3 {
-      font-size: 1.15rem; font-weight: var(--heading-weight);
-      color: var(--navy-deep); margin: 0 0 0.45rem;
+    .ch-follow:hover,
+    .ch-follow:focus-visible { border-color: var(--gold); }
+    .ch-follow i { color: var(--gold-deep); font-size: 1.15rem; }
+
+    /* ---- Hear us sing: slim audio player bar ---- */
+    .ch-player {
+      max-width: 640px;
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex; align-items: center; gap: 0.9rem;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: 0.7rem 1rem;
     }
-    .ch-season p { font-size: 1rem; line-height: 1.6; color: var(--tx); margin: 0 0 1rem; }
-    .ch-season .btn { margin-top: auto; }
+    .ch-play {
+      flex: 0 0 44px;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 0;
+      background: var(--gold); color: var(--navy-deep);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+    .ch-play:hover { background: #c9a25c; }
+    .ch-play:disabled { background: var(--brd); color: var(--mt); cursor: default; }
+    .ch-player-main { flex: 1; min-width: 0; }
+    .ch-player-title {
+      font-family: var(--font-heading); font-weight: var(--heading-weight);
+      font-size: 0.95rem; color: var(--navy-deep);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      margin: 0 0 0.3rem;
+    }
+    .ch-wave {
+      display: flex; align-items: center; gap: 2px;
+      height: 28px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .ch-wave span {
+      flex: 1;
+      min-width: 1px;
+      background: var(--brd);
+      border-radius: 1px;
+    }
+    .ch-wave span.is-played { background: var(--gold); }
+    .ch-wave[aria-disabled="true"] { cursor: default; }
+    .ch-player-time {
+      flex: 0 0 auto;
+      font-size: 0.8rem; color: var(--mt);
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* ---- A year in the choir: simple list ---- */
+    .ch-year { max-width: 640px; margin: 0 auto; padding: 0 2rem; }
+    .ch-year .section-title { margin-bottom: 1rem; }
+    .ch-year-list { list-style: none; margin: 0; padding: 0; }
+    .ch-year-list li { padding: 0.9rem 0; }
+    .ch-year-list li + li { border-top: 1px solid var(--brd); }
+    .ch-year-label {
+      display: block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+      margin-bottom: 0.25rem;
+    }
+    .ch-year-list p { font-size: 1rem; line-height: 1.6; color: var(--tx); margin: 0; }
+    .ch-year-note { text-align: center; font-size: 1rem; color: var(--tx); margin: 1.25rem 0 0; }
 
     /* ---- Member quote (same look as .min-spotlight) ---- */
     .ch-quote {
@@ -176,14 +229,13 @@
     .ch-contact-action { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; }
     .ch-contact-email { font-size: 0.85rem; color: var(--tx); text-decoration: underline; text-underline-offset: 2px; }
     .ch-contact-email:hover { color: var(--gold-deep); }
-    .ch-call { text-align: center; font-size: 0.95rem; color: var(--tx); margin: 1.25rem 0 0; padding: 0 2rem; }
-    .ch-call a { color: var(--navy); font-weight: 700; text-decoration: none; }
+    .ch-contact-phone { font-size: 0.85rem; color: var(--tx); text-decoration: none; font-weight: 600; }
+    .ch-contact-phone:hover { color: var(--gold-deep); }
 
     @media (max-width: 860px) {
       .ch-contacts { grid-template-columns: 1fr; }
     }
     @media (max-width: 760px) {
-      .ch-seasons { grid-template-columns: 1fr; }
       .ch-chanters { grid-template-columns: 1fr; gap: 1.5rem; }
       .ch-chanters-media { min-height: 0; aspect-ratio: 16 / 9; }
     }
@@ -217,22 +269,19 @@
     <div class="mp-info-strip">
       <div class="mp-info-item">
         <div class="mp-info-label">Rehearsals</div>
-        <div class="mp-info-value">Wednesdays, 7–8 PM</div>
+        <div class="mp-info-value">Wednesdays, 7 PM</div>
       </div>
       <div class="mp-info-item">
         <div class="mp-info-label">We sing</div>
-        <!-- TBD: which services the choir sings (every Sunday? some Sundays? feasts?) -->
-        <div class="mp-info-value"><span class="ch-tbd">TBD (e.g. every Sunday?)</span></div>
+        <div class="mp-info-value">Every Sunday</div>
       </div>
       <div class="mp-info-item">
-        <div class="mp-info-label">Experience</div>
-        <div class="mp-info-value">None needed</div>
+        <div class="mp-info-label">Ages</div>
+        <div class="mp-info-value">High school &amp; up</div>
       </div>
     </div>
-    <!-- TBD: rehearsal room, and the youngest age who can join -->
-    <p class="ch-facts-note">Rehearsal room: <span class="ch-tbd">TBD</span> · Ages: <span class="ch-tbd">TBD</span></p>
-    <!-- TBD: confirm with Therese -->
-    <p class="ch-facts-note"><span class="ch-tbd">You're welcome to sit in on a Wednesday rehearsal before deciding.</span></p>
+    <p class="ch-facts-note">Rehearsals are in the choir room. On Sundays we warm up in the choir room at 8:45 AM; arrive a few minutes early to put on a robe and pick up a notebook.</p>
+    <p class="ch-facts-note">Wednesday rehearsals aren't every week, and may be cancelled in bad weather.</p>
     <!-- TBD: evening entrance + accessibility -->
     <p class="ch-facts-note"><span class="ch-tbd">Getting there: TBD (which entrance, parking, stairs/elevator)</span></p>
   </div>
@@ -240,8 +289,12 @@
   <!-- INTRO (centered statement) -->
   <div class="section" style="padding-top: 0;">
     <div class="cs-lead">
-      <p>Music and singing are an integral part of worship in the Orthodox Church. Our choir leads the faithful in song at the Divine Liturgy, and new voices are always welcome.</p>
+      <p>Our choir sings the Divine Liturgy every Sunday of the year. We're not a strict program: we're a group of parishioners who love to sing, and new voices are always welcome.</p>
     </div>
+    <a class="ch-follow" href="../follow-along.html">
+      <span>Follow along with the Eight Tones</span>
+      <i class="ti ti-arrow-right" aria-hidden="true"></i>
+    </a>
   </div>
 
   <!-- NO EXPERIENCE NEEDED -->
@@ -249,9 +302,9 @@
     <div class="ch-noexp">
       <h2>No experience needed</h2>
       <ul>
-        <li><i class="ti ti-check" aria-hidden="true"></i> <span>You don't need to read Greek. All of our music is written out phonetically.</span></li>
-        <li><i class="ti ti-check" aria-hidden="true"></i> <span>You don't need to read music. Many of our singers learn by ear alongside their section.</span></li>
-        <li><i class="ti ti-check" aria-hidden="true"></i> <span>Beginners are welcome. We'll help you find your voice part.</span></li>
+        <li><i class="ti ti-check" aria-hidden="true"></i> <span>You don't need to read Greek. English phonetics are provided for every hymn.</span></li>
+        <li><i class="ti ti-check" aria-hidden="true"></i> <span>You don't need to read music. It helps, but many of our singers sing by ear and do a beautiful job.</span></li>
+        <li><i class="ti ti-check" aria-hidden="true"></i> <span>Learn at your own pace. It's perfectly fine to follow along in the book until you know a hymn. There's no deadline or final exam!</span></li>
       </ul>
       <!-- TBD: link to practice recordings, if there are any -->
       <p class="ch-noexp-note">Practice recordings: <span class="ch-tbd">TBD</span></p>
@@ -260,43 +313,46 @@
 
   <!-- HEAR US SING -->
   <div class="section">
-    <div class="ch-wrap">
+    <div class="ch-wrap" style="max-width: calc(640px + 4rem);">
       <h2 class="section-title" style="margin-bottom: 1.25rem;">Hear us sing</h2>
-      <!-- TBD: YouTube/livestream clip of the choir -->
-      <div class="ch-video"><span class="ch-tbd">Recording TBD</span></div>
-    </div>
-  </div>
-
-  <!-- SEASONS TO START -->
-  <!-- Confirm with Therese whether to offer seasonal sign-ups; remove this section if not -->
-  <div class="section" style="padding-top: 0;">
-    <div class="ch-wrap">
-      <h2 class="section-title">Join us for a season</h2>
-      <p class="cs-intro">Not ready for every Sunday? Sing with us for one season.</p>
-      <div class="ch-seasons">
-        <article class="ch-season">
-          <h3>Christmas</h3>
-          <!-- TBD: Christmas rehearsal dates and how many rehearsals/services it involves -->
-          <p><span class="ch-tbd">TBD: rehearsal dates and commitment</span></p>
-          <a class="btn btn-outline-gold" href="mailto:choir@ssppglenview.org?subject=Christmas%20choir">I'm interested</a>
-        </article>
-        <article class="ch-season">
-          <h3>Holy Week &amp; Pascha</h3>
-          <!-- TBD: Holy Week rehearsal dates and how many rehearsals/services it involves -->
-          <p><span class="ch-tbd">TBD: rehearsal dates and commitment</span></p>
-          <a class="btn btn-outline-gold" href="mailto:choir@ssppglenview.org?subject=Holy%20Week%20choir">I'm interested</a>
-        </article>
+      <!-- TBD: choir recording file from Therese (mp3) -->
+      <audio id="chAudio" preload="metadata" src="../audio/choir-sample.mp3"></audio>
+      <div class="ch-player" id="chPlayer">
+        <button type="button" class="ch-play" id="chPlay" aria-label="Play choir recording">
+          <i class="ti ti-player-play" aria-hidden="true"></i>
+        </button>
+        <div class="ch-player-main">
+          <p class="ch-player-title" id="chTitle">SSPP Choir · Divine Liturgy</p>
+          <div class="ch-wave" id="chWave" role="slider" tabindex="0"
+               aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0:00"></div>
+        </div>
+        <span class="ch-player-time" id="chTime">0:00 / 0:00</span>
       </div>
     </div>
   </div>
 
-  <!-- MEMBER QUOTE -->
+  <!-- A YEAR IN THE CHOIR -->
+  <div class="section" style="padding-top: 0;">
+    <div class="ch-year">
+      <h2 class="section-title">A year in the choir</h2>
+      <ul class="ch-year-list">
+        <li><span class="ch-year-label">Fall</span><p>Regular Wednesday rehearsals begin in September as we prepare our Christmas program.</p></li>
+        <li><span class="ch-year-label">Christmas</span><p>We sing back-up for the children's Christmas Pageant (usually the 2nd or 3rd Sunday of December) and give a short concert of carols after the Christmas Eve service.</p></li>
+        <li><span class="ch-year-label">Before Lent</span><p>A few rehearsals to review the music for the season ahead.</p></li>
+        <li><span class="ch-year-label">Lent</span><p>No Wednesday rehearsals. Instead we sing at the Pre-Sanctified Liturgy on Wednesday evenings and the Salutations on Friday evenings.</p></li>
+        <li><span class="ch-year-label">Holy Week</span><p>We sing at every evening service except Holy Wednesday.</p></li>
+        <li><span class="ch-year-label">Summer</span><p>No regular weekly rehearsals.</p></li>
+      </ul>
+      <p class="ch-year-note">Can't make every service? That's okay. Come when you can.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTOR QUOTE -->
   <div class="section" style="padding-top: 0;">
     <div class="ch-wrap">
-      <!-- TBD: a real quote from a choir member, and their name -->
       <div class="ch-quote">
-        <p class="ch-quote-text"><span class="ch-tbd">TBD: a line from a choir member</span></p>
-        <p class="ch-quote-attr"><span class="ch-tbd">TBD</span></p>
+        <p class="ch-quote-text">“We know you're out there; we hear you singing and you sound great! Please don't be commitment-phobic. If you're already in church, why not sing too?”</p>
+        <p class="ch-quote-attr">Therese Speropoulos, Choir Director</p>
       </div>
     </div>
   </div>
@@ -323,14 +379,12 @@
   </div>
 
   <!-- OUR CHOIR THROUGH THE YEARS -->
-  <!-- Optional: remove if no history to share -->
   <div class="section">
     <div class="ch-wrap">
       <h2 class="section-title" style="margin-bottom: 1.25rem;">Our choir through the years</h2>
       <figure class="ch-history" style="margin: 0 auto;">
         <img src="../images/ministries/choir-old.jpg" alt="The choir in red robes gathered with a priest in front of the iconostasis" loading="lazy">
-        <!-- TBD: a sentence of choir history (founding year, a notable moment, etc.) -->
-        <figcaption><span class="ch-tbd">TBD: a line of choir history</span></figcaption>
+        <figcaption>Singing since 1962. In October 2022, our choir celebrated 60 years of service in song.</figcaption>
       </figure>
     </div>
   </div>
@@ -347,6 +401,7 @@
         <div class="ch-contact-action">
           <a href="mailto:choir@ssppglenview.org" class="btn btn-gold">Email us</a>
           <a href="mailto:choir@ssppglenview.org" class="ch-contact-email">choir@ssppglenview.org</a>
+          <a href="tel:+18477912804" class="ch-contact-phone">847-791-2804</a>
         </div>
       </div>
       <div class="mp-feature-card">
@@ -358,10 +413,10 @@
         <div class="ch-contact-action">
           <a href="mailto:chanters@ssppglenview.org" class="btn btn-gold">Email us</a>
           <a href="mailto:chanters@ssppglenview.org" class="ch-contact-email">chanters@ssppglenview.org</a>
+          <a href="tel:+18477292235" class="ch-contact-phone">Parish office: (847) 729-2235</a>
         </div>
       </div>
     </div>
-    <p class="ch-call">Prefer to call? Parish office: <a href="tel:+18477292235">(847) 729-2235</a></p>
   </div>
 
   <!-- FOOTER -->
@@ -381,6 +436,90 @@
           }
         });
       }
+      // Hear us sing: slim audio player. Falls back to a disabled bar
+      // ("Recording coming soon") if the file is missing or won't load.
+      (function () {
+        const audio = document.getElementById('chAudio');
+        const play = document.getElementById('chPlay');
+        const wave = document.getElementById('chWave');
+        const time = document.getElementById('chTime');
+        const title = document.getElementById('chTitle');
+        if (!audio || !play || !wave) return;
+
+        // ~60 bars with fixed, seeded heights so the waveform looks the same every load
+        const BARS = 60;
+        let seed = 7;
+        const rand = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+        for (let i = 0; i < BARS; i++) {
+          const bar = document.createElement('span');
+          const shape = 0.45 + 0.35 * Math.sin(i / 6);           // gentle swell
+          bar.style.height = Math.round((0.25 + 0.75 * shape * (0.55 + 0.45 * rand())) * 100) + '%';
+          wave.appendChild(bar);
+        }
+        const bars = Array.from(wave.children);
+        const fmt = (s) => {
+          if (!isFinite(s) || s < 0) s = 0;
+          const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+          return m + ':' + String(sec).padStart(2, '0');
+        };
+        let disabled = false;
+
+        function update() {
+          const dur = audio.duration || 0;
+          const frac = dur ? audio.currentTime / dur : 0;
+          const played = Math.round(frac * BARS);
+          bars.forEach((b, i) => b.classList.toggle('is-played', i < played));
+          time.textContent = fmt(audio.currentTime) + ' / ' + fmt(dur);
+          wave.setAttribute('aria-valuenow', Math.round(frac * 100));
+          wave.setAttribute('aria-valuetext', fmt(audio.currentTime) + ' of ' + fmt(dur));
+        }
+        function setPlaying(on) {
+          play.innerHTML = '<i class="ti ti-player-' + (on ? 'pause' : 'play') + '" aria-hidden="true"></i>';
+          play.setAttribute('aria-label', on ? 'Pause' : 'Play choir recording');
+        }
+        function disable() {
+          if (disabled) return;
+          disabled = true;
+          audio.pause();
+          play.disabled = true;
+          setPlaying(false);
+          title.innerHTML = '<span class="ch-tbd">Recording coming soon</span>';
+          wave.setAttribute('aria-disabled', 'true');
+          wave.tabIndex = -1;
+        }
+        function seekTo(frac) {
+          if (disabled || !audio.duration) return;
+          audio.currentTime = Math.min(Math.max(frac, 0), 1) * audio.duration;
+          update();
+        }
+
+        play.addEventListener('click', () => {
+          if (disabled) return;
+          if (audio.paused) audio.play().catch(disable); else audio.pause();
+        });
+        audio.addEventListener('play', () => setPlaying(true));
+        audio.addEventListener('pause', () => setPlaying(false));
+        audio.addEventListener('ended', () => setPlaying(false));
+        audio.addEventListener('timeupdate', update);
+        audio.addEventListener('loadedmetadata', update);
+        audio.addEventListener('error', disable);
+        if (audio.error) disable();
+
+        wave.addEventListener('click', (e) => {
+          const r = wave.getBoundingClientRect();
+          seekTo((e.clientX - r.left) / r.width);
+        });
+        wave.addEventListener('keydown', (e) => {
+          if (disabled || !audio.duration) return;
+          const step = 5 / audio.duration;    // 5 seconds per arrow press
+          const frac = audio.currentTime / audio.duration;
+          if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { e.preventDefault(); seekTo(frac + step); }
+          else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { e.preventDefault(); seekTo(frac - step); }
+          else if (e.key === 'Home') { e.preventDefault(); seekTo(0); }
+          else if (e.key === 'End') { e.preventDefault(); seekTo(1); }
+        });
+      })();
+
       const id = window.location.hash.slice(1);
       if (id === 'choir' || id === 'chanters') {
         const target = document.getElementById(id);
