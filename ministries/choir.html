@@ -58,12 +58,8 @@
     .mp-info-strip { max-width: calc(1000px - 4rem); }
     #choir,
     #chanters { scroll-margin-top: 64px; }
-    /* practical info under the quick facts (dark text for readability) */
-    .ch-facts-note {
-      text-align: center; font-size: 0.95rem; line-height: 1.6; color: var(--tx);
-      max-width: 680px; margin: 0.85rem auto 0; padding: 0 2rem;
-    }
-    .ch-facts-note + .ch-facts-note { margin-top: 0.4rem; }
+    /* small second line under each quick-facts value */
+    .ch-info-sub { font-size: 0.78rem; font-weight: 400; color: var(--tx); margin-top: 0.2rem; }
 
     /* ---- Follow along card (under the intro) ---- */
     .ch-follow {
@@ -234,8 +230,52 @@
       gap: 2.5rem;
       align-items: center;
     }
-    .ch-history figure { margin: 0; }
-    .ch-history img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); }
+    /* Slideshow */
+    .ch-slides {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--navy-deep);
+    }
+    .ch-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .ch-slide.is-active { opacity: 1; }
+    .ch-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ch-slides-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 0;
+      background: rgba(11, 30, 51, 0.55); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.15s ease;
+    }
+    .ch-slides-nav:hover { background: rgba(11, 30, 51, 0.8); }
+    .ch-slides-prev { left: 12px; }
+    .ch-slides-next { right: 12px; }
+    .ch-slides-dots {
+      position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 0.35rem;
+      z-index: 2;
+    }
+    .ch-slides-dot {
+      width: 24px; height: 24px; padding: 0;     /* comfortable tap target */
+      border: 0; background: transparent; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ch-slides-dot::before {
+      content: '';
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      box-shadow: 0 0 0 1px rgba(11, 30, 51, 0.25);
+    }
+    .ch-slides-dot.is-active::before { background: #fff; }
     .ch-history-text .section-title { margin-bottom: 0.5rem; }
     .ch-history-text .ch-history-years {
       font-family: var(--font-heading); font-weight: var(--heading-weight);
@@ -292,8 +332,7 @@
   {% include nav.html %}
 
   <!-- HERO -->
-  <!-- TODO: choir.jpg is 596px wide; swap in a wider, sharper photo when one is available -->
-  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/choir.jpg');">
+  <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/choir-old.jpg');">
     <div class="mp-hero-overlay"></div>
     <div class="mp-hero-inner">
       <h1 class="mp-hero-title">Lift your voice.</h1>
@@ -312,18 +351,19 @@
       <div class="mp-info-item">
         <div class="mp-info-label">Rehearsals</div>
         <div class="mp-info-value">Wednesdays, 7 PM</div>
+        <div class="ch-info-sub">Choir room · not every week</div>
       </div>
       <div class="mp-info-item">
         <div class="mp-info-label">We sing</div>
         <div class="mp-info-value">Every Sunday</div>
+        <div class="ch-info-sub">Warm-up 8:45 AM, choir room</div>
       </div>
       <div class="mp-info-item">
         <div class="mp-info-label">Ages</div>
         <div class="mp-info-value">High school &amp; up</div>
+        <div class="ch-info-sub">All voices welcome</div>
       </div>
     </div>
-    <p class="ch-facts-note">Rehearsals are in the choir room. On Sundays we warm up in the choir room at 8:45 AM; arrive a few minutes early to put on a robe and pick up a notebook.</p>
-    <p class="ch-facts-note">Wednesday rehearsals aren't every week, and may be cancelled in bad weather.</p>
   </div>
 
   <!-- INTRO (centered statement) + FOLLOW ALONG -->
@@ -351,6 +391,7 @@
           <li><i class="ti ti-check" aria-hidden="true"></i> <span>You don't need to read Greek. English phonetics are provided for every hymn.</span></li>
           <li><i class="ti ti-check" aria-hidden="true"></i> <span>You don't need to read music. It helps, but many of our singers sing by ear and do a beautiful job.</span></li>
           <li><i class="ti ti-check" aria-hidden="true"></i> <span>Learn at your own pace. It's perfectly fine to follow along in the book until you know a hymn. There's no deadline or final exam!</span></li>
+          <li><i class="ti ti-check" aria-hidden="true"></i> <span>Your first Sunday: arrive a few minutes before 8:45 to put on a robe and pick up a notebook.</span></li>
         </ul>
         <p class="ch-noexp-note">Practice recordings: <a class="text-link" href="https://www.goarch.org/-/the-complete-divine-liturgy-and-related-hymns" target="_blank" rel="noopener noreferrer">The Complete Divine Liturgy and Related Hymns</a> <span class="ch-note">(Greek Orthodox Archdiocese)</span></p>
       </div>
@@ -392,16 +433,31 @@
         <li><span class="ch-year-label">Holy Week</span><p>We sing at every evening service except Holy Wednesday.</p></li>
         <li><span class="ch-year-label">Summer</span><p>No regular weekly rehearsals.</p></li>
       </ul>
-      <p class="ch-year-note">Can't make every service? That's okay. Come when you can.</p>
+      <p class="ch-year-note">Can't make every service? That's okay. Come when you can. Wednesday rehearsals may be cancelled in bad weather.</p>
     </div>
   </div>
 
   <!-- OUR CHOIR THROUGH THE YEARS -->
   <div class="section" style="padding-top: 0;">
     <div class="ch-wrap ch-history">
-      <figure>
-        <img src="../images/ministries/choir-old.jpg" alt="The choir in red robes gathered with a priest in front of the iconostasis" loading="lazy">
-      </figure>
+      <!-- Slideshow: oldest to newest. To add a photo, copy a slide and a dot. -->
+      <div class="ch-slides" id="chSlides" role="region" aria-roledescription="carousel" aria-label="Our choir through the years">
+        <div class="ch-slide is-active"><img src="../images/ministries/choir-history/choir-1.jpg" alt="Black-and-white photo of the robed choir standing behind rows of children holding candles in the church" loading="lazy"></div>
+        <div class="ch-slide"><img src="../images/ministries/choir-history/choir-2.jpg" alt="The choir in red robes with white collars gathered with a priest in front of the icons" loading="lazy"></div>
+        <div class="ch-slide"><img src="../images/ministries/choir-history/choir-3.jpg" alt="The choir in red robes with clergy in the choir loft in front of the organ pipes" loading="lazy"></div>
+        <div class="ch-slide"><img src="../images/ministries/choir-history/choir-4.jpg" alt="The choir in blue robes with a priest in gold vestments in the choir loft in front of the organ pipes" loading="lazy"></div>
+        <div class="ch-slide"><img src="../images/ministries/choir-history/choir-5.jpg" alt="The choir in blue robes with clergy in white and gold vestments in front of the iconostasis" loading="lazy"></div>
+
+        <button type="button" class="ch-slides-nav ch-slides-prev" aria-label="Previous photo"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="ch-slides-nav ch-slides-next" aria-label="Next photo"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+        <div class="ch-slides-dots">
+          <button type="button" class="ch-slides-dot is-active" aria-label="Photo 1 of 5" aria-current="true"></button>
+          <button type="button" class="ch-slides-dot" aria-label="Photo 2 of 5"></button>
+          <button type="button" class="ch-slides-dot" aria-label="Photo 3 of 5"></button>
+          <button type="button" class="ch-slides-dot" aria-label="Photo 4 of 5"></button>
+          <button type="button" class="ch-slides-dot" aria-label="Photo 5 of 5"></button>
+        </div>
+      </div>
       <div class="ch-history-text">
         <h2 class="section-title">Our choir through the years</h2>
         <p class="ch-history-years">60 years</p>
@@ -560,6 +616,39 @@
           else if (e.key === 'Home') { e.preventDefault(); seekTo(0); }
           else if (e.key === 'End') { e.preventDefault(); seekTo(1); }
         });
+      })();
+
+      // Our choir through the years: slideshow (auto-advances unless the
+      // visitor prefers reduced motion; pauses on hover/focus)
+      (function () {
+        const root = document.getElementById('chSlides');
+        if (!root) return;
+        const slides = root.querySelectorAll('.ch-slide');
+        const dots = root.querySelectorAll('.ch-slides-dot');
+        let current = 0;
+        let timer = null;
+        const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function show(i) {
+          slides[current].classList.remove('is-active');
+          dots[current].classList.remove('is-active');
+          dots[current].removeAttribute('aria-current');
+          current = (i + slides.length) % slides.length;
+          slides[current].classList.add('is-active');
+          dots[current].classList.add('is-active');
+          dots[current].setAttribute('aria-current', 'true');
+        }
+        function start() { if (!reduce) { stop(); timer = setInterval(() => show(current + 1), 5000); } }
+        function stop() { clearInterval(timer); timer = null; }
+
+        root.querySelector('.ch-slides-next').addEventListener('click', () => { show(current + 1); start(); });
+        root.querySelector('.ch-slides-prev').addEventListener('click', () => { show(current - 1); start(); });
+        dots.forEach((d, i) => d.addEventListener('click', () => { show(i); start(); }));
+        root.addEventListener('mouseenter', stop);
+        root.addEventListener('mouseleave', start);
+        root.addEventListener('focusin', stop);
+        root.addEventListener('focusout', start);
+        start();
       })();
 
       const id = window.location.hash.slice(1);
