@@ -81,19 +81,7 @@
       font-size: 1.2rem; color: var(--navy-deep); margin: 0 0 0.2rem;
     }
     .ch-follow-text p { font-size: 0.95rem; color: var(--mt); margin: 0; }
-    .ch-follow-tones { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem; }
-    .ch-tone {
-      width: 36px; height: 36px; border-radius: 50%;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: var(--gold-lt); color: var(--navy-deep);
-      border: 1px solid transparent;
-      font-size: 0.9rem; font-weight: 700;
-      text-decoration: none;
-      transition: border-color 0.15s ease;
-    }
-    .ch-tone:hover,
-    .ch-tone:focus-visible { border-color: var(--gold); }
-    .ch-follow-open { margin-left: 0.6rem; font-size: 0.95rem; }
+    .ch-follow .btn { flex-shrink: 0; }
 
     /* ---- No experience needed + Hear us sing (two columns) ---- */
     .ch-split {
@@ -164,38 +152,28 @@
       white-space: nowrap;
     }
 
-    /* ---- A year in the choir: horizontal timeline (vertical list on phones) ---- */
+    /* ---- A year in the choir: grid of small cards ---- */
     .ch-year .section-title { margin-bottom: 1.25rem; }
     .ch-year-list {
       list-style: none; margin: 0; padding: 0;
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 2rem 1.25rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
     }
-    .ch-year-list li { position: relative; padding-top: 1.6rem; }
-    /* thin gold line across the top, one segment per column */
-    .ch-year-list li::after {
-      content: '';
-      position: absolute; top: 5px; left: 0; right: -1.25rem;
-      height: 2px; background: var(--gold);
-    }
-    .ch-year-list li:last-child::after { right: 0; }
-    /* gold dot above each column */
-    .ch-year-list li::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 12px; height: 12px; border-radius: 50%;
-      background: var(--gold);
-      z-index: 1;
+    .ch-year-list li {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
     }
     .ch-year-label {
       display: block;
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em;
       text-transform: uppercase; color: var(--gold-text);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.35rem;
     }
-    .ch-year-list p { font-size: 0.95rem; line-height: 1.55; color: var(--tx); margin: 0; }
-    .ch-year-note { text-align: center; font-size: 1rem; color: var(--tx); margin: 2rem 0 0; }
+    .ch-year-list p { font-size: 0.95rem; line-height: 1.6; color: var(--tx); margin: 0; }
+    .ch-year-note { text-align: center; font-size: 1rem; color: var(--tx); margin: 1.5rem 0 0; }
 
     /* ---- Member quote (same look as .min-spotlight) ---- */
     .ch-quote {
@@ -276,11 +254,8 @@
     .ch-contact-phone { font-size: 0.85rem; color: var(--tx); text-decoration: none; font-weight: 600; }
     .ch-contact-phone:hover { color: var(--gold-deep); }
 
-    @media (max-width: 1000px) {
-      .ch-year-list { grid-template-columns: repeat(3, 1fr); }
-      .ch-year-list li:nth-child(3n)::after { right: 0; }
-    }
     @media (max-width: 860px) {
+      .ch-year-list { grid-template-columns: 1fr 1fr; }
       .ch-contacts { grid-template-columns: 1fr; }
       .ch-split { grid-template-columns: 1fr; gap: 2.5rem; }
       .ch-history { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -290,13 +265,7 @@
       .ch-chanters-media { min-height: 0; aspect-ratio: 16 / 9; }
     }
     @media (max-width: 640px) {
-      /* phones: the timeline becomes a simple vertical list */
-      .ch-year-list { grid-template-columns: 1fr; gap: 0; }
-      .ch-year-list li { padding: 0.9rem 0; }
-      .ch-year-list li + li { border-top: 1px solid var(--brd); }
-      .ch-year-list li::before,
-      .ch-year-list li::after { content: none; }
-      .ch-year-note { margin-top: 1.25rem; }
+      .ch-year-list { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .cs-lead p { font-size: 1.08rem; }
@@ -354,17 +323,7 @@
           <h2 class="ch-follow-title">Follow along with the Eight Tones</h2>
           <p>Hymns for every tone, in phonetic Greek, Greek, and English.</p>
         </div>
-        <nav class="ch-follow-tones" aria-label="Open a tone">
-          <a class="ch-tone" href="../follow-along.html#tone-1" aria-label="Tone 1">1</a>
-          <a class="ch-tone" href="../follow-along.html#tone-2" aria-label="Tone 2">2</a>
-          <a class="ch-tone" href="../follow-along.html#tone-3" aria-label="Tone 3">3</a>
-          <a class="ch-tone" href="../follow-along.html#tone-4" aria-label="Tone 4">4</a>
-          <a class="ch-tone" href="../follow-along.html#tone-5" aria-label="Tone 5">5</a>
-          <a class="ch-tone" href="../follow-along.html#tone-6" aria-label="Tone 6">6</a>
-          <a class="ch-tone" href="../follow-along.html#tone-7" aria-label="Tone 7">7</a>
-          <a class="ch-tone" href="../follow-along.html#tone-8" aria-label="Tone 8">8</a>
-          <a class="text-link ch-follow-open" href="../follow-along.html">Open</a>
-        </nav>
+        <a class="btn btn-gold" href="../follow-along.html">Follow along</a>
       </div>
     </div>
   </div>
