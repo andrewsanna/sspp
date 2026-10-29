@@ -93,7 +93,23 @@
       white-space: pre-line;
       margin: 0;
     }
+    .fa-hymn-title {
+      font-family: var(--font-heading); font-weight: var(--heading-weight);
+      font-size: 1.3rem; color: var(--navy-deep);
+      margin: 0 0 0.4rem;
+    }
     .fa-hymn-text.is-placeholder { color: var(--mt); font-style: italic; }
+    .fa-hymn-note {
+      font-size: 0.9rem; color: var(--tx);
+      background: var(--gold-lt); border-radius: var(--radius-md);
+      padding: 0.6rem 0.85rem; margin: 0 0 1.5rem;
+    }
+    .fa-common-head {
+      font-size: 1.1rem; color: var(--navy-deep);
+      margin: 2.5rem 0 0; padding-top: 1.75rem;
+      border-top: 3px solid var(--gold);
+    }
+    .fa-common-head + .fa-hymn { margin-top: 1.25rem; padding-top: 0; border-top: 0; }
 
     .fa-footer {
       border-top: 1px solid var(--brd);
@@ -173,18 +189,39 @@
         return d.innerHTML;
       };
 
+      const NAMES = { phonetic: 'Phonetic', greek: 'Greek', english: 'English' };
+      const isPlaceholder = (t) => !t || (typeof OCTOECHOS_PLACEHOLDER !== 'undefined' && t === OCTOECHOS_PLACEHOLDER);
+
+      // If the chosen text isn't ready yet, show the English instead
+      // (one note at the top of the list says so).
+      let usedFallback = false;
+      function renderHymn(h) {
+        let text = h[script];
+        let fellBack = false;
+        if (isPlaceholder(text) && script !== 'english' && !isPlaceholder(h.english)) {
+          text = h.english;
+          fellBack = usedFallback = true;
+        }
+        const placeholder = isPlaceholder(text);
+        const lang = script === 'greek' && !fellBack && !placeholder ? ' lang="el"' : '';
+        return `
+            <section class="fa-hymn">
+              <h3 class="fa-hymn-label">${esc(h.label)}</h3>
+              ${h.title ? `<p class="fa-hymn-title">${esc(h.title)}</p>` : ''}
+              <p class="fa-hymn-text${placeholder ? ' is-placeholder' : ''}"${lang}>${esc(placeholder ? 'Coming soon' : text)}</p>
+            </section>`;
+      }
+
       function render() {
         const hymns = (typeof OCTOECHOS !== 'undefined' && OCTOECHOS[tone]) || [];
-        panel.innerHTML = hymns.map((h) => {
-          const text = h[script] || '';
-          const placeholder = typeof OCTOECHOS_PLACEHOLDER !== 'undefined' && text === OCTOECHOS_PLACEHOLDER;
-          const lang = script === 'greek' && !placeholder ? ' lang="el"' : '';
-          return `
-            <section class="fa-hymn">
-              <h2 class="fa-hymn-label">${esc(h.label)}</h2>
-              <p class="fa-hymn-text${placeholder ? ' is-placeholder' : ''}"${lang}>${esc(text)}</p>
-            </section>`;
-        }).join('');
+        const common = (typeof OCTOECHOS_COMMON !== 'undefined' && OCTOECHOS_COMMON) || [];
+        usedFallback = false;
+        const body = hymns.map(renderHymn).join('') +
+          (common.length ? '<h2 class="fa-common-head">Sung every Sunday</h2>' + common.map(renderHymn).join('') : '');
+        const note = usedFallback
+          ? `<p class="fa-hymn-note">${NAMES[script]} texts are coming soon. Showing English for now.</p>`
+          : '';
+        panel.innerHTML = note + body;
       }
 
       function selectTone(tab, updateHash) {
