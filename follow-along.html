@@ -1,0 +1,233 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Eight Tones | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Follow along with the hymns of the Octoechos (the Eight Tones) at Saints Peter & Paul Greek Orthodox Church, in phonetic Greek, Greek, or English." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ---- Follow along (opened from the bulletin QR code; phone first) ---- */
+    .fa-header {
+      background: var(--navy-deep);
+      padding: 0.75rem 1.25rem;
+    }
+    .fa-header a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: #fff; text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+    }
+    .fa-header img { width: 26px; height: 26px; }
+
+    .fa-main { max-width: 760px; margin: 0 auto; padding: 1.75rem 1.25rem 2.5rem; }
+
+    .fa-title { font-size: 2rem; margin: 0 0 0.4rem; }
+    .fa-intro { font-size: 1rem; line-height: 1.6; color: var(--tx); margin: 0 0 1.25rem; }
+
+    /* Tone tabs: scrollable row of pills on phones, one row of 8 on desktop */
+    .fa-tabs {
+      display: flex; gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.15rem 0.1rem 0.6rem;
+      margin: 0 -1.25rem;
+      padding-left: 1.25rem; padding-right: 1.25rem;
+      scrollbar-width: none;
+    }
+    .fa-tabs::-webkit-scrollbar { display: none; }
+    .fa-tab {
+      flex: 0 0 auto;
+      min-height: 44px;
+      padding: 0 1.1rem;
+      border: 1px solid var(--brd);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy-deep);
+      font: inherit; font-size: 0.95rem; font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .fa-tab:hover { border-color: var(--gold); }
+    .fa-tab[aria-selected="true"] {
+      background: var(--navy-deep);
+      border-color: var(--navy-deep);
+      color: #fff;
+    }
+
+    /* Segmented switch: Phonetic | Greek | English */
+    .fa-switch {
+      display: inline-flex;
+      margin: 0.75rem 0 1.5rem;
+      border: 1px solid var(--brd);
+      border-radius: 999px;
+      background: #fff;
+      padding: 3px;
+    }
+    .fa-switch button {
+      min-height: 40px;
+      padding: 0 1rem;
+      border: 0; border-radius: 999px;
+      background: transparent;
+      color: var(--navy);
+      font: inherit; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer;
+    }
+    .fa-switch button[aria-pressed="true"] { background: var(--gold); color: var(--navy-deep); }
+
+    /* Hymns */
+    .fa-panel { max-width: 640px; }
+    .fa-hymn + .fa-hymn { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--brd); }
+    .fa-hymn-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+      margin: 0 0 0.5rem;
+    }
+    .fa-hymn-text {
+      font-size: 1.15rem; line-height: 1.85; color: var(--navy-deep);
+      white-space: pre-line;
+      margin: 0;
+    }
+    .fa-hymn-text.is-placeholder { color: var(--mt); font-style: italic; }
+
+    .fa-footer {
+      border-top: 1px solid var(--brd);
+      text-align: center;
+      padding: 1.5rem 1.25rem 2rem;
+      font-size: 1rem; color: var(--tx);
+    }
+
+    @media (min-width: 700px) {
+      .fa-main { padding-top: 2.5rem; }
+      .fa-title { font-size: 2.4rem; }
+      .fa-tabs {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        overflow: visible;
+        margin: 0; padding: 0.15rem 0 0.6rem;
+      }
+      .fa-tab { padding: 0 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="fa-header">
+    <a href="{{ '/index.html' | relative_url }}">
+      <img src="{{ '/images/logo/sspp-icon.svg' | relative_url }}" alt="">
+      Saints Peter &amp; Paul
+    </a>
+  </header>
+
+  <main class="fa-main" id="main-content">
+    <h1 class="fa-title">The Eight Tones</h1>
+    <p class="fa-intro">Follow along with the hymns of the Octoechos. Choose a tone below.</p>
+
+    <div class="fa-tabs" role="tablist" aria-label="Tones">
+      <button class="fa-tab" role="tab" id="fa-tab-1" data-tone="1" aria-controls="faPanel" aria-selected="true">Tone 1</button>
+      <button class="fa-tab" role="tab" id="fa-tab-2" data-tone="2" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 2</button>
+      <button class="fa-tab" role="tab" id="fa-tab-3" data-tone="3" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 3</button>
+      <button class="fa-tab" role="tab" id="fa-tab-4" data-tone="4" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 4</button>
+      <button class="fa-tab" role="tab" id="fa-tab-5" data-tone="5" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 5</button>
+      <button class="fa-tab" role="tab" id="fa-tab-6" data-tone="6" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 6</button>
+      <button class="fa-tab" role="tab" id="fa-tab-7" data-tone="7" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 7</button>
+      <button class="fa-tab" role="tab" id="fa-tab-8" data-tone="8" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 8</button>
+    </div>
+
+    <div class="fa-switch" role="group" aria-label="Text">
+      <button type="button" data-script="phonetic" aria-pressed="true">Phonetic</button>
+      <button type="button" data-script="greek" aria-pressed="false">Greek</button>
+      <button type="button" data-script="english" aria-pressed="false">English</button>
+    </div>
+
+    <div class="fa-panel" id="faPanel" role="tabpanel" aria-labelledby="fa-tab-1" tabindex="0"></div>
+  </main>
+
+  <footer class="fa-footer">
+    Want to sing with us? <a class="text-link" href="{{ '/ministries/choir.html' | relative_url }}">Join the choir</a>
+  </footer>
+
+  <script src="js/octoechos-data.js"></script>
+  <script>
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.fa-tab'));
+      const panel = document.getElementById('faPanel');
+      const switchBtns = Array.from(document.querySelectorAll('.fa-switch button'));
+      const STORE_KEY = 'ssppToneScript';
+      let tone = 1;
+      let script = 'phonetic';
+
+      try {
+        const saved = localStorage.getItem(STORE_KEY);
+        if (saved === 'phonetic' || saved === 'greek' || saved === 'english') script = saved;
+      } catch (e) { /* storage unavailable: use the default */ }
+
+      const esc = (str) => {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+      };
+
+      function render() {
+        const hymns = (typeof OCTOECHOS !== 'undefined' && OCTOECHOS[tone]) || [];
+        panel.innerHTML = hymns.map((h) => {
+          const text = h[script] || '';
+          const placeholder = typeof OCTOECHOS_PLACEHOLDER !== 'undefined' && text === OCTOECHOS_PLACEHOLDER;
+          const lang = script === 'greek' && !placeholder ? ' lang="el"' : '';
+          return `
+            <section class="fa-hymn">
+              <h2 class="fa-hymn-label">${esc(h.label)}</h2>
+              <p class="fa-hymn-text${placeholder ? ' is-placeholder' : ''}"${lang}>${esc(text)}</p>
+            </section>`;
+        }).join('');
+      }
+
+      function selectTone(tab, updateHash) {
+        tabs.forEach((t) => {
+          const on = t === tab;
+          t.setAttribute('aria-selected', on);
+          t.tabIndex = on ? 0 : -1;
+        });
+        tone = Number(tab.dataset.tone);
+        panel.setAttribute('aria-labelledby', tab.id);
+        tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        if (updateHash) history.replaceState(null, '', '#tone-' + tone);
+        render();
+      }
+
+      function selectScript(value) {
+        script = value;
+        switchBtns.forEach((b) => b.setAttribute('aria-pressed', b.dataset.script === value));
+        try { localStorage.setItem(STORE_KEY, value); } catch (e) { /* ignore */ }
+        render();
+      }
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => selectTone(tab, true));
+        tab.addEventListener('keydown', (e) => {
+          let next = null;
+          if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
+          else if (e.key === 'ArrowLeft') next = tabs[(i - 1 + tabs.length) % tabs.length];
+          else if (e.key === 'Home') next = tabs[0];
+          else if (e.key === 'End') next = tabs[tabs.length - 1];
+          if (!next) return;
+          e.preventDefault();
+          selectTone(next, true);
+          next.focus();
+        });
+      });
+      switchBtns.forEach((b) => b.addEventListener('click', () => selectScript(b.dataset.script)));
+
+      // #tone-1 … #tone-8 opens that tab; otherwise Tone 1.
+      const m = window.location.hash.match(/^#tone-([1-8])$/);
+      switchBtns.forEach((b) => b.setAttribute('aria-pressed', b.dataset.script === script));
+      selectTone(tabs[m ? Number(m[1]) - 1 : 0], false);
+    })();
+  </script>
+</body>
+</html>
