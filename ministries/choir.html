@@ -198,12 +198,21 @@
     }
 
     /* ---- Chanters: photo beside text ---- */
+    /* Its own band so it reads as a separate ministry */
+    .ch-chanters-band {
+      background: var(--offwhite);
+      border-top: 3px solid var(--gold);
+      padding-top: calc(var(--space-5) + 1rem);
+    }
     .ch-chanters {
       display: grid;
-      grid-template-columns: 40% 1fr;
+      grid-template-columns: 55% 1fr;   /* text left, photo right */
       gap: 2.5rem;
       align-items: center;
     }
+    .ch-chanters-text { grid-column: 1; grid-row: 1; }
+    .ch-chanters-media { grid-column: 2; grid-row: 1; }
+    .ch-chanters-text .ch-also { font-size: 0.85rem; color: var(--mt); margin: 0 0 0.35rem; }
     .ch-chanters-media { position: relative; min-height: 320px; margin: 0; align-self: stretch; }
     .ch-chanters-media img {
       position: absolute; inset: 0;
@@ -262,6 +271,8 @@
     }
     @media (max-width: 760px) {
       .ch-chanters { grid-template-columns: 1fr; gap: 1.5rem; }
+      .ch-chanters-media { grid-column: 1; grid-row: 1; }   /* photo on top */
+      .ch-chanters-text { grid-column: 1; grid-row: 2; }
       .ch-chanters-media { min-height: 0; aspect-ratio: 16 / 9; }
     }
     @media (max-width: 640px) {
@@ -360,7 +371,7 @@
 
         <!-- DIRECTOR QUOTE -->
         <div class="ch-quote">
-          <p class="ch-quote-text">“We know you're out there; we hear you singing and you sound great! Please don't be commitment-phobic. If you're already in church, why not sing too?”</p>
+          <p class="ch-quote-text">“You’d be surprised how many great singers we hear sitting in the congregation every Sunday. If you enjoy singing during service, why not come join us in the choir loft? We’d be thrilled to welcome you.”</p>
           <p class="ch-quote-attr">Therese Speropoulos, Choir Director</p>
         </div>
       </div>
@@ -383,29 +394,8 @@
     </div>
   </div>
 
-  </div><!-- /#choir -->
-
-  <!-- CHANTERS -->
-  <div class="section section--alt" id="chanters">
-    <div class="ch-wrap ch-chanters">
-      <figure class="ch-chanters-media">
-        <img src="../images/ministries/chantors.jpg" alt="Three chanters in black robes chanting from books at the chanter's stand" loading="lazy">
-      </figure>
-      <div class="ch-chanters-text">
-        <span class="cs-label">Byzantine chant</span>
-        <h2 class="section-title">Chanters</h2>
-        <!-- Filled in from the Chanters description in js/ministries-data.js -->
-        <p data-ministry="Chanters"></p>
-        <p>Our chanters lead the hymns of Orthros and the Divine Liturgy from the chanter's stand.</p>
-        <!-- TBD: how someone can learn to chant (mentoring? classes?) -->
-        <p>Interested in learning to chant? <span class="ch-tbd">TBD: how to learn (mentoring/classes)</span></p>
-        <a class="btn btn-gold" href="mailto:chanters@ssppglenview.org">Email Chris</a>
-      </div>
-    </div>
-  </div>
-
   <!-- OUR CHOIR THROUGH THE YEARS -->
-  <div class="section">
+  <div class="section" style="padding-top: 0;">
     <div class="ch-wrap ch-history">
       <figure>
         <img src="../images/ministries/choir-old.jpg" alt="The choir in red robes gathered with a priest in front of the iconostasis" loading="lazy">
@@ -414,6 +404,28 @@
         <h2 class="section-title">Our choir through the years</h2>
         <p class="ch-history-years">60 years</p>
         <p>Singing since 1962. In October 2022, our choir celebrated 60 years of service in song.</p>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /#choir -->
+
+  <!-- CHANTERS -->
+  <div class="section ch-chanters-band" id="chanters">
+    <div class="ch-wrap ch-chanters">
+      <figure class="ch-chanters-media">
+        <img src="../images/ministries/chantors.jpg" alt="Three chanters in black robes chanting from books at the chanter's stand" loading="lazy">
+      </figure>
+      <div class="ch-chanters-text">
+        <p class="ch-also">Also at Saints Peter &amp; Paul</p>
+        <span class="cs-label">Byzantine chant</span>
+        <h2 class="section-title">Chanters</h2>
+        <!-- Filled in from the Chanters description in js/ministries-data.js -->
+        <p data-ministry="Chanters"></p>
+        <p>Our chanters lead the hymns of Orthros and the Divine Liturgy from the chanter's stand.</p>
+        <!-- TBD: how someone can learn to chant (mentoring? classes?) -->
+        <p>Interested in learning to chant? <span class="ch-tbd">TBD: how to learn (mentoring/classes)</span></p>
+        <a class="btn btn-gold" href="mailto:chanters@ssppglenview.org">Email Chris</a>
       </div>
     </div>
   </div>
