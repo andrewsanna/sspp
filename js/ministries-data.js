@@ -13,7 +13,6 @@
 const MINISTRY_CATEGORIES = [
   {
     id: 'committees',
-    icon: 'ti-users-group', // Tabler icon for the Browse-by-category tile
     label: 'Parish Committees',
     blurb: 'The groups that guide, strengthen, and improve our parish.',
     ministries: [
@@ -87,7 +86,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'worship',
-    icon: 'ti-building-church',
     label: 'Worship & Liturgical Life',
     blurb: 'Ways to serve during the Divine Liturgy and other services.',
     ministries: [
@@ -186,7 +184,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'youth',
-    icon: 'ti-friends',
     pageUrl: 'kids-families.html',
     pageLinkText: 'Visit Kids & Families',
     label: 'Youth & Young Adults',
@@ -305,7 +302,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'children',
-    icon: 'ti-school',
     pageUrl: 'kids-families.html',
     pageLinkText: 'Visit Kids & Families',
     tileOpensPage: true, // the Browse-by-category tile goes straight to the page
@@ -359,7 +355,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'adult-learning',
-    icon: 'ti-book',
     tileOpensPage: true,
     label: 'Faith & Learning',
     blurb: 'Deepen your understanding of the Orthodox faith, wherever you are starting from.',
@@ -444,7 +439,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'adult-activities',
-    icon: 'ti-coffee',
     label: 'Community Activities',
     blurb: 'Stay active and connected through fellowship, sport, dance, and programs for every age.',
     calendarCategory: 'adult_activities', // calendar button: the Community Activities calendar, not Athletics
@@ -517,7 +511,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'outreach',
-    icon: 'ti-heart-handshake',
     label: 'Outreach & Philanthropy',
     blurb: 'How our parish serves the wider community.',
     ministries: [
@@ -578,7 +571,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'support',
-    icon: 'ti-heart',
     tileOpensPage: true,
     label: 'Support Groups',
     blurb: 'Peer support and guidance through difficult life experiences.',
@@ -646,7 +638,6 @@ const MINISTRY_CATEGORIES = [
 
   {
     id: 'seasonal',
-    icon: 'ti-calendar-star',
     label: 'Seasonal Events',
     blurb: 'Annual traditions that bring our parish together all year long.',
     ministries: [

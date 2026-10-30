@@ -20,6 +20,29 @@ const CATEGORY_CAL_LABELS = {
   'seasonal': 'Events',
 };
 
+// Order categories are shown in on this page (tiles and sections alike):
+// the ways newcomers most often get involved first, committees last.
+// Any category not listed here follows, in ministries-data.js order.
+const CATEGORY_ORDER = [
+  'worship',
+  'youth',
+  'children',
+  'adult-activities',
+  'adult-learning',
+  'outreach',
+  'support',
+  'seasonal',
+  'committees',
+];
+
+function orderedCategories() {
+  const rank = (c) => {
+    const i = CATEGORY_ORDER.indexOf(c.id);
+    return i === -1 ? CATEGORY_ORDER.length : i;
+  };
+  return MINISTRY_CATEGORIES.slice().sort((a, b) => rank(a) - rank(b));
+}
+
 function getCategoryCalendar(cat) {
   const counts = {};
   cat.ministries.forEach((m) => {
@@ -80,29 +103,16 @@ let activeCategoryId = null;
 function renderCategoryTiles() {
   const root = document.getElementById('giTiles');
   if (!root) return;
-  root.innerHTML = MINISTRY_CATEGORIES.map((cat) => {
-    const icon = `<span class="gi-tile-icon" aria-hidden="true"><i class="ti ${escapeHtml(cat.icon || 'ti-users')}"></i></span>`;
+  root.innerHTML = orderedCategories().map((cat) => {
     const label = `<span class="gi-tile-label">${escapeHtml(cat.label)}</span>`;
 
     // A few categories have a page of their own; their tile goes straight there.
     if (cat.tileOpensPage && cat.pageUrl) {
-      return `
-        <a class="gi-tile gi-tile--page" href="${escapeHtml(cat.pageUrl)}">
-          ${icon}
-          <span class="gi-tile-text">${label}</span>
-        </a>`;
+      return `<a class="gi-tile" href="${escapeHtml(cat.pageUrl)}">${label}</a>`;
     }
-
-    const pageLink = cat.pageUrl
-      ? `<a class="text-link gi-tile-link" href="${escapeHtml(cat.pageUrl)}">${escapeHtml(cat.pageLinkText || 'Learn more')}</a>`
-      : '';
     return `
       <div class="gi-tile">
-        <button type="button" class="gi-tile-btn" data-cat-filter="${escapeHtml(cat.id)}">
-          ${icon}
-          <span class="gi-tile-text">${label}</span>
-        </button>
-        ${pageLink}
+        <button type="button" class="gi-tile-btn" data-cat-filter="${escapeHtml(cat.id)}">${label}</button>
       </div>`;
   }).join('');
 
@@ -143,7 +153,7 @@ function renderDirectory(filterText = '') {
   const backRow = document.getElementById('giBackRow');
   if (backRow) backRow.hidden = !onlyCategory;
 
-  const html = MINISTRY_CATEGORIES.map((cat) => {
+  const html = orderedCategories().map((cat) => {
     if (onlyCategory && cat.id !== onlyCategory) return '';
 
     // Search matches ministry names and category names only (not summaries
@@ -180,6 +190,7 @@ function renderDirectory(filterText = '') {
           </div>
           <div class="gi-category-meta">
             ${calLink}
+            <button type="button" class="gi-category-up" data-to-tiles>&uarr; All categories</button>
             <span class="gi-category-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
           </div>
         </div>
@@ -199,6 +210,11 @@ function renderDirectory(filterText = '') {
   `;
 
   attachCardHandlers();
+  root.querySelectorAll('[data-to-tiles]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.getElementById('giBrowse').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 }
 
 function renderMinistryCard(ministry, category) {
