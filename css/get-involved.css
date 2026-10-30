@@ -330,6 +330,9 @@
 .ministry-card {
   display: flex;
   gap: 0.7rem;
+  /* Same size for every card: room for the title, a two-line summary, and
+     "View page →" (the tallest case) beside the photo square. */
+  min-height: 7.75rem;
   background: #fff;
   border: 1px solid var(--brd);
   border-radius: var(--radius-md);
@@ -406,6 +409,11 @@
   font-size: 0.88rem;
   color: var(--mt);
   line-height: 1.4;
+  /* two lines at most, ending in "…" (the full text is in the pop-up or page) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .inactive-badge {

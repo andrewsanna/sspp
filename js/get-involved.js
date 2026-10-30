@@ -222,9 +222,11 @@ function renderMinistryCard(ministry, category) {
     ? `<span class="inactive-badge">Currently Inactive</span>`
     : '';
 
+  // Every card keeps the photo square, so all cards are the same size; an
+  // empty (tinted) square holds the place until a ministry has a photo.
   const photo = ministry.image
     ? `<div class="ministry-card-photo"><img src="${escapeHtml(ministry.image)}" alt="" loading="lazy"></div>`
-    : '';
+    : '<div class="ministry-card-photo" aria-hidden="true"></div>';
 
   const classes = `ministry-card ${ministry.inactive ? 'is-inactive' : ''} ${ministry.image ? '' : 'no-photo'}`;
   const attrs = `id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}"`;
