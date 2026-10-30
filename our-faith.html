@@ -105,55 +105,93 @@
     .of-card-when { font-size: 0.78rem; font-weight: 600; color: var(--gold-text); margin-top: 0.3rem; }
     .of-card-go { margin-top: auto; padding-top: 0.5rem; font-size: 0.8rem; font-weight: 700; color: var(--navy); }
 
-    /* Leader block in the pop-up */
-    .of-leader {
-      margin-top: 1.25rem;
-      padding-top: 1.1rem;
-      border-top: 1px solid var(--brd);
-    }
-    .of-leader-name { font-size: 0.98rem; font-weight: 700; color: var(--navy-deep); margin: 0; }
-    .of-leader-role { font-size: 0.85rem; color: var(--tx); margin: 0.1rem 0 0.85rem; }
-    .of-leader .btn { min-height: 44px; }
     .of-ways-cta { text-align: center; }
 
     /* ---- New to Orthodoxy: one section, three blocks ---- */
     .of-new-block + .of-new-block { margin-top: var(--space-5); }
 
-    /* ---- "More about" window ---- */
+    /* ---- "More about" window: fixed header, scrolling body, main + sidebar.
+       Same layout on support.html and our-faith.html. ---- */
     .of-modal {
       position: fixed; inset: 0; z-index: 1000;
       background: rgba(11, 30, 51, 0.55);
       display: flex; align-items: center; justify-content: center;
-      padding: 1.25rem;
+      padding: 1rem;
     }
     .of-modal[hidden] { display: none; }
     .of-modal-box {
-      position: relative;
-      width: 100%; max-width: 620px; max-height: calc(100vh - 2.5rem);
-      overflow: auto;
+      display: flex; flex-direction: column;
+      width: min(820px, 100% - 2rem);
+      max-height: 85vh;
       background: #fff;
       border-radius: var(--radius-lg);
       border-top: 4px solid var(--gold);
-      padding: 1.75rem 1.75rem 1.5rem;
       box-shadow: var(--shadow-card);
+      overflow: hidden;
     }
-    .of-modal-box h2 { font-size: 1.4rem; margin: 0 2.5rem 0.4rem 0; }
-    .of-modal-box h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; }
-    .of-modal-box p { font-size: 0.98rem; line-height: 1.7; color: var(--tx); margin: 0 0 0.5rem; }
+    .of-modal-head {
+      flex: 0 0 auto;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+      padding: 1.1rem 1.1rem 0.9rem 1.75rem;
+      border-bottom: 1px solid var(--brd);
+    }
+    .of-modal-head h2 { font-size: 1.4rem; line-height: 1.3; margin: 0.35rem 0 0; }
     .of-modal-close {
-      position: absolute; top: 0.75rem; right: 0.75rem;
+      flex-shrink: 0;
       width: 44px; height: 44px; border-radius: 50%;
       border: 0; background: var(--offwhite); color: var(--navy-deep);
       font-size: 1.4rem; line-height: 1; cursor: pointer;
     }
     .of-modal-close:hover { background: var(--gold-lt); }
+    .of-modal-scroll {
+      flex: 1 1 auto; min-height: 0;
+      overflow: auto;
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+    .of-modal-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+    .of-modal-main h3 { font-size: 1.05rem; margin: 1.4rem 0 0.45rem; }
+    .of-modal-main h3:first-child { margin-top: 0; }
+    .of-modal-main p { font-size: 0.98rem; line-height: 1.7; color: var(--tx); margin: 0 0 0.75rem; }
+    .of-modal-main .mp-list { columns: 2; column-gap: 1.75rem; }
+    .of-modal-main .mp-list li { font-size: 0.92rem; color: var(--tx); margin-bottom: 0.35rem; break-inside: avoid; }
+    /* Sidebar: quick facts */
+    .of-modal-side {
+      background: var(--gold-lt);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+    }
+    .of-modal-side h3 {
+      font-family: var(--font-body);
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+      margin: 1.1rem 0 0.25rem;
+    }
+    .of-modal-side h3:first-child { margin-top: 0; }
+    .of-modal-side p { font-size: 0.9rem; line-height: 1.55; color: var(--tx); margin: 0 0 0.3rem; }
+    .of-modal-side .of-leader-name { font-weight: 700; color: var(--navy-deep); margin: 0; }
+    .of-modal-side .of-leader-role { font-size: 0.82rem; margin: 0 0 0.75rem; }
+    .of-modal-side .btn { min-height: 44px; }
+
+    /* Phones: full-screen sheet, quick facts first */
+    @media (max-width: 759px) {
+      .of-modal { padding: 0; }
+      .of-modal-box { width: 100%; height: 100%; max-height: none; border-radius: 0; }
+      .of-modal-head { padding: 0.75rem 0.75rem 0.75rem 1.25rem; }
+      .of-modal-head h2 { font-size: 1.25rem; }
+      .of-modal-scroll { padding: 1.1rem 1.25rem 2rem; }
+      .of-modal-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+      .of-modal-side { order: -1; }
+      .of-modal-main .mp-list { columns: 1; }
+    }
+    .of-modal-head .of-label { margin: 0; }
 
     @media (max-width: 760px) {
       .of-ways-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-    @media (max-width: 560px) {
-      .of-modal { align-items: flex-end; padding: 0; }
-      .of-modal-box { max-height: 88vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; padding: 1.5rem 1.25rem 1.25rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       .of-card.is-highlight { animation: none; box-shadow: 0 0 0 3px var(--gold); }
@@ -234,23 +272,34 @@
   <!-- "MORE ABOUT" WINDOW (one, shared by the four cards) -->
   <div class="of-modal" id="ofModal" hidden>
     <div class="of-modal-box" role="dialog" aria-modal="true" aria-labelledby="ofModalTitle">
-      <button type="button" class="of-modal-close" id="ofModalClose" aria-label="Close">&times;</button>
-      <span class="of-label">Faith &amp; Learning</span>
-      <h2 id="ofModalTitle"></h2>
-      <h3>About</h3>
-      <p id="ofModalAbout"></p>
-      <h3>What to expect</h3>
-      <p id="ofModalExpect"></p>
-      <h3>Right now</h3>
-      <p id="ofModalNow"></p>
-      <h3>Schedule &amp; location</h3>
-      <p id="ofModalWhere"></p>
-      <h3>Open to</h3>
-      <p id="ofModalOpenTo"></p>
-      <div class="of-leader">
-        <p class="of-leader-name" id="ofModalLeaderName"></p>
-        <p class="of-leader-role" id="ofModalLeaderRole"></p>
-        <a class="btn btn-gold" id="ofModalEmail" href="#">Email</a>
+      <div class="of-modal-head">
+        <div>
+          <span class="of-label">Faith &amp; Learning</span>
+          <h2 id="ofModalTitle"></h2>
+        </div>
+        <button type="button" class="of-modal-close" id="ofModalClose" aria-label="Close">&times;</button>
+      </div>
+      <div class="of-modal-scroll" id="ofModalScroll">
+        <div class="of-modal-grid">
+          <div class="of-modal-main">
+            <h3>About</h3>
+            <p id="ofModalAbout"></p>
+            <h3>What to expect</h3>
+            <p id="ofModalExpect"></p>
+            <h3>Right now</h3>
+            <p id="ofModalNow"></p>
+          </div>
+          <aside class="of-modal-side" aria-label="Quick facts">
+            <h3>Schedule &amp; location</h3>
+            <p id="ofModalWhere"></p>
+            <h3>Open to</h3>
+            <p id="ofModalOpenTo"></p>
+            <h3>Leader</h3>
+            <p class="of-leader-name" id="ofModalLeaderName"></p>
+            <p class="of-leader-role" id="ofModalLeaderRole"></p>
+            <a class="btn btn-gold" id="ofModalEmail" href="#">Email</a>
+          </aside>
+        </div>
       </div>
     </div>
   </div>
@@ -468,7 +517,7 @@
           emailBtn.textContent = 'Email ' + (extra.emailName || (c.name || '').split(' ')[0]);
         }
         modal.hidden = false;
-        modal.querySelector('.of-modal-box').scrollTop = 0;
+        document.getElementById('ofModalScroll').scrollTop = 0;
         document.body.style.overflow = 'hidden';
         trapModalFocus(modal);
         closeBtn.focus();

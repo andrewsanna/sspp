@@ -73,6 +73,73 @@ function findMinistryBySlug(slug) {
   return null;
 }
 
+// ----- Browse by category -----
+// The category picked from a tile (filtered view), or null for the full list.
+let activeCategoryId = null;
+
+function renderCategoryTiles() {
+  const root = document.getElementById('giTiles');
+  if (!root) return;
+  root.innerHTML = MINISTRY_CATEGORIES.map((cat) => {
+    const icon = `<span class="gi-tile-icon" aria-hidden="true"><i class="ti ${escapeHtml(cat.icon || 'ti-users')}"></i></span>`;
+    const label = `<span class="gi-tile-label">${escapeHtml(cat.label)}</span>`;
+
+    // A few categories have a page of their own; their tile goes straight there.
+    if (cat.tileOpensPage && cat.pageUrl) {
+      return `
+        <a class="gi-tile gi-tile--page" href="${escapeHtml(cat.pageUrl)}">
+          ${icon}
+          <span class="gi-tile-text">
+            ${label}
+            <span class="gi-tile-meta">Opens ${escapeHtml(cat.pageName || 'its page')}</span>
+          </span>
+          <i class="ti ti-arrow-up-right gi-tile-go" aria-hidden="true"></i>
+        </a>`;
+    }
+
+    // Count every ministry in the category, inactive ones included.
+    const n = cat.ministries.length;
+    const pageLink = cat.pageUrl
+      ? `<a class="text-link gi-tile-link" href="${escapeHtml(cat.pageUrl)}">${escapeHtml(cat.pageLinkText || 'Learn more')}</a>`
+      : '';
+    return `
+      <div class="gi-tile">
+        <button type="button" class="gi-tile-btn" data-cat-filter="${escapeHtml(cat.id)}">
+          ${icon}
+          <span class="gi-tile-text">
+            ${label}
+            <span class="gi-tile-meta">${n} ${n === 1 ? 'ministry' : 'ministries'}</span>
+          </span>
+        </button>
+        ${pageLink}
+      </div>`;
+  }).join('');
+
+  root.querySelectorAll('[data-cat-filter]').forEach((btn) => {
+    btn.addEventListener('click', () => showCategory(btn.dataset.catFilter, { scroll: true, updateHash: true }));
+  });
+}
+
+// Show only one category (from a tile, #cat-<id>, or a ministry deep link).
+function showCategory(catId, { scroll = false, updateHash = false } = {}) {
+  const cat = MINISTRY_CATEGORIES.find((c) => c.id === catId);
+  if (!cat) return;
+  activeCategoryId = catId;
+  const input = document.getElementById('ministrySearch');
+  if (input) input.value = '';
+  renderDirectory();
+  if (updateHash) history.replaceState(null, '', '#cat-' + catId);
+  if (scroll) document.getElementById('giBackRow').scrollIntoView({ behavior: 'smooth' });
+}
+
+// "← All ministries": back to the full list
+function showAllCategories() {
+  activeCategoryId = null;
+  renderDirectory();
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  document.getElementById('giBrowse').scrollIntoView({ behavior: 'smooth' });
+}
+
 function renderDirectory(filterText = '') {
   const root = document.getElementById('ministryDirectory');
   if (!root) return;
@@ -80,7 +147,14 @@ function renderDirectory(filterText = '') {
   const query = filterText.trim().toLowerCase();
   const isSearching = query.length > 0;
 
+  // Searching always covers everything; otherwise honor a picked category.
+  const onlyCategory = isSearching ? null : activeCategoryId;
+  const backRow = document.getElementById('giBackRow');
+  if (backRow) backRow.hidden = !onlyCategory;
+
   const html = MINISTRY_CATEGORIES.map((cat) => {
+    if (onlyCategory && cat.id !== onlyCategory) return '';
+
     // Search matches ministry names and category names only (not summaries
     // or descriptions). A category-name match shows that whole category.
     const categoryMatches = isSearching && cat.label.toLowerCase().includes(query);
@@ -288,35 +362,47 @@ function initSearch() {
   const input = document.getElementById('ministrySearch');
   if (!input) return;
   input.addEventListener('input', () => {
+    // Typing clears any category filter and searches everything.
+    if (activeCategoryId) {
+      activeCategoryId = null;
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
     renderDirectory(input.value);
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   // Deep-link support:
-  // - get-involved.html#youth-young-adults scrolls to that category section
-  //   (section ids are the slugified category label).
-  // - get-involved.html#sr-goya scrolls that ministry's card into view and
-  //   opens its detail modal — used by the homepage "Ministry Spotlight"
-  //   links (and anywhere else that points at one specific ministry).
+  // - get-involved.html#cat-support (or a category section id such as
+  //   #youth-young-adults) opens that category in the filtered view.
+  // - get-involved.html#sr-goya opens that ministry's category in the
+  //   filtered view, scrolls its card into view, and opens its detail modal:
+  //   used by the homepage "Ministry Spotlight" links and Kids & Families.
   // The sections are rendered by JS after load, so the browser can't jump
   // to the hash on its own; do it here once they exist.
   const hash = window.location.hash.replace('#', '');
-  const categoryLink = hash ? MINISTRY_CATEGORIES.find((c) => slugify(c.label) === hash) : null;
+  const catIdMatch = hash.match(/^cat-(.+)$/);
+  const categoryLink = hash
+    ? MINISTRY_CATEGORIES.find((c) => (catIdMatch && c.id === catIdMatch[1]) || slugify(c.label) === hash)
+    : null;
   const deepLink = hash && !categoryLink ? findMinistryBySlug(hash) : null;
 
-  renderDirectory();
+  renderCategoryTiles();
   initSearch();
   initMinistryModal();
+  document.getElementById('giBack').addEventListener('click', showAllCategories);
 
   if (categoryLink) {
-    const section = document.getElementById(hash);
-    if (section) section.scrollIntoView();
-  }
-
-  if (deepLink) {
+    showCategory(categoryLink.id);
+    document.getElementById('giBackRow').scrollIntoView();
+  } else if (deepLink) {
+    showCategory(deepLink.category.id);
     const card = document.getElementById(slugify(deepLink.ministry.name));
-    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Jump (not smooth): the modal locks page scrolling as it opens, which
+    // would stop a smooth scroll partway.
+    if (card) card.scrollIntoView({ block: 'center' });
     openMinistryModal(deepLink.ministry, deepLink.category);
+  } else {
+    renderDirectory();
   }
 });
