@@ -63,35 +63,45 @@
       color: var(--navy-deep); line-height: 1.3;
       margin: 0 0 0.4rem;
     }
-    .sg-summary { font-size: 0.95rem; line-height: 1.6; color: var(--tx); margin: 0 0 1.1rem; }
-    .sg-fact { margin: 0 0 0.9rem; }
-    .sg-fact .cs-label { display: block; margin-bottom: 0.2rem; }
-    .sg-fact p { font-size: 0.92rem; line-height: 1.55; color: var(--tx); margin: 0; }
-    .sg-fact p + p { margin-top: 0.25rem; }
-    .sg-private {
-      display: flex; gap: 0.5rem; align-items: flex-start;
-      font-size: 0.85rem; line-height: 1.55; color: var(--tx);
-      margin: 0.2rem 0 1.2rem;
+    .sg-summary {
+      font-size: 0.95rem; line-height: 1.6; color: var(--tx); margin: 0 0 0.6rem;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+      overflow: hidden;
     }
-    .sg-private i { color: var(--gold-deep); font-size: 1rem; margin-top: 0.12rem; flex-shrink: 0; }
-    .sg-leader {
-      margin-top: auto;   /* pins the leader + links to the bottom so cards line up */
-      padding-top: 1.1rem;
-      border-top: 1px solid var(--brd);
+    .sg-when { font-size: 0.85rem; font-weight: 600; color: var(--gold-text); margin: 0 0 0.3rem; }
+    .sg-led { font-size: 0.85rem; color: var(--mt); margin: 0; }
+    /* One footer row pinned to the bottom so the three cards line up */
+    .sg-foot {
+      margin-top: auto;
+      padding-top: 1.25rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 0.75rem 1rem;
     }
-    .sg-leader-name { font-size: 0.98rem; font-weight: 700; color: var(--navy-deep); margin: 0; }
-    .sg-leader-role { font-size: 0.85rem; color: var(--tx); margin: 0.1rem 0 0.85rem; }
-    .sg-leader .btn { min-height: 44px; }
-    .sg-links {
-      display: flex; flex-direction: column; align-items: flex-start; gap: 0.5rem;
-      margin-top: 1.1rem;
-    }
-    .sg-links button.text-link {
+    .sg-foot .btn { min-height: 44px; }
+    .sg-card button.text-link,
+    .sg-modal-box button.text-link {
       background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
       font-size: 0.92rem; font-weight: 700; color: var(--navy);
       min-height: 32px;
     }
-    .sg-links button.text-link:hover { color: var(--gold-deep); }
+    .sg-card button.text-link:hover,
+    .sg-modal-box button.text-link:hover { color: var(--gold-deep); }
+
+    /* Shared confidentiality line above the cards */
+    .sg-private {
+      display: flex; gap: 0.5rem; align-items: flex-start; justify-content: center;
+      font-size: 0.88rem; line-height: 1.55; color: var(--tx); text-align: center;
+      margin: 0 0 1.5rem;
+    }
+    .sg-private i { color: var(--gold-deep); font-size: 1rem; margin-top: 0.12rem; flex-shrink: 0; }
+
+    /* Details inside the "More about this group" window */
+    .sg-modal-box .sg-fact p { font-size: 1rem; line-height: 1.7; color: var(--tx); margin: 0 0 0.35rem; }
+    .sg-leader { margin-top: 1.25rem; padding-top: 1.1rem; border-top: 1px solid var(--brd); }
+    .sg-modal-box .sg-leader-name { font-size: 0.98rem; font-weight: 700; color: var(--navy-deep); margin: 0; }
+    .sg-modal-box .sg-leader-role { font-size: 0.85rem; margin: 0.1rem 0 0.85rem; }
+    .sg-leader .btn { min-height: 44px; }
+    .sg-modal-lib { margin-top: 1.1rem; }
 
     /* ---- Talk to a priest ---- */
     .sg-priest-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
@@ -202,89 +212,85 @@
     </div>
   </section>
 
-  <!-- OUR SUPPORT GROUPS (name, summary, and leader filled in from js/ministries-data.js) -->
+  <!-- OUR SUPPORT GROUPS (name, summary, leader, and email filled in from js/ministries-data.js) -->
   <div class="section sg-roomy" id="groups">
     <div class="sg-wrap">
       <h2 class="section-title" style="margin-bottom: 1.5rem;">Our support groups</h2>
+      <!-- TBD: confirm the groups' confidentiality wording -->
+      <p class="sg-private"><i class="ti ti-lock" aria-hidden="true"></i><span><span class="sg-tbd">All of our groups are confidential: what's shared in the group stays in the group.</span></span></p>
       <div class="sg-groups">
 
         <!-- GRIEF & LOSS -->
         <article class="sg-card" id="grief" data-ministry="Grief &amp; Loss Support">
           <h3 data-field="name">Grief &amp; Loss Support</h3>
           <p class="sg-summary" data-field="summary"></p>
-          <div class="sg-fact">
-            <span class="cs-label">When &amp; where</span>
-            <!-- TBD: day, time, and room for Grief & Loss -->
-            <p><span class="sg-tbd">TBD</span></p>
-          </div>
-          <div class="sg-fact">
-            <span class="cs-label">Open to</span>
-            <!-- TBD: who can attend (parishioners only? anyone?) -->
-            <p><span class="sg-tbd">TBD</span></p>
-          </div>
-          <!-- TBD: confirm the group's confidentiality wording -->
-          <p class="sg-private"><i class="ti ti-lock" aria-hidden="true"></i><span><span class="sg-tbd">TBD: What's shared in the group stays in the group.</span></span></p>
-          <div class="sg-leader">
-            <p class="sg-leader-name" data-field="leader"></p>
-            <p class="sg-leader-role" data-field="role"></p>
+          <p class="sg-when"><span class="sg-tbd">Schedule TBD</span><!-- TBD: when Grief & Loss meets --></p>
+          <p class="sg-led" data-field="led"></p>
+          <div class="sg-foot">
             <a class="btn btn-gold" data-field="email" href="#">Email</a>
-            <div class="sg-links">
-              <button type="button" class="text-link" data-more="grief">More about this group</button>
-              <button type="button" class="text-link" data-library="grief">Articles &amp; resources</button>
-            </div>
+            <button type="button" class="text-link" data-more="grief" aria-haspopup="dialog">More about this group</button>
           </div>
+          <!-- Full detail, shown in the "More about this group" window -->
+          <template class="sg-detail">
+            <h3>When &amp; where</h3>
+            <div class="sg-fact">
+              <!-- TBD: day, time, and room for Grief & Loss -->
+              <p><span class="sg-tbd">TBD</span></p>
+            </div>
+            <h3>Open to</h3>
+            <div class="sg-fact">
+              <!-- TBD: who can attend (parishioners only? anyone?) -->
+              <p><span class="sg-tbd">TBD</span></p>
+            </div>
+          </template>
         </article>
 
         <!-- CANCER SUPPORT -->
         <article class="sg-card" id="cancer" data-ministry="Georgia Photopulos Cancer Support Group">
           <h3 data-field="name">Georgia Photopulos Cancer Support Group</h3>
           <p class="sg-summary" data-field="summary"></p>
-          <div class="sg-fact">
-            <span class="cs-label">When &amp; where</span>
-            <!-- TBD: meeting time and room -->
-            <p>Second Tuesday of each month · <span class="sg-tbd">Time &amp; room TBD</span></p>
-          </div>
-          <div class="sg-fact">
-            <span class="cs-label">Open to</span>
-            <p>Our parishioners, other Orthodox Christians, and individuals of other denominations</p>
-          </div>
-          <!-- TBD: confirm the group's confidentiality wording -->
-          <p class="sg-private"><i class="ti ti-lock" aria-hidden="true"></i><span><span class="sg-tbd">TBD: What's shared in the group stays in the group.</span></span></p>
-          <div class="sg-leader">
-            <p class="sg-leader-name" data-field="leader"></p>
-            <p class="sg-leader-role" data-field="role"></p>
+          <p class="sg-when">Second Tuesday of each month</p>
+          <p class="sg-led" data-field="led"></p>
+          <div class="sg-foot">
             <a class="btn btn-gold" data-field="email" href="#">Email</a>
-            <div class="sg-links">
-              <button type="button" class="text-link" data-more="cancer">More about this group</button>
-              <button type="button" class="text-link" data-library="cancer">Articles &amp; resources</button>
-            </div>
+            <button type="button" class="text-link" data-more="cancer" aria-haspopup="dialog">More about this group</button>
           </div>
+          <!-- Full detail, shown in the "More about this group" window -->
+          <template class="sg-detail">
+            <h3>When &amp; where</h3>
+            <div class="sg-fact">
+              <!-- TBD: meeting time and room -->
+              <p>Second Tuesday of each month · <span class="sg-tbd">Time &amp; room TBD</span></p>
+            </div>
+            <h3>Open to</h3>
+            <div class="sg-fact">
+              <p>Our parishioners, other Orthodox Christians, and individuals of other denominations</p>
+            </div>
+          </template>
         </article>
 
         <!-- DIVORCE REBUILDERS -->
         <article class="sg-card" id="divorce" data-ministry="Divorce Rebuilders">
           <h3 data-field="name">Divorce Rebuilders</h3>
           <p class="sg-summary" data-field="summary"></p>
-          <div class="sg-fact">
-            <span class="cs-label">When &amp; where</span>
-            <p>Twice a year: a 6-week series starting each October and February</p>
-            <p>Hybrid: online and in person in the SSPP Library</p>
-          </div>
-          <div class="sg-fact">
-            <span class="cs-label">Open to</span>
-            <p>Anyone going through separation or divorce, whether you were married in the Church or not, and whether you're Orthodox or not. No cost to attend.</p>
-          </div>
-          <!-- TBD: confirm the group's confidentiality wording -->
-          <p class="sg-private"><i class="ti ti-lock" aria-hidden="true"></i><span><span class="sg-tbd">TBD: What's shared in the group stays in the group.</span></span></p>
-          <div class="sg-leader">
-            <p class="sg-leader-name" data-field="leader"></p>
-            <p class="sg-leader-role" data-field="role"></p>
+          <p class="sg-when">6-week series each October &amp; February</p>
+          <p class="sg-led" data-field="led"></p>
+          <div class="sg-foot">
             <a class="btn btn-gold" data-field="email" href="#">Email</a>
-            <div class="sg-links">
-              <button type="button" class="text-link" data-more="divorce">More about this group</button>
-              <button type="button" class="text-link" data-library="divorce">Articles &amp; resources</button>
-            </div>
+            <button type="button" class="text-link" data-more="divorce" aria-haspopup="dialog">More about this group</button>
           </div>
+          <!-- Full detail, shown in the "More about this group" window -->
+          <template class="sg-detail">
+            <h3>When &amp; where</h3>
+            <div class="sg-fact">
+              <p>Twice a year: a 6-week series starting each October and February</p>
+              <p>Hybrid: online and in person in the SSPP Library</p>
+            </div>
+            <h3>Open to</h3>
+            <div class="sg-fact">
+              <p>Anyone going through separation or divorce, whether you were married in the Church or not, and whether you're Orthodox or not. No cost to attend.</p>
+            </div>
+          </template>
         </article>
 
       </div>
@@ -362,8 +368,7 @@
         set('name', m.name);
         set('summary', m.summary);
         if (m.contact) {
-          set('leader', m.contact.name);
-          set('role', m.contact.role);
+          set('led', 'Led by ' + m.contact.name);
           const email = card.querySelector('[data-field="email"]');
           if (email) {
             email.href = 'mailto:' + m.contact.email;
@@ -379,35 +384,52 @@
       const modalClose = document.getElementById('sgModalClose');
       let opener = null;
 
+      // About · When & where · Open to · Topics · Leader + Email · Articles & resources
       function openModal(card, btn) {
         const m = ministries[card.dataset.ministry];
         if (!m) return;
         opener = btn;
         modalTitle.textContent = m.name;
-        const paras = (m.description || '').split(/\n\n+/).map((p) => `<p>${esc(p)}</p>`).join('');
+        const about = '<h3>About</h3>' + (m.description || '').split(/\n\n+/).map((p) => `<p>${esc(p)}</p>`).join('');
+        const detail = card.querySelector('template.sg-detail');
         const topics = Array.isArray(m.topics) && m.topics.length
-          ? `<h3>Topics covered include:</h3><ul class="mp-list">${m.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
+          ? `<h3>Topics</h3><ul class="mp-list">${m.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
           : '';
-        modalBody.innerHTML = paras + topics;
+        const c = m.contact || {};
+        const leader = c.name ? `
+          <div class="sg-leader">
+            <p class="sg-leader-name">${esc(c.name)}</p>
+            ${c.role ? `<p class="sg-leader-role">${esc(c.role)}</p>` : ''}
+            ${c.email ? `<a class="btn btn-gold" href="mailto:${esc(c.email)}">Email ${esc(c.name.split(' ')[0])}</a>` : ''}
+          </div>` : '';
+        const lib = `<div class="sg-modal-lib"><button type="button" class="text-link" data-modal-library="${card.id}">Articles &amp; resources</button></div>`;
+        modalBody.innerHTML = about + (detail ? detail.innerHTML : '') + topics + leader + lib;
         modal.hidden = false;
+        modal.querySelector('.sg-modal-box').scrollTop = 0;
         document.body.style.overflow = 'hidden';
         modalClose.focus();
       }
-      function closeModal() {
+      function closeModal(returnFocus = true) {
         if (modal.hidden) return;
         modal.hidden = true;
         document.body.style.overflow = '';
-        if (opener) opener.focus();
+        if (returnFocus && opener) opener.focus();
       }
       document.querySelectorAll('[data-more]').forEach((btn) => {
         btn.addEventListener('click', () => openModal(document.getElementById(btn.dataset.more), btn));
       });
-      modalClose.addEventListener('click', closeModal);
+      modalClose.addEventListener('click', () => closeModal());
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e) => {
         if (modal.hidden) return;
         if (e.key === 'Escape') closeModal();
-        if (e.key === 'Tab') { e.preventDefault(); modalClose.focus(); }   // only one control inside
+        // keep Tab inside the window
+        if (e.key === 'Tab') {
+          const items = Array.from(modal.querySelectorAll('button, a[href]'));
+          const first = items[0], last = items[items.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
       });
 
       // ---- Articles & resources library ----
@@ -439,11 +461,17 @@
         }).join('');
       }
       chips.forEach((c) => c.addEventListener('click', () => renderLibrary(c.dataset.filter)));
-      document.querySelectorAll('[data-library]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          renderLibrary(btn.dataset.library);
-          document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
-        });
+      // "Articles & resources" in the window: filter the library to that group,
+      // close the window, and scroll down to it
+      modalBody.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-modal-library]');
+        if (!btn) return;
+        const group = btn.dataset.modalLibrary;
+        closeModal(false);
+        renderLibrary(group);
+        document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+        const chip = chips.find((c) => c.dataset.filter === group);
+        if (chip) chip.focus({ preventScroll: true });
       });
       renderLibrary('all');
 
