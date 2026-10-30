@@ -93,7 +93,6 @@ function renderCategoryTiles() {
             ${label}
             <span class="gi-tile-meta">Opens ${escapeHtml(cat.pageName || 'its page')}</span>
           </span>
-          <i class="ti ti-arrow-up-right gi-tile-go" aria-hidden="true"></i>
         </a>`;
     }
 
@@ -221,19 +220,21 @@ function renderMinistryCard(ministry, category) {
 
   const classes = `ministry-card ${ministry.inactive ? 'is-inactive' : ''} ${ministry.image ? '' : 'no-photo'}`;
   const attrs = `id="${slugify(ministry.name)}" data-ministry="${escapeHtml(ministry.name)}" data-cat="${category.id}"`;
+  // Ministries with their own page on this site link straight to it, with a
+  // "View page →" cue (part of the card link); external, PDF and contact
+  // links keep the detail modal.
+  const linked = hasOwnPage(ministry);
   const inner = `
       ${photo}
       <div class="ministry-card-text">
         <div class="ministry-card-title">${escapeHtml(ministry.name)} ${inactiveBadge}</div>
         <div class="ministry-card-summary">${escapeHtml(ministry.summary)}</div>
+        ${linked ? '<span class="text-link ministry-card-cue">View page</span>' : ''}
       </div>`;
 
-  // Ministries with their own page on this site link straight to it;
-  // external, PDF and contact links keep the detail modal.
-  if (hasOwnPage(ministry)) {
+  if (linked) {
     return `
     <a class="${classes} is-linked" href="${escapeHtml(ministry.detailPageUrl)}" ${attrs}>${inner}
-      <i class="ti ti-arrow-up-right ministry-card-go" aria-hidden="true"></i>
     </a>
   `;
   }
