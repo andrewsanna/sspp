@@ -309,7 +309,6 @@ const MINISTRY_CATEGORIES = [
     pageUrl: 'kids-families.html',
     pageLinkText: 'Visit Kids & Families',
     tileOpensPage: true, // the Browse-by-category tile goes straight to the page
-    pageName: 'Kids & Families page',
     label: "Children's Education",
     blurb: 'Structured programs for children, from preschool through Sunday school.',
     ministries: [
@@ -362,7 +361,6 @@ const MINISTRY_CATEGORIES = [
     id: 'adult-learning',
     icon: 'ti-book',
     tileOpensPage: true,
-    pageName: 'Our Faith page',
     label: 'Faith & Learning',
     blurb: 'Deepen your understanding of the Orthodox faith, wherever you are starting from.',
     // Shown as a link at the top of this category on the Ministries page
@@ -582,7 +580,6 @@ const MINISTRY_CATEGORIES = [
     id: 'support',
     icon: 'ti-heart',
     tileOpensPage: true,
-    pageName: 'Support Groups page',
     label: 'Support Groups',
     blurb: 'Peer support and guidance through difficult life experiences.',
     // Shown as a link at the top of this category on the Ministries page

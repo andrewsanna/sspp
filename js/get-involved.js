@@ -89,15 +89,10 @@ function renderCategoryTiles() {
       return `
         <a class="gi-tile gi-tile--page" href="${escapeHtml(cat.pageUrl)}">
           ${icon}
-          <span class="gi-tile-text">
-            ${label}
-            <span class="gi-tile-meta">Opens ${escapeHtml(cat.pageName || 'its page')}</span>
-          </span>
+          <span class="gi-tile-text">${label}</span>
         </a>`;
     }
 
-    // Count every ministry in the category, inactive ones included.
-    const n = cat.ministries.length;
     const pageLink = cat.pageUrl
       ? `<a class="text-link gi-tile-link" href="${escapeHtml(cat.pageUrl)}">${escapeHtml(cat.pageLinkText || 'Learn more')}</a>`
       : '';
@@ -105,10 +100,7 @@ function renderCategoryTiles() {
       <div class="gi-tile">
         <button type="button" class="gi-tile-btn" data-cat-filter="${escapeHtml(cat.id)}">
           ${icon}
-          <span class="gi-tile-text">
-            ${label}
-            <span class="gi-tile-meta">${n} ${n === 1 ? 'ministry' : 'ministries'}</span>
-          </span>
+          <span class="gi-tile-text">${label}</span>
         </button>
         ${pageLink}
       </div>`;
