@@ -99,6 +99,12 @@ function renderDirectory(filterText = '') {
          </a>`
       : '';
 
+    // Categories with a page of their own (e.g. Support Groups) get a link
+    // above their cards.
+    const pageLink = cat.pageUrl
+      ? `<a class="text-link gi-category-page" href="${escapeHtml(cat.pageUrl)}">${escapeHtml(cat.pageLinkText || 'Learn more')}</a>`
+      : '';
+
     const id = slugify(cat.label);
     return `
       <section class="gi-category" id="${id}" data-cat-id="${cat.id}" aria-labelledby="${id}-title">
@@ -112,6 +118,7 @@ function renderDirectory(filterText = '') {
             <span class="gi-category-count">${list.length} ${list.length === 1 ? 'ministry' : 'ministries'}</span>
           </div>
         </div>
+        ${pageLink}
         <div class="ministry-grid">
           ${list.map((m) => renderMinistryCard(m, cat)).join('')}
         </div>
@@ -163,8 +170,10 @@ function renderMinistryCard(ministry, category) {
   `;
 }
 
+// openModal: true keeps the pop-up even when the ministry has a page here
+// (the support groups share one page, linked from inside the pop-up).
 function hasOwnPage(ministry) {
-  return typeof ministry.detailPageUrl === 'string' && ministry.detailPageUrl.startsWith('ministries/');
+  return !ministry.openModal && typeof ministry.detailPageUrl === 'string' && ministry.detailPageUrl.startsWith('ministries/');
 }
 
 function attachCardHandlers() {
@@ -204,6 +213,8 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
   const linkEl = document.getElementById('ministryModalFullPageLink');
   if (ministry.detailPageUrl) {
     linkEl.href = ministry.detailPageUrl;
+    document.getElementById('ministryModalFullPageText').textContent =
+      ministry.openModal ? 'More on our support groups page' : 'Learn more';
     linkEl.style.display = 'inline-flex';
   } else {
     linkEl.style.display = 'none';

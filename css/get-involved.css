@@ -224,6 +224,8 @@
   padding-bottom: 0.85rem;
   margin-bottom: 1.5rem;
 }
+/* Link to a category's own page (e.g. Support Groups), above its cards */
+.gi-category-page { margin: -0.5rem 0 1.25rem; }
 
 .gi-category-title {
   font-family: var(--font-heading);
@@ -542,6 +544,7 @@
   font-size: 0.88rem;
   line-height: 1.75;
   color: var(--tx);
+  white-space: pre-line; /* keep paragraph breaks (\n\n) in descriptions */
 }
 
 .ministry-modal-links-row {
