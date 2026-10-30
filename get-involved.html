@@ -73,6 +73,18 @@
 
   <!-- DIRECTORY (one section per category) -->
   <div class="gi-content">
+    <!-- BROWSE BY CATEGORY: tiles built from js/ministries-data.js -->
+    <section class="gi-browse" id="giBrowse" aria-labelledby="giBrowseTitle">
+      <h2 class="gi-browse-title" id="giBrowseTitle">Browse by category</h2>
+      <div class="gi-tiles" id="giTiles"></div>
+      <p class="gi-signpost">Looking for kids' programs? <a class="text-link" href="kids-families.html">Kids &amp; Families</a></p>
+    </section>
+
+    <!-- Shown above a single category picked from the tiles -->
+    <div class="gi-back-row" id="giBackRow" hidden>
+      <button type="button" class="gi-back" id="giBack">&larr; All ministries</button>
+    </div>
+
     <div id="ministryDirectory">
       <!-- populated by js/get-involved.js -->
     </div>
