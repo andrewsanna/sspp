@@ -2,14 +2,18 @@
 // Octoechos (the Eight Tones): hymn texts for follow-along.html
 //
 // Labels and texts come from the Choir Director. Each hymn is
-//   { label, title, english, phonetic, greek }
+//   { label, title, english, phonetic, greek, credit, music }
 //   - "label" is the small gold heading; "title" (optional) is the hymn's name.
+//   - "credit" (optional): composer / arranger line, shown in small text.
+//   - "music" (optional): path to a sheet-music image (e.g. in images/hymns/);
+//     adds a "View music" button that opens it full screen.
 //   - Line breaks: put \n where a new line should start.
 //   - Leave phonetic / greek as OCTOECHOS_PLACEHOLDER until they're ready;
 //     the page then shows the English with a short "coming soon" note.
 //
-// OCTOECHOS[1–8]: the hymns for that tone (sung first).
-// OCTOECHOS_COMMON: hymns sung every Sunday, shown after the tone's hymns.
+// OCTOECHOS[1–8]: the hymns for that tone.
+// OCTOECHOS.everySunday: hymns sung every week whatever the tone, shown in the
+// "Every Sunday" section above the tone tabs (in the order they're sung).
 // Tones 5–8 are the plagal tones (Plagal of the 1st–4th Tone).
 // ============================================
 const OCTOECHOS_PLACEHOLDER = 'Coming soon';
@@ -48,8 +52,8 @@ const OCTOECHOS = {
     'You descended from on high, O merciful Lord, You accepted the cross and three days to free us from the bondage of sin, O our life and our resurrection, Glory to You O Lord.')],
 };
 
-// Sung every Sunday, after the tone's hymns
-const OCTOECHOS_COMMON = [
+// Sung every week, whatever the tone
+OCTOECHOS.everySunday = [
   {
     label: 'Apolytikion of Saints Peter & Paul',
     english: 'O Leaders of the Apostles and teachers of the world, intercede with the Master of all, that He may grant peace to the world, and to our souls the great mercy.',
@@ -69,9 +73,13 @@ const OCTOECHOS_COMMON = [
     greek: OCTOECHOS_PLACEHOLDER,
   },
   {
-    label: 'Holy Communion Hymn',
-    english: 'Praise the Lord from the heavens, praise Him in the highest. Alleluia.',
-    phonetic: OCTOECHOS_PLACEHOLDER,
-    greek: OCTOECHOS_PLACEHOLDER,
+    label: 'Communion Hymn · Ordinary Sundays',
+    title: 'Praise the Lord',
+    greek: 'Αινείτε τον Κύριον εκ των ουρανών. Αινείτε αυτόν εν τοις υψίστοις. Αλληλούια.',
+    // Phonetic spelling to be checked by the Choir Director.
+    phonetic: 'Ay-NEE-teh ton KEE-ree-on ek ton oo-ra-NON. Ay-NEE-teh af-TON en tees ee-PSEE-stees. Al-li-LOO-ee-a.',
+    english: 'Praise the Lord. Praise Him from the heavens. Praise Him. Praise Him. Praise Him in the highest. Alliluia.',
+    credit: 'Music: Alexander Georges · English adaptation: Vivian G. Cardwell',
+    music: 'images/hymns/communion-hymn-praise-the-lord.png',
   },
 ];

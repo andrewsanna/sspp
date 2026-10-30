@@ -556,12 +556,17 @@ const MINISTRY_CATEGORIES = [
     id: 'support',
     label: 'Support Groups',
     blurb: 'Peer support and guidance through difficult life experiences.',
+    // Shown as a link at the top of this category on the Ministries page
+    pageUrl: 'ministries/support.html',
+    pageLinkText: 'Learn more about our support groups',
     ministries: [
       {
         name: 'Georgia Photopulos Cancer Support Group',
         summary: 'Compassionate support for those affected by cancer.',
         description: "The Cancer Support Ministry, started in 1981 by Georgia Photopulos and Fr. George Scoulas, was renamed in Georgia's memory in 2012. Her spirit of compassionate emotional support, gentle guidance, faith and good humor continue to be the foundation of our group. Meetings are held on the second Tuesday of each month. They are open to our parishioners and those of other Orthodox churches, as well as individuals from other denominations.",
         // image: 'images/ministries/cancer.jpg',
+        detailPageUrl: 'ministries/support.html#cancer',
+        openModal: true, // keep the pop-up here; its link goes to support.html
         calendarCategory: 'support_groups',
         calendarTag: 'cancer',
         contact: {
@@ -575,6 +580,8 @@ const MINISTRY_CATEGORIES = [
         summary: 'A place to process loss within the context of our faith.',
         description: 'Death and loss are a part of life but are often difficult to manage because of trauma and pain. This group offers communal and personal support during trying times. Grief takes time and active effort. People who have experienced significant loss can often provide the best care. This ministry is for everyone along the journey of grief.',
         // image: 'images/ministries/grief.jpg',
+        detailPageUrl: 'ministries/support.html#grief',
+        openModal: true, // keep the pop-up here; its link goes to support.html
         calendarCategory: 'support_groups',
         calendarTag: 'grief_support',
         contact: {
@@ -586,9 +593,20 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Divorce Rebuilders',
         summary: 'Support, guidance, and hope for the separated and divorced.',
-        description: "Saints Peter and Paul's Divorce Rebuilders Group (Hybrid - Online and In-Person SSPP Library) is an Orthodox ministry that offers support, guidance, and hope to those who are separated and divorced. For the last nine years, Divorce Rebuilders has addressed the contemporary needs of Orthodox Christians by offering them a place to process the many aspects of the divorce experience. Group session activities are grounded in psychoeducational and faith-based principles and references. One group session is led by the parish priest. An important program component includes opportunities to socialize with other group participants.",
+        description: "Saints Peter & Paul’s Divorce Rebuilders Group is an Orthodox ministry offering support, guidance, and hope to those navigating separation and divorce. For more than two decades, Divorce Rebuilders has served the contemporary needs of Orthodox Christians by providing a safe, compassionate space to process the emotional, relational, and spiritual aspects of divorce.\n\nGrounded in evidence-based counseling practices, the group equips participants with practical tools, fresh perspectives, and the insight needed to heal and rebuild. Session activities combine psychoeducational principles with Orthodox faith, including a special session led by our parish priest and regular opportunities for fellowship and social connection with fellow participants.\n\nThe program holds a 100% success rate as evaluated by past participants, who consistently report a deeper connection to their Orthodox faith, renewed personal goals, and meaningful spiritual growth. Participants are welcome to repeat the program as often as they wish.",
         // image: 'images/ministries/divorce.jpg',
-        detailPageUrl: 'ministries/divorcerebuilders.html',
+        detailPageUrl: 'ministries/support.html#divorce',
+        openModal: true, // keep the pop-up here; its link goes to support.html
+        // Shown as a list in the group's "More about this group" window on support.html
+        topics: [
+          'Understanding the core components of the divorce experience',
+          'Navigating the grieving process and the path toward recovery',
+          'Gaining clarity, self-awareness, and personal growth',
+          'Embracing necessary endings and new beginnings',
+          'Overcoming loneliness and negative self-talk',
+          'Practical steps and strategies for rebuilding your life',
+          'The vital role of spiritual growth in healing and hope',
+        ],
         calendarCategory: 'support_groups',
         calendarTag: 'divorce',
         contact: {
