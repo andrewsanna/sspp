@@ -352,12 +352,17 @@ const MINISTRY_CATEGORIES = [
     id: 'adult-learning',
     label: 'Faith & Learning',
     blurb: 'Deepen your understanding of the Orthodox faith, wherever you are starting from.',
+    // Shown as a link at the top of this category on the Ministries page
+    pageUrl: 'our-faith.html',
+    pageLinkText: 'Explore Our Faith & Learning',
     ministries: [
       {
         name: 'Coffee Connection',
         summary: 'Connection in Faith and Fellowship- An Educational Ministry Open to All Adults',
         description: 'We are an adult educational ministry that strengthens knowledge and practice of the Orthodox faith.  Our presentations provide participants with foundational knowledge, while group discussions offer ideas for how to apply this knowledge in everyday life.',
         // image: 'images/ministries/coffeeconnection.jpg',
+        detailPageUrl: 'our-faith.html#coffee-connection',
+        openModal: true, // keep the pop-up here; its link goes to our-faith.html
         calendarCategory: 'adult_faith',
         calendarTag: 'coffee_connection',
         contact: {
@@ -371,6 +376,8 @@ const MINISTRY_CATEGORIES = [
         summary: 'Weekly study of Holy Scripture, open to all. No homework.',
         description: "Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
         // image: 'images/biblestudy.jpg',
+        detailPageUrl: 'our-faith.html#bible-study',
+        openModal: true, // keep the pop-up here; its link goes to our-faith.html
         calendarCategory: 'adult_faith',
         calendarTag: 'bible_study',
         contact: {
@@ -384,6 +391,8 @@ const MINISTRY_CATEGORIES = [
         summary: "Scripture study for men, Thursday mornings, 6:30–7:30 am.",
         description: "This group is an opportunity for men to gather for social, educational, and recreational experience. Every Thursday morning during the school year, we hold an edifying study of the Scripture or religious/spiritual writings. Multi-week topics are presented on a theme, and with a lively and inquisitive group, there is always an interesting tangent or two to explore. We meet from 7–8 am, leaving plenty of time for our men to get to work after our discussions.",
         image: 'images/ministries/mensgroup.jpg',
+        detailPageUrl: 'our-faith.html#mens-group',
+        openModal: true, // keep the pop-up here; its link goes to our-faith.html
         calendarCategory: 'adult_faith',
         contact: {
           name: 'Joe Kolbaba & Dean Matsas',
@@ -396,6 +405,8 @@ const MINISTRY_CATEGORIES = [
         summary: '12-week course for those exploring or joining the faith.',
         description: 'Introduction to Orthodox Christianity Class is held on Tuesday evenings in the Fall and Monday evenings in the Winter/Spring, 7–9 pm. Class is open to all but especially for those interested in joining the Church through Baptism and/or Chrismation. Class will cover the basics of Orthodox Christianity over a twelve-week period and will be taught by several instructors with graduate theological education. There is no cost and it\'s a great way for anyone of any age (teenage and above) to learn about our Faith.',
         image: 'images/catechism.jpg',
+        detailPageUrl: 'our-faith.html#catechism',
+        openModal: true, // keep the pop-up here; its link goes to our-faith.html
         calendarCategory: 'adult_faith',
         calendarTag: 'catechism',
         contact: {

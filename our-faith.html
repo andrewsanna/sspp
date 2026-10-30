@@ -13,6 +13,137 @@
   <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/our-faith.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* Remove the .of-tbd highlight before launch: set background: none */
+    .of-tbd {
+      background: #FFF3C4;
+      padding: 0 0.25em;
+      border-radius: 3px;
+    }
+
+    #learn, #new, .of-card { scroll-margin-top: 64px; }
+
+    /* ---- Hero buttons ---- */
+    .of-hero-actions {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .of-intro {
+      font-size: 1rem; line-height: 1.7; color: var(--tx);
+      max-width: 640px; margin: -0.5rem 0 2rem;
+    }
+    .of-label {
+      display: block;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ---- Ways to learn: 2×2 equal-height cards ---- */
+    .of-ways-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+      margin-bottom: 2rem;
+    }
+    .of-card {
+      display: flex; flex-direction: column;
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .of-card.is-highlight { animation: of-glow 2.4s ease-out 1; }
+    @keyframes of-glow {
+      0%, 35% { box-shadow: 0 0 0 4px var(--gold-lt), 0 0 26px rgba(212, 175, 106, 0.55); }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+    .of-card-photo { aspect-ratio: 16 / 9; margin: 0; overflow: hidden; background: var(--brd); }
+    .of-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .of-card-body {
+      display: flex; flex-direction: column; align-items: flex-start;
+      flex: 1;
+      padding: 1.4rem 1.5rem 1.4rem;
+    }
+    .of-pill {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600; color: var(--gold-text);
+      background: var(--gold-lt);
+      border-radius: 999px; padding: 0.2rem 0.65rem;
+      margin-bottom: 0.6rem;
+    }
+    .of-card h3 {
+      font-size: 1.3rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); line-height: 1.3;
+      margin: 0 0 0.35rem;
+    }
+    .of-summary { font-size: 0.95rem; line-height: 1.6; color: var(--tx); margin: 0 0 1.1rem; }
+    .of-fact { margin: 0 0 0.9rem; }
+    .of-fact p { font-size: 0.92rem; line-height: 1.55; color: var(--tx); margin: 0; }
+    .of-leader {
+      align-self: stretch;
+      margin-top: auto;   /* pins the leader + link to the bottom so cards line up */
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--brd);
+    }
+    .of-leader-name { font-size: 0.98rem; font-weight: 700; color: var(--navy-deep); margin: 0; }
+    .of-leader-role { font-size: 0.85rem; color: var(--tx); margin: 0.1rem 0 0.85rem; }
+    .of-leader .btn { min-height: 44px; }
+    .of-more {
+      background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+      font-size: 0.92rem; font-weight: 700; color: var(--navy);
+      min-height: 32px; margin-top: 1rem;
+    }
+    .of-more:hover { color: var(--gold-deep); }
+    .of-ways-cta { text-align: center; }
+
+    /* ---- New to Orthodoxy: one section, three blocks ---- */
+    .of-new-block + .of-new-block { margin-top: var(--space-5); }
+
+    /* ---- "More about" window ---- */
+    .of-modal {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(11, 30, 51, 0.55);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.25rem;
+    }
+    .of-modal[hidden] { display: none; }
+    .of-modal-box {
+      position: relative;
+      width: 100%; max-width: 620px; max-height: calc(100vh - 2.5rem);
+      overflow: auto;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      border-top: 4px solid var(--gold);
+      padding: 1.75rem 1.75rem 1.5rem;
+      box-shadow: var(--shadow-card);
+    }
+    .of-modal-box h2 { font-size: 1.4rem; margin: 0 2.5rem 0.4rem 0; }
+    .of-modal-box h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; }
+    .of-modal-box p { font-size: 0.98rem; line-height: 1.7; color: var(--tx); margin: 0 0 0.5rem; }
+    .of-modal-box .of-fact { margin: 0 0 0.6rem; }
+    .of-modal-box .of-leader { margin-top: 1.25rem; }
+    .of-modal-close {
+      position: absolute; top: 0.75rem; right: 0.75rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 0; background: var(--offwhite); color: var(--navy-deep);
+      font-size: 1.4rem; line-height: 1; cursor: pointer;
+    }
+    .of-modal-close:hover { background: var(--gold-lt); }
+
+    @media (max-width: 760px) {
+      .of-ways-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .of-modal { align-items: flex-end; padding: 0; }
+      .of-modal-box { max-height: 88vh; border-radius: var(--radius-lg) var(--radius-lg) 0 0; padding: 1.5rem 1.25rem 1.25rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .of-card.is-highlight { animation: none; box-shadow: 0 0 0 3px var(--gold); }
+    }
+  </style>
 </head>
 <body>
 
@@ -26,50 +157,204 @@
   <div class="of-hero-inner">
     <h1 class="of-hero-title">Curious about Orthodox Christianity?</h1>
     <p class="of-hero-body">Whether you grew up in the Church or you're exploring for the first time, there's a place for you to learn, ask questions, and grow at SSPP.</p>
+    <div class="of-hero-actions">
+      <a href="#learn" class="btn btn-gold">Ways to learn</a>
+      <a href="#new" class="btn btn-outline-white">New to Orthodoxy?</a>
+    </div>
   </div>
 </section>
 
-    <!-- BIBLE STUDY & CATECHISM -->
-  <section class="of-learn section">
+  <!-- WAYS TO LEARN (names, summaries, descriptions, leaders and emails come from js/ministries-data.js) -->
+  <section class="section" id="learn">
     <div class="container">
-      <h2 class="of-section-title">A few ways to go deeper</h2>
-      <div class="of-learn-grid">
-        <div class="of-learn-card">
-          <div class="of-learn-photo">
-            <img src="images/divorce-rebuilders.jpg" alt="Parishioners gathered for weekly Bible Study" class="img-top" />
+      <h2 class="of-section-title">Ways to learn</h2>
+      <p class="of-intro">Classes and groups for every stage of faith, from your first questions to a lifetime of study.</p>
+      <div class="of-ways-grid">
+      <article class="of-card" id="catechism" data-ministry="Catechism">
+        <figure class="of-card-photo">
+          <img src="images/catechism.jpg" width="790" height="374" alt="Catechism class discussing the fundamentals of Orthodox Christianity" loading="lazy" />
+        </figure>
+        <div class="of-card-body">
+          <span class="of-pill">Start here if you're new</span>
+          <h3>Catechism</h3>
+          <p class="of-summary" data-fill="summary"></p>
+          <div class="of-fact">
+            <span class="of-label">When &amp; where</span>
+            <p>Tuesday evenings in the fall, Monday evenings in winter/spring, 7–9 PM · 12 weeks · <span class="of-tbd">Room TBD</span><!-- TBD: room --></p>
           </div>
+          <div class="of-fact">
+            <span class="of-label">Open to</span>
+            <p>Everyone, especially those preparing for Baptism or Chrismation · Teens and up · No cost</p>
+          </div>
+          <div class="of-leader">
+            <p class="of-leader-name" data-fill="leader"></p>
+            <p class="of-leader-role" data-fill="role"></p>
+            <a class="btn btn-gold" data-fill="email" href="#">Email</a>
+          </div>
+          <button type="button" class="text-link of-more" data-more="catechism">More about Catechism</button>
+        </div>
+      </article>
+      <article class="of-card" id="bible-study" data-ministry="Bible Study">
+        <figure class="of-card-photo">
+          <img src="images/divorce-rebuilders.jpg" width="972" height="786" alt="Parishioners gathered around a table in a home, smiling for a group photo" loading="lazy" />
+        </figure>
+        <div class="of-card-body">
           <h3>Bible Study</h3>
-          <p>Our weekly Bible Study brings together parishioners of all backgrounds to read Scripture together. No experience necessary.</p>
-        </div>
-        <div class="of-learn-card">
-          <div class="of-learn-photo">
-          <img src="images/catechism.jpg" width="790" height="374" alt="Catechism class discussing the fundamentals of Orthodox Christianity" class="img-top" />
+          <p class="of-summary" data-fill="summary"></p>
+          <div class="of-fact">
+            <span class="of-label">When &amp; where</span>
+            <p>Wednesdays, 10:30 AM · <span class="of-tbd">Room TBD</span><!-- TBD: room --></p>
           </div>
-          <h3>Catechism Classes</h3>
-          <p>For those exploring Orthodoxy or preparing for Chrismation, our Catechism classes walk through the fundamentals of the faith at a comfortable pace.</p>
-        </div>
-        <div class="of-learn-card">
-            <div class="of-learn-photo">
-          <img src="images/met-kids.jpg" width="790" height="374" alt="Catechism class discussing the fundamentals of Orthodox Christianity" class="img-top" />
-            <!-- <span class="ph-caption">PHOTO: Coffee Connection gathering</span> -->
+          <div class="of-fact">
+            <span class="of-label">Open to</span>
+            <p>Everyone, including non-members and non-Orthodox Christians · No homework</p>
           </div>
+          <div class="of-leader">
+            <p class="of-leader-name" data-fill="leader"></p>
+            <p class="of-leader-role" data-fill="role"></p>
+            <a class="btn btn-gold" data-fill="email" href="#">Email</a>
+          </div>
+          <button type="button" class="text-link of-more" data-more="bible-study">More about Bible Study</button>
+        </div>
+      </article>
+      <article class="of-card" id="coffee-connection" data-ministry="Coffee Connection">
+        <figure class="of-card-photo">
+          <img src="images/met-kids.jpg" width="1240" height="788" alt="A priest standing with a group of children and teens in front of a Christmas tree" loading="lazy" />
+        </figure>
+        <div class="of-card-body">
           <h3>Coffee Connection</h3>
-          <p>An informal, no-pressure way to meet other parishioners and ask questions over coffee after Liturgy.</p>
-        </div>
-        <div class="of-learn-card">
-          <div class="of-learn-photo">
-            <img src="images/ministries/mensgroup.jpg" width="754" height="530" alt="Men of the parish gathered for fellowship and discussion" />
+          <p class="of-summary" data-fill="summary"></p>
+          <div class="of-fact">
+            <span class="of-label">When &amp; where</span>
+            <p><span class="of-tbd">TBD (twice a month after Holy Communion, Youth Room?)</span><!-- TBD: confirm schedule and room --></p>
           </div>
-          <h3>Men's Group</h3>
-          <p>Fellowship and faith conversation for the men of the parish, meeting regularly throughout the year.</p>
+          <div class="of-fact">
+            <span class="of-label">Open to</span>
+            <p>All adults</p>
+          </div>
+          <div class="of-leader">
+            <p class="of-leader-name" data-fill="leader"></p>
+            <p class="of-leader-role" data-fill="role"></p>
+            <a class="btn btn-gold" data-fill="email" href="#">Email</a>
+          </div>
+          <button type="button" class="text-link of-more" data-more="coffee-connection">More about Coffee Connection</button>
         </div>
-      <a href="contact.html?to=frrick" class="btn btn-gold-lg of-learn-cta">
-        Reach Out to Fr. Rick
-      </a>
+      </article>
+      <article class="of-card" id="mens-group" data-ministry="St. Stephen's Men's Group">
+        <figure class="of-card-photo">
+          <img src="images/ministries/mensgroup.jpg" width="754" height="530" alt="Men of the parish gathered for fellowship and discussion" loading="lazy" />
+        </figure>
+        <div class="of-card-body">
+          <h3>St. Stephen's Men's Group</h3>
+          <p class="of-summary" data-fill="summary"></p>
+          <div class="of-fact">
+            <span class="of-label">When &amp; where</span>
+            <p>Thursday mornings during the school year · <span class="of-tbd">TBD: 6:30–7:30 or 7–8 AM</span><!-- TBD: confirm start time --> · <span class="of-tbd">Room TBD</span><!-- TBD: room --></p>
+          </div>
+          <div class="of-fact">
+            <span class="of-label">Open to</span>
+            <p>Men of the parish</p>
+          </div>
+          <div class="of-leader">
+            <p class="of-leader-name" data-fill="leader"></p>
+            <p class="of-leader-role" data-fill="role"></p>
+            <a class="btn btn-gold" data-fill="email" href="#">Email</a>
+          </div>
+          <button type="button" class="text-link of-more" data-more="mens-group">More about St. Stephen's Men's Group</button>
+        </div>
+      </article>
+      </div>
+      <div class="of-ways-cta">
+        <a href="contact.html?to=frrick" class="btn btn-gold-lg">
+          Reach Out to Fr. Rick
+        </a>
+      </div>
     </div>
   </section>
 
-  
+  <!-- "MORE ABOUT" WINDOW (one, shared by the four cards) -->
+  <div class="of-modal" id="ofModal" hidden>
+    <div class="of-modal-box" role="dialog" aria-modal="true" aria-labelledby="ofModalTitle">
+      <button type="button" class="of-modal-close" id="ofModalClose" aria-label="Close">&times;</button>
+      <span class="of-label">Faith &amp; Learning</span>
+      <h2 id="ofModalTitle"></h2>
+      <h3>About</h3>
+      <p id="ofModalAbout"></p>
+      <h3>What to expect</h3>
+      <p id="ofModalExpect"></p>
+      <h3>Right now</h3>
+      <p id="ofModalNow"></p>
+      <h3>Schedule &amp; location</h3>
+      <div id="ofModalSchedule"></div>
+      <div class="of-leader" id="ofModalLeader"></div>
+    </div>
+  </div>
+
+  <!-- NEW TO ORTHODOXY? -->
+  <section class="section section--alt" id="new">
+    <div class="container">
+      <h2 class="of-section-title">New to Orthodoxy?</h2>
+      <p class="of-intro">Wherever you're starting from, you're welcome here.</p>
+    </div>
+
+    <!-- VIDEOS -->
+  <div class="of-videos of-new-block">
+    <div class="container">
+      <h2 class="of-section-title">Introductions to Orthodoxy</h2>
+      <div class="of-video-grid">
+        <div class="of-video-card">
+          <div class="of-video-embed">
+            <iframe src="https://www.youtube.com/embed/bfyEnhlO8AY" title="What Is Christian Orthodoxy? (Discovering Orthodox Christianity)" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <h3>What Is Christian Orthodoxy?</h3>
+          <p class="of-video-desc">Featuring Rev. Dr. Thomas Fitzgerald and Rev. Dr. John Chryssavgis on what it means to be Orthodox.</p>
+        </div>
+        <div class="of-video-card">
+          <div class="of-video-embed">
+            <iframe src="https://www.youtube.com/embed/kSvSbjhsrhs" title="Be the Bee #61 – What Is Orthodox Christianity?" loading="lazy" allowfullscreen></iframe>
+          </div>
+          <h3>Be the Bee: What Is Orthodox Christianity?</h3>
+          <p class="of-video-desc">A short, approachable introduction to the basics of the Orthodox faith.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHRISMATION STORY -->
+  <div class="of-story of-new-block">
+    <div class="container">
+      <div class="of-story-grid">
+        <div class="of-story-photo">
+          <img src="images/newly-chrismated.jpg" width="654" height="880" alt="A newly Chrismated parishioner celebrating with the community" class="img-top" />
+        </div>
+        <div class="of-story-text">
+          <span class="eyebrow">A Story From Our Community</span>
+          <h2 class="of-section-title">"I found a home I didn't know I was looking for."</h2>
+          <p>After a year of Catechism classes and countless conversations with Fr. Rick, <span class="of-tbd">[Name]</span><!-- TBD: parishioner's name (with their permission) --> was Chrismated into the Orthodox faith this past year, one of several parishioners to join our community through Chrismation recently.</p>
+          <p class="of-story-stat"><strong><span class="of-tbd">[#]</span><!-- TBD: number of people Chrismated --> parishioners</strong> have been Chrismated into the SSPP community over the last <span class="of-tbd">[X]</span><!-- TBD: number of years --> years.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTE FROM FR. RICK -->
+  <div class="of-note of-new-block">
+    <div class="container">
+      <div class="of-note-card">
+        <div class="of-note-photo">
+          <img src="images/staff/fr-rick.jpg" width="419" height="663" alt="Fr. Rick" loading="lazy" class="img-top" />
+        </div>
+        <div class="of-note-text">
+          <span class="eyebrow">A Note From Fr. Rick</span>
+          <p class="of-note-quote">"Whether you are lifelong Orthodox, exploring for the first time, or somewhere in between, my door is open. Come ask your questions. There's no wrong way to start."</p>
+          <p class="of-note-sign">Fr. Rick</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- KEEP READING -->
 <!-- FROM THE ARCHDIOCESE -->
 <section class="of-articles section">
   <div class="container">
@@ -136,65 +421,113 @@
   </div>
 </section>
 
-  <!-- CHRISMATION STORY -->
-  <section class="of-story section">
-    <div class="container">
-      <div class="of-story-grid">
-        <div class="of-story-photo">
-          <img src="images/newly-chrismated.jpg" width="654" height="880" alt="A newly Chrismated parishioner celebrating with the community" class="img-top" />
-        </div>
-        <div class="of-story-text">
-          <span class="eyebrow">A Story From Our Community</span>
-          <h2 class="of-section-title">"I found a home I didn't know I was looking for."</h2>
-          <p>After a year of Catechism classes and countless conversations with Fr. Rick, [Name] was Chrismated into the Orthodox faith this past year, one of several parishioners to join our community through Chrismation recently.</p>
-          <p class="of-story-stat"><strong>[#] parishioners</strong> have been Chrismated into the SSPP community over the last [X] years.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-    <!-- VIDEOS -->
-  <section class="of-videos section">
-    <div class="container">
-      <h2 class="of-section-title">Introductions to Orthodoxy</h2>
-      <div class="of-video-grid">
-        <div class="of-video-card">
-          <div class="of-video-embed">
-            <iframe src="https://www.youtube.com/embed/bfyEnhlO8AY" title="What Is Christian Orthodoxy? (Discovering Orthodox Christianity)" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <h3>What Is Christian Orthodoxy?</h3>
-          <p class="of-video-desc">Featuring Rev. Dr. Thomas Fitzgerald and Rev. Dr. John Chryssavgis on what it means to be Orthodox.</p>
-        </div>
-        <div class="of-video-card">
-          <div class="of-video-embed">
-            <iframe src="https://www.youtube.com/embed/kSvSbjhsrhs" title="Be the Bee #61 – What Is Orthodox Christianity?" loading="lazy" allowfullscreen></iframe>
-          </div>
-          <h3>Be the Bee: What Is Orthodox Christianity?</h3>
-          <p class="of-video-desc">A short, approachable introduction to the basics of the Orthodox faith.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NOTE FROM FR. RICK -->
-  <section class="of-note section">
-    <div class="container">
-      <div class="of-note-card">
-        <div class="of-note-photo">
-          <img src="images/staff/fr-rick.jpg" width="419" height="663" alt="Fr. Rick" loading="lazy" class="img-top" />
-        </div>
-        <div class="of-note-text">
-          <span class="eyebrow">A Note From Fr. Rick</span>
-          <p class="of-note-quote">"Whether you are lifelong Orthodox, exploring for the first time, or somewhere in between, my door is open. Come ask your questions. There's no wrong way to start."</p>
-          <p class="of-note-sign">Fr. Rick</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   {% include footer.html %}
- 
+
   <script src="js/main.js"></script>
+  <script src="js/modal-a11y.js"></script>
+  <script src="js/ministries-data.js"></script>
+  <script>
+    // Per-ministry text for the "More about" window, keyed by card id.
+    // Replace each TBD with a sentence or two.
+    const OF_DETAILS = {
+      'catechism': {
+        expect: '<span class="of-tbd">TBD: what a typical class is like</span>',
+        now: '<span class="of-tbd">TBD: next session start date</span>',
+        emailName: 'Fr. Rick',
+      },
+      'bible-study': {
+        expect: '<span class="of-tbd">TBD: what a typical meeting is like</span>',
+        now: '<span class="of-tbd">TBD: the book we\'re reading now</span>',
+        emailName: 'Helen',
+      },
+      'coffee-connection': {
+        expect: '<span class="of-tbd">TBD: what a typical gathering is like</span>',
+        now: '<span class="of-tbd">TBD: current topic and next date</span>',
+        emailName: 'Doreen',
+      },
+      'mens-group': {
+        expect: '<span class="of-tbd">TBD: what a typical morning is like</span>',
+        now: '<span class="of-tbd">TBD: current topic or book</span>',
+        emailName: 'Joe & Dean',
+      },
+    };
+
+    (function () {
+      if (typeof MINISTRY_CATEGORIES === 'undefined') return;
+      const find = (name) => {
+        for (const cat of MINISTRY_CATEGORIES) {
+          const m = cat.ministries.find((x) => x.name === name);
+          if (m) return m;
+        }
+        return null;
+      };
+
+      // Fill each card from js/ministries-data.js
+      document.querySelectorAll('.of-card[data-ministry]').forEach((card) => {
+        const m = find(card.dataset.ministry);
+        if (!m) return;
+        const c = m.contact || {};
+        const extra = OF_DETAILS[card.id] || {};
+        card.querySelector('[data-fill="summary"]').textContent = m.summary;
+        card.querySelector('[data-fill="leader"]').textContent = c.name || '';
+        card.querySelector('[data-fill="role"]').textContent = c.role || '';
+        const btn = card.querySelector('[data-fill="email"]');
+        if (c.email) {
+          btn.href = 'mailto:' + c.email;
+          btn.textContent = 'Email ' + (extra.emailName || (c.name || '').split(' ')[0]);
+        } else {
+          btn.remove();
+        }
+      });
+
+      // "More about" window
+      const modal = document.getElementById('ofModal');
+      const closeBtn = document.getElementById('ofModalClose');
+
+      function openModal(id) {
+        const card = document.getElementById(id);
+        const m = card && find(card.dataset.ministry);
+        if (!m) return;
+        const extra = OF_DETAILS[id] || {};
+        document.getElementById('ofModalTitle').textContent = card.querySelector('h3').textContent;
+        document.getElementById('ofModalAbout').textContent = m.description;
+        document.getElementById('ofModalExpect').innerHTML = extra.expect || '';
+        document.getElementById('ofModalNow').innerHTML = extra.now || '';
+        // Schedule & location and the leader are copied from the card, so they always match
+        document.getElementById('ofModalSchedule').innerHTML =
+          [...card.querySelectorAll('.of-fact')].map((f) => f.outerHTML).join('');
+        document.getElementById('ofModalLeader').innerHTML = card.querySelector('.of-leader').innerHTML;
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+        trapModalFocus(modal);
+        closeBtn.focus();
+      }
+      function closeModal() {
+        if (modal.hidden) return;
+        releaseModalFocus();
+        modal.hidden = true;
+        document.body.style.overflow = '';
+      }
+      document.querySelectorAll('[data-more]').forEach((b) => {
+        b.addEventListener('click', () => openModal(b.dataset.more));
+      });
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+      // #catechism, #bible-study, #coffee-connection, #mens-group: scroll to the card and glow
+      function highlightFromHash() {
+        const card = window.location.hash && document.getElementById(window.location.hash.slice(1));
+        if (!card || !card.classList.contains('of-card')) return;
+        card.scrollIntoView();
+        card.classList.remove('is-highlight');
+        void card.offsetWidth; // restart the animation
+        card.classList.add('is-highlight');
+      }
+      highlightFromHash();
+      window.addEventListener('hashchange', highlightFromHash);
+    })();
+  </script>
 </body>
 </html>

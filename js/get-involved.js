@@ -171,7 +171,8 @@ function renderMinistryCard(ministry, category) {
 }
 
 // openModal: true keeps the pop-up even when the ministry has a page here
-// (the support groups share one page, linked from inside the pop-up).
+// (e.g. the support groups share one page, linked from inside the pop-up
+// with the category's pageLinkText).
 function hasOwnPage(ministry) {
   return !ministry.openModal && typeof ministry.detailPageUrl === 'string' && ministry.detailPageUrl.startsWith('ministries/');
 }
@@ -214,7 +215,7 @@ const photoImgEl = document.getElementById('ministryModalPhotoImg');
   if (ministry.detailPageUrl) {
     linkEl.href = ministry.detailPageUrl;
     document.getElementById('ministryModalFullPageText').textContent =
-      ministry.openModal ? 'More on our support groups page' : 'Learn more';
+      ministry.openModal ? (category.pageLinkText || 'Learn more') : 'Learn more';
     linkEl.style.display = 'inline-flex';
   } else {
     linkEl.style.display = 'none';

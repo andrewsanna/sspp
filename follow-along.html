@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Eight Tones | Saints Peter &amp; Paul</title>
-  <meta name="description" content="Follow along with the hymns of the Octoechos (the Eight Tones) at Saints Peter & Paul Greek Orthodox Church, in phonetic Greek, Greek, or English." />
+  <meta name="description" content="Follow along with the hymns we sing every Sunday at Saints Peter & Paul Greek Orthodox Church, and the Resurrectional Hymn of each of the eight tones, in English, Greek, or phonetic Greek." />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,13 +25,17 @@
     }
     .fa-header img { width: 26px; height: 26px; }
 
-    .fa-main { max-width: 760px; margin: 0 auto; padding: 1.75rem 1.25rem 2.5rem; }
+    .fa-main { max-width: 900px; margin: 0 auto; padding: 1.75rem 1.25rem 2.5rem; }
 
     .fa-title { font-size: 2rem; margin: 0 0 0.4rem; }
-    .fa-section + .fa-section { margin-top: 3rem; padding-top: 2rem; border-top: 3px solid var(--gold); }
-    .fa-intro { font-size: 1rem; line-height: 1.6; color: var(--tx); margin: 0 0 1.25rem; }
+    .fa-intro { font-size: 1rem; line-height: 1.6; color: var(--tx); margin: 0 0 1.25rem; max-width: 640px; }
 
-    /* Tone tabs: scrollable row of pills on phones, one row of 8 on desktop */
+    /* Tab row + language switch. Sticky on phones (see the media query below)
+       so readers can switch while scrolling a long hymn. */
+    .fa-controls { margin-bottom: 1.25rem; }
+
+    /* Tabs: Every Sunday, then Tones 1–8. Scrollable row of pills on phones,
+       one row on desktop. */
     .fa-tabs {
       display: flex; gap: 0.5rem;
       overflow-x: auto;
@@ -40,6 +44,9 @@
       padding-left: 1.25rem; padding-right: 1.25rem;
       scrollbar-width: none;
     }
+    /* Divider between Every Sunday and Tone 1 (desktop); extra gap on phones */
+    .fa-tab-divider { display: none; }
+    .fa-tab[data-tab="every-sunday"] { margin-right: 0.6rem; }
     .fa-tabs::-webkit-scrollbar { display: none; }
     .fa-tab {
       flex: 0 0 auto;
@@ -53,6 +60,7 @@
       cursor: pointer;
       white-space: nowrap;
     }
+    .fa-tab-sub { display: none; }
     .fa-tab:hover { border-color: var(--gold); }
     .fa-tab[aria-selected="true"] {
       background: var(--navy-deep);
@@ -60,10 +68,10 @@
       color: #fff;
     }
 
-    /* Segmented switch: Phonetic | Greek | English */
+    /* Segmented switch: English | Greek | Phonetic (one for all tabs) */
     .fa-switch {
       display: inline-flex;
-      margin: 0 0 1.75rem;
+      margin: 0;
       border: 1px solid var(--brd);
       border-radius: 999px;
       background: #fff;
@@ -100,11 +108,8 @@
       margin: 0 0 0.4rem;
     }
     .fa-hymn-text.is-placeholder { color: var(--mt); font-style: italic; }
-    .fa-hymn-note {
-      font-size: 0.9rem; color: var(--tx);
-      background: var(--gold-lt); border-radius: var(--radius-md);
-      padding: 0.6rem 0.85rem; margin: 0 0 1.5rem;
-    }
+    .fa-tab-note { font-size: 0.95rem; color: var(--mt); margin: 0 0 1.5rem; }
+    .fa-tab-note[hidden] { display: none; }
     .fa-hymn-credit { font-size: 0.8rem; color: var(--mt); margin: 0.6rem 0 0; }
     .fa-music-btn { margin-top: 1rem; min-height: 44px; }
 
@@ -118,6 +123,8 @@
       padding: 3.75rem 0.75rem 1.5rem;
     }
     .fa-viewer[hidden] { display: none; }
+    .fa-viewer-missing { color: #fff; text-align: center; margin: 2rem 1rem; }
+    .fa-viewer-missing[hidden] { display: none; }
     .fa-viewer img {
       display: block;
       width: 100%; max-width: 1400px; height: auto;
@@ -152,16 +159,35 @@
       font-size: 1rem; color: var(--tx);
     }
 
+    @media (max-width: 699px) {
+      .fa-controls {
+        position: sticky; top: 0; z-index: 10;
+        background: var(--cream);
+        border-bottom: 1px solid var(--brd);
+        margin: 0 -1.25rem 1.25rem;
+        padding: 0.6rem 1.25rem 0.75rem;
+      }
+      .fa-tabs { padding-top: 0; }
+    }
+
     @media (min-width: 700px) {
       .fa-main { padding-top: 2.5rem; }
       .fa-title { font-size: 2.4rem; }
       .fa-tabs {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: auto auto repeat(8, 1fr);
+        align-items: stretch;
         overflow: visible;
-        margin: 0; padding: 0.15rem 0 0.6rem;
+        margin: 0; padding: 0.15rem 0 0.75rem;
       }
-      .fa-tab { padding: 0 0.5rem; }
+      .fa-tab {
+        padding: 0.35rem 0.5rem;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        line-height: 1.2;
+      }
+      .fa-tab[data-tab="every-sunday"] { margin-right: 0; padding: 0.35rem 1rem; }
+      .fa-tab-divider { display: block; width: 1px; background: var(--brd); margin: 0.35rem 0.25rem; }
+      .fa-tab-sub { display: block; font-size: 0.72rem; font-weight: 500; opacity: 0.8; }
     }
   </style>
 </head>
@@ -175,37 +201,22 @@
   </header>
 
   <main class="fa-main" id="main-content">
-    <h1 class="sr-only">Follow along with the hymns</h1>
+    <h1 class="fa-title">The Eight Tones</h1>
+    <p class="fa-intro">Follow along with the hymns we sing every Sunday, and the Resurrectional Hymn of each of the eight tones.</p>
 
-    <div class="fa-switch" role="group" aria-label="Text">
-      <button type="button" data-script="phonetic" aria-pressed="true">Phonetic</button>
-      <button type="button" data-script="greek" aria-pressed="false">Greek</button>
-      <button type="button" data-script="english" aria-pressed="false">English</button>
+    <div class="fa-controls">
+      <!-- Tabs are built from TONE_NAMES in js/octoechos-data.js -->
+      <div class="fa-tabs" role="tablist" aria-label="Hymns"></div>
+
+      <div class="fa-switch" role="group" aria-label="Text">
+        <button type="button" data-script="english" aria-pressed="true">English</button>
+        <button type="button" data-script="greek" aria-pressed="false">Greek</button>
+        <button type="button" data-script="phonetic" aria-pressed="false">Phonetic</button>
+      </div>
     </div>
 
-    <section class="fa-section" aria-labelledby="faEverySundayTitle">
-      <h2 class="fa-title" id="faEverySundayTitle">Every Sunday</h2>
-      <p class="fa-intro">Sung every week, whatever the tone.</p>
-      <div class="fa-panel" id="faEverySunday"></div>
-    </section>
-
-    <section class="fa-section" aria-labelledby="faTonesTitle">
-    <h2 class="fa-title" id="faTonesTitle">The Eight Tones</h2>
-    <p class="fa-intro">Follow along with the hymns of the Octoechos. Choose a tone below.</p>
-
-    <div class="fa-tabs" role="tablist" aria-label="Tones">
-      <button class="fa-tab" role="tab" id="fa-tab-1" data-tone="1" aria-controls="faPanel" aria-selected="true">Tone 1</button>
-      <button class="fa-tab" role="tab" id="fa-tab-2" data-tone="2" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 2</button>
-      <button class="fa-tab" role="tab" id="fa-tab-3" data-tone="3" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 3</button>
-      <button class="fa-tab" role="tab" id="fa-tab-4" data-tone="4" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 4</button>
-      <button class="fa-tab" role="tab" id="fa-tab-5" data-tone="5" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 5</button>
-      <button class="fa-tab" role="tab" id="fa-tab-6" data-tone="6" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 6</button>
-      <button class="fa-tab" role="tab" id="fa-tab-7" data-tone="7" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 7</button>
-      <button class="fa-tab" role="tab" id="fa-tab-8" data-tone="8" aria-controls="faPanel" aria-selected="false" tabindex="-1">Tone 8</button>
-    </div>
-
-    <div class="fa-panel" id="faPanel" role="tabpanel" aria-labelledby="fa-tab-1" tabindex="0"></div>
-    </section>
+    <p class="fa-tab-note" id="faTabNote" hidden>Sung every week, whatever the tone.</p>
+    <div class="fa-panel" id="faPanel" role="tabpanel" tabindex="0"></div>
   </main>
 
   <!-- Sheet-music viewer (opened by "View music") -->
@@ -218,6 +229,7 @@
       </div>
     </div>
     <img id="faViewerImg" src="" alt="">
+    <p class="fa-viewer-missing" id="faViewerMissing" hidden>This music isn't available yet.</p>
   </div>
 
   <footer class="fa-footer">
@@ -227,13 +239,16 @@
   <script src="js/octoechos-data.js"></script>
   <script>
     (function () {
-      const tabs = Array.from(document.querySelectorAll('.fa-tab'));
+      const tabRow = document.querySelector('.fa-tabs');
       const panel = document.getElementById('faPanel');
-      const everyPanel = document.getElementById('faEverySunday');
+      const tabNote = document.getElementById('faTabNote');
       const switchBtns = Array.from(document.querySelectorAll('.fa-switch button'));
       const STORE_KEY = 'ssppToneScript';
-      let tone = 1;
-      let script = 'phonetic';
+      const EVERY = 'every-sunday';
+      const showMusic = typeof SHOW_MUSIC === 'undefined' || SHOW_MUSIC;
+      const names = typeof TONE_NAMES !== 'undefined' ? TONE_NAMES : {};
+      let current = EVERY;
+      let script = 'english';
 
       try {
         const saved = localStorage.getItem(STORE_KEY);
@@ -246,56 +261,62 @@
         return d.innerHTML;
       };
 
-      const NAMES = { phonetic: 'Phonetic', greek: 'Greek', english: 'English' };
-      const isPlaceholder = (t) => !t || (typeof OCTOECHOS_PLACEHOLDER !== 'undefined' && t === OCTOECHOS_PLACEHOLDER);
+      // ---- Tabs: Every Sunday | Tone 1 … Tone 8 ----
+      // "Tone 5 · Plagal 1" shows the plagal name as a small second line (desktop only).
+      let tabHtml = `<button class="fa-tab" role="tab" id="fa-tab-${EVERY}" data-tab="${EVERY}" aria-controls="faPanel">Every Sunday</button>
+        <span class="fa-tab-divider" aria-hidden="true"></span>`;
+      for (let n = 1; n <= 8; n++) {
+        const [main, sub] = (names[n] || 'Tone ' + n).split(' · ');
+        tabHtml += `<button class="fa-tab" role="tab" id="fa-tab-${n}" data-tab="${n}" aria-controls="faPanel"${sub ? ` aria-label="${esc(main + ', ' + sub)}"` : ''}>
+          ${esc(main)}${sub ? `<span class="fa-tab-sub">${esc(sub)}</span>` : ''}</button>`;
+      }
+      tabRow.innerHTML = tabHtml;
+      const tabs = Array.from(tabRow.querySelectorAll('.fa-tab'));
 
-      // If the chosen text isn't ready yet, show the English instead
-      // (one note at the top of each list says so).
-      let usedFallback = false;
-      function renderHymn(h, i) {
-        let text = h[script];
-        let fellBack = false;
-        if (isPlaceholder(text) && script !== 'english' && !isPlaceholder(h.english)) {
-          text = h.english;
-          fellBack = usedFallback = true;
-        }
-        const placeholder = isPlaceholder(text);
-        const lang = script === 'greek' && !fellBack && !placeholder ? ' lang="el"' : '';
+      // ---- Hymns ----
+      function renderHymn(h) {
+        const text = h[script];
+        const missing = !text;  // null / empty: "Coming soon" for this hymn only
+        const lang = script === 'greek' && !missing ? ' lang="el"' : '';
         return `
             <section class="fa-hymn">
               <h3 class="fa-hymn-label">${esc(h.label)}</h3>
               ${h.title ? `<p class="fa-hymn-title">${esc(h.title)}</p>` : ''}
-              <p class="fa-hymn-text${placeholder ? ' is-placeholder' : ''}"${lang}>${esc(placeholder ? 'Coming soon' : text)}</p>
+              <p class="fa-hymn-text${missing ? ' is-placeholder' : ''}"${lang}>${esc(missing ? 'Coming soon' : text)}</p>
               ${h.credit ? `<p class="fa-hymn-credit">${esc(h.credit)}</p>` : ''}
-              ${h.music ? `<button type="button" class="btn btn-outline-gold fa-music-btn" data-music="${esc(h.music)}" data-title="${esc(h.title || h.label)}">View music</button>` : ''}
+              ${showMusic && h.music ? `<button type="button" class="btn btn-outline-gold fa-music-btn" data-music="${esc(h.music)}" data-title="${esc(h.title || h.label)}">View music</button>` : ''}
             </section>`;
       }
 
-      function renderList(target, hymns) {
-        usedFallback = false;
-        const body = hymns.map(renderHymn).join('');
-        const note = usedFallback
-          ? `<p class="fa-hymn-note">${NAMES[script]} texts are coming soon. Showing English for now.</p>`
-          : '';
-        target.innerHTML = note + body;
-      }
-
       function render() {
-        const data = typeof OCTOECHOS !== 'undefined' ? OCTOECHOS : {};
-        if (everyPanel) renderList(everyPanel, data.everySunday || []);
-        renderList(panel, data[tone] || []);
+        const list = current === EVERY
+          ? (typeof everySunday !== 'undefined' ? everySunday : [])
+          : (typeof tones !== 'undefined' ? tones[current] || [] : []);
+        panel.innerHTML = list.map(renderHymn).join('');
+        tabNote.hidden = current !== EVERY;
       }
 
       // ---- Sheet-music viewer ----
       const viewer = document.getElementById('faViewer');
       const viewerImg = document.getElementById('faViewerImg');
+      const viewerMissing = document.getElementById('faViewerMissing');
       const viewerTitle = document.getElementById('faViewerTitle');
       const viewerOpen = document.getElementById('faViewerOpen');
       const viewerClose = document.getElementById('faViewerClose');
       let opener = null;
 
+      // If an image hasn't been uploaded yet, say so instead of showing a broken image
+      viewerImg.addEventListener('error', () => {
+        viewerImg.hidden = true;
+        viewerMissing.hidden = false;
+        viewerOpen.hidden = true;
+      });
+
       function openViewer(src, title, btn) {
         opener = btn;
+        viewerImg.hidden = false;
+        viewerMissing.hidden = true;
+        viewerOpen.hidden = false;
         viewerImg.src = src;
         viewerImg.alt = 'Sheet music: ' + title;
         viewerTitle.textContent = title;
@@ -317,7 +338,7 @@
       });
       viewerClose.addEventListener('click', closeViewer);
       // tap outside the music (on the dark overlay) closes it
-      viewer.addEventListener('click', (e) => { if (e.target === viewer) closeViewer(); });
+      viewer.addEventListener('click', (e) => { if (e.target === viewer || e.target === viewerMissing) closeViewer(); });
       document.addEventListener('keydown', (e) => {
         if (viewer.hidden) return;
         if (e.key === 'Escape') closeViewer();
@@ -330,16 +351,18 @@
         }
       });
 
-      function selectTone(tab, updateHash) {
+      const hashFor = (key) => (key === EVERY ? '#' + EVERY : '#tone-' + key);
+
+      function selectTab(tab, updateHash) {
         tabs.forEach((t) => {
           const on = t === tab;
           t.setAttribute('aria-selected', on);
           t.tabIndex = on ? 0 : -1;
         });
-        tone = Number(tab.dataset.tone);
+        current = tab.dataset.tab;
         panel.setAttribute('aria-labelledby', tab.id);
         tab.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-        if (updateHash) history.replaceState(null, '', '#tone-' + tone);
+        if (updateHash) history.replaceState(null, '', hashFor(current));
         render();
       }
 
@@ -351,7 +374,7 @@
       }
 
       tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => selectTone(tab, true));
+        tab.addEventListener('click', () => selectTab(tab, true));
         tab.addEventListener('keydown', (e) => {
           let next = null;
           if (e.key === 'ArrowRight') next = tabs[(i + 1) % tabs.length];
@@ -360,16 +383,20 @@
           else if (e.key === 'End') next = tabs[tabs.length - 1];
           if (!next) return;
           e.preventDefault();
-          selectTone(next, true);
+          selectTab(next, true);
           next.focus();
         });
       });
       switchBtns.forEach((b) => b.addEventListener('click', () => selectScript(b.dataset.script)));
 
-      // #tone-1 … #tone-8 opens that tab; otherwise Tone 1.
-      const m = window.location.hash.match(/^#tone-([1-8])$/);
+      // #every-sunday or #tone-1 … #tone-8 opens that tab; otherwise Every Sunday.
+      function tabFromHash() {
+        const m = window.location.hash.match(/^#tone-([1-8])$/);
+        return m ? tabs[Number(m[1])] : tabs[0];
+      }
       switchBtns.forEach((b) => b.setAttribute('aria-pressed', b.dataset.script === script));
-      selectTone(tabs[m ? Number(m[1]) - 1 : 0], false);
+      selectTab(tabFromHash(), false);
+      window.addEventListener('hashchange', () => selectTab(tabFromHash(), false));
     })();
   </script>
 </body>
