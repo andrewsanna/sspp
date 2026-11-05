@@ -6,7 +6,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greek School | Saints Peter &amp; Paul</title>
-  <meta name="description" content="Greek School at Saints Peter & Paul Greek Orthodox Church: Greek language, culture, and traditions for children." />
+  <meta name="description" content="Greek School at Saints Peter & Paul Greek Orthodox Church: Greek language, culture, and traditions for Preschool through 6th grade, on Saturdays or Mondays." />
   <link rel="stylesheet" href="../css/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,159 @@
   <link rel="stylesheet" href="../css/get-involved.css" />
   <link rel="stylesheet" href="../css/ministry-page.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+  <style>
+    /* ---- Shared with Church School ---- */
+    .cs-intro {
+      font-size: 0.92rem; line-height: 1.7; color: var(--tx);
+      max-width: 640px; margin: 0.5rem 0 1.75rem;
+    }
+    .cs-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.07em;
+      text-transform: uppercase; color: var(--gold-text);
+    }
+    .cs-hero-cta { margin-top: 1.5rem; }
+
+    .gs-wrap { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+    .gs-muted { font-size: 0.92rem; color: var(--mt); margin: 0.35rem 0 1.75rem; }
+
+    /* ---- Hero eyebrow (Greek name) ---- */
+    .gs-eyebrow {
+      display: block;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+      color: var(--gold);
+      margin: 0 0 0.75rem;
+    }
+
+    /* ---- Intro: text left, photo right ---- */
+    .gs-intro {
+      display: grid;
+      grid-template-columns: 58% 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .gs-logo { display: block; height: 96px; width: auto; margin: 0 0 1rem; }
+    .gs-intro-text p { font-size: 1rem; line-height: 1.75; color: var(--tx); margin: 0 0 1rem; }
+    .gs-intro-text p:last-child { margin-bottom: 0; }
+    .gs-intro-photo { margin: 0; aspect-ratio: 4 / 3; }
+
+    /* ---- Choose your program: two cards + a photo column ---- */
+    .gs-programs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+    .gs-program {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-top: 4px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.5rem 1.25rem;
+    }
+    .gs-program h3 {
+      font-size: 1.3rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.25rem;
+    }
+    .gs-start { font-size: 0.85rem; font-weight: 600; color: var(--gold-text); margin: 0 0 1rem; }
+    .gs-rows { list-style: none; margin: 0; padding: 0; }
+    .gs-rows li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+      padding: 0.65rem 0;
+      border-top: 1px solid var(--brd);
+      font-size: 0.92rem; color: var(--tx);
+    }
+    .gs-rows li span:last-child { font-weight: 600; color: var(--navy-deep); text-align: right; white-space: nowrap; }
+    .gs-program-photo { position: relative; margin: 0; min-height: 220px; }
+    .gs-program-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      border-radius: var(--radius-lg);
+    }
+
+    /* ---- What students learn ---- */
+    .gs-levels {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .gs-level {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.15rem 1.2rem;
+    }
+    .gs-level p { font-size: 0.9rem; line-height: 1.6; color: var(--tx); margin: 0.45rem 0 0; }
+    .gs-every {
+      background: var(--gold-lt);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.25rem;
+      margin-top: 1rem;
+    }
+    .gs-every p { font-size: 0.92rem; line-height: 1.65; color: var(--tx); margin: 0.35rem 0 0; }
+
+    /* ---- Full-width photo break ---- */
+    .gs-photo-break {
+      margin: 0;
+      height: 50vh; min-height: 280px; max-height: 520px;
+      overflow: hidden;
+    }
+    .gs-photo-break img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; display: block; }
+
+    /* ---- The year at Greek School ---- */
+    .gs-year {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-flow: dense;   /* the wide Christmas card never leaves a hole */
+      gap: 1rem;
+    }
+    .gs-event {
+      background: #fff;
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .gs-event.is-wide { grid-column: span 2; }
+    .gs-event-photo { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; display: block; }
+    .gs-event-body { padding: 1.05rem 1.15rem 1.15rem; }
+    .gs-event-date { font-size: 0.8rem; font-weight: 600; color: var(--gold-text); margin: 0; }
+    .gs-event h3 {
+      font-size: 1.12rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0.25rem 0 0.3rem; line-height: 1.3;
+    }
+    .gs-event-line { font-size: 0.88rem; line-height: 1.55; color: var(--tx); margin: 0; }
+    .gs-no-school { font-size: 0.85rem; line-height: 1.6; color: var(--mt); margin: 1.25rem 0 0; }
+
+    /* ---- Contact card: logo in place of the icon circle ---- */
+    .gs-contact-logo { height: 56px; width: auto; display: block; }
+    .gs-contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+    .gs-contact-actions a:not(.btn) { font-size: 0.85rem; color: var(--navy); text-decoration: none; }
+    .gs-contact-actions a:not(.btn):hover { color: var(--gold-deep); }
+
+    @media (max-width: 960px) {
+      .gs-levels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 860px) {
+      .gs-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+      .gs-intro-photo { order: -1; }
+      .gs-logo { margin-left: auto; margin-right: auto; }
+      .gs-programs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gs-program-photo { display: none; }
+      .gs-year { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+      .gs-contact-actions { align-items: center; }
+      .gs-contact-logo { margin: 0 auto; }
+    }
+    @media (max-width: 600px) {
+      .gs-wrap { padding: 0 1.25rem; }
+      .gs-programs,
+      .gs-levels,
+      .gs-year { grid-template-columns: minmax(0, 1fr); }
+      .gs-event.is-wide { grid-column: auto; }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,67 +174,178 @@
   {% include nav.html %}
 
   <!-- HERO -->
-  <!-- TODO: swap in a wider, higher-resolution Greek School photo (greekschool.jpg is 628px wide) -->
   <section id="main-content" class="mp-hero" style="background-image: url('../images/ministries/greekschool.jpg');">
     <div class="mp-hero-overlay"></div>
     <div class="mp-hero-inner">
+      <span class="gs-eyebrow" lang="el">ΕΛΛΗΝΙΚΟ ΣΧΟΛΕΙΟ ΑΓΙΩΝ ΠΕΤΡΟΥ ΚΑΙ ΠΑΥΛΟΥ</span>
       <h1 class="mp-hero-title">Greek School</h1>
-      <p class="mp-hero-body">Greek language, culture, and traditions for children.</p>
+      <p class="mp-hero-body">Greek language, culture, and traditions for children, in a warm, child-friendly classroom where learning is fun.</p>
+      <a href="../files/greekschool-registration-2026-2027.pdf" target="_blank" rel="noopener" class="btn btn-gold-lg cs-hero-cta">
+        <i class="ti ti-download" aria-hidden="true"></i> Download registration form
+      </a>
     </div>
   </section>
 
-  <!-- PLACEHOLDER NOTE -->
+  <!-- QUICK FACTS -->
   <div class="section">
-    <p class="mp-note-box" style="padding: 0.85rem 1.2rem; border-left: 3px solid var(--gold); margin-bottom: 0;">
-      <strong>More details coming soon.</strong> Class levels, schedule, and registration information will be posted here. In the meantime, <a href="mailto:greekschool@ssppglenview.org" style="color: var(--navy); font-weight: 700; text-decoration: none;">email the Greek School</a> with any questions.
-    </p>
+    <div class="mp-info-strip">
+      <div class="mp-info-item">
+        <div class="mp-info-label">Grades</div>
+        <div class="mp-info-value">Preschool – 6th</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Classes</div>
+        <div class="mp-info-value">Saturdays or Mondays</div>
+      </div>
+      <div class="mp-info-item">
+        <div class="mp-info-label">Class size</div>
+        <div class="mp-info-value">Small</div>
+      </div>
+    </div>
   </div>
 
   <!-- INTRO -->
   <div class="section" style="padding-top: 0;">
-    <div class="mp-col">
-      <p class="mp-lede">The Saints Peter and Paul Greek School is committed to providing an excellent educational program, in a child-centered, child-friendly environment where learning can be fun. Our overall purpose is to teach our students the skills needed to communicate using the Greek language; therefore we put emphasis on conversation and introduce them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful. The small number of students in each level enables the teachers to focus on each child's individual needs.</p>
+    <div class="gs-wrap gs-intro">
+      <div class="gs-intro-text">
+        <img class="gs-logo" src="../images/ministries/greekschool-logo.png" width="299" height="288" alt="Saints Peter and Paul Greek School logo" loading="lazy">
+        <p>The Saints Peter and Paul Greek School is committed to an excellent educational program in a child-centered, child-friendly environment where learning is fun.</p>
+        <p>Our goal is to give students the skills to communicate in Greek, with an emphasis on conversation, while introducing them to Greek culture, civilization, and traditions. We also teach them to be kind, respectful, and faithful.</p>
+        <p>With a small number of students in each level, our teachers can focus on each child's individual needs and help them discover their abilities, so our students grow in confidence and self-respect.</p>
+      </div>
+      <figure class="mp-photo gs-intro-photo">
+        <img src="../images/ministries/greekschool-2.jpg" width="1784" height="882" alt="Young Greek School students at their classroom tables, holding up paper handprint turkeys in front of a bright yellow autumn bulletin board" loading="lazy">
+      </figure>
     </div>
   </div>
 
-  <!-- UPCOMING EVENTS -->
+  <!-- CHOOSE YOUR PROGRAM -->
   <div class="section section--alt">
-    <div class="container" style="max-width: 900px;">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Upcoming on the calendar</h2>
-        </div>
-        <a href="../calendar.html?category=youth&amp;tag=greek_school" class="section-link">
-          View full calendar
-        </a>
-      </div>
-      <div id="ministryUpcomingEvents">
-        <p style="font-size:0.85rem; color:var(--mt);">Loading…</p>
+    <div class="gs-wrap">
+      <h2 class="section-title">Choose your program</h2>
+      <p class="gs-muted">Families choose one program for the school year.</p>
+      <div class="gs-programs">
+        <article class="gs-program">
+          <h3>Saturday Program</h3>
+          <p class="gs-start">Begins Saturday, September 12</p>
+          <ul class="gs-rows">
+            <li><span>Preschool</span><span>9:30–11:30 AM</span></li>
+            <li><span>Kindergarten – 6th grade</span><span>9:30 AM–12:30 PM</span></li>
+          </ul>
+        </article>
+        <article class="gs-program">
+          <h3>Monday Afternoon Program</h3>
+          <p class="gs-start">Begins Monday, September 14</p>
+          <ul class="gs-rows">
+            <li><span>Preschool – 6th grade</span><span>4:30–6:30 PM</span></li>
+          </ul>
+        </article>
+        <figure class="gs-program-photo">
+          <img src="../images/ministries/greekschool-4.jpg" width="1800" height="1287" alt="Greek School students in paper flower costumes posing in front of the Greek School sign and a wall of paper flowers" loading="lazy">
+        </figure>
       </div>
     </div>
   </div>
 
-  <!-- CONTACT CALLOUT -->
+  <!-- WHAT STUDENTS LEARN -->
+  <!-- Draft curriculum: confirm with Stella -->
+  <div class="section">
+    <div class="gs-wrap">
+      <h2 class="section-title" style="margin-bottom: 1.5rem;">What students learn</h2>
+      <div class="gs-levels">
+        <div class="gs-level">
+          <span class="cs-label">Preschool</span>
+          <p>First Greek words through songs, games, and stories: greetings, colors, numbers, family, and everyday objects.</p>
+        </div>
+        <div class="gs-level">
+          <span class="cs-label">Kindergarten – 2nd grade</span>
+          <p>The Greek alphabet, reading and writing simple words, and everyday conversation: introducing yourself, asking questions, and talking about home and school.</p>
+        </div>
+        <div class="gs-level">
+          <span class="cs-label">3rd – 4th grade</span>
+          <p>Reading short stories, building vocabulary, basic grammar, and writing simple sentences and short paragraphs.</p>
+        </div>
+        <div class="gs-level">
+          <span class="cs-label">5th – 6th grade</span>
+          <p>Reading comprehension, grammar and verb tenses, short compositions, and confident conversation, along with Greek history, geography, and mythology.</p>
+        </div>
+      </div>
+      <div class="gs-every">
+        <span class="cs-label">Every level, all year</span>
+        <p>Greek holidays and traditions, songs and poems, prayers in Greek such as the Lord's Prayer (<span lang="el">Πάτερ ημών</span>), and preparing for our Christmas, Independence Day, and End of Year programs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHOTO BREAK -->
+  <figure class="gs-photo-break">
+    <img src="../images/ministries/greekschool-3.jpg" width="1800" height="986" alt="Young Greek School students on a small stage, holding yellow paper ducks in front of a painted sea backdrop with a sailboat and fish" loading="lazy">
+  </figure>
+
+  <!-- THE YEAR AT GREEK SCHOOL (cards built from GS_YEAR below) -->
+  <div class="section section--alt">
+    <div class="gs-wrap">
+      <h2 class="section-title">The year at Greek School</h2>
+      <p class="gs-muted">2026–2027 highlights</p>
+      <div class="gs-year" id="gsYear"></div>
+      <p class="gs-no-school">No school: Thanksgiving weekend (Nov 28) · Winter break (Dec 22 – Jan 8) · Easter break (Apr 24 – May 7) · Memorial weekend. Certain dates and times subject to change.</p>
+      <!-- TODO: add files/greekschool-calendar-2026-2027.pdf, then uncomment this link
+      <p style="margin: 0.75rem 0 0;"><a class="text-link" href="../files/greekschool-calendar-2026-2027.pdf" target="_blank" rel="noopener">Download the full 2026–27 calendar (PDF)</a></p>
+      -->
+    </div>
+  </div>
+
+  <!-- CONTACT -->
   <div class="section">
     <div class="mp-feature-card">
-      <div class="mp-feature-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+      <img class="gs-contact-logo" src="../images/ministries/greekschool-logo.png" width="299" height="288" alt="Saints Peter and Paul Greek School logo" loading="lazy">
       <div class="mp-feature-text">
         <h3>Questions about Greek School?</h3>
-        <p>Reach out to Stella Theoharopoulos, our Greek School Director.</p>
+        <p>Contact our Greek School Director, Stella Theoharopoulos.</p>
       </div>
-      <a href="mailto:greekschool@ssppglenview.org" class="btn btn-gold">Email us</a>
+      <div class="gs-contact-actions">
+        <a href="mailto:theostell@aol.com" class="btn btn-gold">Email Stella</a>
+        <a href="tel:+18475295899">(847) 529-5899</a>
+        <a href="mailto:theostell@aol.com">theostell@aol.com</a>
+      </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   {% include footer.html %}
 
-  <script>
-    // Greek School calendar only
-    const MINISTRY_CALENDAR_TAG = 'greek_school';
-  </script>
   <script src="../js/main.js"></script>
-  <script src="../js/calendar-config.js"></script>
-  <script src="../js/ministry-events.js"></script>
+  <script>
+    // The year at Greek School: update these each school year.
+    // wide + photo: a card that spans two columns with a photo across its top.
+    const GS_YEAR = [
+      { date: 'September (date TBA)', name: 'Agiasmos', line: 'A blessing to begin the new school year.' },
+      { date: 'Mon, Oct 26 & Sat, Oct 31', name: 'Open House Conferences', line: "Meet with our teacher about your child's progress." },
+      { date: 'Mon, Dec 21 · 5:30 PM', name: 'Christmas Program', line: 'Our students celebrate the Nativity in song and verse.',
+        wide: true, photo: '../images/ministries/greekschool-christmas.jpg',
+        photoAlt: 'Greek School students dressed as angels singing at microphones during the Christmas program' },
+      { date: 'Sat, Mar 27 · 11:30 AM', name: 'Greek Independence Day Program', line: 'Honoring March 25th with poems, songs, and tradition.' },
+      { date: 'Mon, May 24 · 5:30 PM', name: 'End of Year Program', line: 'Celebrating a year of learning together.' },
+    ];
+
+    (function () {
+      const root = document.getElementById('gsYear');
+      if (!root) return;
+      const esc = (str) => {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+      };
+      root.innerHTML = GS_YEAR.map((e) => `
+        <article class="gs-event${e.wide ? ' is-wide' : ''}">
+          ${e.photo ? `<img class="gs-event-photo" src="${esc(e.photo)}" alt="${esc(e.photoAlt)}" loading="lazy">` : ''}
+          <div class="gs-event-body">
+            <p class="gs-event-date">${esc(e.date)}</p>
+            <h3>${esc(e.name)}</h3>
+            <p class="gs-event-line">${esc(e.line)}</p>
+          </div>
+        </article>`).join('');
+    })();
+  </script>
 </body>
 </html>
