@@ -333,7 +333,7 @@ const MINISTRY_CATEGORIES = [
         contact: {
           name: 'Stella Theoharopoulos',
           role: 'Greek School Director',
-          email: 'greekschool@ssppglenview.org',
+          email: 'theostell@aol.com',
         },
       },
       {
