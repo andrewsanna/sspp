@@ -701,7 +701,8 @@
 .visit-quote-text {
   margin: 0;
   font-family: var(--font-display);
-  font-style: italic;
+  font-style: normal;
+  font-weight: 400;
   font-size: 1.2rem;
   line-height: 1.7;
   color: var(--navy-deep);

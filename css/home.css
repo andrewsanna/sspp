@@ -502,6 +502,36 @@ a.ts-val:hover {
   line-height: 1.8;
 }
 
+/* Pull quote above the welcome copy: upright display type, gold bar */
+.home-pullquote {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--gold);
+  border-radius: 0;
+}
+
+.home-pullquote-text {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--navy-deep);
+}
+
+.home-pullquote-text p {
+  margin: 0;
+  color: inherit; /* main.css gives every <p> the muted text color */
+}
+
+.home-pullquote-attr {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold-text);
+}
+
 .reassure-list {
   display: flex;
   flex-direction: column;
