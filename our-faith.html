@@ -21,7 +21,7 @@
       border-radius: 3px;
     }
 
-    #learn, #new, .of-card { scroll-margin-top: 64px; }
+    #learn, #new, #resources, .of-card { scroll-margin-top: 64px; }
 
     /* ---- Hero buttons ---- */
     .of-hero-actions {
@@ -103,6 +103,11 @@
       overflow: hidden;
     }
     .of-card-when { font-size: 0.78rem; font-weight: 600; color: var(--gold-text); margin-top: 0.3rem; }
+    /* Optional pop-up blocks (hidden for ministries that don't use them) */
+    .of-modal-main [hidden] { display: none; }
+    #ofModalNowBlock h3, #ofModalTouch h3 { margin-top: 1.4rem; }
+    .of-modal-main .btn { margin-top: 0.35rem; }
+    .of-modal-resources { margin-top: 1.5rem !important; }
     .of-card-go { margin-top: auto; padding-top: 0.5rem; font-size: 0.8rem; font-weight: 700; color: var(--navy); }
 
     .of-ways-cta { text-align: center; }
@@ -247,7 +252,7 @@
         <span class="of-card-body">
           <span class="of-card-title">Coffee Connection</span>
           <span class="of-card-summary" data-fill="summary"></span>
-          <span class="of-card-when"><span class="of-tbd">Sundays after Communion</span><!-- TBD: confirm when Coffee Connection meets --></span>
+          <span class="of-card-when">Twice a month on Sundays</span>
           <span class="of-card-go">More about Coffee Connection &rarr;</span>
         </span>
       </button>
@@ -286,15 +291,25 @@
             <p id="ofModalAbout"></p>
             <h3>What to expect</h3>
             <p id="ofModalExpect"></p>
-            <h3>Right now</h3>
-            <p id="ofModalNow"></p>
+            <div id="ofModalNowBlock">
+              <h3>Right now</h3>
+              <p id="ofModalNow"></p>
+            </div>
+            <div id="ofModalTouch">
+              <h3>Stay in touch</h3>
+              <p id="ofModalTouchText"></p>
+              <a class="btn btn-outline-gold" id="ofModalTouchBtn" href="#"></a>
+            </div>
+            <a class="btn btn-outline-gold of-modal-resources" id="ofModalResources" href="#resources" hidden>
+              <i class="ti ti-books" aria-hidden="true"></i> Explore our educational resources
+            </a>
           </div>
           <aside class="of-modal-side" aria-label="Quick facts">
             <h3>Schedule &amp; location</h3>
             <p id="ofModalWhere"></p>
             <h3>Open to</h3>
             <p id="ofModalOpenTo"></p>
-            <h3>Leader</h3>
+            <h3 id="ofModalLeaderLabel">Leader</h3>
             <p class="of-leader-name" id="ofModalLeaderName"></p>
             <p class="of-leader-role" id="ofModalLeaderRole"></p>
             <a class="btn btn-gold" id="ofModalEmail" href="#">Email</a>
@@ -369,8 +384,8 @@
   </section>
 
   <!-- KEEP READING -->
-<!-- FROM THE ARCHDIOCESE -->
-<section class="of-articles section">
+<!-- FROM THE ARCHDIOCESE (id="resources": linked from the Coffee Connection pop-up) -->
+<section class="of-articles section" id="resources">
   <div class="container">
     <span class="eyebrow">From the Archdiocese</span>
     <h2 class="of-section-title">A few things worth reading</h2>
@@ -445,6 +460,9 @@
   <script>
     // Per-ministry text for the "More about" window, keyed by card id.
     // where: full schedule & location · openTo: who it's for
+    // now (optional): "Right now" · touch (optional): "Stay in touch" text + email button
+    // leaders (optional): shown in place of the contact's name, as "Leaders"
+    // resourcesButton (optional): "Explore our educational resources" at the end
     // Replace each TBD (the highlighted .of-tbd spans) when the details are confirmed.
     const OF_DETAILS = {
       'catechism': {
@@ -455,17 +473,28 @@
         emailName: 'Fr. Rick',
       },
       'bible-study': {
-        where: 'Wednesdays, 10:30 AM · <span class="of-tbd">Room TBD</span>', // TBD: room
+        where: 'Wednesdays, 10:30 AM – 12 PM · September through May (summer break) · In the Library and on Zoom. If our leader is traveling, we meet on Zoom only.',
         openTo: 'Everyone, including non-members and non-Orthodox Christians · No homework',
-        expect: '<span class="of-tbd">TBD: what a typical meeting is like</span>',
-        now: '<span class="of-tbd">TBD: the book we\'re reading now</span>',
+        expect: 'We read a passage together and explore its meaning, both instructional and conversational. In the last five minutes, we become a prayer circle, lifting up those we know who need the support of prayer.',
+        now: 'We\'re studying the Gospel of John.',
+        touch: {
+          text: 'Every Monday we email a reminder with what we\'re studying that week and the Zoom link.',
+          label: 'Get the weekly email',
+          subject: 'Please add me to the Bible Study email list',
+        },
         emailName: 'Helen',
       },
       'coffee-connection': {
-        where: '<span class="of-tbd">TBD (twice a month after Holy Communion, Youth Room?)</span>', // TBD: confirm schedule and room
-        openTo: 'All adults',
-        expect: '<span class="of-tbd">TBD: what a typical gathering is like</span>',
-        now: '<span class="of-tbd">TBD: current topic and next date</span>',
+        where: 'Twice a month on Sundays, after Holy Communion · Youth Room',
+        openTo: 'Adults of all ages: young adults and parents of Church School students especially welcome.',
+        expect: 'Part conversation, part learning. Bring what\'s on your mind. Each gathering is a give-and-take of experience, thoughts, and understanding, because we often don\'t know what we don\'t know.',
+        touch: {
+          text: 'We email our schedule once a semester.',
+          label: 'Join our email list',
+          subject: 'Please add me to the Coffee Connection email list',
+        },
+        leaders: 'Doreen DeSent, & Helen Theodoropoulos',
+        resourcesButton: true,
         emailName: 'Doreen',
       },
       'mens-group': {
@@ -508,10 +537,22 @@
         document.getElementById('ofModalAbout').textContent = m.description;
         document.getElementById('ofModalExpect').innerHTML = extra.expect || '';
         document.getElementById('ofModalNow').innerHTML = extra.now || '';
+        document.getElementById('ofModalNowBlock').hidden = !extra.now;
+        const touch = extra.touch;
+        document.getElementById('ofModalTouch').hidden = !(touch && c.email);
+        if (touch && c.email) {
+          document.getElementById('ofModalTouchText').textContent = touch.text;
+          const touchBtn = document.getElementById('ofModalTouchBtn');
+          touchBtn.href = 'mailto:' + c.email + '?subject=' + encodeURIComponent(touch.subject);
+          touchBtn.textContent = touch.label;
+        }
+        document.getElementById('ofModalResources').hidden = !extra.resourcesButton;
         document.getElementById('ofModalWhere').innerHTML = extra.where || '';
         document.getElementById('ofModalOpenTo').innerHTML = extra.openTo || '';
-        document.getElementById('ofModalLeaderName').textContent = c.name || '';
-        document.getElementById('ofModalLeaderRole').textContent = c.role || '';
+        document.getElementById('ofModalLeaderLabel').textContent = extra.leaders ? 'Leaders' : 'Leader';
+        document.getElementById('ofModalLeaderName').textContent = extra.leaders || c.name || '';
+        // A single contact's role ("Group Leader") doesn't fit a list of leaders
+        document.getElementById('ofModalLeaderRole').textContent = extra.leaders ? '' : (c.role || '');
         emailBtn.hidden = !c.email;
         if (c.email) {
           emailBtn.href = 'mailto:' + c.email;
@@ -533,6 +574,13 @@
         card.addEventListener('click', () => openModal(card.id));
       });
       closeBtn.addEventListener('click', closeModal);
+      // "Explore our educational resources": close, then glide to the Keep reading section
+      // (a plain #resources link without JavaScript)
+      document.getElementById('ofModalResources').addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
+        document.getElementById('resources').scrollIntoView({ behavior: 'smooth' });
+      });
       modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
