@@ -287,7 +287,7 @@
         </article>
 
         <!-- CANCER SUPPORT -->
-        <article class="sg-card" id="cancer" data-ministry="Georgia Photopulos Cancer Support Group">
+        <article class="sg-card" id="cancer" data-ministry="Georgia Photopulos Cancer Support Group" data-email-label="Email the group">
           <h3 data-field="name">Georgia Photopulos Cancer Support Group</h3>
           <p class="sg-summary" data-field="summary"></p>
           <p class="sg-when">Second Tuesday of each month</p>
@@ -296,6 +296,16 @@
             <a class="btn btn-gold" data-field="email" href="#">Email</a>
             <button type="button" class="text-link" data-more="cancer" aria-haspopup="dialog">More about this group</button>
           </div>
+          <!-- Shown in the window's main column, after About -->
+          <template class="sg-main-extra">
+            <h3>In our group, you can</h3>
+            <ul class="mp-list">
+              <li>Share fears, frustrations, and challenges with others who understand</li>
+              <li>Learn ways to cope with the side effects of surgery, chemotherapy, and radiation</li>
+              <li>Find humor and laughter along the way</li>
+              <li>Be part of a community that encourages you through new obstacles and celebrates survivor milestones</li>
+            </ul>
+          </template>
           <!-- Full detail, shown in the "More about this group" window -->
           <template class="sg-detail">
             <h3>When &amp; where</h3>
@@ -305,7 +315,7 @@
             </div>
             <h3>Open to</h3>
             <div class="sg-fact">
-              <p>Our parishioners, other Orthodox Christians, and individuals of other denominations</p>
+              <p>Our parishioners, members of other Orthodox churches, and people of other denominations</p>
             </div>
           </template>
         </article>
@@ -420,7 +430,7 @@
           const email = card.querySelector('[data-field="email"]');
           if (email) {
             email.href = 'mailto:' + m.contact.email;
-            email.textContent = 'Email ' + m.contact.name.split(' ')[0];
+            email.textContent = card.dataset.emailLabel || 'Email ' + m.contact.name.split(' ')[0];
           }
         }
       });
@@ -441,19 +451,20 @@
         modalTitle.textContent = m.name;
         const about = '<h3>About</h3>' + (m.description || '').split(/\n\n+/).map((p) => `<p>${esc(p)}</p>`).join('');
         const detail = card.querySelector('template.sg-detail');
+        const mainExtra = card.querySelector('template.sg-main-extra');
         const topics = Array.isArray(m.topics) && m.topics.length
           ? `<h3>Topics</h3><ul class="mp-list">${m.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>`
           : '';
         const c = m.contact || {};
         const leader = c.name ? `
-          <h3>Leader</h3>
+          <h3>${c.name.includes(' & ') ? 'Leaders' : 'Leader'}</h3>
           <div class="sg-leader">
             <p class="sg-leader-name">${esc(c.name)}</p>
             ${c.role ? `<p class="sg-leader-role">${esc(c.role)}</p>` : ''}
-            ${c.email ? `<a class="btn btn-gold" href="mailto:${esc(c.email)}">Email ${esc(c.name.split(' ')[0])}</a>` : ''}
+            ${c.email ? `<a class="btn btn-gold" href="mailto:${esc(c.email)}">${esc(card.dataset.emailLabel || 'Email ' + c.name.split(' ')[0])}</a>` : ''}
           </div>` : '';
         const lib = `<div class="sg-modal-lib"><button type="button" class="text-link" data-modal-library="${card.id}">Articles &amp; resources</button></div>`;
-        document.getElementById('sgModalMain').innerHTML = about + topics;
+        document.getElementById('sgModalMain').innerHTML = about + (mainExtra ? mainExtra.innerHTML : '') + topics;
         document.getElementById('sgModalSide').innerHTML = (detail ? detail.innerHTML : '') + leader + lib;
         modal.hidden = false;
         modalBody.scrollTop = 0;

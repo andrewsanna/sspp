@@ -803,3 +803,73 @@ a.gi-tile {
   .gi-tile-label { font-size: 0.92rem; }
 }
 }
+
+/* ============================================
+   Ministry pop-up: optional quote, programs, and links
+   (ministries-data.js quote / programs / links)
+   ============================================ */
+.ministry-modal-quote[hidden],
+.ministry-modal-extra[hidden] { display: none; }
+
+.ministry-modal-quote { margin: -0.25rem 0 1rem; }
+.ministry-modal-quote blockquote {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--navy-deep);
+}
+.ministry-modal-quote figcaption {
+  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--mt);
+}
+
+.ministry-modal-extra { margin-top: 1.25rem; }
+.ministry-modal-extra-title {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  margin: 0 0 0.5rem;
+}
+
+/* Same look as .mp-list in ministry-page.css (not loaded on this page) */
+.ministry-modal .mp-list { margin: 0; padding: 0; }
+.ministry-modal .mp-list li {
+  list-style: none;
+  font-size: 0.83rem;
+  color: var(--mt);
+  line-height: 1.65;
+  padding-left: 1rem;
+  position: relative;
+}
+.ministry-modal .mp-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-deep);
+}
+.ministry-modal-programs {
+  columns: 2;
+  column-gap: 1.5rem;
+}
+.ministry-modal-programs li { break-inside: avoid; margin-bottom: 0.25rem; }
+
+.ministry-modal-links { list-style: none; margin: 0; padding: 0; }
+.ministry-modal-links li { margin-bottom: 0.65rem; }
+.ministry-modal-links .text-link { font-size: 0.88rem; }
+.ministry-modal-link-note {
+  display: block;
+  margin-top: 0.1rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--mt);
+}
+
+@media (max-width: 600px) {
+  .ministry-modal-programs { columns: 1; }
+}

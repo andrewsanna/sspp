@@ -275,11 +275,49 @@ function attachCardHandlers() {
   });
 }
 
+// Optional pop-up extras, each hidden unless the ministry has it:
+//   quote:    { text, cite }
+//   programs: { title, items: [string] }
+//   links:    [{ label, url, note }]
+function renderMinistryModalExtras(ministry) {
+  const quoteEl = document.getElementById('ministryModalQuote');
+  const programsEl = document.getElementById('ministryModalPrograms');
+  const linksEl = document.getElementById('ministryModalLinks');
+
+  const q = ministry.quote;
+  quoteEl.hidden = !(q && q.text);
+  if (!quoteEl.hidden) {
+    document.getElementById('ministryModalQuoteText').textContent = q.text;
+    document.getElementById('ministryModalQuoteCite').textContent = q.cite || '';
+  }
+
+  const p = ministry.programs;
+  programsEl.hidden = !(p && Array.isArray(p.items) && p.items.length);
+  programsEl.innerHTML = programsEl.hidden ? '' : `
+    <h3 class="ministry-modal-extra-title">${escapeHtml(p.title || 'Programs')}</h3>
+    <ul class="mp-list ministry-modal-programs">
+      ${p.items.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+    </ul>`;
+
+  const links = Array.isArray(ministry.links) ? ministry.links : [];
+  linksEl.hidden = !links.length;
+  linksEl.innerHTML = linksEl.hidden ? '' : `
+    <h3 class="ministry-modal-extra-title">More resources</h3>
+    <ul class="ministry-modal-links">
+      ${links.map((l) => `
+        <li>
+          <a class="text-link" href="${escapeHtml(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(l.label)}</a>
+          ${l.note ? `<span class="ministry-modal-link-note">${escapeHtml(l.note)}</span>` : ''}
+        </li>`).join('')}
+    </ul>`;
+}
+
 function openMinistryModal(ministry, category) {
   const overlay = document.getElementById('ministryModalOverlay');
   document.getElementById('ministryModalCategory').textContent = category.label;
   document.getElementById('ministryModalTitle').textContent = ministry.name;
   document.getElementById('ministryModalDesc').textContent = ministry.description;
+  renderMinistryModalExtras(ministry);
 
   const placeholderIcon = document.getElementById('ministryModalPlaceholderIcon');
 const photoImgEl = document.getElementById('ministryModalPhotoImg');

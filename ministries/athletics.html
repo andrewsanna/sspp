@@ -163,6 +163,11 @@
     .ath-feature-text { padding: 1.75rem 2rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
     .ath-feature-text h2 { font-size: 1.5rem; margin: 0.3rem 0 0.6rem; }
     .ath-feature-text p { font-size: 0.9rem; line-height: 1.65; color: var(--tx); margin: 0 0 1.25rem; }
+    .ath-feature-text p.ath-feature-note { font-size: 0.82rem; color: var(--mt); margin: -0.75rem 0 1.25rem; }
+    .ath-feature-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    @media (max-width: 560px) {
+      .ath-feature-actions { flex-direction: column; align-items: flex-start; }
+    }
 
     /* More ways to play */
     .ath-more { text-align: center; padding: 0 2rem; }
@@ -331,7 +336,6 @@
   <!-- JUNIOR OLYMPICS (gold band) -->
   <section class="mp-acc-section">
     <div class="ath-band-inner">
-      <!-- TODO: dates, sports/events, registration link -->
       <article class="ath-feature">
         <figure class="ath-feature-media">
           <img src="../images/youth-jrolympics.jpg" alt="Saints Peter &amp; Paul young athletes in team shirts on a sports field at the Junior Olympics" loading="lazy">
@@ -339,10 +343,15 @@
         <div class="ath-feature-text">
           <span class="cs-label">Metropolis of Chicago</span>
           <h2 class="section-title">Junior Olympics</h2>
-          <p>One of the biggest weekends of our athletics year: our young athletes compete alongside parishes from across the Metropolis of Chicago.</p>
-          <a href="mailto:athletics@ssppglenview.org?subject=Junior%20Olympics" class="btn btn-gold">
-            <i class="ti ti-mail" aria-hidden="true"></i> Email Athletics
-          </a>
+          <p>One of the biggest weekends of our athletics year. Since 1981, the Metropolis of Chicago Junior Olympics has been the largest youth gathering in our Metropolis, held each Memorial Day weekend in Palos Hills. Athletes ages 7–18 compete in basketball, soccer, swimming, track and field, volleyball, softball, bowling, and more, with games like chess and tavli too.</p>
+          <!-- Update with 2027 dates once posted on chicago.goarch.org/junior-olympics -->
+          <p class="ath-feature-note">2027 dates will be announced by the Metropolis.</p>
+          <div class="ath-feature-actions">
+            <a href="mailto:athletics@ssppglenview.org?subject=Junior%20Olympics" class="btn btn-gold">
+              <i class="ti ti-mail" aria-hidden="true"></i> Email Athletics
+            </a>
+            <a href="https://chicago.goarch.org/junior-olympics/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">Junior Olympics site</a>
+          </div>
         </div>
       </article>
     </div>

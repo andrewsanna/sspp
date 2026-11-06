@@ -544,7 +544,28 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Care for Creation',
         summary: 'Promoting responsibility for the stewardship of our environment.',
-        description: 'Through our ministry, we foster a spirit of volunteerism, community, and collaboration in support of our earth and the life it sustains. The purpose of our Care for Creation Ministry is to encourage commitment, implement programs, and establish community through this stewardship. In addition, we also tend to the beautification and conservation of our parish landscape including planting trees, shrubs, plants, and landscaping projects.',
+        description: 'Care for Creation encourages environmental stewardship, implements programs, and builds community around caring for the earth and the life it sustains. We also tend to the beautification and conservation of our parish landscape, including planting trees, shrubs, and plants, and other landscaping projects. As one of the first ministries of its kind in an Orthodox church in the United States, we foster a spirit of volunteerism, community, and collaboration.',
+        quote: {
+          text: 'O Lord, how magnified are Your works. In wisdom You have made them all.',
+          cite: 'Psalm 103:24'
+        },
+        programs: {
+          title: 'Our programs',
+          items: [
+            'Energy-efficient lighting',
+            'Environment Vespers',
+            'Food Garden',
+            'Introduction of solar energy',
+            'Natural Landscape Initiative',
+            'Recycling program',
+            'Take Care of the Earth Campaign: educating parishioners across the 58 churches of the Metropolis of Chicago about caring for creation'
+          ]
+        },
+        links: [
+          { label: 'The Orthodox Fellowship of the Transfiguration', url: 'http://www.orth-transfiguration.org/', note: 'A pan-Orthodox organization exploring God\'s creation and our responsibility for it.' },
+          { label: 'Oikou', url: 'http://oikou.org/', note: 'A broad resource on Orthodoxy and the environment.' },
+          { label: 'George P. Nassos Blog', url: 'http://www.georgepnassos.com/George_P_Nassos/Blogs.html', note: 'Environmental perspectives from a former Parish Council president.' }
+        ],
         // image: 'images/ministries/careforcreation.jpg',
         calendarCategory: 'philanthropy',
         calendarTag: 'care_for_creation',
@@ -581,16 +602,16 @@ const MINISTRY_CATEGORIES = [
       {
         name: 'Georgia Photopulos Cancer Support Group',
         summary: 'Compassionate support for those affected by cancer.',
-        description: "The Cancer Support Ministry, started in 1981 by Georgia Photopulos and Fr. George Scoulas, was renamed in Georgia's memory in 2012. Her spirit of compassionate emotional support, gentle guidance, faith and good humor continue to be the foundation of our group. Meetings are held on the second Tuesday of each month. They are open to our parishioners and those of other Orthodox churches, as well as individuals from other denominations.",
+        description: "Our Cancer Support Ministry was started in 1981 by Georgia Photopulos and Fr. George Scoulas, and was renamed in Georgia's memory in 2012. It carries on her spirit of compassionate support, gentle guidance, faith, and good humor. We welcome anyone facing cancer or another major health challenge, cancer survivors, and caregivers of loved ones with serious illness: men and women of all ages.",
         // image: 'images/ministries/cancer.jpg',
         detailPageUrl: 'ministries/support.html#cancer',
         openModal: true, // keep the pop-up here; its link goes to support.html
         calendarCategory: 'support_groups',
         calendarTag: 'cancer',
         contact: {
-          name: 'Bud Photopulos',
-          role: 'Group Leader',
-          email: 'cancersupport@ssppglenview.org',
+          name: 'Phyllis Perivolidis & Bud Photopulos',
+          role: 'Co-facilitators',
+          email: 'SSPP.Cancer.Ministry@gmail.com',
         },
       },
       {
