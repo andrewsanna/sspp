@@ -1,0 +1,171 @@
+/* ============================================
+   Learning Library (learning-library.html)
+   ============================================ */
+
+/* ---- Hero: same layout as the Resources hero, solid navy-deep for now ---- */
+.ll-hero {
+  background: var(--navy-deep);
+  padding: 4.5rem 2rem 5rem;
+  text-align: center;
+}
+
+.ll-hero-inner {
+  max-width: var(--hero-inner-width);
+  margin: 0 auto;
+}
+
+/* Same treatment as the shared hero titles in main.css (gold, balanced) */
+.ll-hero-title {
+  font-size: var(--hero-title);
+  margin-top: 0.5rem;
+  word-spacing: normal;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-wrap: balance;
+  margin-bottom: 1rem;
+  color: var(--hero-title-color);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
+}
+
+.ll-hero-body {
+  color: var(--hero-body-color);
+  font-size: var(--hero-body);
+  max-width: var(--hero-body-width);
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ---- Document library ---- */
+.ll-library {
+  padding: var(--space-5) 0;
+}
+
+.ll-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.ll-intro {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--tx);
+  margin: 0.4rem 0 1.5rem;
+}
+
+/* Search: same roomy look as the Ministries search, on a light background */
+.ll-search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+}
+
+.ll-search-box:focus-within {
+  border-color: var(--gold);
+}
+
+.ll-search-box i {
+  color: var(--gold-deep);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.ll-search-box input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  font-size: 1.05rem;
+  color: var(--navy-deep);
+}
+
+.ll-search-box input::placeholder {
+  color: var(--mt);
+}
+
+.ll-status {
+  min-height: 1.5rem;
+  margin: 0.6rem 0 1rem;
+  font-size: 0.9rem;
+  color: var(--mt);
+}
+
+/* Groups use the shared .acc-* accordion; these only add to it */
+.ll-group {
+  scroll-margin-top: 80px;
+}
+
+.ll-group[hidden] {
+  display: none;
+}
+
+.ll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.4rem 1.4rem 0.8rem;
+}
+
+.ll-list li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--brd);
+}
+
+.ll-list li:first-child {
+  border-top: none;
+}
+
+.ll-list li[hidden] {
+  display: none;
+}
+
+/* Links: bold navy, no underline, gold-deep on hover */
+.ll-link {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.ll-link:hover,
+.ll-link:focus-visible {
+  color: var(--gold-deep);
+}
+
+.ll-tag {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+  background: var(--gold-lt);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.ll-empty {
+  font-size: 1rem;
+  color: var(--tx);
+  background: #fff;
+  border: 1px solid var(--brd);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.4rem;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .ll-inner { padding: 0 1.25rem; }
+  .ll-list { padding: 0.3rem 1rem 0.6rem; }
+  .ll-list li { flex-direction: column; gap: 0.35rem; }
+}

@@ -1,0 +1,54 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Library | Saints Peter &amp; Paul</title>
+  <meta name="description" content="Articles, prayers, and study materials on prayer, the Divine Liturgy, the sacraments, the faith, the seasons of the Church year, and family life, from Saints Peter &amp; Paul Greek Orthodox Church in Glenview, IL." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@300..700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=GFS+Didot&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/learning-library.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+</head>
+<body>
+
+  {% include nav.html %}
+
+  <!-- HERO (solid navy for now; no photo) -->
+  <section id="main-content" class="ll-hero">
+    <div class="ll-hero-inner">
+      <span class="eyebrow eyebrow--on-dark">Resources</span>
+      <h1 class="ll-hero-title">Keep learning</h1>
+      <p class="ll-hero-body">Articles, prayers, and study materials from our adult education ministries, for wherever you are in the faith.</p>
+    </div>
+  </section>
+
+  <!-- DOCUMENT LIBRARY (groups and links built from js/learning-library-data.js) -->
+  <section class="ll-library" aria-labelledby="llLibraryTitle">
+    <div class="ll-inner">
+      <h2 class="section-title" id="llLibraryTitle">Document library</h2>
+      <p class="ll-intro">Open a topic to browse, or search by title. Documents open in a new tab.</p>
+
+      <div class="ll-search-box">
+        <i class="ti ti-search" aria-hidden="true"></i>
+        <label class="sr-only" for="llSearch">Search the library</label>
+        <input type="search" id="llSearch" placeholder="Search by title, e.g. &quot;prayer&quot; or &quot;Lent&quot;" autocomplete="off" />
+      </div>
+      <p class="ll-status" id="llStatus" aria-live="polite"></p>
+
+      <div id="llGroups"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  {% include footer.html %}
+
+  <script src="js/main.js"></script>
+  <script src="js/learning-library-data.js"></script>
+  <script src="js/learning-library.js"></script>
+</body>
+</html>
