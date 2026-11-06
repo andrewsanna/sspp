@@ -364,8 +364,8 @@ const MINISTRY_CATEGORIES = [
     ministries: [
       {
         name: 'Coffee Connection',
-        summary: 'Connection in Faith and Fellowship- An Educational Ministry Open to All Adults',
-        description: 'We are an adult educational ministry that strengthens knowledge and practice of the Orthodox faith.  Our presentations provide participants with foundational knowledge, while group discussions offer ideas for how to apply this knowledge in everyday life.',
+        summary: 'An adult education ministry: coffee, conversation, and faith for today.',
+        description: "For more than 25 years, Coffee Connection has been our parish's educational ministry for adults. We explore our Orthodox faith in ways that speak to the questions and concerns of life today, and how our faith can guide us. The setting is ideal: everyone gathers in the Youth Room kitchen for a cup of coffee and a chat with other parishioners, then moves into the adjacent room for a presentation and discussion on the day's topic. The presentation is a chance to learn more about the faith, while the discussion focuses on how to live our Orthodox traditions in everyday life.",
         // image: 'images/ministries/coffeeconnection.jpg',
         detailPageUrl: 'our-faith.html#coffee-connection',
         openModal: true, // keep the pop-up here; its link goes to our-faith.html
@@ -379,8 +379,8 @@ const MINISTRY_CATEGORIES = [
       },
       {
         name: 'Bible Study',
-        summary: 'Weekly study of Holy Scripture, open to all. No homework.',
-        description: "Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
+        summary: 'Weekly study of Holy Scripture, in person and on Zoom.',
+        description: "Our mission is to promote, facilitate, and deepen the study of Holy Scripture in our parish. Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
         // image: 'images/biblestudy.jpg',
         detailPageUrl: 'our-faith.html#bible-study',
         openModal: true, // keep the pop-up here; its link goes to our-faith.html
