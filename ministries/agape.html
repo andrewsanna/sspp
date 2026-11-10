@@ -129,8 +129,45 @@
     .ag-visit-card a:not(.btn) { color: var(--navy); font-weight: 700; text-decoration: none; }
     .ag-visit-card .btn { margin-top: 0.5rem; }
 
+    /* ---- How you can help: same cards as Church School ---- */
+    .cs-intro {
+      font-size: 0.92rem; line-height: 1.7; color: var(--tx);
+      max-width: 640px; margin: 0.5rem 0 1.75rem;
+    }
+    .cs-help-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+    }
+    .cs-help {
+      background: var(--cream);
+      border: 1px solid var(--brd);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.3rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .cs-help-icon {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: #fff; border: 1px solid var(--brd);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.85rem;
+    }
+    .cs-help-icon i { font-size: 1.15rem; color: var(--gold-deep); }
+    .cs-help h3 {
+      font-size: 1.08rem; font-weight: var(--heading-weight);
+      color: var(--navy-deep); margin: 0 0 0.5rem;
+    }
+    .cs-help p {
+      font-size: 0.83rem; line-height: 1.6; color: var(--mt); margin: 0 0 0.6rem;
+    }
+    .cs-help .mp-list li { font-size: 0.8rem; }
+
     @media (max-width: 900px) {
       .ag-staff-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 760px) {
+      .cs-help-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .ag-visit { grid-template-columns: 1fr; }
@@ -344,26 +381,6 @@
         </div>
         <div class="ag-staff-tile">
           <div class="ag-staff-tile-photo">
-            <img src="../images/staff/agape/katerina-metropoulos.png" alt="Katerina Metropoulos" loading="lazy" onerror="this.remove()">
-          </div>
-          <div class="ag-staff-tile-text">
-            <span class="ag-staff-badge is-staff">Staff</span>
-            <h3 class="ag-staff-name">Katerina Metropoulos</h3>
-            <p class="ag-staff-tile-role">Cooking Teacher</p>
-          </div>
-        </div>
-        <div class="ag-staff-tile">
-          <div class="ag-staff-tile-photo">
-            <img src="../images/staff/agape/gail-belian.png" alt="Gail Belian" loading="lazy" onerror="this.remove()">
-          </div>
-          <div class="ag-staff-tile-text">
-            <span class="ag-staff-badge is-staff">Staff</span>
-            <h3 class="ag-staff-name">Gail Belian</h3>
-            <p class="ag-staff-tile-role">Art Teacher</p>
-          </div>
-        </div>
-        <div class="ag-staff-tile">
-          <div class="ag-staff-tile-photo">
             <img src="../images/staff/agape/steventhell.png" alt="Steven Thell" loading="lazy" onerror="this.remove()">
           </div>
           <div class="ag-staff-tile-text">
@@ -395,6 +412,55 @@
       </div>
     </div>
   </div>
+
+  <!-- HOW YOU CAN HELP (gold band, same as Church School) -->
+  <section class="mp-acc-section" id="help">
+    <div style="max-width: calc(1000px - 4rem); margin: 0 auto;">
+      <h2 class="section-title">How you can help</h2>
+      <p class="cs-intro">Our biggest days of the year run on AGAPE parent volunteers. Pick one or more each year. Your help makes these moments special for our students and their families.</p>
+
+      <div class="cs-help-grid">
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-music" aria-hidden="true"></i></div>
+          <h3>Glendi Volunteers</h3>
+          <p>Agape Glendi is a night of Greek music, food, and celebration that supports our preschool.</p>
+          <ul class="mp-list">
+            <li>Help set up and decorate the hall</li>
+            <li>Work a shift at the door, raffle, or food table</li>
+            <li>Help clean up at the end of the night</li>
+          </ul>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-sun" aria-hidden="true"></i></div>
+          <h3>End of School Family Picnic</h3>
+          <p>We close the year together with a picnic for AGAPE families.</p>
+          <ul class="mp-list">
+            <li>Plan and run games for the children</li>
+            <li>Set up tables, food, and drinks</li>
+            <li>Bring a dish or supplies from the sign-up list</li>
+          </ul>
+        </article>
+
+        <article class="cs-help">
+          <div class="cs-help-icon"><i class="ti ti-school" aria-hidden="true"></i></div>
+          <h3>Graduation</h3>
+          <p>Help our graduates celebrate their big day as they move on to kindergarten and first grade.</p>
+          <ul class="mp-list">
+            <li>Decorate and set up chairs</li>
+            <li>Help line up and guide the graduates</li>
+            <li>Serve at the reception afterward</li>
+          </ul>
+        </article>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top: 2rem;">
+        <a href="mailto:agape@ssppglenview.org?subject=AGAPE%20volunteering" class="btn btn-gold">
+          <i class="ti ti-mail" aria-hidden="true"></i> Email us
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- HISTORY -->
   <div class="section section--alt" id="history">
