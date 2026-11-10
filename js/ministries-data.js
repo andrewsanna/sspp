@@ -381,7 +381,7 @@ const MINISTRY_CATEGORIES = [
         name: 'Bible Study',
         summary: 'Weekly study of Holy Scripture, in person and on Zoom.',
         description: "Our mission is to promote, facilitate, and deepen the study of Holy Scripture in our parish. Our Bible Study Ministry seeks to deepen the study of Holy Scripture, guided by the wisdom and insight of the Holy Orthodox Christian Faith, for the spiritual health and growth of all who participate. The study is guided by Dr. Helen Theodoropoulos, PhD, and meets Wednesdays at 10:30 am. It is open to all, including non-members of SSPP, and non-Orthodox Christians. No preparation or homework is required. We use the Orthodox Study Bible, and we have extra copies.",
-        // image: 'images/biblestudy.jpg',
+        image: 'images/ministries/biblestudy.jpg',
         detailPageUrl: 'our-faith.html#bible-study',
         openModal: true, // keep the pop-up here; its link goes to our-faith.html
         calendarCategory: 'adult_faith',
