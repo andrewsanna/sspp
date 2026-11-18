@@ -511,6 +511,15 @@
   color: var(--mt);
 }
 
+.vh-faq-answer a {
+  color: var(--gold-text);
+  font-weight: 600;
+}
+
+.vh-faq-answer a:hover {
+  text-decoration: underline;
+}
+
 .vh-request-grid {  display: grid;  grid-template-columns: repeat(2, 1fr);  gap: 1.5rem;  max-width: 800px;  margin: 0 auto;} 
 .vh-request-card {  background: #fff;  border: 1px solid var(--brd);  border-radius: var(--radius-md);  padding: 2rem 1.6rem;  text-align: center;  transition: transform 0.2s ease, box-shadow 0.2s ease;}
 
