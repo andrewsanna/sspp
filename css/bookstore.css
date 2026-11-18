@@ -92,14 +92,13 @@
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: clamp(160px, 18vw, 240px);
   grid-template-areas:
-    "icons icons books   bibles"
+    "icons icons books   books"
     "icons icons jewelry jewelry"
     "kids  incense gifts gifts";
 }
 
 .bs-m-icons   { grid-area: icons; }
 .bs-m-books   { grid-area: books; }
-.bs-m-bibles  { grid-area: bibles; }
 .bs-m-jewelry { grid-area: jewelry; }
 .bs-m-kids    { grid-area: kids; }
 .bs-m-incense { grid-area: incense; }
@@ -236,8 +235,7 @@
     grid-auto-rows: 200px;
     grid-template-areas:
       "icons   icons"
-      "books   bibles"
-      "jewelry jewelry"
+      "books   jewelry"
       "kids    incense"
       "gifts   gifts";
   }
